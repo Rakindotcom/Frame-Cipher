@@ -13,12 +13,12 @@ export default function Clients() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/50" />
+            <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
             <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">TRUSTED PARTNERS</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/50" />
+            <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Trusted By Industry Leaders
             </span>
           </h2>
@@ -49,7 +49,7 @@ export default function Clients() {
                 <span className="text-purple-400 font-bold text-lg">{client.projects}</span>
               </div>
 
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-purple-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </div>
           ))}
         </div>

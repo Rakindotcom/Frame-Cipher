@@ -4,12 +4,12 @@ export default function ContactPage() {
       <div className="max-w-4xl mx-auto">
         <div className="mb-16 text-center">
           <div className="flex items-center gap-4 mb-4 justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-purple-500/50" />
+            <div className="h-px w-24 bg-linear-to-r from-transparent to-purple-500/50" />
             <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">GET IN TOUCH</span>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-purple-500/50" />
+            <div className="h-px w-24 bg-linear-to-l from-transparent to-purple-500/50" />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Let's Create Together
             </span>
           </h1>
@@ -109,7 +109,7 @@ export default function ContactPage() {
                 className="w-full py-4 bg-purple-600 hover:bg-purple-500 transition-all duration-300 font-semibold tracking-wide relative overflow-hidden group"
               >
                 <span className="relative z-10">SEND MESSAGE</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+                <div className="absolute inset-0 bg-linear-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
               </button>
             </form>
           </div>

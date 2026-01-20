@@ -1,15 +1,15 @@
 export default function Intelligence() {
   return (
-    <section className="py-32 px-6 relative bg-gradient-to-b from-[#0a0a0f] to-[#0f0a15]">
+    <section className="py-32 px-6 relative bg-linear-to-b from-[#0a0a0f] to-[#0f0a15]">
       <div className="max-w-4xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-blue-500/50" />
+            <div className="h-px flex-1 bg-linear-to-r from-transparent to-blue-500/50" />
             <span className="text-sm font-mono text-blue-400 tracking-[0.3em]">OUR APPROACH</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-blue-500/50" />
+            <div className="h-px flex-1 bg-linear-to-l from-transparent to-blue-500/50" />
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-8">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Our Approach
             </span>
           </h2>

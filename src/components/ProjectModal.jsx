@@ -38,7 +38,7 @@ export default function ProjectModal({ project, onClose }) {
         <div className="p-8 md:p-12">
           <div className="flex items-center gap-4 mb-6">
             <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">PROJECT DETAILS</span>
-            <div className="h-px flex-1 bg-gradient-to-r from-purple-500/50 to-transparent" />
+            <div className="h-px flex-1 bg-linear-to-r from-purple-500/50 to-transparent" />
           </div>
 
           <h2 className="text-4xl md:text-5xl font-bold mb-4">{project.title}</h2>
@@ -89,7 +89,7 @@ export default function ProjectModal({ project, onClose }) {
                   </span>
                   <div className="flex-1 h-px bg-gray-800">
                     <div 
-                      className="h-full bg-gradient-to-r from-purple-600 to-blue-500 transition-all duration-1000"
+                      className="h-full bg-linear-to-r from-purple-600 to-blue-500 transition-all duration-1000"
                       style={{ width: `${Math.min(100, Math.max(0, (project.status - i * 25) * 4))}%` }}
                     />
                   </div>

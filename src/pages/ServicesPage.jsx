@@ -6,12 +6,12 @@ export default function ServicesPage() {
       <div className="py-20 px-6">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <div className="flex items-center gap-4 mb-4 justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent to-blue-500/50" />
+            <div className="h-px w-24 bg-linear-to-r from-transparent to-blue-500/50" />
             <span className="text-sm font-mono text-blue-400 tracking-[0.3em]">WHAT WE DO</span>
-            <div className="h-px w-24 bg-gradient-to-l from-transparent to-blue-500/50" />
+            <div className="h-px w-24 bg-linear-to-l from-transparent to-blue-500/50" />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Our Services
             </span>
           </h1>

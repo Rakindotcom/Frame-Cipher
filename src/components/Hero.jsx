@@ -103,7 +103,7 @@ export default function Hero() {
     <section className="relative h-screen flex items-center justify-center overflow-hidden" onMouseMove={handleMouseMove}>
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/50 to-[#0a0a0f] z-[1]" />
+      <div className="absolute inset-0 bg-linear-to-b from-transparent via-[#0a0a0f]/50 to-[#0a0a0f] z-1" />
 
       {/* Menu Button */}
       <button
@@ -162,7 +162,7 @@ export default function Hero() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-purple-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                   </Link>
                 </li>
               ))}
@@ -189,7 +189,7 @@ export default function Hero() {
       <div className="relative z-10 text-center px-6 max-w-5xl">
         <div className="mb-8 inline-flex items-center gap-4">
           <img src="/logo.png" alt="Frame Cipher" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
-          <div className="h-12 w-px bg-gradient-to-b from-transparent via-purple-500 to-transparent" />
+          <div className="h-12 w-px bg-linear-to-b from-transparent via-purple-500 to-transparent" />
           <div className="text-left">
             <div className="text-sm font-mono text-purple-400 tracking-[0.3em] animate-pulse">
               SYSTEM ONLINE
@@ -198,7 +198,7 @@ export default function Hero() {
         </div>
         
         <h1 className="text-7xl md:text-8xl font-bold mb-6 tracking-tight">
-          <span className="bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <span className="bg-linear-to-r from-purple-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
             FRAME CIPHER
           </span>
         </h1>
@@ -214,7 +214,7 @@ export default function Hero() {
         <div className="flex gap-6 justify-center flex-wrap">
           <button className="group relative px-8 py-4 bg-purple-600 hover:bg-purple-500 transition-all duration-300 font-semibold tracking-wide overflow-hidden">
             <span className="relative z-10">VIEW PROJECTS</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
+            <div className="absolute inset-0 bg-linear-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
           </button>
           
           <button className="group relative px-8 py-4 border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-300 font-semibold tracking-wide">

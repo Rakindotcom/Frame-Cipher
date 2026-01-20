@@ -79,12 +79,12 @@ export default function ProjectsPage() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-purple-500/50" />
+            <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
             <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">ALL PROJECTS</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-purple-500/50" />
+            <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
           </div>
           <h1 className="text-5xl md:text-7xl font-bold text-center mb-4">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Our Portfolio
             </span>
           </h1>
@@ -107,7 +107,7 @@ export default function ProjectsPage() {
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
                   
                   <div className="absolute top-4 right-4 px-3 py-1 bg-purple-600/90 backdrop-blur-sm text-xs font-mono tracking-wider">
                     {project.category}
@@ -127,7 +127,7 @@ export default function ProjectsPage() {
                   <p className="text-gray-400 text-sm">{project.description}</p>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
             </div>
           ))}

@@ -27,16 +27,16 @@ const services = [
 
 export default function Services() {
   return (
-    <section className="py-32 px-6 relative bg-gradient-to-b from-[#0a0a0f] to-[#0f0a15]">
+    <section className="py-32 px-6 relative bg-linear-to-b from-[#0a0a0f] to-[#0f0a15]">
       <div className="max-w-7xl mx-auto">
         <div className="mb-16">
           <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-gradient-to-r from-transparent to-blue-500/50" />
+            <div className="h-px flex-1 bg-linear-to-r from-transparent to-blue-500/50" />
             <span className="text-sm font-mono text-blue-400 tracking-[0.3em]">OUR SERVICES</span>
-            <div className="h-px flex-1 bg-gradient-to-l from-transparent to-blue-500/50" />
+            <div className="h-px flex-1 bg-linear-to-l from-transparent to-blue-500/50" />
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-            <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Our Services
             </span>
           </h2>
@@ -50,7 +50,7 @@ export default function Services() {
               className="group relative border border-blue-500/20 bg-[#0a0a0f]/50 backdrop-blur-sm p-8 transition-all duration-500 hover:border-blue-400/50 hover:shadow-[0_0_30px_rgba(96,165,250,0.2)] hover:-translate-y-1"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-blue-600 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
               
               <div className="flex items-start justify-between mb-4">
                 <div className="text-xs font-mono text-blue-400 tracking-wider px-3 py-1 border border-blue-500/30 bg-blue-950/30">
@@ -80,7 +80,7 @@ export default function Services() {
                 ))}
               </div>
 
-              <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute bottom-0 right-0 w-32 h-32 bg-linear-to-tl from-blue-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
           ))}
         </div>
