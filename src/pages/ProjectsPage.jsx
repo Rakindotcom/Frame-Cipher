@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 const graphics = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
-  image: `/public/${i + 1}.png`,
+  image: `/${i + 1}.png`,
   title: `Graphic Design ${i + 1}`
 }))
 
