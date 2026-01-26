@@ -1,146 +1,212 @@
 import { useState } from 'react'
-import ProjectModal from './ProjectModal'
 
-const projects = [
-  {
-    id: 1,
-    title: 'LUXURY AUTOMOTIVE CAMPAIGN',
-    category: 'Brand Commercial',
-    status: 100,
-    thumbnail: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80',
-    role: 'Full Production',
-    tools: ['RED Camera', 'DaVinci Resolve', 'After Effects'],
-    description: 'Premium automotive brand campaign featuring cinematic visuals and dynamic motion sequences.',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 2,
-    title: 'TECH PRODUCT LAUNCH',
-    category: 'Product Campaign',
-    status: 100,
-    thumbnail: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80',
-    role: 'Creative Direction',
-    tools: ['Cinema 4D', 'Premiere Pro', 'Octane'],
-    description: 'Multi-platform product launch campaign with 3D product visualization and social media content.',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 3,
-    title: 'FASHION BRAND SERIES',
-    category: 'Social Media Content',
-    status: 92,
-    thumbnail: 'https://images.unsplash.com/photo-1445205170230-053b83016050?w=800&q=80',
-    role: 'Photography & Video',
-    tools: ['Sony A7S III', 'Capture One', 'Lightroom'],
-    description: 'Seasonal fashion campaign with photography and video content for Instagram and TikTok.',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 4,
-    title: 'CORPORATE TESTIMONIALS',
-    category: 'Testimonial Series',
-    status: 85,
-    thumbnail: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&q=80',
-    role: 'Video Production',
-    tools: ['Blackmagic', 'Final Cut Pro', 'Motion Graphics'],
-    description: 'Professional testimonial series featuring client success stories and brand authenticity.',
-    videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ'
-  }
+const graphics = Array.from({ length: 12 }, (_, i) => ({
+  id: i + 1,
+  image: `/public/${i + 1}.png`,
+  title: `Graphic Design ${i + 1}`
+}))
+
+const longVideos = [
+  { id: 1, videoId: 'bqdK_EifW8k', title: 'Video Production 1', thumbnail: `https://img.youtube.com/vi/bqdK_EifW8k/sddefault.jpg` },
+  { id: 2, videoId: '3MR8SvdrMkU', title: 'Video Production 2', thumbnail: `https://img.youtube.com/vi/3MR8SvdrMkU/sddefault.jpg` },
+  { id: 3, videoId: 'XlQ0tDigUXQ', title: 'Video Production 3', thumbnail: `https://img.youtube.com/vi/XlQ0tDigUXQ/sddefault.jpg` },
+  { id: 4, videoId: 'O83G1LJiCuc', title: 'Video Production 4', thumbnail: `https://img.youtube.com/vi/O83G1LJiCuc/sddefault.jpg` },
+  { id: 5, videoId: 'v99Sdv2S_AA', title: 'Video Production 5', thumbnail: `https://img.youtube.com/vi/v99Sdv2S_AA/sddefault.jpg` }
+]
+
+const shortVideos = [
+  { id: 1, videoId: 'Sx3DupRPBLc', title: 'Short Video 1', thumbnail: `https://img.youtube.com/vi/Sx3DupRPBLc/sddefault.jpg` },
+  { id: 2, videoId: '-QByXDvlKdI', title: 'Short Video 2', thumbnail: `https://img.youtube.com/vi/-QByXDvlKdI/sddefault.jpg` },
+  { id: 3, videoId: 'Bx5Z-7kjm_o', title: 'Short Video 3', thumbnail: `https://img.youtube.com/vi/Bx5Z-7kjm_o/sddefault.jpg` },
+  { id: 4, videoId: 'X5brSTr9OO0', title: 'Short Video 4', thumbnail: `https://img.youtube.com/vi/X5brSTr9OO0/sddefault.jpg` },
+  { id: 5, videoId: 'HtZSMqRHEQc', title: 'Short Video 5', thumbnail: `https://img.youtube.com/vi/HtZSMqRHEQc/sddefault.jpg` }
 ]
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedVideo, setSelectedVideo] = useState(null)
   const [hoveredId, setHoveredId] = useState(null)
 
   return (
     <section className="py-32 px-6 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
+        {/* Videos Section */}
+        <div className="mb-24">
           <div className="flex items-center gap-4 mb-4">
             <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
-            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">FEATURED WORK</span>
+            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">VIDEOS</span>
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
           </div>
           <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
             <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Featured Work
+              Video Production
             </span>
           </h2>
-          <p className="text-center text-gray-400 text-lg">Explore our recent projects and creative solutions</p>
+          <p className="text-center text-gray-400 text-lg mb-12">Watch our creative video content</p>
+
+          {/* Long Videos */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-bold mb-6 text-purple-300">Full Videos</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              {longVideos.map((video) => (
+                <div
+                  key={video.id}
+                  className="group relative cursor-pointer"
+                  onClick={() => setSelectedVideo(video)}
+                  onMouseEnter={() => setHoveredId(`long-${video.id}`)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <div className="relative overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                    <div className="aspect-video overflow-hidden relative">
+                      <img 
+                        src={video.thumbnail} 
+                        alt={video.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
+                      
+                      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredId === `long-${video.id}` ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className="w-16 h-16 border-2 border-purple-400 rounded-full flex items-center justify-center bg-purple-950/50 backdrop-blur-sm">
+                          <svg className="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Short Videos */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-purple-300">Shorts</h3>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+              {shortVideos.map((video) => (
+                <div
+                  key={video.id}
+                  className="group relative cursor-pointer"
+                  onClick={() => setSelectedVideo(video)}
+                  onMouseEnter={() => setHoveredId(`short-${video.id}`)}
+                  onMouseLeave={() => setHoveredId(null)}
+                >
+                  <div className="relative overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
+                    <div className="aspect-9/16 overflow-hidden relative">
+                      <img 
+                        src={video.thumbnail} 
+                        alt={video.title}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-linear-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
+                      
+                      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredId === `short-${video.id}` ? 'opacity-100' : 'opacity-0'}`}>
+                        <div className="w-12 h-12 border-2 border-purple-400 rounded-full flex items-center justify-center bg-purple-950/50 backdrop-blur-sm">
+                          <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={project.id}
-              className="group relative cursor-pointer"
-              onClick={() => setSelectedProject(project)}
-              onMouseEnter={() => setHoveredId(project.id)}
-              onMouseLeave={() => setHoveredId(null)}
-            >
-              <div className="relative overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-                <div className="aspect-video overflow-hidden relative">
+        {/* Graphics Section */}
+        <div>
+          <div className="flex items-center gap-4 mb-4">
+            <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
+            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">GRAPHICS</span>
+            <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
+          </div>
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
+            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
+              Graphic Design
+            </span>
+          </h2>
+          <p className="text-center text-gray-400 text-lg mb-12">Visual design and creative graphics</p>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {graphics.map((graphic) => (
+              <div
+                key={graphic.id}
+                className="group relative cursor-pointer overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]"
+                onClick={() => setSelectedImage(graphic)}
+              >
+                <div className="aspect-square overflow-hidden relative">
                   <img 
-                    src={project.thumbnail} 
-                    alt={project.title}
+                    src={graphic.image} 
+                    alt={graphic.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
-                  
-                  <div className="absolute top-4 right-4 px-3 py-1 bg-purple-600/90 backdrop-blur-sm text-xs font-mono tracking-wider">
-                    {project.category}
-                  </div>
-                  
-                  <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredId === project.id ? 'opacity-100' : 'opacity-0'}`}>
-                    <div className="w-16 h-16 border-2 border-purple-400 rounded-full flex items-center justify-center bg-purple-950/50 backdrop-blur-sm">
-                      <svg className="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                      </svg>
-                    </div>
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300" />
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg className="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                    </svg>
                   </div>
                 </div>
-
-                <div className="p-6">
-                  <div className="flex items-center justify-between mb-3">
-                    <h3 className="text-2xl font-bold tracking-tight">{project.title}</h3>
-                    <span className="text-sm font-mono text-purple-400">#{String(index + 1).padStart(2, '0')}</span>
-                  </div>
-                  
-                  <div className="mb-4">
-                    <div className="flex justify-between text-xs font-mono text-gray-400 mb-2">
-                      <span>PROJECT STATUS</span>
-                      <span>{project.status}%</span>
-                    </div>
-                    <div className="h-1 bg-gray-800 overflow-hidden">
-                      <div 
-                        className="h-full bg-linear-to-r from-purple-600 to-blue-500 transition-all duration-1000"
-                        style={{ width: `${project.status}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  <div className="flex gap-2 flex-wrap">
-                    {project.tools.slice(0, 3).map(tool => (
-                      <span key={tool} className="text-xs px-2 py-1 bg-purple-950/50 border border-purple-500/30 text-purple-300 font-mono">
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      {selectedProject && (
-        <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fadeIn">
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedImage(null)} />
+          <div className="relative max-w-5xl max-h-[90vh]">
+            <button
+              onClick={(e) => {
+                e.stopPropagation()
+                setSelectedImage(null)
+              }}
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-black/50 border border-purple-500/50 hover:border-purple-400 hover:bg-purple-950/80 transition-all duration-300 group"
+            >
+              <svg className="w-6 h-6 text-purple-400 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <img 
+              src={selectedImage.image} 
+              alt={selectedImage.title}
+              className="max-w-full max-h-[90vh] object-contain border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.3)]"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fadeIn">
+          <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedVideo(null)} />
+          <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[#0a0a0f] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.3)]">
+            <button
+              onClick={() => setSelectedVideo(null)}
+              className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center border border-purple-500/50 hover:border-purple-400 hover:bg-purple-950/50 transition-all duration-300 group"
+            >
+              <svg className="w-6 h-6 text-purple-400 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="aspect-video w-full bg-black">
+              <iframe
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${selectedVideo.videoId}`}
+                title={selectedVideo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
       )}
     </section>
   )

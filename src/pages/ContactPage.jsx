@@ -25,39 +25,24 @@ export default function ContactPage() {
             <div className="space-y-6">
               <div>
                 <div className="text-sm font-mono text-gray-500 mb-2">EMAIL</div>
-                <a href="mailto:hello@framecipher.com" className="text-gray-300 hover:text-purple-400 transition-colors">
-                  hello@framecipher.com
+                <a href="mailto:teamframecipher@gmail.com" className="text-gray-300 hover:text-purple-400 transition-colors">
+                  teamframecipher@gmail.com
                 </a>
               </div>
 
               <div>
                 <div className="text-sm font-mono text-gray-500 mb-2">PHONE</div>
-                <a href="tel:+1234567890" className="text-gray-300 hover:text-purple-400 transition-colors">
-                  +1 (234) 567-890
+                <a href="tel:+8801768146650" className="text-gray-300 hover:text-purple-400 transition-colors">
+                  +880 1768-146650
                 </a>
               </div>
 
               <div>
                 <div className="text-sm font-mono text-gray-500 mb-2">LOCATION</div>
                 <p className="text-gray-300">
-                  Los Angeles, CA<br />
-                  United States
+                  Mirpur 14, Dhaka<br />
+                  Bangladesh
                 </p>
-              </div>
-
-              <div>
-                <div className="text-sm font-mono text-gray-500 mb-3">SOCIAL</div>
-                <div className="flex gap-3">
-                  {['Instagram', 'Vimeo', 'LinkedIn', 'Twitter'].map((social) => (
-                    <a
-                      key={social}
-                      href="#"
-                      className="px-4 py-2 border border-purple-500/30 hover:border-purple-400 text-sm text-purple-300 transition-all duration-300 hover:bg-purple-950/30"
-                    >
-                      {social}
-                    </a>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -118,13 +103,13 @@ export default function ContactPage() {
         <div className="border border-purple-500/20 bg-purple-950/20 backdrop-blur-sm p-8 text-center">
           <h3 className="text-xl font-bold mb-3">Business Inquiries</h3>
           <p className="text-gray-400 mb-4">
-            For partnership opportunities and large-scale projects, reach out to our business development team.
+            For partnership opportunities and large-scale projects, reach out to our team.
           </p>
           <a
-            href="mailto:business@framecipher.com"
+            href="mailto:teamframecipher@gmail.com"
             className="inline-block px-8 py-3 border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-300 font-semibold tracking-wide"
           >
-            business@framecipher.com
+            teamframecipher@gmail.com
           </a>
         </div>
       </div>

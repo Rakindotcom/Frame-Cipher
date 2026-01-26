@@ -26,12 +26,20 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-mono text-purple-400 tracking-wider mb-4">CONNECT</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Instagram</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Vimeo</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">LinkedIn</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Twitter</a></li>
+            <h4 className="text-sm font-mono text-purple-400 tracking-wider mb-4">CONTACT</h4>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>Mirpur 14, Dhaka</li>
+              <li>Bangladesh</li>
+              <li className="pt-2">
+                <a href="tel:+8801768146650" className="hover:text-purple-400 transition-colors">
+                  +880 1768-146650
+                </a>
+              </li>
+              <li>
+                <a href="mailto:teamframecipher@gmail.com" className="hover:text-purple-400 transition-colors">
+                  teamframecipher@gmail.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>
