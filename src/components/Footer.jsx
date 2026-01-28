@@ -49,8 +49,8 @@ export default function Footer() {
             © 2026 FRAME CIPHER. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-6 text-sm text-gray-500">
-            <a href="#" className="hover:text-purple-400 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-purple-400 transition-colors">Terms</a>
+            <a href="/privacy" className="hover:text-purple-400 transition-colors">Privacy</a>
+            <a href="/terms" className="hover:text-purple-400 transition-colors">Terms</a>
           </div>
         </div>
       </div>
