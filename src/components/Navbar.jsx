@@ -18,7 +18,7 @@ export default function Navbar() {
       {/* Menu Button */}
       <button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="fixed top-8 right-8 z-50 w-12 h-12 flex flex-col items-center justify-center gap-1.5 border border-purple-500/50 hover:border-purple-400 transition-all duration-300 group overflow-hidden bg-[#0a0a0f]/80 backdrop-blur-sm"
+        className="absolute top-8 right-8 z-50 w-12 h-12 flex flex-col items-center justify-center gap-1.5 border border-purple-500/50 hover:border-purple-400 transition-all duration-300 group overflow-hidden bg-[#0a0a0f]/80 backdrop-blur-sm"
         aria-label="Toggle menu"
       >
         <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -29,7 +29,7 @@ export default function Navbar() {
 
       {/* Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/90 backdrop-blur-lg transition-opacity duration-500 ${
+        className={`absolute inset-0 z-40 bg-black/90 backdrop-blur-lg transition-opacity duration-500 ${
           isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setIsMenuOpen(false)}
