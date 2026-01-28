@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://framecipher.com/sitemap.xml
