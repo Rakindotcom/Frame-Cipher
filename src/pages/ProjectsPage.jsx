@@ -11,7 +11,8 @@ const longVideos = [
   { id: 2, videoId: '3MR8SvdrMkU', title: 'Video Production 2', thumbnail: `https://img.youtube.com/vi/3MR8SvdrMkU/sddefault.jpg` },
   { id: 3, videoId: 'XlQ0tDigUXQ', title: 'Video Production 3', thumbnail: `https://img.youtube.com/vi/XlQ0tDigUXQ/sddefault.jpg` },
   { id: 4, videoId: 'O83G1LJiCuc', title: 'Video Production 4', thumbnail: `https://img.youtube.com/vi/O83G1LJiCuc/sddefault.jpg` },
-  { id: 5, videoId: 'v99Sdv2S_AA', title: 'Video Production 5', thumbnail: `https://img.youtube.com/vi/v99Sdv2S_AA/sddefault.jpg` }
+  { id: 5, videoId: 'v99Sdv2S_AA', title: 'Video Production 5', thumbnail: `https://img.youtube.com/vi/v99Sdv2S_AA/sddefault.jpg` },
+  { id: 6, videoId: 'HqtC1iscSVQ', title: 'Video Production 6', thumbnail: `https://img.youtube.com/vi/HqtC1iscSVQ/sddefault.jpg` }
 ]
 
 const shortVideos = [
@@ -19,7 +20,10 @@ const shortVideos = [
   { id: 2, videoId: '-QByXDvlKdI', title: 'Short Video 2', thumbnail: `https://img.youtube.com/vi/-QByXDvlKdI/sddefault.jpg` },
   { id: 3, videoId: 'Bx5Z-7kjm_o', title: 'Short Video 3', thumbnail: `https://img.youtube.com/vi/Bx5Z-7kjm_o/sddefault.jpg` },
   { id: 4, videoId: 'X5brSTr9OO0', title: 'Short Video 4', thumbnail: `https://img.youtube.com/vi/X5brSTr9OO0/sddefault.jpg` },
-  { id: 5, videoId: 'HtZSMqRHEQc', title: 'Short Video 5', thumbnail: `https://img.youtube.com/vi/HtZSMqRHEQc/sddefault.jpg` }
+  { id: 5, videoId: 'HtZSMqRHEQc', title: 'Short Video 5', thumbnail: `https://img.youtube.com/vi/HtZSMqRHEQc/sddefault.jpg` },
+  { id: 6, videoId: 'Iol74xIvGa0', title: 'Short Video 6', thumbnail: `https://img.youtube.com/vi/Iol74xIvGa0/sddefault.jpg` },
+  { id: 7, videoId: '5cIWGn3A5i8', title: 'Short Video 7', thumbnail: `https://img.youtube.com/vi/5cIWGn3A5i8/sddefault.jpg` },
+  { id: 8, videoId: 'KGD6GGqEliA', title: 'Short Video 8', thumbnail: `https://img.youtube.com/vi/KGD6GGqEliA/sddefault.jpg` }
 ]
 
 export default function ProjectsPage() {

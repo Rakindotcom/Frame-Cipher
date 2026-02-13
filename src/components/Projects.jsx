@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
-const graphics = Array.from({ length: 12 }, (_, i) => ({
+const graphics = Array.from({ length: 23 }, (_, i) => ({
   id: i + 1,
-  image: `/${i + 1}.png`,
+  image: `/${i + 1}.webp`,
   title: `Graphic Design ${i + 1}`
 }))
 
@@ -11,7 +11,8 @@ const longVideos = [
   { id: 2, videoId: '3MR8SvdrMkU', title: 'Video Production 2', thumbnail: `https://img.youtube.com/vi/3MR8SvdrMkU/sddefault.jpg` },
   { id: 3, videoId: 'XlQ0tDigUXQ', title: 'Video Production 3', thumbnail: `https://img.youtube.com/vi/XlQ0tDigUXQ/sddefault.jpg` },
   { id: 4, videoId: 'O83G1LJiCuc', title: 'Video Production 4', thumbnail: `https://img.youtube.com/vi/O83G1LJiCuc/sddefault.jpg` },
-  { id: 5, videoId: 'v99Sdv2S_AA', title: 'Video Production 5', thumbnail: `https://img.youtube.com/vi/v99Sdv2S_AA/sddefault.jpg` }
+  { id: 5, videoId: 'v99Sdv2S_AA', title: 'Video Production 5', thumbnail: `https://img.youtube.com/vi/v99Sdv2S_AA/sddefault.jpg` },
+  { id: 6, videoId: 'HqtC1iscSVQ', title: 'Video Production 6', thumbnail: `https://img.youtube.com/vi/HqtC1iscSVQ/sddefault.jpg` }
 ]
 
 const shortVideos = [
@@ -19,7 +20,10 @@ const shortVideos = [
   { id: 2, videoId: '-QByXDvlKdI', title: 'Short Video 2', thumbnail: `https://img.youtube.com/vi/-QByXDvlKdI/sddefault.jpg` },
   { id: 3, videoId: 'Bx5Z-7kjm_o', title: 'Short Video 3', thumbnail: `https://img.youtube.com/vi/Bx5Z-7kjm_o/sddefault.jpg` },
   { id: 4, videoId: 'X5brSTr9OO0', title: 'Short Video 4', thumbnail: `https://img.youtube.com/vi/X5brSTr9OO0/sddefault.jpg` },
-  { id: 5, videoId: 'HtZSMqRHEQc', title: 'Short Video 5', thumbnail: `https://img.youtube.com/vi/HtZSMqRHEQc/sddefault.jpg` }
+  { id: 5, videoId: 'HtZSMqRHEQc', title: 'Short Video 5', thumbnail: `https://img.youtube.com/vi/HtZSMqRHEQc/sddefault.jpg` },
+  { id: 6, videoId: 'Iol74xIvGa0', title: 'Short Video 6', thumbnail: `https://img.youtube.com/vi/Iol74xIvGa0/sddefault.jpg` },
+  { id: 7, videoId: '5cIWGn3A5i8', title: 'Short Video 7', thumbnail: `https://img.youtube.com/vi/5cIWGn3A5i8/sddefault.jpg` },
+  { id: 8, videoId: 'KGD6GGqEliA', title: 'Short Video 8', thumbnail: `https://img.youtube.com/vi/KGD6GGqEliA/sddefault.jpg` }
 ]
 
 export default function Projects() {
@@ -28,25 +32,25 @@ export default function Projects() {
   const [hoveredId, setHoveredId] = useState(null)
 
   return (
-    <section className="py-32 px-6 relative">
+    <section className="py-12 md:py-16 px-6 relative">
       <div className="max-w-7xl mx-auto">
         {/* Videos Section */}
-        <div className="mb-24">
-          <div className="flex items-center gap-4 mb-4">
+        <div className="mb-16">
+          <div className="flex items-center gap-4 mb-3">
             <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
             <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">VIDEOS</span>
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-3">
             <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Video Production
             </span>
           </h2>
-          <p className="text-center text-gray-400 text-lg mb-12">Watch our creative video content</p>
+          <p className="text-center text-gray-400 text-lg mb-8">Watch our creative video content</p>
 
           {/* Long Videos */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-purple-300">Full Videos</h3>
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold mb-4 text-purple-300">Full Videos</h3>
             <div className="grid md:grid-cols-2 gap-6">
               {longVideos.map((video) => (
                 <div
@@ -82,7 +86,7 @@ export default function Projects() {
 
           {/* Short Videos */}
           <div>
-            <h3 className="text-2xl font-bold mb-6 text-purple-300">Shorts</h3>
+            <h3 className="text-2xl font-bold mb-4 text-purple-300">Shorts</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
               {shortVideos.map((video) => (
                 <div
@@ -119,17 +123,17 @@ export default function Projects() {
 
         {/* Graphics Section */}
         <div>
-          <div className="flex items-center gap-4 mb-4">
+          <div className="flex items-center gap-4 mb-3">
             <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
             <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">GRAPHICS</span>
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
           </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
+          <h2 className="text-5xl md:text-6xl font-bold text-center mb-3">
             <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
               Graphic Design
             </span>
           </h2>
-          <p className="text-center text-gray-400 text-lg mb-12">Visual design and creative graphics</p>
+          <p className="text-center text-gray-400 text-lg mb-8">Visual design and creative graphics</p>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {graphics.map((graphic) => (
@@ -138,11 +142,11 @@ export default function Projects() {
                 className="group relative cursor-pointer overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]"
                 onClick={() => setSelectedImage(graphic)}
               >
-                <div className="aspect-square overflow-hidden relative">
+                <div className="h-64 overflow-hidden relative flex items-center justify-center">
                   <img 
                     src={graphic.image} 
                     alt={graphic.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="max-w-full max-h-full object-contain transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300" />
                   <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

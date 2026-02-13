@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToTopButton from './components/ScrollToTop'
 import Home from './pages/Home'
 import ProjectsPage from './pages/ProjectsPage'
 import ServicesPage from './pages/ServicesPage'
@@ -36,6 +37,7 @@ function App() {
           <Route path="/terms" element={<TermsPage />} />
         </Routes>
         <Footer />
+        <ScrollToTopButton />
       </div>
     </Router>
   )
