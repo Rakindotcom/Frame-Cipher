@@ -98,7 +98,7 @@ export default function Hero() {
         <div className="mb-8 inline-flex items-center gap-4">
           <img src="/logo.png" alt="Frame Cipher" className="w-16 h-16 md:w-20 md:h-20 object-contain" />
           <div className="h-12 w-px bg-linear-to-b from-transparent via-purple-500 to-transparent" />
-          <div className="text-left">
+          <div className="text-left hidden md:block">
             <div className="text-sm font-mono text-purple-400 tracking-[0.3em] animate-pulse">
               SYSTEM ONLINE
             </div>
