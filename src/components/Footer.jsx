@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
     <footer className="border-t border-purple-500/20 py-6 md:py-8 px-6">
@@ -18,10 +20,10 @@ export default function Footer() {
           <div>
             <h4 className="text-xs font-mono text-purple-400 tracking-wider mb-2">QUICK ACCESS</h4>
             <ul className="space-y-1 text-xs">
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Projects</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Services</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">About</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</a></li>
+              <li><Link href="/projects" className="text-gray-400 hover:text-purple-400 transition-colors">Projects</Link></li>
+              <li><Link href="/services" className="text-gray-400 hover:text-purple-400 transition-colors">Services</Link></li>
+              <li><Link href="/about" className="text-gray-400 hover:text-purple-400 transition-colors">About</Link></li>
+              <li><Link href="/contact" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -48,8 +50,8 @@ export default function Footer() {
             © 2026 FRAME CIPHER. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-4 text-gray-500">
-            <a href="/privacy" className="hover:text-purple-400 transition-colors">Privacy</a>
-            <a href="/terms" className="hover:text-purple-400 transition-colors">Terms</a>
+            <Link href="/privacy" className="hover:text-purple-400 transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-purple-400 transition-colors">Terms</Link>
           </div>
         </div>
       </div>

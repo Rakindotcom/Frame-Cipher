@@ -72,7 +72,7 @@ export default function Services() {
               </p>
 
               <div className="space-y-2">
-                {service.capabilities.map((capability, i) => (
+                {service.capabilities.map((capability) => (
                   <div key={capability} className="flex items-center gap-3 text-sm">
                     <div className="w-1 h-1 bg-blue-400 rounded-full" />
                     <span className="text-gray-300 font-mono">{capability}</span>
@@ -86,10 +86,10 @@ export default function Services() {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="group relative px-8 py-4 border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-300 font-semibold tracking-wide">
+          <a href="/contact" className="inline-block group relative px-8 py-4 border-2 border-blue-500/50 hover:border-blue-400 transition-all duration-300 font-semibold tracking-wide">
             <span className="relative z-10">DISCUSS YOUR PROJECT</span>
             <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+          </a>
         </div>
       </div>
     </section>

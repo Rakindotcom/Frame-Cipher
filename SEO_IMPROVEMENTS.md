@@ -2,7 +2,7 @@
 
 ## What's Been Implemented
 
-### 1. Meta Tags (index.html)
+### 1. Meta Tags (Next.js Metadata)
 - **Primary meta tags**: Title, description, keywords, author
 - **Open Graph tags**: For Facebook, LinkedIn, and other social platforms
 - **Twitter Card tags**: For Twitter/X sharing
@@ -10,7 +10,7 @@
 - **Robots meta**: Allows search engine indexing
 
 ### 2. Structured Data (JSON-LD)
-Added schema.org Organization markup for:
+Added schema.org Organization markup in `app/layout.jsx` for:
 - Business name and description
 - Contact information
 - Address
@@ -38,11 +38,7 @@ Currently using your logo for social sharing. For better results:
 ### How to Add
 1. Create the image (use Canva, Figma, or Photoshop)
 2. Save as `og-image.png` in the `public` folder
-3. Update `index.html` line with the og:image meta tag:
-   ```html
-   <meta property="og:image" content="https://framecipher.com/og-image.png" />
-   <meta property="twitter:image" content="https://framecipher.com/og-image.png" />
-   ```
+3. Update `app/layout.jsx` so `openGraph.images` and `twitter.images` use `/og-image.png`
 
 ## Testing Your SEO
 
@@ -116,4 +112,4 @@ After deploying these changes:
 ## Current Meta Description
 "Premium media production agency specializing in commercial video production, product campaigns, professional photography, and brand strategy. Transform your vision into cinematic reality."
 
-This appears in Google search results. You can customize it per page by adding meta tags in each route component if needed.
+This appears in Google search results. You can customize it per page by exporting `metadata` from the relevant file in `app/`.

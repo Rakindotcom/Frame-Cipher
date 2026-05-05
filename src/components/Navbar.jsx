@@ -1,9 +1,12 @@
+'use client'
+
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const location = useLocation()
+  const pathname = usePathname()
 
   const menuItems = [
     { name: 'Home', path: '/' },
@@ -50,10 +53,10 @@ export default function Navbar() {
               {menuItems.map((item, index) => (
                 <li key={item.path}>
                   <Link
-                    to={item.path}
+                    href={item.path}
                     onClick={() => setIsMenuOpen(false)}
                     className={`block px-4 py-3 border transition-all duration-300 group relative overflow-hidden ${
-                      location.pathname === item.path
+                      pathname === item.path
                         ? 'border-purple-400 bg-purple-600/20 text-purple-300'
                         : 'border-purple-500/20 hover:border-purple-400/50 hover:bg-purple-950/30 text-gray-300'
                     }`}
@@ -63,7 +66,7 @@ export default function Navbar() {
                       <span className="font-mono text-sm tracking-wide">{item.name}</span>
                       <svg
                         className={`w-4 h-4 transition-transform duration-300 ${
-                          location.pathname === item.path ? 'text-purple-400' : 'text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1'
+                          pathname === item.path ? 'text-purple-400' : 'text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1'
                         }`}
                         fill="none"
                         stroke="currentColor"

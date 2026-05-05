@@ -1,3 +1,6 @@
+'use client'
+
+import Link from 'next/link'
 import { useState, useEffect, useRef } from 'react'
 
 export default function Hero() {
@@ -120,15 +123,15 @@ export default function Hero() {
         </p>
         
         <div className="flex gap-6 justify-center flex-wrap">
-          <button className="group relative px-8 py-4 bg-purple-600 hover:bg-purple-500 transition-all duration-300 font-semibold tracking-wide overflow-hidden">
+          <Link href="/projects" className="group relative px-8 py-4 bg-purple-600 hover:bg-purple-500 transition-all duration-300 font-semibold tracking-wide overflow-hidden">
             <span className="relative z-10">VIEW PROJECTS</span>
             <div className="absolute inset-0 bg-linear-to-r from-purple-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl" />
-          </button>
+          </Link>
           
-          <button className="group relative px-8 py-4 border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-300 font-semibold tracking-wide">
+          <Link href="/contact" className="group relative px-8 py-4 border-2 border-purple-500/50 hover:border-purple-400 transition-all duration-300 font-semibold tracking-wide">
             <span className="relative z-10">INITIATE CONTACT</span>
             <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-          </button>
+          </Link>
         </div>
         
         <div className="mt-16 grid grid-cols-3 gap-8 max-w-3xl mx-auto">

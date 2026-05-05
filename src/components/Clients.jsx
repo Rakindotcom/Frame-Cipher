@@ -25,7 +25,7 @@ export default function Clients() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {clients.map((client, index) => (
+          {clients.map((client) => (
             <div
               key={client.name}
               className="group relative border border-purple-500/20 bg-[#0a0a0f]/50 backdrop-blur-sm p-8 transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]"

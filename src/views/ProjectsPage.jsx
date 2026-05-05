@@ -1,8 +1,10 @@
+'use client'
+
 import { useState } from 'react'
 
 const graphics = Array.from({ length: 12 }, (_, i) => ({
   id: i + 1,
-  image: `/${i + 1}.png`,
+  image: `/${i + 1}.webp`,
   title: `Graphic Design ${i + 1}`
 }))
 
