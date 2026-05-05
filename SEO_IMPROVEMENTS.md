@@ -49,9 +49,9 @@ Currently using your logo for social sharing. For better results:
 
 ### 2. Google Search Console
 1. Go to https://search.google.com/search-console
-2. Add your property: `framecipher.com`
+2. Add your property: `framecipher.info`
 3. Verify ownership (DNS or HTML file method)
-4. Submit your sitemap: `https://framecipher.com/sitemap.xml`
+4. Submit your sitemap: `https://framecipher.info/sitemap.xml`
 5. Request indexing for important pages
 
 ### 3. Rich Results Test

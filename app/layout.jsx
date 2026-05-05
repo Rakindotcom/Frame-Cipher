@@ -4,7 +4,7 @@ import RouteScrollToTop from '../src/components/RouteScrollToTop'
 import ScrollToTopButton from '../src/components/ScrollToTop'
 import '../src/index.css'
 
-const siteUrl = 'https://framecipher.com'
+const siteUrl = 'https://framecipher.info'
 const siteDescription =
   'Premium media production agency specializing in commercial video production, product campaigns, professional photography, and brand strategy. Transform your vision into cinematic reality.'
 
