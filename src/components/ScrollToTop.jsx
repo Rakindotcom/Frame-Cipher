@@ -47,11 +47,11 @@ export default function ScrollToTop() {
       {isVisible && !hasModal && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-40 w-12 h-12 flex items-center justify-center bg-purple-600/90 hover:bg-purple-500 border border-purple-400/50 hover:border-purple-300 transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] group animate-fadeIn"
+          className="fixed bottom-8 right-8 z-40 flex h-12 w-12 items-center justify-center border-2 border-frame-accent bg-frame-accent text-frame-accent-fg transition-all duration-300 hover:scale-105 active:scale-95 group animate-fadeIn"
           aria-label="Scroll to top"
         >
           <svg 
-            className="w-6 h-6 text-white group-hover:-translate-y-1 transition-transform duration-300" 
+            className="h-6 w-6 transition-transform duration-300 group-hover:-translate-y-1" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24"

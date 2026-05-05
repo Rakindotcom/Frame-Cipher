@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { industries, servicePillars } from '../data/agency'
+import { CTASection, InversionCard, PageHero, PosterButton, SectionIntro, TypeMarquee } from '../components/Kinetic'
 
 const principles = [
   'Strategy before production',
@@ -8,101 +8,127 @@ const principles = [
   'Clear handoffs, clear ownership, clear reporting',
 ]
 
+const storyBlocks = [
+  {
+    eyebrow: 'Why we exist',
+    title: 'Connect the work growth depends on',
+    description:
+      'Many brands hire one person for ads, another for design, another for video, and another for websites. The result is slow execution and campaigns that do not feel connected.',
+  },
+  {
+    eyebrow: 'What changes',
+    title: 'Scattered execution becomes one operating system',
+    description:
+      'We bring strategy, creative, media, software, and performance work into one workflow so content, platforms, campaigns, and data can support the same business goal.',
+  },
+  {
+    eyebrow: 'How it started',
+    title: 'From visual production to growth infrastructure',
+    description:
+      'Frame Cipher began with visual execution and expanded toward the systems that make creative work perform: positioning, websites, campaign planning, software, and optimization.',
+  },
+]
+
 export default function AboutPage() {
   return (
-    <main className="px-6 pb-24 pt-32">
-      <section className="mx-auto max-w-7xl">
-        <div className="max-w-5xl">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">About Frame Cipher</p>
-          <h1 className="font-heading text-5xl font-bold leading-tight text-white md:text-7xl">
-            A modern agency built for brands that need strategy, content, technology, and execution under one roof.
-          </h1>
-          <p className="mt-7 max-w-4xl text-lg leading-8 text-gray-400 md:text-xl">
-            Frame Cipher was built for businesses that do not want scattered execution. We combine strategic
-            thinking, creative production, marketing, and technology so brands can move faster from idea to
-            launch and from launch to scale.
-          </p>
-        </div>
-      </section>
+    <main className="bg-frame-bg text-frame-fg">
+      <PageHero
+        eyebrow="About Frame Cipher"
+        meta="Built in Dhaka / made for moving brands"
+        number="01"
+        title="One team for the whole growth system"
+        actions={
+          <>
+            <PosterButton href="/contact">Book a strategy call</PosterButton>
+            <PosterButton href="/services" variant="outline">Explore services</PosterButton>
+          </>
+        }
+      >
+        Frame Cipher was built for businesses that do not want scattered execution. We combine strategic
+        thinking, creative production, marketing, and technology so brands can move faster from idea to launch.
+      </PageHero>
 
-      <section className="mx-auto mt-20 grid max-w-7xl gap-5 lg:grid-cols-3">
-        <article className="border border-white/10 bg-white/[0.04] p-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Why Frame Cipher exists</p>
-          <h2 className="font-heading text-3xl font-bold text-white">To connect the work that growth depends on.</h2>
-          <p className="mt-5 leading-8 text-gray-400">
-            Many brands hire one person for ads, another for design, another for video, and another for websites.
-            The result is often slow execution and campaigns that do not feel connected.
-          </p>
-        </article>
-        <article className="border border-white/10 bg-white/[0.04] p-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">What problem it solves</p>
-          <h2 className="font-heading text-3xl font-bold text-white">Scattered execution becomes one operating system.</h2>
-          <p className="mt-5 leading-8 text-gray-400">
-            We bring strategy, creative, media, software, and performance work into one workflow so content,
-            platforms, campaigns, and data can support the same business goal.
-          </p>
-        </article>
-        <article className="border border-white/10 bg-white/[0.04] p-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Founder story</p>
-          <h2 className="font-heading text-3xl font-bold text-white">Built from creative production into growth infrastructure.</h2>
-          <p className="mt-5 leading-8 text-gray-400">
-            Frame Cipher began with visual execution and expanded toward the systems that make creative work
-            perform: positioning, websites, campaign planning, software, and optimization.
-          </p>
-        </article>
-      </section>
+      <TypeMarquee items={['Strategy', 'Creative', 'Media', 'Software', 'Performance']} accent />
 
-      <section className="mx-auto mt-20 max-w-7xl">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Team capabilities</p>
-        <h2 className="mb-10 font-heading text-4xl font-bold text-white md:text-5xl">The capability mix behind the agency.</h2>
-        <div className="grid gap-4 md:grid-cols-5">
-          {servicePillars.map((pillar) => (
-            <article key={pillar.title} className="border border-white/10 bg-[#0b0d14] p-6">
-              <h3 className="font-heading text-2xl font-bold text-white">{pillar.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-gray-400">{pillar.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <section className="px-4 py-24 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <SectionIntro eyebrow="Origin" title="The agency is the system.">
+            We do not treat brand, content, web, ads, and automation like separate lanes. The useful
+            work happens where those lanes collide.
+          </SectionIntro>
 
-      <section className="mx-auto mt-20 grid max-w-7xl gap-8 lg:grid-cols-2">
-        <article className="border border-white/10 bg-white/[0.04] p-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Operating principles</p>
-          <ul className="grid gap-4">
-            {principles.map((principle) => (
-              <li key={principle} className="border-b border-white/10 pb-4 text-gray-300 last:border-b-0 last:pb-0">
-                {principle}
-              </li>
+          <div className="grid bg-frame-border gap-px lg:grid-cols-3">
+            {storyBlocks.map((item, index) => (
+              <InversionCard key={item.title} eyebrow={item.eyebrow} title={item.title} number={`0${index + 1}`}>
+                <p>{item.description}</p>
+              </InversionCard>
             ))}
-          </ul>
-        </article>
-        <article className="border border-white/10 bg-white/[0.04] p-8">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">How the agency works</p>
-          <p className="leading-8 text-gray-400">
-            We start with the business problem, define the growth system around it, then move through strategy,
-            creative direction, production, development, launch, reporting, and optimization. The goal is not to
-            sell isolated services. The goal is to build the next useful system for the business.
-          </p>
-        </article>
-      </section>
-
-      <section className="mx-auto mt-20 max-w-7xl">
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Industries served</p>
-        <div className="flex flex-wrap gap-3">
-          {industries.map((industry) => (
-            <span key={industry} className="border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-gray-300">
-              {industry}
-            </span>
-          ))}
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto mt-24 max-w-5xl border border-cyan-300/20 bg-white/[0.04] p-8 text-center md:p-12">
-        <h2 className="font-heading text-4xl font-bold text-white">Want one team to help plan and execute the next move?</h2>
-        <Link href="/contact" className="mt-8 inline-block bg-white px-6 py-4 text-sm font-bold text-[#08080d]">
-          Book a Strategy Call
-        </Link>
+      <section className="border-y-2 border-frame-border bg-frame-muted px-4 py-24 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <SectionIntro eyebrow="Capability mix" title="Five engines. One rhythm.">
+            The team structure is deliberately connected so strategy can shape production, production can
+            feed campaigns, and data can sharpen the next build.
+          </SectionIntro>
+
+          <div className="grid bg-frame-border gap-px md:grid-cols-5">
+            {servicePillars.map((pillar, index) => (
+              <InversionCard key={pillar.title} title={pillar.title} number={`0${index + 1}`}>
+                <p>{pillar.description}</p>
+              </InversionCard>
+            ))}
+          </div>
+        </div>
       </section>
+
+      <section className="px-4 py-24 md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-[95vw] gap-12 lg:grid-cols-[0.78fr_1.22fr]">
+          <div className="sticky top-28 self-start">
+            <SectionIntro eyebrow="Principles" title="No soft middle. No mystery handoffs." />
+          </div>
+
+          <div className="grid bg-frame-border gap-px">
+            {principles.map((principle, index) => (
+              <article key={principle} className="group grid min-h-32 items-center bg-frame-bg p-7 transition-colors duration-300 hover:bg-frame-accent md:grid-cols-[0.22fr_1fr]">
+                <p className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg md:text-6xl">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
+                <h3 className="font-heading text-xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-transform duration-300 group-hover:translate-x-4 group-hover:text-frame-accent-fg md:text-3xl">
+                  {principle}
+                </h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="border-y-2 border-frame-border bg-frame-accent px-4 py-24 text-frame-accent-fg md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-[95vw] gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <h2 className="font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.85] tracking-tighter">
+            Built for brands that move in public.
+          </h2>
+          <div>
+            <div className="flex flex-wrap gap-3">
+              {industries.map((industry) => (
+                <span key={industry} className="border-2 border-frame-accent-fg px-5 py-3 text-sm font-black uppercase tracking-tighter">
+                  {industry}
+                </span>
+              ))}
+            </div>
+            <p className="mt-8 text-base font-semibold leading-snug md:text-xl">
+              We start with the business problem, define the growth system around it, then move through
+              strategy, creative direction, production, development, launch, reporting, and optimization.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <CTASection title="Want one team to plan and execute the next move?">
+        Bring the problem, the offer, or the messy middle. We will help shape the next useful system for the business.
+      </CTASection>
     </main>
   )
 }

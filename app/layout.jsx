@@ -108,7 +108,8 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <RouteScrollToTop />
-        <div className="min-h-screen overflow-x-hidden bg-[#07070b] text-white">
+        <div className="min-h-screen overflow-x-hidden bg-frame-bg text-frame-fg">
+          <div className="kinetic-noise" aria-hidden="true" />
           <Navbar />
           {children}
           <Footer />

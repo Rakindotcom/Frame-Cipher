@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { portfolioProjects } from '../data/agency'
+import { CTASection, PageHero, PosterButton, TypeMarquee } from '../components/Kinetic'
 
 const filters = ['All', 'Branding', 'Websites', 'Software', 'Marketing', 'Video', 'Photography', 'Campaigns']
 
@@ -15,87 +15,94 @@ export default function ProjectsPage() {
       : portfolioProjects.filter((project) => project.category === activeFilter || project.services.includes(activeFilter))
 
   return (
-    <main className="px-6 pb-24 pt-32">
-      <section className="mx-auto max-w-7xl">
-        <div className="max-w-4xl">
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Work</p>
-          <h1 className="font-heading text-5xl font-bold leading-tight text-white md:text-7xl">
-            A portfolio structure for brand, media, technology, and growth work.
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-400 md:text-xl">
-            Current public assets include video production, short-form content, and graphic design work.
-            Placeholder project structures are included where real proof can be added later without inventing results.
-          </p>
-        </div>
+    <main className="bg-frame-bg text-frame-fg">
+      <PageHero
+        eyebrow="Work"
+        meta={`${filteredProjects.length} visible / ${portfolioProjects.length} total`}
+        number="06"
+        title="Project systems with visible structure"
+        actions={
+          <>
+            <PosterButton href="/contact">Send us a brief</PosterButton>
+            <PosterButton href="/case-studies" variant="outline">Case structures</PosterButton>
+          </>
+        }
+      >
+        Current public assets include video production, short-form content, and graphic design work.
+        Placeholder project structures are included where real proof can be added later without inventing results.
+      </PageHero>
 
-        <div className="mt-10 flex flex-wrap gap-3" aria-label="Project filters">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              type="button"
-              onClick={() => setActiveFilter(filter)}
-              className={`border px-4 py-2 text-sm font-semibold transition-colors ${
-                activeFilter === filter
-                  ? 'border-cyan-300/60 bg-cyan-300/10 text-white'
-                  : 'border-white/10 text-gray-400 hover:border-white/30 hover:text-white'
-              }`}
-            >
-              {filter}
-            </button>
-          ))}
+      <TypeMarquee items={filters.slice(1)} slow />
+
+      <section className="px-4 py-12 md:px-8 md:py-16">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="flex flex-wrap gap-3" aria-label="Project filters">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                type="button"
+                onClick={() => setActiveFilter(filter)}
+                className={`min-h-11 border-2 px-5 py-3 text-sm font-black uppercase tracking-tighter transition-colors ${
+                  activeFilter === filter
+                    ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
+                    : 'border-frame-border text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-7xl">
-        <div className="grid gap-5 lg:grid-cols-3">
-          {filteredProjects.map((project) => (
-            <article key={project.name} className="overflow-hidden border border-white/10 bg-white/[0.04]">
-              <div className="aspect-video bg-[#11131d]">
-                <img src={project.preview} alt={project.name} className="h-full w-full object-cover" />
-              </div>
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2">
-                  <span className="border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">
-                    {project.category}
+      <section className="px-4 pb-24 md:px-8 md:pb-32">
+        <div className="mx-auto grid max-w-[95vw] bg-frame-border gap-px lg:grid-cols-3">
+          {filteredProjects.map((project, index) => (
+            <article key={project.name} className="group bg-frame-bg">
+              <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-frame-border bg-frame-muted">
+                <img src={project.preview} alt={project.name} className="h-full w-full object-cover saturate-0 transition duration-300 group-hover:scale-105 group-hover:saturate-100" />
+                <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+                  <span className="bg-frame-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-accent-fg">
+                    0{index + 1} / {project.category}
                   </span>
                   {project.placeholder && (
-                    <span className="border border-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+                    <span className="border-2 border-frame-border bg-frame-bg px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-muted-fg">
                       Replaceable
                     </span>
                   )}
                 </div>
-                <h2 className="mt-4 font-heading text-2xl font-bold text-white">{project.name}</h2>
-                <dl className="mt-4 grid gap-3 text-sm">
-                  <div>
-                    <dt className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Client or brand type</dt>
-                    <dd className="mt-1 text-gray-300">{project.brandType}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Industry</dt>
-                    <dd className="mt-1 text-gray-300">{project.industry}</dd>
-                  </div>
-                  <div>
-                    <dt className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Services delivered</dt>
-                    <dd className="mt-1 text-gray-300">{project.services.join(', ')}</dd>
-                  </div>
+              </div>
+              <div className="p-7">
+                <h2 className="font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-3xl">
+                  {project.name}
+                </h2>
+                <dl className="mt-7 grid gap-px bg-frame-border text-sm">
+                  <MetaField label="Client or brand type" value={project.brandType} />
+                  <MetaField label="Industry" value={project.industry} />
+                  <MetaField label="Services delivered" value={project.services.join(', ')} />
                 </dl>
-                <p className="mt-4 text-sm leading-7 text-gray-400">{project.description}</p>
-                <p className="mt-5 border-t border-white/10 pt-4 text-sm text-gray-300">{project.scope}</p>
+                <p className="mt-6 text-base font-medium leading-tight text-frame-muted-fg">{project.description}</p>
+                <p className="mt-6 border-t-2 border-frame-border pt-5 text-sm font-black uppercase tracking-[0.18em] text-frame-accent">
+                  {project.scope}
+                </p>
               </div>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="mx-auto mt-24 max-w-5xl border border-cyan-300/20 bg-white/[0.04] p-8 text-center md:p-12">
-        <h2 className="font-heading text-4xl font-bold text-white">Have a project that needs strategy and execution?</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-gray-400">
-          Send the brief and we will help shape the brand, content, platform, campaign, or software system around it.
-        </p>
-        <Link href="/contact" className="mt-8 inline-block bg-white px-6 py-4 text-sm font-bold text-[#08080d]">
-          Send Us a Brief
-        </Link>
-      </section>
+      <CTASection title="Have a project that needs strategy and execution?" primaryText="Send us a brief">
+        Send the brief and we will help shape the brand, content, platform, campaign, or software system around it.
+      </CTASection>
     </main>
+  )
+}
+
+function MetaField({ label, value }) {
+  return (
+    <div className="bg-frame-bg p-4">
+      <dt className="text-xs font-black uppercase tracking-[0.18em] text-frame-muted-fg">{label}</dt>
+      <dd className="mt-2 font-medium leading-tight text-frame-fg">{value}</dd>
+    </div>
   )
 }

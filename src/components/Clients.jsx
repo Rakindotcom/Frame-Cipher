@@ -4,53 +4,44 @@ const clients = [
   { name: 'NIKE', status: 'VERIFIED', projects: 15 },
   { name: 'SAMSUNG', status: 'VERIFIED', projects: 10 },
   { name: 'COCA-COLA', status: 'VERIFIED', projects: 14 },
-  { name: 'ADIDAS', status: 'VERIFIED', projects: 9 }
+  { name: 'ADIDAS', status: 'VERIFIED', projects: 9 },
 ]
 
 export default function Clients() {
   return (
-    <section className="py-32 px-6 relative">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
-            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">TRUSTED PARTNERS</span>
-            <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Trusted By Industry Leaders
-            </span>
+    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
+      <div className="mx-auto max-w-[95vw]">
+        <div className="mb-12">
+          <p className="mb-4 text-sm font-black uppercase tracking-[0.28em] text-frame-accent">Trusted partners</p>
+          <h2 className="font-heading text-[clamp(2.8rem,8vw,8rem)] font-bold uppercase leading-[0.82] tracking-tighter text-frame-fg">
+            Trusted by industry leaders
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {clients.map((client) => (
-            <div
+        <div className="grid bg-frame-border gap-px md:grid-cols-3">
+          {clients.map((client, index) => (
+            <article
               key={client.name}
-              className="group relative border border-purple-500/20 bg-[#0a0a0f]/50 backdrop-blur-sm p-8 transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]"
+              className="group relative min-h-72 bg-frame-bg p-7 transition-colors duration-300 hover:bg-frame-accent"
             >
-              <div className="flex items-start justify-between mb-6">
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                  <span className="text-xs font-mono text-green-400 tracking-wider">{client.status}</span>
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <p className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/70">
+                    {client.status}
+                  </p>
+                  <h3 className="mt-8 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-6xl">
+                    {client.name}
+                  </h3>
                 </div>
-                <svg className="w-5 h-5 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
+                <p className="font-heading text-6xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg/25">
+                  {String(index + 1).padStart(2, '0')}
+                </p>
               </div>
 
-              <h3 className="text-2xl font-bold mb-4 tracking-tight group-hover:text-purple-400 transition-colors duration-300">
-                {client.name}
-              </h3>
-
-              <div className="flex items-center gap-3 text-sm">
-                <span className="text-gray-400 font-mono">PROJECTS DELIVERED:</span>
-                <span className="text-purple-400 font-bold text-lg">{client.projects}</span>
-              </div>
-
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-linear-to-r from-purple-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-            </div>
+              <p className="mt-10 text-sm font-black uppercase tracking-[0.22em] text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
+                Projects delivered: {client.projects}
+              </p>
+            </article>
           ))}
         </div>
       </div>

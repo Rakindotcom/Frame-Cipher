@@ -4,6 +4,7 @@ import { useState } from 'react'
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
 import { db } from '../firebase'
 import { contact, services } from '../data/agency'
+import { PageHero, PosterButton, SectionIntro, TypeMarquee } from '../components/Kinetic'
 
 const budgetRanges = [
   'Under $500',
@@ -68,130 +69,144 @@ export default function ContactPage() {
   }
 
   return (
-    <main className="px-6 pb-24 pt-32">
-      <section className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Contact</p>
-          <h1 className="font-heading text-5xl font-bold leading-tight text-white md:text-7xl">
-            Tell us what you are building. We will help you plan the next move.
-          </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-400 md:text-xl">
-            Whether you need a campaign, content production, a website, software, or a complete 360 growth
-            system, send us the brief and we will get back with the best next step.
-          </p>
+    <main className="bg-frame-bg text-frame-fg">
+      <PageHero
+        eyebrow="Contact"
+        meta={contact.responseTime}
+        number="GO"
+        title="Bring us the brief"
+        actions={
+          <>
+            <PosterButton href={contact.whatsapp}>Talk on WhatsApp</PosterButton>
+            <PosterButton href={`mailto:${contact.email}`} variant="outline">Email the team</PosterButton>
+          </>
+        }
+      >
+        Whether you need a campaign, content production, a website, software, or a complete 360 growth
+        system, send us the brief and we will get back with the best next step.
+      </PageHero>
 
-          <div className="mt-10 grid gap-4 sm:grid-cols-2">
-            <div className="border border-white/10 bg-white/[0.04] p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Email</p>
-              <a href={`mailto:${contact.email}`} className="mt-2 block text-gray-200 hover:text-cyan-200">
-                {contact.email}
-              </a>
-            </div>
-            <div className="border border-white/10 bg-white/[0.04] p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Phone</p>
-              <a href={`tel:${contact.phoneHref}`} className="mt-2 block text-gray-200 hover:text-cyan-200">
-                {contact.phone}
-              </a>
-            </div>
-            <div className="border border-white/10 bg-white/[0.04] p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Office</p>
-              <p className="mt-2 text-gray-200">{contact.location}</p>
-            </div>
-            <div className="border border-white/10 bg-white/[0.04] p-5">
-              <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-500">Response time</p>
-              <p className="mt-2 text-gray-200">{contact.responseTime}</p>
+      <TypeMarquee items={['Name the goal', 'Send the mess', 'Pick the system', 'Launch the next move']} accent />
+
+      <section className="px-4 py-24 md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-[95vw] gap-12 lg:grid-cols-[0.78fr_1.22fr]">
+          <div>
+            <SectionIntro eyebrow="Direct lines" title="No mystery inbox.">
+              Use the form for project context, or use the direct channels if you already know what you need.
+            </SectionIntro>
+            <div className="grid bg-frame-border gap-px sm:grid-cols-2">
+              <ContactCard label="Email" value={contact.email} href={`mailto:${contact.email}`} />
+              <ContactCard label="Phone" value={contact.phone} href={`tel:${contact.phoneHref}`} />
+              <ContactCard label="Office" value={contact.location} />
+              <ContactCard label="Response time" value={contact.responseTime} />
             </div>
           </div>
 
-          <a
-            href={contact.whatsapp}
-            className="mt-6 inline-block border border-cyan-300/40 px-6 py-4 text-sm font-bold text-cyan-200 hover:bg-cyan-300/10"
-          >
-            Talk on WhatsApp
-          </a>
-        </div>
+          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
+            <h2 className="font-heading text-[clamp(1.8rem,4vw,3rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+              Send us a brief
+            </h2>
 
-        <div className="border border-white/10 bg-[#0b0d14] p-6 md:p-8">
-          <h2 className="font-heading text-3xl font-bold text-white">Send Us a Brief</h2>
+            {submitStatus === 'success' && (
+              <div className="mt-6 border-2 border-frame-accent bg-frame-accent p-4 text-base font-black uppercase tracking-tighter text-frame-accent-fg">
+                Message sent. We will review the brief and reply with the best next step.
+              </div>
+            )}
 
-          {submitStatus === 'success' && (
-            <div className="mt-5 border border-emerald-400/40 bg-emerald-400/10 p-4 text-emerald-200">
-              Message sent. We will review the brief and reply with the best next step.
-            </div>
-          )}
+            {submitStatus === 'error' && (
+              <div className="mt-6 border-2 border-frame-border bg-frame-muted p-4 text-base font-black uppercase tracking-tighter text-frame-fg">
+                The form could not be sent. Please email us or try WhatsApp.
+              </div>
+            )}
 
-          {submitStatus === 'error' && (
-            <div className="mt-5 border border-red-400/40 bg-red-400/10 p-4 text-red-200">
-              The form could not be sent. Please email us or try WhatsApp.
-            </div>
-          )}
-
-          <form onSubmit={handleSubmit} className="mt-6 grid gap-4">
-            <div className="grid gap-4 md:grid-cols-2">
-              <Field label="Name" name="name" value={formData.name} onChange={handleChange} required />
-              <Field label="Company" name="company" value={formData.company} onChange={handleChange} />
-            </div>
-            <div className="grid gap-4 md:grid-cols-2">
-              <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
-              <Field label="Phone or WhatsApp" name="phone" value={formData.phone} onChange={handleChange} required />
-            </div>
-            <SelectField
-              label="Service needed"
-              name="serviceNeeded"
-              value={formData.serviceNeeded}
-              onChange={handleChange}
-              options={services.map((service) => service.title)}
-            />
-            <div className="grid gap-4 md:grid-cols-2">
+            <form onSubmit={handleSubmit} className="mt-8 grid gap-7">
+              <div className="grid gap-7 md:grid-cols-2">
+                <Field label="Name" name="name" value={formData.name} onChange={handleChange} required />
+                <Field label="Company" name="company" value={formData.company} onChange={handleChange} />
+              </div>
+              <div className="grid gap-7 md:grid-cols-2">
+                <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
+                <Field label="Phone or WhatsApp" name="phone" value={formData.phone} onChange={handleChange} required />
+              </div>
               <SelectField
-                label="Budget range"
-                name="budgetRange"
-                value={formData.budgetRange}
+                label="Service needed"
+                name="serviceNeeded"
+                value={formData.serviceNeeded}
                 onChange={handleChange}
-                options={budgetRanges}
+                options={services.map((service) => service.title)}
               />
-              <SelectField
-                label="Timeline"
-                name="timeline"
-                value={formData.timeline}
-                onChange={handleChange}
-                options={timelines}
-              />
-            </div>
-            <div>
-              <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gray-400" htmlFor="details">
-                Project details
-              </label>
-              <textarea
-                id="details"
-                name="details"
-                value={formData.details}
-                onChange={handleChange}
-                required
-                rows="6"
-                className="w-full border border-white/10 bg-[#07070b] px-4 py-3 text-gray-200 outline-none transition-colors focus:border-cyan-300/60"
-                placeholder="Tell us about the business, offer, goal, current problem, and what you need built or promoted."
-              />
-            </div>
+              <div className="grid gap-7 md:grid-cols-2">
+                <SelectField
+                  label="Budget range"
+                  name="budgetRange"
+                  value={formData.budgetRange}
+                  onChange={handleChange}
+                  options={budgetRanges}
+                />
+                <SelectField
+                  label="Timeline"
+                  name="timeline"
+                  value={formData.timeline}
+                  onChange={handleChange}
+                  options={timelines}
+                />
+              </div>
+              <div>
+                <label className="mb-3 block text-xs font-black uppercase tracking-[0.22em] text-frame-accent" htmlFor="details">
+                  Project details
+                </label>
+                <textarea
+                  id="details"
+                  name="details"
+                  value={formData.details}
+                  onChange={handleChange}
+                  required
+                  rows="6"
+                  className="min-h-48 w-full resize-y border-2 border-frame-border bg-frame-bg px-4 py-4 text-base font-semibold leading-snug text-frame-fg outline-none transition-colors placeholder:text-frame-muted focus:border-frame-accent"
+                  placeholder="Tell us about the business, offer, goal, current problem, and what you need built or promoted."
+                />
+              </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="bg-white px-6 py-4 text-sm font-bold text-[#08080d] transition-opacity disabled:cursor-not-allowed disabled:opacity-60"
-            >
-              {isSubmitting ? 'Sending...' : 'Send Us a Brief'}
-            </button>
-          </form>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="min-h-16 border-2 border-frame-accent bg-frame-accent px-8 py-4 text-base font-black uppercase tracking-tighter text-frame-accent-fg transition-all duration-200 hover:scale-[1.02] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-20 md:text-lg"
+              >
+                {isSubmitting ? 'Sending...' : 'Send us a brief'}
+              </button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
   )
 }
 
+function ContactCard({ label, value, href }) {
+  const content = (
+    <>
+      <p className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/70">{label}</p>
+      <p className="mt-4 break-words text-xl font-black leading-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">{value}</p>
+    </>
+  )
+
+  const classes = 'group min-h-44 bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent'
+
+  if (href) {
+    return (
+      <a href={href} className={classes}>
+        {content}
+      </a>
+    )
+  }
+
+  return <div className={classes}>{content}</div>
+}
+
 function Field({ label, name, value, onChange, type = 'text', required = false }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gray-400" htmlFor={name}>
+      <label className="mb-3 block text-xs font-black uppercase tracking-[0.22em] text-frame-accent" htmlFor={name}>
         {label}
       </label>
       <input
@@ -201,7 +216,7 @@ function Field({ label, name, value, onChange, type = 'text', required = false }
         value={value}
         onChange={onChange}
         required={required}
-        className="w-full border border-white/10 bg-[#07070b] px-4 py-3 text-gray-200 outline-none transition-colors focus:border-cyan-300/60"
+        className="h-14 w-full border-2 border-frame-border bg-frame-bg px-4 text-base font-semibold text-frame-fg outline-none transition-colors placeholder:text-frame-muted focus:border-frame-accent md:h-16"
       />
     </div>
   )
@@ -210,7 +225,7 @@ function Field({ label, name, value, onChange, type = 'text', required = false }
 function SelectField({ label, name, value, onChange, options }) {
   return (
     <div>
-      <label className="mb-2 block text-xs font-bold uppercase tracking-[0.18em] text-gray-400" htmlFor={name}>
+      <label className="mb-3 block text-xs font-black uppercase tracking-[0.22em] text-frame-accent" htmlFor={name}>
         {label}
       </label>
       <select
@@ -218,7 +233,7 @@ function SelectField({ label, name, value, onChange, options }) {
         name={name}
         value={value}
         onChange={onChange}
-        className="w-full border border-white/10 bg-[#07070b] px-4 py-3 text-gray-200 outline-none transition-colors focus:border-cyan-300/60"
+        className="h-16 w-full border-2 border-frame-border bg-frame-bg px-4 text-lg font-black uppercase tracking-tighter text-frame-fg outline-none transition-colors focus:border-frame-accent md:h-20"
       >
         {options.map((option) => (
           <option key={option}>{option}</option>

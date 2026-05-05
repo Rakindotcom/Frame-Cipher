@@ -1,174 +1,144 @@
+import { PageHero, TypeMarquee } from '../components/Kinetic'
+
 export default function PrivacyPage() {
   return (
-    <div className="py-32 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="mb-16">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px w-24 bg-linear-to-r from-transparent to-purple-500/50" />
-            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">LEGAL</span>
-            <div className="h-px w-24 bg-linear-to-l from-transparent to-purple-500/50" />
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Privacy Policy
-            </span>
-          </h1>
-          <p className="text-gray-400">Last updated: January 29, 2026</p>
-        </div>
+    <main className="bg-frame-bg text-frame-fg">
+      <PageHero eyebrow="Legal" meta="Last updated: January 29, 2026" number="PP" title="Privacy policy">
+        Frame Cipher explains what we collect, why we collect it, and how contact and analytics data are handled.
+      </PageHero>
 
-        <div className="space-y-8 text-gray-300">
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Introduction</h2>
-            <p className="leading-relaxed">
-              Frame Cipher ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our contact form.
-            </p>
-          </section>
+      <TypeMarquee items={['Privacy', 'Consent', 'Security', 'Retention', 'Contact']} slow />
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Information We Collect</h2>
-            <h3 className="text-xl font-semibold text-blue-400 mb-3">Contact Form Information</h3>
-            <p className="leading-relaxed mb-4">
-              When you submit our contact form, we collect:
-            </p>
-            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-              <li>Your name</li>
-              <li>Email address</li>
-              <li>Project type selection</li>
-              <li>Message content</li>
-              <li>Timestamp of submission</li>
-            </ul>
-            
-            <h3 className="text-xl font-semibold text-blue-400 mb-3 mt-6">Analytics Information</h3>
-            <p className="leading-relaxed">
-              We use Google Analytics and Firebase Analytics to understand how visitors interact with our website. This may include:
-            </p>
-            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400 mt-2">
-              <li>Device and browser information</li>
-              <li>IP address (anonymized)</li>
-              <li>Pages visited and time spent</li>
-              <li>Referring websites</li>
-              <li>Geographic location (country/city level)</li>
-            </ul>
-          </section>
+      <section className="px-4 py-24 md:px-8 md:py-32">
+        <div className="mx-auto grid max-w-[95vw] gap-8 lg:grid-cols-[0.42fr_1fr]">
+          <aside className="sticky top-28 hidden self-start border-2 border-frame-border p-6 lg:block">
+            <p className="text-xs font-black uppercase tracking-[0.26em] text-frame-accent">Document index</p>
+            <ol className="mt-6 grid gap-3 text-sm font-black uppercase tracking-tighter text-frame-muted-fg">
+              <li>Information we collect</li>
+              <li>How information is used</li>
+              <li>Security and third parties</li>
+              <li>Your rights</li>
+              <li>Contact</li>
+            </ol>
+          </aside>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">How We Use Your Information</h2>
-            <p className="leading-relaxed mb-4">
-              We use the information we collect to:
-            </p>
-            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-              <li>Respond to your inquiries and project requests</li>
-              <li>Communicate with you about our services</li>
-              <li>Improve our website and user experience</li>
-              <li>Analyze website traffic and usage patterns</li>
-              <li>Prevent fraud and enhance security</li>
-            </ul>
-          </section>
+          <div className="grid gap-px bg-frame-border">
+            <LegalSection title="Introduction">
+              <p>
+                Frame Cipher ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our contact form.
+              </p>
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Data Storage and Security</h2>
-            <p className="leading-relaxed mb-4">
-              Your contact form submissions are securely stored using Google Firebase Firestore, a cloud-hosted NoSQL database. We implement appropriate security measures including:
-            </p>
-            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-              <li>Encrypted data transmission (HTTPS/SSL)</li>
-              <li>Secure database access controls</li>
-              <li>Regular security audits</li>
-              <li>Limited access to authorized personnel only</li>
-            </ul>
-            <p className="leading-relaxed mt-4">
-              While we strive to protect your information, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
-            </p>
-          </section>
+            <LegalSection title="Information We Collect">
+              <h3>Contact Form Information</h3>
+              <p>When you submit our contact form, we collect:</p>
+              <List items={['Your name', 'Email address', 'Project type selection', 'Message content', 'Timestamp of submission']} />
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Third-Party Services</h2>
-            <p className="leading-relaxed mb-4">
-              We use the following third-party services that may collect information:
-            </p>
-            <div className="space-y-4">
-              <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Google Firebase</h3>
-                <p className="text-gray-400">
-                  Stores contact form submissions. View Firebase's privacy policy at{' '}
-                  <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">
-                    firebase.google.com/support/privacy
-                  </a>
-                </p>
-              </div>
-              <div>
-                <h3 className="text-lg font-semibold text-blue-400 mb-2">Google Analytics</h3>
-                <p className="text-gray-400">
-                  Tracks website usage and analytics. View Google's privacy policy at{' '}
-                  <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:underline">
-                    policies.google.com/privacy
-                  </a>
-                </p>
-              </div>
-            </div>
-          </section>
+              <h3>Analytics Information</h3>
+              <p>
+                We use Google Analytics and Firebase Analytics to understand how visitors interact with our website. This may include:
+              </p>
+              <List items={['Device and browser information', 'IP address (anonymized)', 'Pages visited and time spent', 'Referring websites', 'Geographic location (country/city level)']} />
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Your Rights</h2>
-            <p className="leading-relaxed mb-4">
-              You have the right to:
-            </p>
-            <ul className="list-disc list-inside space-y-2 ml-4 text-gray-400">
-              <li>Access the personal information we hold about you</li>
-              <li>Request correction of inaccurate information</li>
-              <li>Request deletion of your information</li>
-              <li>Opt-out of marketing communications</li>
-              <li>Object to processing of your information</li>
-            </ul>
-            <p className="leading-relaxed mt-4">
-              To exercise these rights, contact us at{' '}
-              <a href="mailto:teamframecipher@gmail.com" className="text-purple-400 hover:underline">
-                teamframecipher@gmail.com
-              </a>
-            </p>
-          </section>
+            <LegalSection title="How We Use Your Information">
+              <p>We use the information we collect to:</p>
+              <List items={['Respond to your inquiries and project requests', 'Communicate with you about our services', 'Improve our website and user experience', 'Analyze website traffic and usage patterns', 'Prevent fraud and enhance security']} />
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Data Retention</h2>
-            <p className="leading-relaxed">
-              We retain your contact form submissions for as long as necessary to respond to your inquiry and maintain business records. You may request deletion of your information at any time by contacting us.
-            </p>
-          </section>
+            <LegalSection title="Data Storage and Security">
+              <p>
+                Your contact form submissions are securely stored using Google Firebase Firestore, a cloud-hosted NoSQL database. We implement appropriate security measures including:
+              </p>
+              <List items={['Encrypted data transmission (HTTPS/SSL)', 'Secure database access controls', 'Regular security audits', 'Limited access to authorized personnel only']} />
+              <p>
+                While we strive to protect your information, no method of transmission over the internet is 100% secure. We cannot guarantee absolute security.
+              </p>
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Cookies</h2>
-            <p className="leading-relaxed">
-              Our website uses cookies and similar tracking technologies for analytics purposes. You can control cookies through your browser settings. Note that disabling cookies may affect website functionality.
-            </p>
-          </section>
+            <LegalSection title="Third-Party Services">
+              <p>We use the following third-party services that may collect information:</p>
+              <h3>Google Firebase</h3>
+              <p>
+                Stores contact form submissions. View Firebase's privacy policy at{' '}
+                <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener noreferrer">
+                  firebase.google.com/support/privacy
+                </a>
+              </p>
+              <h3>Google Analytics</h3>
+              <p>
+                Tracks website usage and analytics. View Google's privacy policy at{' '}
+                <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+                  policies.google.com/privacy
+                </a>
+              </p>
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Children's Privacy</h2>
-            <p className="leading-relaxed">
-              Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children.
-            </p>
-          </section>
+            <LegalSection title="Your Rights">
+              <p>You have the right to:</p>
+              <List items={['Access the personal information we hold about you', 'Request correction of inaccurate information', 'Request deletion of your information', 'Opt-out of marketing communications', 'Object to processing of your information']} />
+              <p>
+                To exercise these rights, contact us at{' '}
+                <a href="mailto:teamframecipher@gmail.com">teamframecipher@gmail.com</a>
+              </p>
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Changes to This Policy</h2>
-            <p className="leading-relaxed">
-              We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.
-            </p>
-          </section>
+            <LegalSection title="Data Retention">
+              <p>
+                We retain your contact form submissions for as long as necessary to respond to your inquiry and maintain business records. You may request deletion of your information at any time by contacting us.
+              </p>
+            </LegalSection>
 
-          <section className="border-l-2 border-purple-500/30 pl-6">
-            <h2 className="text-2xl font-bold text-purple-400 mb-4">Contact Us</h2>
-            <p className="leading-relaxed mb-4">
-              If you have questions about this Privacy Policy, please contact us:
-            </p>
-            <div className="space-y-2 text-gray-400">
-              <p>Email: <a href="mailto:teamframecipher@gmail.com" className="text-purple-400 hover:underline">teamframecipher@gmail.com</a></p>
-              <p>Phone: <a href="tel:+8801768146650" className="text-purple-400 hover:underline">+880 1768-146650</a></p>
+            <LegalSection title="Cookies">
+              <p>
+                Our website uses cookies and similar tracking technologies for analytics purposes. You can control cookies through your browser settings. Note that disabling cookies may affect website functionality.
+              </p>
+            </LegalSection>
+
+            <LegalSection title="Children's Privacy">
+              <p>
+                Our services are not directed to individuals under 18 years of age. We do not knowingly collect personal information from children.
+              </p>
+            </LegalSection>
+
+            <LegalSection title="Changes to This Policy">
+              <p>
+                We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated revision date. We encourage you to review this policy periodically.
+              </p>
+            </LegalSection>
+
+            <LegalSection title="Contact Us">
+              <p>If you have questions about this Privacy Policy, please contact us:</p>
+              <p>Email: <a href="mailto:teamframecipher@gmail.com">teamframecipher@gmail.com</a></p>
+              <p>Phone: <a href="tel:+8801768146650">+880 1768-146650</a></p>
               <p>Address: Mirpur 14, Dhaka, Bangladesh</p>
-            </div>
-          </section>
+            </LegalSection>
+          </div>
         </div>
-      </div>
-    </div>
+      </section>
+    </main>
+  )
+}
+
+function LegalSection({ title, children }) {
+  return (
+    <section className="bg-frame-bg p-7 md:p-10 [&_a]:border-b-2 [&_a]:border-frame-accent [&_a]:font-bold [&_a]:text-frame-fg [&_h3]:mt-8 [&_h3]:font-heading [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:uppercase [&_h3]:leading-none [&_h3]:tracking-tighter [&_h3]:text-frame-accent [&_p]:mt-4 [&_p]:text-base [&_p]:font-medium [&_p]:leading-tight [&_p]:text-frame-muted-fg [&_ul]:mt-5">
+      <h2 className="font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+        {title}
+      </h2>
+      {children}
+    </section>
+  )
+}
+
+function List({ items }) {
+  return (
+    <ul className="grid gap-2">
+      {items.map((item) => (
+        <li key={item} className="border-l-4 border-frame-accent pl-4 text-base font-medium leading-tight text-frame-muted-fg">
+          {item}
+        </li>
+      ))}
+    </ul>
   )
 }
