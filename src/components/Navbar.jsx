@@ -3,86 +3,125 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import { contact, navItems, services } from '../data/agency'
+
+const primaryServices = services.map((service) => ({
+  name: service.navTitle,
+  path: `/services/${service.slug}`,
+}))
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
 
-  const menuItems = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'Services', path: '/services' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' }
-  ]
+  const isActive = (path) => pathname === path || (path !== '/' && pathname.startsWith(path))
 
   return (
-    <>
-      {/* Menu Button */}
-      <button
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-        className="absolute top-8 right-8 z-50 w-12 h-12 flex flex-col items-center justify-center gap-1.5 border border-purple-500/50 hover:border-purple-400 transition-all duration-300 group overflow-hidden bg-[#0a0a0f]/80 backdrop-blur-sm"
-        aria-label="Toggle menu"
-      >
-        <div className="absolute inset-0 bg-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        <span className={`w-6 h-0.5 bg-purple-400 transition-all duration-300 relative z-10 ${isMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-        <span className={`w-6 h-0.5 bg-purple-400 transition-all duration-300 relative z-10 ${isMenuOpen ? 'opacity-0' : ''}`} />
-        <span className={`w-6 h-0.5 bg-purple-400 transition-all duration-300 relative z-10 ${isMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
-      </button>
-
-      {/* Menu Overlay */}
-      <div
-        className={`absolute inset-0 z-40 bg-black/90 backdrop-blur-lg transition-opacity duration-500 ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        <div
-          className={`absolute top-20 right-8 w-80 max-w-[calc(100vw-4rem)] bg-[#0a0a0f] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.3)] transition-all duration-500 ${
-            isMenuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-          }`}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <div className="p-8">
-            <div className="flex items-center gap-3 mb-8 pb-6 border-b border-purple-500/20">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-xs font-mono text-green-400 tracking-wider">NAVIGATION ACTIVE</span>
+    <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/10 bg-[#07070b]/85 backdrop-blur-xl">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-6" aria-label="Primary navigation">
+        <Link href="/" className="flex items-center gap-3" aria-label="Frame Cipher home">
+          <img src="/logo.png" alt="Frame Cipher" className="h-10 w-10 object-contain" />
+          <div>
+            <div className="font-heading text-sm font-bold tracking-[0.18em] text-white">FRAME CIPHER</div>
+            <div className="hidden text-[10px] uppercase tracking-[0.22em] text-cyan-300 sm:block">
+              Brand. Content. Tech. Growth.
             </div>
+          </div>
+        </Link>
 
-            <ul className="space-y-2">
-              {menuItems.map((item, index) => (
-                <li key={item.path}>
-                  <Link
-                    href={item.path}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block px-4 py-3 border transition-all duration-300 group relative overflow-hidden ${
-                      pathname === item.path
-                        ? 'border-purple-400 bg-purple-600/20 text-purple-300'
-                        : 'border-purple-500/20 hover:border-purple-400/50 hover:bg-purple-950/30 text-gray-300'
-                    }`}
-                    style={{ transitionDelay: `${index * 50}ms` }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <span className="font-mono text-sm tracking-wide">{item.name}</span>
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-300 ${
-                          pathname === item.path ? 'text-purple-400' : 'text-gray-500 group-hover:text-purple-400 group-hover:translate-x-1'
-                        }`}
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
+        <div className="hidden items-center gap-1 lg:flex">
+          {navItems.map((item) => (
+            <div key={item.path} className="group relative">
+              <Link
+                href={item.path}
+                className={`rounded-sm px-3 py-2 text-sm font-semibold transition-colors ${
+                  isActive(item.path) ? 'text-white' : 'text-gray-300 hover:text-white'
+                }`}
+              >
+                {item.name}
+              </Link>
+              {item.name === 'Services' && (
+                <div className="invisible absolute left-0 top-full w-72 translate-y-3 border border-white/10 bg-[#090912]/95 p-3 opacity-0 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100">
+                  <div className="mb-2 px-3 text-[11px] uppercase tracking-[0.22em] text-cyan-300">Service systems</div>
+                  <div className="grid gap-1">
+                    {primaryServices.map((service) => (
+                      <Link
+                        key={service.path}
+                        href={service.path}
+                        className="rounded-sm px-3 py-2 text-sm text-gray-300 transition-colors hover:bg-white/5 hover:text-white"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-linear-to-r from-purple-600 to-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                  </Link>
-                </li>
-              ))}
-            </ul>
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden items-center gap-3 lg:flex">
+          <a
+            href={contact.whatsapp}
+            className="rounded-sm border border-cyan-400/40 px-4 py-2 text-sm font-semibold text-cyan-200 transition-colors hover:border-cyan-300 hover:bg-cyan-300/10"
+          >
+            Talk on WhatsApp
+          </a>
+          <Link
+            href="/contact"
+            className="rounded-sm bg-white px-4 py-2 text-sm font-bold text-[#08080d] transition-transform hover:-translate-y-0.5"
+          >
+            Book a Call
+          </Link>
+        </div>
+
+        <button
+          onClick={() => setIsMenuOpen((value) => !value)}
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border border-white/15 bg-white/5 lg:hidden"
+          aria-label="Toggle navigation menu"
+          aria-expanded={isMenuOpen}
+        >
+          <span className={`h-0.5 w-5 bg-white transition-transform ${isMenuOpen ? 'translate-y-2 rotate-45' : ''}`} />
+          <span className={`h-0.5 w-5 bg-white transition-opacity ${isMenuOpen ? 'opacity-0' : ''}`} />
+          <span className={`h-0.5 w-5 bg-white transition-transform ${isMenuOpen ? '-translate-y-2 -rotate-45' : ''}`} />
+        </button>
+      </nav>
+
+      <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+        <div className="border-t border-white/10 bg-[#090912] px-4 py-5">
+          <div className="grid gap-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.path}
+                href={item.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`border px-4 py-3 text-sm font-semibold ${
+                  isActive(item.path)
+                    ? 'border-cyan-300/40 bg-cyan-300/10 text-white'
+                    : 'border-white/10 text-gray-300'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-4 grid grid-cols-2 gap-3">
+            <a
+              href={contact.whatsapp}
+              className="border border-cyan-400/40 px-4 py-3 text-center text-sm font-semibold text-cyan-200"
+            >
+              WhatsApp
+            </a>
+            <Link
+              href="/contact"
+              onClick={() => setIsMenuOpen(false)}
+              className="bg-white px-4 py-3 text-center text-sm font-bold text-[#08080d]"
+            >
+              Book a Call
+            </Link>
           </div>
         </div>
       </div>
-    </>
+    </header>
   )
 }

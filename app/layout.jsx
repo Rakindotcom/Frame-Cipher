@@ -2,29 +2,30 @@ import Navbar from '../src/components/Navbar'
 import Footer from '../src/components/Footer'
 import RouteScrollToTop from '../src/components/RouteScrollToTop'
 import ScrollToTopButton from '../src/components/ScrollToTop'
+import { contact, services, siteUrl } from '../src/data/agency'
 import '../src/index.css'
 
-const siteUrl = 'https://framecipher.info'
 const siteDescription =
-  'Premium media production agency specializing in commercial video production, product campaigns, professional photography, and brand strategy. Transform your vision into cinematic reality.'
+  'Frame Cipher is a 360 marketing, media and technology agency offering branding, digital marketing, video production, photography, websites, software solutions and growth systems.'
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'Frame Cipher | Cinematic Media Production Agency',
+    default: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
     template: '%s | Frame Cipher',
   },
   description: siteDescription,
   keywords: [
-    'video production',
-    'commercial video',
-    'photography',
-    'brand strategy',
-    'media production',
-    'product campaign',
-    'cinematic video',
-    'Frame Cipher',
-    'Bangladesh',
+    '360 marketing agency in Bangladesh',
+    'digital marketing agency in Dhaka',
+    'social media marketing agency in Dhaka',
+    'video production agency Bangladesh',
+    'website development company Bangladesh',
+    'software company Bangladesh',
+    'branding agency Bangladesh',
+    'e-commerce website development Bangladesh',
+    'Facebook ads agency Bangladesh',
+    'SEO agency Bangladesh',
   ],
   authors: [{ name: 'Frame Cipher' }],
   icons: {
@@ -40,9 +41,10 @@ export const metadata = {
   openGraph: {
     type: 'website',
     url: siteUrl,
-    title: 'Frame Cipher | Cinematic Media Production Agency',
+    title: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
     description: siteDescription,
     siteName: 'Frame Cipher',
+    // TODO: Replace logo fallback with /public/og-image.jpg when a dedicated 1200x630 brand image is ready.
     images: [
       {
         url: '/logo.png',
@@ -54,9 +56,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Frame Cipher | Cinematic Media Production Agency',
-    description:
-      'Premium media production agency specializing in commercial video production, product campaigns, professional photography, and brand strategy.',
+    title: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
+    description: siteDescription,
     images: ['/logo.png'],
   },
 }
@@ -68,12 +69,12 @@ export const viewport = {
 
 const organizationSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
+  '@type': ['Organization', 'LocalBusiness'],
   name: 'Frame Cipher',
   url: siteUrl,
   logo: `${siteUrl}/logo.png`,
-  description:
-    'Premium media production agency specializing in commercial video production, product campaigns, professional photography, and brand strategy.',
+  description: siteDescription,
+  slogan: 'One Team for Brand, Content, Tech, and Growth.',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Mirpur 14',
@@ -82,18 +83,12 @@ const organizationSchema = {
   },
   contactPoint: {
     '@type': 'ContactPoint',
-    telephone: '+880-1768-146650',
+    telephone: contact.phoneHref,
     contactType: 'Customer Service',
-    email: 'teamframecipher@gmail.com',
+    email: contact.email,
   },
-  sameAs: [],
-  areaServed: 'Worldwide',
-  serviceType: [
-    'Commercial Video Production',
-    'Product Campaign',
-    'Professional Photography',
-    'Brand Strategy',
-  ],
+  areaServed: ['Bangladesh', 'Worldwide'],
+  serviceType: services.map((service) => service.title),
 }
 
 export default function RootLayout({ children }) {
@@ -113,7 +108,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <RouteScrollToTop />
-        <div className="bg-[#0a0a0f] text-white min-h-screen overflow-x-hidden">
+        <div className="min-h-screen overflow-x-hidden bg-[#07070b] text-white">
           <Navbar />
           {children}
           <Footer />

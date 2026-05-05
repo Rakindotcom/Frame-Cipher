@@ -1,49 +1,108 @@
-import Intelligence from '../components/Intelligence'
+import Link from 'next/link'
+import { industries, servicePillars } from '../data/agency'
+
+const principles = [
+  'Strategy before production',
+  'Creative that supports the offer',
+  'Technology that makes growth easier to manage',
+  'Clear handoffs, clear ownership, clear reporting',
+]
 
 export default function AboutPage() {
   return (
-    <div className="pt-0">
-      <div className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center mb-16">
-          <div className="flex items-center gap-4 mb-4 justify-center">
-            <div className="h-px w-24 bg-linear-to-r from-transparent to-purple-500/50" />
-            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">WHO WE ARE</span>
-            <div className="h-px w-24 bg-linear-to-l from-transparent to-purple-500/50" />
-          </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              About Frame Cipher
-            </span>
+    <main className="px-6 pb-24 pt-32">
+      <section className="mx-auto max-w-7xl">
+        <div className="max-w-5xl">
+          <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">About Frame Cipher</p>
+          <h1 className="font-heading text-5xl font-bold leading-tight text-white md:text-7xl">
+            A modern agency built for brands that need strategy, content, technology, and execution under one roof.
           </h1>
-          <p className="text-xl text-gray-400 leading-relaxed mb-8">
-            We are a premium media production agency dedicated to crafting cinematic experiences that elevate brands and captivate audiences.
+          <p className="mt-7 max-w-4xl text-lg leading-8 text-gray-400 md:text-xl">
+            Frame Cipher was built for businesses that do not want scattered execution. We combine strategic
+            thinking, creative production, marketing, and technology so brands can move faster from idea to
+            launch and from launch to scale.
           </p>
         </div>
+      </section>
 
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 mb-20">
-          <div className="border border-purple-500/20 bg-[#0a0a0f]/50 backdrop-blur-sm p-8">
-            <h2 className="text-3xl font-bold mb-4 text-purple-400">Our Story</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              Founded with a vision to bridge the gap between artistic excellence and commercial success, Frame Cipher has grown into a trusted partner for brands seeking to make a lasting impact.
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-              Our team combines decades of experience in cinematography, post-production, and brand strategy to deliver results that exceed expectations.
-            </p>
-          </div>
+      <section className="mx-auto mt-20 grid max-w-7xl gap-5 lg:grid-cols-3">
+        <article className="border border-white/10 bg-white/[0.04] p-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Why Frame Cipher exists</p>
+          <h2 className="font-heading text-3xl font-bold text-white">To connect the work that growth depends on.</h2>
+          <p className="mt-5 leading-8 text-gray-400">
+            Many brands hire one person for ads, another for design, another for video, and another for websites.
+            The result is often slow execution and campaigns that do not feel connected.
+          </p>
+        </article>
+        <article className="border border-white/10 bg-white/[0.04] p-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">What problem it solves</p>
+          <h2 className="font-heading text-3xl font-bold text-white">Scattered execution becomes one operating system.</h2>
+          <p className="mt-5 leading-8 text-gray-400">
+            We bring strategy, creative, media, software, and performance work into one workflow so content,
+            platforms, campaigns, and data can support the same business goal.
+          </p>
+        </article>
+        <article className="border border-white/10 bg-white/[0.04] p-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.2em] text-cyan-300">Founder story</p>
+          <h2 className="font-heading text-3xl font-bold text-white">Built from creative production into growth infrastructure.</h2>
+          <p className="mt-5 leading-8 text-gray-400">
+            Frame Cipher began with visual execution and expanded toward the systems that make creative work
+            perform: positioning, websites, campaign planning, software, and optimization.
+          </p>
+        </article>
+      </section>
 
-          <div className="border border-blue-500/20 bg-[#0a0a0f]/50 backdrop-blur-sm p-8">
-            <h2 className="text-3xl font-bold mb-4 text-blue-400">Our Mission</h2>
-            <p className="text-gray-300 leading-relaxed mb-4">
-              To empower brands with visual storytelling that resonates, engages, and converts. We believe every project deserves the highest level of creative attention and technical precision.
-            </p>
-            <p className="text-gray-300 leading-relaxed">
-              Through collaboration and innovation, we transform ideas into compelling visual narratives that drive real business results.
-            </p>
-          </div>
+      <section className="mx-auto mt-20 max-w-7xl">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Team capabilities</p>
+        <h2 className="mb-10 font-heading text-4xl font-bold text-white md:text-5xl">The capability mix behind the agency.</h2>
+        <div className="grid gap-4 md:grid-cols-5">
+          {servicePillars.map((pillar) => (
+            <article key={pillar.title} className="border border-white/10 bg-[#0b0d14] p-6">
+              <h3 className="font-heading text-2xl font-bold text-white">{pillar.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-gray-400">{pillar.description}</p>
+            </article>
+          ))}
         </div>
-      </div>
+      </section>
 
-      <Intelligence />
-    </div>
+      <section className="mx-auto mt-20 grid max-w-7xl gap-8 lg:grid-cols-2">
+        <article className="border border-white/10 bg-white/[0.04] p-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Operating principles</p>
+          <ul className="grid gap-4">
+            {principles.map((principle) => (
+              <li key={principle} className="border-b border-white/10 pb-4 text-gray-300 last:border-b-0 last:pb-0">
+                {principle}
+              </li>
+            ))}
+          </ul>
+        </article>
+        <article className="border border-white/10 bg-white/[0.04] p-8">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">How the agency works</p>
+          <p className="leading-8 text-gray-400">
+            We start with the business problem, define the growth system around it, then move through strategy,
+            creative direction, production, development, launch, reporting, and optimization. The goal is not to
+            sell isolated services. The goal is to build the next useful system for the business.
+          </p>
+        </article>
+      </section>
+
+      <section className="mx-auto mt-20 max-w-7xl">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Industries served</p>
+        <div className="flex flex-wrap gap-3">
+          {industries.map((industry) => (
+            <span key={industry} className="border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-semibold text-gray-300">
+              {industry}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto mt-24 max-w-5xl border border-cyan-300/20 bg-white/[0.04] p-8 text-center md:p-12">
+        <h2 className="font-heading text-4xl font-bold text-white">Want one team to help plan and execute the next move?</h2>
+        <Link href="/contact" className="mt-8 inline-block bg-white px-6 py-4 text-sm font-bold text-[#08080d]">
+          Book a Strategy Call
+        </Link>
+      </section>
+    </main>
   )
 }

@@ -1,9 +1,9 @@
 import ProjectsPage from '../../src/views/ProjectsPage'
 
 export const metadata = {
-  title: 'Projects',
+  title: 'Work',
   description:
-    'Explore Frame Cipher video production, short-form content, and graphic design work.',
+    'Explore Frame Cipher work across video production, graphic design, campaign assets, websites, software structures, and growth systems.',
   alternates: {
     canonical: '/projects',
   },

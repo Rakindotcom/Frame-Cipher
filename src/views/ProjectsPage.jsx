@@ -1,219 +1,101 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
+import { portfolioProjects } from '../data/agency'
 
-const graphics = Array.from({ length: 12 }, (_, i) => ({
-  id: i + 1,
-  image: `/${i + 1}.webp`,
-  title: `Graphic Design ${i + 1}`
-}))
-
-const longVideos = [
-  { id: 1, videoId: 'bqdK_EifW8k', title: 'Video Production 1', thumbnail: `https://img.youtube.com/vi/bqdK_EifW8k/sddefault.jpg` },
-  { id: 2, videoId: '3MR8SvdrMkU', title: 'Video Production 2', thumbnail: `https://img.youtube.com/vi/3MR8SvdrMkU/sddefault.jpg` },
-  { id: 3, videoId: 'XlQ0tDigUXQ', title: 'Video Production 3', thumbnail: `https://img.youtube.com/vi/XlQ0tDigUXQ/sddefault.jpg` },
-  { id: 4, videoId: 'O83G1LJiCuc', title: 'Video Production 4', thumbnail: `https://img.youtube.com/vi/O83G1LJiCuc/sddefault.jpg` },
-  { id: 5, videoId: 'v99Sdv2S_AA', title: 'Video Production 5', thumbnail: `https://img.youtube.com/vi/v99Sdv2S_AA/sddefault.jpg` },
-  { id: 6, videoId: 'HqtC1iscSVQ', title: 'Video Production 6', thumbnail: `https://img.youtube.com/vi/HqtC1iscSVQ/sddefault.jpg` }
-]
-
-const shortVideos = [
-  { id: 1, videoId: 'Sx3DupRPBLc', title: 'Short Video 1', thumbnail: `https://img.youtube.com/vi/Sx3DupRPBLc/sddefault.jpg` },
-  { id: 2, videoId: '-QByXDvlKdI', title: 'Short Video 2', thumbnail: `https://img.youtube.com/vi/-QByXDvlKdI/sddefault.jpg` },
-  { id: 3, videoId: 'Bx5Z-7kjm_o', title: 'Short Video 3', thumbnail: `https://img.youtube.com/vi/Bx5Z-7kjm_o/sddefault.jpg` },
-  { id: 4, videoId: 'X5brSTr9OO0', title: 'Short Video 4', thumbnail: `https://img.youtube.com/vi/X5brSTr9OO0/sddefault.jpg` },
-  { id: 5, videoId: 'HtZSMqRHEQc', title: 'Short Video 5', thumbnail: `https://img.youtube.com/vi/HtZSMqRHEQc/sddefault.jpg` },
-  { id: 6, videoId: 'Iol74xIvGa0', title: 'Short Video 6', thumbnail: `https://img.youtube.com/vi/Iol74xIvGa0/sddefault.jpg` },
-  { id: 7, videoId: '5cIWGn3A5i8', title: 'Short Video 7', thumbnail: `https://img.youtube.com/vi/5cIWGn3A5i8/sddefault.jpg` },
-  { id: 8, videoId: 'KGD6GGqEliA', title: 'Short Video 8', thumbnail: `https://img.youtube.com/vi/KGD6GGqEliA/sddefault.jpg` }
-]
+const filters = ['All', 'Branding', 'Websites', 'Software', 'Marketing', 'Video', 'Photography', 'Campaigns']
 
 export default function ProjectsPage() {
-  const [selectedImage, setSelectedImage] = useState(null)
-  const [selectedVideo, setSelectedVideo] = useState(null)
-  const [hoveredId, setHoveredId] = useState(null)
+  const [activeFilter, setActiveFilter] = useState('All')
+
+  const filteredProjects =
+    activeFilter === 'All'
+      ? portfolioProjects
+      : portfolioProjects.filter((project) => project.category === activeFilter || project.services.includes(activeFilter))
 
   return (
-    <div className="py-32 px-6">
-      <div className="max-w-7xl mx-auto">
-        {/* Videos Section */}
-        <div className="mb-24">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
-            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">VIDEOS</span>
-            <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Video Production
-            </span>
-          </h2>
-          <p className="text-center text-gray-400 text-lg mb-12">Watch our creative video content</p>
-
-          {/* Long Videos */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-bold mb-6 text-purple-300">Full Videos</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              {longVideos.map((video) => (
-                <div
-                  key={video.id}
-                  className="group relative cursor-pointer"
-                  onClick={() => setSelectedVideo(video)}
-                  onMouseEnter={() => setHoveredId(`long-${video.id}`)}
-                  onMouseLeave={() => setHoveredId(null)}
-                >
-                  <div className="relative overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-                    <div className="aspect-video overflow-hidden relative">
-                      <img 
-                        src={video.thumbnail} 
-                        alt={video.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
-                      
-                      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredId === `long-${video.id}` ? 'opacity-100' : 'opacity-0'}`}>
-                        <div className="w-16 h-16 border-2 border-purple-400 rounded-full flex items-center justify-center bg-purple-950/50 backdrop-blur-sm">
-                          <svg className="w-8 h-8 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Short Videos */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-purple-300">Shorts</h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-              {shortVideos.map((video) => (
-                <div
-                  key={video.id}
-                  className="group relative cursor-pointer"
-                  onClick={() => setSelectedVideo(video)}
-                  onMouseEnter={() => setHoveredId(`short-${video.id}`)}
-                  onMouseLeave={() => setHoveredId(null)}
-                >
-                  <div className="relative overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]">
-                    <div className="aspect-9/16 overflow-hidden relative">
-                      <img 
-                        src={video.thumbnail} 
-                        alt={video.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-linear-to-t from-[#0f0f1a] via-transparent to-transparent opacity-60" />
-                      
-                      <div className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${hoveredId === `short-${video.id}` ? 'opacity-100' : 'opacity-0'}`}>
-                        <div className="w-12 h-12 border-2 border-purple-400 rounded-full flex items-center justify-center bg-purple-950/50 backdrop-blur-sm">
-                          <svg className="w-6 h-6 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
-                          </svg>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="absolute bottom-0 left-0 right-0 h-1 bg-linear-to-r from-purple-600 via-blue-500 to-purple-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+    <main className="px-6 pb-24 pt-32">
+      <section className="mx-auto max-w-7xl">
+        <div className="max-w-4xl">
+          <p className="mb-5 text-xs font-bold uppercase tracking-[0.24em] text-cyan-300">Work</p>
+          <h1 className="font-heading text-5xl font-bold leading-tight text-white md:text-7xl">
+            A portfolio structure for brand, media, technology, and growth work.
+          </h1>
+          <p className="mt-6 text-lg leading-8 text-gray-400 md:text-xl">
+            Current public assets include video production, short-form content, and graphic design work.
+            Placeholder project structures are included where real proof can be added later without inventing results.
+          </p>
         </div>
 
-        {/* Graphics Section */}
-        <div>
-          <div className="flex items-center gap-4 mb-4">
-            <div className="h-px flex-1 bg-linear-to-r from-transparent to-purple-500/50" />
-            <span className="text-sm font-mono text-purple-400 tracking-[0.3em]">GRAPHICS</span>
-            <div className="h-px flex-1 bg-linear-to-l from-transparent to-purple-500/50" />
-          </div>
-          <h2 className="text-5xl md:text-6xl font-bold text-center mb-4">
-            <span className="bg-linear-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              Graphic Design
-            </span>
-          </h2>
-          <p className="text-center text-gray-400 text-lg mb-12">Visual design and creative graphics</p>
+        <div className="mt-10 flex flex-wrap gap-3" aria-label="Project filters">
+          {filters.map((filter) => (
+            <button
+              key={filter}
+              type="button"
+              onClick={() => setActiveFilter(filter)}
+              className={`border px-4 py-2 text-sm font-semibold transition-colors ${
+                activeFilter === filter
+                  ? 'border-cyan-300/60 bg-cyan-300/10 text-white'
+                  : 'border-white/10 text-gray-400 hover:border-white/30 hover:text-white'
+              }`}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+      </section>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {graphics.map((graphic) => (
-              <div
-                key={graphic.id}
-                className="group relative cursor-pointer overflow-hidden border border-purple-500/20 bg-[#0f0f1a] transition-all duration-500 hover:border-purple-400/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)]"
-                onClick={() => setSelectedImage(graphic)}
-              >
-                <div className="aspect-square overflow-hidden relative">
-                  <img 
-                    src={graphic.image} 
-                    alt={graphic.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300" />
-                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg className="w-12 h-12 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
-                </div>
+      <section className="mx-auto mt-12 max-w-7xl">
+        <div className="grid gap-5 lg:grid-cols-3">
+          {filteredProjects.map((project) => (
+            <article key={project.name} className="overflow-hidden border border-white/10 bg-white/[0.04]">
+              <div className="aspect-video bg-[#11131d]">
+                <img src={project.preview} alt={project.name} className="h-full w-full object-cover" />
               </div>
-            ))}
-          </div>
+              <div className="p-6">
+                <div className="flex flex-wrap gap-2">
+                  <span className="border border-cyan-300/20 bg-cyan-300/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-cyan-200">
+                    {project.category}
+                  </span>
+                  {project.placeholder && (
+                    <span className="border border-white/10 px-3 py-1 text-xs font-bold uppercase tracking-[0.18em] text-gray-400">
+                      Replaceable
+                    </span>
+                  )}
+                </div>
+                <h2 className="mt-4 font-heading text-2xl font-bold text-white">{project.name}</h2>
+                <dl className="mt-4 grid gap-3 text-sm">
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Client or brand type</dt>
+                    <dd className="mt-1 text-gray-300">{project.brandType}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Industry</dt>
+                    <dd className="mt-1 text-gray-300">{project.industry}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-xs font-bold uppercase tracking-[0.18em] text-gray-500">Services delivered</dt>
+                    <dd className="mt-1 text-gray-300">{project.services.join(', ')}</dd>
+                  </div>
+                </dl>
+                <p className="mt-4 text-sm leading-7 text-gray-400">{project.description}</p>
+                <p className="mt-5 border-t border-white/10 pt-4 text-sm text-gray-300">{project.scope}</p>
+              </div>
+            </article>
+          ))}
         </div>
-      </div>
+      </section>
 
-      {/* Image Modal */}
-      {selectedImage && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fadeIn">
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedImage(null)} />
-          <div className="relative max-w-5xl max-h-[90vh]">
-            <button
-              onClick={(e) => {
-                e.stopPropagation()
-                setSelectedImage(null)
-              }}
-              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center bg-black/50 border border-purple-500/50 hover:border-purple-400 hover:bg-purple-950/80 transition-all duration-300 group"
-            >
-              <svg className="w-6 h-6 text-purple-400 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            <img 
-              src={selectedImage.image} 
-              alt={selectedImage.title}
-              className="max-w-full max-h-[90vh] object-contain border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.3)]"
-            />
-          </div>
-        </div>
-      )}
-
-      {/* Video Modal */}
-      {selectedVideo && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-fadeIn">
-          <div className="absolute inset-0 bg-black/90 backdrop-blur-sm" onClick={() => setSelectedVideo(null)} />
-          <div className="relative w-full max-w-6xl max-h-[90vh] overflow-y-auto bg-[#0a0a0f] border border-purple-500/30 shadow-[0_0_50px_rgba(168,85,247,0.3)]">
-            <button
-              onClick={() => setSelectedVideo(null)}
-              className="absolute top-6 right-6 z-10 w-10 h-10 flex items-center justify-center border border-purple-500/50 hover:border-purple-400 hover:bg-purple-950/50 transition-all duration-300 group"
-            >
-              <svg className="w-6 h-6 text-purple-400 group-hover:rotate-90 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <div className="aspect-video w-full bg-black">
-              <iframe
-                className="w-full h-full"
-                src={`https://www.youtube.com/embed/${selectedVideo.videoId}`}
-                title={selectedVideo.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+      <section className="mx-auto mt-24 max-w-5xl border border-cyan-300/20 bg-white/[0.04] p-8 text-center md:p-12">
+        <h2 className="font-heading text-4xl font-bold text-white">Have a project that needs strategy and execution?</h2>
+        <p className="mx-auto mt-5 max-w-2xl text-gray-400">
+          Send the brief and we will help shape the brand, content, platform, campaign, or software system around it.
+        </p>
+        <Link href="/contact" className="mt-8 inline-block bg-white px-6 py-4 text-sm font-bold text-[#08080d]">
+          Send Us a Brief
+        </Link>
+      </section>
+    </main>
   )
 }

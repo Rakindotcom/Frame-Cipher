@@ -1,58 +1,85 @@
 import Link from 'next/link'
+import { contact, navItems, services, siteUrl } from '../data/agency'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-purple-500/20 py-6 md:py-8 px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-6">
-          <div className="col-span-2 md:col-span-1">
-            <div className="flex items-center gap-2 mb-2">
-              <img src="/logo.png" alt="Frame Cipher" className="w-8 h-8 object-contain" />
-              <h3 className="text-lg font-bold bg-linear-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent">
-                FRAME CIPHER
-              </h3>
+    <footer className="border-t border-white/10 bg-[#07070b] px-6 py-12">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+          <div>
+            <div className="mb-5 flex items-center gap-3">
+              <img src="/logo.png" alt="Frame Cipher" className="h-11 w-11 object-contain" />
+              <div className="font-heading text-lg font-bold tracking-[0.16em]">FRAME CIPHER</div>
             </div>
-            <p className="text-gray-400 text-xs leading-relaxed">
-              Cinematic media production agency specializing in commercial video, photography, and brand strategy.
+            <p className="max-w-md text-sm leading-7 text-gray-400">
+              Frame Cipher is a 360 marketing, media, and technology agency helping brands build strategy,
+              content, software, campaigns, and growth systems under one roof.
             </p>
+            <p className="mt-4 text-xs uppercase tracking-[0.2em] text-cyan-300">{siteUrl}</p>
           </div>
 
           <div>
-            <h4 className="text-xs font-mono text-purple-400 tracking-wider mb-2">QUICK ACCESS</h4>
-            <ul className="space-y-1 text-xs">
-              <li><Link href="/projects" className="text-gray-400 hover:text-purple-400 transition-colors">Projects</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-purple-400 transition-colors">Services</Link></li>
-              <li><Link href="/about" className="text-gray-400 hover:text-purple-400 transition-colors">About</Link></li>
-              <li><Link href="/contact" className="text-gray-400 hover:text-purple-400 transition-colors">Contact</Link></li>
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">Core Services</h2>
+            <ul className="grid gap-2 text-sm">
+              {services.slice(0, 8).map((service) => (
+                <li key={service.slug}>
+                  <Link href={`/services/${service.slug}`} className="text-gray-400 transition-colors hover:text-white">
+                    {service.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="text-xs font-mono text-purple-400 tracking-wider mb-2">CONTACT</h4>
-            <ul className="space-y-1 text-xs text-gray-400">
-              <li>Mirpur 14, Dhaka</li>
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">Company</h2>
+            <ul className="grid gap-2 text-sm">
+              {navItems.slice(1).map((item) => (
+                <li key={item.path}>
+                  <Link href={item.path} className="text-gray-400 transition-colors hover:text-white">
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <a href="tel:+8801768146650" className="hover:text-purple-400 transition-colors">
-                  +880 1768-146650
+                <Link href="/privacy" className="text-gray-400 transition-colors hover:text-white">
+                  Privacy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms" className="text-gray-400 transition-colors hover:text-white">
+                  Terms
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="mb-4 text-xs font-bold uppercase tracking-[0.22em] text-cyan-300">Contact</h2>
+            <ul className="grid gap-3 text-sm text-gray-400">
+              <li>{contact.location}</li>
+              <li>
+                <a href={`tel:${contact.phoneHref}`} className="transition-colors hover:text-white">
+                  {contact.phone}
                 </a>
               </li>
               <li>
-                <a href="mailto:teamframecipher@gmail.com" className="hover:text-purple-400 transition-colors">
-                  teamframecipher@gmail.com
+                <a href={`mailto:${contact.email}`} className="transition-colors hover:text-white">
+                  {contact.email}
+                </a>
+              </li>
+              <li>
+                <a href={contact.whatsapp} className="text-cyan-200 transition-colors hover:text-white">
+                  Talk on WhatsApp
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-purple-500/20 pt-4 flex flex-col md:flex-row justify-between items-center gap-2 text-xs">
-          <p className="text-gray-500 font-mono">
-            © 2026 FRAME CIPHER. ALL RIGHTS RESERVED.
-          </p>
-          <div className="flex gap-4 text-gray-500">
-            <Link href="/privacy" className="hover:text-purple-400 transition-colors">Privacy</Link>
-            <Link href="/terms" className="hover:text-purple-400 transition-colors">Terms</Link>
-          </div>
+        <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-xs text-gray-500 md:flex-row md:items-center md:justify-between">
+          <p>© 2026 Frame Cipher. All rights reserved.</p>
+          <p>One Team for Brand, Content, Tech, and Growth.</p>
         </div>
       </div>
     </footer>

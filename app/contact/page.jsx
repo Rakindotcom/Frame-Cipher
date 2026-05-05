@@ -3,7 +3,7 @@ import ContactPage from '../../src/views/ContactPage'
 export const metadata = {
   title: 'Contact',
   description:
-    'Contact Frame Cipher to discuss commercial video, photography, brand strategy, and creative production projects.',
+    'Tell Frame Cipher what you are building and get help with campaign planning, content production, websites, software, or a complete 360 growth system.',
   alternates: {
     canonical: '/contact',
   },

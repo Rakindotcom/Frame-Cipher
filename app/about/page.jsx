@@ -1,9 +1,9 @@
 import AboutPage from '../../src/views/AboutPage'
 
 export const metadata = {
-  title: 'About',
+  title: 'About Frame Cipher',
   description:
-    'Learn about Frame Cipher, a media production agency crafting cinematic experiences for modern brands.',
+    'Learn about Frame Cipher, a modern 360 agency built for brands that need strategy, content, technology, marketing, and execution under one roof.',
   alternates: {
     canonical: '/about',
   },
