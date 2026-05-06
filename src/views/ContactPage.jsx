@@ -162,7 +162,7 @@ export default function ContactPage() {
                   onChange={handleChange}
                   required
                   rows="6"
-                  className="min-h-48 w-full resize-y border-2 border-frame-border bg-frame-bg px-4 py-4 text-base font-semibold leading-snug text-frame-fg outline-none transition-colors placeholder:text-frame-muted focus:border-frame-accent"
+                  className="h-48 w-full resize-none border-2 border-frame-border bg-frame-bg px-4 py-4 text-base font-semibold leading-snug text-frame-fg outline-none transition-colors placeholder:text-frame-muted focus:border-frame-accent"
                   placeholder="Tell us about the business, offer, goal, current problem, and what you need built or promoted."
                 />
               </div>

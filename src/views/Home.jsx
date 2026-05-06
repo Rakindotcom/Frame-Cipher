@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { GrowthOSHome } from '../components/GrowthOS'
 import {
   engagementModels,
   industries,
@@ -144,9 +145,12 @@ export default function Home() {
             </p>
           </div>
 
-          <div>
-            <h1 className="max-w-[15ch] font-heading text-[clamp(3.4rem,13vw,14rem)] font-bold uppercase leading-[0.78] tracking-tighter text-frame-fg">
-              Frame Cipher builds brands that move
+          <div className="text-center">
+            <h1 className="mx-auto max-w-[16ch] font-heading text-[clamp(3.4rem,13vw,14rem)] font-bold uppercase leading-[0.78] tracking-tighter text-frame-fg">
+              <span className="block text-frame-accent">Frame Cipher</span>
+              <span className="mt-3 block text-[0.52em] leading-[0.88] md:mt-4">
+                builds brands that move
+              </span>
             </h1>
             <div className="mt-12 grid gap-8 border-t-2 border-frame-border pt-8 lg:grid-cols-[1fr_0.62fr] lg:items-end">
               <p className="max-w-5xl text-xl font-medium leading-tight text-frame-muted-fg md:text-3xl">
@@ -161,6 +165,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <GrowthOSHome />
 
       <MarqueeStats />
 

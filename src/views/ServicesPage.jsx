@@ -1,4 +1,5 @@
 import { engagementModels, servicePillars, services } from '../data/agency'
+import { GrowthOSServices } from '../components/GrowthOS'
 import { CTASection, InversionCard, PageHero, PosterButton, SectionIntro, TypeMarquee } from '../components/Kinetic'
 
 export default function ServicesPage() {
@@ -19,6 +20,8 @@ export default function ServicesPage() {
         Frame Cipher helps brands move from scattered execution to an integrated growth system:
         positioning, content, production, websites, software, campaigns, and optimization.
       </PageHero>
+
+      <GrowthOSServices />
 
       <TypeMarquee items={services.map((service) => service.navTitle)} slow />
 

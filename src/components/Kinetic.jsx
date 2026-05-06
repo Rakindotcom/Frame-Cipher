@@ -13,12 +13,12 @@ export function PageHero({ eyebrow, title, children, meta, number = '360', actio
           {meta && <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-muted-fg md:text-base">{meta}</p>}
         </div>
         
-        <div className="mx-auto flex max-w-5xl flex-col items-center text-center">
-          <h1 className="font-heading text-[clamp(2.8rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+        <div className="flex w-full flex-col items-center text-center">
+          <h1 className="w-full font-heading text-[clamp(2.8rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
             {title}
           </h1>
-          <div className="mt-8 flex flex-col items-center gap-8">
-            {children && <p className="max-w-3xl text-lg font-medium leading-snug text-frame-muted-fg md:text-2xl">{children}</p>}
+          <div className="mt-8 flex max-w-4xl flex-col items-center gap-8">
+            {children && <p className="text-lg font-medium leading-snug text-frame-muted-fg md:text-2xl">{children}</p>}
             {actions && <div className="flex flex-wrap justify-center gap-4">{actions}</div>}
           </div>
         </div>
