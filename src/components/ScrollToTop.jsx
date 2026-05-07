@@ -8,10 +8,26 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setIsVisible(true)
-      } else {
+      // Check if scrolled past 300px
+      if (window.pageYOffset <= 300) {
         setIsVisible(false)
+        return
+      }
+
+      // Check if footer is in viewport
+      const footer = document.querySelector('footer')
+      if (footer) {
+        const footerRect = footer.getBoundingClientRect()
+        const windowHeight = window.innerHeight
+        
+        // Hide button if footer is visible in viewport
+        if (footerRect.top < windowHeight) {
+          setIsVisible(false)
+        } else {
+          setIsVisible(true)
+        }
+      } else {
+        setIsVisible(true)
       }
     }
 
@@ -28,6 +44,7 @@ export default function ScrollToTop() {
     modalObserver.observe(document.body, { childList: true, subtree: true })
     
     checkForModal()
+    toggleVisibility() // Initial check
 
     return () => {
       window.removeEventListener('scroll', toggleVisibility)

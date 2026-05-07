@@ -130,34 +130,41 @@ export default function Home() {
 
   return (
     <main className="relative bg-frame-bg text-frame-fg">
-      <section className="relative isolate min-h-[calc(100vh-72px)] overflow-hidden border-b-2 border-frame-border px-4 pb-14 pt-28 md:px-8 md:pb-20 md:pt-36">
-        <div className="absolute -right-8 top-28 -z-10 font-heading text-[34vw] font-bold leading-none tracking-tighter text-frame-muted md:top-12 md:text-[24vw]" aria-hidden="true">
+      <section className="relative isolate border-b-2 border-frame-border px-5 pb-16 pt-48 md:min-h-[calc(100vh-72px)] md:px-8 md:pb-20 md:pt-36">
+        {/* Background 360 */}
+        <div className="pointer-events-none absolute right-0 top-8 -z-10 font-heading text-[50vw] font-bold leading-none tracking-tighter text-frame-muted opacity-20 md:-right-8 md:top-12 md:text-[24vw] md:opacity-100" aria-hidden="true">
           360
         </div>
-        <div className="mx-auto flex max-w-[95vw] flex-col gap-10">
-          <div className="flex flex-wrap items-center gap-6 pb-5">
-            <p className="whitespace-nowrap text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-base">
+        
+        <div className="mx-auto w-full max-w-[90rem]">
+          {/* Eyebrow section */}
+          <div className="mb-6 space-y-2 md:mb-10 md:flex md:items-center md:gap-6 md:space-y-0">
+            <p className="text-[10px] font-black uppercase tracking-[0.15em] text-frame-accent md:text-base md:tracking-[0.28em]">
               Dhaka / Worldwide / Growth OS
             </p>
             <div className="hidden h-[2px] flex-grow bg-frame-border md:block" />
-            <p className="whitespace-nowrap text-xs font-black uppercase tracking-[0.28em] text-frame-muted-fg md:text-base">
+            <p className="text-[10px] font-black uppercase tracking-[0.15em] text-frame-muted-fg md:text-base md:tracking-[0.28em]">
               Brand + Media + Tech + Performance
             </p>
           </div>
 
-          <div className="text-center">
-            <h1 className="mx-auto max-w-[16ch] font-heading text-[clamp(3.4rem,13vw,14rem)] font-bold uppercase leading-[0.78] tracking-tighter text-frame-fg">
+          {/* Main heading */}
+          <div className="space-y-6 text-center md:space-y-12">
+            <h1 className="font-heading text-[14vw] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg md:text-[clamp(3.5rem,11vw,14rem)] md:leading-[0.78]">
               <span className="block text-frame-accent">Frame Cipher</span>
-              <span className="mt-3 block text-[0.52em] leading-[0.88] md:mt-4">
-                builds brands that move
+              <span className="mt-2 block text-[0.6em] leading-[0.95] md:mt-4 md:text-[0.52em] md:leading-[0.88]">
+                Builds brands that move
               </span>
             </h1>
-            <div className="mt-12 grid gap-8 border-t-2 border-frame-border pt-8 lg:grid-cols-[1fr_0.62fr] lg:items-end">
-              <p className="max-w-5xl text-xl font-medium leading-tight text-frame-muted-fg md:text-3xl">
+
+            {/* Description and CTA */}
+            <div className="space-y-5 border-t-2 border-frame-border pt-5 md:mx-auto md:grid md:max-w-6xl md:gap-8 md:space-y-0 md:pt-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+              <p className="text-[15px] font-medium leading-[1.5] text-frame-muted-fg md:text-2xl md:leading-tight lg:text-3xl">
                 One integrated team for brand strategy, content production, websites, software,
                 campaigns, automations, and the data loop that keeps growth from going soft.
               </p>
-              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+              
+              <div className="flex flex-col gap-3 md:grid md:grid-cols-2 lg:grid-cols-1">
                 <PosterButton href="/contact">Book a strategy call</PosterButton>
                 <PosterButton href="/projects" variant="outline">View the work</PosterButton>
               </div>
