@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Clients from '../components/Clients'
 import { GrowthOSHome } from '../components/GrowthOS'
 import {
   engagementModels,
@@ -172,6 +173,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Clients />
 
       <GrowthOSHome />
 
