@@ -1,13 +1,14 @@
 import { notFound } from 'next/navigation'
 import ServiceDetailPage from '../../../src/views/ServiceDetailPage'
-import { getServiceBySlug, services } from '../../../src/data/agency'
+import { getServiceBySlug, getServiceRouteSlugs } from '../../../src/data/agency'
 
 export function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }))
+  return getServiceRouteSlugs().map((slug) => ({ slug }))
 }
 
-export function generateMetadata({ params }) {
-  const service = getServiceBySlug(params.slug)
+export async function generateMetadata({ params }) {
+  const { slug } = await params
+  const service = getServiceBySlug(slug)
 
   if (!service) {
     return {}
@@ -27,8 +28,9 @@ export function generateMetadata({ params }) {
   }
 }
 
-export default function Page({ params }) {
-  const service = getServiceBySlug(params.slug)
+export default async function Page({ params }) {
+  const { slug } = await params
+  const service = getServiceBySlug(slug)
 
   if (!service) {
     notFound()

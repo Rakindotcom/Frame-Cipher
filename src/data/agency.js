@@ -21,6 +21,7 @@ export const navItems = [
 export const services = [
   {
     slug: '360-marketing',
+    aliases: ['360', 'marketing', 'digital-marketing', '360-marketing-agency'],
     title: '360 Marketing',
     navTitle: '360 Marketing',
     headline: '360 Marketing Systems for Brands That Need Strategy and Execution',
@@ -60,6 +61,7 @@ export const services = [
   },
   {
     slug: 'brand-strategy',
+    aliases: ['branding-strategy'],
     title: 'Brand Strategy',
     navTitle: 'Brand Strategy',
     headline: 'Brand Strategy That Makes Offers Easier to Understand and Easier to Choose',
@@ -78,6 +80,7 @@ export const services = [
   },
   {
     slug: 'social-media-marketing',
+    aliases: ['social-media', 'social-media-management'],
     title: 'Social Media Marketing',
     navTitle: 'Social Media Marketing',
     headline: 'Social Media Systems Built for Consistency, Campaigns, and Conversion',
@@ -96,6 +99,7 @@ export const services = [
   },
   {
     slug: 'paid-ads',
+    aliases: ['paid-advertising', 'facebook-ads', 'meta-ads', 'ppc'],
     title: 'Paid Advertising',
     navTitle: 'Paid Ads',
     headline: 'Paid Advertising Built Around Clear Offers, Creative, and Tracking',
@@ -114,6 +118,7 @@ export const services = [
   },
   {
     slug: 'seo',
+    aliases: ['search-engine-optimization'],
     title: 'SEO',
     navTitle: 'SEO',
     headline: 'Search Foundations for Brands That Need Better Visibility',
@@ -132,6 +137,7 @@ export const services = [
   },
   {
     slug: 'branding-design',
+    aliases: ['branding', 'brand-design', 'creative-design', 'graphic-design'],
     title: 'Branding and Design',
     navTitle: 'Creative Design',
     headline: 'Brand Identity and Campaign Design for Modern Businesses',
@@ -150,6 +156,7 @@ export const services = [
   },
   {
     slug: 'video-production',
+    aliases: ['video', 'videography'],
     title: 'Video Production',
     navTitle: 'Video Production',
     headline: 'Premium Video Production for Campaigns, Brands, and Social Platforms',
@@ -168,6 +175,7 @@ export const services = [
   },
   {
     slug: 'photography',
+    aliases: ['photo-production', 'brand-photography'],
     title: 'Photography',
     navTitle: 'Photography',
     headline: 'Photography for Products, Campaigns, Teams, and Events',
@@ -186,6 +194,7 @@ export const services = [
   },
   {
     slug: 'web-development',
+    aliases: ['website-development', 'website-design', 'websites', 'website'],
     title: 'Website Development',
     navTitle: 'Website Development',
     headline: 'Fast, Modern Websites Built to Convert and Scale',
@@ -204,6 +213,7 @@ export const services = [
   },
   {
     slug: 'software-solutions',
+    aliases: ['software', 'software-development', 'custom-software'],
     title: 'Software Solutions',
     navTitle: 'Software Solutions',
     headline: 'Software and Digital Infrastructure Built for Growth',
@@ -222,6 +232,7 @@ export const services = [
   },
   {
     slug: 'ecommerce',
+    aliases: ['e-commerce', 'ecommerce-development', 'e-commerce-development', 'ecommerce-website-development'],
     title: 'E-commerce',
     navTitle: 'E-commerce',
     headline: 'E-commerce Systems That Help Products Sell With Less Friction',
@@ -240,6 +251,7 @@ export const services = [
   },
   {
     slug: 'automation-crm',
+    aliases: ['crm', 'automation', 'crm-automation', 'automation-and-crm'],
     title: 'Automation and CRM',
     navTitle: 'Automation and CRM',
     headline: 'Automation and CRM Workflows That Keep Leads, Customers, and Teams Organized',
@@ -449,5 +461,9 @@ export const insightPosts = [
 ]
 
 export function getServiceBySlug(slug) {
-  return services.find((service) => service.slug === slug)
+  return services.find((service) => service.slug === slug || service.aliases?.includes(slug))
+}
+
+export function getServiceRouteSlugs() {
+  return [...new Set(services.flatMap((service) => [service.slug, ...(service.aliases || [])]))]
 }
