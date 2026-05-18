@@ -8,7 +8,6 @@ const designWorks = Array.from({ length: 40 }, (_, index) => {
 
   return {
     number,
-    title: `Work ${String(number).padStart(2, '0')}`,
     src: `/${number}.webp`,
   }
 })
@@ -79,12 +78,12 @@ export default function ProjectsPage() {
                   type="button"
                   onClick={() => setActiveWork(work)}
                   className="relative block aspect-square w-full overflow-hidden bg-frame-muted text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                  aria-label={`View full image for ${work.title}`}
+                  aria-label={`View full image ${work.number}`}
                 >
                   <img
                     src={work.src}
-                    alt={`${work.title} by Frame Cipher`}
-                    className="h-full w-full object-cover transition duration-300 group-hover:scale-95 group-hover:object-contain"
+                    alt={`Frame Cipher selected work ${work.number}`}
+                    className="h-full w-full object-contain transition duration-300 group-hover:scale-95"
                     loading="lazy"
                   />
                   <span className="absolute left-4 top-4 bg-frame-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-accent-fg">
@@ -94,11 +93,6 @@ export default function ProjectsPage() {
                     View full image
                   </span>
                 </button>
-                <div className="border-t-2 border-frame-border p-5">
-                  <h2 className="font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg">
-                    {work.title}
-                  </h2>
-                </div>
               </article>
             ))}
           </div>
@@ -134,14 +128,12 @@ export default function ProjectsPage() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-frame-bg/95 p-4 md:p-8"
           role="dialog"
           aria-modal="true"
-          aria-label={`${activeWork.title} full preview`}
+          aria-label={`Work image ${activeWork.number} full preview`}
           onClick={() => setActiveWork(null)}
         >
           <div className="relative flex h-full w-full max-w-7xl flex-col gap-4" onClick={(event) => event.stopPropagation()}>
             <div className="flex items-center justify-between gap-4">
-              <p className="font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-5xl">
-                {activeWork.title}
-              </p>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Full preview</p>
               <button
                 type="button"
                 onClick={() => setActiveWork(null)}
@@ -153,7 +145,7 @@ export default function ProjectsPage() {
             <div className="min-h-0 flex-1 border-2 border-frame-border bg-white p-3 md:p-5">
               <img
                 src={activeWork.src}
-                alt={`${activeWork.title} by Frame Cipher`}
+                alt={`Frame Cipher selected work ${activeWork.number}`}
                 className="h-full w-full object-contain"
               />
             </div>

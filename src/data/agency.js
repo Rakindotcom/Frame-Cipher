@@ -418,24 +418,67 @@ export const portfolioProjects = [
 
 export const caseStudyPlaceholders = [
   {
-    client: 'Lifestyle Brand Launch',
-    industry: 'Fashion and lifestyle',
-    problem: 'The brand needed clearer positioning, launch assets, and a web presence before promoting the offer.',
-    objective: 'Create a complete launch system that could support social content, campaign traffic, and customer trust.',
-    servicesUsed: ['Brand strategy', 'Branding and Design', 'Website Development', 'Social Media Marketing'],
-    strategy: 'Clarify the offer, define the content themes, and build the core launch touchpoints before campaign rollout.',
-    execution: 'Structured the brand message, designed campaign visuals, prepared website sections, and mapped launch content.',
-    result: 'Created a complete launch system and improved brand presentation without claiming unverified performance metrics.',
-  },
-  {
-    client: 'Service Business Growth System',
-    industry: 'Professional services',
-    problem: 'The business had scattered inquiries, inconsistent content, and no central system for campaign traffic.',
-    objective: 'Build a more organized digital infrastructure for lead capture, credibility, and follow-up.',
-    servicesUsed: ['Website Development', 'Automation and CRM', 'Paid Advertising', 'Analytics'],
-    strategy: 'Connect the website, inquiry flow, campaign pages, and reporting so the team could manage growth more clearly.',
-    execution: 'Planned the conversion flow, built the page structure, prepared CRM routing, and added tracking foundations.',
-    result: 'Built a more conversion-focused website and more organized digital systems.',
+    client: 'Ferdous Saleheen',
+    title: "Launching Ferdous Saleheen's Personal Brand From Zero",
+    headline: 'From 5 subscribers to 350K+ views on a first YouTube Short',
+    industry: 'Personal Branding',
+    role: 'Head of Supply Chain Department, Sharjah Maritime University',
+    servicesUsed: ['Content Strategy', 'Video Shooting', 'Video Editing'],
+    timeline: 'April to May 2026',
+    goal: 'Build trust and establish a credible personal brand',
+    keyResult: '350K+ views on first YouTube Short',
+    secondaryResult: 'Around 50K average views on first 10 Facebook Reels',
+    overview:
+      'Frame Cipher helped Ferdous Saleheen begin his content creation journey from the ground up, turning his academic and supply chain expertise into platform-ready short-form content.',
+    problem:
+      'Ferdous had strong professional credibility, academic expertise, and industry knowledge, but he had not actively created or published personal brand content before the project.',
+    objective:
+      'Help him enter content creation in a clear, strategic, and credible way while building trust with an audience from a very small starting base.',
+    strategy:
+      'Create a simple content direction around his professional identity, shape ideas into short-form concepts, and make his expertise easier to watch, understand, and share.',
+    execution:
+      'Frame Cipher handled personal brand content strategy, concept planning, video shooting, short-form editing, audience-retention structure, and final delivery for YouTube Shorts and Facebook Reels.',
+    solution:
+      'The production system focused on credibility, clarity, and natural on-camera presence. Each video was edited for short-form viewing so the content could introduce Ferdous to a wider audience and build familiarity quickly.',
+    result:
+      'His first YouTube Short reached 350K+ views from a channel with only 5 subscribers, while his first 10 Facebook Reels averaged around 50K views each.',
+    focusPoints: [
+      'Clear content direction',
+      'Credible and natural on-camera presence',
+      'Short-form videos for YouTube and Facebook',
+      'Retention-focused editing',
+      'Early momentum for a new personal brand',
+    ],
+    results: [
+      {
+        metric: '350K+',
+        label: 'Views on first YouTube Short',
+        impact: 'Strong organic reach from a new channel',
+      },
+      {
+        metric: '5',
+        label: 'Subscribers at launch',
+        impact: 'Showed the content could travel beyond the starting audience',
+      },
+      {
+        metric: '50K',
+        label: 'Average views on first 10 Facebook Reels',
+        impact: 'Consistent early traction across short-form content',
+      },
+      {
+        metric: '0',
+        label: 'Previous content creation presence',
+        impact: 'Helped the client start publishing with confidence',
+      },
+    ],
+    visualSlots: [
+      'Behind-the-scenes shoot photos',
+      'Video thumbnails',
+      'YouTube performance screenshots',
+      'Facebook Reel performance screenshots',
+    ],
+    approvalNote:
+      "Confirm Ferdous Saleheen's approval before publishing his name, title, institution, and performance screenshots.",
   },
 ]
 

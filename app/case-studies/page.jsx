@@ -1,9 +1,9 @@
 import CaseStudiesPage from '../../src/views/CaseStudiesPage'
 
 export const metadata = {
-  title: 'Case Studies',
+  title: "Ferdous Saleheen Personal Brand Case Study",
   description:
-    'Frame Cipher case study structure for brand, media, technology, software, campaign, and growth systems without invented metrics.',
+    'How Frame Cipher helped Ferdous Saleheen launch a personal brand from 5 subscribers to 350K+ views on his first YouTube Short.',
   alternates: {
     canonical: '/case-studies',
   },
