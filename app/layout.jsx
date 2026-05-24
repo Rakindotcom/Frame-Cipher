@@ -6,7 +6,7 @@ import { contact, services, siteUrl } from '../src/data/agency'
 import '../src/index.css'
 
 const siteDescription =
-  'Frame Cipher is a 360 marketing, media and technology agency offering branding, digital marketing, video production, photography, websites, software solutions and growth systems.'
+  'Frame Cipher is a Dhaka-based marketing, media, branding, website, software, and growth agency helping brands plan, build, launch, and optimize campaigns.'
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
