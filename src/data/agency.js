@@ -716,6 +716,39 @@ export const caseStudyPlaceholders = [
   },
 ]
 
+export const testimonials = [
+  {
+    name: 'Shahidul Alam',
+    profession: 'Photographer, writer, and activist',
+    source: 'Facebook',
+    date: '10 May at 07:55',
+    avatar: '/shahidulAlam.png',
+    quote:
+      'This interview was done by the young group framecipher.info who have been working on developing content for the Bangladesh vessel on the flotilla. Stay tuned for more content from them.',
+    tags: ['Interview', 'Content production', 'Bangladesh vessel'],
+  },
+  {
+    name: 'Ferdoush Saleheen',
+    profession: 'Head of Supply Chain Department, Sharjah Maritime University',
+    source: 'WhatsApp',
+    date: 'Client message',
+    avatar: '/FerdoushSaleheen.png',
+    quote:
+      'Your observations were excellent. You have done an amazing job. Most importantly, you pushed me to make reels. Without your initiative, I would have waited another year. I see this works, and I will recommend you all the way.',
+    tags: ['Personal branding', 'Excellent observations', 'Recommendation'],
+  },
+  {
+    name: 'Mariam Ispahani',
+    profession: 'Founder & CEO, Sonali Bioplastics',
+    source: 'WhatsApp',
+    date: 'Client message',
+    avatar: '/mariamIspahani.png',
+    quote:
+      'Wow, that is impressive. These posters are very creative. All these posters are great. Love them.',
+    tags: ['Poster design', 'Campaign creative', 'Visual assets'],
+  },
+]
+
 export const insightPosts = [
   {
     title: 'Why Growth Breaks When Strategy, Content, Website, and Ads Are Separated',

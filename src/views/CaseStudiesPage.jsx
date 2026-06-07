@@ -1,5 +1,6 @@
 import { caseStudyPlaceholders } from '../data/agency'
 import { CTASection, PageHero, PosterButton, SectionIntro, TypeMarquee } from '../components/Kinetic'
+import Testimonials from '../components/Testimonials'
 
 export default function CaseStudiesPage() {
   const featuredStudy = caseStudyPlaceholders[0]
@@ -23,6 +24,12 @@ export default function CaseStudiesPage() {
       </PageHero>
 
       <TypeMarquee items={['350K+ Views', '5 Subscribers', '50K Average Reels', 'Personal Brand']} accent />
+
+      <Testimonials
+        eyebrow="Client voice"
+        title="The proof before the breakdown."
+        description="Before the process details, here is the client-side signal: public mentions, direct feedback, and the reactions that show the work landed."
+      />
 
       <section className="px-4 py-24 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
