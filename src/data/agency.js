@@ -594,7 +594,7 @@ export const portfolioProjects = [
     services: ['Video Production', 'Editing', 'Campaign Assets'],
     description: 'A collection of campaign-ready videos produced for brand storytelling, launches, and platform distribution.',
     scope: 'Scope: filming, editing, post-production, and platform-ready exports',
-    preview: 'https://img.youtube.com/vi/bqdK_EifW8k/sddefault.jpg',
+    preview: '/5.webp',
   },
   {
     name: 'Short-Form Content Engine',
@@ -604,7 +604,7 @@ export const portfolioProjects = [
     services: ['Reels', 'Editing', 'Social Media Content'],
     description: 'Short-form videos structured for consistent publishing, campaign moments, and audience engagement.',
     scope: 'Scope: reels, shorts, editing, visual rhythm, and delivery formats',
-    preview: 'https://img.youtube.com/vi/Sx3DupRPBLc/sddefault.jpg',
+    preview: '/6.webp',
   },
   {
     name: 'Graphic Campaign Asset Library',
