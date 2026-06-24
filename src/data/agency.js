@@ -12,7 +12,6 @@ export const contact = {
 export const navItems = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
-  { name: 'Industries', path: '/industries' },
   { name: 'Work', path: '/projects' },
   { name: 'Case Studies', path: '/case-studies' },
   { name: 'About', path: '/about' },

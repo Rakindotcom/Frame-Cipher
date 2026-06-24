@@ -1,4 +1,4 @@
-import { industryLandingPages, services, siteUrl } from '../src/data/agency'
+import { services, siteUrl } from '../src/data/agency'
 
 const lastModified = new Date('2026-05-05')
 
@@ -6,7 +6,6 @@ const staticRoutes = [
   { path: '/', priority: 1.0, changeFrequency: 'weekly' },
   { path: '/about', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/services', priority: 0.9, changeFrequency: 'weekly' },
-  { path: '/industries', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/projects', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/case-studies', priority: 0.7, changeFrequency: 'monthly' },
   { path: '/contact', priority: 0.9, changeFrequency: 'monthly' },
@@ -20,14 +19,8 @@ const serviceRoutes = services.map((service) => ({
   changeFrequency: 'monthly',
 }))
 
-const industryRoutes = industryLandingPages.map((page) => ({
-  path: `/industries/${page.slug}`,
-  priority: 0.75,
-  changeFrequency: 'monthly',
-}))
-
 export default function sitemap() {
-  return [...staticRoutes, ...serviceRoutes, ...industryRoutes].map((route) => ({
+  return [...staticRoutes, ...serviceRoutes].map((route) => ({
     url: new URL(route.path, siteUrl).toString(),
     lastModified,
     changeFrequency: route.changeFrequency,
