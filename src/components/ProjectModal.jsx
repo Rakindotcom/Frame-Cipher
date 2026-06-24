@@ -45,7 +45,7 @@ export default function ProjectModal({ project, onClose }) {
               allowFullScreen
             />
           ) : (
-            <img src={project.preview} alt={title} className="h-full w-full object-cover saturate-0" />
+            <img src={project.preview} alt={title} className="h-full w-full object-cover" />
           )}
         </div>
 

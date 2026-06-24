@@ -281,7 +281,7 @@ export default function Home() {
                   <img
                     src={project.preview}
                     alt={project.name}
-                    className="h-full w-full object-cover saturate-0 transition duration-300 group-hover:scale-105 group-hover:saturate-100"
+                    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
                   />
                   <p className="absolute left-4 top-4 bg-frame-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-accent-fg">
                     0{index + 1} / {project.category}

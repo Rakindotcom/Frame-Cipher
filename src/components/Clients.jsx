@@ -37,7 +37,7 @@ export default function Clients() {
                   src={client.logo}
                   alt=""
                   className="max-h-14 w-full object-contain md:max-h-20"
-                  loading="lazy"
+                  loading="eager"
                 />
               </div>
             ))}

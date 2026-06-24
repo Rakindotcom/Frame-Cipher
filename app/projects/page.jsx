@@ -9,6 +9,9 @@ export const metadata = {
   },
 }
 
-export default function Page() {
-  return <ProjectsPage />
+export default async function Page({ searchParams }) {
+  const params = await searchParams
+  const view = params?.view === 'media' || params?.view === 'software' ? params.view : null
+
+  return <ProjectsPage key={view || 'work-lanes'} initialView={view} />
 }

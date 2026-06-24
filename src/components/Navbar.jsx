@@ -10,6 +10,19 @@ const primaryServices = services.map((service) => ({
   path: `/services/${service.slug}`,
 }))
 
+const workLanes = [
+  {
+    name: 'Images & Videos',
+    path: '/projects?view=media#media-work',
+    description: 'Video, shorts, posters, and visual archive',
+  },
+  {
+    name: 'Software & Websites',
+    path: '/projects?view=software#software-work',
+    description: 'Websites, systems, dashboards, and tools',
+  },
+]
+
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
@@ -56,6 +69,27 @@ export default function Navbar() {
                   </div>
                 </div>
               )}
+              {item.name === 'Work' && (
+                <div className="invisible absolute left-0 top-full w-80 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100">
+                  <div className="mb-2 px-3 text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Work lanes</div>
+                  <div className="grid gap-1">
+                    {workLanes.map((lane) => (
+                      <Link
+                        key={lane.path}
+                        href={lane.path}
+                        className="group/lane grid gap-1 border border-transparent px-3 py-3 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                      >
+                        <span className="text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
+                          {lane.name}
+                        </span>
+                        <span className="text-xs font-semibold leading-tight text-frame-muted-fg transition-colors group-hover/lane:text-frame-accent-fg/80">
+                          {lane.description}
+                        </span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -85,18 +119,33 @@ export default function Navbar() {
         <div className="border-t-2 border-frame-border bg-frame-bg px-4 py-5">
           <div className="grid gap-2">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                onClick={() => setIsMenuOpen(false)}
-                className={`border-2 px-4 py-3 text-sm font-black uppercase tracking-tighter ${
-                  isActive(item.path)
-                    ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
-                    : 'border-frame-border text-frame-muted-fg'
-                }`}
-              >
-                {item.name}
-              </Link>
+              <div key={item.path} className="grid gap-2">
+                <Link
+                  href={item.path}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`border-2 px-4 py-3 text-sm font-black uppercase tracking-tighter ${
+                    isActive(item.path)
+                      ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
+                      : 'border-frame-border text-frame-muted-fg'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+                {item.name === 'Work' && (
+                  <div className="grid gap-2 pl-4">
+                    {workLanes.map((lane) => (
+                      <Link
+                        key={lane.path}
+                        href={lane.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="border-2 border-frame-border bg-frame-muted px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg"
+                      >
+                        {lane.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
           <div className="mt-4">
