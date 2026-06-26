@@ -28,6 +28,11 @@ const videoWorkSections = [
         videoId: '3MR8SvdrMkU',
         thumbnailUrl: '/video-thumbnails/long-03.webp',
       },
+      {
+        title: 'Long video 04',
+        videoId: 'kekOmxPCfNw',
+        thumbnailUrl: '/video-thumbnails/long-04.webp',
+      },
     ],
   },
   {
