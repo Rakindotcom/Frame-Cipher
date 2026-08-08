@@ -16,22 +16,27 @@ const videoWorkSections = [
       {
         title: 'Long video 01',
         videoId: 'j5r_HVWKnAA',
-        thumbnailUrl: '/video-thumbnails/long-01.webp',
+        thumbnailUrl: '/video-thumbnails/long-01.jpg',
       },
       {
         title: 'Long video 02',
         videoId: 'bqdK_EifW8k',
-        thumbnailUrl: '/video-thumbnails/long-02.webp',
+        thumbnailUrl: '/video-thumbnails/long-02.jpg',
       },
       {
         title: 'Long video 03',
         videoId: '3MR8SvdrMkU',
-        thumbnailUrl: '/video-thumbnails/long-03.webp',
+        thumbnailUrl: '/video-thumbnails/long-03.jpg',
       },
       {
         title: 'Long video 04',
         videoId: 'kekOmxPCfNw',
-        thumbnailUrl: '/video-thumbnails/long-04.webp',
+        thumbnailUrl: '/video-thumbnails/long-04.jpg',
+      },
+      {
+        title: 'Long video 05',
+        videoId: 'GiHzlVvUN-E',
+        thumbnailUrl: '/video-thumbnails/long-05.jpg',
       },
     ],
   },
@@ -42,19 +47,43 @@ const videoWorkSections = [
       {
         title: 'Short video 01',
         videoId: 'KGD6GGqEliA',
-        thumbnailUrl: '/video-thumbnails/short-01.webp',
+        thumbnailUrl: '/video-thumbnails/short-01.jpg',
         isShort: true,
       },
       {
         title: 'Short video 02',
         videoId: 'Qw1unPMli6k',
-        thumbnailUrl: '/video-thumbnails/short-02.webp',
+        thumbnailUrl: '/video-thumbnails/short-02.jpg',
         isShort: true,
       },
       {
         title: 'Short video 03',
         videoId: 'fkiGzxB6qTE',
-        thumbnailUrl: '/video-thumbnails/short-03.webp',
+        thumbnailUrl: '/video-thumbnails/short-03.jpg',
+        isShort: true,
+      },
+      {
+        title: 'Short video 04',
+        videoId: 'JjHHwtdk1Lg',
+        thumbnailUrl: '/video-thumbnails/short-04.jpg',
+        isShort: true,
+      },
+      {
+        title: 'Short video 05',
+        videoId: 'HBFYhnWH2Go',
+        thumbnailUrl: '/video-thumbnails/short-05.jpg',
+        isShort: true,
+      },
+      {
+        title: 'Short video 06',
+        videoId: '8J5r9BbGGys',
+        thumbnailUrl: '/video-thumbnails/short-06.jpg',
+        isShort: true,
+      },
+      {
+        title: 'Short video 07',
+        videoId: 'ufDXseYbDZA',
+        thumbnailUrl: '/video-thumbnails/short-07.jpg',
         isShort: true,
       },
     ],
@@ -343,9 +372,12 @@ export default function ProjectsPage({ initialView = null }) {
                   </p>
                 </div>
 
-                <div className="grid gap-px bg-frame-border lg:grid-cols-3">
+                <div className="grid border-l border-t border-frame-border bg-frame-bg lg:grid-cols-3">
                   {section.items.map((video, index) => (
-                    <article key={video.videoId} className="bg-frame-bg">
+                    <article
+                      key={video.videoId}
+                      className="border-b border-r border-frame-border bg-frame-bg"
+                    >
                       <div className="p-5">
                         <button
                           type="button"
