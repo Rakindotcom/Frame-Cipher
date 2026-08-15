@@ -92,6 +92,15 @@ const videoWorkSections = [
 
 const websiteProjects = [
   {
+    name: 'Dr. Ferdoush Saleheen',
+    url: 'https://ferdoushsaleheen.com/',
+    domain: 'ferdoushsaleheen.com',
+    category: 'Personal brand website',
+    screenshot: '/website-shots/ferdoush-saleheen.png',
+    summary:
+      'Bilingual personal platform for his profile, books, audiobooks, podcasts, research, and public thought leadership.',
+  },
+  {
     name: 'Hotel Ashrafee',
     url: 'https://www.hotelashrafee.com/',
     domain: 'hotelashrafee.com',
