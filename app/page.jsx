@@ -12,6 +12,7 @@ export const metadata = {
     description:
       'Frame Cipher is a Dhaka-based marketing, media, branding, website, software, and growth agency helping brands plan, build, launch, and optimize campaigns.',
     url: '/',
+    images: ['/logo.png'],
   },
 }
 

@@ -24,6 +24,7 @@ export async function generateMetadata({ params }) {
       title: service.metadataTitle,
       description: service.metadataDescription,
       url: `/services/${service.slug}`,
+      images: ['/logo.png'],
     },
   }
 }
