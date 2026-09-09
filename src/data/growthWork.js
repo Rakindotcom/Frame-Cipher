@@ -1,10 +1,13 @@
 export function resolveGrowthImagePath(path) {
+  if (!path) return path
   return path
     .replace('/case-studies/facebook-ads/', '/growth-work/paid-ads/')
     .replace('/case-studies/border-locksmiths/', '/growth-work/border-locksmiths/')
-    .replace('/case-studies/Jarixo/Jarixo%20Website.png', '/growth-work/jarixo/jarixo-website.png')
+    .replace('/case-studies/Jarixo/Jarixo%20Website.webp', '/growth-work/jarixo/jarixo-website.webp')
+    .replace('/growth-work/jarixo/jarixo-website.webp', '/growth-work/jarixo/jarixo-website.webp')
     .replace('/case-studies/phone-fashion-fix/', '/growth-work/phone-fashion-fix/')
     .replace('/case-studies/pixc-retouch/', '/growth-work/pixc-retouch/')
+    .replace(/\.webp$/, '.webp')
 }
 
 const image = (path, alt, caption = '') => ({
@@ -33,7 +36,7 @@ export const growthPortfolio = [
     client: "Sumon's Aroma & Sister Brands",
     title: "Facebook & Instagram Ads - Sumon's Aroma & Sister Brands",
     summary: 'Several campaigns landed below $0.10 per messaging conversation. Across 36 campaigns, $756.71 generated 1.6 million impressions and reached over a million unique people.',
-    image: '/case-studies/facebook-ads/sumons-aroma.png',
+    image: '/case-studies/facebook-ads/sumons-aroma.webp',
     metrics: [['36 campaigns', 'Campaigns'], ['$756.71', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -43,7 +46,7 @@ export const growthPortfolio = [
     client: 'Riha Webtech',
     title: 'Facebook & Instagram Ads - Riha Webtech',
     summary: 'A modest $431 spend across 18 campaigns generated 275K impressions and messaging conversations for as little as $0.04.',
-    image: '/case-studies/facebook-ads/riha-webtech.png',
+    image: '/case-studies/facebook-ads/riha-webtech.webp',
     metrics: [['18 campaigns', 'Campaigns'], ['$431', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -53,7 +56,7 @@ export const growthPortfolio = [
     client: 'IPB Edu & Happy Tours',
     title: 'Facebook & Instagram Ads - IPB Edu & Happy Tours',
     summary: 'Messaging conversations frequently cost $0.09–$0.15. Across 37 campaigns, $1,141.45 produced 1.83 million impressions.',
-    image: '/case-studies/facebook-ads/ipb-happy-tours.png',
+    image: '/case-studies/facebook-ads/ipb-happy-tours.webp',
     metrics: [['37 campaigns', 'Campaigns'], ['$1,141.45', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -63,7 +66,7 @@ export const growthPortfolio = [
     client: 'Ruposhi Mart & Partner Brands',
     title: 'Facebook & Instagram Ads - Ruposhi Mart & Partner Brands',
     summary: 'Across 138 campaigns, $6,315.66 produced 7.28 million impressions and reached 1.8 million people with low frequency across most awareness campaigns.',
-    image: '/case-studies/facebook-ads/ruposhi-mart.png',
+    image: '/case-studies/facebook-ads/ruposhi-mart.webp',
     metrics: [['138 campaigns', 'Campaigns'], ['$6,315.66', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -73,7 +76,7 @@ export const growthPortfolio = [
     client: 'Luxury Beauty - RWT',
     title: 'Facebook & Instagram Ads - Luxury Beauty - RWT',
     summary: 'On $350.23 in spend, the account reached 388,554 people with 488,251 impressions while purchase campaigns held cost per purchase in the low single digits.',
-    image: '/case-studies/facebook-ads/luxury-beauty-rwt.png',
+    image: '/case-studies/facebook-ads/luxury-beauty-rwt.webp',
     metrics: [['23 campaigns', 'Campaigns'], ['$350.23', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -83,7 +86,7 @@ export const growthPortfolio = [
     client: 'RPL Consultancy',
     title: 'Facebook & Instagram Ads - RPL Consultancy',
     summary: 'A lead-form campaign converted at $1.42 per lead. Eight campaigns generated 1.15 million impressions and reached 663,407 people from $273.17.',
-    image: '/case-studies/facebook-ads/rpl-consultancy.png',
+    image: '/case-studies/facebook-ads/rpl-consultancy.webp',
     metrics: [['8 campaigns', 'Campaigns'], ['$273.17', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -93,7 +96,7 @@ export const growthPortfolio = [
     client: 'Travel & Lifestyle Testing Engine',
     title: 'Facebook & Instagram Ads - Travel & Lifestyle Testing Engine',
     summary: 'Travel messaging campaigns held costs between $0.03 and $0.32. Across 74 campaigns, $719.94 generated 1.38 million impressions.',
-    image: '/case-studies/facebook-ads/travel-lifestyle.png',
+    image: '/case-studies/facebook-ads/travel-lifestyle.webp',
     metrics: [['74 campaigns', 'Campaigns'], ['$719.94', 'Spend']],
     tags: ['Facebook Ads', 'Instagram Ads', 'Meta Ads'],
   },
@@ -103,7 +106,7 @@ export const growthPortfolio = [
     client: 'Border Locksmiths',
     title: 'Border Locksmiths Local SEO',
     summary: 'A five-month campaign grew search visibility to 2.1M impressions and 12.2K clicks across the tracked period.',
-    image: '/case-studies/border-locksmiths/border-locksmiths-1.png',
+    image: '/case-studies/border-locksmiths/border-locksmiths-1.webp',
     metrics: [['2.1M', 'Search impressions'], ['12.2K', 'Search clicks']],
     tags: ['Local SEO', 'On-Page SEO', 'Technical SEO'],
   },
@@ -113,7 +116,7 @@ export const growthPortfolio = [
     client: 'Phone Fashion Fix',
     title: 'Phone Fashion Fix Local SEO',
     summary: 'A 34-page service architecture expanded organic visibility for a device-repair business in Ocala, Florida.',
-    image: '/case-studies/phone-fashion-fix/image-4.png',
+    image: '/case-studies/phone-fashion-fix/image-4.webp',
     metrics: [['34 pages', 'Service architecture'], ['263 → 6,980', 'Search impressions']],
     tags: ['Local SEO', 'Technical SEO', 'Content Strategy'],
   },
@@ -123,7 +126,7 @@ export const growthPortfolio = [
     client: 'PixC Retouch',
     title: 'PixC Retouch Global SEO',
     summary: 'A global campaign across e-commerce, fashion, real estate, and portrait search categories put 29 of 32 tracked keywords in the top ten.',
-    image: '/case-studies/pixc-retouch/image-1.png',
+    image: '/case-studies/pixc-retouch/image-1.webp',
     metrics: [['29 of 32', 'Keywords in top 10'], ['+203%', 'Search click growth']],
     tags: ['Global SEO', 'Content Strategy', 'Technical SEO'],
   },
@@ -139,7 +142,7 @@ export const growthCaseStudies = [
     summary: 'Seven creative-led Meta Ads case studies across fragrance, fashion, beauty, education, travel, web development, and overseas-study consultancy.',
     timeline: 'Lifetime account totals as of late June 2026',
     primaryFocus: 'Meta Ads Manager',
-    image: image('/case-studies/facebook-ads/sumons-aroma.png', 'Facebook and Instagram Ads portfolio'),
+    image: image('/case-studies/facebook-ads/sumons-aroma.webp', 'Facebook and Instagram Ads portfolio'),
     metrics: [
       ['334', 'Managed campaigns'],
       ['$9,988.16', 'Managed ad spend'],
@@ -171,13 +174,13 @@ export const growthCaseStudies = [
       },
     ],
     gallery: [
-      image('/case-studies/facebook-ads/sumons-aroma.png', "Sumon's Aroma Ads Manager results", "Sumon's Aroma & sister brands"),
-      image('/case-studies/facebook-ads/riha-webtech.png', 'Riha Webtech Ads Manager results', 'Riha Webtech'),
-      image('/case-studies/facebook-ads/ipb-happy-tours.png', 'IPB Edu and Happy Tours Ads Manager results', 'IPB Edu & Happy Tours'),
-      image('/case-studies/facebook-ads/ruposhi-mart.png', 'Ruposhi Mart Ads Manager results', 'Ruposhi Mart & partner brands'),
-      image('/case-studies/facebook-ads/luxury-beauty-rwt.png', 'Luxury Beauty RWT Ads Manager results', 'Luxury Beauty - RWT'),
-      image('/case-studies/facebook-ads/rpl-consultancy.png', 'RPL Consultancy Ads Manager results', 'RPL Consultancy'),
-      image('/case-studies/facebook-ads/travel-lifestyle.png', 'Travel and lifestyle Ads Manager results', 'Travel & lifestyle testing engine'),
+      image('/case-studies/facebook-ads/sumons-aroma.webp', "Sumon's Aroma Ads Manager results", "Sumon's Aroma & sister brands"),
+      image('/case-studies/facebook-ads/riha-webtech.webp', 'Riha Webtech Ads Manager results', 'Riha Webtech'),
+      image('/case-studies/facebook-ads/ipb-happy-tours.webp', 'IPB Edu and Happy Tours Ads Manager results', 'IPB Edu & Happy Tours'),
+      image('/case-studies/facebook-ads/ruposhi-mart.webp', 'Ruposhi Mart Ads Manager results', 'Ruposhi Mart & partner brands'),
+      image('/case-studies/facebook-ads/luxury-beauty-rwt.webp', 'Luxury Beauty RWT Ads Manager results', 'Luxury Beauty - RWT'),
+      image('/case-studies/facebook-ads/rpl-consultancy.webp', 'RPL Consultancy Ads Manager results', 'RPL Consultancy'),
+      image('/case-studies/facebook-ads/travel-lifestyle.webp', 'Travel and lifestyle Ads Manager results', 'Travel & lifestyle testing engine'),
     ],
     tools: ['Meta Ads Manager', 'Messenger Conversations', 'Lead Forms', 'Video ThruPlay', 'Advantage+'],
     lessons: [
@@ -193,7 +196,7 @@ export const growthCaseStudies = [
       industry: 'Fragrance, Beauty & D2C Messenger Commerce',
       title: "Meta Ads Case Study: Sumon's Aroma & Sister Brands",
       summary: 'Several campaigns landed below $0.10 per messaging conversation. Across 36 campaigns, $756.71 generated 1.6 million impressions and reached over a million unique people, with blended CPM below $0.50.',
-      imagePath: '/case-studies/facebook-ads/sumons-aroma.png',
+      imagePath: '/case-studies/facebook-ads/sumons-aroma.webp',
       metrics: [['36', 'Campaigns'], ['$756.71', 'Managed spend'], ['1.6 million', 'Impressions'], ['1M+', 'Unique people reached']],
       alignment: 'Frequent, low-cost creative refreshes across many small partner brands created the volume-over-polish pattern Meta’s retrieval system now favors.',
     },
@@ -203,8 +206,8 @@ export const growthCaseStudies = [
       industry: 'Web Design & Local Digital Services',
       title: 'Meta Ads Case Study: Riha Webtech',
       summary: 'On a modest $431 spend across 18 campaigns, the account generated 275K impressions and drove messaging conversations at costs as low as $0.04; landing-page and tracking-setup campaigns settled around $0.15–$0.20 per conversation.',
-      imagePath: '/case-studies/facebook-ads/riha-webtech.png',
-      metrics: [['18', 'Campaigns'], ['$431', 'Managed spend'], ['275K', 'Impressions'], ['Not reported', 'Reach']],
+      imagePath: '/case-studies/facebook-ads/riha-webtech.webp',
+      metrics: [['18', 'Campaigns'], ['$431', 'Managed spend'], ['275K', 'Impressions'], ['$0.04', 'Min cost/msg']],
       alignment: 'We used one creative angle per service line instead of asking one ad to sell everything, giving Meta a cleaner signal to match against buyer intent.',
     },
     {
@@ -213,8 +216,8 @@ export const growthCaseStudies = [
       industry: 'Education Consultancy & Travel Booking',
       title: 'Meta Ads Case Study: IPB Edu & Happy Tours',
       summary: 'Cost per messaging conversation frequently landed between $0.09 and $0.15. One May campaign produced more than 30,000 impressions from a $5 daily budget. Across 37 campaigns, $1,141.45 produced 1.83 million impressions.',
-      imagePath: '/case-studies/facebook-ads/ipb-happy-tours.png',
-      metrics: [['37', 'Campaigns'], ['$1,141.45', 'Managed spend'], ['1.83 million', 'Impressions'], ['Not reported', 'Reach']],
+      imagePath: '/case-studies/facebook-ads/ipb-happy-tours.webp',
+      metrics: [['37', 'Campaigns'], ['$1,141.45', 'Managed spend'], ['1.83M', 'Impressions'], ['$0.09', 'Min cost/msg']],
       alignment: 'A weekly refresh cadence, rather than one long-running ad, supplied the creative diversity the delivery system was built to reward.',
     },
     {
@@ -223,7 +226,7 @@ export const growthCaseStudies = [
       industry: 'Fashion & Beauty E-Commerce, Multi-Brand Portfolio',
       title: 'Meta Ads Case Study: Ruposhi Mart & Partner Brands',
       summary: 'A $10-per-day awareness campaign for Rupchaya reached 156,545 people. Across 138 campaigns, $6,315.66 produced 7.28 million impressions and reached 1.8 million people, with low frequency across most awareness activity.',
-      imagePath: '/case-studies/facebook-ads/ruposhi-mart.png',
+      imagePath: '/case-studies/facebook-ads/ruposhi-mart.webp',
       metrics: [['138', 'Campaigns'], ['$6,315.66', 'Managed spend'], ['7.28 million', 'Impressions'], ['1.8 million', 'People reached']],
       alignment: 'Six brands and dozens of parallel small-budget campaigns created a wide creative surface area for the delivery system to sort through.',
     },
@@ -233,7 +236,7 @@ export const growthCaseStudies = [
       industry: 'Beauty & Skincare, Direct-Response Sales',
       title: 'Meta Ads Case Study: Luxury Beauty - RWT',
       summary: 'On $350.23 in spend, the account reached 388,554 people with 488,251 impressions, while purchase-optimized campaigns held cost per purchase in the low single digits.',
-      imagePath: '/case-studies/facebook-ads/luxury-beauty-rwt.png',
+      imagePath: '/case-studies/facebook-ads/luxury-beauty-rwt.webp',
       metrics: [['23', 'Campaigns'], ['$350.23', 'Managed spend'], ['488,251', 'Impressions'], ['388,554', 'People reached']],
       alignment: 'Short-lived, fast-rotating sales campaigns reduced the creative fatigue that modern delivery systems increasingly penalize.',
     },
@@ -243,7 +246,7 @@ export const growthCaseStudies = [
       industry: 'Overseas Education & Immigration Consultancy',
       title: 'Meta Ads Case Study: RPL Consultancy',
       summary: 'The lead-form campaign converted at $1.42 per lead, the awareness campaign reached 329,646 people using ad-set budget optimization, and ThruPlay views cost fractions of a cent. Eight campaigns generated 1.15 million impressions and reached 663,407 people from $273.17.',
-      imagePath: '/case-studies/facebook-ads/rpl-consultancy.png',
+      imagePath: '/case-studies/facebook-ads/rpl-consultancy.webp',
       metrics: [['8', 'Campaigns'], ['$273.17', 'Managed spend'], ['1.15 million', 'Impressions'], ['663,407', 'People reached']],
       alignment: 'Fewer, sharper formats paired with genuinely broad targeting showed that the system could find relevant people without complex audience segmentation.',
     },
@@ -253,7 +256,7 @@ export const growthCaseStudies = [
       industry: 'Travel Agencies, Visa Services & Lifestyle Products',
       title: 'Meta Ads Case Study: Travel & Lifestyle Testing Engine',
       summary: 'Travel messaging campaigns held costs between $0.03 and $0.32. RMSD ThruPlay campaigns ran at roughly $0.001 per view. Across 74 campaigns, $719.94 generated 1.38 million impressions and reached 824,745 people.',
-      imagePath: '/case-studies/facebook-ads/travel-lifestyle.png',
+      imagePath: '/case-studies/facebook-ads/travel-lifestyle.webp',
       metrics: [['74', 'Campaigns'], ['$719.94', 'Managed spend'], ['1.38 million', 'Impressions'], ['824,745', 'People reached']],
       alignment: 'Seventy-four campaigns on less than $750 demonstrated the value of test volume over budget size: we fed the system more useful creative signals instead of trying to outspend competitors.',
     },
@@ -290,7 +293,7 @@ export const growthCaseStudies = [
     summary: 'Targeted on-page, technical, content, and off-page SEO grew Border Locksmiths from a near-zero organic footprint to 2.1 million tracked search impressions.',
     timeline: '5-month active campaign, with reporting tracked into late 2023',
     primaryFocus: 'Google Search Console',
-    image: image('/case-studies/border-locksmiths/border-locksmiths-1.png', 'Border Locksmiths Google Search Console results'),
+    image: image('/case-studies/border-locksmiths/border-locksmiths-1.webp', 'Border Locksmiths Google Search Console results'),
     snapshot: [
       ['Location', 'Melbourne & Gold Coast, Australia'],
       ['Target searches', 'Emergency auto, commercial, and residential locksmith services'],
@@ -344,7 +347,7 @@ export const growthCaseStudies = [
       },
     ],
     gallery: Array.from({ length: 8 }, (_, index) => image(
-      `/case-studies/border-locksmiths/border-locksmiths-${index + 1}.png`,
+      `/case-studies/border-locksmiths/border-locksmiths-${index + 1}.webp`,
       `Border Locksmiths SEO performance snapshot ${index + 1}`,
       [
         'Cumulative Google Search Console performance',
@@ -373,7 +376,7 @@ export const growthCaseStudies = [
     summary: 'A 10-pillar topical-authority framework turned an 11-SKU wellness catalog into a structured content and internal-linking system built for organic growth.',
     timeline: 'Topical map and content strategy project',
     primaryFocus: 'Topical Authority Framework',
-    image: image('/case-studies/Jarixo/Jarixo%20Website.png', 'Jarixo wellness product website'),
+    image: image('/case-studies/Jarixo/Jarixo%20Website.webp', 'Jarixo wellness product website'),
     metrics: [['10', 'Topical pillars'], ['11', 'Products mapped'], ['100+', 'Planned content pieces'], ['3', 'Content layers']],
     sections: [
       {
@@ -437,7 +440,7 @@ export const growthCaseStudies = [
         ],
       },
     ],
-    gallery: [image('/case-studies/Jarixo/Jarixo%20Website.png', 'Jarixo product catalog used for topical mapping', 'The 11-product catalog mapped into the content system')],
+    gallery: [image('/case-studies/Jarixo/Jarixo%20Website.webp', 'Jarixo product catalog used for topical mapping', 'The 11-product catalog mapped into the content system')],
     tools: ['Topical Authority Framework', 'Semrush', 'Ahrefs', 'Shopify'],
     lessons: [
       'Architecture before content gives every page a clear job and conversion destination.',
@@ -454,7 +457,7 @@ export const growthCaseStudies = [
     summary: 'A local and technical SEO program built a 34-page service architecture for an Ocala repair business, growing three-month impressions from 263 to 6,980 and clicks from 12 to 196.',
     timeline: 'Phased campaign, 2026',
     primaryFocus: 'Google Search Console',
-    image: image('/case-studies/phone-fashion-fix/image-4.png', 'Phone Fashion Fix Search Console growth'),
+    image: image('/case-studies/phone-fashion-fix/image-4.webp', 'Phone Fashion Fix Search Console growth'),
     snapshot: [
       ['Market', 'Ocala, Florida - hyper-local single-city service area'],
       ['Competition', 'National repair chains, mall kiosks, and established local competitors'],
@@ -519,10 +522,10 @@ export const growthCaseStudies = [
       },
     ],
     gallery: [
-      image('/case-studies/phone-fashion-fix/image-1.png', 'Phone Fashion Fix 28-day Search Console snapshot', 'June 28, 2026: early performance after core pages went live'),
-      image('/case-studies/phone-fashion-fix/image-2.png', 'Phone Fashion Fix 28-day Search Console comparison', 'July 3, 2026: 103 clicks versus 31 previously'),
-      image('/case-studies/phone-fashion-fix/image-3.png', 'Phone Fashion Fix three-month Search Console snapshot', 'July 24, 2026: 194 clicks and 4.61K impressions'),
-      image('/case-studies/phone-fashion-fix/image-4.png', 'Phone Fashion Fix three-month Search Console comparison', 'August 4, 2026: 196 clicks and 6.98K impressions versus 12 clicks and 263 impressions'),
+      image('/case-studies/phone-fashion-fix/image-1.webp', 'Phone Fashion Fix 28-day Search Console snapshot', 'June 28, 2026: early performance after core pages went live'),
+      image('/case-studies/phone-fashion-fix/image-2.webp', 'Phone Fashion Fix 28-day Search Console comparison', 'July 3, 2026: 103 clicks versus 31 previously'),
+      image('/case-studies/phone-fashion-fix/image-3.webp', 'Phone Fashion Fix three-month Search Console snapshot', 'July 24, 2026: 194 clicks and 4.61K impressions'),
+      image('/case-studies/phone-fashion-fix/image-4.webp', 'Phone Fashion Fix three-month Search Console comparison', 'August 4, 2026: 196 clicks and 6.98K impressions versus 12 clicks and 263 impressions'),
     ],
     tools: ['Google Search Console', 'Semrush', 'Schema markup', 'Local SEO', 'Internal linking'],
     lessons: [
@@ -540,7 +543,7 @@ export const growthCaseStudies = [
     summary: 'A global campaign built service verticals, 40+ supporting articles, geo-layered real-estate content, and diversified authority, producing 203% click growth and 91% top-ten visibility across tracked keywords.',
     timeline: '8 months, August 2025 to March 2026',
     primaryFocus: 'Google Search Console',
-    image: image('/case-studies/pixc-retouch/image-1.png', 'PixC Retouch Search Console growth'),
+    image: image('/case-studies/pixc-retouch/image-1.webp', 'PixC Retouch Search Console growth'),
     snapshot: [
       ['Markets', 'Global, with primary commercial focus on the USA and UK'],
       ['Competition', 'Global retouching brands, production agencies, and marketplace freelancers'],
@@ -608,9 +611,9 @@ export const growthCaseStudies = [
       },
     ],
     gallery: [
-      image('/case-studies/pixc-retouch/image-1.png', 'PixC Retouch six-month Google Search Console comparison', '1.25K clicks versus 413; average position improved from 55 to 38'),
-      image('/case-studies/pixc-retouch/image-2.png', 'PixC Retouch GA4 performance', '3.6K active users, up 147.9% year over year'),
-      image('/case-studies/pixc-retouch/image-3.png', 'PixC Retouch Semrush overview', '366 organic keywords, 61.5K backlinks, and 1.2K referring domains'),
+      image('/case-studies/pixc-retouch/image-1.webp', 'PixC Retouch six-month Google Search Console comparison', '1.25K clicks versus 413; average position improved from 55 to 38'),
+      image('/case-studies/pixc-retouch/image-2.webp', 'PixC Retouch GA4 performance', '3.6K active users, up 147.9% year over year'),
+      image('/case-studies/pixc-retouch/image-3.webp', 'PixC Retouch Semrush overview', '366 organic keywords, 61.5K backlinks, and 1.2K referring domains'),
     ],
     tools: ['Google Search Console', 'GA4', 'Semrush', 'Content architecture', 'Technical SEO'],
     lessons: [

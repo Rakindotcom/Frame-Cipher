@@ -704,11 +704,47 @@ export const caseStudyPlaceholders = [
         impact: 'Helped the client start publishing with confidence',
       },
     ],
-    visualSlots: [
-      'Behind-the-scenes shoot photos',
-      'Video thumbnails',
-      'YouTube performance screenshots',
-      'Facebook Reel performance screenshots',
+    processStages: [
+      {
+        number: '01',
+        title: 'Positioning & Knowledge Extraction',
+        description: 'Converted maritime and supply-chain academic depth into viral, accessible themes centered on leadership, career frameworks, and industry truth.',
+      },
+      {
+        number: '02',
+        title: 'Hook Discovery & Concept Scripting',
+        description: 'Structured the first 3 seconds of each topic with strong tension, conversational openings, and relatable questions to immediately arrest attention.',
+      },
+      {
+        number: '03',
+        title: 'Studio Shooting & Camera Coaching',
+        description: 'Guided natural on-camera delivery with professional audio and cinematic lighting, avoiding rigid scripted delivery in favor of authoritative conversation.',
+      },
+      {
+        number: '04',
+        title: 'High-Retention Editing & Distribution',
+        description: 'Engineered rapid visual pacing, punch-ins, kinetic captions, and simultaneous distribution across YouTube Shorts and Facebook Reels.',
+      },
+    ],
+    proofImages: [
+      {
+        src: '/case-studies/ferdoush-saleheen/proof-1m-views.webp',
+        title: 'Breakout video crossing 1M views',
+        subtitle: '1M, 128K, 100K, 81K view counts on verified Facebook Reels feed',
+        badge: '1M+ Milestone',
+      },
+      {
+        src: '/case-studies/ferdoush-saleheen/proof-447k-views.webp',
+        title: 'Compound Facebook distribution',
+        subtitle: '447K, 378K, 287K, 267K, 151K, 109K views across diverse leadership topics',
+        badge: '447K+ Peak',
+      },
+      {
+        src: '/case-studies/ferdoush-saleheen/proof-390k-views.webp',
+        title: 'Sustained algorithm authority',
+        subtitle: '390K, 333K, 209K, 187K, 119K views proving repeatable retention',
+        badge: '390K+ Peak',
+      },
     ],
     approvalNote:
       "Confirm Dr. Ferdoush Saleheen's approval before publishing his name, title, institution, and performance screenshots.",
@@ -721,7 +757,7 @@ export const testimonials = [
     profession: 'Photographer, writer, and activist',
     source: 'Facebook',
     date: '10 May at 07:55',
-    avatar: '/shahidulAlam.png',
+    avatar: '/shahidulAlam.webp',
     quote:
       'This interview was done by the young group framecipher.info who have been working on developing content for the Bangladesh vessel on the flotilla. Stay tuned for more content from them.',
     tags: ['Interview', 'Content production', 'Bangladesh vessel'],
@@ -731,7 +767,7 @@ export const testimonials = [
     profession: 'Head of Supply Chain Department, Sharjah Maritime University',
     source: 'WhatsApp',
     date: 'Client message',
-    avatar: '/FerdoushSaleheen.png',
+    avatar: '/FerdoushSaleheen.webp',
     quote:
       'Your observations were excellent. You have done an amazing job. Most importantly, you pushed me to make reels. Without your initiative, I would have waited another year. I see this works, and I will recommend you all the way.',
     tags: ['Personal branding', 'Excellent observations', 'Recommendation'],
@@ -741,7 +777,7 @@ export const testimonials = [
     profession: 'Founder & CEO, Sonali Bioplastics',
     source: 'WhatsApp',
     date: 'Client message',
-    avatar: '/mariamIspahani.png',
+    avatar: '/mariamIspahani.webp',
     quote:
       'Wow, that is impressive. These posters are very creative. All these posters are great. Love them.',
     tags: ['Poster design', 'Campaign creative', 'Visual assets'],

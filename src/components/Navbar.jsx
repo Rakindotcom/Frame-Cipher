@@ -65,7 +65,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b-2 border-frame-border bg-frame-bg/92 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-[95vw] items-center justify-between px-4 py-4 md:px-0" aria-label="Primary navigation">
         <Link href="/" className="flex items-center gap-3" aria-label="Frame Cipher home">
-          <img src="/logo.png" alt="Frame Cipher" className="h-10 w-10 object-contain" />
+          <img src="/logo.webp" alt="Frame Cipher" className="h-10 w-10 object-contain" />
           <div>
             <div className="font-heading text-sm font-bold uppercase tracking-[0.18em] text-frame-fg">FRAME CIPHER</div>
             <div className="hidden text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent sm:block">

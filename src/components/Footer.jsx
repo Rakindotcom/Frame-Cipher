@@ -15,7 +15,7 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <img src="/logo.png" alt="Frame Cipher" className="h-11 w-11 object-contain" />
+              <img src="/logo.webp" alt="Frame Cipher" className="h-11 w-11 object-contain" />
               <div className="font-heading text-lg font-bold uppercase tracking-[0.16em] text-frame-fg">FRAME CIPHER</div>
             </div>
             <p className="max-w-md text-sm font-medium leading-7 text-frame-muted-fg">

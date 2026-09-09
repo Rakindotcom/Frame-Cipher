@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { PageHero } from '../components/Kinetic'
 import { SectionHeading, ProjectCard } from '../components/GrowthPortfolioSection'
 import { growthPortfolio } from '../data/growthWork'
@@ -31,6 +32,7 @@ function resolveInitialFilter(initialView) {
   return 'All'
 }
 
+
 const designWorks = Array.from({ length: 25 }, (_, index) => ({
   number: index + 1,
   src: `/${index + 1}.webp`,
@@ -44,27 +46,27 @@ const videoWorkSections = [
       {
         title: 'Long video 01',
         videoId: 'j5r_HVWKnAA',
-        thumbnailUrl: '/video-thumbnails/long-01.jpg',
+        thumbnailUrl: '/video-thumbnails/long-01.webp',
       },
       {
         title: 'Long video 02',
         videoId: 'bqdK_EifW8k',
-        thumbnailUrl: '/video-thumbnails/long-02.jpg',
+        thumbnailUrl: '/video-thumbnails/long-02.webp',
       },
       {
         title: 'Long video 03',
         videoId: '3MR8SvdrMkU',
-        thumbnailUrl: '/video-thumbnails/long-03.jpg',
+        thumbnailUrl: '/video-thumbnails/long-03.webp',
       },
       {
         title: 'Long video 04',
         videoId: 'kekOmxPCfNw',
-        thumbnailUrl: '/video-thumbnails/long-04.jpg',
+        thumbnailUrl: '/video-thumbnails/long-04.webp',
       },
       {
         title: 'Long video 05',
         videoId: 'GiHzlVvUN-E',
-        thumbnailUrl: '/video-thumbnails/long-05.jpg',
+        thumbnailUrl: '/video-thumbnails/long-05.webp',
       },
     ],
   },
@@ -73,46 +75,57 @@ const videoWorkSections = [
     description: 'Vertical short-form edits built for retention, rhythm, and fast social distribution.',
     items: [
       {
-        title: 'Short video 01',
+        title: 'Life & Perspective — "আমি প্রস্তুত না"',
         videoId: 'KGD6GGqEliA',
-        thumbnailUrl: '/video-thumbnails/short-01.jpg',
+        thumbnailUrl: '/video-thumbnails/short-01.webp',
         isShort: true,
+        category: 'Inspirational Short',
       },
       {
-        title: 'Short video 02',
+        title: 'Dr. Ferdoush Saleheen — Mindset & Action',
+        client: 'Dr. Ferdoush Saleheen',
         videoId: 'Qw1unPMli6k',
-        thumbnailUrl: '/video-thumbnails/short-02.jpg',
+        thumbnailUrl: '/video-thumbnails/short-02.webp',
         isShort: true,
+        category: 'Personal Brand · 1M+ Views',
       },
       {
-        title: 'Short video 03',
+        title: 'Dr. Ferdoush Saleheen — Career Reflection & Growth',
+        client: 'Dr. Ferdoush Saleheen',
         videoId: 'fkiGzxB6qTE',
-        thumbnailUrl: '/video-thumbnails/short-03.jpg',
+        thumbnailUrl: '/video-thumbnails/short-03.webp',
         isShort: true,
+        category: 'Personal Brand · Viral Short',
       },
       {
-        title: 'Short video 04',
+        title: 'Dr. Ferdoush Saleheen — Supply Chain Frameworks',
+        client: 'Dr. Ferdoush Saleheen',
         videoId: 'JjHHwtdk1Lg',
-        thumbnailUrl: '/video-thumbnails/short-04.jpg',
+        thumbnailUrl: '/video-thumbnails/short-04.webp',
         isShort: true,
+        category: 'Personal Brand · Leadership',
       },
       {
-        title: 'Short video 05',
+        title: 'Dr. Ferdoush Saleheen — Core Leadership Insights',
+        client: 'Dr. Ferdoush Saleheen',
         videoId: 'HBFYhnWH2Go',
-        thumbnailUrl: '/video-thumbnails/short-05.jpg',
+        thumbnailUrl: '/video-thumbnails/short-05.webp',
         isShort: true,
+        category: 'Personal Brand · Authority',
       },
       {
-        title: 'Short video 06',
+        title: 'Career in Textile & Lifestyle — Conference Short',
         videoId: '8J5r9BbGGys',
-        thumbnailUrl: '/video-thumbnails/short-06.jpg',
+        thumbnailUrl: '/video-thumbnails/short-06.webp',
         isShort: true,
+        category: 'Conference Coverage',
       },
       {
-        title: 'Short video 07',
+        title: 'Brand Media & Campaign Recap Short',
         videoId: 'ufDXseYbDZA',
-        thumbnailUrl: '/video-thumbnails/short-07.jpg',
+        thumbnailUrl: '/video-thumbnails/short-07.webp',
         isShort: true,
+        category: 'Campaign Short',
       },
     ],
   },
@@ -124,7 +137,8 @@ const websiteProjects = [
     url: 'https://ferdoushsaleheen.com/',
     domain: 'ferdoushsaleheen.com',
     category: 'Personal brand website',
-    screenshot: '/website-shots/ferdoush-saleheen.png',
+    caseStudyUrl: '/case-studies',
+    screenshot: '/website-shots/ferdoush-saleheen.webp',
     summary:
       'Bilingual personal platform for his profile, books, audiobooks, podcasts, research, and public thought leadership.',
   },
@@ -133,7 +147,7 @@ const websiteProjects = [
     url: 'https://www.hotelashrafee.com/',
     domain: 'hotelashrafee.com',
     category: 'Hospitality website',
-    screenshot: '/website-shots/hotel-ashrafee.png',
+    screenshot: '/website-shots/hotel-ashrafee.webp',
     summary: 'Hotel website presentation for rooms, location, and direct guest trust.',
   },
   {
@@ -141,7 +155,7 @@ const websiteProjects = [
     url: 'https://alfisltd.vercel.app/',
     domain: 'alfisltd.vercel.app',
     category: 'Business website',
-    screenshot: '/website-shots/alfis-limited.png',
+    screenshot: '/website-shots/alfis-limited.webp',
     summary: 'Company website structure for a garments accessories business.',
   },
   {
@@ -149,7 +163,7 @@ const websiteProjects = [
     url: 'https://bdforpalestine.org/',
     domain: 'bdforpalestine.org',
     category: 'Community platform',
-    screenshot: '/website-shots/bd-for-palestine.png',
+    screenshot: '/website-shots/bd-for-palestine.webp',
     summary: 'Public-facing advocacy and information site for a movement-focused initiative.',
   },
   {
@@ -157,7 +171,7 @@ const websiteProjects = [
     url: 'https://www.muhsinmashkur.com/',
     domain: 'muhsinmashkur.com',
     category: 'Personal website',
-    screenshot: '/website-shots/muhsin-mashkur.png',
+    screenshot: '/website-shots/muhsin-mashkur.webp',
     summary: 'Personal site for profile, public identity, and digital presence.',
   },
   {
@@ -165,7 +179,7 @@ const websiteProjects = [
     url: 'https://businessbyte-rakin.vercel.app/',
     domain: 'businessbyte-rakin.vercel.app',
     category: 'Web product',
-    screenshot: '/website-shots/business-byte.png',
+    screenshot: '/website-shots/business-byte.webp',
     summary: 'Digital business resource presented as a lightweight web experience.',
   },
 ]
@@ -319,7 +333,14 @@ export default function ProjectsPage({ initialView = null }) {
 
   const filteredShortVideos = videoWorkSections[1].items.filter((v) => {
     if (!q) return true
-    return v.title.toLowerCase().includes(q) || 'video'.includes(q) || 'short video'.includes(q) || 'reels'.includes(q)
+    return (
+      v.title.toLowerCase().includes(q) ||
+      'video'.includes(q) ||
+      'short video'.includes(q) ||
+      'reels'.includes(q) ||
+      (v.client && v.client.toLowerCase().includes(q)) ||
+      (v.category && v.category.toLowerCase().includes(q))
+    )
   })
 
   const matchesBranding =
@@ -494,14 +515,24 @@ export default function ProjectsPage({ initialView = null }) {
                         <p className="max-w-2xl text-sm font-medium leading-tight text-frame-muted-fg md:text-base">
                           {project.summary}
                         </p>
-                        <a
-                          href={project.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex min-h-12 w-fit items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                        >
-                          Visit website
-                        </a>
+                        <div className="flex flex-wrap gap-3">
+                          <a
+                            href={project.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex min-h-12 w-fit items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
+                          >
+                            Visit website
+                          </a>
+                          {project.caseStudyUrl && (
+                            <Link
+                              href={project.caseStudyUrl}
+                              className="inline-flex min-h-12 w-fit items-center justify-center border-2 border-frame-border px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
+                            >
+                              View case study ↗
+                            </Link>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </article>
@@ -586,6 +617,77 @@ export default function ProjectsPage({ initialView = null }) {
               count={`${filteredShortVideos.length} pieces`}
             />
 
+            {/* Real Work Spotlight: Dr. Ferdoush Saleheen */}
+            <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
+              <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+                <div>
+                  <div className="flex flex-wrap items-center gap-2.5">
+                    <span className="border border-frame-accent bg-frame-accent px-3 py-1 text-[0.65rem] font-black uppercase tracking-wider text-frame-accent-fg">
+                      Client Spotlight · Real Work
+                    </span>
+                    <span className="border border-frame-border px-3 py-1 text-[0.65rem] font-black uppercase tracking-wider text-frame-accent">
+                      7.2M+ Views · 1M+ Reel
+                    </span>
+                  </div>
+                  <h4 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-4xl">
+                    Dr. Ferdoush Saleheen — Viral Short-Form Content Engine
+                  </h4>
+                  <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                    Real short-form video work produced for Dr. Ferdoush Saleheen from a standing start. Across Facebook Reels and short-form video channels, individual videos crossed 1M views, 447K views, 390K views, alongside 350K views on his very first YouTube Short.
+                  </p>
+                </div>
+                <Link
+                  href="/case-studies"
+                  className="inline-flex min-h-12 items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg shrink-0"
+                >
+                  View Case Study Breakdown ↗
+                </Link>
+              </div>
+
+              {/* Real Performance Proof Strip */}
+              <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                <div className="overflow-hidden border-2 border-frame-border bg-black">
+                  <div className="relative aspect-[16/10]">
+                    <img
+                      src="/case-studies/ferdoush-saleheen/proof-1m-views.webp"
+                      alt="Dr. Ferdoush Saleheen 1M views Facebook Reel"
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                    />
+                    <span className="absolute bottom-2 left-2 bg-frame-accent px-2 py-0.5 text-[0.6rem] font-black uppercase text-frame-accent-fg">
+                      1M Milestone Reel
+                    </span>
+                  </div>
+                </div>
+                <div className="overflow-hidden border-2 border-frame-border bg-black">
+                  <div className="relative aspect-[16/10]">
+                    <img
+                      src="/case-studies/ferdoush-saleheen/proof-447k-views.webp"
+                      alt="Dr. Ferdoush Saleheen 447K views Facebook Reels"
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                    />
+                    <span className="absolute bottom-2 left-2 bg-frame-accent px-2 py-0.5 text-[0.6rem] font-black uppercase text-frame-accent-fg">
+                      447K, 378K, 287K Views
+                    </span>
+                  </div>
+                </div>
+                <div className="overflow-hidden border-2 border-frame-border bg-black">
+                  <div className="relative aspect-[16/10]">
+                    <img
+                      src="/case-studies/ferdoush-saleheen/proof-390k-views.webp"
+                      alt="Dr. Ferdoush Saleheen 390K views Facebook Reels"
+                      className="h-full w-full object-contain"
+                      loading="lazy"
+                    />
+                    <span className="absolute bottom-2 left-2 bg-frame-accent px-2 py-0.5 text-[0.6rem] font-black uppercase text-frame-accent-fg">
+                      390K, 333K, 209K Views
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="mt-7 grid border-l border-t border-frame-border bg-frame-bg sm:grid-cols-2 lg:grid-cols-4">
               {filteredShortVideos.map((video, index) => (
                 <article
@@ -610,9 +712,9 @@ export default function ProjectsPage({ initialView = null }) {
                   <div className="grid gap-4 p-4 pt-0 sm:gap-5 sm:p-5 sm:pt-0">
                     <div>
                       <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {String(index + 1).padStart(2, '0')} / Short
+                        {String(index + 1).padStart(2, '0')} / {video.category || 'Short'}
                       </p>
-                      <h3 className="mt-2 font-heading text-xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-2xl">
+                      <h3 className="mt-2 font-heading text-lg font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-xl">
                         {video.title}
                       </h3>
                     </div>
