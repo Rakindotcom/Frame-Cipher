@@ -3,7 +3,7 @@ import ProjectsPage from '../../src/views/ProjectsPage'
 export const metadata = {
   title: 'Work',
   description:
-    'Explore Frame Cipher work across video production, graphic design, campaign assets, websites, software structures, and growth systems.',
+    'Explore Frame Cipher work across video production, design, websites, software, paid advertising, SEO, and measurable growth systems.',
   alternates: {
     canonical: '/projects',
   },
@@ -11,7 +11,7 @@ export const metadata = {
 
 export default async function Page({ searchParams }) {
   const params = await searchParams
-  const view = params?.view === 'media' || params?.view === 'software' ? params.view : null
+  const view = params?.view || params?.category || null
 
-  return <ProjectsPage key={view || 'work-lanes'} initialView={view} />
+  return <ProjectsPage key={view || 'portfolio-all'} initialView={view} />
 }

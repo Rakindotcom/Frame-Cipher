@@ -24,6 +24,11 @@
   --frame-border: #3F3F46;
 }
 
+html,
+body {
+  overflow-x: clip;
+}
+
 body {
   background: var(--frame-bg);
   color: var(--frame-fg);

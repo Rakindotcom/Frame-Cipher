@@ -10,16 +10,48 @@ const primaryServices = services.map((service) => ({
   path: `/services/${service.slug}`,
 }))
 
-const workLanes = [
+const workCategories = [
   {
-    name: 'Images & Videos',
-    path: '/projects?view=media#media-work',
-    description: 'Video, shorts, posters, and visual archive',
+    name: 'All Work',
+    path: '/projects',
+    pill: 'All',
+    description: 'Explore full portfolio across all creative formats',
   },
   {
-    name: 'Software & Websites',
-    path: '/projects?view=software#software-work',
-    description: 'Websites, systems, dashboards, and tools',
+    name: 'Website',
+    path: '/projects?view=website#website-work',
+    pill: 'Website',
+    description: 'Live platforms, web applications, and digital systems',
+  },
+  {
+    name: 'Long Video',
+    path: '/projects?view=long-video#long-video-work',
+    pill: 'Long Video',
+    description: 'Storytelling productions, documentaries, and YouTube films',
+  },
+  {
+    name: 'Short Video',
+    path: '/projects?view=short-video#short-video-work',
+    pill: 'Short Video',
+    description: 'Vertical 9:16 reels, shorts, and viral social edits',
+  },
+  {
+    name: 'SEO',
+    path: '/projects?view=seo#seo-work',
+    pill: 'SEO',
+    description: 'Search growth, rankings, and organic authority engines',
+  },
+  {
+    name: 'Paid ads',
+    path: '/projects?view=paid-ads#paid-ads-work',
+    pill: 'Paid ads',
+    description: 'Meta Ads performance, creatives, and conversion scaling',
+  },
+  {
+    name: 'Branding',
+    path: '/projects?view=branding#branding-work',
+    pill: 'Branding',
+    description: 'Visual identity systems, art direction, and design archive',
   },
 ]
 
@@ -70,23 +102,53 @@ export default function Navbar() {
                 </div>
               )}
               {item.name === 'Work' && (
-                <div className="invisible absolute left-0 top-full w-80 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100">
-                  <div className="mb-2 px-3 text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Work lanes</div>
-                  <div className="grid gap-1">
-                    {workLanes.map((lane) => (
+                <div className="invisible absolute left-0 top-full w-96 translate-y-3 border-2 border-frame-border bg-frame-bg p-3.5 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 shadow-2xl">
+                  <div className="mb-2.5 flex items-center justify-between px-1">
+                    <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Filter by category</span>
+                    <Link
+                      href="/projects"
+                      className="text-[10px] font-black uppercase tracking-wider text-frame-muted-fg transition-colors hover:text-frame-fg hover:underline"
+                    >
+                      View all &rarr;
+                    </Link>
+                  </div>
+
+                  {/* Filter Pills */}
+                  <div className="mb-3 flex flex-wrap gap-1.5 border-b border-frame-border pb-3">
+                    {workCategories.map((cat) => (
                       <Link
-                        key={lane.path}
-                        href={lane.path}
-                        className="group/lane grid gap-1 border border-transparent px-3 py-3 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                        key={cat.path}
+                        href={cat.path}
+                        className="border border-frame-border bg-frame-muted px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                       >
-                        <span className="text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
-                          {lane.name}
-                        </span>
-                        <span className="text-xs font-semibold leading-tight text-frame-muted-fg transition-colors group-hover/lane:text-frame-accent-fg/80">
-                          {lane.description}
-                        </span>
+                        {cat.pill}
                       </Link>
                     ))}
+                  </div>
+
+                  {/* Category Items */}
+                  <div className="grid gap-1">
+                    {workCategories
+                      .filter((cat) => cat.pill !== 'All')
+                      .map((cat) => (
+                        <Link
+                          key={cat.path}
+                          href={cat.path}
+                          className="group/lane grid gap-0.5 border border-transparent px-3 py-2 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
+                              {cat.name}
+                            </span>
+                            <span className="text-[10px] font-black uppercase tracking-widest text-frame-accent opacity-0 transition-opacity group-hover/lane:opacity-100 group-hover/lane:text-frame-accent-fg">
+                              &rarr;
+                            </span>
+                          </div>
+                          <span className="text-[11px] font-medium leading-snug text-frame-muted-fg transition-colors group-hover/lane:text-frame-accent-fg/80">
+                            {cat.description}
+                          </span>
+                        </Link>
+                      ))}
                   </div>
                 </div>
               )}
@@ -133,22 +195,37 @@ export default function Navbar() {
                 </Link>
                 {item.name === 'Work' && (
                   <div className="grid gap-2 pl-4">
-                    {workLanes.map((lane) => (
-                      <Link
-                        key={lane.path}
-                        href={lane.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="border-2 border-frame-border bg-frame-muted px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg"
-                      >
-                        {lane.name}
-                      </Link>
-                    ))}
+                    <div className="flex flex-wrap gap-1.5 py-1">
+                      {workCategories.map((cat) => (
+                        <Link
+                          key={cat.path}
+                          href={cat.path}
+                          onClick={() => setIsMenuOpen(false)}
+                          className="border border-frame-border bg-frame-muted px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                        >
+                          {cat.pill}
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="grid gap-1">
+                      {workCategories
+                        .filter((cat) => cat.pill !== 'All')
+                        .map((cat) => (
+                          <Link
+                            key={cat.path}
+                            href={cat.path}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="flex items-center justify-between border border-frame-border bg-frame-muted px-3 py-2 text-xs font-black uppercase tracking-tighter text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                          >
+                            <span>{cat.name}</span>
+                            <span className="text-[10px] text-frame-accent font-mono">&rarr;</span>
+                          </Link>
+                        ))}
+                    </div>
                   </div>
                 )}
               </div>
             ))}
-          </div>
-          <div className="mt-4">
             <a
               href={contact.whatsapp}
               onClick={() => setIsMenuOpen(false)}

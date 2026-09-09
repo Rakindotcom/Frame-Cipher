@@ -1,17 +1,17 @@
 import { caseStudyPlaceholders } from '../data/agency'
 import { CTASection, PageHero, PosterButton, SectionIntro, TypeMarquee } from '../components/Kinetic'
 import Testimonials from '../components/Testimonials'
-
-export default function CaseStudiesPage() {
+import GrowthCaseStudyLibrary from '../components/GrowthCaseStudyLibrary'
+export default function CaseStudiesPage() {
   const featuredStudy = caseStudyPlaceholders[0]
 
   return (
     <main className="bg-frame-bg text-frame-fg">
       <PageHero
         eyebrow="Case Studies"
-        meta={featuredStudy.industry}
-        number="02"
-        title="Launching a personal brand from 5 subscribers to 350K+ views"
+        meta="Documented outcomes / Multi-channel growth"
+        number="13"
+        title="Documented growth across paid media, search, and brand systems"
         actions={
           <>
             <PosterButton href="/contact">Book a strategy call</PosterButton>
@@ -19,11 +19,22 @@ export default function CaseStudiesPage() {
           </>
         }
       >
-        Frame Cipher helped Ferdous Saleheen start content creation from zero with strategy,
-        video shooting, and short-form editing built for trust and early momentum.
+        In-depth breakdowns of how Frame Cipher engineers measurable growth: from high-ROI
+        Meta advertising campaigns and organic search dominance to digital platforms and
+        content systems built to scale.
       </PageHero>
 
-      <TypeMarquee items={['350K+ Views', '5 Subscribers', '50K Average Reels', 'Personal Brand']} accent />
+      <TypeMarquee
+        items={[
+          'Meta Ads Scale',
+          'Search Growth & SEO',
+          '1.8M+ Ad Impressions',
+          'High-Converting Websites',
+          '7.2M+ Facebook Views',
+          '350K+ First Short Views',
+        ]}
+        accent
+      />
 
       <Testimonials
         eyebrow="Client voice"
@@ -130,8 +141,8 @@ export default function CaseStudiesPage() {
                 {featuredStudy.keyResult}
               </h3>
               <p className="mt-6 max-w-3xl text-lg font-semibold leading-snug md:text-2xl">
-                The first video proved the content could travel beyond the starting audience,
-                even with only 5 subscribers at launch.
+                The very first YouTube Short generated 350K+ views from a channel with only 5 subscribers,
+                scaling to over 7.2 million views on Facebook alone dated till today.
               </p>
             </article>
 
@@ -146,9 +157,11 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <CTASection title="Want to build a personal brand that earns attention and trust?">
-        Frame Cipher helps professionals, founders, and experts turn their knowledge into
-        high-performing content systems.
+      <GrowthCaseStudyLibrary />
+
+      <CTASection title="Want a growth system built around measurable outcomes?">
+        Frame Cipher connects content, paid media, SEO, websites, and measurement into one
+        practical system for growth.
       </CTASection>
     </main>
   )

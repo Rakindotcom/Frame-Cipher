@@ -651,20 +651,20 @@ export const portfolioProjects = [
 
 export const caseStudyPlaceholders = [
   {
-    client: 'Ferdous Saleheen',
-    title: "Launching Ferdous Saleheen's Personal Brand From Zero",
-    headline: 'From 5 subscribers to 350K+ views on a first YouTube Short',
+    client: 'Dr. Ferdoush Saleheen',
+    title: "Launching Dr. Ferdoush Saleheen's Personal Brand From Zero",
+    headline: 'From 5 subscribers to 350K+ views on the very first YouTube Short & 7.2M+ views on Facebook',
     industry: 'Personal Branding',
     role: 'Head of Supply Chain Department, Sharjah Maritime University',
     servicesUsed: ['Content Strategy', 'Video Shooting', 'Video Editing'],
     timeline: 'April to May 2026',
     goal: 'Build trust and establish a credible personal brand',
-    keyResult: '350K+ views on first YouTube Short',
-    secondaryResult: 'Around 50K average views on first 10 Facebook Reels',
+    keyResult: '7.2M+ Facebook views & 350K+ on first YouTube Short',
+    secondaryResult: '350K+ views on very first YouTube Short (from 5 subscribers)',
     overview:
-      'Frame Cipher helped Ferdous Saleheen begin his content creation journey from the ground up, turning his academic and supply chain expertise into platform-ready short-form content.',
+      'Frame Cipher helped Dr. Ferdoush Saleheen begin his content creation journey from the ground up, turning his academic and supply chain expertise into platform-ready short-form content: reaching 350K+ views on his very first YouTube Short and scaling to over 7.2 million views on Facebook alone dated till today.',
     problem:
-      'Ferdous had strong professional credibility, academic expertise, and industry knowledge, but he had not actively created or published personal brand content before the project.',
+      'Dr. Ferdoush Saleheen had strong professional credibility, academic expertise, and industry knowledge, but he had not actively created or published personal brand content before the project.',
     objective:
       'Help him enter content creation in a clear, strategic, and credible way while building trust with an audience from a very small starting base.',
     strategy:
@@ -672,31 +672,31 @@ export const caseStudyPlaceholders = [
     execution:
       'Frame Cipher handled personal brand content strategy, concept planning, video shooting, short-form editing, audience-retention structure, and final delivery for YouTube Shorts and Facebook Reels.',
     solution:
-      'The production system focused on credibility, clarity, and natural on-camera presence. Each video was edited for short-form viewing so the content could introduce Ferdous to a wider audience and build familiarity quickly.',
+      'The production system focused on credibility, clarity, and natural on-camera presence. Each video was edited for short-form viewing so the content could introduce Dr. Ferdoush Saleheen to a wider audience and build familiarity quickly.',
     result:
-      'His first YouTube Short reached 350K+ views from a channel with only 5 subscribers, while his first 10 Facebook Reels averaged around 50K views each.',
+      'His very first YouTube Short reached 350K+ views from a channel with only 5 subscribers. As of today, his content has generated over 7.2 million views on Facebook alone.',
     focusPoints: [
       'Clear content direction',
       'Credible and natural on-camera presence',
       'Short-form videos for YouTube and Facebook',
       'Retention-focused editing',
-      'Early momentum for a new personal brand',
+      'Early momentum scaling to 7.2M+ views',
     ],
     results: [
       {
+        metric: '7.2M+',
+        label: 'Views on Facebook alone',
+        impact: 'Massive organic reach and authority across Facebook to date',
+      },
+      {
         metric: '350K+',
-        label: 'Views on first YouTube Short',
-        impact: 'Strong organic reach from a new channel',
+        label: 'Views on very first YouTube Short',
+        impact: 'Immediate breakout traction from a channel with only 5 subscribers',
       },
       {
         metric: '5',
         label: 'Subscribers at launch',
-        impact: 'Showed the content could travel beyond the starting audience',
-      },
-      {
-        metric: '50K',
-        label: 'Average views on first 10 Facebook Reels',
-        impact: 'Consistent early traction across short-form content',
+        impact: 'Demonstrated content quality and retention outperform channel size',
       },
       {
         metric: '0',
@@ -711,7 +711,7 @@ export const caseStudyPlaceholders = [
       'Facebook Reel performance screenshots',
     ],
     approvalNote:
-      "Confirm Ferdous Saleheen's approval before publishing his name, title, institution, and performance screenshots.",
+      "Confirm Dr. Ferdoush Saleheen's approval before publishing his name, title, institution, and performance screenshots.",
   },
 ]
 

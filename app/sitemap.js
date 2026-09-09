@@ -1,4 +1,5 @@
 import { services, siteUrl } from '../src/data/agency'
+import { growthCaseStudies } from '../src/data/growthWork'
 
 const lastModified = new Date('2026-05-05')
 
@@ -19,8 +20,14 @@ const serviceRoutes = services.map((service) => ({
   changeFrequency: 'monthly',
 }))
 
+const caseStudyRoutes = growthCaseStudies.map((study) => ({
+  path: `/case-studies/${study.slug}`,
+  priority: 0.7,
+  changeFrequency: 'monthly',
+}))
+
 export default function sitemap() {
-  return [...staticRoutes, ...serviceRoutes].map((route) => ({
+  return [...staticRoutes, ...serviceRoutes, ...caseStudyRoutes].map((route) => ({
     url: new URL(route.path, siteUrl).toString(),
     lastModified,
     changeFrequency: route.changeFrequency,
