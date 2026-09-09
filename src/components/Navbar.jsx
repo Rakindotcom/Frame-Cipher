@@ -102,9 +102,9 @@ export default function Navbar() {
                 </div>
               )}
               {item.name === 'Work' && (
-                <div className="invisible absolute left-0 top-full w-96 translate-y-3 border-2 border-frame-border bg-frame-bg p-3.5 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 shadow-2xl">
-                  <div className="mb-2.5 flex items-center justify-between px-1">
-                    <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Filter by category</span>
+                <div className="invisible absolute left-0 top-full w-88 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 shadow-2xl">
+                  <div className="mb-2 flex items-center justify-between px-3">
+                    <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Work categories</span>
                     <Link
                       href="/projects"
                       className="text-[10px] font-black uppercase tracking-wider text-frame-muted-fg transition-colors hover:text-frame-fg hover:underline"
@@ -112,21 +112,6 @@ export default function Navbar() {
                       View all &rarr;
                     </Link>
                   </div>
-
-                  {/* Filter Pills */}
-                  <div className="mb-3 flex flex-wrap gap-1.5 border-b border-frame-border pb-3">
-                    {workCategories.map((cat) => (
-                      <Link
-                        key={cat.path}
-                        href={cat.path}
-                        className="border border-frame-border bg-frame-muted px-2.5 py-1 text-[10px] font-black uppercase tracking-wider text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
-                      >
-                        {cat.pill}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Category Items */}
                   <div className="grid gap-1">
                     {workCategories
                       .filter((cat) => cat.pill !== 'All')
@@ -134,17 +119,17 @@ export default function Navbar() {
                         <Link
                           key={cat.path}
                           href={cat.path}
-                          className="group/lane grid gap-0.5 border border-transparent px-3 py-2 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                          className="group/lane grid gap-0.5 border border-transparent px-3 py-2.5 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-xs font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
+                            <span className="text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
                               {cat.name}
                             </span>
-                            <span className="text-[10px] font-black uppercase tracking-widest text-frame-accent opacity-0 transition-opacity group-hover/lane:opacity-100 group-hover/lane:text-frame-accent-fg">
+                            <span className="text-xs font-black uppercase tracking-widest text-frame-accent opacity-0 transition-opacity group-hover/lane:opacity-100 group-hover/lane:text-frame-accent-fg">
                               &rarr;
                             </span>
                           </div>
-                          <span className="text-[11px] font-medium leading-snug text-frame-muted-fg transition-colors group-hover/lane:text-frame-accent-fg/80">
+                          <span className="text-xs font-medium leading-snug text-frame-muted-fg transition-colors group-hover/lane:text-frame-accent-fg/80">
                             {cat.description}
                           </span>
                         </Link>
@@ -194,34 +179,20 @@ export default function Navbar() {
                   {item.name}
                 </Link>
                 {item.name === 'Work' && (
-                  <div className="grid gap-2 pl-4">
-                    <div className="flex flex-wrap gap-1.5 py-1">
-                      {workCategories.map((cat) => (
+                  <div className="grid gap-1 pl-4">
+                    {workCategories
+                      .filter((cat) => cat.pill !== 'All')
+                      .map((cat) => (
                         <Link
                           key={cat.path}
                           href={cat.path}
                           onClick={() => setIsMenuOpen(false)}
-                          className="border border-frame-border bg-frame-muted px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                          className="flex items-center justify-between border-2 border-frame-border bg-frame-muted px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                         >
-                          {cat.pill}
+                          <span>{cat.name}</span>
+                          <span className="text-[10px] text-frame-accent font-mono">&rarr;</span>
                         </Link>
                       ))}
-                    </div>
-                    <div className="grid gap-1">
-                      {workCategories
-                        .filter((cat) => cat.pill !== 'All')
-                        .map((cat) => (
-                          <Link
-                            key={cat.path}
-                            href={cat.path}
-                            onClick={() => setIsMenuOpen(false)}
-                            className="flex items-center justify-between border border-frame-border bg-frame-muted px-3 py-2 text-xs font-black uppercase tracking-tighter text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
-                          >
-                            <span>{cat.name}</span>
-                            <span className="text-[10px] text-frame-accent font-mono">&rarr;</span>
-                          </Link>
-                        ))}
-                    </div>
                   </div>
                 )}
               </div>
