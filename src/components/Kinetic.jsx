@@ -53,7 +53,7 @@ export function PosterButton({ href, children, variant = 'accent', className = '
   const variants = {
     accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-105',
     outline:
-      'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-accent-fg',
+      'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg',
     dark: 'border-frame-accent-fg bg-frame-accent-fg text-frame-accent hover:bg-frame-bg hover:text-frame-fg',
   }
   const classes = `${base} ${variants[variant]} ${className}`

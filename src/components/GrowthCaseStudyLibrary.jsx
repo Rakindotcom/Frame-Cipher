@@ -1,18 +1,8 @@
-'use client'
-
-import { useState } from 'react'
 import Link from 'next/link'
 import { growthCaseStudies } from '../data/growthWork'
 
 export default function GrowthCaseStudyLibrary() {
-  const [activeCategory, setActiveCategory] = useState('All')
-
-  const categories = ['All', 'Paid Ads', 'SEO']
-
-  const filteredStudies =
-    activeCategory === 'All'
-      ? growthCaseStudies
-      : growthCaseStudies.filter((study) => study.category === activeCategory)
+  const categories = ['Paid Ads', 'SEO']
 
   return (
     <section className="border-t-2 border-frame-border px-4 py-24 md:px-8 md:py-32">
@@ -33,44 +23,24 @@ export default function GrowthCaseStudyLibrary() {
               and first-party verified results across our paid-media and search growth programs. Select any study to inspect the complete operational breakdown and reporting data.
             </p>
 
-            {/* Category Filter Pills */}
-            <div className="mt-8 flex flex-wrap gap-2.5">
-              {categories.map((cat) => {
-                const count =
-                  cat === 'All'
-                    ? growthCaseStudies.length
-                    : growthCaseStudies.filter((s) => s.category === cat).length
-                const isActive = activeCategory === cat
-
-                return (
-                  <button
-                    key={cat}
-                    type="button"
-                    onClick={() => setActiveCategory(cat)}
-                    className={`border-2 px-4 py-2 text-xs font-black uppercase tracking-wider transition-colors ${
-                      isActive
-                        ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
-                        : 'border-frame-border bg-frame-bg text-frame-fg hover:border-frame-accent hover:text-frame-accent'
-                    }`}
-                  >
-                    {cat} ({count})
-                  </button>
-                )
-              })}
-            </div>
           </div>
         </div>
 
-        {/* 3 in a Row Grid */}
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredStudies.map((study, index) => {
-            const trueIndex = growthCaseStudies.findIndex((s) => s.slug === study.slug)
+        <div className="space-y-16">
+          {categories.map((category) => {
+            const id = `case-studies-${category.toLowerCase().replaceAll(' ', '-')}`
+            const studies = growthCaseStudies.filter((study) => study.category === category)
             return (
-              <CaseStudyCard
-                key={study.slug}
-                study={study}
-                index={trueIndex >= 0 ? trueIndex : index}
-              />
+              <section key={category} id={id} tabIndex={-1} aria-labelledby={`${id}-heading`} className="scroll-mt-[var(--case-study-scroll-offset,160px)]">
+                <h3 id={`${id}-heading`} className="mb-6 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-4xl">
+                  {category} <span className="text-frame-accent">({studies.length})</span>
+                </h3>
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {studies.map((study) => (
+                    <CaseStudyCard key={study.slug} study={study} index={growthCaseStudies.indexOf(study)} />
+                  ))}
+                </div>
+              </section>
             )
           })}
         </div>
@@ -86,7 +56,7 @@ function CaseStudyCard({ study, index }) {
     <Link
       id={study.slug}
       href={`/case-studies/${study.slug}`}
-      className="group flex flex-col justify-between border-2 border-frame-border bg-frame-bg transition-all duration-300 hover:border-frame-accent hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.35)] focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
+      className="group flex scroll-mt-[var(--case-study-scroll-offset,160px)] flex-col justify-between border-2 border-frame-border bg-frame-bg transition-all duration-300 hover:border-frame-accent hover:-translate-y-1 hover:shadow-[0_12px_35px_rgba(0,0,0,0.35)] focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
     >
       <div>
         {/* Card Header: Index & Badge */}
@@ -104,9 +74,9 @@ function CaseStudyCard({ study, index }) {
           <p className="text-[0.68rem] font-black uppercase tracking-[0.2em] text-frame-muted-fg line-clamp-1">
             {study.client} · {study.industry}
           </p>
-          <h3 className="mt-2.5 font-heading text-xl font-bold uppercase leading-snug tracking-tight text-frame-fg transition-colors group-hover:text-frame-accent md:text-2xl line-clamp-2">
+          <h4 className="mt-2.5 font-heading text-xl font-bold uppercase leading-snug tracking-tight text-frame-fg transition-colors group-hover:text-frame-accent md:text-2xl line-clamp-2">
             {study.title}
-          </h3>
+          </h4>
           <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg line-clamp-3">
             {study.summary}
           </p>

@@ -114,7 +114,7 @@ function PosterButton({ href, children, variant = 'accent' }) {
   const classes =
     variant === 'accent'
       ? 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-105'
-      : 'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-accent-fg'
+      : 'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg'
 
   return (
     <Link
