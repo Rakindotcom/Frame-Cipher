@@ -1,14 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { contact, navItems, services } from '../data/agency'
-
-const primaryServices = services.map((service) => ({
-  name: service.navTitle,
-  path: `/services/${service.slug}`,
-}))
+import { contact, navItems } from '../data/agency'
 
 const workCategories = [
   {
@@ -55,7 +51,7 @@ const workCategories = [
   },
 ]
 
-export default function Navbar() {
+export default function Navbar({ pillarNavServices = [] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
 
@@ -65,7 +61,7 @@ export default function Navbar() {
     <header className="fixed left-0 right-0 top-0 z-50 border-b-2 border-frame-border bg-frame-bg/92 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-[95vw] items-center justify-between px-4 py-4 md:px-0" aria-label="Primary navigation">
         <Link href="/" className="flex items-center gap-3" aria-label="Frame Cipher home">
-          <img src="/logo.webp" alt="Frame Cipher" className="h-10 w-10 object-contain" />
+          <Image src="/logo.webp" alt="Frame Cipher" width={40} height={40} className="h-10 w-10 object-contain" priority />
           <div>
             <div className="font-heading text-sm font-bold uppercase tracking-[0.18em] text-frame-fg">FRAME CIPHER</div>
             <div className="hidden text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent sm:block">
@@ -86,16 +82,27 @@ export default function Navbar() {
                 {item.name}
               </Link>
               {item.name === 'Services' && (
-                <div className="invisible absolute left-0 top-full w-72 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100">
-                  <div className="mb-2 px-3 text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Service systems</div>
+                <div className="invisible absolute left-0 top-full w-80 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-2 group-focus-within:opacity-100">
+                  <div className="mb-2 flex items-center justify-between gap-4 px-3">
+                    <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">
+                      7 Core Pillars
+                    </span>
+                    <Link
+                      href="/services#all-services"
+                      className="text-[10px] font-black uppercase tracking-wider text-frame-muted-fg transition-colors hover:text-frame-fg hover:underline"
+                    >
+                      All 74 Services &rarr;
+                    </Link>
+                  </div>
                   <div className="grid gap-1">
-                    {primaryServices.map((service) => (
+                    {pillarNavServices.map((service) => (
                       <Link
                         key={service.path}
                         href={service.path}
-                        className="px-3 py-2 text-sm font-semibold text-frame-muted-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                        className="flex items-center justify-between px-3 py-2.5 text-sm font-bold uppercase tracking-tight text-frame-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
                       >
-                        {service.name}
+                        <span>{service.name}</span>
+                        <span className="text-xs opacity-60">&rarr;</span>
                       </Link>
                     ))}
                   </div>
@@ -178,6 +185,28 @@ export default function Navbar() {
                 >
                   {item.name}
                 </Link>
+                {item.name === 'Services' && (
+                  <div className="grid gap-1 pl-4">
+                    {pillarNavServices.map((pillar) => (
+                      <Link
+                        key={pillar.path}
+                        href={pillar.path}
+                        onClick={() => setIsMenuOpen(false)}
+                        className="flex items-center justify-between border-2 border-frame-border bg-frame-muted px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                      >
+                        <span>{pillar.name}</span>
+                        <span className="font-mono text-[10px] text-frame-accent">&rarr;</span>
+                      </Link>
+                    ))}
+                    <Link
+                      href="/services#all-services"
+                      onClick={() => setIsMenuOpen(false)}
+                      className="px-4 py-2 text-xs font-black uppercase tracking-wider text-frame-accent"
+                    >
+                      View all 74 services &rarr;
+                    </Link>
+                  </div>
+                )}
                 {item.name === 'Work' && (
                   <div className="grid gap-1 pl-4">
                     {workCategories

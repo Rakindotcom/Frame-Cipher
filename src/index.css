@@ -45,6 +45,22 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Fraunces', Georgia, serif;
 }
 
+/*
+ * Divider grids previously used their gray background to paint the gaps between
+ * cards. In an incomplete final row, that background looked like one or more
+ * empty gray cards. Keep the canvas black and draw the dividers on real items
+ * instead, so unused grid space remains intentional negative space.
+ */
+.grid.gap-px.bg-frame-border,
+.bg-frame-border.p-px > .grid.gap-px {
+  background-color: var(--frame-bg);
+}
+
+.grid.gap-px.bg-frame-border > *,
+.bg-frame-border.p-px > .grid.gap-px > * {
+  outline: 1px solid var(--frame-border);
+}
+
 ::selection {
   background: var(--frame-accent);
   color: var(--frame-accent-fg);

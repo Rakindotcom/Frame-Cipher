@@ -3,6 +3,7 @@ import Footer from '../src/components/Footer'
 import RouteScrollToTop from '../src/components/RouteScrollToTop'
 import ScrollToTopButton from '../src/components/ScrollToTop'
 import { contact, services, siteUrl } from '../src/data/agency'
+import { getPillarServices, getServiceDisplayName } from '../src/data/servicePages'
 import '../src/index.css'
 
 const siteDescription =
@@ -83,6 +84,11 @@ const organizationSchema = {
   serviceType: services.map((service) => service.title),
 }
 
+const pillarNavServices = getPillarServices().map((pillar) => ({
+  name: getServiceDisplayName(pillar),
+  path: pillar.fullPath,
+}))
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -102,7 +108,7 @@ export default function RootLayout({ children }) {
         <RouteScrollToTop />
         <div className="min-h-screen overflow-x-clip bg-frame-bg text-frame-fg">
           <div className="kinetic-noise" aria-hidden="true" />
-          <Navbar />
+          <Navbar pillarNavServices={pillarNavServices} />
           {children}
           <Footer />
           <ScrollToTopButton />

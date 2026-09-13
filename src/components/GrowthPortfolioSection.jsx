@@ -124,7 +124,7 @@ export function ProjectCard({ project, number, showSummary = false, className = 
           className="mt-5 inline-flex items-center justify-between border-t-2 border-frame-border pt-4 text-xs font-black uppercase tracking-[0.16em] text-frame-fg transition-colors hover:text-frame-accent focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
         >
           View case study
-          <span className="text-lg text-frame-accent" aria-hidden="true">↗</span>
+          <svg className="h-5 w-5 text-frame-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
         </Link>
       </div>
     </article>

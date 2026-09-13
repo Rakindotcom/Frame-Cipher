@@ -75,14 +75,14 @@ const videoWorkSections = [
     description: 'Vertical short-form edits built for retention, rhythm, and fast social distribution.',
     items: [
       {
-        title: 'Life & Perspective — "আমি প্রস্তুত না"',
+        title: 'Life & Perspective: "আমি প্রস্তুত না"',
         videoId: 'KGD6GGqEliA',
         thumbnailUrl: '/video-thumbnails/short-01.webp',
         isShort: true,
         category: 'Inspirational Short',
       },
       {
-        title: 'Dr. Ferdoush Saleheen — Mindset & Action',
+        title: 'Dr. Ferdoush Saleheen: Mindset & Action',
         client: 'Dr. Ferdoush Saleheen',
         videoId: 'Qw1unPMli6k',
         thumbnailUrl: '/video-thumbnails/short-02.webp',
@@ -90,7 +90,7 @@ const videoWorkSections = [
         category: 'Personal Brand · 1M+ Views',
       },
       {
-        title: 'Dr. Ferdoush Saleheen — Career Reflection & Growth',
+        title: 'Dr. Ferdoush Saleheen: Career Reflection & Growth',
         client: 'Dr. Ferdoush Saleheen',
         videoId: 'fkiGzxB6qTE',
         thumbnailUrl: '/video-thumbnails/short-03.webp',
@@ -98,7 +98,7 @@ const videoWorkSections = [
         category: 'Personal Brand · Viral Short',
       },
       {
-        title: 'Dr. Ferdoush Saleheen — Supply Chain Frameworks',
+        title: 'Dr. Ferdoush Saleheen: Supply Chain Frameworks',
         client: 'Dr. Ferdoush Saleheen',
         videoId: 'JjHHwtdk1Lg',
         thumbnailUrl: '/video-thumbnails/short-04.webp',
@@ -106,7 +106,7 @@ const videoWorkSections = [
         category: 'Personal Brand · Leadership',
       },
       {
-        title: 'Dr. Ferdoush Saleheen — Core Leadership Insights',
+        title: 'Dr. Ferdoush Saleheen: Core Leadership Insights',
         client: 'Dr. Ferdoush Saleheen',
         videoId: 'HBFYhnWH2Go',
         thumbnailUrl: '/video-thumbnails/short-05.webp',
@@ -114,7 +114,7 @@ const videoWorkSections = [
         category: 'Personal Brand · Authority',
       },
       {
-        title: 'Career in Textile & Lifestyle — Conference Short',
+        title: 'Career in Textile & Lifestyle: Conference Short',
         videoId: '8J5r9BbGGys',
         thumbnailUrl: '/video-thumbnails/short-06.webp',
         isShort: true,
@@ -438,7 +438,7 @@ export default function ProjectsPage({ initialView = null }) {
                 className="absolute inset-y-0 right-2 flex items-center px-1 text-xs font-black text-frame-muted-fg hover:text-frame-fg"
                 aria-label="Clear search"
               >
-                ✕
+                <svg className="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" /></svg>
               </button>
             )}
           </div>
@@ -529,7 +529,7 @@ export default function ProjectsPage({ initialView = null }) {
                               href={project.caseStudyUrl}
                               className="inline-flex min-h-12 w-fit items-center justify-center border-2 border-frame-border px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
                             >
-                              View case study ↗
+                              View case study
                             </Link>
                           )}
                         </div>
@@ -630,7 +630,7 @@ export default function ProjectsPage({ initialView = null }) {
                     </span>
                   </div>
                   <h4 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-4xl">
-                    Dr. Ferdoush Saleheen — Viral Short-Form Content Engine
+                    Dr. Ferdoush Saleheen: Viral Short-Form Content Engine
                   </h4>
                   <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     Real short-form video work produced for Dr. Ferdoush Saleheen from a standing start. Across Facebook Reels and short-form video channels, individual videos crossed 1M views, 447K views, 390K views, alongside 350K views on his very first YouTube Short.
@@ -640,7 +640,7 @@ export default function ProjectsPage({ initialView = null }) {
                   href="/case-studies"
                   className="inline-flex min-h-12 items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg shrink-0"
                 >
-                  View Case Study Breakdown ↗
+                  View Case Study Breakdown
                 </Link>
               </div>
 
