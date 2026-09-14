@@ -77,7 +77,7 @@ import CaseStudyNavigation from '../components/CaseStudyNavigation'
           <div className="mx-auto grid max-w-[95vw] gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-4">
             {featuredStudy.results.map((result) => (
               <article key={result.label} className="bg-frame-bg p-6 md:p-8">
-                <p className="font-heading text-[clamp(3rem,8vw,6.5rem)] font-bold uppercase leading-none tracking-tighter text-frame-accent">
+                <p className="font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-accent md:text-5xl">
                   {result.metric}
                 </p>
                 <h3 className="mt-5 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg">

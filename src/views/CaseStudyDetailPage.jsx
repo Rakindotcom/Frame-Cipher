@@ -73,7 +73,7 @@ export default function CaseStudyDetailPage({ study }) {
           <div className="mx-auto grid max-w-[95vw] gap-px border-x-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
             {study.metrics.map(([value, label]) => (
               <div key={label} className="bg-frame-muted p-6 md:p-8">
-                <p className="font-heading text-[clamp(2.5rem,6vw,4.5rem)] font-bold uppercase leading-none tracking-tighter text-frame-accent">
+                <p className="font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-accent md:text-5xl">
                   {value}
                 </p>
                 <p className="mt-3 text-xs font-black uppercase tracking-[0.2em] text-frame-fg">

@@ -13,7 +13,7 @@ export default function GrowthCaseStudyLibrary() {
             <p className="text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
               Documented outcomes · Systematic execution
             </p>
-            <h2 className="mt-5 font-heading text-[clamp(2.8rem,7vw,7rem)] font-bold uppercase leading-[0.82] tracking-tighter text-frame-fg">
+            <h2 className="mt-5 font-heading text-[clamp(2.8rem,5vw,4.5rem)] font-bold uppercase leading-[0.82] tracking-tighter text-frame-fg">
               Growth & performance library.
             </h2>
           </div>

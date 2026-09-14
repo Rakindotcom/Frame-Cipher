@@ -1,4 +1,7 @@
-import servicePagesData from './servicePagesData.json'
+import sourceServicePages from './servicePagesData.json'
+import { normalizeServicePage } from './serviceContent'
+
+const servicePagesData = sourceServicePages.map(normalizeServicePage)
 
 export function getAllServicePages() {
   return servicePagesData
@@ -72,45 +75,7 @@ export function getServiceAdvantages(page) {
 }
 
 export function getServicePricingTable(page) {
-  const table = page.pricing?.table
-  if (!table?.rows?.length) return null
-
-  const isFlattened =
-    table.headers?.length === 2 &&
-    !table.headers[0] &&
-    table.rows.every((row) => row.length === 2 && !row[0])
-
-  if (!isFlattened) return table
-
-  const values = [...table.headers, ...table.rows.flat()].filter((value) => value !== '')
-  if (values.length < 3) return null
-
-  if (/typical range/i.test(values[0])) {
-    return {
-      headers: ['Service', values[0]],
-      rows: chunkComplete(values.slice(1), 2),
-    }
-  }
-
-  if (/^(starting price|management fee)$/i.test(values[0])) {
-    return {
-      headers: ['Package', ...values.slice(0, 3)],
-      rows: chunkComplete(values.slice(3), 4),
-    }
-  }
-
-  return {
-    headers: ['Features', ...values.slice(0, 3)],
-    rows: chunkComplete(values.slice(3), 4),
-  }
-}
-
-function chunkComplete(values, size) {
-  const rows = []
-  for (let index = 0; index + size <= values.length; index += size) {
-    rows.push(values.slice(index, index + size))
-  }
-  return rows
+  return page.pricing?.table || null
 }
 
 export function getRelatedSubServices(page, limit = 4) {

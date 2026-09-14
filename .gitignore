@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 .next
+/artifacts/site-audit/
 out
 dist
 dist-ssr

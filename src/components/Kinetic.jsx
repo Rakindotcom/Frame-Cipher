@@ -14,7 +14,7 @@ export function PageHero({ eyebrow, title, children, meta, number = '360', actio
         </div>
         
         <div className="flex w-full flex-col items-center text-center">
-          <h1 className="w-full font-heading text-[clamp(2.8rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+          <h1 className="w-full [overflow-wrap:anywhere] font-heading text-[clamp(2.5rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
             {title}
           </h1>
           <div className="mt-8 flex max-w-4xl flex-col items-center gap-8">

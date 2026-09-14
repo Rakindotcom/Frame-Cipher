@@ -74,7 +74,7 @@ export default function AboutPage() {
             feed campaigns, and data can sharpen the next build.
           </SectionIntro>
 
-          <div className="grid bg-frame-border gap-px md:grid-cols-5">
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {servicePillars.map((pillar, index) => (
               <InversionCard key={pillar.title} title={pillar.title} number={`0${index + 1}`}>
                 <p>{pillar.description}</p>

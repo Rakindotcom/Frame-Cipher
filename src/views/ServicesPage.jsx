@@ -77,18 +77,18 @@ export default function ServicesPage() {
             <PosterButton href="/contact" variant="outline">Start a brief</PosterButton>
           </div>
 
-          <div className="grid gap-8">
+          <div className="grid min-w-0 grid-cols-1 gap-8">
             {pillarGroups.map(({ pillar, name, summary, subServices }, pillarIndex) => (
               <section
                 key={pillar.slug}
                 id={pillar.slug}
-                className="scroll-mt-24 border-2 border-frame-border bg-frame-bg [content-visibility:auto] [contain-intrinsic-size:800px]"
+                className="min-w-0 scroll-mt-24 border-2 border-frame-border bg-frame-bg"
               >
-                <div className="grid gap-6 border-b-2 border-frame-border p-6 md:grid-cols-[auto_1fr_auto] md:items-center md:p-8">
+                <div className="grid min-w-0 grid-cols-1 gap-6 border-b-2 border-frame-border p-6 md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:p-8">
                   <span className="font-heading text-5xl font-bold leading-none tracking-tighter text-frame-muted" aria-hidden="true">
                     {String(pillarIndex + 1).padStart(2, '0')}
                   </span>
-                  <div>
+                  <div className="min-w-0 [overflow-wrap:anywhere]">
                     <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                       {subServices.length + 1} service pages
                     </p>

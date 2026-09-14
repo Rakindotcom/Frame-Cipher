@@ -190,7 +190,7 @@ export default function Home() {
             the campaign machine to behave like one system.
           </SectionHeader>
 
-          <div className="grid bg-frame-border gap-px md:grid-cols-5">
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {servicePillars.map((pillar, index) => (
               <article
                 key={pillar.title}
@@ -199,7 +199,7 @@ export default function Home() {
                 <p className="font-heading text-[5rem] font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg" aria-hidden="true">
                   0{index + 1}
                 </p>
-                <h3 className="mt-8 font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-5xl">
+                <h3 className="mt-8 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg 2xl:text-3xl">
                   {pillar.title}
                 </h3>
                 <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
@@ -217,7 +217,7 @@ export default function Home() {
             <p className="mb-4 text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
               Growth loop
             </p>
-            <h2 className="font-heading text-[clamp(3rem,9vw,8rem)] font-bold uppercase leading-[0.82] tracking-tighter">
+            <h2 className="font-heading text-[clamp(3rem,7vw,6rem)] font-bold uppercase leading-[0.82] tracking-tighter">
               Not a campaign. A machine.
             </h2>
           </div>

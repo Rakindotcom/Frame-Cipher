@@ -45,6 +45,19 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Fraunces', Georgia, serif;
 }
 
+/* Grid items must be able to shrink below their text's intrinsic width. */
+main .grid > * {
+  min-width: 0;
+}
+
+.service-experience {
+  overflow-wrap: anywhere;
+}
+
+main a {
+  overflow-wrap: anywhere;
+}
+
 /*
  * Divider grids previously used their gray background to paint the gaps between
  * cards. In an incomplete final row, that background looked like one or more

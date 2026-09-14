@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { getRelatedSubServices, getSubServicesForPillar } from '../data/servicePages'
+import { cleanServiceText as cleanText } from '../data/serviceContent'
 
 const surface = 'border border-white/10 bg-white/[0.035]'
 
@@ -10,14 +11,6 @@ function cleanName(value = '') {
     .trim()
 }
 
-function cleanText(value = '') {
-  return String(value || '')
-    .replace(/\[([^\]]+)\](?:\([^)]*\))?/g, '$1')
-    .replace(/PLACEHOLDER\s*-\s*[^.\n]+(?:\.)?/gi, '')
-    .replace(/\s*→\s*/g, '')
-    .replace(/[ \t]+/g, ' ')
-    .trim()
-}
 
 function getHeroCopy(service) {
   if (service.shortDesc?.trim()) return cleanText(service.shortDesc)
@@ -71,32 +64,6 @@ function getPresentableAdvantages(items = []) {
   }))
 }
 
-function normalizePricing(table) {
-  if (!table?.rows?.length) return null
-
-  const values = table.rows
-    .map((row) => row.find((cell) => String(cell || '').trim()))
-    .filter(Boolean)
-    .map((cell) => String(cell).trim())
-  const columnCount = values.length >= 14 ? 4 : Math.max(table.headers?.length || 2, 2)
-  const headers = [...(table.headers || [])]
-  while (headers.length < columnCount && values.length) headers.push(values.shift())
-
-  let note = ''
-  const remainder = values.length % columnCount
-  if (remainder) note = values.splice(values.length - remainder).join(' ')
-
-  const rows = []
-  for (let index = 0; index < values.length; index += columnCount) {
-    rows.push(values.slice(index, index + columnCount))
-  }
-
-  return {
-    headers: headers.map((header, index) => header || (index === 0 ? 'Package' : `Option ${index}`)),
-    rows,
-    note,
-  }
-}
 
 function ArrowIcon() {
   return (
@@ -154,7 +121,7 @@ export default function ServiceExperience({ service }) {
   const subServices = isPillar ? getSubServicesForPillar(service.slug) : []
   const relatedServices = getRelatedSubServices(service, 4)
   const advantages = getPresentableAdvantages(service.whyChooseUs)
-  const pricing = normalizePricing(service.pricing?.table)
+  const pricing = service.pricing?.table
   const impactCards = getReasonCards(service.whyMatters)
   const serviceName = cleanName(service.sheetTitle)
   const pillarName = cleanName(service.pillarParent)
@@ -170,7 +137,7 @@ export default function ServiceExperience({ service }) {
   } : null
 
   return (
-    <main className="bg-[#09090b] text-zinc-100">
+    <main className="service-experience bg-[#09090b] text-zinc-100">
       {faqSchema && <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replaceAll('<', '\\u003c') }} />}
 
       <section className="relative overflow-hidden border-b border-white/10 px-5 pb-20 pt-28 sm:px-8 md:pb-28 md:pt-36">
@@ -244,7 +211,7 @@ export default function ServiceExperience({ service }) {
       {service.processSteps?.length > 0 && (
         <section className="px-5 py-20 sm:px-8 md:py-28"><div className="mx-auto max-w-7xl">
           <SectionHeading eyebrow="Delivery process" title="A clear path from brief to result">Each stage has a defined outcome and review point, so you always know what is happening next.</SectionHeading>
-          <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{service.processSteps.map((step, index) => <li key={`${step.title}-${index}`} className={`${surface} relative overflow-hidden rounded-3xl p-7`}><span className="absolute -right-2 -top-4 font-heading text-7xl font-semibold text-white/[0.035]">{String(index + 1).padStart(2, '0')}</span><span className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">Step {String(index + 1).padStart(2, '0')}</span><h3 className="mt-4 font-heading text-xl font-semibold text-white">{cleanText(step.title)}</h3><p className="mt-3 text-sm leading-6 text-zinc-400">{cleanText(step.description)}</p></li>)}</ol>
+          <ol className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">{service.processSteps.map((step, index) => <li key={`${step.title}-${index}`} className={`${surface} relative overflow-hidden rounded-3xl p-7`}><span aria-hidden="true" className="absolute -right-2 -top-4 font-heading text-7xl font-semibold text-white/[0.035]">{String(index + 1).padStart(2, '0')}</span><span className="text-xs font-bold uppercase tracking-[0.2em] text-violet-300">Step {String(index + 1).padStart(2, '0')}</span><h3 className="mt-4 font-heading text-xl font-semibold text-white">{cleanText(step.title)}</h3><p className="mt-3 text-sm leading-6 text-zinc-400">{cleanText(step.description)}</p></li>)}</ol>
         </div></section>
       )}
 
@@ -260,12 +227,78 @@ export default function ServiceExperience({ service }) {
 }
 
 function PricingSection({ service, pricing }) {
-  if (!service.pricing?.packages?.length && !pricing) return null
-  return <section id="pricing" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-5 py-20 sm:px-8 md:py-28"><div className="mx-auto max-w-7xl">
-    <SectionHeading eyebrow="Pricing guide" title="Clear scope before commitment">{cleanText(service.pricing?.intro || 'Final pricing is confirmed after a free scope review.')}</SectionHeading>
-    {service.pricing?.packages?.length > 0 && <div className="mb-8 grid gap-4 lg:grid-cols-3">{service.pricing.packages.map((pkg, index) => <article key={`${pkg.name}-${index}`} className={`${surface} rounded-3xl p-7 ${index === 1 ? 'border-violet-400/50 bg-violet-400/[0.07]' : ''}`}><h3 className="font-heading text-2xl font-semibold text-white">{pkg.name}</h3><p className="mt-5 text-2xl font-bold text-violet-300">{pkg.price}</p>{pkg.description && <p className="mt-3 text-sm leading-6 text-zinc-400">{pkg.description}</p>}</article>)}</div>}
-    {pricing && <div className={`${surface} overflow-hidden rounded-3xl`}><div className="overflow-x-auto"><table className="w-full min-w-[720px] text-left text-sm"><thead className="bg-white/[0.05]"><tr>{pricing.headers.map((header, index) => <th key={`${header}-${index}`} className="px-6 py-5 font-semibold text-white">{cleanText(header)}</th>)}</tr></thead><tbody className="divide-y divide-white/10">{pricing.rows.map((row, rowIndex) => <tr key={`${row.join('-')}-${rowIndex}`} className="transition hover:bg-white/[0.025]">{row.map((cell, cellIndex) => <td key={`${cell}-${cellIndex}`} className={`px-6 py-4 align-top leading-6 ${cellIndex === 0 ? 'font-semibold text-zinc-200' : 'text-zinc-400'}`}>{cell === 'Included' ? <span className="text-emerald-300">Included</span> : cleanText(cell)}</td>)}</tr>)}</tbody></table></div>{pricing.note && <p className="border-t border-white/10 px-6 py-5 text-sm leading-6 text-zinc-500">{cleanText(pricing.note)}</p>}</div>}
-  </div></section>
+  const packages = service.pricing?.packages || []
+  if (!packages.length && !pricing) return null
+  const comparison = pricing?.headers[0] === 'Features'
+  const mobileCards = !pricing ? [] : comparison
+    ? pricing.headers.slice(1).map((name, index) => ({
+      name,
+      fields: pricing.rows.map((row) => ({ label: row[0], value: row[index + 1] })),
+    }))
+    : pricing.rows.map((row) => ({
+      name: row[0],
+      fields: pricing.headers.slice(1).map((label, index) => ({ label, value: row[index + 1] })),
+    }))
+
+  return (
+    <section id="pricing" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-5 py-20 sm:px-8 md:py-28">
+      <div className="mx-auto min-w-0 max-w-7xl">
+        <SectionHeading eyebrow="Pricing guide" title="Clear scope before commitment">
+          {service.pricing?.intro === packages[0]?.name
+            ? 'Choose the scope that fits your business. Final pricing is confirmed after a scope review.'
+            : cleanText(service.pricing?.intro || 'Final pricing is confirmed after a free scope review.')}
+        </SectionHeading>
+        {packages.length > 0 && (
+          <div className="mb-8 grid gap-4 lg:grid-cols-3">
+            {packages.map((pkg) => (
+              <article key={pkg.name} className={`${surface} min-w-0 rounded-3xl p-7`}>
+                <h3 className="font-heading text-2xl font-semibold text-white">{pkg.name}</h3>
+                <p className="mt-5 text-2xl font-bold text-violet-300">{pkg.price}</p>
+                {pkg.description && <p className="mt-3 text-sm leading-6 text-zinc-400">{pkg.description}</p>}
+                {pkg.features?.length > 0 && <ul className="mt-5 space-y-2 text-sm leading-6 text-zinc-300">
+                  {pkg.features.map((feature) => <li key={feature} className="flex gap-2"><CheckIcon /><span>{feature}</span></li>)}
+                </ul>}
+              </article>
+            ))}
+          </div>
+        )}
+        {pricing && <>
+          <div className="grid gap-4 md:hidden" data-pricing-mobile>
+            {mobileCards.map((card) => (
+              <article key={card.name} className={`${surface} min-w-0 rounded-2xl p-5`}>
+                <h3 className="font-heading text-xl font-semibold text-white">{card.name}</h3>
+                <dl className="mt-4 divide-y divide-white/10">
+                  {card.fields.map(({ label, value }) => (
+                    <div key={label} className="py-3">
+                      <dt className="text-xs font-bold uppercase tracking-wide text-violet-300">{label}</dt>
+                      <dd className="mt-1 text-sm leading-6 text-zinc-300">{value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </article>
+            ))}
+          </div>
+          <div className={`${surface} hidden overflow-hidden rounded-3xl md:block`}>
+            <table className="w-full table-fixed text-left text-sm">
+              <caption className="sr-only">Scope and pricing for {cleanName(service.sheetTitle)}</caption>
+              <thead className="bg-white/[0.05]"><tr>
+                {pricing.headers.map((header) => <th key={header} scope="col" className="break-words px-5 py-5 font-semibold text-white">{header}</th>)}
+              </tr></thead>
+              <tbody className="divide-y divide-white/10">
+                {pricing.rows.map((row) => <tr key={row[0]} className="transition hover:bg-white/[0.025]">
+                  <th scope="row" className="break-words px-5 py-4 align-top font-semibold leading-6 text-zinc-200">{row[0]}</th>
+                  {row.slice(1).map((cell, index) => <td key={index} className="break-words px-5 py-4 align-top leading-6 text-zinc-400">{cell}</td>)}
+                </tr>)}
+              </tbody>
+            </table>
+          </div>
+          {pricing.note && <p className="mt-5 text-sm leading-6 text-zinc-400">{pricing.note}</p>}
+        </>}
+        <p className="mt-6 text-sm leading-6 text-zinc-400">Prices shown are a guide. Your proposal confirms the final scope, fee, and delivery schedule before work begins.</p>
+        <div className="mt-6"><PrimaryLink href="/contact">Request a quote</PrimaryLink></div>
+      </div>
+    </section>
+  )
 }
 
 function DetailsSection({ service }) {

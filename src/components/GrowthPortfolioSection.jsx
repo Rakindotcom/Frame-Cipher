@@ -133,7 +133,7 @@ export function ProjectCard({ project, number, showSummary = false, className = 
 
 export function MetricPair({ metrics, className = 'mt-8' }) {
   return (
-    <dl className={`grid grid-cols-2 gap-px border border-frame-border bg-frame-border ${className}`}>
+    <dl className={`grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-px border border-frame-border bg-frame-border ${className}`}>
       {metrics.map(([value, label]) => (
         <div key={label} className="bg-frame-muted p-3.5">
           <dt className="text-[0.6rem] font-black uppercase tracking-[0.16em] text-frame-muted-fg">

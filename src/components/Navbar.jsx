@@ -162,6 +162,7 @@ export default function Navbar({ pillarNavServices = [] }) {
           className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 border-2 border-frame-border bg-frame-bg lg:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
+          aria-controls="mobile-navigation"
         >
           <span className={`h-0.5 w-5 bg-frame-fg transition-transform ${isMenuOpen ? 'translate-y-2 rotate-45' : ''}`} />
           <span className={`h-0.5 w-5 bg-frame-fg transition-opacity ${isMenuOpen ? 'opacity-0' : ''}`} />
@@ -169,7 +170,7 @@ export default function Navbar({ pillarNavServices = [] }) {
         </button>
       </nav>
 
-      <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
+      <div id="mobile-navigation" className={`max-h-[calc(100dvh-5rem)] overflow-y-auto overscroll-contain lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
         <div className="border-t-2 border-frame-border bg-frame-bg px-4 py-5">
           <div className="grid gap-2">
             {navItems.map((item) => (
