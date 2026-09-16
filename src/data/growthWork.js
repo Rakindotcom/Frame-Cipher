@@ -134,6 +134,132 @@ export const growthPortfolio = [
 
 export const growthCaseStudies = [
   {
+    slug: 'dr-ferdoush-saleheen',
+    category: 'Personal Brand',
+    client: 'Dr. Ferdoush Saleheen',
+    industry: 'Personal Branding & Executive Presence',
+    title: "Launching Dr. Ferdoush Saleheen's Personal Brand From Zero",
+    headline: 'From 5 subscribers to 350K+ views on the very first YouTube Short & 7.2M+ views on Facebook',
+    summary:
+      'Frame Cipher helped Dr. Ferdoush Saleheen begin his content creation journey from the ground up, turning his academic and supply chain expertise into platform-ready short-form content: reaching 350K+ views on his very first YouTube Short and scaling to over 7.2 million views on Facebook alone dated till today.',
+    timeline: 'April to May 2026',
+    primaryFocus: 'Content Strategy & Video Production',
+    image: image('/case-studies/ferdoush-saleheen/proof-1m-views.webp', 'Dr. Ferdoush Saleheen Personal Branding'),
+    snapshot: [
+      ['Client', 'Dr. Ferdoush Saleheen'],
+      ['Industry', 'Personal Branding'],
+      ['Role', 'Head of Supply Chain Department, Sharjah Maritime University'],
+      ['Timeline', 'April to May 2026'],
+      ['Services', 'Content Strategy, Video Shooting, Video Editing'],
+      ['Goal', 'Build trust and establish a credible personal brand'],
+    ],
+    metrics: [
+      ['7.2M+', 'Facebook views'],
+      ['350K+', 'First YouTube Short'],
+      ['5', 'Subscribers at launch'],
+      ['0', 'Previous content presence'],
+    ],
+    sections: [
+      {
+        title: 'The challenge',
+        paragraphs: [
+          'Dr. Ferdoush Saleheen had strong professional credibility, academic expertise, and industry knowledge, but he had not actively created or published personal brand content before the project.',
+          'Our objective was to help him enter content creation in a clear, strategic, and credible way while building trust with an audience from a very small starting base.',
+        ],
+      },
+      {
+        title: 'Strategy and execution',
+        paragraphs: [
+          'Create a simple content direction around his professional identity, shape ideas into short-form concepts, and make his expertise easier to watch, understand, and share.',
+          'Frame Cipher handled personal brand content strategy, concept planning, video shooting, short-form editing, audience-retention structure, and final delivery for YouTube Shorts and Facebook Reels.',
+        ],
+      },
+      {
+        title: 'The production system',
+        paragraphs: [
+          'The production system focused on credibility, clarity, and natural on-camera presence. Each video was edited for short-form viewing so the content could introduce Dr. Ferdoush Saleheen to a wider audience and build familiarity quickly.',
+        ],
+      },
+      {
+        title: 'Documented results',
+        paragraphs: [
+          'His very first YouTube Short reached 350K+ views from a channel with only 5 subscribers. As of today, his content has generated over 7.2 million views on Facebook alone with individual breakout reels crossing 1 million views.',
+        ],
+      },
+    ],
+    processStages: [
+      {
+        number: '01',
+        title: 'Positioning & Knowledge Extraction',
+        description:
+          'Converted maritime and supply-chain academic depth into viral, accessible themes centered on leadership, career frameworks, and industry truth.',
+      },
+      {
+        number: '02',
+        title: 'Hook Discovery & Concept Scripting',
+        description:
+          'Structured the first 3 seconds of each topic with strong tension, conversational openings, and relatable questions to immediately arrest attention.',
+      },
+      {
+        number: '03',
+        title: 'Studio Shooting & Camera Coaching',
+        description:
+          'Guided natural on-camera delivery with professional audio and cinematic lighting, avoiding rigid scripted delivery in favor of authoritative conversation.',
+      },
+      {
+        number: '04',
+        title: 'High-Retention Editing & Distribution',
+        description:
+          'Engineered rapid visual pacing, punch-ins, kinetic captions, and simultaneous distribution across YouTube Shorts and Facebook Reels.',
+      },
+    ],
+    focusPoints: [
+      'Clear content direction',
+      'Credible and natural on-camera presence',
+      'Short-form videos for YouTube and Facebook',
+      'Retention-focused editing',
+      'Early momentum scaling to 7.2M+ views',
+    ],
+    proofImages: [
+      {
+        src: '/case-studies/ferdoush-saleheen/proof-1m-views.webp',
+        title: 'Breakout video crossing 1M views',
+        subtitle: '1M, 128K, 100K, 81K view counts on verified Facebook Reels feed',
+        badge: '1M+ Milestone',
+      },
+      {
+        src: '/case-studies/ferdoush-saleheen/proof-447k-views.webp',
+        title: 'Compound Facebook distribution',
+        subtitle: '447K, 378K, 287K, 267K, 151K, 109K views across diverse leadership topics',
+        badge: '447K+ Peak',
+      },
+      {
+        src: '/case-studies/ferdoush-saleheen/proof-390k-views.webp',
+        title: 'Sustained algorithm authority',
+        subtitle: '390K, 333K, 209K, 187K, 119K views proving repeatable retention',
+        badge: '390K+ Peak',
+      },
+    ],
+    gallery: [
+      image('/case-studies/ferdoush-saleheen/proof-1m-views.webp', 'Breakout video crossing 1M views', '1M+ Milestone on Facebook Reels'),
+      image('/case-studies/ferdoush-saleheen/proof-447k-views.webp', 'Compound Facebook distribution', '447K+ Peak across leadership topics'),
+      image('/case-studies/ferdoush-saleheen/proof-390k-views.webp', 'Sustained algorithm authority', '390K+ Peak views proving retention'),
+    ],
+    tools: [
+      'Content Strategy',
+      'Video Shooting',
+      'High-Retention Video Editing',
+      'YouTube Shorts',
+      'Facebook Reels',
+      'Audience Retention',
+    ],
+    lessons: [
+      'Retention and hook engineering outperform channel subscriber count.',
+      'Natural, conversational delivery builds trust faster than corporate scripted videos.',
+      'Short-form platforms reward clear, single-concept ideas with immediate value.',
+    ],
+  },
+  {
     slug: 'facebook-instagram-ads-portfolio',
     category: 'Paid Ads',
     client: 'Seven managed Meta Ads accounts',

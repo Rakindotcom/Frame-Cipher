@@ -1,4 +1,8 @@
 export { default as CaseStudiesHero } from './CaseStudiesHero'
+export { default as CaseStudiesFilterBar } from './CaseStudiesFilterBar'
+export { default as CaseStudyPortfolioCard } from './CaseStudyPortfolioCard'
+export { default as CaseStudiesGrid } from './CaseStudiesGrid'
+export { default as CaseStudiesFeaturedSpotlight } from './CaseStudiesFeaturedSpotlight'
 export { default as CaseStudiesFeatured } from './CaseStudiesFeatured'
 export { default as CaseStudyNavigation } from '../CaseStudyNavigation'
 export { default as GrowthCaseStudyLibrary } from '../GrowthCaseStudyLibrary'

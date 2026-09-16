@@ -168,6 +168,15 @@ const websiteProjects = [
     summary: 'Company website structure for a garments accessories business.',
   },
   {
+    name: 'StitchBD',
+    url: 'https://stitchbd.net',
+    domain: 'stitchbd.net',
+    category: 'Fashion E-commerce platform',
+    screenshot: '/website-shots/stitchbd.png',
+    summary:
+      'A modern fashion e-commerce storefront designed to present traditional Punjabi and Burka collections through a clean, conversion-focused shopping journey.',
+  },
+  {
     name: 'BD For Palestine',
     url: 'https://bdforpalestine.org/',
     domain: 'bdforpalestine.org',
@@ -176,12 +185,102 @@ const websiteProjects = [
     summary: 'Public-facing advocacy and information site for a movement-focused initiative.',
   },
   {
+    name: 'Riha WebTech',
+    url: 'https://rihawebtech.com',
+    domain: 'rihawebtech.com',
+    category: 'Agency platform',
+    screenshot: '/website-shots/rihawebtech.png',
+    summary:
+      'A modern digital agency website showcasing enterprise software development, digital solutions, and client capabilities with responsive architecture.',
+  },
+  {
+    name: 'Dont Validate Labels',
+    url: 'https://dontvalidatelabels.store/',
+    domain: 'dontvalidatelabels.store',
+    category: 'E-commerce Apparel store',
+    screenshot: '/website-shots/dontvalidatelabels.png',
+    summary:
+      'An urban apparel store experience built with bold aesthetic identity, streamlined product discovery, and friction-free mobile checkout.',
+  },
+  {
+    name: 'Dr. Shafiul Islam Kawsar',
+    url: 'https://drshafiulahmedkawsar.vercel.app/',
+    domain: 'drshafiulahmedkawsar.vercel.app',
+    category: 'Personal brand website',
+    screenshot: '/website-shots/dr-shafiul-islam-kawsar.png',
+    summary:
+      'A professional personal website presenting academic credentials, medical insight, and digital thought leadership in an accessible structure.',
+  },
+  {
+    name: 'Pharmacity',
+    url: 'https://pharmacity.com.bd/',
+    domain: 'pharmacity.com.bd',
+    category: 'Healthcare website',
+    screenshot: '/website-shots/pharmacity.png',
+    summary:
+      'A responsive healthcare and pharmacy platform structured for accessible service discovery, patient trust, and mobile browsing.',
+  },
+  {
+    name: 'Plan Abroad',
+    url: 'https://planabroad.org/',
+    domain: 'planabroad.org',
+    category: 'Education & Study Abroad platform',
+    screenshot: '/website-shots/plan-abroad.png',
+    summary:
+      'An international study-abroad advisory platform engineered to guide students through global university planning, visa prep, and consultations.',
+  },
+  {
+    name: 'Nazmulhoq',
+    url: 'https://nazmulhoq.com/',
+    domain: 'nazmulhoq.com',
+    category: 'Personal brand website',
+    screenshot: '/website-shots/Nazmulhoq.png',
+    summary:
+      'A polished personal brand platform communicating professional consulting services, public profile, and strategic business leadership.',
+  },
+  {
+    name: 'Business Club',
+    url: 'https://businessclub.com.bd/',
+    domain: 'businessclub.com.bd',
+    category: 'Corporate community platform',
+    screenshot: '/website-shots/businessclub.png',
+    summary:
+      'A business community platform built to present corporate initiatives, professional networking events, and member resources.',
+  },
+  {
     name: 'Muhsin Mashkur',
     url: 'https://www.muhsinmashkur.com/',
     domain: 'muhsinmashkur.com',
     category: 'Personal website',
     screenshot: '/website-shots/muhsin-mashkur.webp',
     summary: 'Personal site for profile, public identity, and digital presence.',
+  },
+  {
+    name: 'Real Estate Platform Demo',
+    url: 'https://realestate.framecipher.info/',
+    domain: 'realestate.framecipher.info',
+    category: 'Real estate platform',
+    screenshot: '/website-shots/real-estate-demo.png',
+    summary:
+      'A premium real estate platform demo designed for high-value property showcases, virtual walkthroughs, neighborhood insights, and direct buyer inquiry capture.',
+  },
+  {
+    name: 'E-Commerce Store Demo',
+    url: 'https://ecommerce.framecipher.info/',
+    domain: 'ecommerce.framecipher.info',
+    category: 'E-commerce storefront',
+    screenshot: '/website-shots/ecommerce-demo.png',
+    summary:
+      'A modern lifestyle and beauty e-commerce storefront engineered for seamless mobile browsing, dynamic product catalogs, and high-conversion checkouts.',
+  },
+  {
+    name: 'Mahedi Hasan Portfolio',
+    url: 'https://mahedi.framecipher.info/',
+    domain: 'mahedi.framecipher.info',
+    category: 'Personal portfolio',
+    screenshot: '/website-shots/mahedi-hasan-perves-portfolio.png',
+    summary:
+      'Personal portfolio showcasing technical SEO campaigns, full-stack web platforms, performance marketing systems, and agency growth engineering.',
   },
   {
     name: 'Business Byte',
