@@ -1,6 +1,7 @@
 import {
   AboutHero,
   AboutOrigin,
+  AboutFounders,
   AboutCapabilityMix,
   AboutPrinciples,
   AboutIndustries,
@@ -12,6 +13,7 @@ export default function AboutPage() {
     <main className="bg-frame-bg text-frame-fg">
       <AboutHero />
       <AboutOrigin />
+      <AboutFounders />
       <AboutCapabilityMix />
       <AboutPrinciples />
       <AboutIndustries />

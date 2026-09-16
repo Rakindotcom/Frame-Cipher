@@ -56,7 +56,7 @@ export default function HomeHero() {
             <span className="hidden text-xs text-frame-border md:inline">|</span>
 
             <p className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent md:text-xs">
-              Dhaka / Worldwide
+              Bangladesh / Worldwide
             </p>
           </div>
 
@@ -104,7 +104,7 @@ export default function HomeHero() {
                   01 / Scale
                 </p>
                 <p className="mt-1 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-6xl">
-                  12+
+                  70+
                 </p>
                 <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
                   Services Integrated

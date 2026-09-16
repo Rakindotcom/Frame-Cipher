@@ -41,9 +41,9 @@ export default function Clients() {
         {/* Auto-scrolling logo marquee with edge fading */}
         <div className="relative -mx-4 overflow-hidden border-y-2 border-zinc-300 bg-zinc-100 py-6 md:-mx-8 md:py-8 [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
           <p className="sr-only">A continuous auto-scrolling showcase of client logos that Frame Cipher has worked with.</p>
-          
+
           <div
-            className="kinetic-marquee-track kinetic-marquee-track-slow hover:[animation-play-state:paused]"
+            className="kinetic-marquee-track kinetic-marquee-track-slow"
             aria-hidden="true"
           >
             {marqueeClients.map((client, index) => (
@@ -64,8 +64,8 @@ export default function Clients() {
 
         {/* Bottom meta bar */}
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-[11px] font-black uppercase tracking-[0.2em] text-zinc-500">
-          <span>Continuous Execution / 10+ Brands</span>
-          <span className="hidden sm:inline">Auto-scrolling · Hover to inspect</span>
+          <span> 50+ Brands</span>
+          <span className="hidden sm:inline">100% Satisfied Clients</span>
           <span>B2B · B2C · Personal Brand · E-Commerce</span>
         </div>
       </div>

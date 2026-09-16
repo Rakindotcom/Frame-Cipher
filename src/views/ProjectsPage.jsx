@@ -268,15 +268,20 @@ export default function ProjectsPage({ initialView = null }) {
 
   useEffect(() => {
     if (!carouselRef.current) return
-    const card = carouselRef.current.querySelector(
+    const container = carouselRef.current
+    const card = container.querySelector(
       `[data-carousel-card="${currentWork.number}"]`
     )
     if (!card) return
 
-    card.scrollIntoView({
+    const cardLeft = card.offsetLeft
+    const cardWidth = card.offsetWidth
+    const containerWidth = container.clientWidth
+    const targetScroll = cardLeft - (containerWidth / 2) + (cardWidth / 2)
+
+    container.scrollTo({
+      left: Math.max(0, targetScroll),
       behavior: 'smooth',
-      block: 'nearest',
-      inline: 'center',
     })
   }, [currentWork.number])
 

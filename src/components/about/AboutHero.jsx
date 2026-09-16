@@ -5,7 +5,7 @@ export default function AboutHero() {
     <>
       <PageHero
         eyebrow="About Frame Cipher"
-        meta="Built in Dhaka / made for moving brands"
+        meta="Built in Bangladesh / made for moving brands"
         number="01"
         title="One team for the whole growth system"
         actions={

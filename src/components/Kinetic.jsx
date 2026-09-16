@@ -82,7 +82,7 @@ export function PosterButton({ href, children, variant = 'accent', className = '
   )
 }
 
-export function TypeMarquee({ items, reverse = false, accent = false, slow = false }) {
+export function TypeMarquee({ items, reverse = false, slow = false }) {
   if (!items || items.length === 0) return null
 
   // Ensure enough items to fill wide displays, then duplicate base exactly once for a 50% seamless infinite loop
@@ -92,17 +92,17 @@ export function TypeMarquee({ items, reverse = false, accent = false, slow = fal
   const repeated = [...base, ...base]
 
   return (
-    <section className={`kinetic-marquee border-y-2 border-frame-border py-6 ${accent ? 'bg-frame-accent text-frame-accent-fg' : 'bg-frame-bg text-frame-fg'}`}>
+    <section className="kinetic-marquee border-y-2 border-frame-border bg-frame-accent py-6 text-frame-accent-fg">
       <div
         className={`kinetic-marquee-track ${slow ? 'kinetic-marquee-track-slow' : ''} ${reverse ? 'kinetic-marquee-track-rtl' : ''}`}
         aria-hidden="true"
       >
         {repeated.map((item, index) => (
           <div key={`${item}-${index}`} className="flex shrink-0 items-center gap-8 px-6">
-            <span className={`font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-none tracking-tighter ${accent ? 'text-frame-accent-fg' : 'text-frame-muted'}`}>
+            <span className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-none tracking-tighter text-frame-accent-fg">
               {item}
             </span>
-            <span className={`h-4 w-4 shrink-0 ${accent ? 'bg-frame-accent-fg' : 'bg-frame-accent'}`} />
+            <span className="h-4 w-4 shrink-0 bg-frame-accent-fg" />
           </div>
         ))}
       </div>

@@ -130,10 +130,6 @@ main a {
   will-change: transform;
 }
 
-.kinetic-marquee-track:hover {
-  animation-play-state: paused;
-}
-
 .kinetic-marquee-track-slow {
   animation-duration: 38s;
 }
