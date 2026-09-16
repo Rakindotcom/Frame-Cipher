@@ -1,10 +1,20 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
-import { PageHero } from '../components/Kinetic'
-import { SectionHeading, ProjectCard } from '../components/GrowthPortfolioSection'
 import { growthPortfolio } from '../data/growthWork'
+import {
+  ProjectsHero,
+  ProjectsFilterBar,
+  ProjectsWebsitesSection,
+  ProjectsVideoSection,
+  ProjectsSeoSection,
+  ProjectsPaidAdsSection,
+  ProjectsDesignSection,
+  WorkArchiveModal,
+  WorkImageModal,
+  VideoPlayerModal,
+  PreviewToast,
+} from '../components/projects'
 
 const paidAds = growthPortfolio.filter((project) => project.category === 'Paid Ads')
 const seoProjects = growthPortfolio.filter((project) => project.category === 'SEO')
@@ -31,7 +41,6 @@ function resolveInitialFilter(initialView) {
   if (normalized === 'branding' || normalized === 'design') return 'Branding'
   return 'All'
 }
-
 
 const designWorks = Array.from({ length: 25 }, (_, index) => ({
   number: index + 1,
@@ -249,52 +258,50 @@ export default function ProjectsPage({ initialView = null }) {
 
   useEffect(() => {
     if (activeFilter !== 'All' && activeFilter !== 'Branding') return
-    if (toastDismissed || !imageSectionRef.current) return
 
-    let toastTimer
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return
+    const timer = setInterval(() => {
+      setCurrentWorkIndex((prev) => (prev + 1) % designWorks.length)
+    }, 2800)
 
-        setShowPreviewToast(true)
-        toastTimer = window.setTimeout(() => {
-          setShowPreviewToast(false)
-        }, 7500)
-        observer.disconnect()
-      },
-      { threshold: 0.35 },
+    return () => clearInterval(timer)
+  }, [activeFilter])
+
+  useEffect(() => {
+    if (!carouselRef.current) return
+    const card = carouselRef.current.querySelector(
+      `[data-carousel-card="${currentWork.number}"]`
     )
+    if (!card) return
 
-    observer.observe(imageSectionRef.current)
-
-    return () => {
-      observer.disconnect()
-      window.clearTimeout(toastTimer)
-    }
-  }, [toastDismissed, activeFilter])
-
-  useEffect(() => {
-    if (activeFilter !== 'All' && activeFilter !== 'Branding') return
-    if (activeWork || activeVideo || showWorkArchive) return
-
-    const slideshowTimer = window.setInterval(() => {
-      setCurrentWorkIndex((index) => (index === designWorks.length - 1 ? 0 : index + 1))
-    }, 3200)
-
-    return () => window.clearInterval(slideshowTimer)
-  }, [activeWork, activeVideo, showWorkArchive, activeFilter])
-
-  useEffect(() => {
-    const carousel = carouselRef.current
-    const activeCard = carousel?.querySelector(`[data-carousel-card="${currentWork.number}"]`)
-    if (!carousel || !activeCard) return
-
-    const centeredOffset = activeCard.offsetLeft - (carousel.clientWidth - activeCard.clientWidth) / 2
-    carousel.scrollTo({ left: Math.max(centeredOffset, 0), behavior: 'smooth' })
+    card.scrollIntoView({
+      behavior: 'smooth',
+      block: 'nearest',
+      inline: 'center',
+    })
   }, [currentWork.number])
 
-  // Real-time search filtering
-  const q = searchQuery.toLowerCase().trim()
+  useEffect(() => {
+    if (toastDismissed) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShowPreviewToast(true)
+        }
+      },
+      { threshold: 0.25 }
+    )
+
+    const target = imageSectionRef.current
+    if (target) observer.observe(target)
+
+    return () => {
+      if (target) observer.unobserve(target)
+    }
+  }, [toastDismissed])
+
+  // Filtered Lists Based on Active Filter & Search Query
+  const q = searchQuery.trim().toLowerCase()
 
   const filteredPaidAds = paidAds.filter((p) => {
     if (!q) return true
@@ -352,7 +359,7 @@ export default function ProjectsPage({ initialView = null }) {
     'poster'.includes(q) ||
     'archive'.includes(q)
 
-  // Visibility flags per category (1. Website, 2. Long Video, 3. Short Video, 4. SEO, 5. Paid ads, 6. Branding)
+  // Visibility flags per category
   const isWebsitesVisible =
     (activeFilter === 'All' || activeFilter === 'Website') && filteredWebsites.length > 0
   const isLongVideosVisible =
@@ -378,519 +385,42 @@ export default function ProjectsPage({ initialView = null }) {
 
   return (
     <main className="bg-frame-bg text-frame-fg">
-      <PageHero
-        eyebrow="Work"
-        meta="Selected creative archive"
-        number="06"
-        title="Creative work across formats"
-      >
-        A comprehensive showcase of Frame Cipher work across paid advertising, SEO growth,
-        websites, video productions, and brand visual systems.
-      </PageHero>
+      <ProjectsHero />
 
-      {/* Sticky Filter & Search Control Bar */}
-      <nav
-        id="portfolio-controls"
-        aria-label="Portfolio filters and search"
-        className="sticky top-[74px] z-40 scroll-mt-[74px] border-y-2 border-frame-border bg-frame-bg/95 backdrop-blur-xl px-4 py-3.5 shadow-lg md:px-8"
-      >
-        <div className="mx-auto flex max-w-[95vw] flex-col gap-3 md:flex-row md:items-center md:justify-between">
-          {/* Filter Pills */}
-          <div className="flex flex-wrap items-center gap-2 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
-            {filterTabs.map((tab) => {
-              const isActive = activeFilter === tab.id
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => handleFilterSelect(tab.id)}
-                  aria-pressed={isActive}
-                  className={`cursor-pointer whitespace-nowrap px-4 py-2 text-xs font-black uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent ${
-                    isActive
-                      ? 'border-2 border-frame-accent bg-frame-accent text-frame-accent-fg shadow-[0_0_24px_rgba(168,85,247,0.35)]'
-                      : 'border-2 border-frame-border bg-frame-bg text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg hover:bg-frame-muted'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              )
-            })}
-          </div>
+      <ProjectsFilterBar
+        filterTabs={filterTabs}
+        activeFilter={activeFilter}
+        onFilterSelect={handleFilterSelect}
+        searchQuery={searchQuery}
+        onSearchChange={setSearchQuery}
+      />
 
-          {/* Search Box */}
-          <div className="relative w-full md:w-72 shrink-0">
-            <div className="pointer-events-none absolute inset-y-0 left-3 flex items-center text-frame-muted-fg">
-              <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search projects..."
-              className="w-full border-2 border-frame-border bg-frame-muted py-2 pl-9 pr-8 text-xs font-bold text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:bg-frame-bg focus:outline-none transition-colors"
-            />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery('')}
-                className="absolute inset-y-0 right-2 flex items-center px-1 text-xs font-black text-frame-muted-fg hover:text-frame-fg"
-                aria-label="Clear search"
-              >
-                <svg className="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="m4 4 8 8M12 4l-8 8" /></svg>
-              </button>
-            )}
-          </div>
-        </div>
-      </nav>
+      {isWebsitesVisible && <ProjectsWebsitesSection websites={filteredWebsites} />}
 
-      {/* Category 01: Websites */}
-      {isWebsitesVisible && (
-        <section
-          id="website-work"
-          className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20"
-        >
-          <div id="software-work" className="-mt-36 pt-36" aria-hidden="true" />
-          <div className="mx-auto max-w-[95vw] overflow-hidden">
-            <SectionHeading
-              number="01"
-              title="Websites in action"
-              count={`${filteredWebsites.length} project${filteredWebsites.length === 1 ? '' : 's'}`}
-            />
+      <ProjectsVideoSection
+        longVideos={filteredLongVideos}
+        shortVideos={filteredShortVideos}
+        isLongVideosVisible={isLongVideosVisible}
+        isShortVideosVisible={isShortVideosVisible}
+        onPlayVideo={setActiveVideo}
+      />
 
-            <div className="mt-7 grid min-w-0 gap-5 overflow-hidden lg:grid-cols-2">
-              {filteredWebsites.map((project, index) => {
-                const isFinalOddCard =
-                  filteredWebsites.length % 2 === 1 && index === filteredWebsites.length - 1
+      {isSeoVisible && <ProjectsSeoSection projects={filteredSeo} />}
 
-                return (
-                  <article
-                    key={project.url}
-                    className={`group min-w-0 overflow-hidden border-2 border-frame-border bg-frame-bg transition-colors duration-300 hover:border-frame-accent ${
-                      isFinalOddCard ? 'lg:col-span-2' : ''
-                    }`}
-                  >
-                    <div className={`grid ${isFinalOddCard ? 'lg:grid-cols-[1.25fr_0.75fr]' : ''}`}>
-                      <a
-                        href={project.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`group/image block min-w-0 border-b-2 border-frame-border bg-frame-muted focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent ${
-                          isFinalOddCard ? 'lg:border-b-0 lg:border-r-2' : ''
-                        }`}
-                        aria-label={`Visit ${project.name}`}
-                      >
-                        <div className="flex items-center gap-2 border-b-2 border-frame-border bg-frame-bg px-4 py-3">
-                          <span className="h-2.5 w-2.5 rounded-full bg-frame-accent" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/50" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/30" />
-                          <span className="ml-3 min-w-0 truncate text-xs font-black uppercase tracking-[0.18em] text-frame-muted-fg">
-                            {project.domain}
-                          </span>
-                        </div>
+      {isPaidAdsVisible && <ProjectsPaidAdsSection projects={filteredPaidAds} />}
 
-                        <div className="aspect-video overflow-hidden bg-frame-muted">
-                          <img
-                            src={project.screenshot}
-                            alt={`${project.name} website screenshot`}
-                            className="h-full w-full object-cover object-top transition duration-500 group-hover/image:scale-[1.03]"
-                            loading="lazy"
-                          />
-                        </div>
-                      </a>
-
-                      <div className="grid content-between gap-4 p-5 md:p-6">
-                        <div className="min-w-0">
-                          <p className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                            {project.category}
-                          </p>
-                          <h3 className="mt-3 font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-4xl">
-                            {project.name}
-                          </h3>
-                          <p className="mt-3 break-words text-sm font-black uppercase tracking-[0.14em] text-frame-muted-fg">
-                            {project.domain}
-                          </p>
-                        </div>
-                        <p className="max-w-2xl text-sm font-medium leading-tight text-frame-muted-fg md:text-base">
-                          {project.summary}
-                        </p>
-                        <div className="flex flex-wrap gap-3">
-                          <a
-                            href={project.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex min-h-12 w-fit items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                          >
-                            Visit website
-                          </a>
-                          {project.caseStudyUrl && (
-                            <Link
-                              href={project.caseStudyUrl}
-                              className="inline-flex min-h-12 w-fit items-center justify-center border-2 border-frame-border px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                            >
-                              View case study
-                            </Link>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                )
-              })}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Category 02: Long Videos */}
-      {isLongVideosVisible && (
-        <section
-          id="long-video-work"
-          className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20"
-        >
-          <div id="media-work" className="-mt-36 pt-36" aria-hidden="true" />
-          <div className="mx-auto max-w-[95vw]">
-            <SectionHeading
-              number="02"
-              title="Long videos"
-              count={`${filteredLongVideos.length} pieces`}
-            />
-
-            <div className="mt-7 grid border-l border-t border-frame-border bg-frame-bg lg:grid-cols-3">
-              {filteredLongVideos.map((video, index) => (
-                <article
-                  key={video.videoId}
-                  className="border-b border-r border-frame-border bg-frame-bg"
-                >
-                  <div className="p-5">
-                    <button
-                      type="button"
-                      onClick={() => setActiveVideo(video)}
-                      className="group block aspect-video w-full overflow-hidden rounded-md border-2 border-frame-border bg-frame-muted text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                      aria-label={`Play the video: ${video.title}`}
-                    >
-                      <img
-                        src={video.thumbnailUrl}
-                        alt={`${video.title} thumbnail`}
-                        className="h-full w-full object-cover transition duration-300 group-hover:scale-105 group-hover:opacity-90"
-                        loading="lazy"
-                      />
-                    </button>
-                  </div>
-                  <div className="grid gap-5 p-5 pt-0">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {String(index + 1).padStart(2, '0')} / Long
-                      </p>
-                      <h3 className="mt-2 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-3xl">
-                        {video.title}
-                      </h3>
-                    </div>
-                    <div>
-                      <button
-                        type="button"
-                        onClick={() => setActiveVideo(video)}
-                        className="border-2 border-frame-accent bg-frame-accent px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                      >
-                        Play the video
-                      </button>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Category 03: Short Videos */}
-      {isShortVideosVisible && (
-        <section
-          id="short-video-work"
-          className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20"
-        >
-          <div className="mx-auto max-w-[95vw]">
-            <SectionHeading
-              number="03"
-              title="Short videos"
-              count={`${filteredShortVideos.length} pieces`}
-            />
-
-            {/* Real Work Spotlight: Dr. Ferdoush Saleheen */}
-            <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-              <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
-                <div>
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <span className="border border-frame-accent bg-frame-accent px-3 py-1 text-[0.65rem] font-black uppercase tracking-wider text-frame-accent-fg">
-                      Client Spotlight · Real Work
-                    </span>
-                    <span className="border border-frame-border px-3 py-1 text-[0.65rem] font-black uppercase tracking-wider text-frame-accent">
-                      7.2M+ Views · 1M+ Reel
-                    </span>
-                  </div>
-                  <h4 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-4xl">
-                    Dr. Ferdoush Saleheen: Viral Short-Form Content Engine
-                  </h4>
-                  <p className="mt-2 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    Real short-form video work produced for Dr. Ferdoush Saleheen from a standing start. Across Facebook Reels and short-form video channels, individual videos crossed 1M views, 447K views, 390K views, alongside 350K views on his very first YouTube Short.
-                  </p>
-                </div>
-                <Link
-                  href="/case-studies"
-                  className="inline-flex min-h-12 items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg shrink-0"
-                >
-                  View Case Study Breakdown
-                </Link>
-              </div>
-
-              {/* Real Performance Proof Strip */}
-              <div className="mt-6 grid gap-4 sm:grid-cols-3">
-                <div className="overflow-hidden border-2 border-frame-border bg-black">
-                  <div className="relative aspect-[16/10]">
-                    <img
-                      src="/case-studies/ferdoush-saleheen/proof-1m-views.webp"
-                      alt="Dr. Ferdoush Saleheen 1M views Facebook Reel"
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                    <span className="absolute bottom-2 left-2 bg-frame-accent px-2 py-0.5 text-[0.6rem] font-black uppercase text-frame-accent-fg">
-                      1M Milestone Reel
-                    </span>
-                  </div>
-                </div>
-                <div className="overflow-hidden border-2 border-frame-border bg-black">
-                  <div className="relative aspect-[16/10]">
-                    <img
-                      src="/case-studies/ferdoush-saleheen/proof-447k-views.webp"
-                      alt="Dr. Ferdoush Saleheen 447K views Facebook Reels"
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                    <span className="absolute bottom-2 left-2 bg-frame-accent px-2 py-0.5 text-[0.6rem] font-black uppercase text-frame-accent-fg">
-                      447K, 378K, 287K Views
-                    </span>
-                  </div>
-                </div>
-                <div className="overflow-hidden border-2 border-frame-border bg-black">
-                  <div className="relative aspect-[16/10]">
-                    <img
-                      src="/case-studies/ferdoush-saleheen/proof-390k-views.webp"
-                      alt="Dr. Ferdoush Saleheen 390K views Facebook Reels"
-                      className="h-full w-full object-contain"
-                      loading="lazy"
-                    />
-                    <span className="absolute bottom-2 left-2 bg-frame-accent px-2 py-0.5 text-[0.6rem] font-black uppercase text-frame-accent-fg">
-                      390K, 333K, 209K Views
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-7 grid border-l border-t border-frame-border bg-frame-bg sm:grid-cols-2 lg:grid-cols-4">
-              {filteredShortVideos.map((video, index) => (
-                <article
-                  key={video.videoId}
-                  className="border-b border-r border-frame-border bg-frame-bg"
-                >
-                  <div className="p-4 sm:p-5">
-                    <button
-                      type="button"
-                      onClick={() => setActiveVideo(video)}
-                      className="group mx-auto block aspect-[9/16] max-h-[34rem] w-full max-w-[18rem] overflow-hidden rounded-md border-2 border-frame-border bg-frame-muted text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                      aria-label={`Play the video: ${video.title}`}
-                    >
-                      <img
-                        src={video.thumbnailUrl}
-                        alt={`${video.title} thumbnail`}
-                        className="h-full w-full object-cover transition duration-300 group-hover:scale-105 group-hover:opacity-90"
-                        loading="lazy"
-                      />
-                    </button>
-                  </div>
-                  <div className="grid gap-4 p-4 pt-0 sm:gap-5 sm:p-5 sm:pt-0">
-                    <div>
-                      <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {String(index + 1).padStart(2, '0')} / {video.category || 'Short'}
-                      </p>
-                      <h3 className="mt-2 font-heading text-lg font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-xl">
-                        {video.title}
-                      </h3>
-                    </div>
-                    <div>
-                      <button
-                        type="button"
-                        onClick={() => setActiveVideo(video)}
-                        className="border-2 border-frame-accent bg-frame-accent px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                      >
-                        Play the video
-                      </button>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Category 04: Search Growth (SEO) */}
-      {isSeoVisible && (
-        <section id="seo-work" className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionHeading
-              number="04"
-              title="Search growth"
-              count={`${filteredSeo.length} project${filteredSeo.length === 1 ? '' : 's'}`}
-            />
-            <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-              {filteredSeo.map((project, index) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                  number={index + 1}
-                  showSummary
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Category 05: Paid Advertising */}
-      {isPaidAdsVisible && (
-        <section id="paid-ads-work" className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20">
-          <div id="performance-work" className="-mt-36 pt-36" aria-hidden="true" />
-          <div className="mx-auto max-w-[95vw]">
-            <SectionHeading
-              number="05"
-              title="Paid advertising"
-              count={`${filteredPaidAds.length} project${filteredPaidAds.length === 1 ? '' : 's'}`}
-            />
-            <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
-              {filteredPaidAds.map((project, index) => (
-                <ProjectCard
-                  key={project.slug}
-                  project={project}
-                  number={index + 1}
-                  className={index < 4 ? 'xl:col-span-3' : 'xl:col-span-4'}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* Category 06: Creative Visual Archive */}
       {isBrandingVisible && (
-        <section
-          ref={imageSectionRef}
-          id="branding-work"
-          className="scroll-mt-36 px-4 py-14 md:px-8 md:py-20"
-        >
-          <div className="mx-auto max-w-[95vw]">
-            <SectionHeading
-              number="06"
-              title="Creative visual archive"
-              count={`${designWorks.length} selected visuals`}
-            />
-
-            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border">
-              <aside className="grid gap-8 bg-frame-bg p-6 md:grid-cols-[0.82fr_1fr] md:p-8">
-                <div>
-                  <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Auto carousel
-                  </p>
-                  <h4 className="mt-4 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-5xl">
-                    Moving through the archive.
-                  </h4>
-                </div>
-                <div className="md:max-w-2xl">
-                  <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg md:text-lg">
-                    The carousel cycles through selected visual work automatically. Open the archive when you want the full grid for closer browsing.
-                  </p>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
-                    <div className="border-t-2 border-frame-border pt-5">
-                      <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                        Archive depth
-                      </p>
-                      <p className="mt-2 text-sm font-bold uppercase leading-tight text-frame-muted-fg">
-                        {designWorks.length} selected visuals in rotation
-                      </p>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setShowWorkArchive(true)}
-                      className="min-h-14 border-2 border-frame-accent bg-frame-accent px-5 py-4 text-sm font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                    >
-                      View more
-                    </button>
-                  </div>
-                </div>
-              </aside>
-
-              <div className="bg-frame-bg p-4 md:p-6">
-                <div
-                  ref={carouselRef}
-                  className="overflow-hidden"
-                  aria-label="Automatic selected work carousel"
-                >
-                  <div className="flex gap-4 py-2">
-                    {designWorks.map((work) => {
-                      const isActive = work.number === currentWork.number
-
-                      return (
-                        <button
-                          key={work.src}
-                          type="button"
-                          data-carousel-card={work.number}
-                          onClick={() => setActiveWork(work)}
-                          className={`group relative block aspect-[4/3] min-w-[82vw] overflow-hidden border-2 bg-white text-left transition duration-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent sm:min-w-[48%] lg:min-w-[31%] ${
-                            isActive
-                              ? 'scale-[1.02] border-frame-accent opacity-100 shadow-[0_24px_80px_rgba(168,85,247,0.18)]'
-                              : 'border-frame-border opacity-55 hover:opacity-90'
-                          }`}
-                          aria-label={`View full image ${work.number}`}
-                        >
-                          <img
-                            src={work.src}
-                            alt={`Frame Cipher selected work ${work.number}`}
-                            className="h-full w-full object-contain transition duration-300 group-hover:scale-95"
-                            loading="lazy"
-                          />
-                          {isActive && (
-                            <span className="absolute left-4 top-4 bg-frame-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-accent-fg">
-                              Now showing
-                            </span>
-                          )}
-                          <span className="absolute inset-x-4 bottom-4 border-2 border-frame-border bg-frame-bg px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-frame-fg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                            Open preview
-                          </span>
-                        </button>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-                  <div className="h-2 bg-frame-border" aria-hidden="true">
-                    <div
-                      className="h-full bg-frame-accent transition-all duration-500"
-                      style={{ width: `${((currentWorkIndex + 1) / designWorks.length) * 100}%` }}
-                    />
-                  </div>
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                    Auto rotating
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+        <ProjectsDesignSection
+          designWorks={designWorks}
+          currentWork={currentWork}
+          currentWorkIndex={currentWorkIndex}
+          imageSectionRef={imageSectionRef}
+          carouselRef={carouselRef}
+          onSelectWork={setActiveWork}
+          onOpenArchive={() => setShowWorkArchive(true)}
+        />
       )}
 
-      {/* Empty State when search returns 0 matches */}
       {hasZeroMatches && (
         <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-12 text-center">
           <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">No matches</p>
@@ -913,170 +443,27 @@ export default function ProjectsPage({ initialView = null }) {
         </div>
       )}
 
-      {/* Full archive dialog modal */}
-      {showWorkArchive && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-frame-bg/95 p-4 md:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Full creative archive"
-          onClick={() => setShowWorkArchive(false)}
-        >
-          <div
-            className="flex max-h-full w-full max-w-7xl flex-col gap-5"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Full archive
-                </p>
-                <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-5xl">
-                  All selected work
-                </h2>
-              </div>
-              <button
-                type="button"
-                onClick={() => setShowWorkArchive(false)}
-                className="min-h-12 border-2 border-frame-border px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-              >
-                Close
-              </button>
-            </div>
+      <WorkArchiveModal
+        isOpen={showWorkArchive}
+        onClose={() => setShowWorkArchive(false)}
+        designWorks={designWorks}
+        onSelectWork={(work) => {
+          setCurrentWorkIndex(work.number - 1)
+          setActiveWork(work)
+        }}
+      />
 
-            <div className="min-h-0 overflow-y-auto border-2 border-frame-border bg-frame-border p-px">
-              <div className="grid gap-px sm:grid-cols-2 lg:grid-cols-4">
-                {designWorks.map((work) => (
-                  <article key={work.src} className="group bg-frame-bg">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setCurrentWorkIndex(work.number - 1)
-                        setActiveWork(work)
-                      }}
-                      className="relative block aspect-square w-full overflow-hidden bg-white text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-                      aria-label={`View full image ${work.number}`}
-                    >
-                      <img
-                        src={work.src}
-                        alt={`Frame Cipher selected work ${work.number}`}
-                        className="h-full w-full object-contain transition duration-300 group-hover:scale-95"
-                        loading="lazy"
-                      />
-                      <span className="absolute inset-x-4 bottom-4 border-2 border-frame-border bg-frame-bg px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-frame-fg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        Open preview
-                      </span>
-                    </button>
-                  </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <PreviewToast
+        show={showPreviewToast}
+        onClose={() => {
+          setToastDismissed(true)
+          setShowPreviewToast(false)
+        }}
+      />
 
-      {/* Floating preview toast */}
-      {showPreviewToast && (
-        <div
-          className="fixed bottom-5 left-4 right-4 z-40 border-2 border-frame-border bg-frame-accent p-4 text-frame-accent-fg shadow-2xl md:right-auto md:max-w-md"
-          role="status"
-          aria-live="polite"
-        >
-          <div className="flex items-start justify-between gap-4">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] opacity-80">Image archive</p>
-              <p className="mt-2 text-sm font-black uppercase leading-tight tracking-tighter md:text-base">
-                The showcase rotates automatically. View more opens all 25 pieces in a full-screen grid.
-              </p>
-            </div>
-            <button
-              type="button"
-              onClick={() => {
-                setToastDismissed(true)
-                setShowPreviewToast(false)
-              }}
-              className="shrink-0 border-2 border-frame-accent-fg/70 px-3 py-2 text-xs font-black uppercase tracking-tighter transition-colors hover:bg-frame-accent-fg hover:text-frame-accent focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent-fg"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
+      <WorkImageModal work={activeWork} onClose={() => setActiveWork(null)} />
 
-      {/* Image Preview Modal */}
-      {activeWork && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-frame-bg/95 p-4 md:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`Work image ${activeWork.number} full preview`}
-          onClick={() => setActiveWork(null)}
-        >
-          <div className="relative flex h-full w-full max-w-7xl flex-col gap-4" onClick={(event) => event.stopPropagation()}>
-            <div className="flex items-center justify-between gap-4">
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Full preview</p>
-              <button
-                type="button"
-                onClick={() => setActiveWork(null)}
-                className="min-h-12 border-2 border-frame-border px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-              >
-                Close
-              </button>
-            </div>
-            <div className="min-h-0 flex-1 border-2 border-frame-border bg-white p-3 md:p-5">
-              <img
-                src={activeWork.src}
-                alt={`Frame Cipher selected work ${activeWork.number}`}
-                className="h-full w-full object-contain"
-              />
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Video Player Modal */}
-      {activeVideo && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-frame-bg/95 p-4 md:p-8"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeVideo.title} video player`}
-          onClick={() => setActiveVideo(null)}
-        >
-          <div
-            className="relative flex max-h-full w-full max-w-7xl flex-col gap-4"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Video player</p>
-                <h2 className="mt-2 font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-5xl">
-                  {activeVideo.title}
-                </h2>
-              </div>
-              <button
-                type="button"
-                onClick={() => setActiveVideo(null)}
-                className="min-h-12 border-2 border-frame-border px-5 py-3 text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-              >
-                Close
-              </button>
-            </div>
-            <div className="border-2 border-frame-border bg-frame-muted p-3 md:p-5">
-              <div className={activeVideo.isShort ? 'mx-auto aspect-[9/16] max-h-[70vh] w-full max-w-sm' : 'aspect-video w-full'}>
-                <iframe
-                  className="h-full w-full"
-                  src={`https://www.youtube.com/embed/${activeVideo.videoId}?autoplay=1&rel=0`}
-                  title={activeVideo.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  referrerPolicy="strict-origin-when-cross-origin"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      <VideoPlayerModal video={activeVideo} onClose={() => setActiveVideo(null)} />
     </main>
   )
 }

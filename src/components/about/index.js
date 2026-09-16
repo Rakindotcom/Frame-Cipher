@@ -1,0 +1,6 @@
+export { default as AboutHero } from './AboutHero'
+export { default as AboutOrigin } from './AboutOrigin'
+export { default as AboutCapabilityMix } from './AboutCapabilityMix'
+export { default as AboutPrinciples } from './AboutPrinciples'
+export { default as AboutIndustries } from './AboutIndustries'
+export { default as AboutCTA } from './AboutCTA'

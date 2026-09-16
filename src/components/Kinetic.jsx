@@ -49,12 +49,12 @@ export function SectionIntro({ eyebrow, title, children, className = '' }) {
 
 export function PosterButton({ href, children, variant = 'accent', className = '', onClick, type }) {
   const base =
-    'inline-flex min-h-14 items-center justify-center border-2 px-8 py-4 text-center text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-20 md:px-12 md:text-lg'
+    'inline-flex min-h-14 w-full sm:w-auto items-center justify-center border-2 px-8 py-4 text-center text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-12 md:text-base'
   const variants = {
-    accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-105',
+    accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-[1.02] hover:bg-transparent hover:text-frame-fg',
     outline:
-      'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg',
-    dark: 'border-frame-accent-fg bg-frame-accent-fg text-frame-accent hover:bg-frame-bg hover:text-frame-fg',
+      'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg hover:scale-[1.02]',
+    dark: 'border-frame-accent-fg bg-frame-accent-fg text-frame-accent hover:bg-frame-bg hover:text-frame-fg hover:scale-[1.02]',
   }
   const classes = `${base} ${variants[variant]} ${className}`
 
@@ -83,20 +83,26 @@ export function PosterButton({ href, children, variant = 'accent', className = '
 }
 
 export function TypeMarquee({ items, reverse = false, accent = false, slow = false }) {
-  const repeated = [...items, ...items, ...items]
+  if (!items || items.length === 0) return null
+
+  // Ensure enough items to fill wide displays, then duplicate base exactly once for a 50% seamless infinite loop
+  const count = items.length
+  const multiplier = count >= 6 ? 1 : Math.ceil(6 / count)
+  const base = Array(multiplier).fill(items).flat()
+  const repeated = [...base, ...base]
 
   return (
     <section className={`kinetic-marquee border-y-2 border-frame-border py-6 ${accent ? 'bg-frame-accent text-frame-accent-fg' : 'bg-frame-bg text-frame-fg'}`}>
       <div
-        className={`kinetic-marquee-track ${slow ? 'kinetic-marquee-track-slow' : ''} ${reverse ? 'kinetic-marquee-track-reverse' : ''}`}
+        className={`kinetic-marquee-track ${slow ? 'kinetic-marquee-track-slow' : ''} ${reverse ? 'kinetic-marquee-track-rtl' : ''}`}
         aria-hidden="true"
       >
         {repeated.map((item, index) => (
-          <div key={`${item}-${index}`} className="flex items-center gap-8 px-6">
+          <div key={`${item}-${index}`} className="flex shrink-0 items-center gap-8 px-6">
             <span className={`font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-none tracking-tighter ${accent ? 'text-frame-accent-fg' : 'text-frame-muted'}`}>
               {item}
             </span>
-            <span className={`h-4 w-4 ${accent ? 'bg-frame-accent-fg' : 'bg-frame-accent'}`} />
+            <span className={`h-4 w-4 shrink-0 ${accent ? 'bg-frame-accent-fg' : 'bg-frame-accent'}`} />
           </div>
         ))}
       </div>

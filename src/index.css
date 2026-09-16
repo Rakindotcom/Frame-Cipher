@@ -79,43 +79,76 @@ main a {
   color: var(--frame-accent-fg);
 }
 
-@keyframes marquee {
-  from {
-    transform: translateX(0);
+@keyframes marqueeLTR {
+  0% {
+    transform: translate3d(-50%, 0, 0);
   }
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+@keyframes marqueeRTL {
+  0% {
+    transform: translate3d(0%, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* Backward-compatible keyframe aliases */
+@keyframes marquee {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0%, 0, 0);
   }
 }
 
 @keyframes marqueeReverse {
-  from {
-    transform: translateX(-50%);
+  0% {
+    transform: translate3d(-50%, 0, 0);
   }
-  to {
-    transform: translateX(0);
+  100% {
+    transform: translate3d(0%, 0, 0);
   }
 }
 
 .kinetic-marquee {
   overflow: hidden;
-  white-space: nowrap;
+  position: relative;
+  width: 100%;
 }
 
 .kinetic-marquee-track {
-  display: inline-flex;
+  display: flex;
   width: max-content;
-  min-width: 200%;
-  animation: marquee 18s linear infinite;
+  animation: marqueeLTR 24s linear infinite;
+  animation-delay: 0s;
   will-change: transform;
+}
+
+.kinetic-marquee-track:hover {
+  animation-play-state: paused;
 }
 
 .kinetic-marquee-track-slow {
   animation-duration: 38s;
 }
 
-.kinetic-marquee-track-reverse {
-  animation-name: marqueeReverse;
+.kinetic-marquee-track-fast {
+  animation-duration: 16s;
+}
+
+.kinetic-marquee-track-reverse,
+.kinetic-marquee-track-ltr {
+  animation-name: marqueeLTR;
+}
+
+.kinetic-marquee-track-rtl {
+  animation-name: marqueeRTL;
 }
 
 .kinetic-noise {
@@ -133,11 +166,6 @@ main a {
   *::before,
   *::after {
     scroll-behavior: auto !important;
-  }
-
-  .kinetic-marquee-track {
-    animation: none;
-    transform: none;
   }
 }
 
