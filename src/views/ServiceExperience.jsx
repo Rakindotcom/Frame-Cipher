@@ -11,7 +11,7 @@ import {
   ServiceExperienceFAQ,
   ServiceExperienceRelated,
   ServiceExperienceCTA,
-} from '../components/services'
+} from '../components/specific-service'
 
 function cleanName(value = '') {
   return String(value || '')
@@ -92,7 +92,7 @@ export default function ServiceExperience({ service }) {
     : null
 
   return (
-    <main className="service-experience bg-[#09090b] text-zinc-100">
+    <main className="service-experience bg-frame-bg text-frame-fg min-h-screen">
       {faqSchema && (
         <script
           type="application/ld+json"
@@ -111,8 +111,8 @@ export default function ServiceExperience({ service }) {
       />
 
       {service.quote && (
-        <section className="border-b border-white/10 px-5 py-12 sm:px-8 md:py-16">
-          <blockquote className="mx-auto max-w-5xl text-center font-quote text-2xl font-medium italic leading-relaxed text-zinc-200 md:text-4xl">
+        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-5 py-12 sm:px-8 md:py-16">
+          <blockquote className="mx-auto max-w-5xl text-center font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             “{cleanText(service.quote)}”
           </blockquote>
         </section>

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import ServiceExperience from '../../../src/views/ServiceExperience'
 import ServiceDetailPage from '../../../src/views/ServiceDetailPage'
+import { getServiceComponent } from '../../../src/components/services/registry'
 import { getServicePageBySlug, getAllServicePages } from '../../../src/data/servicePages'
 import { getServiceBySlug, getServiceRouteSlugs, siteUrl } from '../../../src/data/agency'
 
@@ -89,6 +90,10 @@ export default async function Page({ params }) {
   // Check 74 doc service pages first
   const docPage = getServicePageBySlug(slugArray)
   if (docPage) {
+    const SpecificService = getServiceComponent(docPage.slug)
+    if (SpecificService) {
+      return <SpecificService service={docPage} />
+    }
     return <ServiceExperience service={docPage} />
   }
 

@@ -10,7 +10,7 @@ import {
   ServiceDetailLocalRelevanceSection,
   ServiceDetailRelatedWorkSection,
   ServiceDetailFAQSection,
-} from '../components/services'
+} from '../components/specific-service'
 
 export default function ServiceDetailPage({ service }) {
   const landing = getServiceLandingContent(service)

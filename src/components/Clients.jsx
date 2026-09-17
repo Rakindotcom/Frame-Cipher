@@ -10,6 +10,7 @@ const clients = [
   { name: 'Client 09', logo: '/client09.webp' },
   { name: 'Client 10', logo: '/client10.webp' },
   { name: 'Client 11', logo: '/client11.webp' },
+  { name: 'Client 12', logo: '/Client 12.png' },
 ]
 
 // Duplicate list for seamless 50% infinite loop

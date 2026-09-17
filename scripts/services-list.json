@@ -1,0 +1,520 @@
+[
+  {
+    "index": 1,
+    "slug": "website-design-development",
+    "title": "Website Design & Development Service Page",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 2,
+    "slug": "website-design-development/business-website",
+    "title": "Best Business Website Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 3,
+    "slug": "website-design-development/ecommerce-website",
+    "title": "Ecommerce Website Development Service",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 4,
+    "slug": "website-design-development/landing-pages",
+    "title": "Best Landing Page Development Service",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 5,
+    "slug": "website-design-development/wordpress",
+    "title": "WordPress Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 6,
+    "slug": "website-design-development/wix",
+    "title": "Wix Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 7,
+    "slug": "website-design-development/magento",
+    "title": "Magento Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 8,
+    "slug": "website-design-development/webflow",
+    "title": "Webflow Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 9,
+    "slug": "website-design-development/shopify",
+    "title": "Shopify Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 10,
+    "slug": "website-design-development/custom-development",
+    "title": "Custom / Next.js Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 11,
+    "slug": "website-design-development/redesign",
+    "title": "Website Redesign Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 12,
+    "slug": "website-design-development/maintenance",
+    "title": "Website Maintenance Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 13,
+    "slug": "website-design-development/ui-ux-design",
+    "title": "UI/UX Design Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "website-design-development"
+  },
+  {
+    "index": 14,
+    "slug": "app-development",
+    "title": "App Development Services in Bangladesh",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 15,
+    "slug": "app-development/android",
+    "title": "Android App Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 16,
+    "slug": "app-development/ios",
+    "title": "iOS App Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 17,
+    "slug": "app-development/cross-platform",
+    "title": "Cross-Platform App Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 18,
+    "slug": "app-development/saas-apps",
+    "title": "SaaS App Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 19,
+    "slug": "app-development/enterprise-apps",
+    "title": "Enterprise App Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 20,
+    "slug": "app-development/api-development",
+    "title": "API Development & Integration Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 21,
+    "slug": "app-development/mvp-development",
+    "title": "MVP Development Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 22,
+    "slug": "app-development/maintenance",
+    "title": "App Maintenance & Support Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "app-development"
+  },
+  {
+    "index": 23,
+    "slug": "seo",
+    "title": "Search Engine Optimization Services in Bangladesh",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 24,
+    "slug": "seo/technical-seo",
+    "title": "Technical SEO Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 25,
+    "slug": "seo/on-page-seo",
+    "title": "On-Page SEO Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 26,
+    "slug": "seo/link-building",
+    "title": "Off-Page SEO & Link Building Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 27,
+    "slug": "seo/local-seo",
+    "title": "Local SEO Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 28,
+    "slug": "seo/ecommerce-seo",
+    "title": "Ecommerce SEO Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 29,
+    "slug": "seo/international-seo",
+    "title": "International SEO Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 30,
+    "slug": "seo/seo-audit",
+    "title": "SEO Audit Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 31,
+    "slug": "seo/seo-strategy",
+    "title": "SEO Strategy & Consulting Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 32,
+    "slug": "seo/keyword-research",
+    "title": "Keyword Research Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 33,
+    "slug": "seo/ai-search-optimization",
+    "title": "AI Search Optimization (AEO/GEO) Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 34,
+    "slug": "seo/adsense-approval",
+    "title": "Google AdSense Approval Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 35,
+    "slug": "seo/penalty-recovery",
+    "title": "Google Penalty Recovery Services in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "seo"
+  },
+  {
+    "index": 36,
+    "slug": "paid-advertising",
+    "title": "Paid Advertising Services in Bangladesh",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 37,
+    "slug": "paid-advertising/google-ads",
+    "title": "Google Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 38,
+    "slug": "paid-advertising/meta-ads",
+    "title": "Best Meta Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 39,
+    "slug": "paid-advertising/linkedin-ads",
+    "title": "LinkedIn Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 40,
+    "slug": "paid-advertising/chatgpt-ads",
+    "title": "ChatGPT Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 41,
+    "slug": "paid-advertising/pinterest-ads",
+    "title": "Pinterest Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 42,
+    "slug": "paid-advertising/tiktok-ads",
+    "title": "TikTok Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 43,
+    "slug": "paid-advertising/microsoft-ads",
+    "title": "Microsoft Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 44,
+    "slug": "paid-advertising/amazon-ads",
+    "title": "Amazon Ads Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 45,
+    "slug": "paid-advertising/remarketing",
+    "title": "Remarketing Services in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 46,
+    "slug": "paid-advertising/lead-generation-ads",
+    "title": "Lead Generation Ads Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "paid-advertising"
+  },
+  {
+    "index": 47,
+    "slug": "social-media-management",
+    "title": "Social Media Management Services in Bangladesh",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 48,
+    "slug": "social-media-management/facebook",
+    "title": "Facebook Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 49,
+    "slug": "social-media-management/instagram",
+    "title": "Instagram Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 50,
+    "slug": "social-media-management/linkedin",
+    "title": "LinkedIn Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 51,
+    "slug": "social-media-management/tiktok-management",
+    "title": "TikTok Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 52,
+    "slug": "social-media-management/youtube-management",
+    "title": "YouTube Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 53,
+    "slug": "social-media-management/content-calendar-strategy",
+    "title": "Content Calendar & Strategy Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 54,
+    "slug": "social-media-management/community-management",
+    "title": "Community Management Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 55,
+    "slug": "social-media-management/reporting",
+    "title": "Monthly Reporting & Analytics Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "social-media-management"
+  },
+  {
+    "index": 56,
+    "slug": "content-writing",
+    "title": "Content Writing Services in Bangladesh",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 57,
+    "slug": "content-writing/seo-blog-writing",
+    "title": "SEO & Blog Writing Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 58,
+    "slug": "content-writing/website-content",
+    "title": "Website Content Writing Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 59,
+    "slug": "content-writing/landing-page-copy",
+    "title": "Landing Page Copywriting Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 60,
+    "slug": "content-writing/product-descriptions",
+    "title": "Product Description Writing Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 61,
+    "slug": "content-writing/sales-copywriting",
+    "title": "Sales Copywriting Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 62,
+    "slug": "content-writing/email-copywriting",
+    "title": "Email Copywriting Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 63,
+    "slug": "content-writing/case-study-writing",
+    "title": "Case Study Writing Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 64,
+    "slug": "content-writing/content-strategy",
+    "title": "Content Strategy Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-writing"
+  },
+  {
+    "index": 65,
+    "slug": "content-creation",
+    "title": "Content Creation Services in Bangladesh",
+    "pageType": "Pillar Service",
+    "pillarSlug": null
+  },
+  {
+    "index": 66,
+    "slug": "content-creation/video-production",
+    "title": "Video Production Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 67,
+    "slug": "content-creation/short-form-video",
+    "title": "Short-Form Video Production Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 68,
+    "slug": "content-creation/youtube-videos",
+    "title": "YouTube Video Production Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 69,
+    "slug": "content-creation/motion-graphics-animation",
+    "title": "Motion Graphics & Animation Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 70,
+    "slug": "content-creation/graphic-design",
+    "title": "Graphic Design Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 71,
+    "slug": "content-creation/logo-design",
+    "title": "Logo Design Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 72,
+    "slug": "content-creation/branding",
+    "title": "Branding Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 73,
+    "slug": "content-creation/product-photography",
+    "title": "Product Photography Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  },
+  {
+    "index": 74,
+    "slug": "content-creation/social-media-graphics",
+    "title": "Social Media Graphics Service in Bangladesh",
+    "pageType": "Sub Service",
+    "pillarSlug": "content-creation"
+  }
+]
