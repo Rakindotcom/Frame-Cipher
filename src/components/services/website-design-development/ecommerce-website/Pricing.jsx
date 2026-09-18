@@ -1,4 +1,4 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
 const packages = [
   {
@@ -63,29 +63,35 @@ const packages = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Value"
-          title="E-commerce Website Development Pricing"
-        >
-          Clear investment tiers based on catalog volume, platform requirements, payment methods, and operational complexity.
-        </SectionIntro>
+        {/* SECTION HEADER */}
+        <div className="mb-14 md:mb-20 max-w-4xl">
+          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+            Investment & Value / Clear Estimates
+          </p>
+          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            E-commerce Website Development Pricing
+          </h2>
+          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+            Clear investment tiers based on catalog volume, platform requirements, payment methods, and operational complexity.
+          </p>
+        </div>
 
         <div className="grid gap-8 lg:grid-cols-3">
           {packages.map((pkg, idx) => (
             <div
               key={idx}
-              className={`border-2 p-7 md:p-9 flex flex-col justify-between ${
+              className={`border-2 p-7 md:p-10 flex flex-col justify-between ${
                 pkg.featured
-                  ? 'border-frame-accent bg-frame-accent/10'
+                  ? 'border-frame-accent bg-frame-accent/10 shadow-lg'
                   : 'border-frame-border bg-frame-bg'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Package Tier
+                    Package Tier 0{idx + 1}
                   </span>
                   {pkg.featured && (
                     <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
@@ -93,19 +99,19 @@ export default function Pricing() {
                     </span>
                   )}
                 </div>
-                <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
                   {pkg.for}
                 </p>
 
-                <div className="mt-6 border-y-2 border-frame-border/60 py-4">
+                <div className="mt-6 border-y-2 border-frame-border/60 py-5">
                   <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Starting Price</span>
                   <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
                     {pkg.price}
                   </div>
-                  <div className="mt-2 text-xs font-semibold text-frame-muted-fg flex justify-between">
+                  <div className="mt-3 text-xs font-semibold text-frame-muted-fg flex justify-between border-t border-frame-border/40 pt-2">
                     <span>Catalog: {pkg.products}</span>
                     <span>Timeline: {pkg.timeline}</span>
                   </div>
@@ -138,9 +144,10 @@ export default function Pricing() {
         </div>
 
         {/* SERVICE AREAS & STORE MANAGEMENT */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+        <div className="mt-20 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+          <div className="bg-frame-bg p-7 md:p-10">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Local & Global Reach</span>
+            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Global Delivery & Local Expertise
             </h3>
             <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
@@ -148,8 +155,9 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+          <div className="bg-frame-bg p-7 md:p-10">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Digital Assets</span>
+            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Store Ownership & Admin Handover
             </h3>
             <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">

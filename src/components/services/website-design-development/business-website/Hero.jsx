@@ -19,7 +19,7 @@ export default function Hero() {
 
       {/* HERO */}
       <PageHero
-        eyebrow="Website Design & Development / Sub-Service"
+        eyebrow="Website Design & Development / Focused Service"
         meta="Built Around Your Sales Process / In-House Team"
         number="02"
         title="Best Business Website Development Service in Bangladesh"
@@ -36,15 +36,28 @@ export default function Hero() {
       </PageHero>
 
       {/* BUYER JOURNEY / SALES PROCESS BANNER */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
+      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
-            A Business Website Built Around Your Sales Process
+          <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            Sales Pipeline Architecture
           </p>
-          <h2 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Business Goals &rarr; Buyer Journey &rarr; Website Structure &rarr; Lead Capture &rarr; CRM &rarr; Conversion Tracking
+          <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            A Business Website Built Around Your Sales Process
           </h2>
-          <p className="mt-5 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Business Goals</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Buyer Journey</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Website Structure</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Lead Capture</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">CRM Routing</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">Conversion Tracking</span>
+          </div>
+          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
             A business website should do more than present your company online. We map your buyer journey, identify the information customers need before contacting you, and structure the website around those decisions.
           </p>
         </div>

@@ -5,7 +5,7 @@ export default function ServicesHero({ totalServices, totalPillars, pillarNames 
     <>
       <PageHero
         eyebrow="Services"
-        meta={`${totalServices} services / ${totalPillars} core pillars / one operating system`}
+        meta={`${totalServices} services / ${totalPillars} service areas / one operating system`}
         number={String(totalServices)}
         title="Every service your brand needs, connected under one roof"
         actions={

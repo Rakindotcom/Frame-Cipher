@@ -1,17 +1,14 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Custom / Next.js Development"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Your Custom / Next.js Project"
+      primaryText="Start Your Custom Project"
+      secondaryText="Talk to Our Development Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Have a custom web application, SaaS platform, customer portal, headless storefront, or high-performance marketing site in mind? Tell us about your technical requirements, user roles, integrations, and timeline. We will evaluate the project and recommend the right custom architecture.
     </CTASection>
   )
 }

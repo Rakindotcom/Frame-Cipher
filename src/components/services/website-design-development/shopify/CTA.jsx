@@ -1,17 +1,14 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Shopify Development"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Your Shopify Project"
+      primaryText="Start Your Shopify Project"
+      secondaryText="Talk to Our Build Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Planning a new high-converting Shopify store, custom Liquid theme, Shopify Plus migration, B2B wholesale setup, or custom app? Tell us about your product catalog, operational workflows, integrations, and target markets. We will design the optimal Shopify solution for your brand.
     </CTASection>
   )
 }

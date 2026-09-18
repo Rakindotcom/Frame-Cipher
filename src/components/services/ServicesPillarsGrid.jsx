@@ -4,8 +4,8 @@ export default function ServicesPillarsGrid({ pillarGroups }) {
   return (
     <section className="px-4 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Core architecture" title="Seven pillars carrying the work.">
-          Start with one specialist service or connect several pillars into a single delivery system.
+        <SectionIntro eyebrow="Service architecture" title="Seven service areas carrying the work.">
+          Start with one specialist service or connect several service areas into a single delivery system.
           Every route below leads to a dedicated service team, process, and scope.
         </SectionIntro>
 
@@ -20,7 +20,7 @@ export default function ServicesPillarsGrid({ pillarGroups }) {
             >
               <p>{summary}</p>
               <span className="mt-8 inline-block border-b-2 border-current pb-1 text-sm font-black uppercase tracking-tighter">
-                Explore pillar &rarr;
+                View services &rarr;
               </span>
             </InversionCard>
           ))}

@@ -8,7 +8,7 @@ export default function ServicesAllList({ pillarGroups }) {
       <div className="mx-auto max-w-[95vw]">
         <div className="mb-12 flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
           <SectionIntro eyebrow="All 74 services" title="Choose the capability your brand needs next.">
-            Browse every current service, grouped by the seven pillars that connect strategy,
+            Browse every current service, grouped by the seven service areas that connect strategy,
             delivery, and measurable growth.
           </SectionIntro>
           <PosterButton href="/contact" variant="outline">Start a brief</PosterButton>
@@ -29,9 +29,9 @@ export default function ServicesAllList({ pillarGroups }) {
                   <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                     {subServices.length + 1} service pages
                   </p>
-                  <h3 className="mt-2 font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-4xl">
+                  <h2 className="mt-2 font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
                     {name}
-                  </h3>
+                  </h2>
                   <p className="mt-4 max-w-4xl text-sm font-medium leading-snug text-frame-muted-fg md:text-base">
                     {summary}
                   </p>
@@ -40,7 +40,7 @@ export default function ServicesAllList({ pillarGroups }) {
                   href={pillar.fullPath}
                   className="border-2 border-frame-border px-5 py-3 text-center text-xs font-black uppercase tracking-tighter text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                 >
-                  Pillar overview &rarr;
+                  Explore this service &rarr;
                 </Link>
               </div>
 
@@ -57,9 +57,9 @@ export default function ServicesAllList({ pillarGroups }) {
                       </span>
                       <span className="text-sm font-black" aria-hidden="true">&rarr;</span>
                     </div>
-                    <h4 className="mt-8 font-heading text-xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors group-hover:text-frame-accent-fg md:text-2xl">
+                    <h3 className="mt-8 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors group-hover:text-frame-accent-fg sm:text-2xl md:text-3xl">
                       {getServiceDisplayName(service)}
-                    </h4>
+                    </h3>
                   </Link>
                 ))}
               </div>

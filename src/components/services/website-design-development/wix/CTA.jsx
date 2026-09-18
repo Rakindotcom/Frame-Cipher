@@ -1,17 +1,14 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Wix Development"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Your Wix Project"
+      primaryText="Start Your Wix Project"
+      secondaryText="Talk to Our Build Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Planning a new Wix website, Wix Studio build, ecommerce store, redesign, or custom Velo functionality? Tell us about your business goals, required features, timeline, and content. We will review your requirements and recommend the right Wix approach.
     </CTASection>
   )
 }

@@ -19,7 +19,7 @@ export default function Hero() {
 
       {/* HERO */}
       <PageHero
-        eyebrow="Website Design & Development / Sub-Service"
+        eyebrow="Website Design & Development / Focused Service"
         meta="Custom Themes & Security Hardening / In-House Team"
         number="05"
         title="Professional WordPress Development Service in Bangladesh"
@@ -36,15 +36,28 @@ export default function Hero() {
       </PageHero>
 
       {/* ARCHITECTURE / CONTROL CALLOUT BANNER */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
+      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
-            WordPress Development Built Around Your Business Needs
+          <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            WordPress Architecture
           </p>
-          <h2 className="font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Business Goals &rarr; Content Structure &rarr; WordPress Architecture &rarr; Functionality &rarr; SEO & Performance &rarr; Editorial Control
+          <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            WordPress Development Built Around Business Needs
           </h2>
-          <p className="mt-5 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Business Goals</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Content Structure</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">WP Architecture</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Functionality</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">SEO & Speed</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">Editorial Control</span>
+          </div>
+          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
             WordPress is flexible enough to power a simple business website, a large content platform, a WooCommerce store, or a custom system. From theme architecture and plugin selection to performance, security, and editorial control, each part of the build is planned around the actual purpose of your website.
           </p>
         </div>

@@ -54,6 +54,38 @@ main .grid > * {
   overflow-wrap: anywhere;
 }
 
+/* Keep every service page on the same type scale as the home page. */
+.service-experience h2,
+.service-page h2 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-size: clamp(2.4rem, 7vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.service-experience h3,
+.service-page h3 {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+
+/* Decorative process numerals stay behind card content and never reduce legibility. */
+.service-page .relative.overflow-hidden > [aria-hidden='true'],
+.service-experience .relative.overflow-hidden > [aria-hidden='true'] {
+  z-index: 0;
+  opacity: 0.14;
+  pointer-events: none;
+}
+
+.service-page .relative.overflow-hidden > :not([aria-hidden='true']),
+.service-experience .relative.overflow-hidden > :not([aria-hidden='true']) {
+  position: relative;
+  z-index: 1;
+}
+
 main a {
   overflow-wrap: anywhere;
 }

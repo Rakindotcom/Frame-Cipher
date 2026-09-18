@@ -6,25 +6,27 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "Wix Development",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const wixKeywords = [
+  'Wix Development',
+  'Wix Studio Builds',
+  'Velo Custom Code',
+  'Wix CMS Architecture',
+  'Speed Optimization',
+  'Wix Ecommerce',
+  'Easy Self-Editing',
+  'Managed Hosting',
 ]
 
-export default function WebsiteDesignDevelopmentWixService({ service }) {
+export default function WebsiteDesignDevelopmentWixService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Hero />
+      <TypeMarquee items={wixKeywords} slow />
+      <Offerings />
+      <Process />
+      <Pricing />
+      <FAQ />
+      <CTA />
     </main>
   )
 }

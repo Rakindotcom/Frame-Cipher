@@ -1,104 +1,115 @@
-import { SectionIntro } from '../../../Kinetic'
-
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Consultation",
-    "description": "We review your brand, content needs, and how your team plans to manage the site after launch."
+    number: '01',
+    title: 'Initial Consultation',
+    description: 'We review your brand positioning, target audience, existing content assets, desired integrations, and marketing workflow requirements.',
   },
   {
-    "number": "2",
-    "title": "Strategy & CMS Planning",
-    "description": "We map Collection structure and content relationships, and define the scope before design starts."
+    number: '02',
+    title: 'Content & CMS Planning',
+    description: 'We define dynamic CMS collections, custom reference fields, component systems, and publishing guidelines before touching design.',
   },
   {
-    "number": "3",
-    "title": "Design & Development",
-    "description": "Custom visual design comes first, with review checkpoints, followed by build, CMS binding, and interaction development."
+    number: '03',
+    title: 'UX & Visual Design',
+    description: 'We craft user flows, wireframes, typography scales, and bespoke page layouts in Figma, setting up interactive design specifications.',
   },
   {
-    "number": "4",
-    "title": "Quality Check & Testing",
-    "description": "Speed, mobile responsiveness, interaction performance, and cross-browser testing before anything goes live."
+    number: '04',
+    title: 'Webflow Development',
+    description: 'We construct semantic HTML elements, bind dynamic CMS fields, code custom interactions, and integrate third-party APIs and apps.',
   },
   {
-    "number": "5",
-    "title": "Launch & CMS Handoff",
-    "description": "We go live, confirm everything is functioning correctly, and walk your team through adding and managing CMS content."
-  }
+    number: '05',
+    title: 'SEO, Accessibility & QA',
+    description: 'We audit heading hierarchies, alt tags, metadata, responsive breakpoints, load times, forms, and cross-browser performance.',
+  },
+  {
+    number: '06',
+    title: 'Client Review & Revisions',
+    description: 'You review staging links at planned checkpoints, allowing your team to test interactions and verify content before launch.',
+  },
+  {
+    number: '07',
+    title: 'Launch & CMS Handoff',
+    description: 'We connect your custom domain, enable SSL, transfer the Webflow site to your workspace, and conduct a customized live CMS training session.',
+  },
 ]
-  const timeline = service?.timeline || "Webflow development typically takes 2 to 8+ weeks, depending on design complexity, CMS structure, and the number of custom interactions required. A standard marketing site moves toward the shorter end; a build involving extensive animations, complex CMS relationships, or ecommerce functionality will run longer.\n\nProjects move faster when brand assets, content, and design direction are confirmed before development begins; most delays come from design decisions being finalized mid-build rather than the development process itself."
 
-  if (!steps?.length) return null
+const timelines = [
+  { type: 'Marketing Site', time: '~2–3 weeks', scope: 'Standard page count, bespoke visual design, core CMS collections, responsive layout' },
+  { type: 'Brand / Design-Forward Site', time: '~3–5 weeks', scope: 'Custom animations, expanded CMS collections, modular component design system' },
+  { type: 'Webflow Ecommerce', time: '~4–6 weeks', scope: 'Product catalog setup, custom cart/checkout styling, payment and tax configuration' },
+  { type: 'Advanced CMS & Interactions', time: '~6–8+ weeks', scope: 'Complex multi-reference relationships, custom JavaScript, third-party API webhooks' },
+]
 
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
-        </SectionIntro>
+        <div className="mb-14 md:mb-20 max-w-4xl">
+          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+            Workflow & Delivery
+          </p>
+          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            Our Structured Webflow Process
+          </h2>
+          <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+            We follow a rigorous seven-step delivery pipeline ensuring your Webflow site is beautiful, technically clean, and easy for your team to manage.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+        {/* STEPS GRID WITH WATERMARK NUMBERS */}
+        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
+          {steps.map((step) => (
+            <article
+              key={step.number}
+              className="group relative flex min-h-[340px] flex-col justify-between overflow-hidden bg-frame-bg p-7 sm:p-8 transition-all duration-300 hover:bg-frame-accent"
+            >
+              <p
+                className="absolute -right-2 -top-4 select-none font-heading text-[7.5rem] sm:text-[9rem] font-bold leading-none tracking-tighter text-frame-muted/30 transition-colors duration-300 group-hover:text-frame-accent-fg/20"
+                aria-hidden="true"
+              >
+                {step.number}
+              </p>
+              <div className="relative z-10">
+                <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
+                  Phase {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-3xl">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
-            </div>
+              <p className="relative z-10 mt-6 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+                {step.description}
+              </p>
+            </article>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+        {/* TIMELINE TABLE */}
+        <div className="mt-16 overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+          <table className="w-full text-left min-w-[640px]">
+            <thead className="border-b-2 border-frame-border bg-frame-muted/20">
+              <tr>
+                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Type</th>
+                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Delivery</th>
+                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Key Inclusions</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
+              {timelines.map((item, idx) => (
+                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
+                  <td className="p-5 md:p-7 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">{item.type}</td>
+                  <td className="p-5 md:p-7 font-bold text-frame-accent">{item.time}</td>
+                  <td className="p-5 md:p-7 text-sm text-frame-muted-fg leading-relaxed">{item.scope}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
   )
 }
+

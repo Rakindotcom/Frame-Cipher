@@ -17,15 +17,15 @@ export default function Hero() {
 
       {/* HERO */}
       <PageHero
-        eyebrow="Core Service Pillar"
+        eyebrow="Complete Website Solution"
         meta="One In-House Team / Built For Conversion"
         number="01"
         title="Website Design & Development Services in Bangladesh"
         actions={
           <>
             <PosterButton href="/contact">Get a Free Website Quote</PosterButton>
-            <PosterButton href="#sub-services" variant="outline">
-              Explore Sub-Services (12)
+              <PosterButton href="#sub-services" variant="outline">
+                Explore Services (12)
             </PosterButton>
           </>
         }
@@ -34,17 +34,30 @@ export default function Hero() {
       </PageHero>
 
       {/* CALLOUT BANNER */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
+      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
-            Website Design & Development for Growing Businesses
+          <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            End-to-End Digital Engineering
           </p>
-          <p className="text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
-            A website that loads slowly, looks outdated, or doesn&apos;t work properly on mobile costs your customers before they even see what you offer. Framecipher builds business websites, eCommerce stores, and custom web applications for SMEs, startups in Bangladesh and international clients across the US, UK, Australia, and Canada handled by one in-house team from design through launch.
+          <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            Website Design & Development for Growing Businesses
+          </h2>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Strategy</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">UI/UX Design</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Frontend & CMS</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Core Web Vitals</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">Conversion Growth</span>
+          </div>
+          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
+            A website that loads slowly, looks outdated, or doesn&apos;t work properly on mobile costs you customers before they even see what you offer. Frame Cipher builds business websites, eCommerce stores, and custom web applications handled by one in-house team from design through launch.
           </p>
         </div>
       </section>
     </div>
   )
 }
-

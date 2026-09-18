@@ -1,103 +1,83 @@
-import { SectionIntro } from '../../../Kinetic'
-
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Site Assessment",
-    "description": "We review your current platform, security status, and any existing issues before maintenance begins."
+    number: '01',
+    title: 'Initial Site Assessment & Audit',
+    description: 'We audit your current platform, plugin stack, existing security vulnerabilities, hosting configuration, and backup readiness before ongoing maintenance starts.',
   },
   {
-    "number": "2",
-    "title": "Maintenance Plan Scoping",
-    "description": "We define what your specific site needs: update frequency, backup schedule, monitoring scope, based on platform and risk."
+    number: '02',
+    title: 'Plan Scoping & Onboarding',
+    description: 'We define the specific update frequency, backup intervals, and monitoring scope matched to your platform architecture and daily transaction volume.',
   },
   {
-    "number": "3",
-    "title": "Ongoing Monitoring & Updates",
-    "description": "Continuous uptime and performance monitoring, alongside scheduled updates and security checks."
+    number: '03',
+    title: 'Continuous Monitoring & Patching',
+    description: 'Automated 24/7 uptime monitoring and vulnerability scanning run in parallel with scheduled core, theme, and plugin updates in a safe staging workflow.',
   },
   {
-    "number": "4",
-    "title": "Regular Reporting",
-    "description": "Monthly summaries of work completed, issues caught, and any recommendations."
+    number: '04',
+    title: 'Monthly Reporting & Optimization',
+    description: 'We deliver transparent monthly maintenance logs detailing security scans, applied patches, Core Web Vitals progress, and proactive recommendations.',
   },
   {
-    "number": "5",
-    "title": "Rapid Response When Needed",
-    "description": "Fast turnaround on urgent issues, backed by tested backups and a team already familiar with your site."
-  }
+    number: '05',
+    title: 'Rapid Response & Priority SLA',
+    description: 'Fast turnaround on urgent issues, backed by tested off-site backups and dedicated senior engineers who already understand your codebase.',
+  },
 ]
-  const timeline = service?.timeline || "Website maintenance is an ongoing service, not a fixed-length project, plans typically run month-to-month or on an annual agreement, with monitoring and updates happening continuously rather than at a single point in time. Initial site assessment and onboarding usually takes 3 to 5 business days before regular maintenance begins.\n\nResponse times for urgent issues depend on the plan tier, with faster response times available on higher tiers for businesses where downtime carries a higher cost, this is confirmed as part of scoping your specific plan."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
-        </SectionIntro>
+        {/* SECTION HEADER */}
+        <div className="mb-14 md:mb-20 max-w-4xl">
+          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+            Execution Framework / Continuous Reliability
+          </p>
+          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            Our Website Maintenance Process
+          </h2>
+          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+            How we protect your website through proactive health monitoring, scheduled patch deployment, and rapid incident response.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+        {/* STEP CARDS WITH WATERMARK */}
+        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <div key={step.number} className="relative overflow-hidden bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+              <span 
+                className="pointer-events-none absolute -right-2 -bottom-6 font-heading text-[7rem] md:text-[8rem] font-bold leading-none tracking-tighter text-frame-muted/30 select-none"
+                aria-hidden="true"
+              >
+                {step.number}
+              </span>
+              <div className="relative z-10">
+                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                  Phase {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                   {step.description}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+        {/* TIMELINE CALLOUT */}
+        <div className="mt-16 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
+          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Service Commitment</span>
+          <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            Ongoing Retainer & Onboarding Timelines
+          </h3>
+          <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+            Website maintenance is an ongoing operational service rather than a one-off project. Plans run month-to-month or on an annual retainer with continuous monitoring. Initial site assessment and onboarding takes 3 to 5 business days before regular scheduled cycles begin.
+          </p>
+        </div>
       </div>
     </section>
   )

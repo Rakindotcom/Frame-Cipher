@@ -7,7 +7,7 @@ const stats = [
   { target: 70, prefix: '', suffix: '+', pad: 0, label: 'Services Integrated' },
   { target: 1, prefix: '', suffix: '', pad: 2, label: 'Integrated Team' },
   { target: 24, prefix: '', suffix: '/7', pad: 0, label: 'Always On' },
-  { target: 5, prefix: '', suffix: '', pad: 0, label: 'Core Pillars' },
+  { target: 5, prefix: '', suffix: '', pad: 0, label: 'Service Areas' },
   { target: 50, prefix: '', suffix: '+', pad: 0, label: 'Brands Served' },
   { target: 6, prefix: '', suffix: '', pad: 0, label: 'Step Process' },
   { target: 100, prefix: '', suffix: '%', pad: 0, label: 'In-House' },

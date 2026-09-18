@@ -1,268 +1,371 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { SectionIntro, SectionLabel } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const coreServices = [
   {
-    "title": "STORE STRATEGY & PLANNING",
-    "description": "Every Shopify build starts with a plan for your catalog, brand, and how customers will actually shop. What We Do A store planned around your actual catalog avoids the common trap of forcing a generic theme to do more than it should.",
-    "bullets": [
-      "Catalog Structure Planning: Collections and product organization built around how customers browse and search.",
-      "Platform Fit Confirmation: Verifying Shopify matches your catalog size and business model before committing to the build.",
-      "App Stack Planning: Identifying which functionality genuinely needs an app versus what can be built natively.",
-      "Competitor Review: Identifying what similar stores are doing well or poorly in your category."
-    ]
+    tag: 'Service 01',
+    title: 'Store Strategy & Catalog Architecture',
+    description: 'We structure your collections, product taxonomies, customer journeys, and conversion funnels before writing code.',
+    bullets: [
+      'Product catalog modeling, tags, and automated smart collections.',
+      'Navigation taxonomy and mobile-first category browsing.',
+      'Shopify plan assessment (Basic, Shopify, Advanced, or Plus).',
+      'App stack architecture eliminating redundant monthly app costs.',
+    ],
   },
   {
-    "title": "CUSTOM THEME DEVELOPMENT",
-    "description": "Design that matches your brand, not a barely modified free theme. What We Do Off-the-shelf themes are a starting point, the real work is making it convert for your specific products and customers.",
-    "bullets": [
-      "Custom Theme Development: Built on Shopify's Liquid templating language, matched to your brand and catalog structure.",
-      "Product & Collection Page Design: Layouts built to convert, clear pricing, imagery, variant selection, and calls-to-action.",
-      "Conversion-Optimized Checkout: Customizing Shopify's checkout experience within what the platform allows, to minimize friction.",
-      "Mobile-First Design: Full functionality across devices, since most Shopify traffic arrives on mobile."
-    ]
+    tag: 'Service 02',
+    title: 'Custom Liquid Theme Development',
+    description: 'We develop bespoke Shopify storefronts tailored to your visual identity rather than simply tweaking an existing template.',
+    bullets: [
+      'Pixel-accurate, mobile-first responsive storefront layouts.',
+      'Custom Product Detail Page (PDP) layouts with sticky Add-to-Cart.',
+      'Engaging collection page filtering, badges, and quick-view modals.',
+      'Brand-focused typography scales and conversion-engineered CTAs.',
+    ],
   },
   {
-    "title": "APP INTEGRATION & CUSTOM DEVELOPMENT",
-    "description": "The technical setup that extends Shopify without turning the storefront into a slow patchwork of apps. What We Do Every app added is a potential source of slowdown or checkout conflict, we treat the app stack as a deliberate decision, not a default habit.",
-    "bullets": [
-      "App Selection & Integration: Choosing and configuring apps for genuine functionality needs, reviews, subscriptions, upsells not stacking unnecessary tools.",
-      "Shopify API & Custom App Development: Building specific functionality directly through Shopify's API when an app isn't the right fit.",
-      "Payment Gateway Setup: Configuring Shopify Payments where available, alongside bKash, Nagad, or other regional gateways for Bangladeshi merchants.",
-      "Third-Party Integrations: ERP, inventory, shipping, or marketing platform connections built to keep data accurate."
-    ]
+    tag: 'Service 03',
+    title: 'Shopify Online Store 2.0 Development',
+    description: 'Modular theme architecture built with JSON templates, reusable sections, and dynamic metafields for effortless merchant editing.',
+    bullets: [
+      'Customizable drag-and-drop sections available on every page.',
+      'Metafields and dynamic metaobjects for rich product specifications.',
+      'App blocks and theme app extensions avoiding core code conflicts.',
+      'Clean Liquid code adhering to Shopify theme development standards.',
+    ],
   },
   {
-    "title": "PERFORMANCE & CONVERSION OPTIMIZATION",
-    "description": "Speed and structure that keep visitors moving toward checkout instead of bouncing. What We Do A fast, well-structured store converts the traffic you're already getting, before you spend more on driving new visitors to it.",
-    "bullets": [
-      "Speed Optimization: Theme code, image handling, and app load management to keep pages fast.",
-      "Product Schema & SEO Setup: Structured data for rich results, plus on-page SEO configured correctly from launch.",
-      "Cart & Checkout Analysis: Identifying and fixing friction points in the path from product page to completed order.",
-      "Analytics & Conversion Tracking: Shopify Analytics and ad platform tracking set up so every result is measurable."
-    ]
+    tag: 'Service 04',
+    title: 'App Architecture & Custom App Development',
+    description: 'Disciplined app selection and custom app engineering using Shopify APIs and Functions to extend commerce workflows.',
+    bullets: [
+      'App performance auditing to eliminate render-blocking scripts.',
+      'Shopify Functions for custom discount rules and cart validations.',
+      'Custom private or public Shopify app development (Node/Remix).',
+      'Admin API, Storefront API, and webhook integration pipelines.',
+    ],
   },
   {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "description": "A Shopify store's job isn't done at launch, apps update, themes need attention, and catalogs grow. What We Do Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a development engagement.",
-    "bullets": [
-      "Theme & App Updates: Keeping custom theme code compatible as Shopify and app updates roll out.",
-      "Performance Monitoring: Ongoing checks on speed and conversion as catalog and traffic grow.",
-      "App Stack Review: Periodic audits to remove unused or conflicting apps before they slow the store down.",
-      "Catalog & Feature Updates: Small changes and additions handled without a full redevelopment project."
-    ]
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Shopify removes the infrastructure burden, but the storefront built on top of it still determines whether visitors actually buy.",
-  "Reliability You Don't Have to Manage",
-  "Shopify handles hosting, security patching, and uptime, a genuine advantage for merchants who don't want to manage server infrastructure themselves.",
-  "Trust & Checkout Confidence",
-  "A generic or slow-loading store undercuts the platform's reliability advantage, shoppers judge your brand by the storefront, not by what's happening on Shopify's backend.",
-  "Carts That Actually Convert",
-  "A store built around your actual buyer journey turns browsers into buyers, traffic without a smooth path to checkout is traffic you paid for and lost at the final step.",
-  "Built to Scale Within the Platform",
-  "Shopify supports significant growth in catalog size and traffic without a platform change, a well-built store can keep scaling without you outgrowing the infrastructure."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "As a Shopify development company, we focus on stores that sell, not just stores that look good in a portfolio. Our clients get custom theme development, a clean app stack, and checkout and payment setup handled correctly from day one, since Shopify's biggest advantage, its managed, reliable infrastructure, is only worth it if the store built on top of it is set up properly. With hands-on experience building for both Bangladeshi and international merchants, we know how to use Shopify's ecosystem without letting an app-stacking habit slow the store down.",
-    "text": "\"Shopify's real advantage is that you're not managing servers or security patches, that's handled for you. Where stores usually go wrong is stacking apps until the storefront is slow and the checkout has friction nobody planned for.\" Reliable Managed Platform | Custom Theme Development | Clean App Architecture"
+    tag: 'Service 05',
+    title: 'Shopify Plus & B2B Wholesale Development',
+    description: 'Scaling wholesale commerce with company accounts, custom price lists, volume discounts, and checkout UI extensions.',
+    bullets: [
+      'Company accounts with multiple buyer locations and roles.',
+      'Customized B2B catalogs, wholesale pricing, and payment terms (Net 30).',
+      'Checkout UI extensions tailored to enterprise operational needs.',
+      'Multipass authentication and ERP / warehouse system synchronization.',
+    ],
   },
   {
-    "title": "Our Shopify Development Services",
-    "text": "We offer end-to-end Shopify development tailored to merchants who want a store that performs, not just launches."
+    tag: 'Service 06',
+    title: 'Migration & Platform Replatforming',
+    description: 'Migrating from WooCommerce, Magento, BigCommerce, or Wix to Shopify while safeguarding all customer, order, and SEO data.',
+    bullets: [
+      'Product catalog, variants, and historical customer/order migrations.',
+      'Comprehensive 301 redirect mapping protecting search rankings.',
+      'Review and replacement of outdated legacy plugins with modern apps.',
+      'Pre-launch staging audits and smooth DNS cutover with zero downtime.',
+    ],
   },
   {
-    "title": "STORE STRATEGY & PLANNING",
-    "text": "Every Shopify build starts with a plan for your catalog, brand, and how customers will actually shop."
+    tag: 'Service 07',
+    title: 'Multi-Market, Currency & Language Setup',
+    description: 'Expanding your reach globally with Shopify Markets, localized currencies, country-specific domains, and multilingual content.',
+    bullets: [
+      'Shopify Markets configuration for regional pricing and duties.',
+      'Multi-currency checkout and automatic geolocation currency switchers.',
+      'Multilingual storefront setup with hreflang SEO architecture.',
+      'International shipping rules and localized tax configurations.',
+    ],
   },
   {
-    "title": "What We Do",
-    "text": "* Catalog Structure Planning: Collections and product organization built around how customers browse and search. * Platform Fit Confirmation: Verifying Shopify matches your catalog size and business model before committing to the build. * App Stack Planning: Identifying which functionality genuinely needs an app versus what can be built natively. * Competitor Review: Identifying what similar stores are doing well or poorly in your category. A store planned around your actual catalog avoids the common trap of forcing a generic theme to do more than it should."
+    tag: 'Service 08',
+    title: 'Performance, Core Web Vitals & SEO',
+    description: 'Engineering for speed and organic visibility, ensuring rapid mobile page loads and structured search engine snippets.',
+    bullets: [
+      'Image optimization, lazy loading, and asset minification.',
+      'JSON-LD structured data schema for rich product and review snippets.',
+      'Canonical URL tuning to prevent duplicate collection URL issues.',
+      'Core Web Vitals profiling to maintain sub-second LCP scores.',
+    ],
   },
   {
-    "title": "CUSTOM THEME DEVELOPMENT",
-    "text": "Design that matches your brand, not a barely modified free theme."
+    tag: 'Service 09',
+    title: 'Merchant Handover & Operations Training',
+    description: 'Empowering your internal team to run day-to-day store operations without ongoing reliance on external developers.',
+    bullets: [
+      'Personalized live training on product updates and inventory control.',
+      'Step-by-step video tutorials on updating homepage promotional banners.',
+      'Guidance on discount creation, customer management, and analytics.',
+      'Full administrative ownership transferred directly to your account.',
+    ],
   },
-  {
-    "title": "What We Do",
-    "text": "* Custom Theme Development: Built on Shopify's Liquid templating language, matched to your brand and catalog structure. * Product & Collection Page Design: Layouts built to convert, clear pricing, imagery, variant selection, and calls-to-action. * Conversion-Optimized Checkout: Customizing Shopify's checkout experience within what the platform allows, to minimize friction. * Mobile-First Design: Full functionality across devices, since most Shopify traffic arrives on mobile. Off-the-shelf themes are a starting point, the real work is making it convert for your specific products and customers."
-  },
-  {
-    "title": "APP INTEGRATION & CUSTOM DEVELOPMENT",
-    "text": "The technical setup that extends Shopify without turning the storefront into a slow patchwork of apps."
-  },
-  {
-    "title": "What We Do",
-    "text": "* App Selection & Integration: Choosing and configuring apps for genuine functionality needs, reviews, subscriptions, upsells not stacking unnecessary tools. * Shopify API & Custom App Development: Building specific functionality directly through Shopify's API when an app isn't the right fit. * Payment Gateway Setup: Configuring Shopify Payments where available, alongside bKash, Nagad, or other regional gateways for Bangladeshi merchants. * Third-Party Integrations: ERP, inventory, shipping, or marketing platform connections built to keep data accurate. Every app added is a potential source of slowdown or checkout conflict, we treat the app stack as a deliberate decision, not a default habit."
-  },
-  {
-    "title": "PERFORMANCE & CONVERSION OPTIMIZATION",
-    "text": "Speed and structure that keep visitors moving toward checkout instead of bouncing."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Speed Optimization: Theme code, image handling, and app load management to keep pages fast. * Product Schema & SEO Setup: Structured data for rich results, plus on-page SEO configured correctly from launch. * Cart & Checkout Analysis: Identifying and fixing friction points in the path from product page to completed order. * Analytics & Conversion Tracking: Shopify Analytics and ad platform tracking set up so every result is measurable. A fast, well-structured store converts the traffic you're already getting, before you spend more on driving new visitors to it."
-  },
-  {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "text": "A Shopify store's job isn't done at launch, apps update, themes need attention, and catalogs grow."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Theme & App Updates: Keeping custom theme code compatible as Shopify and app updates roll out. * Performance Monitoring: Ongoing checks on speed and conversion as catalog and traffic grow. * App Stack Review: Periodic audits to remove unused or conflicting apps before they slow the store down. * Catalog & Feature Updates: Small changes and additions handled without a full redevelopment project. Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a development engagement. Why Your Business Needs a Real Shopify Development Partner Shopify removes the infrastructure burden, but the storefront built on top of it still determines whether visitors actually buy. Reliability You Don't Have to Manage Shopify handles hosting, security patching, and uptime, a genuine advantage for merchants who don't want to manage server infrastructure themselves."
-  },
-  {
-    "title": "Trust & Checkout Confidence",
-    "text": "A generic or slow-loading store undercuts the platform's reliability advantage, shoppers judge your brand by the storefront, not by what's happening on Shopify's backend."
-  },
-  {
-    "title": "Carts That Actually Convert",
-    "text": "A store built around your actual buyer journey turns browsers into buyers, traffic without a smooth path to checkout is traffic you paid for and lost at the final step."
-  },
-  {
-    "title": "Built to Scale Within the Platform",
-    "text": "Shopify supports significant growth in catalog size and traffic without a platform change, a well-built store can keep scaling without you outgrowing the infrastructure. Why We're Different We're not positioning ourselves as the biggest agency, we're built to be the most accountable one."
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Strategy, design, development, and app integration handled by one team, not handed off between freelancers who've never spoken to each other."
-  },
-  {
-    "title": "Disciplined About the App Stack",
-    "text": "We don't default to solving every need with another app. We build directly where it makes the store faster and more stable, and use apps only where they're genuinely the right tool."
-  },
-  {
-    "title": "Local & International Merchant Experience",
-    "text": "Based in Dhaka, building Shopify stores for merchants across Bangladesh, with bKash and Nagad integration, as well as internationally, including the US, UK, Australia, Canada, and UAE. Transparent, Review-Based Process Every stage, architecture, design, development, goes through your review and approval before we move forward."
-  },
-  {
-    "title": "Strategy & Consultation",
-    "text": "We start by understanding your catalog, brand, and how you plan to run the store day to day."
-  },
-  {
-    "title": "Store Architecture",
-    "text": "Collection structure and navigation built around how your customers actually shop, not a generic template."
-  },
-  {
-    "title": "Custom Theme Development",
-    "text": "A theme built on Liquid, matched to your brand and product presentation, not a barely modified free template."
-  },
-  {
-    "title": "App Integration & Custom Development",
-    "text": "A deliberately chosen app stack, with custom development used where it keeps the store faster and more stable."
-  },
-  {
-    "title": "Performance & Conversion Optimization",
-    "text": "Speed, checkout flow, and tracking handled as standard, not an upsell added after launch."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Review checkpoints at every stage, so you approve direction before it's built, not after."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const businessNeeds = [
+  {
+    title: 'Direct-to-Consumer (D2C) Brands',
+    desc: 'Fashion, beauty, lifestyle, and consumer brands that require elevated visual storytelling, high-speed mobile pages, and upsell features.',
+  },
+  {
+    title: 'High-Growth International Retailers',
+    desc: 'Merchants selling across the US, UK, Canada, Australia, and UAE utilizing Shopify Markets for localized currencies, languages, and pricing.',
+  },
+  {
+    title: 'B2B Wholesale Operations',
+    desc: 'Wholesale suppliers needing gated pricing, corporate company accounts, purchase order workflows, and volume discount rules.',
+  },
+  {
+    title: 'Replatforming & Scaling Merchants',
+    desc: 'Stores outgrowing fragile WooCommerce setups or complex Magento installs seeking rock-solid reliability and simplified administration.',
+  },
+  {
+    title: 'Omnichannel & POS Retailers',
+    desc: 'Businesses operating physical retail brick-and-mortar stores alongside online shops, syncing inventory via Shopify POS.',
+  },
+  {
+    title: 'Subscription & Recurring Order Brands',
+    desc: 'Brands offering subscribe-and-save incentives, recurring delivery schedules, and client self-service subscription management portals.',
+  },
+]
 
+const comparisonData = [
+  {
+    factor: 'Hosting & Infrastructure',
+    shopify: 'Fully managed cloud SaaS with 99.99% uptime',
+    woocommerce: 'Self-hosted (Requires separate server/host setup)',
+    magento: 'Requires specialized cloud VPS / AWS architecture',
+    highlight: 'shopify',
+  },
+  {
+    factor: 'Ease of Merchant Management',
+    shopify: 'Intuitive, centralized, zero-technical-overhead dashboard',
+    woocommerce: 'Familiar WordPress admin; plugin update management',
+    magento: 'Complex interface requiring trained technical operators',
+    highlight: 'shopify',
+  },
+  {
+    factor: 'App & Extension Security',
+    shopify: 'Vetted Shopify App Store with strict sandbox review',
+    woocommerce: 'Open-source plugins with variable security & conflict risk',
+    magento: 'Enterprise modules requiring manual developer audits',
+    highlight: 'shopify',
+  },
+  {
+    factor: 'Custom Theme Architecture',
+    shopify: 'Modular Online Store 2.0 sections & clean Liquid',
+    woocommerce: 'PHP template hierarchy or page builders',
+    magento: 'Complex XML layouts, PHP, or modern Hyvä themes',
+  },
+  {
+    factor: 'Checkout Optimization',
+    shopify: 'World’s highest-converting one-page checkout; Plus for UI',
+    woocommerce: 'Fully customizable, but prone to cart friction',
+    magento: 'Customizable multi-step checkout requiring tuning',
+    highlight: 'shopify',
+  },
+  {
+    factor: 'B2B & Wholesale Capabilities',
+    shopify: 'Built-in on Shopify Plus (catalogs, company accounts)',
+    woocommerce: 'Requires multiple third-party wholesale plugins',
+    magento: 'Comprehensive native B2B features in Adobe Commerce',
+  },
+  {
+    factor: 'Server & Security Patches',
+    shopify: 'Zero maintenance; automatic PCI-DSS compliance',
+    woocommerce: 'Frequent core, database, and plugin updates required',
+    magento: 'Heavy ongoing security patching and server maintenance',
+    highlight: 'shopify',
+  },
+  {
+    factor: 'Best Suited For',
+    shopify: 'Fast-scaling D2C brands, retail brands, international stores',
+    woocommerce: 'Content-driven stores already invested in WordPress',
+    magento: 'Complex enterprise distributors & 100k+ SKU catalogs',
+  },
+]
+
+const differentiators = [
+  {
+    title: 'One In-House Team',
+    desc: 'Ecommerce strategists, certified Liquid developers, UI/UX designers, and CRO experts collaborate seamlessly on every build.',
+  },
+  {
+    title: 'Disciplined App Architecture',
+    desc: 'We build custom sections in Liquid wherever possible, avoiding the third-party app bloat that slows down typical Shopify stores.',
+  },
+  {
+    title: 'Platform-Neutral Recommendations',
+    desc: 'We recommend Shopify when its managed infrastructure fits your goals; if WooCommerce or Magento is more appropriate, we explain why.',
+  },
+  {
+    title: 'Local + Global Payment Mastery',
+    desc: 'We navigate payment gateway requirements for Bangladesh merchants (evaluating third-party providers) as well as global multi-currency checkout.',
+  },
+  {
+    title: 'SEO & Product Schema Built-In',
+    desc: 'We resolve duplicate collection URL paths, inject schema markup for rich snippets, and optimize image assets for search engine rankings.',
+  },
+  {
+    title: 'Complete Merchant Autonomy',
+    desc: 'We empower your operations team with modular sections and video guides so you never have to pay a developer to change a banner or add a product.',
+  },
+]
+
+export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* CORE SERVICES */}
+      <section className="px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Scope of Work
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Our Shopify Development Capabilities
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We build high-converting Shopify stores engineered for speed, clean backend management, and sustainable ecommerce growth.
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {coreServices.map((service, index) => (
+              <div key={index} className="bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
+                <div>
+                  <span className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                    {service.tag}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {service.description}
+                  </p>
                 </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+                <ul className="mt-8 space-y-3 border-t-2 border-frame-border pt-6 text-xs sm:text-sm font-medium text-frame-fg">
+                  {service.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-3">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent font-black text-xs text-frame-accent">✓</span>
+                      <span className="leading-snug">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+      {/* SOLUTIONS FOR DIFFERENT BUSINESS NEEDS */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Commercial Versatility
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Shopify Solutions for Different Business Needs
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              From high-velocity direct-to-consumer flagships to international multi-currency stores, Shopify powers varied commerce models.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {businessNeeds.map((item, index) => (
+              <div key={index} className="bg-frame-bg p-7 sm:p-8 md:p-10 hover:bg-frame-muted/10 transition-colors">
+                <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Model {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PLATFORM COMPARISON TABLE */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Technical Decision
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Shopify vs WooCommerce vs Magento
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Compare infrastructure management, app ecosystems, and long-term operating costs to select the right ecommerce engine.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+            <table className="w-full text-left min-w-[640px]">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/20">
+                <tr>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Shopify</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WooCommerce</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Magento 2</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
+                {comparisonData.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-5 md:p-7 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">{row.factor}</td>
+                    <td className={`p-5 md:p-7 ${row.highlight === 'shopify' ? 'font-bold text-frame-accent' : 'text-frame-fg'}`}>
+                      {row.shopify}
+                    </td>
+                    <td className="p-5 md:p-7 text-frame-muted-fg leading-relaxed">{row.woocommerce}</td>
+                    <td className="p-5 md:p-7 text-frame-muted-fg leading-relaxed">{row.magento}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE FRAMECIPHER */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              The Framecipher Advantage
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Us for Shopify Development
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We focus on clean code, lightweight architecture, high conversion rates, and total client independence.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {differentiators.map((diff, idx) => (
+              <div key={idx} className="bg-frame-bg p-7 sm:p-8 md:p-10 hover:bg-frame-muted/10 transition-colors">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Differentiator 0{idx + 1}
+                </span>
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {diff.title}
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {diff.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
+

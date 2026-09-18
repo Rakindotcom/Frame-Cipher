@@ -6,25 +6,27 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "Webflow Development",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const webflowKeywords = [
+  'Webflow Development',
+  'Figma to Webflow',
+  'Client-First Architecture',
+  'Dynamic CMS Collections',
+  'Custom Interactions',
+  'Fastly CDN Hosting',
+  'Webflow Localization',
+  'Zero-Bloat Code',
 ]
 
-export default function WebsiteDesignDevelopmentWebflowService({ service }) {
+export default function WebsiteDesignDevelopmentWebflowService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Hero />
+      <TypeMarquee items={webflowKeywords} slow />
+      <Offerings />
+      <Process />
+      <Pricing />
+      <FAQ />
+      <CTA />
     </main>
   )
 }

@@ -1,4 +1,4 @@
-import { SectionIntro, SectionLabel } from '../../../Kinetic'
+import { SectionLabel, PosterButton } from '../../../Kinetic'
 
 const coreServices = [
   {
@@ -76,20 +76,52 @@ const industries = [
   { title: 'SaaS & Technology', desc: 'Explains complex products clearly while supporting demos, signups, and app workflows.' },
 ]
 
+const whyChooseUs = [
+  {
+    title: 'One In-House Team',
+    desc: 'Strategy, copywriting, UX design, development, and conversion tracking stay strictly under one cohesive team.'
+  },
+  {
+    title: 'Sales Funnel Alignment',
+    desc: 'We map each page to a specific decision stage in your customer pipeline, from problem awareness to booking calls.'
+  },
+  {
+    title: 'Zero Vendor Lock-In',
+    desc: 'You receive full administrative ownership, source code, hosting access, and training to edit content anytime.'
+  },
+  {
+    title: 'Local & Global Execution',
+    desc: 'Whether catering to Bangladeshi audiences (bKash/Nagad, WhatsApp) or global markets (US, UK, UAE), our builds adapt.'
+  },
+  {
+    title: 'Built-in SEO & Speed',
+    desc: 'High Core Web Vitals scores, clean semantic tags, structured data schema, and fast DNS routing come standard.'
+  },
+  {
+    title: 'Milestone Transparency',
+    desc: 'Detailed wireframes, staging review links, and regular progress reports ensure you are always in complete control.'
+  }
+]
+
 export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* CORE CAPABILITIES */}
-      <section className="px-4 py-20 md:px-8 md:py-28">
+      <section className="px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Scope of work"
-            title="Our Business Website Development Services"
-          >
-            We offer end-to-end website development tailored to how your business actually sells.
-          </SectionIntro>
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Scope of Work / Full Execution
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Our Business Website Development Services
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We offer end-to-end website development tailored to how your business actually sells.
+            </p>
+          </div>
 
-          <div className="grid bg-frame-border gap-px md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2 lg:grid-cols-3">
             {coreServices.map((service, index) => (
               <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
                 <div>
@@ -116,18 +148,23 @@ export default function Offerings() {
       </section>
 
       {/* FEATURES & INTEGRATIONS */}
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Tools & Capabilities"
-            title="Business Website Features & Integrations"
-          >
-            A business website often needs more than pages. We connect your site to the tools your team uses to manage leads and communication.
-          </SectionIntro>
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Tools & Capabilities / Lead Generation
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Business Website Features & Integrations
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              A business website often needs more than pages. We connect your site to the tools your team uses to manage leads and communication.
+            </p>
+          </div>
 
-          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
             {featuresList.map((feature, index) => (
-              <div key={index} className="bg-frame-bg p-7">
+              <div key={index} className="bg-frame-bg p-7 md:p-8">
                 <SectionLabel className="mb-2">Capability {String(index + 1).padStart(2, '0')}</SectionLabel>
                 <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {feature.title}
@@ -142,19 +179,25 @@ export default function Offerings() {
       </section>
 
       {/* INDUSTRIES */}
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Market Alignment"
-            title="Business Website Solutions for Different Industries"
-          >
-            Different businesses need different website structures and conversion paths. We adapt around how your customers research, compare, and contact.
-          </SectionIntro>
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Market Alignment / Domain Solutions
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Website Solutions for Different Industries
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Different businesses need different website structures and conversion paths. We adapt around how your customers research, compare, and contact.
+            </p>
+          </div>
 
-          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
             {industries.map((ind, index) => (
-              <div key={index} className="bg-frame-bg p-7">
-                <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+              <div key={index} className="bg-frame-bg p-7 md:p-8">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Sector 0{index + 1}</span>
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {ind.title}
                 </h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
@@ -165,13 +208,51 @@ export default function Offerings() {
           </div>
 
           {/* BANGLADESH & INTERNATIONAL CALLOUT */}
-          <div className="mt-12 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-10">
-            <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Business Websites for the Bangladesh Market & Worldwide
+          <div className="mt-16 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Dual Market Operations</span>
+            <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              Business Websites for Bangladesh & Worldwide
             </h3>
-            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
               A website for a Bangladeshi business accounts for Bangla-English content, mobile-first connections, WhatsApp direct communication, local office locations, and bKash/Nagad where applicable. For international clients in the US, UK, Australia, Canada, and UAE, we tailor messaging to global market expectations.
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Our Value Standard / Guaranteed Impact
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Frame Cipher for Business Websites
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We design and engineer business websites as long-term customer generation engines.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((adv, idx) => (
+              <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Pillar 0{idx + 1}</span>
+                  <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                    {adv.title}
+                  </h3>
+                  <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {adv.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <PosterButton href="/contact">Book a Free Strategy Consultation</PosterButton>
           </div>
         </div>
       </section>

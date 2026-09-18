@@ -69,8 +69,8 @@ export default function DocServicePageView({ service }) {
 
       {/* HERO */}
       <PageHero
-        eyebrow={service.pillarParent ? `${service.pillarParent.replace(' Services in Bangladesh', '')} / Sub-Service` : 'Core Pillar Engine'}
-        meta={isPillar ? `${subServices.length} Specialized Sub-Services Included` : 'Focused Execution / In-House Team'}
+        eyebrow={service.pillarParent ? `${service.pillarParent.replace(' Services in Bangladesh', '')} / Focused Service` : 'Complete Solution'}
+        meta={isPillar ? `${subServices.length} Focused Services Included` : 'Focused Execution / In-House Team'}
         number={String(service.index).padStart(2, '0')}
         title={service.h1 || service.sheetTitle}
         actions={
@@ -78,11 +78,11 @@ export default function DocServicePageView({ service }) {
             <PosterButton href="/contact">{service.primaryCta || 'Get a Free Quote'}</PosterButton>
             {isPillar ? (
               <PosterButton href="#sub-services" variant="outline">
-                Explore Sub-Services ({subServices.length})
+                Explore Services ({subServices.length})
               </PosterButton>
             ) : service.pillarSlug ? (
               <PosterButton href={`/services/${service.pillarSlug}`} variant="outline">
-                View Full Pillar
+                View Complete Solution
               </PosterButton>
             ) : (
               <PosterButton href="/projects" variant="outline">See Our Work</PosterButton>
@@ -119,7 +119,7 @@ export default function DocServicePageView({ service }) {
               eyebrow="Architecture & Scope"
               title={`Specialized ${displayName} Capabilities`}
             >
-              Each sub-service is engineered for a specific business outcome. Choose the precise focus your brand needs next.
+              Each service is engineered for a specific business outcome. Choose the precise focus your brand needs next.
             </SectionIntro>
 
             <div className="grid bg-frame-border gap-px md:grid-cols-2 lg:grid-cols-3">

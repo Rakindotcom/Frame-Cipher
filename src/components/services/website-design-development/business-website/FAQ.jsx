@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const faqs = [
   {
     question: 'What is included in a business website development project?',
@@ -41,28 +39,35 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
       <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct Answers"
-          title="Frequently Asked Questions"
-        >
-          Everything you need to know about our business website development workflow, ownership, and integrations.
-        </SectionIntro>
+        {/* SECTION HEADER */}
+        <div className="mb-14 md:mb-20">
+          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+            Direct Answers / Clarity
+          </p>
+          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+            Everything you need to know about our business website development workflow, ownership, and integrations.
+          </p>
+        </div>
 
+        {/* ACCORDION */}
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors shadow-sm"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 sm:p-7 md:p-8 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
+                <h3 className="pr-4">{faq.question}</h3>
+                <span className="ml-4 flex h-9 w-9 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45 font-mono text-xl">
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t-2 border-frame-border p-6 sm:p-7 md:p-8 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {faq.answer}
               </div>
             </details>

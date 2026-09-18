@@ -96,7 +96,7 @@ export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* SUB-SERVICES GRID */}
-      <section id="sub-services" className="px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <section id="sub-services" className="px-4 py-20 md:px-8 md:py-32 scroll-mt-24">
         <div className="mx-auto max-w-[95vw]">
           <SectionIntro
             eyebrow="Architecture & Scope"
@@ -133,7 +133,7 @@ export default function Offerings() {
       </section>
 
       {/* SOLUTIONS FOR DIFFERENT BUSINESS NEEDS */}
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
           <SectionIntro
             eyebrow="Target Audience Alignment"
@@ -163,16 +163,23 @@ export default function Offerings() {
       </section>
 
       {/* WHY YOUR WEBSITE MATTERS & ADVANTAGES */}
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
+          <SectionIntro
+            eyebrow="Strategic Impact"
+            title="Why Your Website Matters for Business Growth"
+          >
+            A slow or confusing website actively loses visitors before they see your offer. We build digital assets that establish enduring credibility and drive measurable revenue.
+          </SectionIntro>
+
           <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
             <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Value & Impact
               </span>
-              <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                Why Your Website Matters for Business Growth
-              </h2>
+              <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                The Compounding Cost of Weak Websites
+              </h3>
               <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                 <p>
                   A slow or confusing website doesn&apos;t just look unprofessional; it actively loses visitors before they see your offer, and that gap widens the longer it&apos;s left unaddressed, since competitors with better sites keep capturing the traffic and trust is missing. Mobile performance matters more than most businesses assume: a large share of Bangladeshi traffic is mobile-first, and a site that isn&apos;t built for that loses customers before they scroll past the homepage.

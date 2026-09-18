@@ -6,25 +6,27 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "Shopify Development",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const shopifyKeywords = [
+  'Custom Liquid Themes',
+  'Online Store 2.0',
+  'Disciplined App Architecture',
+  'Shopify Plus & B2B',
+  'Conversion Rate Optimization',
+  'Shopify Markets Global',
+  'Zero-Downtime Migration',
+  'Sub-Second Mobile Speeds',
 ]
 
-export default function WebsiteDesignDevelopmentShopifyService({ service }) {
+export default function WebsiteDesignDevelopmentShopifyService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Hero />
+      <TypeMarquee items={shopifyKeywords} slow />
+      <Offerings />
+      <Process />
+      <Pricing />
+      <FAQ />
+      <CTA />
     </main>
   )
 }

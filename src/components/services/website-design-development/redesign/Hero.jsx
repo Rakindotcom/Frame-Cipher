@@ -1,60 +1,79 @@
 import Link from 'next/link'
-import { PageHero, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
-export default function Hero({ service }) {
-  const title = service?.h1 || "Best Website Redesign Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Website redesign for any niche business sites, stores, blogs & more. We fix what's broken and preserve your rankings, not just refresh the look."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "A redesign isn't just a new coat of paint on the same broken structure. If the site still has no clear conversion path after the redesign, it'll underperform regardless of how polished it looks."
-
+export default function Hero() {
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
+      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg/90 px-4 py-3.5 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
+          <span>/</span>
+          <Link href="/services/website-design-development" className="transition hover:text-frame-fg">Website Design & Development</Link>
           <span>/</span>
           <span className="text-frame-accent">Website Redesign</span>
         </div>
       </nav>
 
-      {/* HERO */}
-      <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
-        meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
-        actions={
-          <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
-            </PosterButton>
-          </>
-        }
-      >
-        {subtitle}
-      </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
+      {/* HERO SECTION IN HOME STYLE */}
+      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Focused Service / Strategic Website Redesign
+            </span>
+            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
+              11
+            </span>
           </div>
-        </section>
-      )}
+
+          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
+            Best Website Redesign Service in Bangladesh
+          </h1>
+
+          <p className="mt-8 max-w-3xl text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+            Framecipher redesigns websites for businesses, ecommerce stores, blogs, portfolios, and any other kind of site that&apos;s outdated, slow, or no longer performing, without losing the SEO rankings, content, or traffic already built up. Whether you&apos;re redesigning a business site, an online store, a content platform, or something else entirely in Dhaka or across the US, UK, Australia, Canada, or UAE, our redesign services fix what&apos;s actually broken instead of just applying a new coat of paint.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
+            <PosterButton href="#pricing" variant="outline">
+              View Pricing & Plans &rarr;
+            </PosterButton>
+          </div>
+        </div>
+      </section>
+
+      {/* STRATEGIC VALUE BANNER */}
+      <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Strategic Diagnosis & Process
+            </p>
+            <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Audit First: Fix What&apos;s Broken, Keep What Converts
+            </h2>
+            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-frame-accent">
+              <span>Site Audit</span>
+              <span className="text-frame-muted-fg font-normal">&rarr;</span>
+              <span>Keep SEO Equity</span>
+              <span className="text-frame-muted-fg font-normal">&rarr;</span>
+              <span>UX Architecture</span>
+              <span className="text-frame-muted-fg font-normal">&rarr;</span>
+              <span>Visual Redesign</span>
+              <span className="text-frame-muted-fg font-normal">&rarr;</span>
+              <span>Zero-Downtime Cutover</span>
+            </div>
+            <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              A website doesn&apos;t need a redesign simply because it looks old. Sometimes the design is the problem; other times the real issue is navigation friction, sluggish mobile load times, or accumulated technical debt. We audit your existing site first, identifying what to keep, what to improve, and what to rebuild.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
+

@@ -85,7 +85,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                 <div className="invisible absolute left-0 top-full w-80 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-2 group-focus-within:opacity-100">
                   <div className="mb-2 flex items-center justify-between gap-4 px-3">
                     <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">
-                      7 Core Pillars
+                      7 Service Areas
                     </span>
                     <Link
                       href="/services#all-services"

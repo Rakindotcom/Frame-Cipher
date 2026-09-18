@@ -19,7 +19,7 @@ export default function Hero() {
 
       {/* HERO */}
       <PageHero
-        eyebrow="Website Design & Development / Sub-Service"
+        eyebrow="Website Design & Development / Focused Service"
         meta="Single Conversion Goal / In-House Team"
         number="04"
         title="Best Landing Page Development Service in Bangladesh"
@@ -36,15 +36,28 @@ export default function Hero() {
       </PageHero>
 
       {/* CAMPAIGN CONVERSION JOURNEY BANNER */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
+      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
-            Landing Page Development Built Around Your Campaign Goal
+          <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            Campaign Conversion Architecture
           </p>
-          <h2 className="font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Campaign Goal &rarr; Audience &rarr; Traffic Source &rarr; Message &rarr; Landing Page &rarr; CTA &rarr; Conversion
+          <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            Built Around Your Single Campaign Goal
           </h2>
-          <p className="mt-5 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Campaign Goal</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Target Audience</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Traffic Source</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Value Message</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Primary CTA</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">High Conversion</span>
+          </div>
+          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
             A landing page should do more than look good. It should give your campaign one clear destination and one primary action. We match message and design directly to where your visitors arrive from.
           </p>
         </div>

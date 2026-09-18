@@ -1,293 +1,346 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { SectionIntro, SectionLabel } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const coreServices = [
   {
-    "title": "SITE AUDIT & DIAGNOSIS",
-    "description": "Every redesign starts with understanding exactly what's underperforming and why. What We Do Redesigning without an audit first means guessing at what's actually broken - the audit is what turns guesswork into a plan.",
-    "bullets": [
-      "Technical Audit: Reviewing site speed, mobile responsiveness, crawl errors, and technical health.",
-      "Content & Structure Review: Identifying what content and site architecture is worth keeping versus what needs rebuilding.",
-      "Conversion Path Analysis: Finding where visitors are dropping off or where the path to action is unclear.",
-      "SEO & Ranking Baseline: Documenting current rankings, backlinks, and organic traffic before any changes are made."
-    ]
+    tag: 'Service 01',
+    title: 'Site Audit & Diagnostic Analysis',
+    description: 'We diagnose why your current website is underperforming, identifying technical bugs, UX bottlenecks, and crawl issues before designing.',
+    bullets: [
+      'Technical performance and Core Web Vitals diagnostic audit.',
+      'Google Search Console crawl errors, indexing issues, and 404s.',
+      'User journey analysis, form friction points, and drop-off rates.',
+      'Analytics review to identify high-converting and underperforming pages.',
+    ],
   },
   {
-    "title": "DESIGN & UX OVERHAUL",
-    "description": "Visual and structural design changes built around what the audit actually found. What We Do Design changes here are tied directly to audit findings, not a redesign for the sake of looking different.",
-    "bullets": [
-      "Updated Visual Design: A modern, on-brand look that replaces what's genuinely outdated, not changed for its own sake.",
-      "Navigation & Information Architecture: Restructuring how content is organized if the current structure is part of the problem.",
-      "Conversion-Focused Layout Changes: Adjusting page layout and calls-to-action based on where the audit found visitors dropping off.",
-      "Mobile-First Redesign: Rebuilding for proper mobile performance if the current site wasn't built mobile-first originally."
-    ]
+    tag: 'Service 02',
+    title: 'SEO Equity & Asset Preservation',
+    description: 'Protecting your accumulated search rankings, backlinks, valuable URLs, and authority during the redesign transition.',
+    bullets: [
+      'Identification and preservation of top organic traffic URLs.',
+      'Backlink audit to ensure external referral links remain intact.',
+      'Content inventory identifying high-value articles and landing pages.',
+      'Baseline ranking benchmarks established before making changes.',
+    ],
   },
   {
-    "title": "TECHNICAL REBUILD & MIGRATION",
-    "description": "The development work that fixes the underlying platform issues a new design alone can't solve. What We Do A redesign that breaks URLs without proper redirects can undo years of SEO progress in a single launch, this is treated as a technical project, not an afterthought.",
-    "bullets": [
-      "Platform Migration: Moving to a better-suited platform if the current one is the actual bottleneck, without losing content or SEO value.",
-      "Speed & Performance Fixes: Addressing the technical causes of slow load times, not just compressing a few images.",
-      "Clean Code Rebuild: Replacing bloated, legacy code with a maintainable, modern foundation.",
-      "URL & Redirect Mapping: Careful redirect planning so existing rankings and backlinks transfer to the new structure."
-    ]
+    tag: 'Service 03',
+    title: 'UX & Information Architecture',
+    description: 'Restructuring your sitemap, navigation, and conversion funnels so visitors find information and take action with zero friction.',
+    bullets: [
+      'Simplified, intuitive main navigation and mobile drawer menus.',
+      'Logical sitemap restructuring and content consolidation.',
+      'Optimized conversion funnels and high-visibility calls to action.',
+      'Mobile-first responsive layouts engineered for handheld usability.',
+    ],
   },
   {
-    "title": "SEO & RANKING PRESERVATION",
-    "description": "Making sure the redesign improves the site without costing you the visibility you've already earned. What We Do Losing rankings during a redesign is one of the most common and most avoidable mistakes in this kind of project, this is where that risk gets managed directly.",
-    "bullets": [
-      "Content Migration with SEO Intact: Preserving ranking content and metadata through the rebuild process.",
-      "301 Redirect Strategy: Mapping every old URL to its new equivalent to preserve link equity and rankings.",
-      "Post-Launch Ranking Monitoring: Tracking rankings and traffic closely in the weeks after launch to catch issues early.",
-      "Schema & Technical SEO Refresh: Updating structured data and technical SEO elements as part of the rebuild."
-    ]
+    tag: 'Service 04',
+    title: 'Modern Visual & Brand Redesign',
+    description: 'Modernizing your aesthetic to reflect your true market positioning, establishing strong brand credibility and visual prestige.',
+    bullets: [
+      'Clean visual hierarchy and contemporary typography systems.',
+      'Brand alignment with customized modern color palettes.',
+      'Modular UI component libraries and consistent design patterns.',
+      'Interactive micro-animations and purposeful visual transitions.',
+    ],
   },
   {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "description": "A redesigned site's job isn't done at launch; the same platform still needs regular attention afterward. What We Do Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a redesign engagement.",
-    "bullets": [
-      "Post-Launch Monitoring: Close tracking of speed, rankings, and functionality in the critical weeks after launch.",
-      "Security & Update Management: Keeping the rebuilt platform current and patched going forward.",
-      "Performance Reviews: Ongoing checks to confirm the redesign's improvements are holding up over time.",
-      "Content & Feature Updates: Small changes handled without needing another full redesign project."
-    ]
+    tag: 'Service 05',
+    title: 'Technical Rebuild & Performance Tuning',
+    description: 'Eliminating bloated legacy code, outdated plugins, and slow database queries to achieve sub-second loading speeds.',
+    bullets: [
+      'Clean, semantic, modern code architecture (HTML5/CSS3/React).',
+      'Modern image conversion (WebP/AVIF) and script minification.',
+      'Removal of redundant third-party plugins and legacy tracking scripts.',
+      'Significant Core Web Vitals improvements (LCP, CLS, and INP).',
+    ],
   },
   {
-    "title": "Website Redesign for Every Niche and Purpose",
-    "description": "An outdated site looks different depending on what kind of site it is, and so does the fix. Business & Corporate Websites Redesigns focused on credibility, clearer service pages, and a stronger path from visitor to inquiry. Ecommerce Stores Redesigns focused on checkout friction, product page conversion, and fixing the technical issues that slow down large catalogs. Blogs & Content Publications Redesigns focused on readability, content discoverability, and publishing workflows that have outgrown the current setup. Portfolios & Personal Brands Redesigns focused on visual presentation and making the work itself easier to find and evaluate. Membership & Community Sites Redesigns focused on account experience, content gating, and functionality that's become outdated or clunky. Directories & Listings Redesigns focused on search, filtering, and structured content that's become hard to navigate as listings grow. We scope the audit and redesign around what your specific site type actually needs fixed, not a generic business-site checklist applied regardless of purpose.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "An outdated site doesn't just look unprofessional, it actively loses visitors and rankings the longer it's left unaddressed.",
-  "The Cost of Waiting Compounds",
-  "Every month spent on an underperforming site is traffic and credibility lost to competitors whose sites already convert better, and that gap widens over time, it doesn't stay flat.",
-  "Trust & First Impressions",
-  "A slow or dated-looking site undermines credibility before a visitor even reads what you offer, regardless of how good the underlying business actually is.",
-  "Rankings Are an Asset Worth Protecting",
-  "A site with years of built-up SEO value represents real, hard-earned equity; a careless redesign can erase that in a single launch if redirects and content migration aren't handled properly.",
-  "The Difference Between a Facelift and a Fix",
-  "A visual-only redesign on top of a broken structure or slow platform will underperform again within a year, the audit-first approach is what prevents needing to redesign the redesign."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "As a website redesign company, we start with an audit, not a new design file. Our clients get a clear picture of what's actually underperforming, structure, speed, conversion path, or just visual datedness, before any redesign work begins, since a redesign that only changes the visuals while leaving the underlying structure broken usually underperforms just as badly as the original site. A blog's redesign priorities aren't a store's, and a store's aren't a portfolio's, we diagnose based on what the specific site actually needs to do, not a generic checklist.",
-    "text": "\"A redesign isn't just a new coat of paint on the same broken structure. If the site still has no clear conversion path after the redesign, it'll underperform regardless of how polished it looks.\" Audit-First, Any Niche | SEO & Ranking Preservation | Fixes Structure, Not Just Visuals"
+    tag: 'Service 06',
+    title: 'Platform Migration & Modernization',
+    description: 'Upgrading to modern CMS or frameworks (WordPress, Webflow, Shopify, Next.js) when your current platform is the bottleneck.',
+    bullets: [
+      'Safe transfer of all database content, media, and customer accounts.',
+      'Rebuilding custom features in scalable, modern environments.',
+      'Replatforming to managed ecosystems (Shopify/Webflow) for easy updates.',
+      'Staging environment testing before live DNS cutover.',
+    ],
   },
   {
-    "title": "Our Website Redesign Services",
-    "text": "We offer end-to-end redesign work tailored to what your current site actually needs fixed."
+    tag: 'Service 07',
+    title: '301 Redirect Mapping & SEO Cutover',
+    description: 'Meticulous 1-to-1 URL redirect mapping ensuring search engines and visitors are guided seamlessly to new page destinations.',
+    bullets: [
+      'Comprehensive 301 permanent redirect rules mapped and tested.',
+      'Preservation of meta titles, descriptions, and canonical tags.',
+      'XML sitemap regeneration and direct submission to Search Console.',
+      'Post-launch crawl error monitoring and immediate link repair.',
+    ],
   },
   {
-    "title": "SITE AUDIT & DIAGNOSIS",
-    "text": "Every redesign starts with understanding exactly what's underperforming and why."
+    tag: 'Service 08',
+    title: 'Conversion Rate Optimization (CRO)',
+    description: 'Turning your existing website visitors into qualified business leads, inquiries, and paying customers.',
+    bullets: [
+      'Frictionless multi-step inquiry and contact form redesigns.',
+      'Strategically positioned social proof, client logos, and reviews.',
+      'Clear value propositions above the fold on all key landing pages.',
+      'Click-to-call, WhatsApp chat, and direct booking integrations.',
+    ],
   },
   {
-    "title": "What We Do",
-    "text": "* Technical Audit: Reviewing site speed, mobile responsiveness, crawl errors, and technical health. * Content & Structure Review: Identifying what content and site architecture is worth keeping versus what needs rebuilding. * Conversion Path Analysis: Finding where visitors are dropping off or where the path to action is unclear. * SEO & Ranking Baseline: Documenting current rankings, backlinks, and organic traffic before any changes are made. Redesigning without an audit first means guessing at what's actually broken - the audit is what turns guesswork into a plan."
+    tag: 'Service 09',
+    title: 'Pre-Launch Testing & Quality Assurance',
+    description: 'Rigorous cross-device, cross-browser, and functional testing before a single visitor or search engine crawler sees the new site.',
+    bullets: [
+      'Testing across Apple iOS, Android, macOS, and Windows devices.',
+      'Functional validation of forms, checkout pipelines, and API webhooks.',
+      'Broken link checking and SSL certificate verification.',
+      'Seamless DNS transition with zero website downtime.',
+    ],
   },
-  {
-    "title": "DESIGN & UX OVERHAUL",
-    "text": "Visual and structural design changes built around what the audit actually found."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Updated Visual Design: A modern, on-brand look that replaces what's genuinely outdated, not changed for its own sake. * Navigation & Information Architecture: Restructuring how content is organized if the current structure is part of the problem. * Conversion-Focused Layout Changes: Adjusting page layout and calls-to-action based on where the audit found visitors dropping off. * Mobile-First Redesign: Rebuilding for proper mobile performance if the current site wasn't built mobile-first originally. Design changes here are tied directly to audit findings, not a redesign for the sake of looking different."
-  },
-  {
-    "title": "TECHNICAL REBUILD & MIGRATION",
-    "text": "The development work that fixes the underlying platform issues a new design alone can't solve."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Platform Migration: Moving to a better-suited platform if the current one is the actual bottleneck, without losing content or SEO value. * Speed & Performance Fixes: Addressing the technical causes of slow load times, not just compressing a few images. * Clean Code Rebuild: Replacing bloated, legacy code with a maintainable, modern foundation. * URL & Redirect Mapping: Careful redirect planning so existing rankings and backlinks transfer to the new structure. A redesign that breaks URLs without proper redirects can undo years of SEO progress in a single launch, this is treated as a technical project, not an afterthought."
-  },
-  {
-    "title": "SEO & RANKING PRESERVATION",
-    "text": "Making sure the redesign improves the site without costing you the visibility you've already earned."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Content Migration with SEO Intact: Preserving ranking content and metadata through the rebuild process. * 301 Redirect Strategy: Mapping every old URL to its new equivalent to preserve link equity and rankings. * Post-Launch Ranking Monitoring: Tracking rankings and traffic closely in the weeks after launch to catch issues early. * Schema & Technical SEO Refresh: Updating structured data and technical SEO elements as part of the rebuild. Losing rankings during a redesign is one of the most common and most avoidable mistakes in this kind of project, this is where that risk gets managed directly."
-  },
-  {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "text": "A redesigned site's job isn't done at launch; the same platform still needs regular attention afterward."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Post-Launch Monitoring: Close tracking of speed, rankings, and functionality in the critical weeks after launch. * Security & Update Management: Keeping the rebuilt platform current and patched going forward. * Performance Reviews: Ongoing checks to confirm the redesign's improvements are holding up over time. * Content & Feature Updates: Small changes handled without needing another full redesign project. Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a redesign engagement. Website Redesign for Every Niche and Purpose An outdated site looks different depending on what kind of site it is, and so does the fix."
-  },
-  {
-    "title": "Business & Corporate Websites",
-    "text": "Redesigns focused on credibility, clearer service pages, and a stronger path from visitor to inquiry."
-  },
-  {
-    "title": "Ecommerce Stores",
-    "text": "Redesigns focused on checkout friction, product page conversion, and fixing the technical issues that slow down large catalogs."
-  },
-  {
-    "title": "Blogs & Content Publications",
-    "text": "Redesigns focused on readability, content discoverability, and publishing workflows that have outgrown the current setup."
-  },
-  {
-    "title": "Portfolios & Personal Brands",
-    "text": "Redesigns focused on visual presentation and making the work itself easier to find and evaluate."
-  },
-  {
-    "title": "Membership & Community Sites",
-    "text": "Redesigns focused on account experience, content gating, and functionality that's become outdated or clunky."
-  },
-  {
-    "title": "Directories & Listings",
-    "text": "Redesigns focused on search, filtering, and structured content that's become hard to navigate as listings grow. We scope the audit and redesign around what your specific site type actually needs fixed, not a generic business-site checklist applied regardless of purpose. Why Your Business Needs a Real Redesign Partner An outdated site doesn't just look unprofessional, it actively loses visitors and rankings the longer it's left unaddressed."
-  },
-  {
-    "title": "The Cost of Waiting Compounds",
-    "text": "Every month spent on an underperforming site is traffic and credibility lost to competitors whose sites already convert better, and that gap widens over time, it doesn't stay flat."
-  },
-  {
-    "title": "Trust & First Impressions",
-    "text": "A slow or dated-looking site undermines credibility before a visitor even reads what you offer, regardless of how good the underlying business actually is."
-  },
-  {
-    "title": "Rankings Are an Asset Worth Protecting",
-    "text": "A site with years of built-up SEO value represents real, hard-earned equity; a careless redesign can erase that in a single launch if redirects and content migration aren't handled properly. The Difference Between a Facelift and a Fix A visual-only redesign on top of a broken structure or slow platform will underperform again within a year, the audit-first approach is what prevents needing to redesign the redesign. Why We're Different We're not positioning ourselves as the biggest agency, we're built to be the most accountable one."
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Audit, strategy, design, and development handled by one team, not handed off between a designer who never saw the technical audit and a developer who never saw the strategy. Audit Before Design, Always We don't start with a new design file. We start by understanding exactly what's broken for your specific type of site, so every change made is tied to a real reason, not a generic redesign checklist."
-  },
-  {
-    "title": "Local & International Redesign Experience",
-    "text": "Based in Dhaka, redesigning sites for businesses across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE. Transparent, Review-Based Process Every stage of audit findings, design, development, goes through your review and approval before we move forward."
-  },
-  {
-    "title": "Site Audit & Diagnosis",
-    "text": "A clear, written picture of what's actually underperforming, technical, structural, or visual, before any redesign work starts."
-  },
-  {
-    "title": "Design & UX Overhaul",
-    "text": "Visual and structural changes tied directly to what the audit found, not change for the sake of looking different."
-  },
-  {
-    "title": "Technical Rebuild",
-    "text": "A clean, modern platform foundation, with migration handled carefully if the current platform is part of the problem."
-  },
-  {
-    "title": "SEO & Ranking Preservation",
-    "text": "Redirect mapping and content migration planned to protect the rankings and traffic you've already built."
-  },
-  {
-    "title": "Post-Launch Monitoring",
-    "text": "Close tracking of speed, rankings, and functionality in the weeks immediately following launch."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Review checkpoints at every stage, so you approve direction before it's built, not after."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const approaches = [
+  {
+    title: 'Visual Refresh',
+    desc: 'Best when your current platform and structure are solid, but visual styling, typography, and imagery look dated and need modernizing.',
+  },
+  {
+    title: 'UX & Conversion Redesign',
+    desc: 'Best when your site receives traffic but visitors struggle to navigate, abandon contact forms, or drop out of purchase journeys.',
+  },
+  {
+    title: 'Structural Redesign',
+    desc: 'Best when your website has expanded over years without a clear plan, leading to cluttered navigation, duplicate pages, and confusing hierarchy.',
+  },
+  {
+    title: 'Full Technical Rebuild',
+    desc: 'Best when accumulated technical debt, obsolete plugins, or outdated codebases make the site slow, insecure, or impossible to maintain.',
+  },
+  {
+    title: 'Platform Migration Redesign',
+    desc: 'Best when your existing CMS platform actively restricts your business growth, requiring a migration to Next.js, Shopify, or Webflow.',
+  },
+  {
+    title: 'Targeted Section Redesign',
+    desc: 'Best when only specific high-priority areas—such as product pages, pricing tiers, or checkout—need rapid conversion optimization.',
+  },
+]
 
+const comparisonData = [
+  {
+    approach: 'Visual Refresh',
+    bestFor: 'Outdated visuals with sound platform and solid SEO',
+    changes: 'Styling, color palette, typography, imagery',
+    timeline: '~2–3 weeks',
+  },
+  {
+    approach: 'UX & Conversion Redesign',
+    bestFor: 'High traffic with low conversion or drop-off friction',
+    changes: 'User journeys, form funnels, page layouts, CTAs',
+    timeline: '~3–5 weeks',
+  },
+  {
+    approach: 'Structural Redesign',
+    bestFor: 'Disorganized content expanded over years',
+    changes: 'Sitemap, category taxonomy, internal linking',
+    timeline: '~4–6 weeks',
+  },
+  {
+    approach: 'Full Technical Rebuild',
+    bestFor: 'Severe technical debt, slow speeds, broken code',
+    changes: 'Clean modern code, database cleanup, speed tuning',
+    timeline: '~6–10 weeks',
+  },
+  {
+    approach: 'Platform Migration Redesign',
+    bestFor: 'Current CMS is the primary operational bottleneck',
+    changes: 'New platform, full content, 301 redirects, integrations',
+    timeline: '~6–12+ weeks',
+  },
+]
+
+const differentiators = [
+  {
+    title: 'Audit Before Design',
+    desc: 'We never design blindly. We first diagnose your analytics, SEO baseline, and user drop-offs to ensure every change has a purpose.',
+  },
+  {
+    title: 'Strict SEO Equity Protection',
+    desc: 'Your rankings and backlinks are valuable assets. We map exact 301 redirects and preserve metadata so you never lose search traffic.',
+  },
+  {
+    title: 'One In-House Team',
+    desc: 'Auditors, UX designers, full-stack developers, and SEO engineers collaborate seamlessly under one roof for complete accountability.',
+  },
+  {
+    title: 'Platform-Neutral Advice',
+    desc: 'If your existing platform can be refreshed cleanly, we do that. We only recommend migration when the platform itself limits your business.',
+  },
+  {
+    title: 'Revenue & Conversion Focus',
+    desc: 'We focus on business metrics—inquiries, calls, sales, and speed—rather than vanity designs that look pretty but fail to generate leads.',
+  },
+  {
+    title: 'Transparent Milestone Reviews',
+    desc: 'You review staging environments at defined checkpoints, ensuring complete alignment on structure, design, and functionality before launch.',
+  },
+]
+
+export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* CORE SERVICES */}
+      <section className="px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Scope of Work
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Our Website Redesign Capabilities
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We transform underperforming websites into high-converting, modern digital assets while protecting the search authority and content you have built over the years.
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {coreServices.map((service, index) => (
+              <div key={index} className="bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
+                <div>
+                  <span className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                    {service.tag}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {service.description}
+                  </p>
                 </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+                <ul className="mt-8 space-y-3 border-t-2 border-frame-border pt-6 text-xs sm:text-sm font-medium text-frame-fg">
+                  {service.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-3">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent font-black text-xs text-frame-accent">✓</span>
+                      <span className="leading-snug">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+      {/* STRATEGIC REDESIGN APPROACHES */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Strategic Diagnosis
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Refresh, Redesign, Rebuild or Migrate?
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Not every website needs the largest possible overhaul. The right approach depends on what our diagnostic audit uncovers.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {approaches.map((item, index) => (
+              <div key={index} className="bg-frame-bg p-7 sm:p-8 md:p-10 hover:bg-frame-muted/10 transition-colors">
+                <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Approach {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* APPROACH COMPARISON TABLE */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Scope Decision
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Redesign Approaches & Deliverable Matrix
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Compare redesign approaches to match the level of investment and timeline required for your website.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+            <table className="w-full text-left min-w-[640px]">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/20">
+                <tr>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Approach</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Best For</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">What Changes</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Delivery</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
+                {comparisonData.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-5 md:p-7 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">{row.approach}</td>
+                    <td className="p-5 md:p-7 text-sm text-frame-muted-fg leading-relaxed">{row.bestFor}</td>
+                    <td className="p-5 md:p-7 text-sm text-frame-fg font-medium leading-relaxed">{row.changes}</td>
+                    <td className="p-5 md:p-7 font-bold text-frame-accent">{row.timeline}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE FRAMECIPHER */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              The Framecipher Advantage
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Us for Your Website Redesign
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              A successful redesign needs more than a graphic designer. It needs rigorous audit discipline, conversion strategy, and meticulous SEO protection.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {differentiators.map((diff, idx) => (
+              <div key={idx} className="bg-frame-bg p-7 sm:p-8 md:p-10 hover:bg-frame-muted/10 transition-colors">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Differentiator 0{idx + 1}
+                </span>
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {diff.title}
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {diff.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
+

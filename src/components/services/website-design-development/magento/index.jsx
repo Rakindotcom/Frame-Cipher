@@ -6,25 +6,27 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "Magento Development",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const magentoKeywords = [
+  'Magento 2 & Adobe Commerce',
+  'Hyvä Theme Performance',
+  'B2B Wholesale Portals',
+  '100k+ SKU Architecture',
+  'ERP & PIM Integrations',
+  'Multi-Store & Regional Views',
+  'Elasticsearch Catalogs',
+  'Upgrade-Safe Modules',
 ]
 
-export default function WebsiteDesignDevelopmentMagentoService({ service }) {
+export default function WebsiteDesignDevelopmentMagentoService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Hero />
+      <TypeMarquee items={magentoKeywords} slow />
+      <Offerings />
+      <Process />
+      <Pricing />
+      <FAQ />
+      <CTA />
     </main>
   )
 }

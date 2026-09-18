@@ -1,20 +1,30 @@
 import Link from 'next/link'
 
+function humanizeServiceCopy(value = '') {
+  return String(value)
+    .replace(/Core Service Pillar/gi, 'Complete solution')
+    .replace(/Core Pillar Engine/gi, 'Complete solution')
+    .replace(/Sub-Service/gi, 'Focused service')
+    .replace(/Sub-Services/gi, 'Focused services')
+    .replace(/Specialized Sub-Services Included/gi, 'Focused services included')
+    .replace(/View Full Pillar/gi, 'View complete solution')
+}
+
 export function PageHero({ eyebrow, title, children, meta, number = '360', actions }) {
   return (
-    <section className="relative isolate overflow-hidden border-b-2 border-frame-border px-4 pb-16 pt-28 md:px-8 md:pb-24 md:pt-36">
-      <div className="absolute -right-6 top-24 -z-10 font-heading text-[36vw] font-bold leading-none tracking-tighter text-frame-muted md:top-8 md:text-[24vw]" aria-hidden="true">
+    <section className="relative isolate overflow-hidden border-b-2 border-frame-border px-4 pb-20 pt-28 md:px-8 md:pb-28 md:pt-36">
+      <div className="pointer-events-none absolute -right-6 top-24 -z-10 select-none font-heading text-[36vw] font-bold leading-none tracking-tighter text-frame-muted/70 md:top-8 md:text-[24vw]" aria-hidden="true">
         {number}
       </div>
       <div className="mx-auto max-w-[95vw]">
         <div className="mb-10 flex flex-wrap items-center justify-center gap-4 border-b-2 border-frame-border pb-5 md:gap-8">
-          <SectionLabel>{eyebrow}</SectionLabel>
+          <SectionLabel>{humanizeServiceCopy(eyebrow)}</SectionLabel>
           {meta && <span className="text-frame-muted-fg opacity-50">/</span>}
-          {meta && <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-muted-fg md:text-base">{meta}</p>}
+          {meta && <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-muted-fg md:text-base">{humanizeServiceCopy(meta)}</p>}
         </div>
         
         <div className="flex w-full flex-col items-center text-center">
-          <h1 className="w-full [overflow-wrap:anywhere] font-heading text-[clamp(2.5rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+          <h1 className="w-full max-w-6xl [overflow-wrap:anywhere] font-heading text-[clamp(2.45rem,7.8vw,7.8rem)] font-bold uppercase leading-[0.84] tracking-tighter text-frame-fg">
             {title}
           </h1>
           <div className="mt-8 flex max-w-4xl flex-col items-center gap-8">
@@ -37,15 +47,20 @@ export function SectionLabel({ children, className = '' }) {
 
 export function SectionIntro({ eyebrow, title, children, className = '' }) {
   return (
-    <div className={`mb-12 max-w-[95vw] ${className}`}>
-      <SectionLabel className="mb-4">{eyebrow}</SectionLabel>
-      <h2 className="font-heading text-[clamp(1.8rem,5vw,3.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+    <div className={`mb-14 md:mb-20 max-w-4xl ${className}`}>
+      {eyebrow && <SectionLabel className="mb-3">{eyebrow}</SectionLabel>}
+      <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
         {title}
       </h2>
-      {children && <p className="mt-5 max-w-3xl text-base font-medium leading-snug text-frame-muted-fg md:text-lg">{children}</p>}
+      {children && (
+        <p className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+          {children}
+        </p>
+      )}
     </div>
   )
 }
+
 
 export function PosterButton({ href, children, variant = 'accent', className = '', onClick, type }) {
   const base =
@@ -114,12 +129,12 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
   const content = (
     <>
       {number && (
-        <p className="font-heading text-[3.5rem] font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg" aria-hidden="true">
+        <p className="relative z-0 font-heading text-5xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-6xl" aria-hidden="true">
           {number}
         </p>
       )}
       {eyebrow && <p className="text-xs font-black uppercase tracking-[0.26em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/70">{eyebrow}</p>}
-      <h3 className={`${number ? 'mt-6' : 'mt-4'} font-heading text-xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-2xl`}>
+      <h3 className={`${number ? 'mt-6' : 'mt-4'} relative z-10 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl md:text-3xl`}>
         {title}
       </h3>
       {children && <div className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">{children}</div>}

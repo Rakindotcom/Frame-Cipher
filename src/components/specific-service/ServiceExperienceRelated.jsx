@@ -42,7 +42,7 @@ export default function ServiceExperienceRelated({ relatedServices }) {
               className={`${surface} group rounded-2xl p-6 transition hover:border-violet-400/40 hover:bg-violet-400/[0.06]`}
             >
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-violet-300">
-                {cleanName(related.pillarParent) || 'Service pillar'}
+                {cleanName(related.pillarParent) || 'Related service'}
               </p>
               <h3 className="mt-3 font-heading text-lg font-semibold leading-snug text-white">
                 {cleanName(related.sheetTitle)}

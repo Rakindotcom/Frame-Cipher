@@ -1,17 +1,14 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Magento Development"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Your Magento Project"
+      primaryText="Start Your Magento Project"
+      secondaryText="Talk to Our Build Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Planning a new Magento 2 store, B2B wholesale portal, multi-store rollout, migration, or enterprise ERP integration? Tell us about your product catalog, customer model, required systems, and timeline. We will recommend the Magento architecture tailored to your business.
     </CTASection>
   )
 }

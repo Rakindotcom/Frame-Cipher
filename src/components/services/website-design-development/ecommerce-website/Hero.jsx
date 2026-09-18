@@ -19,7 +19,7 @@ export default function Hero() {
 
       {/* HERO */}
       <PageHero
-        eyebrow="Website Design & Development / Sub-Service"
+        eyebrow="Website Design & Development / Focused Service"
         meta="Built Around How Your Customers Buy / In-House Team"
         number="03"
         title="Best E-commerce Website Development Service in Bangladesh"
@@ -36,15 +36,28 @@ export default function Hero() {
       </PageHero>
 
       {/* E-COMMERCE BUYING JOURNEY BANNER */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
+      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
-            E-commerce Website Development Built Around How Your Customers Buy
+          <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            E-Commerce Architecture
           </p>
-          <h2 className="font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Product Discovery &rarr; Product Page &rarr; Cart &rarr; Checkout &rarr; Payment &rarr; Order &rarr; Delivery &rarr; Customer
+          <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            Built Around How Your Customers Buy
           </h2>
-          <p className="mt-5 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Product Discovery</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Product Page</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Cart</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Checkout</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Payment</span>
+            <span className="text-frame-accent font-bold">&rarr;</span>
+            <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">Delivery & Retention</span>
+          </div>
+          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
             An ecommerce website should do more than display products. From product discovery and category navigation to cart, checkout, payment, and post-purchase workflows, we structure the store around the complete buying journey.
           </p>
         </div>

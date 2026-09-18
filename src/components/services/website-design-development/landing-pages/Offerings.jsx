@@ -1,4 +1,4 @@
-import { SectionIntro, SectionLabel } from '../../../Kinetic'
+import { SectionLabel, PosterButton } from '../../../Kinetic'
 
 const coreServices = [
   {
@@ -57,26 +57,58 @@ const campaignTypes = [
 ]
 
 const trafficSources = [
-  { title: 'Google Ads', desc: 'Aligned with search intent, keyword themes, ad copy, and specific offers so visitors immediately feel in the right place.' },
-  { title: 'Meta & Instagram Ads', desc: 'Structured around the visual hook, creative angle, and offer introduced in social feeds for smooth continuity.' },
-  { title: 'TikTok Campaigns', desc: 'Fast loading, high visual impact, concise messaging, and rapid mobile checkout or signups.' },
-  { title: 'LinkedIn & B2B', desc: 'Stronger value propositions, case study proof, qualification fields, and direct routes to sales conversations.' },
+  { title: 'Google Ads (Search & Display)', desc: 'Aligned with high-intent keywords, clear solution matching, and immediate response forms.' },
+  { title: 'Meta & Social Ads (FB, IG, LinkedIn)', desc: 'Visual hooks, storytelling frameworks, social proof, and fast mobile-optimized checkouts.' },
+  { title: 'Email & Retargeting Campaigns', desc: 'Personalized messaging tailored to warm prospects with direct calls to action.' },
+  { title: 'Influencer & Partner Traffic', desc: 'Custom welcome greetings, exclusive promotion badges, and clear redemption flows.' },
+]
+
+const whyChooseUs = [
+  {
+    title: 'Laser Focus on ROAS',
+    desc: 'We design landing pages specifically to lower Cost Per Acquisition (CPA) and maximize ad spend return.'
+  },
+  {
+    title: 'Message Match Precision',
+    desc: 'Headlines, imagery, and hooks align 100% with your ad creatives, eliminating bounce rates.'
+  },
+  {
+    title: 'Full Pixel & Event Tracking',
+    desc: 'GA4 custom events, Meta Conversions API (CAPI), and Google Tag Manager configured out of the box.'
+  },
+  {
+    title: 'Sub-Second Load Times',
+    desc: 'Zero framework bloat ensures instant visual paint, keeping mobile paid clicks on the page.'
+  },
+  {
+    title: 'A/B Testing Readiness',
+    desc: 'Modular components allow you to swap headlines, social proof, or CTAs in minutes for split testing.'
+  },
+  {
+    title: 'One In-House Creative Team',
+    desc: 'Conversion strategy, UI design, copywriting guidance, and development delivered under one team.'
+  }
 ]
 
 export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* CORE CAPABILITIES */}
-      <section className="px-4 py-20 md:px-8 md:py-28">
+      <section className="px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Scope of work"
-            title="Our Landing Page Development Services"
-          >
-            We offer end-to-end landing page development tailored to your campaign goal, offer structure, and traffic source.
-          </SectionIntro>
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Campaign Execution / Single-Purpose Design
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Our Landing Page Development Services
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We build custom landing pages that turn ad clicks and marketing traffic into measurable business conversions.
+            </p>
+          </div>
 
-          <div className="grid bg-frame-border gap-px md:grid-cols-2">
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2">
             {coreServices.map((service, index) => (
               <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
                 <div>
@@ -102,25 +134,30 @@ export default function Offerings() {
         </div>
       </section>
 
-      {/* CAMPAIGN SOLUTIONS */}
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      {/* CAMPAIGN TYPES */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Campaign Objectives"
-            title="Landing Page Solutions for Different Campaign Goals"
-          >
-            A landing page should be built around the exact action your campaign needs visitors to take.
-          </SectionIntro>
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Conversion Models / Campaign Architecture
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Landing Pages for Every Campaign Type
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Every marketing initiative requires a tailored landing environment. We architect pages around specific buyer psychology.
+            </p>
+          </div>
 
-          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
-            {campaignTypes.map((camp, index) => (
-              <div key={index} className="bg-frame-bg p-7">
-                <SectionLabel className="mb-2">Goal 0{index + 1}</SectionLabel>
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
+            {campaignTypes.map((type, index) => (
+              <div key={index} className="bg-frame-bg p-7 md:p-8">
+                <SectionLabel className="mb-2">Type 0{index + 1}</SectionLabel>
                 <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {camp.title}
+                  {type.title}
                 </h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {camp.desc}
+                  {type.desc}
                 </p>
               </div>
             ))}
@@ -128,20 +165,26 @@ export default function Offerings() {
         </div>
       </section>
 
-      {/* TRAFFIC SOURCES */}
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      {/* TRAFFIC SOURCE ALIGNMENT */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
         <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Acquisition Channels"
-            title="Landing Pages Built for Your Traffic Source"
-          >
-            Visitors arrive with different expectations depending on channel. We maintain message match from ad click to final CTA.
-          </SectionIntro>
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Traffic Optimization / Message Match
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Landing Page Optimization by Traffic Source
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Visitors arriving from search ads behave differently from social scrollers. We calibrate page density accordingly.
+            </p>
+          </div>
 
-          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-4">
             {trafficSources.map((source, index) => (
-              <div key={index} className="bg-frame-bg p-7">
-                <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+              <div key={index} className="bg-frame-bg p-7 md:p-8">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Channel 0{index + 1}</span>
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {source.title}
                 </h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
@@ -149,6 +192,43 @@ export default function Offerings() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US */}
+      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              The Conversion Advantage / Results-Driven
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Frame Cipher for Landing Pages
+            </h2>
+            <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We do not build generic digital flyers. We build high-velocity customer acquisition engines.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((adv, idx) => (
+              <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Pillar 0{idx + 1}</span>
+                  <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                    {adv.title}
+                  </h3>
+                  <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {adv.desc}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <PosterButton href="/contact">Launch Your Campaign Page</PosterButton>
           </div>
         </div>
       </section>

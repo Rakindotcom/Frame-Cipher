@@ -1,17 +1,14 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Webflow Development"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Your Webflow Project"
+      primaryText="Start Your Webflow Project"
+      secondaryText="Talk to Our Build Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Planning a new design-forward Webflow website, Figma translation, CMS-driven platform, migration, or multilingual rollout? Tell us about your brand vision, content collections, required integrations, and timeline. We will recommend the optimal Webflow architecture for your business.
     </CTASection>
   )
 }

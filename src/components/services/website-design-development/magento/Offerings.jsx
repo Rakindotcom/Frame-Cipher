@@ -1,268 +1,375 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
-
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const coreServices = [
   {
-    "title": "CATALOG & STORE ARCHITECTURE",
-    "description": "Every Magento build starts with a structure planned around your catalog's actual complexity. What We Do Catalog architecture decided upfront prevents the restructuring headaches that come from bolting complexity onto a simple setup later.",
-    "bullets": [
-      "Catalog Structure Planning: Category hierarchy and attribute sets built for large, varied product ranges.",
-      "Multi-Store & Multi-Website Setup: Separate storefronts for different regions, brands, or customer segments under one backend.",
-      "B2B Pricing Architecture: Tiered pricing, customer groups, and quote-based workflows for wholesale or B2B customers.",
-      "Competitor & Platform Review: Confirming Magento is the right fit before committing to the build."
-    ]
+    tag: 'Service 01',
+    title: 'Magento 2 & Adobe Commerce Development',
+    description: 'We develop custom Magento stores engineered around your exact catalog size, operational workflows, and commercial requirements.',
+    bullets: [
+      'Magento Open Source tailored deployment and customization.',
+      'Adobe Commerce B2B company accounts, shared catalogs, and quotes.',
+      'Multi-currency, multilingual, and localized regional storefronts.',
+      'Modular code architecture strictly adhering to Adobe coding standards.',
+    ],
   },
   {
-    "title": "THEME & UI/UX DESIGN",
-    "description": "Design that handles large catalogs without becoming difficult to browse or slow to load. What We Do Large catalogs are only useful if shoppers can actually find what they're looking for; design here is about navigation, not just visuals.",
-    "bullets": [
-      "Custom Theme Development: Layouts built for your brand and catalog size, not a generic Magento theme.",
-      "Advanced Filtering & Navigation: Layered navigation and search built to handle large product sets without overwhelming shoppers.",
-      "Conversion-Focused Checkout: Streamlined checkout flow, including B2B-specific steps like quote requests where needed.",
-      "Mobile-First Design: Full functionality across devices, since large-catalog browsing is easy to get wrong on mobile."
-    ]
+    tag: 'Service 02',
+    title: 'Catalog & Store Architecture',
+    description: 'Structuring extensive, multi-attribute product catalogs so customers and internal inventory managers find items effortlessly.',
+    bullets: [
+      'Configurable, bundled, grouped, and virtual product types.',
+      'Custom attribute sets, swatch configurations, and inventory rules.',
+      'Elasticsearch / OpenSearch powered faceted search and filtering.',
+      'Multi-website and multi-store view setup under a single admin panel.',
+    ],
   },
   {
-    "title": "DEVELOPMENT & SYSTEM INTEGRATION",
-    "description": "The technical build that connects Magento to the systems your business already runs on. What We Do A large catalog running on disconnected systems creates data mismatches integration work here is what keeps stock, pricing, and orders accurate.",
-    "bullets": [
-      "Custom Module Development: Building specific functionality Magento's core and extensions don't cover.",
-      "ERP & Inventory Integration: Connecting Magento to existing inventory, accounting, or fulfillment systems.",
-      "Payment Gateway Integration: Including bKash and Nagad for Bangladeshi merchants, alongside international and B2B payment methods.",
-      "API & Third-Party Integrations: CRM, shipping, and marketing tool connections built to handle high-volume data reliably."
-    ]
+    tag: 'Service 03',
+    title: 'B2B & Wholesale Ecommerce',
+    description: 'Engineering specialized wholesale buying experiences with custom contract pricing, tiered quotes, and corporate purchasing roles.',
+    bullets: [
+      'Company accounts with hierarchical multi-buyer permission sets.',
+      'Custom pricing tiers, shared catalogs, and negotiable quotation flows.',
+      'Quick ordering by SKU/CSV upload and saved requisition lists.',
+      'Purchase order (PO) workflows and flexible B2B payment terms.',
+    ],
   },
   {
-    "title": "PERFORMANCE & SCALABILITY",
-    "description": "Speed and stability that hold up under a large catalog and real transaction volume. What We Do Magento's flexibility comes with real infrastructure requirements. Getting hosting and performance tuning wrong is the most common cause of a slow Magento store.",
-    "bullets": [
-      "Speed Optimization: Caching, indexing, and code-level tuning for pages serving large product sets.",
-      "Server & Hosting Configuration: Infrastructure sized correctly for Magento's resource requirements, not underprovisioned hosting.",
-      "Security Hardening: Patch management and hardening against Magento-specific vulnerabilities.",
-      "Load Testing: Confirming the store holds up under real or projected traffic and order volume."
-    ]
+    tag: 'Service 04',
+    title: 'Theme & Storefront UI/UX Design',
+    description: 'Designing high-conversion Magento storefronts focused on mobile-first product discovery, comparison, and frictionless checkout.',
+    bullets: [
+      'Bespoke storefront visual design matching corporate brand identity.',
+      'Mobile-optimized category navigation and layered filter sidebars.',
+      'Streamlined one-step checkout customized to reduce cart abandonment.',
+      'High-converting product detail pages (PDP) with rich media specs.',
+    ],
   },
   {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "description": "A Magento store's job isn't done at launch; the platform requires more active maintenance than simpler ecommerce platforms. What We Do Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a development engagement.",
-    "bullets": [
-      "Security Patch Management: Applying Magento security patches promptly, given the platform's history as a common attack target.",
-      "Performance Monitoring: Ongoing checks on speed and server load as catalog and traffic grow.",
-      "Backup & Recovery: Regular backups given the higher stakes of a large, transaction-heavy store.",
-      "Integration Monitoring: Confirming ERP, payment, and third-party connections keep working as systems update."
-    ]
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Magento is powerful, but that power comes with real technical demands that punish a poorly planned build.",
-  "Complexity That Simpler Platforms Can't Handle",
-  "Large catalogs, multi-region storefronts, and B2B pricing logic are what Magento is built for, forcing that complexity onto a simpler platform usually means expensive workarounds later.",
-  "Trust & Transaction Reliability",
-  "A large-scale store handling B2B orders or high transaction volume needs to be reliable downtime or checkout errors at that scale cost more than they would on a smaller store.",
-  "Infrastructure Sized Correctly",
-  "Magento underperforms badly on underprovisioned hosting. Getting server sizing and configuration right from the start avoids a slow, frustrating store that undermines the platform's actual capability.",
-  "Built to Scale Further",
-  "Unlike simpler platforms with hard ceilings, a well-built Magento store can keep growing, new stores, new regions, new B2B segments without needing a full platform migration."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "As a Magento development company, we work on the platform where scale actually matters, large catalogs, multi-store setups, B2B pricing tiers, and complex integrations that simpler platforms like Shopify or WooCommerce aren't built to handle efficiently. Our clients get architecture planned around their actual catalog complexity, not a default setup stretched past what it should be doing. With hands-on experience across Bangladeshi and international merchants, we know when Magento is the right call, and when it's overkill.",
-    "text": "\"Magento's overhead only pays off past a certain scale. Below that, it's more infrastructure than a business needs. We'll tell you directly if your catalog doesn't need it yet.\" Enterprise-Grade Catalogs | B2B & Multi-Store Ready | Honest Platform Fit"
+    tag: 'Service 05',
+    title: 'Hyvä Theme Development',
+    description: 'Replacing bloated default Luma frontend themes with modern Hyvä architecture for sub-second speeds and stellar Core Web Vitals.',
+    bullets: [
+      'Clean frontend architecture built with Tailwind CSS and Alpine.js.',
+      'Significant reduction in frontend JavaScript bundle weight and complexity.',
+      'Dramatically improved Google Core Web Vitals and mobile performance.',
+      'Third-party extension compatibility audits and Hyvä fallback styling.',
+    ],
   },
   {
-    "title": "Our Magento Development Services",
-    "text": "We offer end-to-end Magento development tailored to merchants operating at real scale."
+    tag: 'Service 06',
+    title: 'Headless Magento & PWA Development',
+    description: 'Decoupling the customer-facing frontend from the Magento commerce backend for maximum creative and performance freedom.',
+    bullets: [
+      'Modern React, Next.js, or Vue.js custom storefront frontends.',
+      'High-performance GraphQL API queries and commerce services.',
+      'Progressive Web App (PWA) offline browsing and mobile app feel.',
+      'Separate frontend deployments for rapid marketing campaign iteration.',
+    ],
   },
   {
-    "title": "CATALOG & STORE ARCHITECTURE",
-    "text": "Every Magento build starts with a structure planned around your catalog's actual complexity."
+    tag: 'Service 07',
+    title: 'Custom Modules & System Integrations',
+    description: 'Connecting Magento to the mission-critical software systems that power your inventory, fulfillment, and accounting.',
+    bullets: [
+      'ERP integrations (SAP, Microsoft Dynamics, NetSuite, Oracle).',
+      'PIM (Akeneo, Pimcore) and CRM (HubSpot, Salesforce) sync.',
+      'Local payment gateways (bKash, Nagad, SSLCommerz) & global gateways.',
+      'Automated shipping carriers, logistics, and warehouse (WMS) webhooks.',
+    ],
   },
   {
-    "title": "What We Do",
-    "text": "* Catalog Structure Planning: Category hierarchy and attribute sets built for large, varied product ranges. * Multi-Store & Multi-Website Setup: Separate storefronts for different regions, brands, or customer segments under one backend. * B2B Pricing Architecture: Tiered pricing, customer groups, and quote-based workflows for wholesale or B2B customers. * Competitor & Platform Review: Confirming Magento is the right fit before committing to the build. Catalog architecture decided upfront prevents the restructuring headaches that come from bolting complexity onto a simple setup later."
+    tag: 'Service 08',
+    title: 'Migration & Version Upgrades',
+    description: 'Upgrading legacy Magento versions or replatforming from Shopify or WooCommerce with zero loss of SEO equity or order history.',
+    bullets: [
+      'Magento 1 to Magento 2 database and media migrations.',
+      'Seamless Magento 2.4.x minor and major security upgrades.',
+      'Customer accounts, order history, product, and category transfers.',
+      'URL structure preservation and comprehensive 301 redirect mapping.',
+    ],
   },
   {
-    "title": "THEME & UI/UX DESIGN",
-    "text": "Design that handles large catalogs without becoming difficult to browse or slow to load."
+    tag: 'Service 09',
+    title: 'Performance & Security Hardening',
+    description: 'Tuning server infrastructure and implementing rigorous security controls to withstand massive flash-sale traffic spikes.',
+    bullets: [
+      'Varnish full-page cache, Redis session caching, and CDN optimization.',
+      'Database query indexing and connection pool optimization.',
+      'Security patch installations, two-factor authentication (2FA), and firewalls.',
+      'PCI-DSS compliance review and automated off-site database backups.',
+    ],
   },
-  {
-    "title": "What We Do",
-    "text": "* Custom Theme Development: Layouts built for your brand and catalog size, not a generic Magento theme. * Advanced Filtering & Navigation: Layered navigation and search built to handle large product sets without overwhelming shoppers. * Conversion-Focused Checkout: Streamlined checkout flow, including B2B-specific steps like quote requests where needed. * Mobile-First Design: Full functionality across devices, since large-catalog browsing is easy to get wrong on mobile. Large catalogs are only useful if shoppers can actually find what they're looking for; design here is about navigation, not just visuals."
-  },
-  {
-    "title": "DEVELOPMENT & SYSTEM INTEGRATION",
-    "text": "The technical build that connects Magento to the systems your business already runs on."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Custom Module Development: Building specific functionality Magento's core and extensions don't cover. * ERP & Inventory Integration: Connecting Magento to existing inventory, accounting, or fulfillment systems. * Payment Gateway Integration: Including bKash and Nagad for Bangladeshi merchants, alongside international and B2B payment methods. * API & Third-Party Integrations: CRM, shipping, and marketing tool connections built to handle high-volume data reliably. A large catalog running on disconnected systems creates data mismatches integration work here is what keeps stock, pricing, and orders accurate."
-  },
-  {
-    "title": "PERFORMANCE & SCALABILITY",
-    "text": "Speed and stability that hold up under a large catalog and real transaction volume."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Speed Optimization: Caching, indexing, and code-level tuning for pages serving large product sets. * Server & Hosting Configuration: Infrastructure sized correctly for Magento's resource requirements, not underprovisioned hosting. * Security Hardening: Patch management and hardening against Magento-specific vulnerabilities. * Load Testing: Confirming the store holds up under real or projected traffic and order volume. Magento's flexibility comes with real infrastructure requirements. Getting hosting and performance tuning wrong is the most common cause of a slow Magento store."
-  },
-  {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "text": "A Magento store's job isn't done at launch; the platform requires more active maintenance than simpler ecommerce platforms."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Security Patch Management: Applying Magento security patches promptly, given the platform's history as a common attack target. * Performance Monitoring: Ongoing checks on speed and server load as catalog and traffic grow. * Backup & Recovery: Regular backups given the higher stakes of a large, transaction-heavy store. * Integration Monitoring: Confirming ERP, payment, and third-party connections keep working as systems update. Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a development engagement. Why Your Business Needs a Real Magento Development Partner Magento is powerful, but that power comes with real technical demands that punish a poorly planned build. Complexity That Simpler Platforms Can't Handle Large catalogs, multi-region storefronts, and B2B pricing logic are what Magento is built for, forcing that complexity onto a simpler platform usually means expensive workarounds later."
-  },
-  {
-    "title": "Trust & Transaction Reliability",
-    "text": "A large-scale store handling B2B orders or high transaction volume needs to be reliable downtime or checkout errors at that scale cost more than they would on a smaller store."
-  },
-  {
-    "title": "Infrastructure Sized Correctly",
-    "text": "Magento underperforms badly on underprovisioned hosting. Getting server sizing and configuration right from the start avoids a slow, frustrating store that undermines the platform's actual capability."
-  },
-  {
-    "title": "Built to Scale Further",
-    "text": "Unlike simpler platforms with hard ceilings, a well-built Magento store can keep growing, new stores, new regions, new B2B segments without needing a full platform migration. Why We're Different We're not positioning ourselves as the biggest agency, we're built to be the most accountable one."
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Strategy, architecture, design, and integration handled by one team, not handed off between freelancers who've never worked on a Magento build together."
-  },
-  {
-    "title": "Honest About Platform Fit",
-    "text": "We'll recommend Magento when your catalog and complexity genuinely need it and tell you directly if a simpler platform like Shopify or WooCommerce would serve you better and cost less."
-  },
-  {
-    "title": "Local & International B2B Experience",
-    "text": "Based in Dhaka, building Magento stores for merchants across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE. Transparent, Review-Based Process Every stage of architecture, design, development, goes through your review and approval before we move forward."
-  },
-  {
-    "title": "Strategy & Consultation",
-    "text": "We start by understanding your catalog size, B2B or multi-store needs, and whether Magento is genuinely the right platform."
-  },
-  {
-    "title": "Catalog & Store Architecture",
-    "text": "Category structure, multi-store setup, and B2B pricing logic planned around your actual business, not a generic template."
-  },
-  {
-    "title": "Theme & UX Design",
-    "text": "Navigation and checkout design built to handle large catalogs without becoming difficult to browse."
-  },
-  {
-    "title": "Development & System Integration",
-    "text": "Custom modules and ERP/payment integrations built to keep data accurate across your entire operation."
-  },
-  {
-    "title": "Performance & Infrastructure",
-    "text": "Hosting, caching, and server configuration sized correctly for Magento's real resource demands."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Review checkpoints at every stage, so you approve direction before it's built, not after."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const businessNeeds = [
+  {
+    title: 'High-Volume B2C Retailers',
+    desc: 'Department stores and multi-brand merchants needing rapid catalog search, rich filtering, and high transaction concurrency.',
+  },
+  {
+    title: 'B2B Wholesale & Distributors',
+    desc: 'Manufacturers and trade distributors needing negotiated contract prices, quote approvals, purchase orders, and multi-buyer accounts.',
+  },
+  {
+    title: 'Multi-Region Global Brands',
+    desc: 'International enterprises operating localized storefronts with country-specific currencies, languages, tax rules, and shipping carriers.',
+  },
+  {
+    title: 'ERP-Integrated Enterprises',
+    desc: 'Merchants requiring real-time inventory, pricing, and order synchronization with enterprise software like SAP, NetSuite, or Dynamics.',
+  },
+  {
+    title: 'High-Performance Hyvä Stores',
+    desc: 'Brands requiring the deep flexibility of Magento without the slow loading times of legacy Luma themes.',
+  },
+  {
+    title: 'Headless Commerce Brands',
+    desc: 'Cutting-edge digital merchants using Magento purely as a powerful commerce engine paired with custom Next.js storefronts.',
+  },
+]
 
+const comparisonData = [
+  {
+    factor: 'Catalog Scale & Attributes',
+    magento: 'Engineered for 100,000+ SKUs & complex attribute sets',
+    shopify: 'Strong, but limited by variant and collection bounds',
+    woocommerce: 'Best suited for small-to-medium product catalogs',
+    highlight: 'magento',
+  },
+  {
+    factor: 'Native B2B & Wholesale',
+    magento: 'Exceptional (Company accounts, custom quotes, tiers)',
+    shopify: 'Requires Shopify Plus subscription tier',
+    woocommerce: 'Requires multiple third-party wholesale plugins',
+    highlight: 'magento',
+  },
+  {
+    factor: 'Multi-Store Architecture',
+    magento: 'Native multi-website & multi-currency in one backend',
+    shopify: 'Multi-store via expansion or Shopify Markets',
+    woocommerce: 'Requires complex WordPress multisite setup',
+    highlight: 'magento',
+  },
+  {
+    factor: 'Code Customization',
+    magento: '100% open source; complete code & module control',
+    shopify: 'Constrained by Liquid & Shopify app ecosystem',
+    woocommerce: 'High flexibility within PHP & WordPress framework',
+    highlight: 'magento',
+  },
+  {
+    factor: 'ERP & System Integrations',
+    magento: 'Enterprise grade (SAP, NetSuite, Oracle, Microsoft)',
+    shopify: 'App marketplace & Storefront APIs',
+    woocommerce: 'Plugin-based or custom REST endpoints',
+    highlight: 'magento',
+  },
+  {
+    factor: 'Hosting & Infrastructure',
+    magento: 'Dedicated cloud / AWS / VPS architecture needed',
+    shopify: 'Fully managed cloud SaaS hosting',
+    woocommerce: 'Runs on standard shared/VPS WordPress hosting',
+  },
+  {
+    factor: 'Ongoing Maintenance',
+    magento: 'Requires specialized technical Magento engineering',
+    shopify: 'Managed platform updates handled by Shopify',
+    woocommerce: 'Regular plugin, theme & core updates required',
+  },
+  {
+    factor: 'Best Suited For',
+    magento: 'Complex, enterprise B2B, multi-store, large catalogs',
+    shopify: 'Direct-to-consumer brands wanting managed simplicity',
+    woocommerce: 'Content-driven stores already on WordPress',
+  },
+]
+
+const differentiators = [
+  {
+    title: 'One In-House Team',
+    desc: 'Ecommerce strategists, backend Magento engineers, Hyvä theme specialists, and DevOps architects collaborating under one roof.',
+  },
+  {
+    title: 'Platform-Neutral Recommendations',
+    desc: 'We recommend Magento only when your catalog complexity or B2B model justifies it; otherwise, we direct you to simpler options.',
+  },
+  {
+    title: 'Business-First Architecture',
+    desc: 'We map out pricing matrices, customer tiers, and ERP workflows before development begins to avoid expensive rework.',
+  },
+  {
+    title: 'Upgrade-Safe Custom Modules',
+    desc: 'We engineer bespoke modules strictly following Adobe Magento guidelines, ensuring seamless future version upgrades.',
+  },
+  {
+    title: 'SEO-Ready Foundations',
+    desc: 'Faceted navigation canonicals, schema markup, product indexing controls, and image optimizations are built in from day one.',
+  },
+  {
+    title: 'Bangladesh & Global Payment Routing',
+    desc: 'We integrate local mobile wallets (bKash/Nagad) alongside international gateways (Stripe/PayPal) for cross-border commerce.',
+  },
+]
+
+export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* PART 1: CORE SERVICES */}
+      <section className="px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Enterprise Commerce / Scope of Work
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Our Magento Capabilities
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We deliver end-to-end Magento solutions built to handle true operational complexity, high catalog volume, and advanced B2B workflows.
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {coreServices.map((service, index) => (
+              <article
+                key={index}
+                className="group flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                    {service.tag}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {service.description}
+                  </p>
                 </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+                <ul className="mt-8 space-y-3 border-t-2 border-frame-border/60 pt-6 text-xs sm:text-sm font-medium text-frame-fg/90">
+                  {service.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-2.5">
+                      <span className="text-frame-accent font-bold">✓</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+      {/* PART 2: COMMERCIAL MODELS */}
+      <section className="bg-frame-muted/20 px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Commercial Models / Architecture
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Solutions for Complex Commerce
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Magento excels when enterprise commerce demands specialized architecture, deep integration, and granular operational control.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {businessNeeds.map((item, index) => (
+              <article key={index} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
+                <div>
+                  <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent block mb-2">
+                    Model 0{index + 1}
+                  </span>
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-5 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PART 3: COMPARISON MATRIX */}
+      <section className="px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Platform Decision / Benchmark
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Magento vs Shopify vs WooCommerce
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Evaluate platform capabilities against your catalog volume, B2B requirements, and infrastructure preferences.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+            <table className="w-full text-left min-w-[680px]">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/40">
+                <tr>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Magento 2 / Adobe</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Shopify</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WooCommerce</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
+                {comparisonData.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-5 md:p-7 font-bold text-frame-fg">{row.factor}</td>
+                    <td className={`p-5 md:p-7 ${row.highlight === 'magento' ? 'font-bold text-frame-accent' : 'text-frame-fg'}`}>
+                      {row.magento}
+                    </td>
+                    <td className="p-5 md:p-7 text-frame-muted-fg">{row.shopify}</td>
+                    <td className="p-5 md:p-7 text-frame-muted-fg">{row.woocommerce}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* PART 4: WHY CHOOSE US */}
+      <section className="bg-frame-muted/10 px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              The Framecipher Advantage
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Us for Magento Development
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We combine high-level enterprise commerce strategy with rigorous module engineering, load testing, and long-term support.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {differentiators.map((diff, idx) => (
+              <article key={idx} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Differentiator 0{idx + 1}
+                  </span>
+                  <h3 className="mt-4 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {diff.title}
+                  </h3>
+                </div>
+                <p className="mt-5 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {diff.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

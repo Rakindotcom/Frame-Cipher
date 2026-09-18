@@ -1,264 +1,369 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
-
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const coreServices = [
   {
-    "title": "CMS ARCHITECTURE & CONTENT MODELING",
-    "description": "Every Webflow build starts with a content structure that makes future updates simple, not fragile. What We Do Poorly planned CMS structure is the most common reason a Webflow site becomes hard to maintain six months after launch.",
-    "bullets": [
-      "Collection Structure Planning: Designing CMS Collections around how your content actually needs to be organized and reused.",
-      "Dynamic Content Templates: Building templates that update automatically as new CMS items are added, blog posts, case studies, products.",
-      "Content Relationships: Structuring reference and multi-reference fields so related content connects correctly.",
-      "Editor-Friendly Setup: Naming and organizing fields so your team can add content without needing to understand the build."
-    ]
+    tag: 'Service 01',
+    title: 'Webflow CMS & Component Architecture',
+    description: 'We structure CMS collections and reusable components so non-technical team members can publish new content effortlessly.',
+    bullets: [
+      'CMS Collection schema architecture and custom reference fields.',
+      'Dynamic collection page templates for blogs, case studies, and teams.',
+      'Modular reusable components with customizable properties.',
+      'Editor-friendly naming conventions following Client-First standards.',
+    ],
   },
   {
-    "title": "CUSTOM DESIGN & INTERACTIONS",
-    "description": "Design that takes full advantage of what Webflow's visual canvas actually allows. What We Do Webflow's interaction tools are powerful and easy to misuse, the difference is restraint, using motion to support the experience, not distract from it.",
-    "bullets": [
-      "Pixel-Precise Visual Design: Layouts built directly in Webflow's Designer, matching approved design files exactly.",
-      "Custom Animations & Interactions: Scroll-triggered animations, micro-interactions, and transitions built natively in Webflow.",
-      "Responsive Design Across Breakpoints: Careful control over how layouts adapt, not just a generic mobile fallback.",
-      "Component & Style System Setup: Reusable components and consistent styling so design stays coherent as the site grows."
-    ]
+    tag: 'Service 02',
+    title: 'Custom Interactions & Micro-Animations',
+    description: 'Engaging user interfaces brought to life through native Webflow interactions, scroll-based effects, and smooth transitions.',
+    bullets: [
+      'Pixel-accurate visual layouts across standard and custom breakpoints.',
+      'Scroll-triggered reveal animations and interactive parallax effects.',
+      'Micro-interactions, magnetic buttons, and custom hover states.',
+      'Mobile-optimized touch gestures and performance-tuned frame rates.',
+    ],
   },
   {
-    "title": "DEVELOPMENT & INTEGRATIONS",
-    "description": "The technical setup that connects Webflow to the tools and functionality your site actually needs. What We Do Webflow handles most needs natively, custom code is used deliberately, not as a default workaround.",
-    "bullets": [
-      "Custom Code Embeds: Adding custom HTML, CSS, or JavaScript for functionality beyond Webflow's native tools, when genuinely needed.",
-      "Form & CRM Integration: Connecting Webflow forms to your CRM or email marketing platform.",
-      "Third-Party Integrations: Booking tools, chat widgets, or analytics platforms configured cleanly.",
-      "Webflow Ecommerce Setup: Product catalogs and checkout for brands needing a design-forward store with a smaller catalog."
-    ]
+    tag: 'Service 03',
+    title: 'Figma to Webflow Development',
+    description: 'Direct translation of approved Figma designs into responsive, clean, and semantically structured Webflow production code.',
+    bullets: [
+      'Strict adherence to Figma layouts, typography, and spacing scales.',
+      'Component-based design system conversion with global styles.',
+      'Responsive adaptations for tablet, mobile landscape, and mobile portrait.',
+      'Interactive form styling, success states, and modal overlays.',
+    ],
   },
   {
-    "title": "PERFORMANCE & SEO SETUP",
-    "description": "Making sure a visually rich site still loads fast and performs well in search. What We Do Design-heavy sites are the ones most likely to load slowly if performance isn't actively managed, we treat it as part of the build, not an afterthought.",
-    "bullets": [
-      "Speed Optimization: Image compression, lazy loading, and clean structure to keep animation-heavy pages fast.",
-      "On-Page SEO Setup: Meta tags, alt text, sitemap, and Webflow's native SEO controls configured correctly.",
-      "Clean, Semantic Code Export: Webflow's exported code kept structured and readable, not bloated with unnecessary divs.",
-      "Mobile Performance Check: Confirming interactions and animations perform properly on mobile devices, not just desktop."
-    ]
+    tag: 'Service 04',
+    title: 'Webflow Apps, APIs & Custom Code',
+    description: 'Extending Webflow functionality with custom JavaScript, third-party business apps, and backend API connections.',
+    bullets: [
+      'Custom JavaScript embeds, third-party libraries, and calculators.',
+      'CRM integrations (HubSpot, Salesforce, ActiveCampaign, Mailchimp).',
+      'Zapier and Make automations for lead pipelines and webhooks.',
+      'Interactive search and filtering tools (Finsweet Attributes).',
+    ],
   },
   {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "description": "A Webflow site's job isn't done at launch, CMS content grows and occasional design or functionality updates come up. What We Do Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a development engagement.",
-    "bullets": [
-      "CMS Content Support: Helping structure new content types or collections as your site's needs evolve.",
-      "Design & Interaction Updates: Adjustments to layout, animations, or components without a full rebuild.",
-      "Integration Checks: Confirming connected forms, CRM, and third-party tools keep working correctly.",
-      "Performance Reviews: Periodic checks on speed as CMS content and page count grow."
-    ]
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "A Webflow site built without planning often ends up either visually impressive but hard to update, or easy to update but generic-looking, rarely both.",
-  "Design Control Without Losing Manageability",
-  "Webflow's design freedom is only an advantage if the CMS structure behind it is planned properly, otherwise every content update risks breaking the visual design.",
-  "Trust & Brand Perception",
-  "For design-forward brands and agencies, a site that looks templated undercuts the credibility the brand is trying to build in the first place.",
-  "Content That Scales Without Developer Dependency",
-  "A properly structured CMS means your team can add blog posts, case studies, or listings without touching the design or needing a developer involved.",
-  "Right-Sized for Marketing-Led Brands",
-  "Webflow is a strong fit when design and content are the priority. For heavy backend logic or large-scale ecommerce, a fully custom build is usually the better investment, we'll tell you which situation you're in."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "As a Webflow development company, we work on the platform built specifically for pixel-precise design paired with genuine content management, not a compromise between the two. Our clients get custom interactions, CMS-driven content structures, and clean, semantic code without needing a developer for every visual tweak. With hands-on experience building for both Bangladeshi and international brands, we know how to use Webflow's design freedom without letting a build become unmanageable.",
-    "text": "\"Webflow gives you design control most platforms can't match, but that freedom is exactly how a build turns into a mess of unstructured sections if it isn't planned properly. We architect the CMS and design system first.\" Design-Forward Builds | CMS-Driven Content | Clean, Structured Code"
+    tag: 'Service 05',
+    title: 'Webflow Migration & Replatforming',
+    description: 'Rebuilding outdated WordPress, Squarespace, or Wix sites in Webflow while protecting search visibility and organic traffic.',
+    bullets: [
+      'Complete content, imagery, and database collection extraction.',
+      'Comprehensive 301 URL redirect mapping to avoid broken links.',
+      'SEO metadata, canonical tags, and Open Graph schema migration.',
+      'Pre-launch staging validation and post-launch crawl verification.',
+    ],
   },
   {
-    "title": "Our Webflow Development Services",
-    "text": "We offer end-to-end Webflow development tailored to brands that need design control and content structure together."
+    tag: 'Service 06',
+    title: 'Webflow Localization & Multilingual',
+    description: 'Building multi-region websites with localized content, country-specific subdirectories, and international SEO tags.',
+    bullets: [
+      'Native Webflow localization setup across multiple target locales.',
+      'Localized static pages, CMS collection entries, and image assets.',
+      'Language selector components with automatic geo-detection.',
+      'Locale-specific URLs, hreflang tag configurations, and meta tags.',
+    ],
   },
   {
-    "title": "CMS ARCHITECTURE & CONTENT MODELING",
-    "text": "Every Webflow build starts with a content structure that makes future updates simple, not fragile."
+    tag: 'Service 07',
+    title: 'Webflow Ecommerce Development',
+    description: 'Design-led ecommerce storefronts engineered for boutique brands requiring bespoke product presentation and smooth checkout.',
+    bullets: [
+      'Custom product and category catalog page design.',
+      'Tailored shopping cart overlays and customized checkout flows.',
+      'Stripe / PayPal payment processing and automated tax calculations.',
+      'Product-level SEO schema markup and social sharing assets.',
+    ],
   },
   {
-    "title": "What We Do",
-    "text": "* Collection Structure Planning: Designing CMS Collections around how your content actually needs to be organized and reused. * Dynamic Content Templates: Building templates that update automatically as new CMS items are added, blog posts, case studies, products. * Content Relationships: Structuring reference and multi-reference fields so related content connects correctly. * Editor-Friendly Setup: Naming and organizing fields so your team can add content without needing to understand the build. Poorly planned CMS structure is the most common reason a Webflow site becomes hard to maintain six months after launch."
+    tag: 'Service 08',
+    title: 'SEO, Accessibility & Performance QA',
+    description: 'Ensuring your site loads in milliseconds, passes Core Web Vitals, and adheres to modern web accessibility standards.',
+    bullets: [
+      'Semantic HTML tags, proper heading structures, and alt text.',
+      'WebP image compression, asset minification, and lazy loading.',
+      'WCAG contrast checks, focus outlines, and screen reader labels.',
+      'Automated XML sitemaps, robots.txt, and Google Search Console setup.',
+    ],
   },
   {
-    "title": "CUSTOM DESIGN & INTERACTIONS",
-    "text": "Design that takes full advantage of what Webflow's visual canvas actually allows."
+    tag: 'Service 09',
+    title: 'Client CMS Training & Handover',
+    description: 'Empowering your marketing team to edit copy, update images, and publish new case studies without writing code.',
+    bullets: [
+      'Recorded video walkthrough tutorials customized to your build.',
+      'Live training session on Webflow Editor mode for marketing staff.',
+      'Documentation covering reusable components and CMS fields.',
+      'Full workspace or site transfer directly to your Webflow account.',
+    ],
   },
-  {
-    "title": "What We Do",
-    "text": "* Pixel-Precise Visual Design: Layouts built directly in Webflow's Designer, matching approved design files exactly. * Custom Animations & Interactions: Scroll-triggered animations, micro-interactions, and transitions built natively in Webflow. * Responsive Design Across Breakpoints: Careful control over how layouts adapt, not just a generic mobile fallback. * Component & Style System Setup: Reusable components and consistent styling so design stays coherent as the site grows. Webflow's interaction tools are powerful and easy to misuse, the difference is restraint, using motion to support the experience, not distract from it."
-  },
-  {
-    "title": "DEVELOPMENT & INTEGRATIONS",
-    "text": "The technical setup that connects Webflow to the tools and functionality your site actually needs."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Custom Code Embeds: Adding custom HTML, CSS, or JavaScript for functionality beyond Webflow's native tools, when genuinely needed. * Form & CRM Integration: Connecting Webflow forms to your CRM or email marketing platform. * Third-Party Integrations: Booking tools, chat widgets, or analytics platforms configured cleanly. * Webflow Ecommerce Setup: Product catalogs and checkout for brands needing a design-forward store with a smaller catalog. Webflow handles most needs natively, custom code is used deliberately, not as a default workaround."
-  },
-  {
-    "title": "PERFORMANCE & SEO SETUP",
-    "text": "Making sure a visually rich site still loads fast and performs well in search."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Speed Optimization: Image compression, lazy loading, and clean structure to keep animation-heavy pages fast. * On-Page SEO Setup: Meta tags, alt text, sitemap, and Webflow's native SEO controls configured correctly. * Clean, Semantic Code Export: Webflow's exported code kept structured and readable, not bloated with unnecessary divs. * Mobile Performance Check: Confirming interactions and animations perform properly on mobile devices, not just desktop. Design-heavy sites are the ones most likely to load slowly if performance isn't actively managed, we treat it as part of the build, not an afterthought."
-  },
-  {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "text": "A Webflow site's job isn't done at launch, CMS content grows and occasional design or functionality updates come up."
-  },
-  {
-    "title": "What We Do",
-    "text": "* CMS Content Support: Helping structure new content types or collections as your site's needs evolve. * Design & Interaction Updates: Adjustments to layout, animations, or components without a full rebuild. * Integration Checks: Confirming connected forms, CRM, and third-party tools keep working correctly. * Performance Reviews: Periodic checks on speed as CMS content and page count grow. Available as a separate ongoing service - see our [Website Maintenance] page for full details, since this isn't included by default in a development engagement. Why Your Business Needs a Real Webflow Development Partner A Webflow site built without planning often ends up either visually impressive but hard to update, or easy to update but generic-looking, rarely both. Design Control Without Losing Manageability Webflow's design freedom is only an advantage if the CMS structure behind it is planned properly, otherwise every content update risks breaking the visual design."
-  },
-  {
-    "title": "Trust & Brand Perception",
-    "text": "For design-forward brands and agencies, a site that looks templated undercuts the credibility the brand is trying to build in the first place. Content That Scales Without Developer Dependency A properly structured CMS means your team can add blog posts, case studies, or listings without touching the design or needing a developer involved."
-  },
-  {
-    "title": "Right-Sized for Marketing-Led Brands",
-    "text": "Webflow is a strong fit when design and content are the priority. For heavy backend logic or large-scale ecommerce, a fully custom build is usually the better investment, we'll tell you which situation you're in. Why We're Different We're not positioning ourselves as the biggest agency, we're built to be the most accountable one."
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Design, CMS architecture, and development handled by one team, not handed off between a designer and developer working from different files."
-  },
-  {
-    "title": "Honest About Platform Fit",
-    "text": "We'll recommend Webflow when design flexibility and content management are the priority, and tell you directly if your project needs a fully custom build instead."
-  },
-  {
-    "title": "Local & International Brand Experience",
-    "text": "Based in Dhaka, building Webflow sites for brands across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE. Transparent, Review-Based Process Every stage of CMS structure, design, development goes through your review and approval before we move forward."
-  },
-  {
-    "title": "Strategy & Consultation",
-    "text": "We start by understanding your brand, content needs, and how your team plans to manage the site after launch."
-  },
-  {
-    "title": "CMS Architecture",
-    "text": "Collection structures and content relationships planned around how your content actually needs to work, not a generic setup."
-  },
-  {
-    "title": "Custom Design & Interactions",
-    "text": "Pixel-precise design and purposeful animation built directly in Webflow's Designer, matched to your brand."
-  },
-  {
-    "title": "Development & Integrations",
-    "text": "Forms, CRM connections, and any needed custom code built cleanly, with custom code used only where genuinely necessary."
-  },
-  {
-    "title": "Performance & SEO Setup",
-    "text": "Speed and search settings configured correctly from launch, even on visually rich, animation-heavy pages."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Review checkpoints at every stage, so you approve direction before it's built, not after."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const businessNeeds = [
+  {
+    title: 'Design-Led Brand Flagships',
+    desc: 'Bespoke agency, architectural, and luxury brand websites where creative visual presentation and typography define credibility.',
+  },
+  {
+    title: 'SaaS & Tech Marketing Websites',
+    desc: 'High-growth tech companies needing modular landing pages, interactive product feature tours, and seamless CRM integrations.',
+  },
+  {
+    title: 'Content & Thought Leadership Hubs',
+    desc: 'Publishers, consultants, and research firms using structured CMS collections with categorized articles, author bios, and search.',
+  },
+  {
+    title: 'Creative Portfolios & Showcases',
+    desc: 'Photographers, motion designers, and creative directors needing seamless video embeds, gallery grids, and project case studies.',
+  },
+  {
+    title: 'Multilingual Global Websites',
+    desc: 'International brands serving audiences in multiple languages through Webflow localization and localized SEO architectures.',
+  },
+  {
+    title: 'Boutique Ecommerce Stores',
+    desc: 'Curated direct-to-consumer brands offering unique products that require elevated storytelling and visual craftsmanship.',
+  },
+]
 
+const comparisonData = [
+  {
+    factor: 'Visual Design Control',
+    webflow: 'Exceptional (Full CSS box-model & typography control)',
+    wordpress: 'High with custom themes; moderate with builders',
+    wix: 'Good (Drag-and-drop within platform constraints)',
+    highlight: 'webflow',
+  },
+  {
+    factor: 'CMS Architecture',
+    webflow: 'Outstanding structured collections & dynamic binding',
+    wordpress: 'Very high via Custom Post Types & ACF',
+    wix: 'Moderate via Wix CMS collections',
+    highlight: 'webflow',
+  },
+  {
+    factor: 'Custom Code & Scripts',
+    webflow: 'Clean HTML/CSS/JS embeds, API webhooks, headless',
+    wordpress: 'Unlimited PHP, database, and server access',
+    wix: 'Velo code & supported API tools',
+  },
+  {
+    factor: 'Hosting & Security',
+    webflow: 'Fastly CDN cloud hosting; automated SSL & backups',
+    wordpress: 'Requires self-managed hosting, SSL & security updates',
+    wix: 'Fully managed cloud hosting ecosystem',
+    highlight: 'webflow',
+  },
+  {
+    factor: 'Animation & Interactions',
+    webflow: 'Native visual timeline interaction engine',
+    wordpress: 'Requires external JS animation libraries (GSAP)',
+    wix: 'Basic built-in scroll & fade animations',
+    highlight: 'webflow',
+  },
+  {
+    factor: 'Client Publishing Experience',
+    webflow: 'Clean Editor view preventing layout breaks',
+    wordpress: 'Good with Gutenberg; risk of layout shifts',
+    wix: 'Direct visual canvas drag-and-drop',
+    highlight: 'webflow',
+  },
+  {
+    factor: 'Best Suited For',
+    webflow: 'Design-forward brands, tech startups, marketing teams',
+    wordpress: 'Large content platforms, directories, custom portals',
+    wix: 'Straightforward small business & startup launches',
+  },
+]
+
+const differentiators = [
+  {
+    title: 'Unified Design & Dev Team',
+    desc: 'Our engineers are trained designers, meaning your approved Figma files are translated with millimeter precision into Webflow.',
+  },
+  {
+    title: 'Client-First Class Naming',
+    desc: 'We use established class naming systems (Client-First), ensuring your project remains clean, organized, and easy for any developer to scale.',
+  },
+  {
+    title: 'Platform-Neutral Honesty',
+    desc: 'We recommend Webflow when design control and marketing agility matter most; we never force Webflow when WordPress or custom code fits better.',
+  },
+  {
+    title: 'Zero SEO Equity Loss',
+    desc: 'We conduct meticulous 301 URL redirect mapping, structured data setups, and Google Search Console verifications on all replatforming projects.',
+  },
+  {
+    title: 'Performance-Tuned Interactions',
+    desc: 'We craft smooth, micro-interactions and scroll animations that delight visitors without triggering layout shifts or slow page loads.',
+  },
+  {
+    title: 'True Client Autonomy',
+    desc: 'You receive full site transfer, comprehensive documentation, and personalized video training so your team can publish independently.',
+  },
+]
+
+export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
+      {/* PART 1: CORE SERVICES */}
+      <section className="px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Visual Craft / Capabilities
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Our Webflow Services
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We build Webflow websites that balance extraordinary visual craft with structured CMS architecture, lightning-fast hosting, and client autonomy.
+            </p>
           </div>
-        </section>
-      )}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {coreServices.map((service, index) => (
+              <article
+                key={index}
+                className="group flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                    {service.tag}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {service.title}
+                  </h3>
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {service.description}
+                  </p>
                 </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+                <ul className="mt-8 space-y-3 border-t-2 border-frame-border/60 pt-6 text-xs sm:text-sm font-medium text-frame-fg/90">
+                  {service.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-2.5">
+                      <span className="text-frame-accent font-bold">✓</span>
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
+      </section>
+
+      {/* PART 2: SOLUTIONS FOR BUSINESS NEEDS */}
+      <section className="bg-frame-muted/20 px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Aesthetic Systems / Solutions
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Webflow for Distinct Brand Needs
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Webflow is the ideal environment for brands that view design, typography, and speed as core commercial advantages.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {businessNeeds.map((item, index) => (
+              <article key={index} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
+                <div>
+                  <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent block mb-2">
+                    Solution 0{index + 1}
+                  </span>
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-5 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PART 3: COMPARISON MATRIX */}
+      <section className="px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Platform Decision / Matrix
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Webflow vs WordPress vs Wix
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              Compare creative flexibility, CMS capabilities, and infrastructure to make the right platform decision for your business.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+            <table className="w-full text-left min-w-[680px]">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/40">
+                <tr>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Webflow</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WordPress</th>
+                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Wix</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
+                {comparisonData.map((row, idx) => (
+                  <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-5 md:p-7 font-bold text-frame-fg">{row.factor}</td>
+                    <td className={`p-5 md:p-7 ${row.highlight === 'webflow' ? 'font-bold text-frame-accent' : 'text-frame-fg'}`}>
+                      {row.webflow}
+                    </td>
+                    <td className="p-5 md:p-7 text-frame-muted-fg">{row.wordpress}</td>
+                    <td className="p-5 md:p-7 text-frame-muted-fg">{row.wix}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* PART 4: WHY CHOOSE US */}
+      <section className="bg-frame-muted/10 px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              The Framecipher Advantage
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Us for Webflow Development
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We engineer Webflow projects with disciplined architecture, structured naming, and rigorous cross-device testing.
+            </p>
+          </div>
+
+          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            {differentiators.map((diff, idx) => (
+              <article key={idx} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Differentiator 0{idx + 1}
+                  </span>
+                  <h3 className="mt-4 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {diff.title}
+                  </h3>
+                </div>
+                <p className="mt-5 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {diff.desc}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   )
 }
