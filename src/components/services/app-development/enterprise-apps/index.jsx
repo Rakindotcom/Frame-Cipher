@@ -6,25 +6,28 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "Enterprise App Development",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const keywords = [
+  'Legacy Modernization',
+  'ERP & CRM Integration',
+  'Role-Based Access Control',
+  'Single Sign-On (SSO)',
+  'High Availability Architecture',
+  'Automated CI/CD',
+  'Enterprise Mobile & Offline-First',
+  'Mission-Critical SLA Support',
 ]
 
 export default function AppDevelopmentEnterpriseAppsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
+      <TypeMarquee items={keywords} slow />
+      
+      <Offerings />
+      <Process />
+      <Pricing />
       <FAQ service={service} />
-      <CTA service={service} />
+      <CTA />
     </main>
   )
 }

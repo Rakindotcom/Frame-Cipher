@@ -5,6 +5,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import WebsitePortfolioPreview from '../../../projects/WebsitePortfolioPreview'
 
 const businessKeywords = [
   'Strategy & Architecture',
@@ -20,6 +21,13 @@ export default function WebsiteDesignDevelopmentBusinessWebsiteService() {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={businessKeywords} slow />
+      <WebsitePortfolioPreview
+        eyebrow="Case Studies / Verified Builds"
+        title="Our Business Website Development Portfolio"
+        description="Explore selected business websites developed around real business goals, customer journeys, and technical requirements. Our projects may include business websites, corporate websites, service-based websites, eCommerce experiences, landing pages, and custom web solutions. For each project, we focus on clear information architecture, responsive UX, lead generation, performance, and a strong technical foundation for future growth."
+        buttonText="View Project →"
+        buttonHref="/projects?view=website"
+      />
       <Offerings />
       <Process />
       <Pricing />

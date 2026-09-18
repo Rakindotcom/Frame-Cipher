@@ -1,248 +1,376 @@
+import { PosterButton } from '../../../Kinetic'
+
 const coreServices = [
   {
     tag: 'Service 01',
     title: 'Site Strategy & Planning',
-    description: 'Every Wix project starts with a clear plan for what the website needs to achieve, ensuring the editor stays simple to use later.',
-    bullets: [
-      'Business goals and primary conversion actions definition.',
-      'Sitemap, user navigation, and page structure planning.',
-      'Customer journey mapping and content requirements.',
-      'Wix platform, editor selection (Wix Editor vs Wix Studio), and apps.',
+    description: 'Every Wix project starts with a clear plan for what the website needs to achieve. We define the site\'s goals, target audience, key pages, calls to action, content requirements, and required functionality before development begins.',
+    items: [
+      'Business goals and primary conversion actions',
+      'Sitemap and page structure',
+      'Customer journey and navigation',
+      'Content requirements',
+      'Wix platform and editor selection',
+      'Required apps, integrations, and custom functionality',
     ],
+    note: 'A clear structure makes the website easier to build, easier to use, and easier to manage after launch.',
   },
   {
     tag: 'Service 02',
     title: 'Custom Wix Website Design',
-    description: 'We design Wix websites around your brand identity instead of leaving an off-the-shelf template unchanged.',
-    bullets: [
-      'Bespoke visual layouts matching your typography & brand guidelines.',
-      'Mobile-first responsive layouts tailored for handheld devices.',
-      'Conversion-focused calls to action, lead forms, and inquiry paths.',
-      'Wix Bookings, inquiry flows, and scheduling interfaces.',
+    description: 'We design Wix websites around your brand instead of leaving a template unchanged.',
+    items: [
+      'Custom page layouts',
+      'Brand-focused typography and visual hierarchy',
+      'Mobile and responsive layouts',
+      'Conversion-focused calls to action',
+      'Forms and lead-capture areas',
+      'Booking and inquiry interfaces',
+      'Content sections designed around your actual business',
     ],
+    note: 'The goal is a website that feels like your business, not a lightly edited template.',
   },
   {
     tag: 'Service 03',
     title: 'Wix Studio Development',
-    description: 'For businesses needing greater design precision, responsive breakpoints, custom layouts, and deeper development flexibility.',
-    bullets: [
-      'Advanced responsive layouts with custom fluid breakpoints.',
-      'Custom CSS styling and modular design component libraries.',
-      'Fluid interactions, scroll-based animations, and transitions.',
-      'CMS-connected page structures with client-friendly editing modes.',
+    description: 'Wix Studio is designed for more advanced professional website development and responsive control. We use Wix Studio when a project needs greater design precision, responsive breakpoints, custom layouts, advanced interactions, or deeper development flexibility.',
+    items: [
+      'Advanced responsive layouts',
+      'Custom breakpoints and responsive behavior',
+      'Custom CSS where appropriate',
+      'Reusable design components',
+      'Advanced interactions and animations',
+      'CMS-connected page structures',
+      'Custom code and API-based functionality',
+      'Client-friendly editing and handover',
     ],
+    note: 'We recommend Wix Studio when the project needs more control than a standard Wix Editor build.',
   },
   {
     tag: 'Service 04',
-    title: 'Wix Velo Development & Custom Code',
-    description: 'When built-in Wix features are not enough, Velo and developer tools extend site functionality with custom logic.',
-    bullets: [
-      'Custom forms, dynamic database collections, and business logic.',
-      'Member-specific portals, dashboards, and role-based permissions.',
-      'External API integrations, webhooks, and third-party automations.',
-      'Custom calculations, backend functions, and bespoke booking flows.',
+    title: 'Wix Velo Development & Custom Functionality',
+    description: 'When built-in Wix features are not enough, Velo and Wix\'s developer tools can extend the site\'s functionality. We use custom development when it solves a real business requirement rather than adding unnecessary complexity.',
+    items: [
+      'Custom forms and workflows',
+      'Database-driven functionality',
+      'Dynamic content',
+      'Custom calculations and business logic',
+      'Member-specific functionality',
+      'API connections',
+      'Third-party service integrations',
+      'Custom interactions',
+      'Backend functions',
+      'Advanced booking or ecommerce flows',
     ],
+    note: 'The exact implementation depends on the Wix capabilities, APIs, apps, and technical requirements involved in the project.',
   },
   {
     tag: 'Service 05',
-    title: 'Wix CMS & Dynamic Websites',
-    description: 'Separating content from page design makes it easy to manage structured information as your website scales.',
-    bullets: [
-      'Dynamic page templates for directories, properties, and listings.',
-      'Portfolio project showcases, case studies, and team profiles.',
-      'Service catalogs, event calendars, and resource libraries.',
-      'Consistent layouts driven by structured database collections.',
+    title: 'Wix CMS & Dynamic Website Development',
+    description: 'Wix CMS can separate your content from the page design, making it easier to manage structured information as your website grows.',
+    items: [
+      'Service directories',
+      'Portfolio projects',
+      'Team profiles',
+      'Property or listing websites',
+      'Location pages',
+      'Case studies',
+      'Blog and editorial content',
+      'Event or resource libraries',
+      'Other structured business content',
     ],
+    note: 'Dynamic pages allow one page structure to display different content items while keeping the design consistent. This is useful when your website needs many similar pages without manually building every page from scratch.',
   },
   {
     tag: 'Service 06',
-    title: 'Integrations & Business Automation',
-    description: 'Connecting your Wix website seamlessly with the tools and business software your team uses daily.',
-    bullets: [
-      'CRM connections, lead capture, and automated email sequences.',
-      'Payment gateway setup (local and international options).',
-      'Live chat, WhatsApp click-to-chat, and contact notifications.',
-      'Google Analytics 4, Tag Manager, and Meta Pixel tracking setup.',
+    title: 'Wix Integrations & Business Automation',
+    description: 'Your website often needs to work with more than Wix alone. We can configure supported apps, APIs, and third-party tools for your business workflows.',
+    items: [
+      'Lead capture and CRM',
+      'Email marketing',
+      'Booking systems',
+      'Analytics and reporting',
+      'Live chat',
+      'Forms and notifications',
+      'Payment services',
+      'Marketing platforms',
+      'Customer data workflows',
+      'External APIs and business tools',
     ],
+    note: 'We select integrations based on the actual workflow instead of adding unnecessary apps that make the website harder to maintain.',
   },
   {
     tag: 'Service 07',
     title: 'Wix Ecommerce Development',
-    description: 'Building streamlined online stores with product catalogs, payments, and manageable day-to-day order operations.',
-    bullets: [
-      'Product catalog setup, collections, and variant attributes.',
-      'Secure checkout configuration, shipping rules, and payment setup.',
-      'Inventory tracking, order notifications, and discount rules.',
-      'Product-level SEO optimization and conversion-focused product pages.',
+    description: 'Wix can support ecommerce websites that need a streamlined storefront and manageable product operations.',
+    items: [
+      'Product catalogs',
+      'Categories and collections',
+      'Product variations',
+      'Product pages',
+      'Cart and checkout',
+      'Payment setup',
+      'Shipping rules',
+      'Inventory management',
+      'Promotions and discounts',
+      'Order management',
+      'Product SEO',
+      'Analytics and conversion tracking',
     ],
+    note: 'We also review catalog size, payment requirements, fulfillment workflows, and future growth before recommending Wix Ecommerce. For complex ecommerce operations, another platform may be more appropriate.',
   },
   {
     tag: 'Service 08',
-    title: 'SEO & Performance Optimization',
-    description: 'Building strong search foundations into the website from day one rather than treating SEO as an afterthought.',
-    bullets: [
-      'Semantic heading hierarchy, meta titles, and descriptions.',
-      'Image compression (WebP), lazy loading, and asset tuning.',
-      'XML sitemap generation, canonical tags, and 301 redirect mapping.',
-      'Schema structured data and Google Search Console indexation.',
+    title: 'Wix SEO & Technical Performance Optimization',
+    description: 'We build the SEO foundation into the website from the start rather than treating it as an afterthought.',
+    items: [
+      'SEO-friendly page structure',
+      'Title tags and meta descriptions',
+      'Heading hierarchy',
+      'Image optimization',
+      'Internal linking',
+      'Sitemap and indexation checks',
+      'Canonical and URL configuration where applicable',
+      'Redirect planning',
+      'Structured data where supported',
+      'Mobile optimization',
+      'Analytics and search measurement',
+      'Performance-focused image and page configuration',
     ],
+    note: 'We optimize what the platform allows and explain any platform-specific constraints before launch. No website platform can guarantee rankings on its own. Strong SEO also depends on content, competition, authority, technical quality, and ongoing optimization.',
   },
   {
     tag: 'Service 09',
-    title: 'Wix Redesign & Website Migration',
-    description: 'Modernizing underperforming Wix sites or moving from WordPress, Squarespace, or Webflow with zero SEO loss.',
-    bullets: [
-      'Visual, UX, and mobile layout overhaul for outdated Wix sites.',
-      'Seamless content, media, and database migration to Wix.',
-      'URL preservation and comprehensive 301 redirect mapping.',
-      'Rebuilding standard Wix websites into high-performance Wix Studio builds.',
+    title: 'Wix Website Redesign & Optimization',
+    description: 'An existing Wix website may not need a complete replacement. We can redesign and improve an existing Wix website when the platform still fits the business.',
+    items: [
+      'Outdated visual design',
+      'Poor mobile layouts',
+      'Weak navigation',
+      'Low-converting page structures',
+      'Inconsistent branding',
+      'Difficult content management',
+      'Slow or heavy pages',
+      'Weak SEO foundations',
+      'Poor calls to action',
+      'Existing Wix sites that need a Wix Studio rebuild',
     ],
+    note: 'We review the existing website first and recommend what should be retained, rebuilt, or removed.',
+  },
+  {
+    tag: 'Service 10',
+    title: 'Wix Migration & Website Rebuild',
+    description: 'We can help businesses move an existing website to Wix when Wix is a better fit for their current needs.',
+    items: [
+      'WordPress to Wix',
+      'Squarespace to Wix',
+      'Webflow to Wix',
+      'Existing Wix to Wix Studio',
+      'Content and media migration',
+      'Page structure recreation',
+      'URL and redirect mapping',
+      'Metadata migration',
+      'Analytics setup',
+      'SEO preservation checks',
+      'Mobile and functionality testing',
+    ],
+    note: 'A migration should protect useful content and existing search visibility as much as possible while improving the new site\'s structure.',
+  },
+  {
+    tag: 'Service 11',
+    title: 'Ongoing Wix Maintenance & Support',
+    description: 'After launch, we can provide ongoing support for businesses that need help maintaining or improving their Wix website.',
+    items: [
+      'Content updates',
+      'Layout fixes',
+      'App and integration checks',
+      'Performance reviews',
+      'Troubleshooting',
+      'Minor functionality changes',
+      'SEO updates',
+      'Ongoing website improvements',
+    ],
+    note: 'Ongoing support is scoped separately based on the level of assistance your website requires.',
   },
 ]
 
-const businessNeeds = [
+const businessSolutions = [
   {
+    number: '01',
     title: 'Small Business Websites',
-    desc: 'Professional online presence for local businesses needing clear service information, lead capture, and easy self-editing.',
+    description: 'Professional websites for businesses that need a clear online presence, service information, lead capture, and easy content updates.',
   },
   {
+    number: '02',
     title: 'Service Business Websites',
-    desc: 'Consultants, clinics, agencies, and contractors needing strong service pages, client inquiry forms, and booking integrations.',
+    description: 'Websites for agencies, consultants, contractors, clinics, professionals, and other service providers that need strong service pages, inquiries, bookings, and calls to action.',
   },
   {
+    number: '03',
     title: 'Startup Websites',
-    desc: 'Fast-to-market websites that explain product value clearly, validate positioning, and allow rapid updates as the company grows.',
+    description: 'Flexible websites for startups that need to launch quickly, explain their offer clearly, validate their positioning, and keep managing content as the business grows.',
   },
   {
-    title: 'Corporate & Professional Sites',
-    desc: 'Structured brand presentation for established firms needing credibility, team bios, organized content, and lead generation.',
+    number: '04',
+    title: 'Corporate & Professional Websites',
+    description: 'Structured websites for established businesses that need strong brand presentation, organized content, lead generation, company information, and internal review workflows.',
   },
   {
-    title: 'Portfolio & Creative Websites',
-    desc: 'Visual showcases for designers, photographers, architects, and agencies presenting projects through structured CMS collections.',
+    number: '05',
+    title: 'Portfolio Websites',
+    description: 'Visual websites for designers, photographers, architects, agencies, creators, and professionals who need to present projects through a consistent content structure.',
   },
   {
-    title: 'Booking & Appointment Sites',
-    desc: 'Connecting visitors with calendar slots, consultations, classes, or reservations via fully configured Wix Bookings.',
+    number: '06',
+    title: 'Booking & Appointment Websites',
+    description: 'Websites that connect visitors with appointments, consultations, classes, or other scheduled services through supported Wix booking functionality.',
   },
   {
+    number: '07',
     title: 'Membership Websites',
-    desc: 'Gated content, private member dashboards, subscription tiers, and member-only resources supported within Wix.',
+    description: 'Wix websites that require controlled member experiences, gated content, profiles, or member-focused interactions where the required functionality fits the platform.',
   },
   {
-    title: 'Ecommerce Stores',
-    desc: 'Streamlined online shops with product catalogs, mobile-friendly checkout, automated notifications, and easy stock updates.',
+    number: '08',
+    title: 'Ecommerce Websites',
+    description: 'Online stores for businesses that need product catalogs, checkout, payments, orders, and manageable store content within the Wix ecosystem.',
   },
   {
+    number: '09',
     title: 'Dynamic CMS Websites',
-    desc: 'Content-heavy websites utilizing structured collections to publish hundreds of directory entries or articles consistently.',
+    description: 'Content-driven websites that use structured collections and dynamic pages to publish larger sets of similar content without manually designing every page.',
   },
+]
+
+const wixGoodFitPoints = [
+  'You need a professional website without managing a complex technical stack',
+  'Your team wants to edit content easily',
+  'You need a relatively fast website launch',
+  'Your site needs business features such as forms, bookings, CMS, or ecommerce',
+  'You want design flexibility without managing separate hosting infrastructure',
+  'Your website does not require highly specialized backend architecture',
+]
+
+const anotherPlatformBetterPoints = [
+  'The project depends on highly specialized backend functionality',
+  'The ecommerce operation has unusually complex requirements',
+  'The website needs a highly customized application architecture',
+  'Your team needs platform capabilities that Wix does not support',
+  'Long-term technical requirements make another ecosystem a better fit',
 ]
 
 const comparisonData = [
   {
     factor: 'Launch Speed',
-    wix: 'Fast (~1–3 weeks for most builds)',
-    wordpress: 'Moderate (~3–6 weeks)',
-    custom: 'Longer (~8–16+ weeks)',
-    highlight: 'wix',
+    wix: 'Fast for many projects',
+    wordpress: 'Moderate',
+    custom: 'Usually longer',
   },
   {
     factor: 'Ease of Editing',
-    wix: 'Exceptional visual drag-and-drop',
-    wordpress: 'Strong with Gutenberg/Elementor',
-    custom: 'Depends on custom CMS setup',
-    highlight: 'wix',
+    wix: 'Strong',
+    wordpress: 'Strong with the right setup',
+    custom: 'Depends on the system',
   },
   {
     factor: 'Design Flexibility',
-    wix: 'Strong (Pixel-level with Wix Studio)',
-    wordpress: 'Very high with bespoke themes',
-    custom: 'Unlimited frontend architecture',
+    wix: 'Strong, especially with Wix Studio',
+    wordpress: 'Very high with custom themes',
+    custom: 'Very high',
   },
   {
     factor: 'Custom Functionality',
-    wix: 'Strong for supported APIs & Velo',
-    wordpress: 'Very high with open plugin ecosystem',
-    custom: 'Highest possible flexibility',
+    wix: 'Strong for supported use cases and APIs',
+    wordpress: 'Very high with plugins and custom development',
+    custom: 'Highest flexibility',
   },
   {
-    factor: 'Ecommerce Scale',
-    wix: 'Ideal for small-to-mid catalogs',
-    wordpress: 'High scale with WooCommerce',
-    custom: 'Enterprise & headless architecture',
+    factor: 'Ecommerce',
+    wix: 'Suitable for many stores',
+    wordpress: 'Strong with WooCommerce and other solutions',
+    custom: 'Fully customizable',
   },
   {
-    factor: 'CMS & Dynamic Data',
-    wix: 'Built-in Wix CMS collections',
-    wordpress: 'Advanced custom post types',
-    custom: 'Complete database schema freedom',
+    factor: 'CMS & Dynamic Content',
+    wix: 'Strong with Wix CMS',
+    wordpress: 'Strong with custom structures',
+    custom: 'Fully customizable',
   },
   {
-    factor: 'Hosting & Maintenance',
-    wix: 'Fully managed cloud infrastructure',
-    wordpress: 'Requires hosting, core & plugin patches',
-    custom: 'Requires ongoing DevOps & server ops',
-    highlight: 'wix',
+    factor: 'Maintenance',
+    wix: 'Managed platform',
+    wordpress: 'Requires more technical management',
+    custom: 'Requires ongoing development',
   },
   {
-    factor: 'Best Suited For',
-    wix: 'Businesses wanting managed hosting & easy editing',
-    wordpress: 'Brands needing wide extensibility & content scale',
-    custom: 'SaaS products, complex portals & digital systems',
+    factor: 'Best Fit',
+    wix: 'Businesses wanting managed infrastructure and easy editing',
+    wordpress: 'Businesses needing a broad ecosystem and deeper extensibility',
+    custom: 'Complex applications and specialized systems',
   },
 ]
 
-const differentiators = [
+const whyChoosePillars = [
   {
+    tag: 'Pillar 01',
     title: 'One In-House Team',
-    desc: 'Strategy, design, development, content structure, SEO setup, and launch support stay within one coordinated, accountable team.',
+    description: 'Strategy, design, development, content structure, SEO setup, and launch support stay within one coordinated team.',
   },
   {
+    tag: 'Pillar 02',
     title: 'Platform-Neutral Recommendations',
-    desc: 'We recommend Wix when it genuinely fits your requirements. If WordPress or custom development makes more sense, we tell you honestly.',
+    description: 'We recommend Wix when it fits the project. When another platform is more suitable, we explain why instead of forcing the project into Wix.',
   },
   {
-    title: 'Business-First Planning',
-    desc: 'We start with your business goals, target audience, customer journey, and conversion targets before writing a single line or moving pixels.',
+    tag: 'Pillar 03',
+    title: 'Business-First Website Planning',
+    description: 'We start with the website\'s purpose, target audience, customer journey, content structure, and conversion goals before choosing the implementation approach.',
   },
   {
-    title: 'Wix Studio & Velo Code',
-    desc: 'We go far beyond standard templates with advanced responsive breakpoints, CMS collections, custom JavaScript, and API connections.',
+    tag: 'Pillar 04',
+    title: 'Wix Studio & Custom Development',
+    description: 'We can go beyond standard drag-and-drop builds when the project needs advanced responsive design, CMS functionality, custom code, APIs, or other supported integrations.',
   },
   {
+    tag: 'Pillar 05',
     title: 'SEO-Ready Foundations',
-    desc: 'Site structure, meta tags, image compression, structured data, mobile usability, and Google Search Console are configured from day one.',
+    description: 'We consider site structure, metadata, internal linking, indexation, mobile experience, performance, and analytics from the beginning.',
   },
   {
-    title: 'Complete Handover & Training',
-    desc: 'You receive full ownership access and basic video or live editor training so your team can manage updates without ongoing developer fees.',
+    tag: 'Pillar 06',
+    title: 'Easy Client Handover',
+    description: 'The finished website should remain manageable after launch. We provide the agreed access, setup, and basic guidance needed to manage the site confidently.',
+  },
+  {
+    tag: 'Pillar 07',
+    title: 'Transparent Review Process',
+    description: 'We use review checkpoints throughout the project so you can approve structure, design, functionality, and content direction before launch.',
   },
 ]
 
 export default function Offerings() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {/* PART 1: CORE SERVICES */}
+      {/* 1. OUR WIX DEVELOPMENT SERVICES */}
       <section className="px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="mb-14 md:mb-20 max-w-4xl">
             <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Scope of Work / Capabilities
+              Core Capabilities &amp; Engineering
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
               Our Wix Development Services
             </h2>
             <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              We build Wix websites around your business goals, content workflow, customers, and long-term requirements. From streamlined business websites to advanced Wix Studio builds, we deliver the right technical architecture.
+              We build Wix websites around your business goals, content, customers, and day-to-day workflows. From a simple business website to a more advanced Wix Studio build, we choose the right level of functionality for the project.
             </p>
           </div>
 
-          <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+          <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
             {coreServices.map((service, index) => (
-              <article
+              <div
                 key={index}
-                className="group flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30"
+                className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 min-h-[360px]"
               >
                 <div>
                   <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
@@ -254,68 +382,150 @@ export default function Offerings() {
                   <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
                     {service.description}
                   </p>
+                  <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-5 text-xs sm:text-sm font-medium text-frame-fg/90">
+                    {service.items.map((item, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="mt-8 space-y-3 border-t-2 border-frame-border/60 pt-6 text-xs sm:text-sm font-medium text-frame-fg/90">
-                  {service.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2.5">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              </article>
+                <div className="mt-6 border-t border-frame-border/40 pt-4">
+                  <p className="text-xs italic text-frame-muted-fg">
+                    {service.note}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PART 2: SOLUTIONS FOR BUSINESS NEEDS */}
-      <section className="bg-frame-muted/20 px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+      {/* 2. WIX SOLUTIONS FOR DIFFERENT BUSINESS NEEDS */}
+      <section className="bg-frame-bg px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="mb-14 md:mb-20 max-w-4xl">
             <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Platform Versatility / Models
+              Platform Versatility / Specific Niches
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Solutions for Different Business Needs
+              Wix Solutions for Different Business Needs
             </h2>
             <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              Wix is not one single template; it is a platform versatile enough to power distinct business models when tailored to your exact workflow.
+              Wix can support different website models when the platform matches the business requirements. We tailor the structure, content, functionality, and editing experience around what each business needs.
             </p>
           </div>
 
           <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-            {businessNeeds.map((item, index) => (
-              <article key={index} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
+            {businessSolutions.map((item, index) => (
+              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 min-h-[200px]">
                 <div>
                   <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent block mb-2">
-                    Model 0{index + 1}
+                    Solution {item.number}
                   </span>
                   <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
+                  <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {item.description}
+                  </p>
                 </div>
-                <p className="mt-5 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                  {item.desc}
-                </p>
-              </article>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* PART 3: COMPARISON MATRIX */}
+      {/* 3. IS WIX THE RIGHT PLATFORM FOR YOUR BUSINESS? */}
+      <section className="bg-frame-muted/20 px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Platform Fit &amp; Evaluation
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Is Wix the Right Platform for Your Business?
+            </h2>
+            <div className="mt-6 space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              <p>
+                Wix can be an excellent fit for many businesses, but choosing a website platform should start with requirements rather than trends.
+              </p>
+              <p>
+                We recommend Wix when its editing experience, built-in features, development options, and long-term flexibility match what your business actually needs.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* GOOD FIT */}
+            <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.28em] text-emerald-500">
+                  Recommended For
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  Wix Can Be a Good Fit When:
+                </h3>
+                <ul className="mt-6 space-y-3 text-sm sm:text-base font-medium text-frame-fg/90">
+                  {wixGoodFitPoints.map((pt, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-emerald-500 font-bold">✓</span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* ANOTHER PLATFORM */}
+            <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.28em] text-amber-500">
+                  Alternative Architecture
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  Another Platform May Be Better When:
+                </h3>
+                <ul className="mt-6 space-y-3 text-sm sm:text-base font-medium text-frame-fg/90">
+                  {anotherPlatformBetterPoints.map((pt, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <span className="text-amber-500 font-bold">&rarr;</span>
+                      <span>{pt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* OUR APPROACH */}
+          <div className="mt-10 border-2 border-frame-border bg-frame-bg p-7 md:p-10">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Our Advisory Standard
+            </span>
+            <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              Our Approach
+            </h3>
+            <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              We do not recommend Wix simply because Wix is what you asked for. We first review the business model, content structure, integrations, functionality, SEO requirements, ecommerce needs, and future plans. Then we recommend the platform that makes the most practical sense for the project.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 4. WIX VS WORDPRESS VS CUSTOM DEVELOPMENT */}
       <section className="px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="mb-14 md:mb-20 max-w-4xl">
             <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Technical Decision / Matrix
+              Platform Architecture &amp; Decision Matrix
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Wix vs WordPress vs Custom
+              Wix vs WordPress vs Custom Development
             </h2>
             <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              Choosing the right platform starts with your business requirements, timeline, budget, and internal team capabilities.
+              The right platform depends on the website&apos;s goals, functionality, content workflow, and long-term requirements.
             </p>
           </div>
 
@@ -323,60 +533,160 @@ export default function Offerings() {
             <table className="w-full text-left min-w-[680px]">
               <thead className="border-b-2 border-frame-border bg-frame-muted/40">
                 <tr>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Wix</th>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WordPress</th>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Custom Development</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Wix</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WordPress</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Custom Development</th>
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
                 {comparisonData.map((row, idx) => (
                   <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                    <td className="p-5 md:p-7 font-bold text-frame-fg">{row.factor}</td>
-                    <td className={`p-5 md:p-7 ${row.highlight === 'wix' ? 'font-bold text-frame-accent' : 'text-frame-muted-fg'}`}>
-                      {row.wix}
-                    </td>
-                    <td className="p-5 md:p-7 text-frame-muted-fg">{row.wordpress}</td>
-                    <td className="p-5 md:p-7 text-frame-muted-fg">{row.custom}</td>
+                    <td className="p-4 md:p-6 font-bold text-frame-fg">{row.factor}</td>
+                    <td className="p-4 md:p-6 text-frame-accent font-bold">{row.wix}</td>
+                    <td className="p-4 md:p-6 text-frame-muted-fg">{row.wordpress}</td>
+                    <td className="p-4 md:p-6 text-frame-muted-fg">{row.custom}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
+
+          {/* RECOMMENDATION TAKEAWAYS */}
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Scenario 01</span>
+                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                  When We Recommend Wix
+                </h3>
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  Wix is often a practical choice when ease of management, professional design, business functionality, and a managed platform are priorities.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Scenario 02</span>
+                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                  When We Recommend WordPress
+                </h3>
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  WordPress may be better when the project needs a broader plugin ecosystem, deeper content flexibility, or functionality that fits the WordPress ecosystem more naturally.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Scenario 03</span>
+                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                  When We Recommend Custom Development
+                </h3>
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  Custom development becomes more appropriate when the website is really a software product, application, or highly specialized digital system rather than a conventional business website.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
+            <p className="text-sm md:text-base font-bold uppercase tracking-wider text-frame-fg">
+              The goal is not to choose the most complicated platform. It is to choose the platform that fits the project.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* PART 4: WHY CHOOSE US */}
-      <section className="bg-frame-muted/10 px-4 py-20 md:px-8 md:py-32">
+      {/* 5. WIX DEVELOPMENT FOR BANGLADESH & INTERNATIONAL BUSINESSES */}
+      <section className="bg-frame-bg px-4 py-20 md:px-8 md:py-32 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="mb-14 md:mb-20 max-w-4xl">
             <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              The Framecipher Advantage
+              Regional &amp; Global Execution
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Why Choose Us for Wix Development
+              Wix Development for Bangladesh &amp; International Businesses
             </h2>
             <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              We build Wix websites around real business requirements, not around cookie-cutter templates or one-size-fits-all packages.
+              Framecipher builds Wix websites for businesses in Bangladesh and for clients serving international markets.
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                  Domestic Market Optimization
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  For Bangladesh-Based Businesses
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  For Bangladesh-based businesses, we consider practical local requirements such as mobile-first browsing, clear inquiry options, WhatsApp or direct-call actions, local business information, and Bangla-English content where needed.
+                </p>
+              </div>
+            </div>
+
+            <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                  International Standards
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  For International Businesses
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  For international businesses, we adapt the website structure, messaging, content, forms, and integrations around the target market and business model.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              The goal is not to apply one local template everywhere. We build the website around the audience, market, and business requirements of each project.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WHY CHOOSE FRAMECIPHER FOR WIX DEVELOPMENT */}
+      <section className="bg-frame-bg px-4 py-20 md:px-8 md:py-32">
+        <div className="mx-auto max-w-[95vw]">
+          <div className="mb-14 md:mb-20 max-w-4xl">
+            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+              Engineering Advantage
+            </p>
+            <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+              Why Choose Framecipher for Wix Development
+            </h2>
+            <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              We build Wix websites around business requirements, not around a fixed template or one-size-fits-all package.
             </p>
           </div>
 
           <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-            {differentiators.map((diff, idx) => (
-              <article key={idx} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
+            {whyChoosePillars.map((diff, idx) => (
+              <div key={idx} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 min-h-[220px]">
                 <div>
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Differentiator 0{idx + 1}
+                    {diff.tag}
                   </span>
                   <h3 className="mt-4 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {diff.title}
                   </h3>
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                    {diff.description}
+                  </p>
                 </div>
-                <p className="mt-5 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                  {diff.desc}
-                </p>
-              </article>
+              </div>
             ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <PosterButton href="/contact">Start Your Wix Project &rarr;</PosterButton>
           </div>
         </div>
       </section>

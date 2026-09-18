@@ -5,6 +5,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../Kinetic'
+import ServiceSubServices from '../ServiceSubServices'
 
 const marqueeItems = [
   "Social Media Management",
@@ -20,6 +21,7 @@ export default function SocialMediaManagementService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <ServiceSubServices service={service} />
       <Offerings service={service} />
       <Process service={service} />
       <Pricing service={service} />

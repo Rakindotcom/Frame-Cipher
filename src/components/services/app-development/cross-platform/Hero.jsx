@@ -1,12 +1,32 @@
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
+const kineticMetrics = [
+  {
+    num: '01',
+    label: 'Flutter & React Native',
+    detail: 'Single-codebase cross-platform mobile engineering with zero performance compromises',
+  },
+  {
+    num: '02',
+    label: 'Shared Logic & Native Modules',
+    detail: 'Shared business workflows coupled with native Kotlin and Swift bridges where needed',
+  },
+  {
+    num: '03',
+    label: 'Dual Store Deployment',
+    detail: 'Synchronized publishing to both Apple App Store and Google Play Store ecosystems',
+  },
+  {
+    num: '04',
+    label: 'Lifecycle SLA Maintenance',
+    detail: 'Continuous framework updates, OS compatibility patching, and real-device QA',
+  },
+]
+
 export default function Hero({ service }) {
   const title = service?.h1 || "Best Cross-Platform App Development Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Cross-platform app development in Flutter and React Native, one codebase, both platforms, faster launch without cutting corners."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "Cross-platform doesn't mean identical. It means writing the logic once and still respecting that an Android user and an iOS user expect different things from the same app."
+  const subtitle = "Reach Android & iOS With One Smart Development Approach. Framecipher builds cross-platform apps with Flutter and React Native for startups, growing businesses, and established companies that need reliable Android and iOS applications without managing two completely separate development efforts. We share code where it makes sense, use native modules where the platform requires them, and handle strategy, UI/UX, development, testing, and dual-store deployment through one in-house team."
 
   return (
     <div className="bg-frame-bg text-frame-fg">
@@ -16,12 +36,8 @@ export default function Hero({ service }) {
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
+          <span>/</span>
+          <Link href="/services/app-development" className="transition hover:text-frame-fg">App Development</Link>
           <span>/</span>
           <span className="text-frame-accent">Cross-Platform App Development</span>
         </div>
@@ -29,15 +45,15 @@ export default function Hero({ service }) {
 
       {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
-        meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
+        eyebrow="App Development / Focused Capability"
+        meta="Flutter & React Native / One Codebase Dual Platform"
+        number="03"
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
+            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
+            <PosterButton href="/contact" variant="outline">
+              Discuss Your App &rarr;
             </PosterButton>
           </>
         }
@@ -45,16 +61,24 @@ export default function Hero({ service }) {
         {subtitle}
       </PageHero>
 
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
+      {/* KINETIC BRUTALIST METRICS */}
+      <div className="border-b-2 border-frame-border bg-frame-muted/30">
+        <div className="mx-auto grid max-w-[95vw] grid-cols-1 divide-y-2 divide-frame-border sm:grid-cols-2 sm:divide-y-0 sm:divide-x-2 lg:grid-cols-4">
+          {kineticMetrics.map((item, idx) => (
+            <div key={idx} className="p-6 md:p-8">
+              <span className="font-heading text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                {item.num}
+              </span>
+              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                {item.label}
+              </h3>
+              <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                {item.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

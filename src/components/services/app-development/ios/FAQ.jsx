@@ -1,42 +1,55 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "Why build natively in Swift instead of using a cross-platform framework?",
-    "answer": "Native gets you direct access to everything iOS can do, often before cross-platform frameworks catch up. Cross-platform makes sense when you need Android and iOS from one codebase, faster and cheaper, it depends on what your project actually needs."
+    question: "How much does iOS app development cost in Bangladesh?",
+    answer: "The cost depends on features, design complexity, backend requirements, integrations, supported devices, and project scope. Our current project ranges start from around ৳320,000 for a simple iOS app or MVP."
   },
   {
-    "question": "Do you guarantee App Store approval?",
-    "answer": "No one can, honestly, that decision sits with Apple. We build to current guidelines from the outset, which lowers rejection risk, and we're there to help if review feedback comes back."
+    question: "How long does it take to build an iOS app?",
+    answer: "A simple MVP may take around 6–8 weeks. Standard applications can take 10–14 weeks, while advanced applications can require 14–20 weeks or more."
   },
   {
-    "question": "How long does an App Store review actually take?",
-    "answer": "That's set by Apple, not us, and it varies. We build typical review timing into project planning and prepare submissions carefully to reduce the odds of a revision request slowing things down."
+    question: "Should I build native iOS or use cross-platform development?",
+    answer: "Native iOS development makes sense when your product needs deeper Apple platform integration, platform-specific behavior, or a dedicated iOS experience. Cross-platform development may be suitable when you need Android and iOS from a shared codebase. The right choice depends on your product requirements."
   },
   {
-    "question": "Can you build in Apple-specific features like Apple Pay or HealthKit?",
-    "answer": "Yes, when the app calls for it. What's involved depends on the specific feature we'll walk through during your initial consultation."
+    question: "Do you develop apps for both iPhone and iPad?",
+    answer: "Yes. We can design and develop applications for iPhone, iPad, or both based on the project scope."
   },
   {
-    "question": "Do you work with clients outside Bangladesh?",
-    "answer": "We do, alongside Bangladeshi businesses, we build iOS apps for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Build Team]"
+    question: "Can you help with App Store approval?",
+    answer: "Yes. We can support the technical preparation, TestFlight workflow, App Store Connect setup, production build, submission, and required development changes within the agreed scope."
+  },
+  {
+    question: "Can you work with an existing iOS app?",
+    answer: "Yes. We can review an existing iOS application for modernization, bug fixing, performance improvements, feature development, dependency updates, or migration work."
+  },
+  {
+    question: "Can you integrate Apple Pay, Sign in with Apple, or other Apple features?",
+    answer: "Yes. Supported Apple services and device capabilities can be integrated based on your application's requirements, eligibility, and technical scope."
+  },
+  {
+    question: "Can you build an iOS app for a business outside Bangladesh?",
+    answer: "Yes. Framecipher works with businesses in Bangladesh and international markets through a remote, structured development process."
   }
 ]
-  if (!faqs?.length) return null
+
+export default function FAQ({ service }) {
+  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : faqs
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
           eyebrow="Direct Answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about our native Swift development, App Store Connect release, Apple HIG standards, and ongoing maintenance.
         </SectionIntro>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {faqList.map((faq, index) => (
             <details
               key={index}
               className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
@@ -47,7 +60,7 @@ export default function FAQ({ service }) {
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line">
                 {faq.answer}
               </div>
             </details>

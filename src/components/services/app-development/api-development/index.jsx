@@ -6,25 +6,26 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "API Development & Integration",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const keywords = [
+  'Native Architecture',
+  'Scalable Backends',
+  'Real-Device QA',
+  'Security & SSO',
+  'Store Deployment',
+  'Ongoing SLA Support',
 ]
 
 export default function AppDevelopmentApiDevelopmentService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
+      <TypeMarquee items={keywords} slow />
+      
+      <Offerings />
+      <Process />
+      <Pricing />
       <FAQ service={service} />
-      <CTA service={service} />
+      <CTA />
     </main>
   )
 }

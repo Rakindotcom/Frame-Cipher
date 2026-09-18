@@ -1,83 +1,83 @@
+import { SectionIntro } from '../../../Kinetic'
+
 const faqs = [
   {
-    question: 'How is Webflow different from WordPress or Wix?',
-    answer: 'Webflow offers pixel-perfect visual design control coupled with a structured, robust CMS and enterprise-grade AWS/Fastly CDN hosting. WordPress offers a vast open-source plugin ecosystem and deeper backend customization, while Wix caters primarily to fast, simple site launches with integrated small-business widgets. We recommend the platform that best fits your operational goals.',
+    "question": "How is Webflow different from WordPress or Wix?",
+    "answer": "Webflow gives strong visual design control while providing structured CMS functionality and a managed hosting environment. WordPress offers a broader plugin ecosystem and deeper extensibility, while Wix focuses more on simple website management and built-in business tools.\n\nWe recommend the platform based on the actual project requirements."
   },
   {
-    question: 'Can you convert our Figma designs into Webflow?',
-    answer: 'Yes. We specialize in pixel-accurate Figma-to-Webflow translation, implementing responsive breakpoints, global typography styles, Client-First component naming, dynamic CMS binding, and fluid interactions.',
+    "question": "Can you convert a Figma design into Webflow?",
+    "answer": "Yes. We can translate approved Figma designs into responsive Webflow pages, reusable components, CMS structures, interactions, and responsive layouts while keeping the implementation maintainable after launch."
   },
   {
-    question: 'Can our non-technical marketing team manage the Webflow CMS?',
-    answer: 'Yes. Webflow features an intuitive "Editor Mode" where your team can edit text, swap images, and publish new blog posts, case studies, and team profiles directly on the live page without risking accidental layout breaks.',
+    "question": "Can my marketing team manage the Webflow CMS?",
+    "answer": "Yes. We design CMS Collections and fields around your team's publishing workflow and provide the agreed training and handover guidance after launch."
   },
   {
-    question: 'Can you migrate our existing WordPress or Squarespace site to Webflow?',
-    answer: 'Yes. We handle end-to-end migrations, including blog posts, case studies, media assets, form setups, and critical 301 URL redirect maps to ensure zero disruption to your current Google search rankings.',
+    "question": "Can you migrate my WordPress website to Webflow?",
+    "answer": "Yes. Migration can include content, CMS restructuring, metadata, images, URLs, redirects, forms, analytics, and other agreed functionality. We also review the SEO structure before launch."
   },
   {
-    question: 'Will our SEO rankings be affected by a Webflow migration?',
-    answer: 'When executed properly with strict 301 redirects, identical metadata, clean canonical tags, and structured heading hierarchies, migrations preserve existing search rankings and frequently improve them due to Webflow’s superior load speeds.',
+    "question": "Will my SEO rankings be affected by a Webflow migration?",
+    "answer": "A migration can affect search visibility when URLs, redirects, metadata, internal links, canonical signals, or other SEO elements are changed incorrectly.\n\nWe plan migration around these elements and test them before and after launch."
   },
   {
-    question: 'Can you build multilingual or localized Webflow websites?',
-    answer: 'Yes. We leverage Webflow’s native localization features to create region-specific subdirectories, translated CMS collections, custom language selectors, and proper hreflang tags for global SEO.',
+    "question": "Can you build multilingual Webflow websites?",
+    "answer": "Yes. Webflow supports localization for supported projects, including localized pages, CMS content, components, URLs, and SEO settings."
   },
   {
-    question: 'Can you connect Webflow with our CRM or marketing automation tools?',
-    answer: 'Yes. We connect Webflow forms and events to HubSpot, Salesforce, ActiveCampaign, Mailchimp, Zapier, and Make for automated lead routing and customer data synchronization.',
+    "question": "Can you integrate Webflow with our CRM or other business tools?",
+    "answer": "Yes. We can connect Webflow with supported CRM, marketing, booking, analytics, automation, and other external systems using native integrations, apps, APIs, embeds, or custom code where appropriate."
   },
   {
-    question: 'Do you write custom JavaScript in Webflow?',
-    answer: 'Yes. Where native Webflow interactions reach their limits, we write clean, documented custom JavaScript for advanced calculators, third-party API feeds, multi-step forms, and Finsweet filtering attributes.',
+    "question": "Do you use custom JavaScript in Webflow?",
+    "answer": "Only when it solves a genuine requirement that cannot be handled appropriately through native Webflow functionality, integrations, or apps.\n\nWhere custom code is used, we aim to keep it documented and maintainable."
   },
   {
-    question: 'Can you build Webflow ecommerce stores?',
-    answer: 'Yes. Webflow Ecommerce is fantastic for curated, design-forward catalogs with customized cart overlays, branded checkouts, and integrated payment processing via Stripe or PayPal.',
+    "question": "Can you build Webflow ecommerce websites?",
+    "answer": "Yes. Webflow can work for design-focused ecommerce projects with suitable catalog and operational requirements.\n\nFor larger catalogs, complex inventory, or advanced ecommerce workflows, we may recommend Shopify, WooCommerce, Magento, or another platform."
   },
   {
-    question: 'Will custom animations and interactions slow down our website?',
-    answer: 'Not when built properly. We use GPU-accelerated CSS transforms and lightweight interactions, testing across mobile devices and low-bandwidth connections to guarantee stellar Core Web Vitals and 60fps performance.',
+    "question": "Will custom animations slow down my site?",
+    "answer": "They can when they are implemented without considering device capability, asset weight, and page complexity.\n\nWe test interaction-heavy pages across devices and optimize assets, implementation, and animation behavior as part of QA."
   },
   {
-    question: 'Do you work with brands outside Bangladesh?',
-    answer: 'Yes. We design and build Webflow websites for international clients across the US, UK, Australia, Canada, UAE, and Europe, as well as forward-thinking businesses in Bangladesh.',
+    "question": "Do you work with brands outside Bangladesh?",
+    "answer": "Yes. We build Webflow websites for brands across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE."
   },
   {
-    question: 'Will I own the Webflow website after launch?',
-    answer: 'Yes. Upon final approval and handover, the entire project is transferred directly into your Webflow account or workspace, giving you 100% administrative control and ownership.',
-  },
+    "question": "Will I own my Webflow website after launch?",
+    "answer": "The ownership, account access, assets, licenses, custom code, and documentation transferred at project close depend on the project agreement.\n\nWe provide the agreed access and handover materials defined in the engagement."
+  }
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : faqs
+  if (!faqList?.length) return null
+
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-5xl">
-        <div className="mb-14 md:mb-20 max-w-3xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Direct Answers
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Frequently Asked Questions
-          </h2>
-          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Common questions regarding Webflow development, Figma conversion, CMS architecture, and site management.
-          </p>
-        </div>
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-4xl">
+        <SectionIntro
+          eyebrow="Direct Answers"
+          title="Frequently Asked Questions"
+        >
+          Common questions about our delivery process, technical standards, and engagement models.
+        </SectionIntro>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {faqList.map((faq, index) => (
             <details
               key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors shadow-sm"
+              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 sm:p-7 md:p-8 font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg marker:content-none select-none">
-                <span className="pr-4">{faq.question}</span>
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
+                <span>{faq.question}</span>
+                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 sm:p-7 md:p-8 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line">
                 {faq.answer}
               </div>
             </details>
@@ -87,4 +87,3 @@ export default function FAQ() {
     </section>
   )
 }
-

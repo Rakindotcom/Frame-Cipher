@@ -1,103 +1,80 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const processSteps = [
   {
-    "number": "1",
-    "title": "Initial Consultation",
-    "description": "We review your app idea, target users, and device/OS requirements."
+    step: "01",
+    title: "Initial Consultation",
+    desc: "We review your idea, business goals, target users, core features, platform requirements, and current product stage."
   },
   {
-    "number": "2",
-    "title": "Strategy & Architecture Planning",
-    "description": "We map technical architecture and API needs, and define the scope before development starts."
+    step: "02",
+    title: "Strategy & Architecture Planning",
+    desc: "We define the application structure, device and OS requirements, API needs, integrations, and initial development scope."
   },
   {
-    "number": "3",
-    "title": "Design & Development",
-    "description": "Material Design UI/UX comes first, with review checkpoints, followed by native Kotlin development."
+    step: "03",
+    title: "UI/UX Design",
+    desc: "We map important user journeys, create wireframes, develop the Android interface, and refine the experience through review."
   },
   {
-    "number": "4",
-    "title": "Testing & Quality Assurance",
-    "description": "Device, OS version, and performance testing across a real range of hardware before submission."
+    step: "04",
+    title: "Native Development",
+    desc: "Our team builds the Android application in Kotlin and connects the required backend systems, APIs, and platform features."
   },
   {
-    "number": "5",
-    "title": "Launch & Play Store Deployment",
-    "description": "We handle Play Store submission, confirm the live app is functioning correctly, and walk you through next steps."
+    step: "05",
+    title: "Testing & Quality Assurance",
+    desc: "We test important features, integrations, devices, supported Android versions, and performance conditions."
+  },
+  {
+    step: "06",
+    title: "Launch & Google Play Deployment",
+    desc: "We prepare the release build and support the relevant Google Play submission and release process."
+  },
+  {
+    step: "07",
+    title: "Post-Launch Support",
+    desc: "After launch, we can continue with compatibility updates, bug fixes, performance work, new features, and ongoing technical support."
   }
 ]
-  const timeline = service?.timeline || "Android app development typically takes 6 to 20+ weeks, depending on feature complexity, backend requirements, and the number of integrations required. A simple MVP-level app moves toward the shorter end; an app with complex features, real-time functionality, or enterprise-scale infrastructure will run longer.\n\nProjects move faster when requirements, design assets, and API access are confirmed before development begins - most delays come from scope changes mid-build rather than the development process itself."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Our Engineering Methodology"
+          title="How We Approach an Android App Build"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Our process connects product planning, Android UX, architecture, development, testing, and release from the beginning.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {processSteps.map((step, index) => (
+            <div
+              key={index}
+              className="relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 hover:border-frame-accent transition-colors min-h-[300px]"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl md:text-5xl font-black text-frame-accent">
+                  {step.step}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {step.desc}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+
+              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Phase {step.step} Deliverable
+                </span>
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

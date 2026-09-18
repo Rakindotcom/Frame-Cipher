@@ -1,42 +1,79 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "Why build natively in Kotlin instead of using a cross-platform framework?",
-    "answer": "Native Kotlin development gives direct access to Android's full platform capabilities and generally performs better for graphics-intensive or hardware-dependent features. Cross-platform frameworks are faster and cheaper when you need both Android and iOS from one codebase, we'll recommend based on your actual requirements."
+    question: "What types of Android apps can you develop?",
+    answer: "We develop Android applications for ecommerce, delivery, logistics, booking, marketplaces, customer services, internal business operations, SaaS products, enterprise workflows, and custom digital products."
   },
   {
-    "question": "How do you handle Android's device fragmentation?",
-    "answer": "We test across a real range of device tiers and OS versions during development, not just the latest flagship phone, since a large share of Android's actual user base is on mid-range or older devices."
+    question: "Do you use Kotlin for Android app development?",
+    answer: "Yes. Native Android applications are developed in Kotlin where a native Android approach is appropriate for the project."
   },
   {
-    "question": "Do you handle Google Play Store submission?",
-    "answer": "Yes, Play Store listing setup and submission is part of our process, including navigating current Google Play Developer Policy requirements before you submit."
+    question: "Why choose native Android development instead of cross-platform?",
+    answer: "Native development can be appropriate when the application needs deeper Android platform integration, native device capabilities, or tighter control over Android-specific behavior. We assess the project before recommending the technology."
   },
   {
-    "question": "Can you integrate the app with our existing backend or third-party services?",
-    "answer": "In most cases, yes API and backend integration is a standard part of Android development. Specific compatibility depends on the system, so we confirm this during the initial consultation."
+    question: "How do you handle Android device fragmentation?",
+    answer: "We define supported device and OS requirements during planning and test against the relevant device categories and Android versions for the project."
   },
   {
-    "question": "Do you build Android apps for businesses outside Bangladesh?",
-    "answer": "Yes, we build Android apps for businesses across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Build Team]"
+    question: "Can you build an offline Android app?",
+    answer: "Yes. Where offline functionality is required, we can design local storage, caching, synchronization, and appropriate recovery behavior around the relevant workflows."
+  },
+  {
+    question: "Can you integrate Firebase into an Android app?",
+    answer: "Yes. Firebase services such as authentication, push notifications, analytics, and crash reporting can be integrated where they fit the application's requirements."
+  },
+  {
+    question: "Can you integrate bKash or Nagad?",
+    answer: "Yes, where the relevant provider integration or API is available and the required payment workflow fits the application."
+  },
+  {
+    question: "Can you integrate our existing backend or APIs?",
+    answer: "Yes. We can connect the Android application with an existing backend, custom API, CRM, database, ecommerce system, or other business software where technically supported."
+  },
+  {
+    question: "Do you build the backend and admin dashboard too?",
+    answer: "Yes. Backend services, APIs, authentication, business logic, databases, and admin systems can be developed where required by the project scope."
+  },
+  {
+    question: "Do you test Android apps on real devices?",
+    answer: "Testing can include relevant real devices and Android versions based on the target audience and agreed testing scope."
+  },
+  {
+    question: "Do you handle Google Play Store submission?",
+    answer: "Yes. Google Play submission and release support can be included in the project. Final publishing approval remains under Google's control."
+  },
+  {
+    question: "Can you modernize an existing Android app?",
+    answer: "Yes. We can assess the existing codebase, architecture, dependencies, UX, integrations, and performance before recommending modernization, migration, partial redevelopment, or a full rebuild."
+  },
+  {
+    question: "Do I receive the Android source code?",
+    answer: "Source-code ownership and handoff terms are defined in the project agreement and can include the application source code and relevant documentation."
+  },
+  {
+    question: "How long does an Android app take to build?",
+    answer: "Timelines depend on the features, backend, integrations, device support, testing, and project scope. Smaller MVPs may take several weeks, while complex enterprise applications can take several months."
   }
 ]
-  if (!faqs?.length) return null
+
+export default function FAQ({ service }) {
+  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : faqs
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
           eyebrow="Direct Answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about our native Kotlin development, device testing, backend integrations, and Google Play Store submission.
         </SectionIntro>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {faqList.map((faq, index) => (
             <details
               key={index}
               className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
@@ -47,7 +84,7 @@ export default function FAQ({ service }) {
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line">
                 {faq.answer}
               </div>
             </details>

@@ -58,6 +58,32 @@ const packages = [
   },
 ]
 
+const comparisonMatrix = [
+  { feature: 'Best for', launch: 'New businesses needing a focused, conversion-ready foundational site', growth: 'Established SMEs needing CRM integration and deeper architecture', enterprise: 'Corporate brands with complex stack integrations and custom requirements' },
+  { feature: 'Starting Price', launch: '৳45,000 ($499)', growth: '৳90,000 ($999)', enterprise: '৳180,000+ ($1,999+) / Custom Quote' },
+  { feature: 'Page Count', launch: 'Up to 5 pages', growth: 'Up to 15 pages', enterprise: 'Up to 40+ pages' },
+  { feature: 'Delivery Time', launch: '~1 week', growth: '~2 weeks', enterprise: '~4–8 weeks' },
+  { feature: 'Strategy & Consultation', launch: '✅', growth: '✅', enterprise: '✅' },
+  { feature: 'Core Site Architecture', launch: '✅', growth: '✅ (advanced)', enterprise: '✅ (advanced)' },
+  { feature: 'UI/UX Design', launch: '✅', growth: '✅', enterprise: '✅' },
+  { feature: 'Responsive Development & Hosting Setup', launch: '✅', growth: '✅', enterprise: '✅' },
+  { feature: 'Basic Lead Capture Forms', launch: '✅', growth: '✅', enterprise: '✅' },
+  { feature: 'Speed & SEO Optimization', launch: '✅', growth: '✅', enterprise: '✅' },
+  { feature: 'Revisions', launch: '3', growth: '5', enterprise: '10' },
+  { feature: 'CRM Integration', launch: '—', growth: '✅', enterprise: '✅ (multi-system)' },
+  { feature: 'Analytics & Conversion Tracking Setup', launch: '—', growth: '✅', enterprise: '✅' },
+  { feature: 'Custom Functionality', launch: '—', growth: '✅ (as scoped)', enterprise: '✅ (full custom)' },
+]
+
+const ownershipDeliverables = [
+  'Website administrator access',
+  'CMS access for content updates',
+  'Domain and hosting access where applicable',
+  'Agreed design and development deliverables',
+  'Handover documentation or guidance',
+  'Basic training for managing supported website content',
+]
+
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
@@ -71,10 +97,11 @@ export default function Pricing() {
             Business Website Development Pricing
           </h2>
           <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Business website development is custom-quoted based on engagement level, from a foundational Launch Kit for new businesses to a comprehensive Enterprise Tech Build for established SMEs and corporate brands.
+            Business website development is custom-quoted based on engagement level, from a foundational Launch Kit for new businesses to a comprehensive Enterprise Tech Build for established SMEs and corporate brands. Pricing typically depends on site complexity, CRM/tool integrations, custom functionality, and timeline.
           </p>
         </div>
 
+        {/* 3 PACKAGE CARDS */}
         <div className="grid gap-8 lg:grid-cols-3">
           {packages.map((pkg, idx) => (
             <div
@@ -137,26 +164,124 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* SERVICE AREAS & DIGITAL OWNERSHIP */}
-        <div className="mt-20 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-          <div className="bg-frame-bg p-7 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Full Authority</span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              100% Asset Ownership & Handover
-            </h3>
-            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              You receive complete administrator access, domain DNS control, source code repositories, and editorial documentation. No monthly lock-in fees or proprietary restrictions.
+        {/* COMPARISON MATRIX - STRICTLY H2 */}
+        <div className="mt-24">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Side-by-Side Breakdown
+            </p>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Technical Architecture & Platform Comparison
+            </h2>
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
+              Compare package deliverables, capabilities, and system integrations to find the right scope for your sales workflow.
             </p>
           </div>
 
-          <div className="bg-frame-bg p-7 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Lifecycle Support</span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Post-Launch Maintenance & Scaling
-            </h3>
-            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              Keep your site fast, secure, and current with routine backups, dependency audits, uptime alerts, and priority feature enhancements under our dedicated support packages.
+          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
+            <table className="w-full min-w-[700px] text-left border-collapse">
+              <thead>
+                <tr className="border-b-2 border-frame-border bg-frame-muted/40">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent w-1/4">
+                    Deliverable / Feature
+                  </th>
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg w-1/4">
+                    Launch Kit
+                  </th>
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent w-1/4 bg-frame-accent/10">
+                    Growth Build
+                  </th>
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg w-1/4">
+                    Enterprise Tech Build
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-frame-border/60 text-xs md:text-sm font-medium">
+                {comparisonMatrix.map((row, rIdx) => (
+                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-4 md:p-5 font-bold text-frame-fg border-r border-frame-border/40">
+                      {row.feature}
+                    </td>
+                    <td className="p-4 md:p-5 text-frame-muted-fg border-r border-frame-border/40">
+                      {row.launch}
+                    </td>
+                    <td className="p-4 md:p-5 font-semibold text-frame-fg border-r border-frame-border/40 bg-frame-accent/5">
+                      {row.growth}
+                    </td>
+                    <td className="p-4 md:p-5 text-frame-muted-fg">
+                      {row.enterprise}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* TIMELINE / DURATION - STRICTLY H2 */}
+        <div className="mt-20 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
+          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Delivery Windows</span>
+          <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            Timeline / Duration
+          </h2>
+          <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+            <p>
+              Business website development typically takes 4 to 8 weeks, depending on the complexity of the tech stack, custom animations, and CRM integrations required. A simpler, single-integration build moves toward the shorter end; a build involving multiple CRM connections or extensive custom functionality will run longer.
             </p>
+            <p>
+              Projects move faster when content, brand assets, and CRM access are ready before development begins; most delays come from waiting on these inputs mid-build, not from the build process itself.
+            </p>
+          </div>
+        </div>
+
+        {/* WEBSITE OWNERSHIP & POST-LAUNCH MAINTENANCE - STRICTLY H2 */}
+        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+          {/* Ownership */}
+          <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Governance & IP</span>
+              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                Website Ownership, Handover & Content Management
+              </h2>
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                Your website should remain a practical business asset after development is complete. The project agreement defines the ownership, access, deliverables, and handover terms for your website. Based on the platform and project scope, this may include:
+              </p>
+              <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
+                {ownershipDeliverables.map((item, oIdx) => (
+                  <li key={oIdx} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-8 text-xs font-medium italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
+              We also explain what is included in ongoing maintenance and what falls outside the original development scope, so there are no unnecessary surprises after launch.
+            </p>
+          </div>
+
+          {/* Post-Launch Support & Maintenance */}
+          <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Quality Guarantee</span>
+              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                Post-Launch Support & Maintenance
+              </h2>
+              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p>
+                  Every stage of the build architecture, design, development, and integration &mdash; goes through your review and approval before we proceed, so nothing reaches launch without your sign-off.
+                </p>
+                <p>
+                  We don&apos;t guarantee a specific number of leads or conversion rate from the website alone, since that depends on traffic volume, offer, and market factors outside of the build itself. What we guarantee is a site structurally built to convert the traffic you send to it.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 border-t border-frame-border/60 pt-6">
+              <PosterButton href="/contact" className="w-full">
+                Discuss Your Build Requirements &rarr;
+              </PosterButton>
+            </div>
           </div>
         </div>
       </div>

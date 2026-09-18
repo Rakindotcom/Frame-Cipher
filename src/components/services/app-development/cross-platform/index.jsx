@@ -6,25 +6,28 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
-const marqueeItems = [
-  "Cross-Platform App Development",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+const keywords = [
+  'Flutter Development',
+  'React Native',
+  'Shared Business Logic',
+  'Platform-Aware UI/UX',
+  'Native Modules',
+  'Dual Store Deployment',
+  'Real-Device QA',
+  'Post-Launch Support',
 ]
 
 export default function AppDevelopmentCrossPlatformService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
+      <TypeMarquee items={keywords} slow />
+      
+      <Offerings />
+      <Process />
+      <Pricing />
       <FAQ service={service} />
-      <CTA service={service} />
+      <CTA />
     </main>
   )
 }

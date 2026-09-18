@@ -2,34 +2,28 @@ const steps = [
   {
     number: '01',
     title: 'Initial Consultation',
-    description: 'We review your campaign goal, target audience, traffic source (Google Ads, Meta, LinkedIn), and offer to define the single action the page must drive.',
+    description: 'We review your campaign goal, traffic source, and offer to define the single action the page needs to drive.',
   },
   {
     number: '02',
     title: 'Strategy & Message Planning',
-    description: 'We map the conversion wireframe, value proposition, and messaging hierarchy around your audience expectations before visual design begins.',
+    description: 'We map the page structure and messaging around your specific audience and define the scope before development starts.',
   },
   {
     number: '03',
     title: 'Design & Development',
-    description: 'Conversion-first UI design comes first with review checkpoints, followed by lightweight, fast-loading frontend development and tracking setup.',
+    description: 'Conversion-focused design comes first, with review checkpoints, followed by fast, lightweight development and tracking setup.',
   },
   {
     number: '04',
     title: 'Quality Check & Testing',
-    description: 'We test page speed, mobile touch responsiveness, form submissions, CRM webhook routing, and pixel conversion triggers before launch.',
+    description: 'Speed, mobile responsiveness, form/tracking functionality, and cross-browser testing before anything goes live.',
   },
   {
     number: '05',
     title: 'Launch & Handoff',
-    description: 'We connect your live custom domain, verify pixel firing with test conversions, and hand over full administrative access with testing guidance.',
+    description: 'We go live, confirm tracking and lead capture are working correctly, and walk you through next-step guidance.',
   },
-]
-
-const timelines = [
-  { package: 'Launch Page', timeline: '3–5 business days', scope: 'Single-offer campaign page with focused copy and core lead capture' },
-  { package: 'Growth Page', timeline: '5–7 business days', scope: 'Expanded sections, CRM integration, and multi-event conversion tracking' },
-  { package: 'Campaign Build', timeline: '1.5–2 weeks', scope: 'Complex tracking, custom interactions, and multiple A/B testing variants' },
 ]
 
 export default function Process() {
@@ -39,13 +33,13 @@ export default function Process() {
         {/* SECTION HEADER */}
         <div className="mb-14 md:mb-20 max-w-4xl">
           <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Speed & Execution / Step-by-Step
+            Workflow & Agility / Step-by-Step
           </p>
           <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            How We Build High-Converting Landing Pages
+            How We Approach a Landing Page Build
           </h2>
           <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Our process is engineered around rapid delivery and conversion clarity, since campaign ad spend cannot wait on slow agency timelines.
+            Our process is built around speed and clarity, since campaign timing usually matters.
           </p>
         </div>
 
@@ -72,42 +66,6 @@ export default function Process() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* TIMELINE TABLE */}
-        <div className="mt-20">
-          <div className="mb-8 max-w-3xl">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Delivery Turnaround
-            </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Typical Turnaround Times
-            </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
-              Fast-track campaign launches designed to maximize ROI on planned ad spend.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-            <table className="w-full min-w-[640px] text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                <tr>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Package Tier</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Turnaround Speed</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Scope Summary</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timelines.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-6 font-bold text-frame-fg">{row.package}</td>
-                    <td className="p-4 md:p-6 text-frame-accent font-bold">{row.timeline}</td>
-                    <td className="p-4 md:p-6 text-frame-muted-fg">{row.scope}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </div>
     </section>

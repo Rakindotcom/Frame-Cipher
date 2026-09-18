@@ -1,17 +1,14 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Website Maintenance"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
-      eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      eyebrow="Next Move"
+      title="Start Your Website Maintenance Plan"
+      primaryText="Start Your Maintenance Plan →"
+      secondaryText="Request a Website Health Assessment →"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Your website should not be something you remember only after it breaks. Tell us about your platform, website type, current problems, maintenance needs, and business-critical functions. We&apos;ll review the setup and recommend a maintenance scope based on the actual condition and requirements of your website.
     </CTASection>
   )
 }

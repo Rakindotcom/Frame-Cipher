@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -53,9 +53,35 @@ const workCategories = [
 
 export default function Navbar({ pillarNavServices = [] }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [openDesktopPillar, setOpenDesktopPillar] = useState(null)
+  const [desktopSubmenuStyle, setDesktopSubmenuStyle] = useState(null)
+  const [openMobilePillar, setOpenMobilePillar] = useState(null)
+  const desktopSubmenuCloseTimer = useRef(null)
   const pathname = usePathname()
 
   const isActive = (path) => pathname === path || (path !== '/' && pathname.startsWith(path))
+
+  const openDesktopSubmenu = (servicePath, trigger) => {
+    if (!trigger) return
+    if (desktopSubmenuCloseTimer.current) {
+      window.clearTimeout(desktopSubmenuCloseTimer.current)
+      desktopSubmenuCloseTimer.current = null
+    }
+    const rect = trigger.getBoundingClientRect()
+
+    setOpenDesktopPillar(servicePath)
+    setDesktopSubmenuStyle({
+      top: 0,
+      maxHeight: `calc(100dvh - ${Math.max(16, rect.top + 16)}px)`,
+    })
+  }
+
+  const closeDesktopSubmenu = () => {
+    desktopSubmenuCloseTimer.current = window.setTimeout(() => {
+      setOpenDesktopPillar(null)
+      setDesktopSubmenuStyle(null)
+    }, 120)
+  }
 
   return (
     <header className="fixed left-0 right-0 top-0 z-50 border-b-2 border-frame-border bg-frame-bg/92 backdrop-blur-xl">
@@ -72,7 +98,10 @@ export default function Navbar({ pillarNavServices = [] }) {
 
         <div className="hidden items-center gap-1 lg:flex">
           {navItems.map((item) => (
-            <div key={item.path} className="group relative">
+            <div
+              key={item.path}
+              className="group relative"
+            >
               <Link
                 href={item.path}
                 className={`px-3 py-2 text-sm font-black uppercase tracking-tighter transition-colors ${
@@ -82,7 +111,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                 {item.name}
               </Link>
               {item.name === 'Services' && (
-                <div className="invisible absolute left-0 top-full w-80 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-2 group-focus-within:opacity-100">
+                <div className="invisible absolute left-0 top-full w-80 translate-y-0 border-2 border-frame-border bg-frame-bg p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="mb-2 flex items-center justify-between gap-4 px-3">
                     <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">
                       7 Service Areas
@@ -94,22 +123,78 @@ export default function Navbar({ pillarNavServices = [] }) {
                       All 74 Services &rarr;
                     </Link>
                   </div>
-                  <div className="grid gap-1">
+                  <div className="grid gap-1 mt-20px">
                     {pillarNavServices.map((service) => (
-                      <Link
+                      <div
                         key={service.path}
-                        href={service.path}
-                        className="flex items-center justify-between px-3 py-2.5 text-sm font-bold uppercase tracking-tight text-frame-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                        className="group/sub relative"
+                        onMouseEnter={(event) => service.subServices?.length && openDesktopSubmenu(service.path, event.currentTarget)}
+                        onMouseLeave={closeDesktopSubmenu}
                       >
-                        <span>{service.name}</span>
-                        <span className="text-xs opacity-60">&rarr;</span>
-                      </Link>
+                        <div className="flex items-stretch">
+                          <Link
+                            href={service.path}
+                            className="flex min-w-0 flex-1 items-center justify-between px-3 py-2.5 text-sm font-bold uppercase tracking-tight text-frame-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                          >
+                            <span>{service.name}</span>
+                          </Link>
+                          {service.subServices?.length > 0 ? (
+                            <button
+                              type="button"
+                              aria-label={`Show ${service.name} services`}
+                              aria-expanded={openDesktopPillar === service.path}
+                              onClick={(event) => {
+                                event.preventDefault()
+                                event.stopPropagation()
+                                if (openDesktopPillar === service.path) {
+                                  setOpenDesktopPillar(null)
+                                  setDesktopSubmenuStyle(null)
+                                } else {
+                                  openDesktopSubmenu(service.path, event.currentTarget.closest('.group\\/sub'))
+                                }
+                              }}
+                              className="w-10 text-sm text-frame-accent transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                            >
+                              ›
+                            </button>
+                          ) : (
+                            <span className="flex w-10 items-center justify-center text-xs opacity-60">→</span>
+                          )}
+                        </div>
+                        {service.subServices?.length > 0 && (
+                          <div
+                            className={`invisible absolute left-[calc(100%+8px)] z-[70] flex w-80 -translate-x-2 flex-col overflow-y-auto overscroll-contain border-2 border-frame-border bg-frame-bg p-3 opacity-0 shadow-2xl transition-all duration-200 group-hover/sub:visible group-hover/sub:translate-x-0 ${openDesktopPillar === service.path ? 'visible translate-x-0 opacity-100' : ''}`}
+                            onMouseEnter={() => {
+                              if (desktopSubmenuCloseTimer.current) {
+                                window.clearTimeout(desktopSubmenuCloseTimer.current)
+                                desktopSubmenuCloseTimer.current = null
+                              }
+                            }}
+                            onMouseLeave={closeDesktopSubmenu}
+                            style={openDesktopPillar === service.path ? desktopSubmenuStyle : undefined}
+                          >
+                            <div className="mb-2 px-3 text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent">{service.name} services</div>
+                            <div className="grid gap-1">
+                              {service.subServices.map((subService) => (
+                                <Link
+                                  key={subService.path}
+                                  href={subService.path}
+                                  className="flex items-center justify-between px-3 py-2 text-xs font-bold uppercase tracking-tight text-frame-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                                >
+                                  <span>{subService.name}</span>
+                                  <span className="text-xs opacity-60">→</span>
+                                </Link>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
                 </div>
               )}
               {item.name === 'Work' && (
-                <div className="invisible absolute left-0 top-full w-88 translate-y-3 border-2 border-frame-border bg-frame-bg p-3 opacity-0 backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-2 group-hover:opacity-100 shadow-2xl">
+                <div className="invisible absolute left-0 top-full max-h-[calc(100dvh-7rem)] w-88 translate-y-0 overflow-y-auto overscroll-contain border-2 border-frame-border bg-frame-bg p-3 opacity-0 shadow-2xl backdrop-blur-xl transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
                   <div className="mb-2 flex items-center justify-between px-3">
                     <span className="text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent">Work categories</span>
                     <Link
@@ -188,17 +273,50 @@ export default function Navbar({ pillarNavServices = [] }) {
                 </Link>
                 {item.name === 'Services' && (
                   <div className="grid gap-1 pl-4">
-                    {pillarNavServices.map((pillar) => (
-                      <Link
-                        key={pillar.path}
-                        href={pillar.path}
-                        onClick={() => setIsMenuOpen(false)}
-                        className="flex items-center justify-between border-2 border-frame-border bg-frame-muted px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
-                      >
-                        <span>{pillar.name}</span>
-                        <span className="font-mono text-[10px] text-frame-accent">&rarr;</span>
-                      </Link>
-                    ))}
+                    {pillarNavServices.map((pillar) => {
+                      const isPillarOpen = openMobilePillar === pillar.path
+
+                      return (
+                        <div key={pillar.path} className="border-2 border-frame-border bg-frame-muted">
+                          <div className="flex items-stretch">
+                            <Link
+                              href={pillar.path}
+                              onClick={() => setIsMenuOpen(false)}
+                              className="flex min-w-0 flex-1 items-center justify-between px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg hover:bg-frame-accent hover:text-frame-accent-fg"
+                            >
+                              <span className="truncate">{pillar.name}</span>
+                              <span className="ml-3 font-mono text-[10px] text-frame-accent">&rarr;</span>
+                            </Link>
+                            {pillar.subServices?.length > 0 && (
+                              <button
+                                type="button"
+                                aria-label={`Show ${pillar.name} services`}
+                                aria-expanded={isPillarOpen}
+                                onClick={() => setOpenMobilePillar(isPillarOpen ? null : pillar.path)}
+                                className="w-12 border-l-2 border-frame-border text-lg font-medium text-frame-accent transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                              >
+                                {isPillarOpen ? '−' : '+'}
+                              </button>
+                            )}
+                          </div>
+                          {isPillarOpen && (
+                            <div className="grid max-h-[45dvh] gap-1 overflow-y-auto overscroll-contain border-t-2 border-frame-border p-2">
+                              {pillar.subServices.map((subService) => (
+                                <Link
+                                  key={subService.path}
+                                  href={subService.path}
+                                  onClick={() => setIsMenuOpen(false)}
+                                  className="flex items-center justify-between px-3 py-2.5 text-[11px] font-bold uppercase tracking-tight text-frame-muted-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
+                                >
+                                  <span>{subService.name}</span>
+                                  <span className="font-mono text-[10px]">&rarr;</span>
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      )
+                    })}
                     <Link
                       href="/services#all-services"
                       onClick={() => setIsMenuOpen(false)}

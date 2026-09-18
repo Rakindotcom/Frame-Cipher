@@ -54,7 +54,7 @@ export default function Hero() {
             <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">Conversion Growth</span>
           </div>
           <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
-            A website that loads slowly, looks outdated, or doesn&apos;t work properly on mobile costs you customers before they even see what you offer. Frame Cipher builds business websites, eCommerce stores, and custom web applications handled by one in-house team from design through launch.
+            A website that loads slowly, looks outdated, or doesn&apos;t work properly on mobile costs your customers before they even see what you offer. Framecipher builds business websites, eCommerce stores, and custom web applications for SMEs, startups in Bangladesh and international clients across the US, UK, Australia, and Canada handled by one in-house team from design through launch. Not sure whether you need a new build or a redesign? Talk to us and we&apos;ll tell you honestly which one fits your situation.
           </p>
         </div>
       </section>

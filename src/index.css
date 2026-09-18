@@ -90,6 +90,25 @@ main a {
   overflow-wrap: anywhere;
 }
 
+/* Keep large navigation menus usable on shorter desktop viewports. */
+header nav [class*='overflow-y-auto'] {
+  scrollbar-width: thin;
+  scrollbar-color: var(--frame-accent) var(--frame-muted);
+}
+
+header nav [class*='overflow-y-auto']::-webkit-scrollbar {
+  width: 8px;
+}
+
+header nav [class*='overflow-y-auto']::-webkit-scrollbar-track {
+  background: var(--frame-muted);
+}
+
+header nav [class*='overflow-y-auto']::-webkit-scrollbar-thumb {
+  background: var(--frame-accent);
+}
+
+
 /*
  * Divider grids previously used their gray background to paint the gaps between
  * cards. In an incomplete final row, that background looked like one or more

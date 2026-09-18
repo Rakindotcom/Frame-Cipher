@@ -17,7 +17,7 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION IN HOME STYLE */}
+      {/* HERO SECTION */}
       <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
@@ -25,7 +25,7 @@ export default function Hero() {
               Focused Service / Managed Ecommerce Infrastructure
             </span>
             <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              10
+              09
             </span>
           </div>
 
@@ -40,40 +40,98 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="#pricing" variant="outline">
-              View Pricing & Plans &rarr;
+              View Pricing &amp; Plans &rarr;
             </PosterButton>
+          </div>
+
+          {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
+          <div className="mt-16 grid grid-cols-2 gap-px border-2 border-frame-border bg-frame-border md:grid-cols-4">
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Theme Architecture
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Online Store 2.0
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                Modular Liquid &amp; JSON sections
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                App Strategy
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Zero App Bloat
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                Disciplined stack &amp; native functions
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Global Commerce
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Shopify Markets
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                Multi-currency, localization &amp; duties
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Speed Benchmark
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Sub-Second Load
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                Core Web Vitals &amp; mobile tuning
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* STRATEGIC VALUE BANNER */}
+      {/* STRATEGIC VALUE BANNER / WHY WE'RE THE RIGHT TEAM */}
       <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="max-w-4xl">
             <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Why We&apos;re the Right Shopify Development Team
+              Engineering Principles
             </p>
             <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              High-Converting Storefronts Without App Bloat
+              Why We&apos;re the Right Shopify Development Team
             </h2>
-            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-frame-accent">
-              <span>Store Strategy</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>Liquid & OS 2.0</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>Disciplined App Stack</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>Performance & SEO</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>Merchant Autonomy</span>
+
+            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-frame-accent border-y-2 border-frame-border/60 py-3 my-8">
+              <span>Managed Ecommerce Infrastructure</span>
+              <span className="text-frame-muted-fg font-normal">|</span>
+              <span>Custom Shopify Development</span>
+              <span className="text-frame-muted-fg font-normal">|</span>
+              <span>Disciplined App Architecture</span>
+              <span className="text-frame-muted-fg font-normal">|</span>
+              <span>Platform-Neutral Recommendations</span>
             </div>
-            <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              Shopify handles the hosting and security, but your storefront determines trust, product discovery, and sales conversion. We build modular Online Store 2.0 themes with clean Liquid code, avoiding bloated apps to keep your store lightning-fast on mobile devices.
-            </p>
+
+            <div className="space-y-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+              <p>
+                Shopify removes much of the infrastructure burden from ecommerce, but the storefront built on top of it still determines how customers browse, trust, and buy.
+              </p>
+              <p>
+                Framecipher focuses on building Shopify stores that are structured for real business use, not simply designed to look good in a portfolio.
+              </p>
+              <p>
+                We plan your catalog, navigation, theme architecture, app stack, integrations, payment setup, and conversion flow before development begins.
+              </p>
+              <p>
+                We also take a platform-neutral approach. Shopify can be a strong fit for businesses that want managed ecommerce infrastructure and easy store management. When WooCommerce, Magento, or another platform makes more practical sense, we explain that before development starts.
+              </p>
+            </div>
           </div>
         </div>
       </section>
     </div>
   )
 }
-

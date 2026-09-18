@@ -1,217 +1,205 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Pricing({ service }) {
-  const pricingData = service?.pricing || {
-  "intro": "MVP pricing depends on platform (web, mobile, or both), core feature complexity, and how much backend infrastructure the hypothesis actually needs to test.",
-  "packages": [],
-  "table": {
-    "headers": [
-      "",
-      "Starting Price"
-    ],
-    "rows": [
-      [
-        "",
-        "What Drives the Cost"
-      ],
-      [
-        "",
-        "Typical Delivery"
-      ],
-      [
-        "",
-        "Minimal MVP"
-      ],
-      [
-        "",
-        "৳180,000"
-      ],
-      [
-        "",
-        "Single core flow, basic backend, one platform"
-      ],
-      [
-        "",
-        "~4–6 weeks"
-      ],
-      [
-        "",
-        "Standard MVP"
-      ],
-      [
-        "",
-        "৳300,000"
-      ],
-      [
-        "",
-        "Multiple core features, standard backend, single platform"
-      ],
-      [
-        "",
-        "~6–10 weeks"
-      ],
-      [
-        "",
-        "Multi-Platform MVP"
-      ],
-      [
-        "",
-        "৳450,000"
-      ],
-      [
-        "",
-        "Core features across web and mobile, moderate backend"
-      ],
-      [
-        "",
-        "~10–14 weeks"
-      ],
-      [
-        "",
-        "Complex MVP"
-      ],
-      [
-        "",
-        "Custom Quote"
-      ],
-      [
-        "",
-        "Multiple hypotheses to test, advanced backend, extensive integrations"
-      ],
-      [
-        "",
-        "~14+ weeks"
-      ],
-      [
-        "",
-        "Included at every tier:"
-      ]
-    ]
+const packages = [
+  {
+    "name": "Minimal MVP",
+    "price": "৳180,000",
+    "description": "Single core workflow, basic backend, one platform",
+    "timeline": "~4–6 weeks",
+    "featured": false
+  },
+  {
+    "name": "Standard MVP",
+    "price": "৳300,000",
+    "description": "Multiple core features, standard backend, single platform",
+    "timeline": "~6–10 weeks",
+    "featured": true
+  },
+  {
+    "name": "Multi-Platform MVP",
+    "price": "৳450,000",
+    "description": "Core functionality across web and mobile, moderate backend",
+    "timeline": "~10–14 weeks",
+    "featured": false
+  },
+  {
+    "name": "Complex MVP",
+    "price": "Custom Quote",
+    "description": "Multiple core workflows, advanced backend, extensive integrations",
+    "timeline": "~14+ weeks",
+    "featured": false
   }
+]
+
+const pricingTable = {
+  "headers": [
+    "Project Type",
+    "Starting Price",
+    "Typical Scope",
+    "Typical Delivery"
+  ],
+  "rows": [
+    [
+      "Minimal MVP",
+      "৳180,000",
+      "Single core workflow, basic backend, one platform",
+      "~4–6 weeks"
+    ],
+    [
+      "Standard MVP",
+      "৳300,000",
+      "Multiple core features, standard backend, single platform",
+      "~6–10 weeks"
+    ],
+    [
+      "Multi-Platform MVP",
+      "৳450,000",
+      "Core functionality across web and mobile, moderate backend",
+      "~10–14 weeks"
+    ],
+    [
+      "Complex MVP",
+      "Custom Quote",
+      "Multiple core workflows, advanced backend, extensive integrations",
+      "~14+ weeks"
+    ]
+  ]
 }
-  const packages = pricingData?.packages || []
-  const table = pricingData?.table
 
-  if (!packages.length && !table) return null
+const comparisonTable = {
+  "headers": [
+    "Product Stage",
+    "Main Question",
+    "Typical Users",
+    "Primary Purpose"
+  ],
+  "rows": [
+    [
+      "Proof of Concept (PoC)",
+      "Can the technical approach work?",
+      "Internal team",
+      "Test technical feasibility"
+    ],
+    [
+      "Prototype",
+      "Does the concept or user flow make sense?",
+      "Stakeholders or test users",
+      "Test experience and concept"
+    ],
+    [
+      "MVP",
+      "Will real users use or pay for the core solution?",
+      "Early real users",
+      "Validate the product assumption"
+    ],
+    [
+      "Full Product",
+      "How do we serve a broader market reliably?",
+      "Larger user base",
+      "Expand functionality and scale"
+    ]
+  ]
+}
 
+export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Investment & Plans"
-          title="Pricing & Packages"
+          eyebrow="Investment & Value / Scope Tiers"
+          title="MVP Development Pricing"
         >
-          Clear investment tiers based on project scope, strategic complexity, and technical requirements.
+          MVP development pricing depends on the number of platforms, core workflows, backend complexity, integrations, authentication, payment requirements, testing needs, and overall scope.
         </SectionIntro>
 
-        {packages.length > 0 ? (
-          <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((pkg, index) => (
-              <div
-                key={index}
-                className={`border-2 p-7 md:p-9 flex flex-col justify-between ${
-                  index === 1
-                    ? 'border-frame-accent bg-frame-accent/10'
-                    : 'border-frame-border bg-frame-bg'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Tier 0{index + 1}
-                    </span>
-                    {index === 1 && (
-                      <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                        Most Popular
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {pkg.name}
-                  </h3>
-                  <div className="mt-6 border-y-2 border-frame-border/60 py-4">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Starting Price
-                    </span>
-                    <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
-                      {pkg.price}
-                    </div>
-                  </div>
-                  {pkg.description && (
-                    <p className="mt-3 text-xs font-medium text-frame-muted-fg leading-relaxed">
-                      {pkg.description}
-                    </p>
-                  )}
-                  {pkg.features?.length > 0 && (
-                    <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {pkg.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="mt-8">
-                  <PosterButton
-                    href="/contact"
-                    variant={index === 1 ? 'accent' : 'outline'}
-                    className="w-full"
-                  >
-                    Choose {pkg.name}
-                  </PosterButton>
-                </div>
+        
+        {/* PACKAGES GRID */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {packages.map((pkg, i) => (
+            <div
+              key={i}
+              className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
+                pkg.featured
+                  ? 'border-frame-accent bg-frame-accent/5'
+                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+              }`}
+            >
+              <div>
+                {pkg.featured && (
+                  <span className="mb-4 inline-block border border-frame-accent bg-frame-accent/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-frame-accent">
+                    Most Requested
+                  </span>
+                )}
+                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {pkg.name}
+                </h3>
+                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                  {pkg.price}
+                </p>
+                {pkg.timeline && (
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
+                    Timeline: {pkg.timeline}
+                  </p>
+                )}
+                {pkg.description && (
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                    {pkg.description}
+                  </p>
+                )}
               </div>
-            ))}
-          </div>
-        ) : table?.headers ? (
-          <div>
-            <div className="overflow-hidden border-2 border-frame-border bg-frame-bg">
-              <table className="w-full text-left">
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
+
+              <div className="mt-8 pt-4 border-t border-frame-border/60">
+                <PosterButton href="/contact" variant={pkg.featured ? 'accent' : 'outline'} className="w-full text-xs">
+                  Request Quote
+                </PosterButton>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+
+        
+        {/* COMPARISON / SPECIFICATION TABLE */}
+        <div className="mt-16">
+          <h2 className="mb-6 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            Technical Architecture & Platform Comparison
+          </h2>
+          <div className="overflow-x-auto border-2 border-frame-border">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
+                <tr>
+                  {comparisonTable.headers.map((h, i) => (
+                    <th key={i} className="p-4 border-r-2 border-frame-border last:border-r-0">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
+                {comparisonTable.rows.map((row, rIdx) => (
+                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
+                    {row.map((cell, cIdx) => (
+                      <td key={cIdx} className={`p-4 border-r-2 border-frame-border last:border-r-0 ${cIdx === 0 ? 'font-semibold text-frame-fg' : ''}`}>
+                        {cell}
+                      </td>
                     ))}
                   </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                  {table.rows?.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-frame-muted/20">
-                      {row.map((cell, cIdx) => (
-                        <td
-                          key={cIdx}
-                          className={`p-4 md:p-6 ${
-                            cIdx === 0
-                              ? 'font-bold text-frame-fg'
-                              : cIdx === 1
-                              ? 'font-bold text-frame-accent'
-                              : 'text-frame-muted-fg'
-                          }`}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
-                * Pricing is indicative rather than fixed. Final pricing is confirmed after scoping requirements.
-              </p>
-              <div className="shrink-0">
-                <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>
-              </div>
-            </div>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ) : null}
+        </div>
+        
+
+        {/* PRICING FACTORS NOTE */}
+        <div className="mt-12 border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8">
+          <p className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent mb-2">
+            Pricing Guidance & Cost Factors
+          </p>
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            Most MVPs can take approximately 4–14+ weeks, depending on scope. Projects can take longer when they involve multiple platforms, complex workflows, advanced backend requirements, payment systems, multiple third-party APIs, real-time functionality, complex authentication, large data requirements, extensive testing, advanced analytics, legacy-system integration, or complex administrative functionality. The final timeline should be confirmed after reviewing the actual product requirements.
+          </p>
+        </div>
       </div>
     </section>
   )

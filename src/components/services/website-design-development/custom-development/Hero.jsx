@@ -1,6 +1,19 @@
 import Link from 'next/link'
 import { PosterButton } from '../../../Kinetic'
 
+const customFitReasons = [
+  'Unique business workflows',
+  'Custom data structures',
+  'Advanced integrations',
+  'Authentication and user roles',
+  'Customer dashboards or portals',
+  'SaaS functionality',
+  'Headless ecommerce',
+  'Application-specific performance requirements',
+  'Custom APIs and backend logic',
+  'A product that will continue evolving over time',
+]
+
 export default function Hero() {
   return (
     <div className="bg-frame-bg text-frame-fg">
@@ -13,19 +26,19 @@ export default function Hero() {
           <span>/</span>
           <Link href="/services/website-design-development" className="transition hover:text-frame-fg">Website Design & Development</Link>
           <span>/</span>
-          <span className="text-frame-accent">Custom & Next.js</span>
+          <span className="text-frame-accent">Custom &amp; Next.js</span>
         </div>
       </nav>
 
-      {/* HERO SECTION IN HOME STYLE */}
+      {/* HERO SECTION */}
       <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
             <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Focused Service / Custom Development
+              Focused Service / Custom Next.js Engineering
             </span>
             <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              07
+              10
             </span>
           </div>
 
@@ -40,36 +53,102 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="#pricing" variant="outline">
-              View Pricing & Plans &rarr;
+              View Pricing &amp; Plans &rarr;
             </PosterButton>
+          </div>
+
+          {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
+          <div className="mt-16 grid grid-cols-2 gap-px border-2 border-frame-border bg-frame-border md:grid-cols-4">
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Core Engine
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Next.js 15 &amp; React
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                App Router &amp; Server Actions
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Architecture
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Full-Stack TS
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                End-to-end type safety &amp; validation
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Speed Standard
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Sub-Second Load
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                Edge delivery &amp; dynamic SSR
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5 sm:p-7">
+              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
+                Ownership
+              </span>
+              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
+                Zero Lock-In
+              </p>
+              <p className="mt-1 text-xs text-frame-muted-fg">
+                100% full source code ownership
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* STRATEGIC VALUE BANNER */}
+      {/* STRATEGIC VALUE BANNER / WHY CHOOSE CUSTOM DEVELOPMENT */}
       <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
           <div className="max-w-4xl">
             <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Architecture & Scalability
+              Architectural Strategic Fit
             </p>
             <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Full-Stack Modern Engineering Without Technical Debt
+              Why Choose Custom / Next.js Development?
             </h2>
-            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-frame-accent">
-              <span>Discovery</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>UI Systems</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>Full-Stack Next.js</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>API & Database</span>
-              <span className="text-frame-muted-fg font-normal">&rarr;</span>
-              <span>DevOps & Scale</span>
+
+            <div className="space-y-5 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg mt-6">
+              <p>
+                A custom website or application should solve a problem that an off-the-shelf platform cannot handle well.
+              </p>
+              <p>
+                Next.js gives businesses a foundation for building custom web experiences while keeping the frontend, application logic, data, integrations, and performance strategy under greater control.
+              </p>
             </div>
-            <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              Next.js provides the premier foundation for modern digital experiences—giving you total control over the frontend, server-side logic, database schemas, third-party integrations, and performance. We build tailor-made solutions when off-the-shelf templates cannot support your workflows, user roles, dashboards, or headless commerce operations.
-            </p>
+
+            <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 sm:p-8">
+              <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-frame-fg">
+                Custom development can make sense when you need:
+              </h3>
+              <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                {customFitReasons.map((reason, idx) => (
+                  <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-frame-fg">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{reason}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-8 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p>
+                The important question is not whether custom development sounds more advanced. It is whether the additional control creates enough business value to justify the additional development and maintenance.
+              </p>
+              <p className="font-semibold text-frame-fg">
+                That&apos;s why every project starts with a platform-fit assessment before development begins.
+              </p>
+            </div>
           </div>
         </div>
       </section>

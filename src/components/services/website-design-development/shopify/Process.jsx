@@ -2,45 +2,38 @@ const steps = [
   {
     number: '01',
     title: 'Initial Consultation',
-    description: 'We review your catalog size, branding assets, target markets, operational workflows, integration needs, and confirm Shopify platform fit.',
+    description: 'We review your catalog, brand, customer journey, existing store, integrations, payment requirements, target markets, and future plans. We also confirm whether Shopify is the right platform before development begins.',
   },
   {
     number: '02',
-    title: 'Strategy & Architecture',
-    description: 'We structure product collections, navigation hierarchy, app stack requirements, payment configurations, and technical scope.',
+    title: 'Strategy & Architecture Planning',
+    description: 'We define the store structure, collection architecture, app requirements, integrations, payment setup, content requirements, and technical scope.',
   },
   {
     number: '03',
     title: 'UX & Storefront Design',
-    description: 'We design conversion-optimized homepage layouts, product detail pages, collection filtering, and mobile shopping experiences in Figma.',
+    description: 'We plan navigation, product experiences, collection pages, mobile layouts, calls to action, and conversion paths around how customers actually shop.',
   },
   {
     number: '04',
     title: 'Shopify Development',
-    description: 'We code custom Liquid templates, modular Online Store 2.0 sections, dynamic metafield integrations, and custom apps where required.',
+    description: 'We develop the theme, Online Store 2.0 sections, product and collection templates, integrations, apps, custom functionality, and other agreed features.',
   },
   {
     number: '05',
     title: 'Data & Integration Setup',
-    description: 'We import product variants, configure payment gateways, set up shipping rates, connect CRM/email tools, and install tracking pixels.',
+    description: 'We configure products, collections, payment options, apps, analytics, shipping, customer data, and external integrations according to the project scope.',
   },
   {
     number: '06',
-    title: 'Checkout & Performance QA',
-    description: 'We execute end-to-end checkout testing, test discount logic, audit mobile responsiveness, and profile Core Web Vitals performance.',
+    title: 'Quality, Performance & Checkout Testing',
+    description: 'We test responsive layouts, storefront functionality, forms, checkout journeys, integrations, performance, and important user flows across supported devices and browsers.',
   },
   {
     number: '07',
-    title: 'Launch & Merchant Handoff',
-    description: 'We complete final DNS and SSL checks, hand over store administrative ownership, and conduct personalized training on store management.',
+    title: 'Launch & Handoff',
+    description: 'We complete final launch checks, confirm the required store functionality, provide the agreed access, and guide your team through routine store management.',
   },
-]
-
-const timelines = [
-  { type: 'Starter Store', time: '~1–2 weeks', scope: 'Up to 50 products, customized existing theme, essential payment & shipping setup' },
-  { type: 'Custom Theme Build', time: '~3–4 weeks', scope: 'Bespoke Liquid theme, up to 300 products, modular OS 2.0 sections, app integrations' },
-  { type: 'Growth Store', time: '~4–6 weeks', scope: 'Expanded catalog, multiple custom apps, conversion rate optimization, multi-market' },
-  { type: 'Shopify Plus / Custom App', time: '~6–10+ weeks', scope: 'High-volume catalogs, custom private apps, B2B wholesale, checkout UI extensions' },
 ]
 
 export default function Process() {
@@ -49,22 +42,22 @@ export default function Process() {
       <div className="mx-auto max-w-[95vw]">
         <div className="mb-14 md:mb-20 max-w-4xl">
           <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Workflow & Delivery
+            Workflow &amp; Delivery
           </p>
           <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Our Structured Shopify Process
+            Our Shopify Development Process
           </h2>
           <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            We guide your store build from commercial strategy and custom design through to rigorous checkout testing and merchant training.
+            We keep the process structured so the storefront is built around how your business actually operates.
           </p>
         </div>
 
-        {/* STEPS GRID WITH WATERMARK NUMBERS */}
+        {/* STEPS GRID WITH UNIFORM ALIGNMENT */}
         <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
           {steps.map((step) => (
             <article
               key={step.number}
-              className="group relative flex min-h-[340px] flex-col justify-between overflow-hidden bg-frame-bg p-7 sm:p-8 transition-all duration-300 hover:bg-frame-accent"
+              className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden bg-frame-bg p-7 sm:p-8 transition-all duration-300 hover:bg-frame-accent"
             >
               <p
                 className="absolute -right-2 -top-4 select-none font-heading text-[7.5rem] sm:text-[9rem] font-bold leading-none tracking-tighter text-frame-muted/30 transition-colors duration-300 group-hover:text-frame-accent-fg/20"
@@ -76,40 +69,17 @@ export default function Process() {
                 <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
                   Phase {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-3xl">
+                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase leading-snug tracking-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
                   {step.title}
                 </h3>
               </div>
-              <p className="relative z-10 mt-6 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+              <p className="relative z-10 mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
                 {step.description}
               </p>
             </article>
           ))}
         </div>
-
-        {/* TIMELINE TABLE */}
-        <div className="mt-16 overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-          <table className="w-full text-left min-w-[640px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/20">
-              <tr>
-                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Type</th>
-                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Delivery</th>
-                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Scope Drivers</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-              {timelines.map((item, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-7 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">{item.type}</td>
-                  <td className="p-5 md:p-7 font-bold text-frame-accent">{item.time}</td>
-                  <td className="p-5 md:p-7 text-sm text-frame-muted-fg leading-relaxed">{item.scope}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
       </div>
     </section>
   )
 }
-

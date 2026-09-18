@@ -1,240 +1,1185 @@
+import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const androidServices = [
   {
-    "title": "PRODUCT STRATEGY & ARCHITECTURE",
-    "description": "Every Android build starts with a plan for what the app needs to do and how it needs to scale. What We Do Architecture decided upfront prevents the expensive restructuring that comes from bolting features onto an unplanned foundation.",
-    "bullets": [
-      "Requirements & Feature Planning: Defining core functionality and what belongs in a later update instead of launch.",
-      "Technical Architecture Planning: Designing app structure, data flow, and API needs before development begins.",
-      "Device & OS Version Targeting: Deciding which Android versions and device tiers the app needs to reliably support.",
-      "Competitor & Platform Review: Understanding what similar Android apps do well or poorly in your category."
-    ]
+    title: "Product Strategy & Architecture",
+    desc: "We define the core functionality, user requirements, technical structure, supported devices, and future roadmap before development begins."
   },
   {
-    "title": "UI/UX DESIGN FOR ANDROID",
-    "description": "Design built around Android's own design language and interaction patterns, not a generic cross-platform layout. What We Do An app that looks like an iOS app ported to Android usually feels wrong to Android users, even if they can't immediately say why. NATIVE DEVELOPMENT (KOTLIN) The technical build itself, written in Android's modern native language for performance and long-term maintainability. What We Do Native development means direct access to Android's full feature set, without waiting on a cross-platform framework to catch up to new OS capabilities. TESTING, DEPLOYMENT & PLAY STORE LAUNCH Making sure the app actually works across real devices before it reaches real users. What We Do A build that's only been tested on the developer's own phone is the most common reason Android apps get inconsistent reviews after launch.",
-    "bullets": [
-      "Material Design Implementation: Interfaces built around Google's Material Design system, so the app feels native to Android.",
-      "User Flow Mapping: Structuring navigation and key tasks around how Android users actually expect an app to behave.",
-      "Adaptive Layouts: Design that holds up across phones, tablets, and foldables, not just one reference screen size.",
-      "Prototype & Usability Testing: Validating the flow before development, catching friction points early.",
-      "Kotlin Development: Clean, modern native code, not legacy Java carried forward out of habit.",
-      "API & Backend Integration: Connecting the app to your backend, third-party services, or a custom API we build.",
-      "Local Data & Offline Support: Handling data storage and offline functionality where the app genuinely needs it.",
-      "Push Notification Setup: Firebase Cloud Messaging integration for reliable, properly configured notifications.",
-      "Device & OS Version Testing: Testing across a genuine range of hardware and Android versions, not just the latest flagship.",
-      "Performance & Load Testing: Confirming the app performs well under real usage conditions, not just in a controlled demo.",
-      "Google Play Submission: Handling Play Store listing setup and submission, including navigating current review requirements.",
-      "Crash Reporting & Analytics Setup: Configuring tools so issues and usage patterns are visible after launch, not a black box."
-    ]
+    title: "UI/UX Design for Android",
+    desc: "We design user flows, interfaces, interactions, and responsive layouts around Android conventions and the actual tasks users need to complete."
   },
   {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "description": "An Android app's job isn't done at launch, OS updates and device changes require ongoing attention. What We Do Available as a separate ongoing service - see our [App Maintenance & Support] page for full details, since this isn't included by default in a development engagement.",
-    "bullets": [
-      "OS Compatibility Updates: Keeping the app working correctly as new Android versions roll out.",
-      "Bug Fixes & Performance Monitoring: Addressing issues that surface once the app is in real use, at scale.",
-      "Security & Dependency Updates: Keeping libraries and dependencies current and patched.",
-      "Feature Updates: Building new functionality as the product evolves post-launch."
-    ]
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Android's openness and device diversity are real advantages, and real engineering challenges if the build doesn't account for them properly.",
-  "Device Fragmentation Isn't Optional to Plan For",
-  "Android runs across thousands of device and OS version combinations. An app that only works well on premium hardware is quietly failing a large share of the actual Android user base.",
-  "Trust & Store Reviews",
-  "A crash-prone or slow app gets reflected directly in Play Store ratings, and low ratings suppress future downloads, making early quality control a growth issue, not just a technical one.",
-  "Native Performance Where It Matters",
-  "For apps with performance-sensitive features camera, location, background processing, native Kotlin development gives direct access to platform capabilities a cross-platform framework may not fully expose.",
-  "Built to Update, Not Just Launch",
-  "Unlike a one-time build, a properly architected Android app can absorb OS updates and new feature requests without requiring a rebuild, that's the difference proper initial architecture makes."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "As an Android development company, we build in Kotlin the platform's modern standard rather than treating Android as an afterthought to an iOS-first build. Our clients get apps that account for the real diversity of Android hardware, screen sizes, and OS versions in active use, since what works cleanly on one flagship device can break on a mid-range phone running an older Android version. With hands-on experience building for both Bangladeshi and international markets, we know Android's device fragmentation isn't a minor detail, it's the core engineering challenge the platform presents.",
-    "text": "\"Android isn't one device, it's thousands of them, running different OS versions, at wildly different price points. An app tested only on a flagship phone is an app that hasn't actually been tested for most of its real users.\" Native Kotlin Development | Built for Device Diversity | Play Store Deployment Included"
+    title: "Native Android Development",
+    desc: "We build native Android applications in Kotlin with direct access to Android platform capabilities."
   },
   {
-    "title": "Our Android App Development Services",
-    "text": "We offer end-to-end Android development tailored to your app's actual requirements."
+    title: "API & Backend Integration",
+    desc: "We connect the Android app with custom backends, APIs, databases, payment systems, CRMs, and other required services."
   },
   {
-    "title": "PRODUCT STRATEGY & ARCHITECTURE",
-    "text": "Every Android build starts with a plan for what the app needs to do and how it needs to scale."
+    title: "Testing & Quality Assurance",
+    desc: "We test important features, integrations, supported devices, Android versions, and performance conditions before release."
   },
   {
-    "title": "What We Do",
-    "text": "* Requirements & Feature Planning: Defining core functionality and what belongs in a later update instead of launch. * Technical Architecture Planning: Designing app structure, data flow, and API needs before development begins. * Device & OS Version Targeting: Deciding which Android versions and device tiers the app needs to reliably support. * Competitor & Platform Review: Understanding what similar Android apps do well or poorly in your category. Architecture decided upfront prevents the expensive restructuring that comes from bolting features onto an unplanned foundation."
+    title: "Google Play Launch",
+    desc: "We prepare the production build and support the Google Play submission and release process where included."
   },
   {
-    "title": "UI/UX DESIGN FOR ANDROID",
-    "text": "Design built around Android's own design language and interaction patterns, not a generic cross-platform layout."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Material Design Implementation: Interfaces built around Google's Material Design system, so the app feels native to Android. * User Flow Mapping: Structuring navigation and key tasks around how Android users actually expect an app to behave. * Adaptive Layouts: Design that holds up across phones, tablets, and foldables, not just one reference screen size. * Prototype & Usability Testing: Validating the flow before development, catching friction points early. An app that looks like an iOS app ported to Android usually feels wrong to Android users, even if they can't immediately say why. NATIVE DEVELOPMENT (KOTLIN) The technical build itself, written in Android's modern native language for performance and long-term maintainability."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Kotlin Development: Clean, modern native code, not legacy Java carried forward out of habit. * API & Backend Integration: Connecting the app to your backend, third-party services, or a custom API we build. * Local Data & Offline Support: Handling data storage and offline functionality where the app genuinely needs it. * Push Notification Setup: Firebase Cloud Messaging integration for reliable, properly configured notifications. Native development means direct access to Android's full feature set, without waiting on a cross-platform framework to catch up to new OS capabilities. TESTING, DEPLOYMENT & PLAY STORE LAUNCH Making sure the app actually works across real devices before it reaches real users."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Device & OS Version Testing: Testing across a genuine range of hardware and Android versions, not just the latest flagship. * Performance & Load Testing: Confirming the app performs well under real usage conditions, not just in a controlled demo. * Google Play Submission: Handling Play Store listing setup and submission, including navigating current review requirements. * Crash Reporting & Analytics Setup: Configuring tools so issues and usage patterns are visible after launch, not a black box. A build that's only been tested on the developer's own phone is the most common reason Android apps get inconsistent reviews after launch."
-  },
-  {
-    "title": "ONGOING SUPPORT & MAINTENANCE",
-    "text": "An Android app's job isn't done at launch, OS updates and device changes require ongoing attention."
-  },
-  {
-    "title": "What We Do",
-    "text": "* OS Compatibility Updates: Keeping the app working correctly as new Android versions roll out. * Bug Fixes & Performance Monitoring: Addressing issues that surface once the app is in real use, at scale. * Security & Dependency Updates: Keeping libraries and dependencies current and patched. * Feature Updates: Building new functionality as the product evolves post-launch. Available as a separate ongoing service - see our [App Maintenance & Support] page for full details, since this isn't included by default in a development engagement. Why Your Business Needs a Real Android Development Partner Android's openness and device diversity are real advantages, and real engineering challenges if the build doesn't account for them properly. Device Fragmentation Isn't Optional to Plan For Android runs across thousands of device and OS version combinations. An app that only works well on premium hardware is quietly failing a large share of the actual Android user base."
-  },
-  {
-    "title": "Trust & Store Reviews",
-    "text": "A crash-prone or slow app gets reflected directly in Play Store ratings, and low ratings suppress future downloads, making early quality control a growth issue, not just a technical one."
-  },
-  {
-    "title": "Native Performance Where It Matters",
-    "text": "For apps with performance-sensitive features camera, location, background processing, native Kotlin development gives direct access to platform capabilities a cross-platform framework may not fully expose. Built to Update, Not Just Launch Unlike a one-time build, a properly architected Android app can absorb OS updates and new feature requests without requiring a rebuild, that's the difference proper initial architecture makes. Why We're Different We're not positioning ourselves as the biggest agency, we're built to be the most accountable one."
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Strategy, design, development, and deployment handled by one team, not handed off between a designer and a developer who never spoke to each other about how Android actually behaves. Built for Android, Not Ported to It We design and develop specifically around Android's platform conventions and device diversity, not a generic app adapted after being designed for iOS first."
-  },
-  {
-    "title": "Local & International App Experience",
-    "text": "Based in Dhaka, building Android apps for businesses across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE. Transparent, Review-Based Process Every stage of architecture, design, development, goes through your review and approval before we move forward."
-  },
-  {
-    "title": "Strategy & Architecture",
-    "text": "We start by understanding your app's requirements, target devices, and how it needs to scale."
-  },
-  {
-    "title": "Material Design UI/UX",
-    "text": "Interfaces built around Android's own design language, tested for usability before development begins."
-  },
-  {
-    "title": "Native Kotlin Development",
-    "text": "Clean, modern native code with direct access to Android's full platform capabilities."
-  },
-  {
-    "title": "Device & OS Testing",
-    "text": "Real testing across device tiers and OS versions, not just a single reference device."
-  },
-  {
-    "title": "Play Store Deployment",
-    "text": "Submission handled correctly, including navigating current Google Play review requirements."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Review checkpoints at every stage, so you approve direction before it's built - not after."
+    title: "Post-Launch Support",
+    desc: "We can continue with bug fixes, OS compatibility updates, dependency maintenance, performance improvements, and new feature development after launch."
   }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const appsWeBuild = [
+  {
+    title: "Ecommerce & Retail Apps",
+    desc: "Android shopping apps for product discovery, categories, search, cart, checkout, payments, order tracking, accounts, and customer communication."
+  },
+  {
+    title: "Delivery & Logistics Apps",
+    desc: "Applications for customers, drivers, dispatch teams, order tracking, location services, delivery status, and operational workflows."
+  },
+  {
+    title: "Booking & Service Apps",
+    desc: "Apps for appointments, reservations, schedules, availability, reminders, service selection, and customer management."
+  },
+  {
+    title: "Business & Internal Apps",
+    desc: "Custom tools for staff workflows, inventory, reporting, approvals, field operations, CRM processes, and internal coordination."
+  },
+  {
+    title: "Marketplace & On-Demand Apps",
+    desc: "Multi-user applications connecting customers with sellers, service providers, professionals, drivers, or other participant groups."
+  },
+  {
+    title: "Customer & Companion Apps",
+    desc: "Dedicated Android experiences for customer accounts, service management, subscriptions, support, notifications, and connected business platforms."
+  },
+  {
+    title: "SaaS & Product Apps",
+    desc: "Android applications that extend a SaaS or web product with mobile access to dashboards, workflows, notifications, approvals, and account features."
+  },
+  {
+    title: "Enterprise Android Apps",
+    desc: "Custom applications for organizations with complex permissions, operational workflows, integrations, and security requirements."
+  }
+]
 
+const whyRealPartner = [
+  {
+    title: "Device Diversity Needs Planning",
+    desc: "Android products can run across different screen sizes, hardware configurations, memory levels, and operating-system versions. Your supported environment should be defined during planning rather than discovered after launch."
+  },
+  {
+    title: "Performance Affects Usability",
+    desc: "Slow startup, heavy screens, excessive network requests, and inefficient background processing can create a poor user experience even when the application technically works."
+  },
+  {
+    title: "Platform Features Need Native Consideration",
+    desc: "Apps that depend on GPS, camera, notifications, biometrics, background tasks, Bluetooth, or other Android capabilities may need platform-specific implementation."
+  },
+  {
+    title: "Errors Need Proper Handling",
+    desc: "Network failures, API errors, expired sessions, payment interruptions, and unavailable services can break important workflows. The application should have clear loading, error, fallback, and recovery states."
+  },
+  {
+    title: "Android Apps Need Long-Term Maintenance",
+    desc: "Android versions, dependencies, devices, and connected services change over time. A maintainable application makes future updates and feature development easier."
+  }
+]
+
+const featuresAndIntegrations = [
+  {
+    title: "User Accounts & Authentication",
+    desc: "Signup, login, password recovery, profiles, session management, social authentication, and role-based access where required."
+  },
+  {
+    title: "Firebase & Push Notifications",
+    desc: "Firebase services can support authentication, cloud messaging, analytics, crash reporting, and other application requirements where appropriate."
+  },
+  {
+    title: "Payments & Subscriptions",
+    desc: "Payment gateways, transaction workflows, recurring billing, refunds, and subscription features based on the selected provider."
+  },
+  {
+    title: "Maps, GPS & Location",
+    desc: "Maps, location services, delivery tracking, address selection, distance calculations, and location-based functionality."
+  },
+  {
+    title: "Camera & Device Features",
+    desc: "Camera access, media selection, biometric authentication, file handling, Bluetooth, and other Android device capabilities where required."
+  },
+  {
+    title: "Offline Storage & Synchronization",
+    desc: "Local storage and synchronization for applications that need useful functionality during limited or unstable connectivity."
+  },
+  {
+    title: "Admin Dashboards",
+    desc: "Interfaces for managing users, products, orders, content, reports, transactions, permissions, and settings."
+  },
+  {
+    title: "Analytics & Crash Monitoring",
+    desc: "Event tracking, usage information, performance monitoring, and crash reporting where included in the project."
+  },
+  {
+    title: "Third-Party Integrations",
+    desc: "Connections with CRMs, payment providers, external APIs, communication services, business software, and other required systems."
+  }
+]
+
+const nativeKotlinPoints = [
+  {
+    title: "Kotlin Development",
+    desc: "Modern native Android development focused on maintainability, platform compatibility, and the application's actual requirements."
+  },
+  {
+    title: "Android SDK Integration",
+    desc: "Using Android platform APIs and services directly for the features and behaviors your application requires."
+  },
+  {
+    title: "Local Data & Offline Support",
+    desc: "Supporting local persistence, caching, and synchronization where the product requires offline or low-connectivity workflows."
+  },
+  {
+    title: "Push Notification Setup",
+    desc: "Integrating Firebase Cloud Messaging and related notification workflows where applicable."
+  },
+  {
+    title: "Background Processing",
+    desc: "Supporting background tasks and scheduled work where the application's functionality requires them."
+  },
+  {
+    title: "Device & Hardware Integration",
+    desc: "Working with relevant Android features such as camera, GPS, biometrics, Bluetooth, media, and other supported device capabilities."
+  }
+]
+
+const techStack = [
+  {
+    area: "Core Android",
+    details: "Kotlin • Android SDK • Android Jetpack"
+  },
+  {
+    area: "UI Development",
+    details: "Jetpack Compose and Android interface components, where appropriate for the project."
+  },
+  {
+    area: "Local Data",
+    details: "Room and other suitable Android storage approaches where local persistence is required."
+  },
+  {
+    area: "APIs & Networking",
+    details: "REST APIs and appropriate networking tools for communication between the Android application and backend systems."
+  },
+  {
+    area: "Firebase & Cloud Services",
+    details: "Firebase services where authentication, notifications, analytics, crash reporting, or related capabilities are required."
+  },
+  {
+    area: "Location & Device Services",
+    details: "Google Maps and Android device APIs where location or hardware functionality is part of the product."
+  }
+]
+
+const strategyArchitecture = [
+  {
+    title: "Requirements & Feature Planning",
+    desc: "We identify the core features, user roles, key workflows, and functionality required for the initial release."
+  },
+  {
+    title: "Device & OS Targeting",
+    desc: "We define the Android versions, device categories, screen sizes, and other compatibility requirements relevant to the target users."
+  },
+  {
+    title: "Data & API Planning",
+    desc: "We determine what data the application needs, where it comes from, and how the Android client communicates with backend systems."
+  },
+  {
+    title: "Scalability Planning",
+    desc: "The architecture is planned around the expected product roadmap so future features can be added without unnecessarily restructuring the application."
+  }
+]
+
+const codeQuality = [
+  {
+    title: "Clear Separation of Responsibilities",
+    desc: "Keeping interface, business logic, data access, and external services organized so changes remain easier to manage."
+  },
+  {
+    title: "Modern Android Architecture",
+    desc: "Using established Android patterns such as MVVM where appropriate for the product and development requirements."
+  },
+  {
+    title: "Reusable Components",
+    desc: "Creating reusable code and interface components where practical to reduce duplication and support consistency."
+  },
+  {
+    title: "API & Data Layers",
+    desc: "Separating network communication, local storage, and business logic for a more predictable application structure."
+  },
+  {
+    title: "Dependency Management",
+    desc: "Keeping frameworks, libraries, and dependencies organized and maintained throughout development."
+  },
+  {
+    title: "Testing & Code Review",
+    desc: "Using appropriate testing and review practices to identify problems early and support long-term maintainability."
+  }
+]
+
+const uiUxPoints = [
+  {
+    title: "User Flow Mapping",
+    desc: "We structure navigation and important tasks before visual design begins."
+  },
+  {
+    title: "Material Design",
+    desc: "We use Android interface conventions and Material Design principles where they improve consistency and usability."
+  },
+  {
+    title: "Adaptive Layouts",
+    desc: "We design for the screen sizes, orientations, and device categories relevant to the application's target audience."
+  },
+  {
+    title: "Interaction & State Design",
+    desc: "We plan loading, empty, error, success, disabled, and other important interface states."
+  },
+  {
+    title: "Prototype & Usability Testing",
+    desc: "Where included, we validate important flows before development so usability issues can be identified earlier."
+  }
+]
+
+const securityPillars = [
+  {
+    title: "Secure Authentication",
+    desc: "Protecting account access through suitable authentication and authorization methods."
+  },
+  {
+    title: "Role-Based Access",
+    desc: "Controlling what customers, staff, administrators, and other users can view or modify."
+  },
+  {
+    title: "Secure API Communication",
+    desc: "Protecting information exchanged between the application, backend, and connected services."
+  },
+  {
+    title: "Data Protection",
+    desc: "Handling sensitive customer and business information according to the application's requirements."
+  },
+  {
+    title: "Dependency Maintenance",
+    desc: "Keeping relevant libraries, frameworks, and platform components maintained to reduce avoidable security and compatibility risks."
+  },
+  {
+    title: "Secure Payment Workflows",
+    desc: "Using appropriate payment-provider integrations and following the required transaction flow."
+  }
+]
+
+const realWorldConditions = [
+  {
+    title: "Device & Screen Compatibility",
+    desc: "Testing relevant device categories and screen sizes instead of relying on one reference phone."
+  },
+  {
+    title: "Android Version Support",
+    desc: "Defining the supported Android range during planning and testing against the required versions."
+  },
+  {
+    title: "Low-Bandwidth Conditions",
+    desc: "Considering loading, retry, timeout, caching, and synchronization behavior for limited connectivity."
+  },
+  {
+    title: "Offline Workflows",
+    desc: "Supporting local data and synchronization where the application needs useful functionality without a constant connection."
+  },
+  {
+    title: "Performance Constraints",
+    desc: "Considering startup time, memory usage, network requests, media size, and other factors that affect responsiveness."
+  },
+  {
+    title: "API & Service Failures",
+    desc: "Planning appropriate loading, fallback, error, and recovery states when connected services do not respond as expected."
+  }
+]
+
+const testingStages = [
+  {
+    title: "Functional Testing",
+    desc: "Checking important features and workflows against the approved requirements."
+  },
+  {
+    title: "Device & OS Testing",
+    desc: "Testing relevant device types, screen sizes, and supported Android versions."
+  },
+  {
+    title: "Performance Testing",
+    desc: "Reviewing loading behavior, responsiveness, API interactions, and other performance concerns."
+  },
+  {
+    title: "Integration Testing",
+    desc: "Testing APIs, payments, Firebase services, maps, notifications, authentication, and other connected systems."
+  },
+  {
+    title: "Regression Testing",
+    desc: "Rechecking previously completed functionality after major changes or new development."
+  },
+  {
+    title: "Pre-Release Testing",
+    desc: "Performing final checks on the production-ready build before Google Play submission."
+  },
+  {
+    title: "Crash Monitoring",
+    desc: "Setting up appropriate crash and issue reporting where included in the project scope."
+  }
+]
+
+const playStoreRelease = [
+  {
+    title: "Production Build Preparation",
+    desc: "Preparing the release build and configuration required for production."
+  },
+  {
+    title: "App Signing & Release Configuration",
+    desc: "Supporting the required signing and release configuration for the Android application where included."
+  },
+  {
+    title: "Play Console Support",
+    desc: "Assisting with the relevant Google Play Console release workflow and configuration."
+  },
+  {
+    title: "Store Listing Support",
+    desc: "Supporting app information, screenshots, descriptions, categories, and other required materials where included."
+  },
+  {
+    title: "Testing & Release Tracks",
+    desc: "Supporting appropriate testing or release-track workflows when required by the project."
+  },
+  {
+    title: "Production Submission",
+    desc: "Preparing and submitting the application for production release."
+  },
+  {
+    title: "Review Feedback",
+    desc: "If Google requests technical or product changes during review, we can help identify the required updates for resubmission."
+  }
+]
+
+const modernizationItems = [
+  "Legacy Android codebase modernization",
+  "Java-to-Kotlin migration where appropriate",
+  "Android version compatibility updates",
+  "Outdated dependency replacement",
+  "Architecture improvements",
+  "UI/UX modernization",
+  "Performance optimization",
+  "Security improvements",
+  "API and backend updates",
+  "New feature development",
+  "Third-party integration updates"
+]
+
+const deliverables = [
+  {
+    category: "Product & UX",
+    items: [
+      "User flows",
+      "Wireframes",
+      "Android UI/UX designs",
+      "Interactive prototypes where required",
+      "Design system or reusable components where scoped"
+    ]
+  },
+  {
+    category: "Android Application",
+    items: [
+      "Production-ready Android application",
+      "Native Kotlin source code",
+      "Configured features",
+      "Supported platform functionality",
+      "Required integrations"
+    ]
+  },
+  {
+    category: "Backend & APIs",
+    items: [
+      "API connections",
+      "Backend services where scoped",
+      "Database integration",
+      "Authentication",
+      "Required third-party integrations"
+    ]
+  },
+  {
+    category: "Testing & Release",
+    items: [
+      "Tested Android build",
+      "Production configuration",
+      "Release-ready package",
+      "Google Play submission support where included"
+    ]
+  },
+  {
+    category: "Handoff & Documentation",
+    items: [
+      "Source code",
+      "Design files where applicable",
+      "Technical documentation",
+      "Deployment information",
+      "Relevant access and account documentation"
+    ]
+  }
+]
+
+const whyChooseUs = [
+  {
+    title: "One In-House Team",
+    desc: "Strategy, design, development, testing, and deployment stay connected rather than being divided between unrelated contractors."
+  },
+  {
+    title: "Built for Android, Not Simply Ported to It",
+    desc: "We consider Android platform conventions, device diversity, supported versions, and native capabilities from the beginning."
+  },
+  {
+    title: "Platform-Neutral Advice",
+    desc: "Although this page focuses on Android, we can also advise when cross-platform development or another technical approach makes more sense for your wider product."
+  },
+  {
+    title: "Development-Aware UI/UX",
+    desc: "Our design decisions consider responsive behavior, interaction states, implementation requirements, and Android-specific conventions."
+  },
+  {
+    title: "Transparent Review Process",
+    desc: "Key stages can include review and approval checkpoints so you remain involved throughout the project."
+  },
+  {
+    title: "Full-Cycle Support",
+    desc: "We can support the product from discovery and architecture through development, testing, Google Play release, and post-launch improvements."
+  }
+]
+
+const portfolioFramework = [
+  {
+    title: "Project Overview",
+    desc: "Show the product type, target users, Android scope, and business objective."
+  },
+  {
+    title: "Challenge",
+    desc: "Explain the customer, operational, product, or technical problem the app needed to address."
+  },
+  {
+    title: "Android Solution",
+    desc: "Show the architecture, Android features, UX decisions, integrations, and major technical requirements."
+  },
+  {
+    title: "Testing & Release",
+    desc: "Explain how device compatibility, performance, integrations, and Google Play requirements were handled."
+  },
+  {
+    title: "Outcome",
+    desc: "Where verified data exists, show measurable results such as successful launch, improved workflows, resolved technical issues, adoption, or other documented outcomes."
+  }
+]
+
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+    <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
+      <div className="mx-auto max-w-[95vw]">
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+        {/* SECTION 1: OUR ANDROID APP DEVELOPMENT SERVICES */}
+        <div>
+          <SectionIntro
+            eyebrow="Core Specialization"
+            title="Our Android App Development Services"
+          >
+            We provide end-to-end Android development from product planning and UI/UX through native development, testing, deployment, and post-launch support.
+          </SectionIntro>
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {androidServices.map((svc, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 hover:border-frame-accent transition-colors"
+              >
+                <div>
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+                    Service 0{i + 1}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {svc.title}
+                  </h3>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {svc.desc}
+                  </p>
                 </div>
-              )}
+              </div>
+            ))}
+          </div>
+        </div>
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
+        {/* SECTION 2: ANDROID APPS WE BUILD */}
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="Targeted Solutions"
+            title="Android Apps We Build"
+          >
+            Different Android products require different user flows, features, and technical approaches. We build around the business use case rather than applying the same application structure to every project.
+          </SectionIntro>
 
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {appsWeBuild.map((app, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Solution 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {app.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {app.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 3: WHY YOUR BUSINESS NEEDS A REAL ANDROID PARTNER */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Engineering Reliability
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Why Your Business Needs a Real Android Development Partner
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Android applications need more than functional code. They need to work across the devices, operating systems, network conditions, and user environments relevant to the product.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {whyRealPartner.map((reason, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Factor 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {reason.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {reason.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 border-t-2 border-frame-border pt-6">
+            <p className="text-sm md:text-base font-semibold italic text-frame-fg">
+              A strong Android development process considers what happens after the app works on the developer&apos;s device.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 4: ANDROID APP FEATURES & INTEGRATIONS */}
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="Capabilities & Modules"
+            title="Android App Features &amp; Integrations"
+          >
+            The exact functionality depends on the application, but we can build and integrate common Android capabilities required by modern business and consumer products.
+          </SectionIntro>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {featuresAndIntegrations.map((feat, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Module 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {feat.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {feat.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 5: NATIVE ANDROID DEVELOPMENT WITH KOTLIN */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Platform Native
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Native Android Development With Kotlin
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              We build native Android applications in Kotlin when the project requires direct access to Android capabilities, platform-specific behavior, or tighter control over the Android experience.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {nativeKotlinPoints.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Capability 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-sm font-semibold italic text-frame-fg">
+              Native development gives the application direct access to Android capabilities rather than relying on a shared abstraction for every platform feature.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 6: ANDROID TECHNOLOGY STACK */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Engineering Stack
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Android Technology Stack
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              We choose the technology stack based on the application&apos;s requirements, supported devices, maintainability, and long-term roadmap.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
+                <tr>
+                  <th className="p-4 border-r-2 border-frame-border w-1/3">Layer / Area</th>
+                  <th className="p-4 w-2/3">Technologies &amp; Frameworks</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
+                {techStack.map((row, rIdx) => (
+                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-4 font-semibold text-frame-fg border-r-2 border-frame-border">
+                      {row.area}
+                    </td>
+                    <td className="p-4 font-medium text-frame-accent">
+                      {row.details}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              The final stack is selected for the application rather than added simply to make the technology list longer.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 7: PRODUCT STRATEGY & ARCHITECTURE */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Blueprint &amp; Roadmap
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Product Strategy &amp; Architecture
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Before development starts, we establish how the application should work as a product and as a technical system.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {strategyArchitecture.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Pillar 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-sm font-semibold italic text-frame-fg">
+              Good architecture reduces uncertainty later. It should support the product without introducing unnecessary technical complexity.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 8: ANDROID APP ARCHITECTURE & CODE QUALITY */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Engineering Standards
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Android App Architecture &amp; Code Quality
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              A maintainable Android application needs a clear code structure as well as functional features. Depending on the project, architecture can include:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {codeQuality.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Standard 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              The architecture should fit the product. We do not add patterns simply to make the technical stack look more complex.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 9: UI/UX DESIGN FOR ANDROID */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Platform Native UX
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              UI/UX Design for Android
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Android interfaces should feel natural to Android users while supporting the goals of the product.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {uiUxPoints.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Design Element 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-sm font-semibold italic text-frame-fg">
+              The goal is to create an interface that feels designed for Android rather than simply displayed on an Android device.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 10: ANDROID APP SECURITY & DATA PROTECTION */}
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="Security &amp; Privacy"
+            title="Android App Security &amp; Data Protection"
+          >
+            Security should be considered throughout the development process rather than added just before launch.
+          </SectionIntro>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {securityPillars.map((sec, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Security Protocol 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {sec.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {sec.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
+            <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              Security requirements depend on the product, data, integrations, and business context, so the exact implementation is defined during technical planning.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 11: ANDROID APPS BUILT FOR REAL-WORLD CONDITIONS */}
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="Real-World Resilience"
+            title="Android Apps Built for Real-World Conditions"
+          >
+            An Android application can work perfectly in development and still behave differently in real-world use. We consider the environment in which the target users will actually use the product.
+          </SectionIntro>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {realWorldConditions.map((cond, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Condition 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {cond.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {cond.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
+            <p className="text-xs md:text-sm font-semibold italic text-frame-fg">
+              Building for Android means planning for variation rather than testing only the easiest case.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 12: APP TESTING, QUALITY ASSURANCE & PLAY STORE RELEASE */}
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="Testing &amp; Verification"
+            title="App Testing, Quality Assurance &amp; Play Store Release"
+          >
+            Testing takes place throughout development so issues can be identified before the final release.
+          </SectionIntro>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {testingStages.map((stage, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Testing Stage 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {stage.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {stage.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
+            <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              Quality assurance is not limited to confirming that the app opens. The goal is to verify that important workflows continue working under supported conditions.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 13: GOOGLE PLAY STORE LAUNCH & RELEASE SUPPORT */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Store Deployment
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Google Play Store Launch &amp; Release Support
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Building a production-ready Android application is only part of the release process. We can support the preparation and submission of the app to Google Play.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {playStoreRelease.map((step, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Release Task 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {step.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
+              Google makes the final publishing and policy decisions, so no development partner can guarantee approval on a first submission.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 14: ANDROID APP MODERNIZATION & MIGRATION */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Legacy Modernization
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Android App Modernization &amp; Migration
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              An existing Android application may not need to be completely rebuilt. Sometimes the better approach is to modernize the current codebase and improve the areas causing problems. We can support:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {modernizationItems.map((item, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-3 border-2 border-frame-border bg-frame-muted/10 p-4"
+              >
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                </span>
+                <span className="text-sm font-semibold text-frame-fg">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              Before major changes begin, we assess the existing codebase, architecture, dependencies, integrations, and current issues. The recommendation may be modernization, migration, partial redevelopment, or a full rebuild depending on the condition of the application.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 15: WHAT YOU RECEIVE FROM AN ANDROID DEVELOPMENT PROJECT */}
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="Deliverables &amp; Handoff"
+            title="What You Receive From an Android Development Project"
+          >
+            The final deliverables depend on the agreed scope, but a typical Android project can include:
+          </SectionIntro>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {deliverables.map((del, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Deliverable 0{i + 1}
+                  </span>
+                  <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
+                    {del.category}
+                  </h3>
+                  <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4">
+                    {del.items.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+                        <span className="text-frame-accent font-bold">&bull;</span>
+                        <span>{item}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
-              )}
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
+            <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              The exact deliverables, source-code ownership, documentation level, and support terms are defined before development begins.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 16: WHY CHOOSE FRAMECIPHER FOR ANDROID APP DEVELOPMENT */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Agency Differentiators
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Why Choose Framecipher for Android App Development
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Framecipher connects product planning, Android UI/UX, native development, backend engineering, testing, and Google Play release within one coordinated in-house workflow.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((reason, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Advantage 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {reason.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {reason.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 17: ANDROID DEVELOPMENT PORTFOLIO & CASE STUDIES */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Case Study Standards
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Android Development Portfolio &amp; Case Studies
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              A strong Android portfolio should show more than interface screenshots. It should demonstrate the problem, technical approach, development scope, and actual outcome.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {portfolioFramework.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Element 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+            <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
+              Only publish ratings, download figures, project counts, performance improvements, or other measurable claims when supported by actual evidence.
+            </p>
+          </div>
+        </div>
+
+        {/* SECTION 18: ANDROID APP DEVELOPMENT SERVICES ACROSS BANGLADESH & WORLDWIDE */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-12">
+          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+            Domestic Presence &amp; Global Reach
+          </span>
+          <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            Android App Development Services Across Bangladesh &amp; Worldwide
+          </h2>
+          <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg">
+            Framecipher provides Android app development services for startups, SMEs, established businesses, and digital product teams across Bangladesh and international markets.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            <div className="border-2 border-frame-border bg-frame-bg p-6">
+              <h3 className="font-heading text-lg font-bold uppercase text-frame-fg">
+                Android App Development in Bangladesh
+              </h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                We work with businesses in Dhaka, Gazipur, Chattogram, Narayanganj, Sylhet, Cumilla, Rajshahi, Khulna, Rangpur, Barishal, and Mymensingh, as well as clients in other parts of Bangladesh.
+              </p>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                For Bangladesh-focused Android products, we can plan around the device range, connectivity, language, payment workflows, and business systems relevant to the target users. Where required and technically supported, this can include local services such as bKash and Nagad.
+              </p>
+            </div>
+
+            <div className="border-2 border-frame-border bg-frame-bg p-6">
+              <h3 className="font-heading text-lg font-bold uppercase text-frame-fg">
+                Android App Development for International Businesses
+              </h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                We also work with businesses and product teams serving customers in the United States, United Kingdom, Canada, Australia, and UAE.
+              </p>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                International projects can be planned around the target market, supported devices, third-party services, payment providers, backend systems, and Google Play release requirements.
+              </p>
+            </div>
+
+            <div className="border-2 border-frame-border bg-frame-bg p-6">
+              <h3 className="font-heading text-lg font-bold uppercase text-frame-fg">
+                Remote Android Development
+              </h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                You do not need to be based in Dhaka or Bangladesh to work with Framecipher. We can collaborate remotely through online consultations, project management, design reviews, development updates, testing, and release coordination.
+              </p>
             </div>
           </div>
-        </section>
-      )}
-    </div>
+
+          <div className="mt-8 border-t-2 border-frame-border pt-6">
+            <p className="text-sm md:text-base font-semibold text-frame-fg">
+              Whether you&apos;re launching a local business app in Bangladesh or building an Android product for an international audience, our development process is structured around your users, technical requirements, and business goals.
+            </p>
+            <div className="mt-6">
+              <PosterButton href="/contact">Book an Android Consultation &rarr;</PosterButton>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
   )
 }

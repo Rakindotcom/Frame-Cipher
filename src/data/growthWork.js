@@ -115,9 +115,9 @@ export const growthPortfolio = [
     category: 'SEO',
     client: 'Phone Fashion Fix',
     title: 'Phone Fashion Fix Local SEO',
-    summary: 'A 34-page service architecture expanded organic visibility for a device-repair business in Ocala, Florida.',
-    image: '/case-studies/phone-fashion-fix/image-4.webp',
-    metrics: [['34 pages', 'Service architecture'], ['263 → 6,980', 'Search impressions']],
+    summary: 'A 34-page service architecture expanded organic visibility for a device-repair business in Ocala, Florida, reaching 20.5K impressions and 226 clicks across the latest six-month view.',
+    image: '/growth-work/phone-fashion-fix/image-10.png',
+    metrics: [['34 pages', 'Service architecture'], ['20.5K', 'Six-month impressions'], ['226', 'Six-month clicks']],
     tags: ['Local SEO', 'Technical SEO', 'Content Strategy'],
   },
   {
@@ -580,16 +580,16 @@ export const growthCaseStudies = [
     client: 'Phone Fashion Fix',
     industry: 'Mobile Device & Electronics Repair',
     title: 'Building Top-10 Local Search Visibility for Phone Fashion Fix',
-    summary: 'A local and technical SEO program built a 34-page service architecture for an Ocala repair business, growing three-month impressions from 263 to 6,980 and clicks from 12 to 196.',
+    summary: 'A local and technical SEO program built a 34-page service architecture for an Ocala repair business, growing six-month impressions to 20.5K and clicks to 226.',
     timeline: 'Phased campaign, 2026',
     primaryFocus: 'Google Search Console',
-    image: image('/case-studies/phone-fashion-fix/image-4.webp', 'Phone Fashion Fix Search Console growth'),
+    image: image('/case-studies/phone-fashion-fix/image-10.png', 'Phone Fashion Fix six-month Search Console growth'),
     snapshot: [
       ['Market', 'Ocala, Florida - hyper-local single-city service area'],
       ['Competition', 'National repair chains, mall kiosks, and established local competitors'],
       ['Our role', 'SEO strategy, architecture, keyword mapping, briefs, implementation oversight, and link acquisition'],
     ],
-    metrics: [['34', 'Service pages ranked'], ['+2,554%', 'Three-month impressions'], ['+1,533%', 'Three-month clicks'], ['5', 'Topical silos built']],
+    metrics: [['34', 'Service pages ranked'], ['20.5K', 'Six-month impressions'], ['226', 'Six-month clicks'], ['5', 'Topical silos built']],
     sections: [
       {
         title: 'Problem and research',
@@ -632,9 +632,9 @@ export const growthCaseStudies = [
       {
         title: 'Search Console results',
         paragraphs: [
-          'The latest three-month comparison recorded 196 clicks and 6,980 impressions, versus 12 clicks and 263 impressions in the prior period. Impressions expanded roughly 26 times, and clicks increased more than sixteen times.',
-          'The blended average position moved from 9.5 to 21.1 because Google began surfacing a much wider set of newly published service and blog pages. That wider keyword universe included pages still climbing, so the lower blended position accompanied much stronger total visibility and traffic.',
-          'Earlier snapshots showed 108 clicks and 1.33K impressions over 28 days on June 28, 2026; 103 clicks versus 31 over the compared 28-day windows on July 3; and 194 clicks with 4.61K impressions across three months by July 24.',
+          'The latest six-month snapshot recorded 226 clicks and 20.5K impressions. A separate six-month view recorded 224 clicks and 18.7K impressions, confirming that the wider service-page footprint continued to compound visibility beyond the earlier three-month snapshot.',
+          'The newest Search Console views show a broader query set entering the site, with impressions expanding as device-and-repair pages mature. Average position remains a blended view across established pages and newer pages still climbing, so total visibility is the more useful growth signal here.',
+          'Earlier snapshots showed 108 clicks and 1.33K impressions over 28 days on June 28, 2026; 103 clicks versus 31 over the compared 28-day windows on July 3; 194 clicks with 4.61K impressions across three months; and 196 clicks with 6.98K impressions in the next comparison.',
         ],
       },
       {
@@ -652,6 +652,12 @@ export const growthCaseStudies = [
       image('/case-studies/phone-fashion-fix/image-2.webp', 'Phone Fashion Fix 28-day Search Console comparison', 'July 3, 2026: 103 clicks versus 31 previously'),
       image('/case-studies/phone-fashion-fix/image-3.webp', 'Phone Fashion Fix three-month Search Console snapshot', 'July 24, 2026: 194 clicks and 4.61K impressions'),
       image('/case-studies/phone-fashion-fix/image-4.webp', 'Phone Fashion Fix three-month Search Console comparison', 'August 4, 2026: 196 clicks and 6.98K impressions versus 12 clicks and 263 impressions'),
+      image('/case-studies/phone-fashion-fix/image-5.png', 'Phone Fashion Fix updated Search Console performance', 'Updated visibility snapshot after the service architecture expanded'),
+      image('/case-studies/phone-fashion-fix/image-6.png', 'Phone Fashion Fix updated Analytics overview', 'Updated engagement and active-user snapshot'),
+      image('/case-studies/phone-fashion-fix/image-7.png', 'Phone Fashion Fix six-month Search Console comparison', 'Six-month view: 224 clicks and 18.7K impressions'),
+      image('/case-studies/phone-fashion-fix/image-8.png', 'Phone Fashion Fix updated Search Console comparison', 'Updated comparison view across the latest reporting window'),
+      image('/case-studies/phone-fashion-fix/image-9.png', 'Phone Fashion Fix SEO domain overview', 'Updated authority, organic keyword, traffic, and backlink snapshot'),
+      image('/case-studies/phone-fashion-fix/image-10.png', 'Phone Fashion Fix latest six-month Search Console comparison', 'Latest six-month view: 226 clicks and 20.5K impressions'),
     ],
     tools: ['Google Search Console', 'Semrush', 'Schema markup', 'Local SEO', 'Internal linking'],
     lessons: [

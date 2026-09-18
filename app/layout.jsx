@@ -3,7 +3,7 @@ import Footer from '../src/components/Footer'
 import RouteScrollToTop from '../src/components/RouteScrollToTop'
 import ScrollToTopButton from '../src/components/ScrollToTop'
 import { contact, services, siteUrl } from '../src/data/agency'
-import { getPillarServices, getServiceDisplayName } from '../src/data/servicePages'
+import { getPillarServices, getServiceDisplayName, getSubServicesForPillar } from '../src/data/servicePages'
 import '../src/index.css'
 
 const siteDescription =
@@ -87,6 +87,10 @@ const organizationSchema = {
 const pillarNavServices = getPillarServices().map((pillar) => ({
   name: getServiceDisplayName(pillar),
   path: pillar.fullPath,
+  subServices: getSubServicesForPillar(pillar.slug).map((service) => ({
+    name: getServiceDisplayName(service),
+    path: service.fullPath,
+  })),
 }))
 
 export default function RootLayout({ children }) {

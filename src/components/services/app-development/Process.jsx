@@ -1,108 +1,80 @@
 import { SectionIntro } from '../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const processSteps = [
   {
-    "number": "1",
-    "title": "Discovery & Platform Strategy",
-    "description": "We review your idea, target users, and budget to recommend Android, iOS, cross-platform, or an MVP first not a default platform."
+    step: "01",
+    title: "Discovery & Platform Strategy",
+    desc: "We review the idea, users, business goals, budget, and product requirements before recommending Android, iOS, cross-platform, SaaS, or an MVP-first approach."
   },
   {
-    "number": "2",
-    "title": "Architecture & UI/UX Design",
-    "description": "We plan data structure, API needs, and user flow before any screen design begins."
+    step: "02",
+    title: "Architecture & Planning",
+    desc: "We define the technical structure, backend requirements, APIs, integrations, data flow, and major product components."
   },
   {
-    "number": "3",
-    "title": "Design & Development",
-    "description": "UI/UX design first, with review checkpoints, followed by front-end and back-end development."
+    step: "03",
+    title: "UI/UX Design",
+    desc: "We map important user journeys, create wireframes, develop the interface, and validate the experience before development progresses."
   },
   {
-    "number": "4",
-    "title": "Testing & Quality Assurance",
-    "description": "Functional, performance, and device testing across the platforms your app targets, before submission."
+    step: "04",
+    title: "Development",
+    desc: "Our team builds the application, backend, integrations, and supporting systems according to the approved scope."
   },
   {
-    "number": "5",
-    "title": "App Store Launch",
-    "description": "We handle App Store and Google Play submission, including navigating review requirements."
+    step: "05",
+    title: "Testing & Quality Assurance",
+    desc: "We test important features, integrations, supported devices, operating systems, and performance conditions before release."
   },
   {
-    "number": "6",
-    "title": "Post-Launch Support",
-    "description": "Bug fixes, OS compatibility updates, and guidance on what's next for your app's growth."
+    step: "06",
+    title: "Launch",
+    desc: "We prepare the production build and support the relevant deployment or app-store submission process."
+  },
+  {
+    step: "07",
+    title: "Post-Launch Support",
+    desc: "After launch, we can continue with bug fixes, compatibility updates, monitoring, feature improvements, and ongoing technical support."
   }
 ]
-  const timeline = service?.timeline || "An MVP is typically deliverable within 6 to 10 weeks of starting, depending on core feature complexity. A full native or cross-platform app usually takes 10 to 16 weeks, and SaaS or enterprise applications with complex backend and integration needs can run 16 to 24+ weeks.\n\nIf you're working toward a specific deadline, an investor demo, a launch event, let us know early, since app store review times (particularly Apple's) can add unpredictable delays near the end of a project and are worth planning around."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Our Engineering Methodology"
+          title="How We Approach App Development"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Our process is designed to connect product goals, user experience, technology, and launch requirements from the beginning.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          {processSteps.map((step, index) => (
+            <div
+              key={index}
+              className="relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 hover:border-frame-accent transition-colors min-h-[300px]"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl md:text-5xl font-black text-frame-accent">
+                  {step.step}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {step.desc}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+
+              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Phase {step.step} Milestone
+                </span>
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

@@ -142,6 +142,15 @@ const videoWorkSections = [
 
 const websiteProjects = [
   {
+    name: 'Jarixo',
+    url: 'https://jarixo.com/',
+    domain: 'jarixo.com',
+    category: 'Wellness E-commerce platform',
+    screenshot: '/website-shots/jarixo.com.png',
+    summary:
+      'A premium wellness storefront built around calm visual storytelling, product discovery, and a smoother path to purchase.',
+  },
+  {
     name: 'Dr. Ferdoush Saleheen',
     url: 'https://ferdoushsaleheen.com/',
     domain: 'ferdoushsaleheen.com',

@@ -2,50 +2,43 @@ const steps = [
   {
     number: '01',
     title: 'Discovery & Requirements',
-    description: 'We analyze your business model, target users, operational workflows, existing databases, and core application objectives.',
+    description: 'We understand your business model, users, workflows, existing systems, technical requirements, integrations, and project goals.',
   },
   {
     number: '02',
     title: 'Technical Assessment',
-    description: 'We confirm whether Next.js and custom development are appropriate and define the backend architecture and tech stack.',
+    description: 'We determine whether Next.js and custom development are actually appropriate and define the major technical requirements.',
   },
   {
     number: '03',
     title: 'Architecture & UX Planning',
-    description: 'We map user journeys, system architecture, database entities, third-party integrations, and critical technical dependencies.',
+    description: 'We map user flows, system architecture, data structures, integrations, application components, and key technical dependencies.',
   },
   {
     number: '04',
-    title: 'UI/UX Design System',
-    description: 'We design responsive interfaces, wireframes, and reusable component libraries around actual application workflows and tasks.',
+    title: 'UI/UX Design',
+    description: 'We design the interface and reusable components around actual application workflows and user requirements.',
   },
   {
     number: '05',
-    title: 'Full-Stack Development',
-    description: 'We engineer the Next.js frontend, server actions, database queries, API endpoints, authentication, and custom business logic.',
+    title: 'Development & Integration',
+    description: 'We build the frontend, backend, database connections, APIs, authentication, integrations, and custom functionality.',
   },
   {
     number: '06',
-    title: 'Testing & Hardening',
-    description: 'We conduct comprehensive automated testing, E2E validation, responsiveness QA, security scans, and Core Web Vitals profiling.',
+    title: 'Testing & Optimization',
+    description: 'We test functionality, responsiveness, security, performance, accessibility, and critical user workflows.',
   },
   {
     number: '07',
-    title: 'Deployment & Monitoring',
-    description: 'We configure production CI/CD pipelines, provision cloud infrastructure, configure DNS/SSL, and establish error logging.',
+    title: 'Deployment & Launch',
+    description: 'We prepare the production environment, deploy the application, complete final checks, and monitor the launch.',
   },
   {
     number: '08',
-    title: 'Handover & Roadmap',
-    description: 'We transfer full source repository ownership, API documentation, and credentials, providing ongoing feature iteration.',
+    title: 'Handover & Ongoing Development',
+    description: 'We provide the agreed access, documentation, and guidance, with ongoing development available for future improvements.',
   },
-]
-
-const timelines = [
-  { type: 'Custom Marketing Site', time: '4–6 weeks', scope: 'Custom design, headless CMS binding, sub-second speed, on-page SEO' },
-  { type: 'Standard Web Application', time: '8–12 weeks', scope: 'User authentication, custom database schema, dashboard UI, API integrations' },
-  { type: 'Complex Web Application', time: '12–20 weeks', scope: 'Multiple user roles, complex business logic, billing pipelines, external APIs' },
-  { type: 'Enterprise / Large-Scale Platform', time: '20+ weeks', scope: 'High-availability cloud infrastructure, multi-system synchronization, microservices' },
 ]
 
 export default function Process() {
@@ -55,22 +48,22 @@ export default function Process() {
         {/* SECTION HEADER */}
         <div className="mb-14 md:mb-20 max-w-4xl">
           <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Engineering Lifecycle / Process
+            Workflow &amp; Delivery
           </p>
           <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Our Structured Development Process
+            Next.js Development Process
           </h2>
           <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Our development process is designed to reduce uncertainty and validate architecture before expensive development decisions are made.
+            Our process is designed to reduce uncertainty before expensive development decisions are made.
           </p>
         </div>
 
-        {/* HOME-STYLE WATERMARK CARDS */}
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {/* STEPS GRID WITH UNIFORM ALIGNMENT */}
+        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
           {steps.map((step) => (
             <article
               key={step.number}
-              className="group relative flex min-h-80 flex-col justify-between overflow-hidden border-2 border-frame-border bg-frame-bg p-7 sm:p-8 transition-all duration-300 hover:border-frame-accent hover:bg-frame-accent"
+              className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden bg-frame-bg p-7 sm:p-8 transition-all duration-300 hover:bg-frame-accent"
             >
               <p
                 className="absolute -right-2 -top-4 select-none font-heading text-[7.5rem] sm:text-[9rem] font-bold leading-none tracking-tighter text-frame-muted/30 transition-colors duration-300 group-hover:text-frame-accent-fg/20"
@@ -82,37 +75,15 @@ export default function Process() {
                 <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
                   Phase {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-3xl">
+                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase leading-snug tracking-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
                   {step.title}
                 </h3>
               </div>
-              <p className="relative z-10 mt-6 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+              <p className="relative z-10 mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
                 {step.description}
               </p>
             </article>
           ))}
-        </div>
-
-        {/* TIMELINE TABLE */}
-        <div className="mt-20 overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-          <table className="w-full text-left min-w-[600px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/40">
-              <tr>
-                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Scope</th>
-                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Delivery</th>
-                <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Key Inclusions</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-              {timelines.map((item, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-7 font-bold text-frame-fg">{item.type}</td>
-                  <td className="p-5 md:p-7 font-bold text-frame-accent">{item.time}</td>
-                  <td className="p-5 md:p-7 text-xs sm:text-sm text-frame-muted-fg">{item.scope}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
       </div>
     </section>
