@@ -36,6 +36,11 @@ const coreOfferings = [
     title: "MVP Development",
     slug: "/services/app-development/mvp-development",
     desc: "Focused first versions that include the core functionality needed to test a product idea with real users before committing to a larger feature set."
+  },
+  {
+    title: "App Maintenance & Support",
+    slug: "/services/app-development/maintenance",
+    desc: "Ongoing application maintenance, OS compatibility updates, bug fixes, performance monitoring, security patching, and store compliance."
   }
 ]
 
@@ -94,6 +99,10 @@ const whyCustomApps = [
   {
     title: "Scalable Digital Products",
     desc: "A well-planned application can grow from an MVP into a larger SaaS product, marketplace, customer platform, or business system."
+  },
+  {
+    title: "Offline Resilience & Sync",
+    desc: "Critical workflows can continue working during weak connectivity, syncing data reliably once the device reconnects to your servers."
   }
 ]
 
@@ -438,7 +447,7 @@ export default function Offerings() {
             Framecipher provides end-to-end app development for startups, businesses, and growing digital products. We handle strategy, UI/UX, architecture, development, integrations, testing, launch, and post-launch support through one in-house team.
           </SectionIntro>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {coreOfferings.map((item, i) => (
               <div
                 key={i}

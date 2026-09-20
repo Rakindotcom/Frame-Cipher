@@ -244,8 +244,12 @@ const userManagementItems = [
     desc: "For suitable products, authentication can include SSO or other enterprise identity requirements."
   },
   {
-    title: "Support & Administrative Access",
+    title: "Support \u0026 Administrative Access",
     desc: "Controlled support access or administrative impersonation can be implemented when it is useful and appropriate for the product."
+  },
+  {
+    title: "Session Management",
+    desc: "Control active sessions, enforce session policies, handle concurrent access, and support secure logout across devices where the product requires it."
   }
 ]
 
@@ -324,6 +328,14 @@ const analyticsItems = [
   {
     title: "Custom Reports",
     desc: "Create reporting around the specific operational and commercial metrics your SaaS product needs."
+  },
+  {
+    title: "Customer Health Scoring",
+    desc: "Track product activity signals that indicate whether an account is engaged, at risk, or approaching a natural point for expansion."
+  },
+  {
+    title: "Alerting \u0026 Anomaly Detection",
+    desc: "Configure alerts for important usage thresholds, error rates, billing events, or business conditions that fall outside expected ranges."
   }
 ]
 
@@ -504,6 +516,14 @@ const performanceInfraItems = [
   {
     title: "Backup & Recovery",
     desc: "Infrastructure planning can include suitable backup, restoration, and recovery procedures based on the product's risk profile."
+  },
+  {
+    title: "Infrastructure Cost Review",
+    desc: "Review cloud resource usage to identify over-provisioned or underused components as the product scales and infrastructure spend increases."
+  },
+  {
+    title: "Environment Parity",
+    desc: "Keep development, staging, and production environments aligned to reduce environment-specific issues and unexpected release surprises."
   }
 ]
 
@@ -535,6 +555,10 @@ const uiUxDesignItems = [
   {
     title: "Usability Validation",
     desc: "Important workflows can be evaluated through prototypes, feedback, and iterative design before development is finalized."
+  },
+  {
+    title: "Navigation Architecture",
+    desc: "Design clear top-level navigation, sidebar menus, sub-navigation, and contextual actions so users can move through the product without confusion."
   }
 ]
 
@@ -768,6 +792,10 @@ const whyChooseUs = [
   {
     title: "Long-Term Support",
     desc: "The same team can continue with feature development, maintenance, platform updates, performance work, and integrations after launch."
+  },
+  {
+    title: "Transparent Review Process",
+    desc: "Requirements, designs, product milestones, and release stages are reviewed before moving forward so nothing advances without shared understanding."
   }
 ]
 

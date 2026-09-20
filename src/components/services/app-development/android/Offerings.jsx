@@ -29,6 +29,10 @@ const androidServices = [
   {
     title: "Post-Launch Support",
     desc: "We can continue with bug fixes, OS compatibility updates, dependency maintenance, performance improvements, and new feature development after launch."
+  },
+  {
+    title: "App Performance Optimisation",
+    desc: "We review startup time, memory usage, network behaviour, and render performance to identify improvements that affect the real-world experience on target devices."
   }
 ]
 
@@ -334,6 +338,10 @@ const testingStages = [
   {
     title: "Crash Monitoring",
     desc: "Setting up appropriate crash and issue reporting where included in the project scope."
+  },
+  {
+    title: "Security Testing",
+    desc: "Reviewing authentication flows, session handling, API communication, and permission behaviour as part of the pre-release verification process."
   }
 ]
 
@@ -365,6 +373,10 @@ const playStoreRelease = [
   {
     title: "Review Feedback",
     desc: "If Google requests technical or product changes during review, we can help identify the required updates for resubmission."
+  },
+  {
+    title: "Post-Launch Monitoring",
+    desc: "After release, we can monitor crash reports, review performance signals, and address any issues identified in the early post-launch period."
   }
 ]
 

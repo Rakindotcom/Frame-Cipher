@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PosterButton } from '../../../Kinetic'
+import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero() {
   return (
@@ -17,34 +17,23 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Focused Service / Enterprise Ecommerce
-            </span>
-            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              08
-            </span>
-          </div>
-
-          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
-            Best Magento Development Service in Bangladesh
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Framecipher builds Magento stores for merchants with large product catalogs, complex inventory, or B2B pricing needs that outgrow simpler ecommerce platforms. Whether you&apos;re scaling a store in Dhaka or managing multi-region operations across the US, UK, Australia, Canada, or UAE, our Magento development services deliver a platform built to handle real ecommerce complexity, not just a bigger product list.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+      {/* HERO */}
+      <PageHero
+        eyebrow="Focused Service / Enterprise Ecommerce"
+        meta="Magento & Adobe Commerce / 100K+ SKUs"
+        number="07"
+        title="Best Magento Development Service in Bangladesh"
+        actions={
+          <>
             <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
             <PosterButton href="#pricing" variant="outline">
               View Pricing &amp; Plans &rarr;
             </PosterButton>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      >
+        Framecipher builds Magento stores for merchants with large product catalogs, complex inventory, or B2B pricing needs that outgrow simpler ecommerce platforms. Whether you&apos;re scaling a store in Dhaka or managing multi-region operations across the US, UK, Australia, Canada, or UAE, our Magento development services deliver a platform built to handle real ecommerce complexity, not just a bigger product list.
+      </PageHero>
 
       {/* VISUAL DASHBOARD PANEL */}
       <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">

@@ -141,6 +141,14 @@ const featuresAndIntegrations = [
   {
     title: "Third-Party API Integration",
     desc: "Integrate external services for payments, maps, shipping, authentication, communication, analytics, and other required workflows."
+  },
+  {
+    title: "Offline & Local Storage",
+    desc: "Support offline access, local data persistence, sync queues, and retry logic for applications used in low-connectivity environments."
+  },
+  {
+    title: "Background Services",
+    desc: "Run background tasks, periodic jobs, and event-driven processes on both Android and iOS where the product requires it."
   }
 ]
 
@@ -256,6 +264,10 @@ const securityPillars = [
   {
     title: "Dependency Maintenance",
     desc: "Frameworks, plugins, packages, and dependencies need ongoing review as the application evolves and platform versions change."
+  },
+  {
+    title: "Privacy-Aware Development",
+    desc: "We review what data the application collects, how permissions are requested, and what user-facing disclosures are required for each platform."
   }
 ]
 
@@ -472,6 +484,10 @@ const whyChooseUs = [
   {
     title: "Long-Term Support",
     desc: "The same team can continue with bug fixes, framework updates, platform changes, performance work, and new feature development after launch."
+  },
+  {
+    title: "Transparent Communication",
+    desc: "We provide clear updates on progress, technical decisions, scope changes, and timelines throughout the project."
   }
 ]
 

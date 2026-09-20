@@ -61,10 +61,11 @@ export function SectionIntro({ eyebrow, title, children, className = '' }) {
   )
 }
 
-
 export function PosterButton({ href, children, variant = 'accent', className = '', onClick, type }) {
+  const isFullWidth = className.includes('w-full')
+  const widthClasses = isFullWidth ? 'w-full' : 'w-full sm:w-auto'
   const base =
-    'inline-flex min-h-14 w-full sm:w-auto items-center justify-center border-2 px-8 py-4 text-center text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-12 md:text-base'
+    `inline-flex min-h-14 ${widthClasses} items-center justify-center border-2 px-8 py-4 text-center text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-12 md:text-base`
   const variants = {
     accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-[1.02] hover:bg-transparent hover:text-frame-fg',
     outline:

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PosterButton } from '../../../Kinetic'
+import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero() {
   return (
@@ -17,82 +17,63 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Focused Service / Managed Ecommerce Infrastructure
-            </span>
-            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              09
-            </span>
-          </div>
-
-          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
-            Best Shopify Development Service in Bangladesh
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Framecipher builds Shopify stores for merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure. Whether you&apos;re launching a store in Dhaka or selling to customers across the US, UK, Australia, Canada, or UAE, our Shopify development services deliver a store built to convert visitors and stay easy for your team to run.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <PosterButton href="/contact">Get Free Consultation</PosterButton>
+      {/* HERO */}
+      <PageHero
+        eyebrow="Focused Service / Managed Ecommerce Infrastructure"
+        meta="Shopify & Online Store 2.0 / High Conversion"
+        number="09"
+        title="Best Shopify Development Service in Bangladesh"
+        actions={
+          <>
+            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
             <PosterButton href="#pricing" variant="outline">
               View Pricing &amp; Plans &rarr;
             </PosterButton>
+          </>
+        }
+      >
+        Framecipher builds Shopify stores for merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure. Whether you&apos;re launching a store in Dhaka or selling to customers across the US, UK, Australia, Canada, or UAE, our Shopify development services deliver a store built to convert visitors and stay easy for your team to run.
+      </PageHero>
+
+      {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
+      <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">
+        <div className="mx-auto max-w-5xl border-2 border-frame-border bg-frame-muted/20 p-5 md:p-8 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-frame-border pb-4">
+            <div className="flex items-center gap-2">
+              <span className="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="font-bold uppercase tracking-wider text-frame-fg">SHOPIFY_COMMERCE // OS 2.0 ARCHITECTURE</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-frame-muted-fg font-semibold uppercase">
+              <span>STATUS: PRODUCTION-READY</span>
+              <span>APPS: ZERO-BLOAT POLICY</span>
+              <span className="text-frame-accent font-black">CHECKOUT: LEVEL 1 PCI-DSS</span>
+            </div>
           </div>
 
-          {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
-          <div className="mt-16 grid grid-cols-2 gap-px border-2 border-frame-border bg-frame-border md:grid-cols-4">
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Theme Architecture
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Online Store 2.0
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Modular Liquid &amp; JSON sections
-              </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Theme Architecture</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Online Store 2.0</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Modular Liquid & JSON</p>
             </div>
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                App Strategy
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Zero App Bloat
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Disciplined stack &amp; native functions
-              </p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">App Strategy</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Zero App Bloat</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Native Functions Stack</p>
             </div>
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Global Commerce
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Shopify Markets
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Multi-currency, localization &amp; duties
-              </p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Global Commerce</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Shopify Markets</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Multi-currency & Duties</p>
             </div>
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Speed Benchmark
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Sub-Second Load
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Core Web Vitals &amp; mobile tuning
-              </p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Speed Benchmark</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Sub-Second Load</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Core Web Vitals 95+</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* STRATEGIC VALUE BANNER / WHY WE'RE THE RIGHT TEAM */}
       <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">

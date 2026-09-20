@@ -82,6 +82,7 @@ const businessNeeds = [
   { title: 'eCommerce Businesses', desc: 'Online stores designed around products, checkout, payments, inventory, and the overall customer journey.' },
   { title: 'Corporate & Established Businesses', desc: 'Structured websites for established brands that need a stronger digital presence, scalable content, and clear information architecture.' },
   { title: 'SaaS & Web Applications', desc: 'Custom websites and web applications for businesses that require user accounts, dashboards, integrations, or workflows beyond standard CMS functionality.' },
+  { title: 'Institutions & Non-Profits', desc: 'Accessible, trust-focused digital portals designed for clear public information, community engagement, and organizational credibility.' },
 ]
 
 const advantages = [

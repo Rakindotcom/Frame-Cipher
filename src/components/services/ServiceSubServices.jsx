@@ -14,7 +14,7 @@ export default function ServiceSubServices({ service }) {
         <SectionIntro eyebrow="Explore the services" title={`Choose the right ${getServiceDisplayName(service)} service.`}>
           Start with the focused capability that matches your immediate goal, or combine several services into one coordinated engagement.
         </SectionIntro>
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className={`grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 ${subServices.length % 4 === 0 && subServices.length <= 8 ? 'lg:grid-cols-4' : 'lg:grid-cols-3'}`}>
           {subServices.map((subService, index) => (
             <Link key={subService.slug} href={subService.fullPath} className="group min-h-48 bg-frame-bg p-6 transition-colors hover:bg-frame-accent md:p-7">
               <div className="flex items-center justify-between">

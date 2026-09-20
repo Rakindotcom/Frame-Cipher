@@ -61,8 +61,16 @@ const enterpriseServices = [
     desc: "We support environment preparation, production deployment, release coordination, launch activities, and initial post-release monitoring according to project scope."
   },
   {
-    title: "Ongoing Support & Maintenance",
+    title: "Ongoing Support \u0026 Maintenance",
     desc: "We provide post-launch bug fixes, security updates, integration support, performance optimization, maintenance, and future development through an agreed support arrangement."
+  },
+  {
+    title: "Post-Launch Review",
+    desc: "After the initial release, we review production performance, user adoption signals, and operational issues to identify early improvements."
+  },
+  {
+    title: "Training \u0026 Knowledge Transfer",
+    desc: "We help the organization understand how the new application works, including user guides, admin documentation, and team handoff materials."
   }
 ]
 
@@ -293,6 +301,14 @@ const securityCompliance = [
   {
     title: "Compliance Requirements",
     desc: "Enterprise applications can be designed around the regulatory, contractual, or internal security requirements that apply to the organization."
+  },
+  {
+    title: "Network \u0026 Infrastructure Security",
+    desc: "Network-level controls, access rules, and infrastructure hardening can be included where the application's risk profile and deployment environment require them."
+  },
+  {
+    title: "Third-Party Security Review",
+    desc: "Connected external services, vendors, and integrations can introduce additional risk. Where appropriate, third-party interfaces and access are reviewed alongside the application itself."
   }
 ]
 
@@ -548,6 +564,10 @@ const uiUxAdoption = [
   {
     title: "Usability Validation",
     desc: "Important workflows can be reviewed with representative users and stakeholders before development is finalized."
+  },
+  {
+    title: "Responsive Design",
+    desc: "Enterprise interfaces may need to support desktop workstations, tablets, and mobile devices depending on how different user groups access the application."
   }
 ]
 
@@ -579,6 +599,10 @@ const rolloutChangeManagement = [
   {
     title: "Adoption Monitoring",
     desc: "Review suitable indicators such as workflow completion, feature usage, support requests, and other operational signals to understand how the system is being adopted."
+  },
+  {
+    title: "Post-Rollout Review",
+    desc: "After the initial rollout, we review adoption signals, usability feedback, and workflow observations to identify improvements for the next phase."
   }
 ]
 
@@ -622,6 +646,14 @@ const testingQa = [
   {
     title: "Disaster Recovery Testing",
     desc: "For systems with defined recovery requirements, test restoration and recovery procedures instead of assuming they will work as expected."
+  },
+  {
+    title: "Data Migration Testing",
+    desc: "Validate the accuracy and completeness of migrated data through comparison, reconciliation, and record-level checks."
+  },
+  {
+    title: "End-to-End Testing",
+    desc: "Trace complete business workflows across multiple systems to confirm that the full process works correctly under representative conditions."
   }
 ]
 
@@ -653,6 +685,10 @@ const dataMigration = [
   {
     title: "Rollback Planning",
     desc: "Define how the organization can recover if an unexpected migration problem affects production."
+  },
+  {
+    title: "Post-Migration Validation",
+    desc: "Compare records after migration to confirm accuracy, completeness, and referential integrity before the legacy system is decommissioned."
   }
 ]
 
@@ -711,6 +747,10 @@ const deliverablesList = [
   {
     title: "Documentation & Handoff",
     desc: "Source code, technical documentation, API information, environment details, relevant credentials, and other agreed handoff materials."
+  },
+  {
+    title: "Ongoing Support Arrangement",
+    desc: "Post-launch support, maintenance, enhancement, and development can continue under a separate agreed support arrangement."
   }
 ]
 
@@ -742,6 +782,10 @@ const whyChooseUs = [
   {
     title: "Long-Term Support",
     desc: "The same team can continue supporting application updates, integrations, performance, security, and future development after launch."
+  },
+  {
+    title: "Platform \u0026 Technology Advice",
+    desc: "We recommend the architecture, technologies, and integration approach that fit the organization's actual requirements rather than forcing every project into one fixed solution."
   }
 ]
 

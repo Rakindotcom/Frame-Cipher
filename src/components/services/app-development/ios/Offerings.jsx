@@ -29,6 +29,10 @@ const iosServices = [
   {
     title: "iOS App Support & Maintenance",
     desc: "We continue supporting your application with bug fixes, updates, improvements, new features, and ongoing technical maintenance."
+  },
+  {
+    title: "App Performance Optimisation",
+    desc: "We review startup time, memory use, API behaviour, rendering, and other performance-sensitive areas to ensure the app runs smoothly across supported devices."
   }
 ]
 
@@ -114,6 +118,10 @@ const featuresAndIntegrations = [
   {
     title: "Analytics & Crash Monitoring",
     desc: "Connect analytics and crash-monitoring tools to understand application behavior, identify issues, and improve future releases."
+  },
+  {
+    title: "Third-Party Integrations",
+    desc: "Connect to CRMs, payment providers, logistics APIs, communication platforms, and other required services within the iOS application."
   }
 ]
 

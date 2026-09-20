@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PosterButton } from '../../../Kinetic'
+import { PageHero, PosterButton } from '../../../Kinetic'
 
 const readinessFactors = [
   'The design feels outdated and no longer represents your brand or market position.',
@@ -57,58 +57,63 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Focused Service / Website Redesign
-            </span>
-            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              11
-            </span>
-          </div>
-
-          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
-            Best Website Redesign Service in Bangladesh
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Framecipher redesigns websites for businesses, ecommerce stores, blogs, portfolios, and any other kind of site that&apos;s outdated, slow, or no longer performing, without losing the SEO rankings, content, or traffic already built up. Whether you&apos;re redesigning a business site, an online store, a content platform, or something else entirely in Dhaka or across the US, UK, Australia, Canada, or UAE, our redesign services fix what&apos;s actually broken instead of just applying a new coat of paint.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <PosterButton href="/contact">Get Free Consultation</PosterButton>
+      {/* HERO */}
+      <PageHero
+        eyebrow="Focused Service / Website Redesign"
+        meta="Modern UX & Speed / Zero SEO Loss"
+        number="11"
+        title="Best Website Redesign Service in Bangladesh"
+        actions={
+          <>
+            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
             <PosterButton href="#pricing" variant="outline">
               View Pricing &amp; Plans &rarr;
             </PosterButton>
+          </>
+        }
+      >
+        Framecipher redesigns websites for businesses, ecommerce stores, blogs, portfolios, and any other kind of site that&apos;s outdated, slow, or no longer performing, without losing the SEO rankings, content, or traffic already built up. Whether you&apos;re redesigning a business site, an online store, a content platform, or something else entirely in Dhaka or across the US, UK, Australia, Canada, or UAE, our redesign services fix what&apos;s actually broken instead of just applying a new coat of paint.
+      </PageHero>
+
+      {/* KINETIC METRIC CARDS */}
+      <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">
+        <div className="mx-auto max-w-5xl border-2 border-frame-border bg-frame-muted/20 p-5 md:p-8 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-frame-border pb-4">
+            <div className="flex items-center gap-2">
+              <span className="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="font-bold uppercase tracking-wider text-frame-fg">REDESIGN_AUDIT // PRESERVATION & MODERNIZATION</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-frame-muted-fg font-semibold uppercase">
+              <span>STATUS: SAFE MIGRATION</span>
+              <span>EQUITY: ZERO SEO LOSS</span>
+              <span className="text-frame-accent font-black">CUTOVER: 100% UPTIME</span>
+            </div>
           </div>
 
-          {/* KINETIC METRIC CARDS */}
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-frame-border border-2 border-frame-border">
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Strategy</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">Audit First</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">Diagnose before redesigning</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Strategy</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Audit First</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Diagnose Before Rebuild</p>
             </div>
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">SEO Protection</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">Zero Loss</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">301 redirects &amp; equity safety</p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">SEO Protection</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Zero Loss</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">301 Redirect Mapping</p>
             </div>
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Performance</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">&lt; 1.0s Speed</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">Core Web Vitals optimized</p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Performance</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">&lt; 1.0s Speed</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Core Web Vitals Pass</p>
             </div>
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Cutover</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">100% Uptime</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">Zero-downtime launch QA</p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Cutover</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">100% Uptime</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Zero-Downtime Launch</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* STRATEGIC ASSESSMENT: DOES YOUR WEBSITE ACTUALLY NEED A REDESIGN? */}
       <section className="bg-frame-bg px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">

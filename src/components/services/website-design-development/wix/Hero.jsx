@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PosterButton } from '../../../Kinetic'
+import { PageHero, PosterButton } from '../../../Kinetic'
 
 const wixAdvantages = [
   {
@@ -50,34 +50,23 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Website Design &amp; Development / Specialized Build
-            </span>
-            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              06
-            </span>
-          </div>
-
-          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
-            Best Wix Development Service in Bangladesh
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Framecipher builds Wix websites for small businesses, startups, and solo entrepreneurs who want a professional site online fast, without the cost or complexity of a fully custom build. Whether you&apos;re launching in Dhaka or reaching customers across the US, UK, Australia, Canada, or UAE, our Wix development services deliver a site that looks polished and stays easy for you to edit afterward.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+      {/* HERO */}
+      <PageHero
+        eyebrow="Website Design & Development / Specialized Build"
+        meta="Wix & Wix Studio / Built For Growth"
+        number="06"
+        title="Best Wix Development Service in Bangladesh"
+        actions={
+          <>
             <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
             <PosterButton href="#pricing" variant="outline">
               View Pricing &amp; Plans &rarr;
             </PosterButton>
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      >
+        Framecipher builds Wix websites for small businesses, startups, and solo entrepreneurs who want a professional site online fast, without the cost or complexity of a fully custom build. Whether you&apos;re launching in Dhaka or reaching customers across the US, UK, Australia, Canada, or UAE, our Wix development services deliver a site that looks polished and stays easy for you to edit afterward.
+      </PageHero>
 
       {/* VISUAL DASHBOARD PANEL (Mockup representation) */}
       <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">

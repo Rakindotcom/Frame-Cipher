@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PosterButton } from '../../../Kinetic'
+import { PageHero, PosterButton } from '../../../Kinetic'
 
 const businessNeeds = [
   {
@@ -44,67 +44,63 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Focused Service / UI/UX Design
-            </span>
-            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              13
-            </span>
-          </div>
-
-          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
-            Best UI/UX Design Service in Bangladesh
-          </h1>
-
-          <p className="mt-4 text-xl sm:text-2xl md:text-3xl font-heading font-bold uppercase tracking-tight text-frame-accent">
-            Design Around Real Users, Not Assumptions
-          </p>
-
-          <div className="mt-6 max-w-3xl space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            <p>
-              Framecipher designs user experiences and interfaces for business websites, ecommerce stores, mobile apps, SaaS products, web applications, and digital products.
-            </p>
-            <p>
-              We start with user flows, structure, and usability before visual design, so problems can be identified before development begins.
-            </p>
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+      {/* HERO */}
+      <PageHero
+        eyebrow="Focused Service / UI/UX Design"
+        meta="Figma Wireframes / User-Centered UX"
+        number="13"
+        title="Best UI/UX Design Service in Bangladesh"
+        actions={
+          <>
             <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
             <PosterButton href="#pricing" variant="outline">
               View Pricing &amp; Plans &rarr;
             </PosterButton>
+          </>
+        }
+      >
+        Framecipher designs user experiences and interfaces for business websites, ecommerce stores, mobile apps, SaaS products, web applications, and digital products. We start with user flows, structure, and usability before visual design, so problems can be identified before development begins.
+      </PageHero>
+
+      {/* KINETIC METRIC CARDS */}
+      <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">
+        <div className="mx-auto max-w-5xl border-2 border-frame-border bg-frame-muted/20 p-5 md:p-8 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-frame-border pb-4">
+            <div className="flex items-center gap-2">
+              <span className="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="font-bold uppercase tracking-wider text-frame-fg">UX_SYSTEMS // ATOMIC DESIGN & PROTOTYPING</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-frame-muted-fg font-semibold uppercase">
+              <span>STATUS: PRODUCTION-GRADE</span>
+              <span>TOOLING: FIGMA DESIGN SYSTEM</span>
+              <span className="text-frame-accent font-black">HANDOFF: DEV-READY SPECS</span>
+            </div>
           </div>
 
-          {/* KINETIC METRIC CARDS */}
-          <div className="mt-14 grid grid-cols-2 md:grid-cols-4 gap-px bg-frame-border border-2 border-frame-border">
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Strategy</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">Flow First</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">User journey mapping</p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Strategy</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Flow First</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">User Journey Mapping</p>
             </div>
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Architecture</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">Validated IA</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">Interactive prototypes</p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Architecture</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Validated IA</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Interactive Prototypes</p>
             </div>
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Design Systems</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">Atomic UI</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">Tokens, components &amp; states</p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Design Systems</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Atomic UI</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Tokens & Component Lib</p>
             </div>
-            <div className="bg-frame-bg p-6">
-              <span className="text-xs font-black uppercase tracking-widest text-frame-accent">Handoff</span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg uppercase">Dev Ready</p>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">Organized Figma specs</p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Handoff</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Dev Ready</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Organized Figma Tokens</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* STRATEGIC ASSESSMENT: WHY YOUR BUSINESS NEEDS REAL UI/UX DESIGN */}
       <section className="bg-frame-bg px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">

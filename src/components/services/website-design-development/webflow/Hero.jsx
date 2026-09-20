@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { PosterButton } from '../../../Kinetic'
+import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero() {
   return (
@@ -17,82 +17,63 @@ export default function Hero() {
         </div>
       </nav>
 
-      {/* HERO SECTION */}
-      <section className="px-4 py-16 sm:py-20 md:px-8 md:py-28 lg:py-32 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Focused Service / Design-Led Webflow Development
-            </span>
-            <span className="font-heading text-3xl md:text-4xl font-bold tracking-tighter text-frame-muted">
-              08
-            </span>
-          </div>
-
-          <h1 className="font-heading text-[clamp(2.4rem,6.5vw,5.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg max-w-5xl">
-            Best Webflow Development Service in Bangladesh
-          </h1>
-
-          <p className="mt-8 max-w-3xl text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Framecipher builds Webflow websites for design-forward brands, agencies, and marketing teams who want more creative control than a template platform allows, without the overhead of a fully custom framework. Whether you&apos;re launching in Dhaka or building a brand presence across the US, UK, Australia, Canada, or UAE, our Webflow development services deliver a site that looks exactly as designed and stays manageable after launch.
-          </p>
-
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <PosterButton href="/contact">Get Free Consultation</PosterButton>
+      {/* HERO */}
+      <PageHero
+        eyebrow="Focused Service / Visual Development"
+        meta="Clean Semantic Code / CMS Architecture"
+        number="08"
+        title="Best Webflow Development Service in Bangladesh"
+        actions={
+          <>
+            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
             <PosterButton href="#pricing" variant="outline">
               View Pricing &amp; Plans &rarr;
             </PosterButton>
+          </>
+        }
+      >
+        Framecipher builds Webflow websites for design-forward brands, agencies, and marketing teams who want more creative control than a template platform allows, without the overhead of a fully custom framework. Whether you&apos;re launching in Dhaka or building a brand presence across the US, UK, Australia, Canada, or UAE, our Webflow development services deliver a site that looks exactly as designed and stays manageable after launch.
+      </PageHero>
+
+      {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
+      <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">
+        <div className="mx-auto max-w-5xl border-2 border-frame-border bg-frame-muted/20 p-5 md:p-8 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-frame-border pb-4">
+            <div className="flex items-center gap-2">
+              <span className="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="font-bold uppercase tracking-wider text-frame-fg">WEBFLOW_ENGINE // CLIENT-FIRST ARCHITECTURE</span>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-frame-muted-fg font-semibold uppercase">
+              <span>STATUS: PRODUCTION-READY</span>
+              <span>CDN: FASTLY EDGE</span>
+              <span className="text-frame-accent font-black">CMS: UNLIMITED COLLECTIONS</span>
+            </div>
           </div>
 
-          {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
-          <div className="mt-16 grid grid-cols-2 gap-px border-2 border-frame-border bg-frame-border md:grid-cols-4">
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Visual Development
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Webflow Designer
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Pixel-accurate layout &amp; CSS architecture
-              </p>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Visual Development</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Webflow Designer</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Pixel-accurate layout</p>
             </div>
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Content Engine
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Dynamic CMS
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Structured collections &amp; multi-references
-              </p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Content Engine</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Dynamic CMS</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Structured Collections</p>
             </div>
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Interaction Frame
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                60fps Motion
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Scroll effects &amp; micro-interactions
-              </p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Interaction Frame</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">60fps Motion</p>
+              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Scroll & Micro-effects</p>
             </div>
-            <div className="bg-frame-bg p-5 sm:p-7">
-              <span className="text-[10px] sm:text-xs font-black uppercase tracking-widest text-frame-accent">
-                Infrastructure
-              </span>
-              <p className="mt-2 font-heading text-2xl sm:text-3xl font-bold text-frame-fg">
-                Fastly CDN
-              </p>
-              <p className="mt-1 text-xs text-frame-muted-fg">
-                Global edge caching &amp; automated SSL
-              </p>
+            <div className="border border-frame-border bg-frame-bg p-4">
+              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Infrastructure</p>
+              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Fastly CDN</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-bold">Global Edge Caching</p>
             </div>
           </div>
         </div>
-      </section>
+      </div>
 
       {/* STRATEGIC VALUE / WHY WE'RE THE RIGHT TEAM */}
       <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
