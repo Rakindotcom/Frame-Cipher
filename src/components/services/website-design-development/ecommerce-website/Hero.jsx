@@ -116,13 +116,35 @@ export default function Hero() {
             E-commerce Website Development Built Around How Your Customers Buy
           </h2>
           
-          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-4xl mx-auto">
-            An ecommerce website should do more than display products. It should make it easy for shoppers to discover products, compare options, trust your business, and complete a purchase.
-          </p>
+          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Merchants launching a new store or scaling an existing one&mdash;from Bangladeshi brands to global ecommerce across the US, UK, Australia, Canada &amp; UAE.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Online stores on Shopify, WooCommerce, Magento, or custom Next.js with payment integration and a conversion-focused checkout flow.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Ecommerce strategy, conversion-focused UX, development, and performance through one in-house team built around how your customers buy.
+              </p>
+            </div>
+          </div>
 
-          <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl mx-auto">
-            We start by understanding how your customers browse, what influences their buying decisions, and where they are most likely to leave without purchasing. From product discovery and category navigation to cart, checkout, payment, and post-purchase workflows, we structure the store around the complete buying journey.
-          </p>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+              Not sure which platform fits your store or how much your project costs? We&apos;ll tell you honestly what makes sense.
+            </p>
+            <PosterButton href="/contact" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
+          </div>
 
           {/* APPROACH FLOW PIPELINE */}
           <div className="mt-10 border-2 border-frame-border bg-frame-bg p-6 md:p-8">

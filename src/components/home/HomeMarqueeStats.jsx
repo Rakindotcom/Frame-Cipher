@@ -18,8 +18,8 @@ function StatCounterItem({ stat, isVisible }) {
 
   useEffect(() => {
     if (!isVisible) {
-      setDisplayValue(0)
-      return
+      const resetRaf = requestAnimationFrame(() => setDisplayValue(0))
+      return () => cancelAnimationFrame(resetRaf)
     }
 
     let start = 0

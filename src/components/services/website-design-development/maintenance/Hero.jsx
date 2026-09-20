@@ -108,19 +108,45 @@ export default function Hero() {
             <h2 className="mt-3 font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
               Why Choose Website Maintenance?
             </h2>
-            <div className="mt-6 space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                A website is not finished when it goes live. It continues to depend on software updates, security patches, backups, integrations, content changes, and ongoing monitoring.
+
+            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Updates &amp; Security</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Backups &amp; Monitoring</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Bug Fixes &amp; Changes</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Incident Response</span>
+            </div>
+
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Maintain For</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Businesses running WordPress, WooCommerce, Shopify, Wix, Webflow, Magento, or custom Next.js websites in any market.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Cover</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Security updates, tested backups, uptime monitoring, performance checks, bug fixes, integrations, and routine content changes.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Work</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  A plan matched to your stack&mdash;staging-tested patching, visible technical work, and a clear response when something goes wrong.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                Not sure what your website actually needs to stay healthy? We&apos;ll audit it and tell you honestly what matters most.
               </p>
-              <p>
-                Without regular maintenance, small problems can become larger ones. An outdated plugin can create compatibility issues. A failed integration can stop leads or orders. An untested backup may not help when recovery is actually needed.
-              </p>
-              <p>
-                Professional website maintenance keeps those risks visible and manageable.
-              </p>
-              <p className="font-bold text-frame-fg">
-                The right maintenance plan should protect the website, monitor its health, handle routine changes, and provide a clear response when something goes wrong.
-              </p>
+              <PosterButton href="/contact" className="shrink-0">
+                Request a Health Assessment
+              </PosterButton>
             </div>
           </div>
 

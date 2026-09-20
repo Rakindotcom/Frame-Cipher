@@ -118,19 +118,46 @@ export default function Hero() {
             <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
               Why Choose Wix for Your Business?
             </h2>
-            <div className="mt-6 space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                Wix is a practical choice for businesses that want a professional website without managing a complex technical stack. It combines website design, content management, hosting, business tools, and ongoing editing in one platform.
+            <div className="mt-8 flex flex-wrap items-center justify-start gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Business Goals</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Content Management</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Design & Hosting</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Business Tools</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Growth</span>
+            </div>
+
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Small businesses, startups, solo entrepreneurs, and professional services that want a polished site online fast with easy self-editing.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Branded business websites, portfolios, booking and service sites, forms, ecommerce, and CMS-driven pages in Wix &amp; Wix Studio.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Design, build, custom code and integrations through one in-house team, with a dashboard your team can edit without a developer.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                Not sure whether Wix or a different platform fits your business? We&apos;ll tell you honestly which one makes sense.
               </p>
-              <p>
-                For small businesses, startups, professional services, and many growing brands, this can make launching and managing a website much simpler. Your team can update pages, images, services, blog content, forms, and other site elements without relying on a developer for every routine change.
-              </p>
-              <p>
-                Wix also offers more advanced options when a standard website needs additional functionality. Wix Studio adds deeper responsive design controls, while custom development can extend the site through code, CMS functionality, APIs, and integrations.
-              </p>
-              <p>
-                The right choice still depends on what your website needs to do. We assess your goals, content, workflows, integrations, ecommerce requirements, and long-term plans before recommending Wix.
-              </p>
+              <PosterButton href="/contact" className="shrink-0">
+                Get an Honest Assessment
+              </PosterButton>
             </div>
           </div>
 

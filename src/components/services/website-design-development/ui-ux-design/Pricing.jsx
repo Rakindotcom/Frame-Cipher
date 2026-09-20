@@ -7,6 +7,14 @@ const packages = [
     scope: 'One key flow, up to 5 screens',
     timeline: '~1 week',
     featured: false,
+    features: [
+      'Strategy & flow mapping',
+      'Wireframes',
+      'UI design',
+      'Interactive prototype',
+      'Responsive design',
+      'Design file handoff',
+    ],
   },
   {
     name: 'Website UI/UX Package',
@@ -14,6 +22,15 @@ const packages = [
     scope: 'Full site design, up to 15 screens',
     timeline: '~2–3 weeks',
     featured: true,
+    features: [
+      'Site UX & user flow mapping',
+      'Wireframing',
+      'Full UI design',
+      'Interactive prototyping',
+      'Responsive & accessibility-aware design',
+      'Design system foundations',
+      'Design file handoff',
+    ],
   },
   {
     name: 'Application / Product Design',
@@ -21,6 +38,15 @@ const packages = [
     scope: 'Multiple flows, design system, usability testing',
     timeline: '~4–6 weeks',
     featured: false,
+    features: [
+      'UX research & flow mapping',
+      'Wireframing',
+      'Full UI design',
+      'Design system development',
+      'Usability testing',
+      'Interactive prototyping',
+      'Developer handoff support',
+    ],
   },
   {
     name: 'Complex / Multi-Role Product Design',
@@ -28,6 +54,15 @@ const packages = [
     scope: 'Multiple user types, extensive flows, complex design system',
     timeline: '~6–10+ weeks',
     featured: false,
+    features: [
+      'Multi-role UX research & flows',
+      'Extensive wireframing',
+      'Full UI design',
+      'Complex design system',
+      'Usability testing',
+      'Accessibility review',
+      'Ongoing developer support',
+    ],
   },
 ]
 
@@ -79,6 +114,16 @@ export default function Pricing() {
                 <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.scope}
                 </p>
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="mt-8 pt-4 border-t border-frame-border/60">

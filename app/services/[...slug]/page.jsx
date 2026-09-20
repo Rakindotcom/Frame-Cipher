@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import { notFound } from 'next/navigation'
 import ServiceExperience from '../../../src/views/ServiceExperience'
 import ServiceDetailPage from '../../../src/views/ServiceDetailPage'
@@ -90,9 +91,9 @@ export default async function Page({ params }) {
   // Check 74 doc service pages first
   const docPage = getServicePageBySlug(slugArray)
   if (docPage) {
-    const SpecificService = getServiceComponent(docPage.slug)
+const SpecificService = getServiceComponent(docPage.slug)
     if (SpecificService) {
-      return <SpecificService service={docPage} />
+      return createElement(SpecificService, { service: docPage })
     }
     return <ServiceExperience service={docPage} />
   }

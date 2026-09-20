@@ -19,24 +19,59 @@ const packages = [
     price: '৳250,000',
     timeline: '~6–8 weeks',
     description: 'Product volume, catalog structure, theme customization',
+    features: [
+      'Catalog & store architecture',
+      'Custom theme development',
+      'Payment integration',
+      'Security hardening',
+      'Performance optimization',
+      'Testing & launch support',
+    ],
   },
   {
     name: 'Multi-Store / Multi-Region Build',
     price: '৳400,000',
     timeline: '~8–12 weeks',
     description: 'Multiple storefronts, regional requirements, expanded catalog',
+    features: [
+      'Multiple storefronts setup',
+      'Regional pricing & currency',
+      'Multi-language content',
+      'Expanded catalog architecture',
+      'Payment & shipping integrations',
+      'Performance optimization',
+      'Testing & launch support',
+    ],
   },
   {
     name: 'B2B / Wholesale Build',
     price: '৳500,000+',
     timeline: '~10–14 weeks',
     description: 'Customer groups, pricing rules, quote workflows, integrations',
+    features: [
+      'Customer groups & tiered pricing',
+      'Quote & requisition workflows',
+      'Company accounts & approvals',
+      'ERP / CRM / PIM integrations',
+      'Custom modules',
+      'Security hardening',
+      'Testing & launch support',
+    ],
   },
   {
     name: 'Enterprise / Custom Integration Build',
     price: 'Custom Quote',
     timeline: '~12–16+ weeks',
     description: 'Large-scale integrations, custom modules, infrastructure',
+    features: [
+      'Large-scale ERP / OMS integrations',
+      'Extensive custom module development',
+      'Multi-store / multi-region setup',
+      'Infrastructure & performance tuning',
+      'High-volume catalog handling',
+      'Security hardening',
+      'Handover documentation',
+    ],
   },
 ]
 
@@ -95,6 +130,16 @@ export default function Pricing() {
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.description}
                 </p>
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="mt-8 pt-4 border-t border-frame-border/60">

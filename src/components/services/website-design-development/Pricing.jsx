@@ -6,24 +6,59 @@ const packages = [
     price: '৳20,000 – ৳40,000',
     description: 'Single-offer campaign page with focused copy and core lead capture.',
     timeline: '1–2 weeks',
+    features: [
+      'Campaign strategy & goal definition',
+      'Conversion-focused copy & design',
+      'Mobile-first responsive build',
+      'Lead capture form setup',
+      'Analytics & conversion tracking',
+      'Launch support',
+    ],
   },
   {
     name: 'Business Website',
     price: '৳50,000 – ৳100,000',
     description: 'Multi-page conversion website with CMS, lead forms, and buyer journey mapping.',
     timeline: '3–5 weeks',
+    features: [
+      'Buyer-journey site architecture',
+      'Custom UI/UX design',
+      'CMS-backed page structure',
+      'Lead capture & routing forms',
+      'On-page SEO foundation',
+      'Analytics setup',
+      'Revision cycles',
+    ],
   },
   {
     name: 'eCommerce Website',
     price: '৳80,000 – ৳180,000+',
     description: 'Online store with bKash/Nagad/Cards checkout, inventory, and logistics.',
     timeline: '6–10 weeks',
+    features: [
+      'Store architecture & catalog setup',
+      'Product & UI/UX design',
+      'bKash / Nagad checkout integration',
+      'International payment gateway',
+      'Inventory & order management',
+      'Shipping & logistics integration',
+      'SEO & product schema setup',
+      'Launch support',
+    ],
   },
   {
     name: 'Website Redesign',
     price: '৳45,000 – ৳100,000+',
     description: 'Rebuilding underperforming sites while preserving valuable SEO rankings.',
     timeline: '4–8 weeks',
+    features: [
+      'Technical & UX audit',
+      'SEO-preserving URL / redirect plan',
+      'Visual redesign & responsive rebuild',
+      'Content migration',
+      'Performance optimization',
+      'Testing & launch support',
+    ],
   },
 ]
 
@@ -84,6 +119,16 @@ export default function Pricing() {
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.description}
                 </p>
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="mt-8 pt-4 border-t border-frame-border/60">
@@ -151,11 +196,42 @@ export default function Pricing() {
               <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Development for Bangladesh and Worldwide
               </h2>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-5 grid gap-px border border-frame-border bg-frame-border sm:grid-cols-2">
+                <div className="bg-frame-bg p-5">
+                  <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Bangladesh-Focused</span>
+                  <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
+                    {[
+                      'Local payment options (bKash / Nagad)',
+                      'Bangla-English content requirements',
+                      'Mobile-first experiences',
+                      'Local business workflows & communication',
+                    ].map((pt, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="bg-frame-bg p-5">
+                  <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">International Reach</span>
+                  <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
+                    {[
+                      'Target-market and platform requirements',
+                      'Audience-first content and structure',
+                      'Global standards and expectations',
+                      'Results across the UAE, US, UK, Australia & Canada',
+                    ].map((pt, gIdx) => (
+                      <li key={gIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                 Frame Cipher works with businesses in Dhaka and across Bangladesh, as well as clients worldwide. We build websites for startups, small businesses, eCommerce brands, and established companies.
-              </p>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                For Bangladesh-based businesses, we can consider local payment options (bKash/Nagad), Bangla-English content requirements, and relevant business workflows where needed. For international projects, we consider the target market, platform requirements, and business goals across Bangladesh, the UAE, the US, the UK, Australia, Canada, and other markets.
               </p>
             </div>
             <div className="mt-6 pt-4 border-t border-frame-border/60">

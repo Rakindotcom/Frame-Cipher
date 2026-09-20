@@ -295,41 +295,93 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   For International Campaigns
                 </h3>
-                <div className="mt-4 space-y-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  <p>
-                    We adapt landing pages to the target market, audience expectations, language, traffic source, payment requirements, and campaign objective. This can include campaign-specific messaging, international lead capture, supported payment options, analytics, CRM connections, and other required integrations.
-                  </p>
-                  <p>
-                    Whether your campaign targets Dhaka, another part of Bangladesh, or customers in the US, UK, Australia, Canada, UAE, or other markets, the landing page is built around the audience you need to convert.
-                  </p>
-                </div>
+                <ul className="mt-4 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
+                  {[
+                    'Target-market messaging & language adaptation',
+                    'International lead capture & supported payments',
+                    'Campaign-specific analytics, pixels & CRM setup',
+                    'Adapted conversion path for the audience',
+                  ].map((pt, iPnt) => (
+                    <li key={iPnt} className="flex items-start gap-2">
+                      <span className="text-frame-accent font-bold">✓</span>
+                      <span className="leading-snug">{pt}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
               <p className="mt-6 font-semibold text-frame-fg text-xs md:text-sm border-t border-frame-border/60 pt-4">
-                The goal is simple: make the page feel relevant to the people who see it, wherever your campaign is running.
+                Whether your campaign targets Dhaka, another part of Bangladesh, or customers in the US, UK, Australia, Canada, UAE, or other markets, the landing page is built around the audience you need to convert.
               </p>
             </div>
           </div>
         </div>
 
         {/* POST-LAUNCH SUPPORT & MAINTENANCE - STRICTLY H2 */}
-        <div className="mt-12 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
+        <div className="mt-12 border-2 border-frame-border bg-frame-bg p-7 md:p-12">
           <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Campaign Longevity</span>
           <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             Post-Launch Support & Landing Page Maintenance
           </h2>
-          <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
-            <p>
-              After launch, a campaign page may need tracking checks, technical updates, minor content changes, integration fixes, or new variants as campaign requirements change.
-            </p>
-            <p>
-              Development projects include the launch support and handover defined in the project agreement. Ongoing maintenance, new sections, additional variants, and larger changes can be handled through a separate support scope.
-            </p>
-            <p>
-              We do not guarantee a specific conversion rate or campaign result. Performance depends on traffic quality, offer strength, audience targeting, pricing, competition, and other factors outside the landing-page build itself.
-            </p>
-            <p className="font-semibold text-frame-fg">
-              Our goal is to provide a technically sound, measurable, conversion-focused landing page that your campaigns can build on.
-            </p>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            <div className="border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8 lg:col-span-2">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Support Scope</span>
+              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                After Launch, We Can Help With:
+              </h3>
+              <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
+                {[
+                  'Tracking & pixel checks',
+                  'Technical updates & fixes',
+                  'Minor content changes',
+                  'Integration troubleshooting',
+                  'New campaign variants',
+                  'Performance & speed reviews',
+                ].map((item, sIdx) => (
+                  <li key={sIdx} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span className="leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="border-2 border-frame-accent/50 bg-frame-accent/5 p-6 md:p-8">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Scope & Expectations</span>
+              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                What&apos;s Included / What&apos;s Separate
+              </h3>
+              <div className="mt-4 space-y-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <div className="border-l-2 border-frame-accent pl-3">
+                  <span className="font-bold text-frame-fg">Included:</span> the launch support and handover defined in the project agreement.
+                </div>
+                <div className="border-l-2 border-frame-border pl-3">
+                  <span className="font-bold text-frame-fg">Separate scope:</span> ongoing maintenance, new sections, additional variants, and larger changes.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-3">
+            <div className="border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Honest Expectations</span>
+              <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+                What We Don&apos;t Guarantee
+              </h3>
+              <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                We do not guarantee a specific conversion rate or campaign result. Performance depends on traffic quality, offer strength, targeting, pricing, and competition outside the build itself.
+              </p>
+            </div>
+
+            <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 lg:col-span-2 flex flex-col justify-between">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Our Commitment</span>
+              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                The Landing Page We Hand Over
+              </h3>
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-fg">
+                Our goal is to provide a technically sound, measurable, conversion-focused landing page that your campaigns can build on.
+              </p>
+            </div>
           </div>
         </div>
       </div>

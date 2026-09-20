@@ -100,13 +100,44 @@ export default function Hero() {
                 Why Choose Custom / Next.js Development?
               </h2>
 
-              <div className="space-y-5 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg mt-6">
-                <p>
-                  A custom website or application should solve a problem that an off-the-shelf platform cannot handle well.
+              <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
+                <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Unique Requirements</span>
+                <span className="text-frame-accent font-bold">&rarr;</span>
+                <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Full-Stack Architecture</span>
+                <span className="text-frame-accent font-bold">&rarr;</span>
+                <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Integrations &amp; Data</span>
+                <span className="text-frame-accent font-bold">&rarr;</span>
+                <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Scalable Product</span>
+              </div>
+
+              <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-1">
+                <div className="bg-frame-bg p-5">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    Growing companies and products with performance, integration, or scalability needs that pre-built platforms genuinely can&apos;t accommodate.
+                  </p>
+                </div>
+                <div className="bg-frame-bg p-5">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    Custom websites, web applications, SaaS products, headless ecommerce, dashboards, and portals on Next.js/React with full source ownership.
+                  </p>
+                </div>
+                <div className="bg-frame-bg p-5">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    Every project starts with a platform-fit assessment, then frontend, backend, data, and performance are built around what your product needs.
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+                <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                  Not sure whether you need custom development or a pre-built platform? We&apos;ll tell you honestly which one makes sense.
                 </p>
-                <p>
-                  Next.js gives businesses a foundation for building custom web experiences while keeping the frontend, application logic, data, integrations, and performance strategy under greater control.
-                </p>
+                <PosterButton href="/contact" className="shrink-0">
+                  Get an Honest Assessment
+                </PosterButton>
               </div>
             </div>
 
@@ -123,15 +154,6 @@ export default function Hero() {
                     </div>
                   ))}
                 </div>
-              </div>
-
-              <div className="mt-8 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                <p>
-                  The important question is not whether custom development sounds more advanced. It is whether the additional control creates enough business value to justify the additional development and maintenance.
-                </p>
-                <p className="font-semibold text-frame-fg">
-                  That&apos;s why every project starts with a platform-fit assessment before development begins.
-                </p>
               </div>
             </div>
           </div>

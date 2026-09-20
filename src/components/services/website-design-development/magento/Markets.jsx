@@ -1,5 +1,20 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const bangladeshMagentoPoints = [
+  'Local payment requirements (bKash, Nagad)',
+  'Regional customer behavior',
+  'Local business operations',
+  'Direct communication channels',
+  'Bangla-English content where required',
+]
+
+const internationalMagentoPoints = [
+  'Multiple market and storefront structures',
+  'Currencies and customer segments',
+  'Different business systems per market',
+  'Cross-border and global expansion',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -20,9 +35,17 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For Bangladesh-Based Businesses
               </h3>
-              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                For Bangladesh-based ecommerce businesses, Magento projects can account for local payment requirements (such as bKash or Nagad), regional customer behavior, local business operations, direct communication channels, and Bangla-English content where required.
+              <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+                Magento projects can account for:
               </p>
+              <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+                {bangladeshMagentoPoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -37,9 +60,17 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For International Businesses
               </h3>
-              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                For international businesses, we can structure ecommerce experiences around different markets, currencies, storefronts, customer segments, and business systems according to the project requirements.
+              <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+                We can structure ecommerce experiences around:
               </p>
+              <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+                {internationalMagentoPoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>

@@ -4,67 +4,58 @@ const packages = [
   {
     name: "Minimal MVP",
     price: "৳180,000",
-    description: "Single core workflow, basic backend, one platform",
     timeline: "~4–6 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Single core workflow",
+      "Basic backend",
+      "One platform",
+      "Standard UI/UX",
+      "Core testing"
+    ]
   },
   {
     name: "Standard MVP",
     price: "৳300,000",
-    description: "Multiple core features, standard backend, single platform",
     timeline: "~6–10 weeks",
-    featured: true
+    featured: true,
+    includes: [
+      "Multiple core features",
+      "Standard backend",
+      "Single platform",
+      "Custom UI/UX",
+      "API integrations",
+      "Launch support"
+    ]
   },
   {
     name: "Multi-Platform MVP",
     price: "৳450,000",
-    description: "Core functionality across web and mobile, moderate backend",
     timeline: "~10–14 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Core functionality on web & mobile",
+      "Moderate backend",
+      "Shared codebase",
+      "Payment or API integration",
+      "Cross-device testing"
+    ]
   },
   {
     name: "Complex MVP",
     price: "Custom Quote",
-    description: "Multiple core workflows, advanced backend, extensive integrations",
     timeline: "~14+ weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Multiple core workflows",
+      "Advanced backend",
+      "Extensive integrations",
+      "Real-time functionality",
+      "Dedicated architecture",
+      "Ongoing support arrangement"
+    ]
   }
 ]
-
-const pricingTable = {
-  headers: [
-    "Project Type",
-    "Starting Price",
-    "Typical Scope",
-    "Typical Delivery"
-  ],
-  rows: [
-    [
-      "Minimal MVP",
-      "৳180,000",
-      "Single core workflow, basic backend, one platform",
-      "~4–6 weeks"
-    ],
-    [
-      "Standard MVP",
-      "৳300,000",
-      "Multiple core features, standard backend, single platform",
-      "~6–10 weeks"
-    ],
-    [
-      "Multi-Platform MVP",
-      "৳450,000",
-      "Core functionality across web and mobile, moderate backend",
-      "~10–14 weeks"
-    ],
-    [
-      "Complex MVP",
-      "Custom Quote",
-      "Multiple core workflows, advanced backend, extensive integrations",
-      "~14+ weeks"
-    ]
-  ]
-}
 
 const timelineFactors = [
   "Multiple platforms",
@@ -161,10 +152,24 @@ export default function Pricing() {
                     Typical Delivery: {pkg.timeline}
                   </p>
                 )}
-                {pkg.description && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
-                    {pkg.description}
-                  </p>
+                {pkg.includes && (
+                  <div className="mt-4 border-t border-frame-border/60 pt-4">
+                    <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
+                      What&apos;s Included:
+                    </p>
+                    <ul className="mt-3 space-y-2">
+                      {pkg.includes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </div>
 
@@ -175,37 +180,6 @@ export default function Pricing() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* COMPARISON / SPECIFICATION TABLE */}
-        <div className="mt-16">
-          <h2 className="mb-6 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Project Scope & Delivery Matrix
-          </h2>
-          <div className="overflow-x-auto border-2 border-frame-border">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-                <tr>
-                  {pricingTable.headers.map((h, i) => (
-                    <th key={i} className="p-4 border-r-2 border-frame-border last:border-r-0">
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-                {pricingTable.rows.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className={`p-4 border-r-2 border-frame-border last:border-r-0 ${cIdx === 0 ? 'font-semibold text-frame-fg' : ''}`}>
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
 
         {/* WHAT AFFECTS COST & TIMELINE AND MVP OWNERSHIP */}
@@ -266,11 +240,11 @@ export default function Pricing() {
 
         {/* PROJECT SCOPE, REVIEW & SUPPORT */}
         <div className="mt-16">
-          <div className="border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8 mb-8">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+          <div className="mb-8 items-end gap-8 border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8 lg:grid lg:grid-cols-[1.5fr_1fr]">
+            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
               Project Scope, Review &amp; Support
             </h2>
-            <p className="mt-2 text-sm md:text-base font-medium text-frame-muted-fg">
+            <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base lg:mt-0">
               Clear scope helps keep MVP development focused and prevents the first release from expanding into the entire product roadmap.
             </p>
           </div>

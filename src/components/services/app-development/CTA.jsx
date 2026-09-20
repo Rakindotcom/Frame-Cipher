@@ -74,30 +74,30 @@ export default function CTA() {
         </div>
       </section>
 
-      {/* ACTION BANNER */}
+      {/* FINAL CONVERSION BANNER */}
       <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-32">
-        <div className="mx-auto max-w-4xl text-center">
-          <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
-            Start Your Build
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Start Your App Development Project
-          </h2>
-          <div className="mt-6 max-w-2xl mx-auto space-y-3 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
-            <p>
-              Have an app idea, an existing application that needs improvement, or a business process that should become software?
-            </p>
-            <p>
-              Tell us what you are trying to build. We&apos;ll help you define the right platform, scope, and development approach for your product.
-            </p>
-          </div>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <PosterButton href="/contact">
-              Get a Free App Consultation &rarr;
-            </PosterButton>
-            <PosterButton href="/contact" variant="outline">
-              Request a Custom Quote &rarr;
-            </PosterButton>
+        <div className="mx-auto max-w-[95vw]">
+          <div className="border-2 border-frame-border bg-frame-bg p-8 md:p-16 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <div className="max-w-2xl">
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                Start Your Build
+              </span>
+              <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+                Ready to start your app development project?
+              </h3>
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                Have an app idea, an existing application that needs improvement, or a business process that should become software? Tell us what you are trying to build and we will help define the right platform, scope, and development approach.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 shrink-0">
+              <PosterButton href="/contact">
+                Get a Free App Consultation &rarr;
+              </PosterButton>
+              <PosterButton href="/contact" variant="outline">
+                Request a Custom Quote &rarr;
+              </PosterButton>
+            </div>
           </div>
         </div>
       </section>

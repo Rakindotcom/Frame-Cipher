@@ -53,9 +53,36 @@ export default function Hero() {
             <span className="text-frame-accent font-bold">&rarr;</span>
             <span className="border border-frame-accent bg-frame-accent/10 px-3 py-1.5 text-frame-accent">Conversion Growth</span>
           </div>
-          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
-            A website that loads slowly, looks outdated, or doesn&apos;t work properly on mobile costs your customers before they even see what you offer. Framecipher builds business websites, eCommerce stores, and custom web applications for SMEs, startups in Bangladesh and international clients across the US, UK, Australia, and Canada handled by one in-house team from design through launch. Not sure whether you need a new build or a redesign? Talk to us and we&apos;ll tell you honestly which one fits your situation.
-          </p>
+
+          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                SMEs, startups, and established brands across Bangladesh and international markets.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Business websites, eCommerce stores, landing pages, and custom web applications.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                One in-house team across design, development, and launch followed by ongoing maintenance.
+              </p>
+            </div>
+          </div>
+
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+              Not sure whether you need a new build or a redesign? We&apos;ll tell you honestly which one fits your situation.
+            </p>
+            <PosterButton href="/contact" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
+          </div>
         </div>
       </section>
     </div>

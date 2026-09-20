@@ -1,5 +1,19 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const bangladeshCustomPoints = [
+  'Local payment systems',
+  'Mobile-first usage patterns',
+  'Local business workflows',
+  'Market-relevant integrations',
+]
+
+const internationalCustomPoints = [
+  'Content and user experience per market',
+  'Integrations matched to the target market',
+  'Operational requirements and technical considerations',
+  'Global reach across the US, UK, Australia, Canada & UAE',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -19,9 +33,17 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For Bangladesh-Based Projects
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              We consider local payment systems, mobile-first usage patterns, local business workflows, and integrations relevant to the market.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              We consider:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {bangladeshCustomPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="bg-frame-bg p-8 md:p-10 hover:bg-frame-muted/10 transition-colors">
@@ -34,9 +56,17 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For International Projects
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              We adapt the application&apos;s content, user experience, integrations, operational requirements, and technical considerations around the target market across the US, UK, Australia, Canada, and UAE.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              We adapt:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {internationalCustomPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

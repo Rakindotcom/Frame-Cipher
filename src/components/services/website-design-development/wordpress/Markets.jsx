@@ -9,6 +9,13 @@ const bangladeshPoints = [
   'Bangladesh-focused SEO and content structures',
 ]
 
+const internationalPoints = [
+  'Target market and language considerations',
+  'Content requirements and workflows',
+  'Integrations matched to the business',
+  'Technical standards for international audiences',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -48,10 +55,18 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For International Businesses
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                We consider the target market, language, content requirements, integrations, technical standards, and business workflows required for international audiences.
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+                We consider:
               </p>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
+                {internationalPoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                 The goal is not to force the same WordPress setup on every market. Your website architecture should match your audience, operations, and growth plans.
               </p>
             </div>

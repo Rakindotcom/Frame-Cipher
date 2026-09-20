@@ -1,5 +1,19 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const bangladeshMaintenancePoints = [
+  'Mobile-first usage across the country',
+  'Local business workflows',
+  'Payment integrations (bKash, Nagad)',
+  'Other market-specific requirements',
+]
+
+const internationalMaintenancePoints = [
+  'Technology stack on the target platform',
+  'Operating hours and support windows',
+  'Integrations and business requirements',
+  'Target-market context for every change',
+]
+
 export default function Markets() {
   return (
     <section className="bg-frame-bg px-4 py-16 sm:py-20 md:px-8 md:py-28 border-b-2 border-frame-border">
@@ -15,9 +29,17 @@ export default function Markets() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Domestic Engineering</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">Bangladesh Websites</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              For Bangladesh-based websites, maintenance can consider mobile-first usage, local business workflows, payment integrations, and other market-specific requirements where relevant.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              Maintenance can consider:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {bangladeshMaintenancePoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 hover:bg-frame-muted/10 transition-colors">
@@ -26,9 +48,17 @@ export default function Markets() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Global Support Standards</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">International Websites</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              For international websites, we adapt the support process around the technology stack, target market, operating hours, integrations, and business requirements.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              We adapt the support process around:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {internationalMaintenancePoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

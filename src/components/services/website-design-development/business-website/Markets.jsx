@@ -10,6 +10,13 @@ const bangladeshMarketPoints = [
   'Bangladesh-focused content and SEO requirements',
 ]
 
+const internationalBusinessPoints = [
+  'Target market and audience expectations',
+  'Language and content requirements',
+  'Platform requirements per market',
+  'Business workflow and conversion path',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
@@ -40,10 +47,18 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Serving Global Clients
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                We also build for businesses targeting international customers. In those projects, we consider the target market, audience expectations, language, platform requirements, and business workflow.
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+                In those projects, we consider:
               </p>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
+                {internationalBusinessPoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                 The goal is not to build a &ldquo;Bangladesh version&rdquo; or an &ldquo;international version&rdquo; by default. The website structure should match the market your business actually serves.
               </p>
             </div>

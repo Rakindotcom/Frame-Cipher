@@ -1,5 +1,12 @@
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
+const weakSiteCosts = [
+  { title: 'Lost Visitors', desc: 'A slow or confusing website loses visitors before they see your offer, and the gap widens the longer it is left unaddressed.' },
+  { title: 'Mobile-First Risk', desc: 'A large share of Bangladeshi traffic is mobile-first; a site not built for that loses customers before they scroll past the homepage.' },
+  { title: 'Maintenance Blind Spot', desc: 'Treating a website as a one-time project instead of infrastructure leads to skipped updates, security patches, and periodic review.' },
+  { title: 'Deferred Cost', desc: 'Skipping maintenance rarely saves money; it usually costs more later when a small fix becomes an emergency rebuild.' },
+]
+
 const advantages = [
   { title: 'One In-House Team', desc: 'Your design, development, and content work under one team. This helps keep the project consistent and reduces communication gaps.' },
   { title: 'Business-First Planning', desc: 'We start with your business goals, audience, content needs, and budget. Our recommendations focus on what your business needs rather than pushing one platform.' },
@@ -24,13 +31,22 @@ export default function WhyChoose() {
             <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               The Compounding Cost of Weak Websites
             </h3>
-            <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                A slow or confusing website doesn&apos;t just look unprofessional; it actively loses visitors before they see your offer, and that gap widens the longer it&apos;s left unaddressed, since competitors with better sites keep capturing the traffic and trust is missing. Mobile performance matters more than most businesses assume: a large share of Bangladeshi traffic is mobile-first, and a site that isn&apos;t built for that loses customers before they scroll past the homepage.
-              </p>
-              <p>
-                A common misunderstanding is treating a website as a one-time project rather than infrastructure that needs occasional updates, security patches, and periodic review as your business changes. Skipping maintenance doesn&apos;t save money; it usually costs more later, when a small fix becomes an emergency rebuild.
-              </p>
+            <div className="mt-6 grid bg-frame-border gap-px border-2 border-frame-border">
+              {weakSiteCosts.map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3 bg-frame-bg p-5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center border-2 border-frame-accent/50 bg-frame-accent/10 font-heading text-xs font-bold text-frame-accent">
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h4 className="font-heading text-sm md:text-base font-bold uppercase tracking-tight text-frame-fg">
+                      {item.title}
+                    </h4>
+                    <p className="mt-1 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="mt-8">
               <PosterButton href="/contact">Book a Strategy Session</PosterButton>

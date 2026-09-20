@@ -86,34 +86,47 @@ export default function Hero() {
           <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
             WordPress Development Built Around Your Business Needs
           </h2>
-          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
-            WordPress is flexible enough to power a simple business website, a large content platform, a WooCommerce store, or a custom business system. The right development approach depends on what your website needs to do, not simply on the fact that it runs on WordPress.
-          </p>
-          <p className="mt-4 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto">
-            We start by understanding your content, audience, workflows, functionality, and long-term goals. From theme architecture and plugin selection to performance, security, SEO, and editorial control, each part of the build is planned around the actual purpose of your website.
-          </p>
-
-          <div className="mt-10 mb-4 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-            Our approach connects:
-          </div>
-
-          <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
-            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">Business Goals</span>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
+            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">Content & Audience</span>
             <span className="text-frame-accent font-bold">&rarr;</span>
-            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">Content Structure</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">Theme & Architecture</span>
             <span className="text-frame-accent font-bold">&rarr;</span>
-            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">WordPress Architecture</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">Functionality & Plugins</span>
             <span className="text-frame-accent font-bold">&rarr;</span>
-            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">Functionality</span>
-            <span className="text-frame-accent font-bold">&rarr;</span>
-            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">SEO &amp; Performance</span>
+            <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2 shadow-sm">SEO & Performance</span>
             <span className="text-frame-accent font-bold">&rarr;</span>
             <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent shadow-sm">Editorial Control</span>
           </div>
 
-          <p className="mt-8 text-base md:text-lg font-semibold text-frame-fg max-w-3xl mx-auto">
-            The result is a WordPress website that your team can manage today and continue developing as your business grows.
-          </p>
+          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Business websites, content publishers, WooCommerce sellers, and companies that want a site their team can manage in-house.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Custom WordPress themes, content platforms, WooCommerce stores, and custom functionality built around your workflows and goals.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Theme architecture, plugin selection, performance, security, and SEO through one in-house team with full editorial handover.
+              </p>
+            </div>
+          </div>
+
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+              Not sure whether WordPress or a different platform fits your project? We&apos;ll tell you honestly which one makes sense.
+            </p>
+            <PosterButton href="/contact" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
+          </div>
         </div>
       </section>
     </div>

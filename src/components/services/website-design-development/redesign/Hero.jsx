@@ -125,13 +125,45 @@ export default function Hero() {
             <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
               Does Your Website Actually Need a Redesign?
             </h2>
-            <div className="mt-6 space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                A website doesn&apos;t need a redesign simply because it looks old. Sometimes the design is the problem. Sometimes the real issue is the structure, performance, content, platform, or conversion path underneath it.
+
+            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Website Audit</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">SEO Equity Check</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Performance Baseline</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Focused Rebuild</span>
+            </div>
+
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Redesign For</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Businesses, ecommerce stores, blogs, portfolios, and content platforms whose site is outdated, slow, or no longer performing.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Fix</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Structure, performance, UX, platform issues, and conversion paths&mdash;not just a new coat of paint on an old design.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Protect You</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  We diagnose before rebuilding, preserve SEO equity, map 301 redirects, and launch with zero-downtime cutover.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                Not sure whether your website needs a redesign or just an update? We audit it and tell you honestly what fits.
               </p>
-              <p>
-                A redesign makes sense when your current website is creating problems that small visual updates cannot solve.
-              </p>
+              <PosterButton href="/contact" className="shrink-0">
+                Get an Honest Assessment
+              </PosterButton>
             </div>
           </div>
 

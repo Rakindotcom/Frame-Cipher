@@ -4,30 +4,57 @@ const pricingTiers = [
   {
     name: "SaaS MVP",
     price: "৳450,000",
-    costDrivers: "Core workflow, basic multi-tenancy, initial billing",
     timeline: "10–14 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Core workflow",
+      "Basic multi-tenancy",
+      "Initial billing",
+      "Standard admin dashboard",
+      "Foundational testing"
+    ]
   },
   {
     name: "Standard SaaS Product",
     price: "৳800,000",
-    costDrivers: "Full multi-tenant architecture, tiered billing, team accounts",
     timeline: "16–22 weeks",
-    featured: true
+    featured: true,
+    includes: [
+      "Full multi-tenant architecture",
+      "Tiered subscription billing",
+      "Team accounts & roles",
+      "Admin dashboards",
+      "API integrations",
+      "Launch support"
+    ]
   },
   {
     name: "Advanced SaaS Platform",
     price: "৳1,400,000",
-    costDrivers: "Complex permissions, usage-based billing, extensive integrations",
     timeline: "22–30 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Complex permission model",
+      "Usage-based billing",
+      "Extensive integrations",
+      "Automation & background jobs",
+      "Analytics & reporting",
+      "Advanced security"
+    ]
   },
   {
     name: "Enterprise-Scale SaaS",
     price: "Custom Quote",
-    costDrivers: "Large infrastructure, advanced security, complex integrations",
     timeline: "30+ weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Large-scale infrastructure",
+      "Advanced security & compliance",
+      "Complex integrations",
+      "High availability",
+      "Dedicated architecture",
+      "Ongoing SLA support"
+    ]
   }
 ]
 
@@ -144,9 +171,23 @@ export default function Pricing() {
                   <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
                     Typical Delivery: {tier.timeline}
                   </p>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
-                    {tier.costDrivers}
-                  </p>
+                  <div className="mt-4 border-t border-frame-border/60 pt-4">
+                    <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
+                      What&apos;s Included:
+                    </p>
+                    <ul className="mt-3 space-y-2">
+                      {tier.includes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-frame-border/60">
@@ -156,38 +197,6 @@ export default function Pricing() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* PRICING TABLE */}
-          <div className="mt-12 overflow-x-auto border-2 border-frame-border">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-                <tr>
-                  <th className="p-4 border-r-2 border-frame-border w-1/4">Project Type</th>
-                  <th className="p-4 border-r-2 border-frame-border w-1/4">Starting Price</th>
-                  <th className="p-4 border-r-2 border-frame-border w-1/3">What Drives the Cost</th>
-                  <th className="p-4">Typical Delivery</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-                {pricingTiers.map((tier, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                    <td className="p-4 font-semibold text-frame-fg border-r-2 border-frame-border">
-                      {tier.name}
-                    </td>
-                    <td className="p-4 font-bold text-frame-accent border-r-2 border-frame-border whitespace-nowrap">
-                      {tier.price}
-                    </td>
-                    <td className="p-4 font-medium text-frame-fg border-r-2 border-frame-border">
-                      {tier.costDrivers}
-                    </td>
-                    <td className="p-4 font-medium text-frame-fg whitespace-nowrap">
-                      {tier.timeline}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
 
           {/* PRICING FACTORS */}
@@ -220,14 +229,16 @@ export default function Pricing() {
 
         {/* SECTION 2: SAAS PROJECT SCOPE, WARRANTY & SUPPORT */}
         <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Project Governance
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              SaaS Project Scope, Warranty &amp; Support
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mb-8 items-end gap-8 lg:grid lg:grid-cols-[1.5fr_1fr] lg:mb-12">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                Project Governance
+              </span>
+              <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+                SaaS Project Scope, Warranty &amp; Support
+              </h2>
+            </div>
+            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Every SaaS project should have clear expectations around scope, revisions, ownership, support, and third-party dependencies.
             </p>
           </div>
@@ -254,14 +265,16 @@ export default function Pricing() {
 
         {/* SECTION 3: POST-LAUNCH SAAS SUPPORT & MAINTENANCE */}
         <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Lifecycle &amp; Maintenance
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Post-Launch SaaS Support &amp; Maintenance
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mb-8 items-end gap-8 lg:grid lg:grid-cols-[1.5fr_1fr] lg:mb-12">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                Lifecycle &amp; Maintenance
+              </span>
+              <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+                Post-Launch SaaS Support &amp; Maintenance
+              </h2>
+            </div>
+            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               A SaaS product does not stop evolving after its first production release.
             </p>
           </div>

@@ -336,14 +336,43 @@ export default function Pricing() {
           <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             Service Areas: Bangladesh & Worldwide
           </h2>
-          <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
-            <p>
-              Framecipher is based in Dhaka, Bangladesh, and builds e-commerce stores for merchants across Bangladesh as well as clients worldwide, including the UAE, the US, the UK, Australia, and Canada. We&apos;ve delivered projects for clients in 20+ countries across the globe, so our process is built to handle different payment behavior, logistics needs, and market expectations, not a single-market template applied everywhere.
-            </p>
-            <p>
-              For merchants in Bangladesh, this includes bKash and Nagad payment integration as a standard part of the build, plus stores tested for the mobile-first connections most local shoppers use to browse and buy.
-            </p>
+          <div className="mt-4 grid gap-px border border-frame-border bg-frame-border sm:grid-cols-2 max-w-4xl">
+            <div className="bg-frame-bg p-5 md:p-6">
+              <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Headquartered in Dhaka</span>
+              <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
+                {[
+                  'Based in Dhaka, Bangladesh',
+                  'Bkash & Nagad integration as a standard build item',
+                  'Mobile-first testing for local connections',
+                  'Built for delivery, COD & local logistics',
+                ].map((pt, dIdx) => (
+                  <li key={dIdx} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="bg-frame-bg p-5 md:p-6">
+              <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Serving the World</span>
+              <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
+                {[
+                  'Clients in the UAE, US, UK, Australia & Canada',
+                  'Delivered for clients in 20+ countries',
+                  'Payment behavior, logistics & market expectations',
+                  'No single-market template applied everywhere',
+                ].map((pt, wIdx) => (
+                  <li key={wIdx} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
+          <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+            Framecipher is based in Dhaka, Bangladesh, and builds e-commerce stores for merchants across Bangladesh as well as clients worldwide. Our process is built to handle different payment behavior, logistics needs, and market expectations.
+          </p>
         </div>
       </div>
     </section>

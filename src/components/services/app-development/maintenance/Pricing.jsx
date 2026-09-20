@@ -77,36 +77,6 @@ const packages = [
   }
 ]
 
-const pricingTable = {
-  headers: ["Plan", "Price", "Best For", "Core Coverage"],
-  rows: [
-    [
-      "Essential",
-      "৳15,000/month",
-      "Simple apps and lower-maintenance requirements",
-      "OS checks, monthly crash review, basic monitoring"
-    ],
-    [
-      "Standard",
-      "৳30,000/month",
-      "Native Android, iOS, and cross-platform apps",
-      "Bug fixes, regular monitoring, monthly reporting, minor feature updates"
-    ],
-    [
-      "Growth",
-      "৳50,000/month",
-      "SaaS, ecommerce, and growing applications",
-      "Priority support, security patching, integration monitoring, expanded feature support"
-    ],
-    [
-      "Enterprise",
-      "Custom",
-      "Complex applications and enterprise requirements",
-      "Custom maintenance scope, dedicated support structure, complex integrations, compliance-focused requirements"
-    ]
-  ]
-}
-
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
@@ -188,41 +158,6 @@ export default function Pricing() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* COMPARISON TABLE */}
-        <div className="mt-20 overflow-x-auto border-2 border-frame-border bg-frame-bg">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-              <tr>
-                {pricingTable.headers.map((h, i) => (
-                  <th key={i} className="p-4 md:p-6 border-r-2 border-frame-border last:border-r-0">
-                    {h}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-              {pricingTable.rows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                  {row.map((cell, cIdx) => (
-                    <td
-                      key={cIdx}
-                      className={`p-4 md:p-6 border-r-2 border-frame-border last:border-r-0 ${
-                        cIdx === 0
-                          ? 'font-heading font-bold uppercase text-frame-fg'
-                          : cIdx === 1
-                          ? 'font-bold text-frame-accent'
-                          : 'font-medium text-frame-fg'
-                      }`}
-                    >
-                      {cell}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
 
         <p className="mt-4 text-xs font-medium text-frame-muted-fg italic">

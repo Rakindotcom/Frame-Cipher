@@ -11,6 +11,13 @@ const bangladeshEcommercePoints = [
   'Bangladesh-focused ecommerce SEO',
 ]
 
+const internationalEcommercePoints = [
+  'International payment methods',
+  'Currencies and multi-language support',
+  'Delivery requirements per market',
+  'Market-specific shopping behavior',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -41,10 +48,18 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Serving Global Merchants
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                For merchants targeting customers outside Bangladesh, we also consider international payment methods, currencies, languages, delivery requirements, and market-specific shopping behavior.
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+                For merchants targeting customers outside Bangladesh, we can also consider:
               </p>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
+                {internationalEcommercePoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                 Your store should be built around the market you actually sell into, not around a generic ecommerce template.
               </p>
             </div>

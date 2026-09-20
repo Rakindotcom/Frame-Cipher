@@ -1,5 +1,19 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const bangladeshWebflowPoints = [
+  'Mobile-first browsing experience',
+  'Local content and SEO requirements',
+  'Performance on varied connections',
+  'Practical publishing workflows for local teams',
+]
+
+const internationalWebflowPoints = [
+  'Market- and language-specific structure',
+  'Localized content and domains',
+  'Multi-market SEO requirements',
+  'Global reach across the US, UK, Australia, Canada & UAE',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -19,9 +33,17 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For Bangladesh-Based Businesses
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              We consider mobile-first browsing, local content requirements, performance on varied connections, and practical publishing workflows so local teams can scale without bottlenecks.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              We can account for:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {bangladeshWebflowPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="bg-frame-bg p-8 md:p-10 hover:bg-frame-muted/10 transition-colors">
@@ -34,9 +56,17 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For International Businesses
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              We can structure websites around different markets, languages, localized content, domains, and SEO requirements across the US, UK, Australia, Canada, and UAE.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              We can structure websites around:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {internationalWebflowPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

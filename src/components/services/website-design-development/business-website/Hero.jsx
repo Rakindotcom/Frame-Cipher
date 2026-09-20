@@ -116,13 +116,35 @@ export default function Hero() {
             A Business Website Built Around Your Sales Process
           </h2>
           
-          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-4xl mx-auto">
-            A business website should do more than present your company online. It should help potential customers understand your offer, build trust, and take the next step.
-          </p>
+          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                SMEs, startups, and corporate brands that need a website that works as part of their sales process&mdash;not a digital brochure.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Lead-focused business websites with page architecture, CTA placement, lead capture, and CRM connections built around your buyers.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                We map your buyer journey and decision path first, then build every page and form through one in-house team in Dhaka.
+              </p>
+            </div>
+          </div>
 
-          <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl mx-auto">
-            That is why we start with how your business actually generates leads. We map your buyer journey, identify the information customers need before contacting you, and structure the website around those decisions. From page architecture and CTA placement to lead forms, CRM connections, and conversion tracking, every part of the build has a purpose.
-          </p>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+              Not sure whether your website is actually generating leads? We&apos;ll audit it and tell you honestly what&apos;s working.
+            </p>
+            <PosterButton href="/contact" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
+          </div>
 
           {/* APPROACH FLOW PIPELINE */}
           <div className="mt-10 border-2 border-frame-border bg-frame-bg p-6 md:p-8">

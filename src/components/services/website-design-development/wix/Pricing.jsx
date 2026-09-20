@@ -6,24 +6,58 @@ const packages = [
     price: '৳20,000',
     timeline: '~3–5 days',
     description: 'Page count, template customization',
+    features: [
+      'Template customization',
+      'Core page structure',
+      'Mobile optimization',
+      'On-page SEO setup',
+      'Editor handoff & basic training',
+      'Launch support',
+    ],
   },
   {
     name: 'Custom Business Site',
     price: '৳35,000',
     timeline: '~1–2 weeks',
     description: 'Custom design, booking/form setup, app integrations',
+    features: [
+      'Custom design within Wix editor',
+      'Booking / form setup',
+      'App integrations',
+      'Mobile optimization',
+      'On-page SEO setup',
+      'Editor handoff & training',
+      'Launch support',
+    ],
   },
   {
     name: 'Wix Stores (Small Catalog)',
     price: '৳55,000',
     timeline: '~2–3 weeks',
     description: 'Product count, payment setup, store-specific design',
+    features: [
+      'Store-specific design',
+      'Product catalog setup',
+      'bKash / Nagad & card payment setup',
+      'Order & inventory basics',
+      'On-page SEO setup',
+      'Mobile optimization',
+      'Launch support',
+    ],
   },
   {
     name: 'Wix Studio / Velo Custom Build',
     price: 'Custom Quote',
     timeline: '~3–5 weeks',
     description: 'Custom code requirements, advanced functionality',
+    features: [
+      'Custom Velo / JavaScript development',
+      'Advanced functionality & integrations',
+      'CMS & dynamic pages',
+      'Custom workflows',
+      'Performance optimization',
+      'Handover documentation',
+    ],
   },
 ]
 
@@ -65,6 +99,16 @@ export default function Pricing() {
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.description}
                 </p>
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
 
               <div className="mt-8 pt-4 border-t border-frame-border/60">

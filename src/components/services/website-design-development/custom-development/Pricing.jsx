@@ -7,6 +7,14 @@ const packages = [
     description: 'Custom design, moderate functionality, no complex backend',
     timeline: '4–6 weeks',
     featured: false,
+    features: [
+      'Custom UI/UX design',
+      'Headless / static frontend',
+      'CMS content model',
+      'On-page SEO & performance',
+      'Analytics setup',
+      'Testing & launch support',
+    ],
   },
   {
     name: 'Standard Web Application',
@@ -14,6 +22,15 @@ const packages = [
     description: 'User accounts, custom database, moderate integrations',
     timeline: '8–12 weeks',
     featured: true,
+    features: [
+      'Custom UI/UX design',
+      'User accounts & roles',
+      'Custom database & data model',
+      'Moderate third-party integrations',
+      'API development',
+      'Security planning & hardening',
+      'Testing & launch support',
+    ],
   },
   {
     name: 'Complex Web Application',
@@ -21,6 +38,16 @@ const packages = [
     description: 'Multiple roles, extensive integrations, custom business logic',
     timeline: '12–20 weeks',
     featured: false,
+    features: [
+      'Custom UI/UX design',
+      'Multi-role & permission system',
+      'Extensive integrations',
+      'Custom business logic & workflows',
+      'API development & documentation',
+      'Infrastructure setup',
+      'Security & compliance planning',
+      'Testing & launch support',
+    ],
   },
   {
     name: 'Enterprise / Large-Scale Platform',
@@ -28,6 +55,15 @@ const packages = [
     description: 'High-volume infrastructure, multiple systems, ongoing development',
     timeline: '20+ weeks',
     featured: false,
+    features: [
+      'High-volume infrastructure',
+      'Multi-system integration layer',
+      'Custom modules & microservices',
+      'Advanced security & compliance',
+      'Performance & scale engineering',
+      'API documentation',
+      'Ongoing development roadmap',
+    ],
   },
 ]
 
@@ -134,6 +170,16 @@ export default function Pricing() {
                   <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
+                )}
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
 

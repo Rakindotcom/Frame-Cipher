@@ -22,6 +22,14 @@ const packages = [
     description: 'Page count, standard design, basic CMS',
     timeline: '~2–3 weeks',
     featured: false,
+    features: [
+      'Custom design within Webflow Designer',
+      'Basic CMS structure',
+      'Animations & interactions (standard)',
+      'On-page SEO setup',
+      'CMS handoff & training',
+      'Launch support',
+    ],
   },
   {
     name: 'Brand / Design-Forward Site',
@@ -29,6 +37,15 @@ const packages = [
     description: 'Custom animations, expanded CMS collections, component system',
     timeline: '~3–5 weeks',
     featured: true,
+    features: [
+      'Advanced custom design',
+      'Expanded CMS collections & references',
+      'Reusable component system',
+      'Custom animations & interactions',
+      'On-page SEO setup',
+      'CMS handoff & training',
+      'Launch support',
+    ],
   },
   {
     name: 'Webflow Ecommerce',
@@ -36,6 +53,15 @@ const packages = [
     description: 'Product count, checkout customization, store-specific design',
     timeline: '~4–6 weeks',
     featured: false,
+    features: [
+      'Store-specific design',
+      'Product catalog structure',
+      'Checkout customization',
+      'Payment integration',
+      'CMS & product collections',
+      'On-page SEO setup',
+      'Launch support',
+    ],
   },
   {
     name: 'Advanced CMS / Custom Interaction Build',
@@ -43,6 +69,14 @@ const packages = [
     description: 'Complex content relationships, custom code, advanced interactions',
     timeline: '~6–8+ weeks',
     featured: false,
+    features: [
+      'Complex content relationships',
+      'Custom JavaScript / embeds',
+      'Advanced interactions & transitions',
+      'Third-party integrations',
+      'Localization support',
+      'Custom code documentation',
+    ],
   },
 ]
 
@@ -148,6 +182,16 @@ export default function Pricing() {
                   <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
+                )}
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
 

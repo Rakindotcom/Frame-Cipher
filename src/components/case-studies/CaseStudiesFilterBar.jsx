@@ -6,8 +6,6 @@ export default function CaseStudiesFilterBar({
   onFilterSelect,
   searchQuery,
   onSearchChange,
-  totalCount,
-  filteredCount,
 }) {
   return (
     <nav

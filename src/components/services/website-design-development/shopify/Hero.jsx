@@ -86,29 +86,46 @@ export default function Hero() {
               Why We&apos;re the Right Shopify Development Team
             </h2>
 
-            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-frame-accent border-y-2 border-frame-border/60 py-3 my-8">
-              <span>Managed Ecommerce Infrastructure</span>
-              <span className="text-frame-muted-fg font-normal">|</span>
-              <span>Custom Shopify Development</span>
-              <span className="text-frame-muted-fg font-normal">|</span>
-              <span>Disciplined App Architecture</span>
-              <span className="text-frame-muted-fg font-normal">|</span>
-              <span>Platform-Neutral Recommendations</span>
+            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Catalog Planning</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Theme Architecture</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">App Stack</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Payments &amp; Integrations</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Conversion Flow</span>
             </div>
 
-            <div className="space-y-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                Shopify removes much of the infrastructure burden from ecommerce, but the storefront built on top of it still determines how customers browse, trust, and buy.
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Online Store 2.0 storefronts, app integrations, custom Shopify features, B2B, and global expansion through Shopify Markets.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  We plan catalog, theme architecture, app stack, payments, and conversion flow before build&mdash;with a zero-bloat app policy.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                Not sure whether Shopify or a different platform fits your store? We&apos;ll tell you honestly which one makes sense.
               </p>
-              <p>
-                Framecipher focuses on building Shopify stores that are structured for real business use, not simply designed to look good in a portfolio.
-              </p>
-              <p>
-                We plan your catalog, navigation, theme architecture, app stack, integrations, payment setup, and conversion flow before development begins.
-              </p>
-              <p>
-                We also take a platform-neutral approach. Shopify can be a strong fit for businesses that want managed ecommerce infrastructure and easy store management. When WooCommerce, Magento, or another platform makes more practical sense, we explain that before development starts.
-              </p>
+              <PosterButton href="/contact" className="shrink-0">
+                Get an Honest Assessment
+              </PosterButton>
             </div>
           </div>
         </div>

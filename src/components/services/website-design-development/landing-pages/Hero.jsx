@@ -116,13 +116,35 @@ export default function Hero() {
             Landing Page Development Built Around Your Campaign Goal
           </h2>
           
-          <p className="mt-8 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg max-w-4xl mx-auto">
-            A landing page should do more than look good. It should give your campaign one clear destination and one primary action.
-          </p>
+          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Marketers and businesses running Google, Meta, TikTok, or LinkedIn campaigns that need one clear landing-page destination.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Campaign-specific landing pages for leads, sales, bookings, signups, downloads, or registrations&mdash;built around one conversion goal.
+              </p>
+            </div>
+            <div className="bg-frame-bg p-5">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                We plan the offer, audience, traffic source, and message first&mdash;then build, track, and test the page through one in-house team.
+              </p>
+            </div>
+          </div>
 
-          <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl mx-auto">
-            We start by understanding your offer, target audience, traffic source, and campaign objective before planning the page. Whether you want leads, sales, bookings, signups, downloads, or registrations, the content and design are structured around that specific goal. From the headline and offer to trust signals, forms, calls to action, tracking, and mobile experience, every element has a role in moving visitors toward the desired action.
-          </p>
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+              Not sure whether your current page is costing you conversions? We&apos;ll tell you honestly what&apos;s likely to help.
+            </p>
+            <PosterButton href="/contact" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
+          </div>
 
           {/* APPROACH FLOW PIPELINE */}
           <div className="mt-10 border-2 border-frame-border bg-frame-bg p-6 md:p-8">

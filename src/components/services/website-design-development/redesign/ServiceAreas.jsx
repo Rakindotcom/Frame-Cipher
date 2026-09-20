@@ -1,5 +1,19 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const bangladeshRedesignPoints = [
+  'Mobile-first browsing behavior',
+  'Local network conditions',
+  'Bilingual content requirements',
+  'Local conversion paths',
+]
+
+const internationalRedesignPoints = [
+  'Target market and audience',
+  'Technical requirements per region',
+  'Business objectives and KPIs',
+  'Global structure rather than a single-market template',
+]
+
 export default function ServiceAreas() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -25,17 +39,33 @@ export default function ServiceAreas() {
           <div className="border-2 border-frame-border bg-frame-bg p-6">
             <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Domestic Focus</span>
             <h3 className="mt-2 font-heading text-xl font-bold text-frame-fg uppercase">Bangladesh Businesses</h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-              For Bangladesh-based businesses, our redesign process can account for mobile-first browsing behavior, local network conditions, bilingual content requirements, local conversion paths, and other market-specific considerations where relevant.
+            <p className="mt-4 text-sm font-medium text-frame-muted-fg">
+              Our redesign process can account for:
             </p>
+            <ul className="mt-3 space-y-2 text-sm font-medium text-frame-fg/90">
+              {bangladeshRedesignPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="border-2 border-frame-border bg-frame-bg p-6">
             <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">International Standards</span>
             <h3 className="mt-2 font-heading text-xl font-bold text-frame-fg uppercase">Global Projects</h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-              For international projects, we adapt the redesign around the target market, audience, technical requirements, and business objectives rather than applying a single-market template.
+            <p className="mt-4 text-sm font-medium text-frame-muted-fg">
+              For international projects, we adapt the redesign around:
             </p>
+            <ul className="mt-3 space-y-2 text-sm font-medium text-frame-fg/90">
+              {internationalRedesignPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

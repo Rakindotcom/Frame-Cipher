@@ -85,24 +85,43 @@ export default function Hero() {
             <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
               Why We&apos;re the Right Magento Development Team
             </h2>
-            <div className="mt-6 space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                Magento is not simply a platform for adding more products. It becomes valuable when ecommerce operations require more complex catalog structures, B2B pricing, multiple storefronts, custom workflows, or deep system integrations.
-              </p>
-              <p>
-                Framecipher approaches Magento development from both the business and technical side. We first understand your products, customers, pricing model, fulfillment process, integrations, and growth plans before deciding how the store should be built.
-              </p>
-              <p>
-                We also take a platform-neutral approach. When Magento is the right fit, we build around its strengths. When Shopify, WooCommerce, or another platform makes more practical sense, we explain that before development begins.
-              </p>
-            </div>
 
             <div className="mt-8 flex flex-wrap items-center gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
-              <span className="border border-frame-border bg-frame-bg px-4 py-2 shadow-sm">Complex Ecommerce Architecture</span>
-              <span className="text-frame-accent font-bold">|</span>
-              <span className="border border-frame-border bg-frame-bg px-4 py-2 shadow-sm">B2B &amp; Multi-Store Ready</span>
-              <span className="text-frame-accent font-bold">|</span>
-              <span className="border border-frame-accent bg-frame-accent/10 px-4 py-2 text-frame-accent shadow-sm">Platform-Neutral Recommendations</span>
+              <span className="border border-frame-border bg-frame-bg px-4 py-2 shadow-sm">Complex Catalog &amp; Pricing</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border bg-frame-bg px-4 py-2 shadow-sm">B2B &amp; Multi-Store</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-accent bg-frame-accent/10 px-4 py-2 text-frame-accent shadow-sm">Platform-Neutral Recommendation</span>
+            </div>
+
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Merchants with large catalogs, complex inventory, B2B pricing, or multi-region needs that outgrow simpler ecommerce platforms.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Enterprise storefronts, B2B company accounts, ERP &amp; PIM integrations, and multi-store operations built on Adobe Commerce.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  We first understand products, customers, pricing, fulfillment, and integrations&mdash;then build a store that handles real ecommerce complexity.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                Not sure whether Magento or a different platform fits your store? We&apos;ll tell you honestly which one makes sense.
+              </p>
+              <PosterButton href="/contact" className="shrink-0">
+                Get an Honest Assessment
+              </PosterButton>
             </div>
           </div>
         </div>

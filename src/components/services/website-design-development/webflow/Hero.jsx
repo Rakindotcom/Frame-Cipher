@@ -86,29 +86,44 @@ export default function Hero() {
               Why We&apos;re the Right Webflow Development Team
             </h2>
 
-            <div className="mt-6 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-[0.18em] text-frame-accent border-y-2 border-frame-border/60 py-3 my-8">
-              <span>Design-Forward Builds</span>
-              <span className="text-frame-muted-fg font-normal">|</span>
-              <span>Structured CMS</span>
-              <span className="text-frame-muted-fg font-normal">|</span>
-              <span>Clean Development</span>
-              <span className="text-frame-muted-fg font-normal">|</span>
-              <span>Marketing-Team Friendly</span>
+            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Design-Forward Builds</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Structured CMS</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Clean Development</span>
+              <span className="text-frame-accent font-bold">&rarr;</span>
+              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Marketing-Team Friendly</span>
             </div>
 
-            <div className="space-y-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                Webflow gives businesses strong visual control without requiring a traditional self-managed hosting stack, but a successful Webflow project depends on how the site is structured behind the design.
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Design-forward brands, agencies, and marketing teams that want creative control without the overhead of a fully custom framework.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  Marketing websites, dynamic CMS sites, portfolios, and content platforms structured around your design, SEO, and publishing needs.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-5">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
+                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  We plan CMS, components, responsive behavior, integrations, and publishing workflow before build&mdash;then launch a site your team can manage.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
+              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
+                Not sure whether Webflow or a different platform fits your project? We&apos;ll tell you honestly which one makes sense.
               </p>
-              <p>
-                Framecipher approaches Webflow development from both the design and technical side. We plan your CMS, components, responsive behavior, integrations, SEO structure, and publishing workflow before building the final pages.
-              </p>
-              <p>
-                The goal is not simply to create a visually impressive website. It is to create a Webflow site that looks right, performs well, and remains manageable as your content grows.
-              </p>
-              <p>
-                We also take a platform-neutral approach. Webflow is a strong fit for many design-led marketing websites, but when a project requires a different technical architecture, ecommerce platform, or backend system, we explain that before development begins.
-              </p>
+              <PosterButton href="/contact" className="shrink-0">
+                Get an Honest Assessment
+              </PosterButton>
             </div>
           </div>
         </div>

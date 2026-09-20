@@ -4,30 +4,58 @@ const pricingTiers = [
   {
     name: "MVP Development",
     price: "৳300,000",
-    scope: "Core feature set, single platform, basic backend",
     delivery: "~6–10 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Core feature set",
+      "Single platform build",
+      "Basic backend",
+      "Standard UI/UX",
+      "Foundational testing",
+      "Store launch support"
+    ]
   },
   {
     name: "Native Android or iOS App",
     price: "৳500,000",
-    scope: "One platform, moderate complexity, standard integrations",
     delivery: "~10–14 weeks",
-    featured: true
+    featured: true,
+    includes: [
+      "One platform, moderate complexity",
+      "Custom UI/UX design",
+      "Standard integrations",
+      "Moderate backend scope",
+      "Real-device testing",
+      "Store submission support"
+    ]
   },
   {
     name: "Cross-Platform App",
     price: "৳600,000",
-    scope: "Android + iOS, shared codebase, moderate to full feature set",
     delivery: "~10–16 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Android + iOS shared codebase",
+      "Platform-aware UI/UX",
+      "Moderate to full feature set",
+      "API & backend integration",
+      "Dual-store release prep",
+      "Post-launch support window"
+    ]
   },
   {
     name: "SaaS / Enterprise App",
     price: "Custom Quote",
-    scope: "Multi-user architecture, complex integrations, scalability requirements",
     delivery: "~16–24+ weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Multi-user architecture",
+      "Complex integrations",
+      "Scalability planning",
+      "Security & role-based access",
+      "Admin dashboards",
+      "Dedicated architecture & DevOps"
+    ]
   }
 ]
 
@@ -107,11 +135,20 @@ export default function Pricing() {
                   </p>
                   <div className="mt-4 border-t border-frame-border/60 pt-4">
                     <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
-                      Typical Scope:
+                      What&apos;s Included:
                     </p>
-                    <p className="mt-1 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                      {tier.scope}
-                    </p>
+                    <ul className="mt-3 space-y-2">
+                      {tier.includes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
 
@@ -122,38 +159,6 @@ export default function Pricing() {
                 </div>
               </div>
             ))}
-          </div>
-
-          {/* DETAILED PRICING & TIMELINE TABLE */}
-          <div className="mt-12 overflow-x-auto border-2 border-frame-border">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-                <tr>
-                  <th className="p-4 border-r-2 border-frame-border">Project Type</th>
-                  <th className="p-4 border-r-2 border-frame-border">Starting Price</th>
-                  <th className="p-4 border-r-2 border-frame-border">Typical Scope</th>
-                  <th className="p-4">Typical Delivery</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-                {pricingTiers.map((tier, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                    <td className="p-4 font-semibold text-frame-fg border-r-2 border-frame-border">
-                      {tier.name}
-                    </td>
-                    <td className="p-4 font-bold text-frame-accent border-r-2 border-frame-border whitespace-nowrap">
-                      {tier.price}
-                    </td>
-                    <td className="p-4 border-r-2 border-frame-border">
-                      {tier.scope}
-                    </td>
-                    <td className="p-4 font-medium text-frame-fg whitespace-nowrap">
-                      {tier.delivery}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
 
           {/* PRICING NOTES */}
@@ -169,14 +174,16 @@ export default function Pricing() {
 
         {/* SECTION 2: APPROVALS, SCOPE & RELEASE SUPPORT */}
         <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Project Governance
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Approvals, Scope &amp; Release Support
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mb-8 items-end gap-8 lg:grid lg:grid-cols-[1.5fr_1fr] lg:mb-12">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                Project Governance
+              </span>
+              <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+                Approvals, Scope &amp; Release Support
+              </h2>
+            </div>
+            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Clear approvals and scope boundaries help keep application development predictable.
             </p>
           </div>
@@ -209,14 +216,16 @@ export default function Pricing() {
 
         {/* SECTION 3: POST-LAUNCH APP SUPPORT & MAINTENANCE */}
         <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Lifecycle Engineering
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Post-Launch App Support &amp; Maintenance
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mb-8 items-end gap-8 lg:grid lg:grid-cols-[1.5fr_1fr] lg:mb-12">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                Lifecycle Engineering
+              </span>
+              <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+                Post-Launch App Support &amp; Maintenance
+              </h2>
+            </div>
+            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               An application needs attention after launch as operating systems, devices, dependencies, integrations, and user requirements change. Post-launch support can include:
             </p>
           </div>

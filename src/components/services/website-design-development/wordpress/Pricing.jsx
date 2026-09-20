@@ -6,30 +6,74 @@ const packages = [
     price: '৳25,000',
     timeline: '1–2 weeks',
     description: 'Content volume, category structure, and custom design',
+    features: [
+      'Custom theme design & setup',
+      'Content & category structure',
+      'Blog / portfolio functionality',
+      'On-page SEO setup',
+      'Mobile responsiveness',
+      'Launch support',
+    ],
   },
   {
     name: 'Business Website',
     price: '৳45,000',
     timeline: '2–3 weeks',
     description: 'Page count, custom functionality, and integrations',
+    features: [
+      'Custom UI/UX design',
+      'Multi-page structure',
+      'Lead capture & contact forms',
+      'CMS / editor training',
+      'On-page SEO setup',
+      'Speed optimization',
+      'Launch support',
+    ],
   },
   {
     name: 'E-commerce Store',
     price: '৳90,000',
     timeline: '4–6 weeks',
     description: 'Product count, payment gateways, and inventory requirements',
+    features: [
+      'Product catalog & category setup',
+      'bKash / Nagad integration',
+      'International payment gateway',
+      'Inventory & order management',
+      'Shipping / delivery integration',
+      'SEO & product schema',
+      'Launch support',
+    ],
   },
   {
     name: 'Membership / Directory Site',
     price: '৳120,000+',
     timeline: '5–8 weeks',
     description: 'User accounts, subscriptions, access rules, and custom functionality',
+    features: [
+      'User accounts & registration',
+      'Subscription & access rules',
+      'Member directories / listings',
+      'Payment integration',
+      'Custom functionality (as scoped)',
+      'Security hardening',
+      'Launch support',
+    ],
   },
   {
     name: 'Migration or Complex Custom Build',
     price: 'Custom Quote',
     timeline: '5–10+ weeks',
     description: 'Content volume, migration complexity, integrations, and custom development',
+    features: [
+      'Content & media migration',
+      'URL / redirect planning',
+      'Custom plugin & functionality development',
+      'Third-party integrations',
+      'Security hardening',
+      'Performance optimization',
+      'Handover documentation',
+    ],
   },
 ]
 
@@ -101,6 +145,16 @@ export default function Pricing() {
                   <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
+                  {pkg.features && (
+                    <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                      {pkg.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start gap-2">
+                          <span className="text-frame-accent font-bold">✓</span>
+                          <span className="leading-snug">{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 <div className="mt-8 pt-4 border-t border-frame-border/60">

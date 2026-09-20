@@ -21,6 +21,14 @@ const packages = [
     description: 'Up to 50 products, customized existing theme',
     timeline: '~1–2 weeks',
     featured: false,
+    features: [
+      'Existing theme customization',
+      'Store architecture & setup',
+      'Product & collection structure',
+      'Payment integration setup',
+      'On-page SEO & product schema',
+      'Launch support',
+    ],
   },
   {
     name: 'Custom Theme Build',
@@ -28,6 +36,15 @@ const packages = [
     description: 'Fully custom theme, up to 300 products, standard app integrations',
     timeline: '~3–4 weeks',
     featured: true,
+    features: [
+      'Fully custom theme development',
+      'Advanced store architecture',
+      'Product & collection structure',
+      'Payment integration setup',
+      'Standard app integrations',
+      'On-page SEO & product schema',
+      'Launch support',
+    ],
   },
   {
     name: 'Growth Store',
@@ -35,6 +52,15 @@ const packages = [
     description: 'Larger catalog, multiple integrations, conversion optimization',
     timeline: '~4–6 weeks',
     featured: false,
+    features: [
+      'Custom theme development',
+      'Larger catalog & collections',
+      'Multiple app / API integrations',
+      'Payment & shipping integrations',
+      'Conversion optimization',
+      'On-page SEO & product schema',
+      'Launch support',
+    ],
   },
   {
     name: 'Shopify Plus / Custom App Build',
@@ -42,6 +68,15 @@ const packages = [
     description: 'High-volume catalogs, custom API development, advanced integrations',
     timeline: '~6–10+ weeks',
     featured: false,
+    features: [
+      'High-volume catalog architecture',
+      'Custom app / API development',
+      'Advanced integrations (ERP / CRM / OMS)',
+      'B2B / wholesale functionality',
+      'Multi-market & multi-language',
+      'Performance & scale optimization',
+      'Handover documentation',
+    ],
   },
 ]
 
@@ -145,6 +180,16 @@ export default function Pricing() {
                   <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
+                )}
+                {pkg.features && (
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {pkg.features.map((feat, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
 

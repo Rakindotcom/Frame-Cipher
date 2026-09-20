@@ -1,5 +1,18 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const internationalUxPoints = [
+  'Process adapted to the product and audience',
+  'Technical requirements per market',
+  'Business goals and KPIs',
+  'Experience built for audiences in the UAE, US, UK, Australia & Canada',
+]
+
+const bangladeshUxPoints = [
+  'Responsive and mobile-first requirements from the start',
+  'Design treating mobile as a priority, not a final adjustment',
+  'Local user flows and context',
+]
+
 export default function ServiceAreas() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -15,9 +28,17 @@ export default function ServiceAreas() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">International Markets</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">Global Projects</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              We work with businesses targeting markets including the UAE, US, UK, Australia, and Canada, adapting the process around the product, audience, technical requirements, and business goals.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              We adapt the process around:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {internationalUxPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
 
           <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 hover:bg-frame-muted/10 transition-colors">
@@ -26,9 +47,17 @@ export default function ServiceAreas() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Domestic Engineering</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">Bangladesh Businesses</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              For Bangladesh-based businesses, we also consider responsive and mobile-first requirements from the beginning rather than treating mobile as a final adjustment.
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              For Bangladesh-based businesses, we also consider:
             </p>
+            <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
+              {bangladeshUxPoints.map((pt) => (
+                <li key={pt} className="flex items-start gap-2">
+                  <span className="text-frame-accent font-bold">✓</span>
+                  <span>{pt}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

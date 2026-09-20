@@ -4,67 +4,59 @@ const packages = [
   {
     name: "Single Integration",
     price: "৳60,000",
-    description: "One third-party service, standard authentication, basic testing",
     timeline: "~1–2 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "One third-party service",
+      "Standard authentication",
+      "Basic testing",
+      "Error handling",
+      "Launch support"
+    ]
   },
   {
     name: "Custom API (Standard)",
     price: "৳150,000",
-    description: "REST or GraphQL API, moderate endpoint count, documentation included",
     timeline: "~3–5 weeks",
-    featured: true
+    featured: true,
+    includes: [
+      "REST or GraphQL API",
+      "Moderate endpoint count",
+      "Documentation included",
+      "Authentication & validation",
+      "Integration testing",
+      "Monitoring & alerting"
+    ]
   },
   {
     name: "Multi-System Integration",
     price: "৳280,000",
-    description: "Multiple third-party systems, webhook handling, retry logic",
     timeline: "~5–8 weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "Multiple third-party systems",
+      "Webhook handling",
+      "Retry logic",
+      "Data mapping",
+      "Load or performance testing",
+      "Error & queue handling"
+    ]
   },
   {
     name: "Complex / Enterprise Integration",
     price: "Custom Quote",
-    description: "High-volume data sync, multiple legacy systems, compliance-related technical requirements",
     timeline: "~8+ weeks",
-    featured: false
+    featured: false,
+    includes: [
+      "High-volume data sync",
+      "Multiple legacy systems",
+      "Compliance-related requirements",
+      "Custom authentication",
+      "Dedicated architecture",
+      "Ongoing support arrangement"
+    ]
   }
 ]
-
-const pricingTable = {
-  headers: [
-    "Project Type",
-    "Starting Price",
-    "Typical Scope",
-    "Typical Delivery"
-  ],
-  rows: [
-    [
-      "Single Integration",
-      "৳60,000",
-      "One third-party service, standard authentication, basic testing",
-      "~1–2 weeks"
-    ],
-    [
-      "Custom API (Standard)",
-      "৳150,000",
-      "REST or GraphQL API, moderate endpoint count, documentation included",
-      "~3–5 weeks"
-    ],
-    [
-      "Multi-System Integration",
-      "৳280,000",
-      "Multiple third-party systems, webhook handling, retry logic",
-      "~5–8 weeks"
-    ],
-    [
-      "Complex / Enterprise Integration",
-      "Custom Quote",
-      "High-volume data sync, multiple legacy systems, compliance-related technical requirements",
-      "~8+ weeks"
-    ]
-  ]
-}
 
 const includedItems = [
   "Strategy and architecture",
@@ -158,10 +150,24 @@ export default function Pricing() {
                     Typical Delivery: {pkg.timeline}
                   </p>
                 )}
-                {pkg.description && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
-                    {pkg.description}
-                  </p>
+                {pkg.includes && (
+                  <div className="mt-4 border-t border-frame-border/60 pt-4">
+                    <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
+                      What&apos;s Included:
+                    </p>
+                    <ul className="mt-3 space-y-2">
+                      {pkg.includes.map((item, idx) => (
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                            </svg>
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
               </div>
 
@@ -172,37 +178,6 @@ export default function Pricing() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* COMPARISON / SPECIFICATION TABLE */}
-        <div className="mt-16">
-          <h2 className="mb-6 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Project Scope & Delivery Matrix
-          </h2>
-          <div className="overflow-x-auto border-2 border-frame-border">
-            <table className="w-full text-left text-sm">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-                <tr>
-                  {pricingTable.headers.map((h, i) => (
-                    <th key={i} className="p-4 border-r-2 border-frame-border last:border-r-0">
-                      {h}
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-                {pricingTable.rows.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className={`p-4 border-r-2 border-frame-border last:border-r-0 ${cIdx === 0 ? 'font-semibold text-frame-fg' : ''}`}>
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
 
         {/* WHAT IS INCLUDED & WHAT CAN AFFECT TIMELINE */}
@@ -260,11 +235,11 @@ export default function Pricing() {
 
         {/* PROJECT SCOPE, REVIEW & SUPPORT */}
         <div className="mt-16">
-          <div className="border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8 mb-8">
-            <h2 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-              Project Scope, Review & Support
+          <div className="mb-8 items-end gap-8 border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8 lg:grid lg:grid-cols-[1.5fr_1fr]">
+            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
+              Project Scope, Review &amp; Support
             </h2>
-            <p className="mt-2 text-sm md:text-base font-medium text-frame-muted-fg">
+            <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base lg:mt-0">
               Clear scope helps prevent unexpected development changes.
             </p>
           </div>

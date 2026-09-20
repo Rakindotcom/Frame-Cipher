@@ -1,5 +1,20 @@
 import { SectionIntro } from '../../../Kinetic'
 
+const bangladeshWixPoints = [
+  'Mobile-first browsing experience',
+  'Clear inquiry options and forms',
+  'WhatsApp and click-to-call actions',
+  'Local business information and Google Maps',
+  'Bangla-English content where needed',
+]
+
+const internationalWixPoints = [
+  'Structure built around the target market',
+  'Messaging and content adapted to the audience',
+  'Forms and integrations matched to the business model',
+  'Layout and UX that meet global standards',
+]
+
 export default function Markets() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
@@ -20,9 +35,17 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For Bangladesh-Based Businesses
               </h3>
-              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                For Bangladesh-based businesses, we consider practical local requirements such as mobile-first browsing, clear inquiry options, WhatsApp or direct-call actions, local business information, and Bangla-English content where needed.
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+                We can account for:
               </p>
+              <ul className="mt-3 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
+                {bangladeshWixPoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
 
@@ -37,9 +60,17 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For International Businesses
               </h3>
-              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-                For international businesses, we adapt the website structure, messaging, content, forms, and integrations around the target market and business model.
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+                We adapt:
               </p>
+              <ul className="mt-3 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
+                {internationalWixPoints.map((pt) => (
+                  <li key={pt} className="flex items-start gap-2">
+                    <span className="text-frame-accent font-bold">✓</span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
