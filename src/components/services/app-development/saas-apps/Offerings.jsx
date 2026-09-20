@@ -771,36 +771,6 @@ const whyChooseUs = [
   }
 ]
 
-const portfolioFramework = [
-  {
-    title: "Project Overview",
-    desc: "Explain what the SaaS product does, who uses it, and what business model it supports."
-  },
-  {
-    title: "Business Challenge",
-    desc: "Describe the customer's operational, revenue, workflow, or product problem before development."
-  },
-  {
-    title: "SaaS Architecture",
-    desc: "Show the tenancy model, user structure, billing system, APIs, integrations, or other important architecture decisions."
-  },
-  {
-    title: "Product Features",
-    desc: "Highlight the features that make the product useful to customers."
-  },
-  {
-    title: "Technology Stack",
-    desc: "Show the actual frontend, backend, database, infrastructure, and integration technologies used."
-  },
-  {
-    title: "Development & Deployment",
-    desc: "Explain how the product moved from requirements and design through development, testing, deployment, and iteration."
-  },
-  {
-    title: "Verified Outcome",
-    desc: "Use only verified results such as product launch, customer adoption, subscription growth, operational improvements, or other client-approved metrics."
-  }
-]
 
 export default function Offerings() {
   return (
@@ -1560,45 +1530,6 @@ export default function Offerings() {
           </div>
         </div>
 
-        {/* SECTION 23: SAAS APP DEVELOPMENT PORTFOLIO & CASE STUDIES */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Evidence &amp; Case Studies
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              SaaS App Development Portfolio &amp; Case Studies
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              Use real product evidence to show what Framecipher has actually built.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {portfolioFramework.map((item, i) => (
-              <div
-                key={i}
-                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-              >
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Evidence Point 0{i + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-            <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
-              Only publish genuine Framecipher projects, screenshots, links, and measurable results.
-            </p>
-          </div>
-        </div>
 
         {/* SECTION 24: SAAS APP DEVELOPMENT SERVICES ACROSS BANGLADESH & WORLDWIDE */}
         <div className="mt-28 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-12">

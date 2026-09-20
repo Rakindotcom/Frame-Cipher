@@ -413,15 +413,6 @@ const whyChooseUs = [
   }
 ]
 
-const portfolioElements = [
-  "Business challenge",
-  "Existing systems",
-  "API architecture",
-  "Connected integrations",
-  "Security and reliability considerations",
-  "Deployment approach",
-  "Verified project outcomes"
-]
 
 export default function Offerings() {
   return (
@@ -907,39 +898,6 @@ export default function Offerings() {
           </div>
         </div>
 
-        {/* SECTION 14: API DEVELOPMENT PORTFOLIO & CASE STUDIES */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Case Evidence
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              API Development Portfolio &amp; Case Studies
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              Every API project has different systems, data flows, and technical constraints. Our case studies can show how we approach those challenges without exposing confidential client information. Where project details can be shared, we highlight:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {portfolioElements.map((el, i) => (
-              <div key={i} className="flex items-center gap-3 border-2 border-frame-border bg-frame-muted/10 p-4">
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </span>
-                <span className="text-xs md:text-sm font-semibold text-frame-fg">
-                  {el}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          <p className="mt-6 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent border-t border-frame-border/60 pt-4">
-            We publish only project details and results that are approved and supported by actual project evidence.
-          </p>
-        </div>
 
         {/* SECTION 15: API DEVELOPMENT SERVICES ACROSS BANGLADESH & WORLDWIDE */}
         <div className="mt-28 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-12">
@@ -978,32 +936,8 @@ export default function Offerings() {
           </div>
         </div>
 
-        {/* SECTION 16: PROJECT SCOPE, REVIEW & SUPPORT */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-            Clear Engagement Terms
-          </span>
-          <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-            Project Scope, Review &amp; Support
-          </h2>
-          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {[
-              ['Project Scope', 'Clear scope helps prevent unexpected development changes. Before development starts, we define the agreed functionality, integrations, deliverables, timeline, and responsibilities.'],
-              ['Stakeholder Reviews', 'Architecture, development, and testing stages include review points where applicable. Your approval helps ensure the project continues in the agreed direction.'],
-              ['Third-Party Dependencies', 'Some API behavior depends on external providers. We cannot guarantee that a third-party service will never experience an outage, change its API, reject requests, or introduce new requirements. We can, however, build agreed error handling, retry logic, monitoring, and recovery mechanisms around those dependencies.'],
-              ['Change Requests', 'Requests outside the agreed scope may require additional development time and cost. Any significant scope change should be reviewed before implementation.'],
-              ['Post-Launch Support', 'Launch support can include checking the deployed integration, confirming expected data flow, and addressing agreed launch issues. Ongoing API maintenance is available separately.'],
-              ['Workmanship Warranty', 'Any workmanship warranty should follow the warranty period and terms stated in the final proposal or project agreement. Third-party outages, provider-side API changes, new requirements, and functionality outside the approved scope are not treated as development defects.'],
-            ].map(([title, description]) => (
-              <div key={title} className="border-2 border-frame-border bg-frame-muted/10 p-5 md:p-6">
-                <h3 className="font-heading text-lg font-bold uppercase text-frame-fg">{title}</h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
       </div>
     </section>
   )
 }
+

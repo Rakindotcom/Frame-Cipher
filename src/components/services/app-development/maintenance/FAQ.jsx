@@ -1,38 +1,65 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "Do I need maintenance if my app just launched and is working fine?",
-    "answer": "Yes, a working app today can break with the next OS update if nothing's actively monitoring compatibility. Maintenance is preventive, not a service reserved for apps that are already broken."
+    question: "What does app maintenance and support include?",
+    answer: "App maintenance can include bug fixes, OS and SDK updates, security maintenance, performance monitoring, backend and API support, integration maintenance, release support, and minor improvements. The exact scope depends on your application and selected maintenance plan."
   },
   {
-    "question": "What happens if my app crashes or something breaks?",
-    "answer": "Depending on your plan, we respond to urgent issues with priority turnaround, drawing on a team already familiar with your app's codebase. Specific response time commitments are confirmed as part of your maintenance plan."
+    question: "Do you provide monthly app maintenance plans?",
+    answer: "Yes. We offer monthly maintenance plans designed for different application sizes and support requirements. Plans currently start at ৳15,000 per month, with higher tiers for applications requiring broader support."
   },
   {
-    "question": "Do you maintain apps you didn't originally build?",
-    "answer": "Yes, we provide maintenance for apps built by other developers or agencies, starting with an initial codebase assessment to understand the current setup before ongoing maintenance begins."
+    question: "Can you maintain an app built by another developer?",
+    answer: "Yes. We can take over an existing application after reviewing its codebase, dependencies, infrastructure, integrations, and current technical condition. The assessment helps establish a maintenance baseline before ongoing support begins."
   },
   {
-    "question": "Is maintenance different for a SaaS app versus a native mobile app?",
-    "answer": "Yes, a SaaS product needs closer monitoring of tenant-level issues and billing integrations, while a native app's maintenance centers more on OS compatibility and store policy compliance. We scope the plan to match your app's actual platform."
+    question: "Do you maintain both Android and iOS apps?",
+    answer: "Yes. We support Android and iOS applications, with maintenance requirements determined by the application's architecture, codebase, dependencies, and integrations."
   },
   {
-    "question": "Do you provide maintenance for apps outside Bangladesh?",
-    "answer": "Yes, we maintain apps for businesses across Bangladesh as well as internationally, including the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Support Team]"
+    question: "Do you maintain Flutter and React Native apps?",
+    answer: "We can support cross-platform applications based on the project's technology, codebase condition, dependencies, and maintenance requirements. The initial assessment determines the appropriate maintenance scope."
+  },
+  {
+    question: "Can you handle OS and SDK updates?",
+    answer: "Yes. OS and SDK compatibility is an important part of ongoing application maintenance. We review relevant platform changes, update affected components, test the application, and support the release process when required."
+  },
+  {
+    question: "Do you maintain app APIs and third-party integrations?",
+    answer: "Yes. We can maintain existing APIs, backend connections, payment integrations, authentication systems, and other third-party services within the agreed scope."
+  },
+  {
+    question: "Do you provide emergency app support?",
+    answer: "Support priority can be structured around the severity of an issue. Critical production problems can be handled according to the response terms defined in the selected maintenance agreement."
+  },
+  {
+    question: "How do your app maintenance SLAs work?",
+    answer: "An SLA defines the agreed support expectations, such as issue priority, response expectations, communication, and support coverage. Specific SLA terms depend on the maintenance plan and should be agreed before the engagement begins."
+  },
+  {
+    question: "How quickly can you start maintaining an existing app?",
+    answer: "The onboarding period depends on the application's size, codebase condition, access requirements, and assessment scope. We first review the application and require access before beginning ongoing maintenance."
+  },
+  {
+    question: "Can you add new features during maintenance?",
+    answer: "Yes. Minor feature enhancements can be included within suitable maintenance plans. Larger features may require a separate development scope when they exceed the plan's included capacity."
+  },
+  {
+    question: "How much does app maintenance cost?",
+    answer: "Our current plans start at ৳15,000/month. Standard maintenance is ৳30,000/month, Growth maintenance is ৳50,000/month, and Enterprise maintenance is custom-priced. The final cost depends on the application's platform, complexity, integrations, maintenance workload, and support requirements."
   }
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="Direct Answers"
+          eyebrow="Direct Clarity"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Key questions about our ongoing app maintenance agreements, response tiers, platforms, and codebase takeover procedures.
         </SectionIntro>
 
         <div className="space-y-4">

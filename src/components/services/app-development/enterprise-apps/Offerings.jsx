@@ -745,44 +745,6 @@ const whyChooseUs = [
   }
 ]
 
-const portfolioFramework = [
-  {
-    title: "Business Challenge",
-    desc: "Explain the organizational problem, workflow, inefficiency, or operational requirement behind the project."
-  },
-  {
-    title: "Existing Systems",
-    desc: "Show which ERP, CRM, legacy databases, APIs, or other systems were already part of the environment."
-  },
-  {
-    title: "Solution Architecture",
-    desc: "Explain the application architecture, data flow, integrations, security model, and major technical decisions."
-  },
-  {
-    title: "Integrations",
-    desc: "Show how the application connects with the systems, services, identity providers, or databases already required by the organization."
-  },
-  {
-    title: "Security",
-    desc: "Highlight relevant authentication, access control, data protection, auditability, and other enterprise security requirements."
-  },
-  {
-    title: "Key Workflows",
-    desc: "Show the important business processes, departments, roles, approvals, automation, or operational functions included in the system."
-  },
-  {
-    title: "Platforms",
-    desc: "Identify the web, mobile, desktop, or connected environments supported by the project."
-  },
-  {
-    title: "Deployment",
-    desc: "Explain how the application moved through testing, deployment, rollout, and post-launch monitoring."
-  },
-  {
-    title: "Verified Outcome",
-    desc: "Use only verified results such as reduced processing time, improved visibility, adoption, operational improvements, or other client-approved metrics."
-  }
-]
 
 export default function Offerings() {
   return (
@@ -1513,45 +1475,6 @@ export default function Offerings() {
           </div>
         </div>
 
-        {/* SECTION 22: ENTERPRISE APP DEVELOPMENT PORTFOLIO & CASE STUDIES */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Case Evidence Framework
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Enterprise App Development Portfolio &amp; Case Studies
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              Use real enterprise work here to demonstrate how Framecipher handles complex systems.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {portfolioFramework.map((item, i) => (
-              <div
-                key={i}
-                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-              >
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Evidence Point 0{i + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-            <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
-              Only publish genuine Framecipher projects, screenshots, links, and measurable outcomes.
-            </p>
-          </div>
-        </div>
 
         {/* SECTION 23: ENTERPRISE APP DEVELOPMENT SERVICES ACROSS BANGLADESH & WORLDWIDE */}
         <div className="mt-28 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-12">

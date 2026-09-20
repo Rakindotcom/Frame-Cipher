@@ -1,260 +1,841 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const maintenanceServices = [
   {
-    "title": "OS COMPATIBILITY & UPDATE MANAGEMENT",
-    "description": "Keeping the app working correctly as Android and iOS both continue evolving. What We Do An app that passed review at launch can still fall out of compliance a year later if nobody's tracking policy changes.",
-    "bullets": [
-      "Android OS Update Testing: Verifying functionality against new Android releases before they reach wide adoption.",
-      "iOS Update Testing: Testing against new iOS versions, including Apple's annual major release cycle.",
-      "SDK & Dependency Updates: Keeping third-party libraries and frameworks current before they become deprecated liabilities.",
-      "App Store Policy Compliance: Tracking changes to App Store and Google Play guidelines that could affect an already-live app."
-    ]
+    title: "OS, SDK & Device Compatibility",
+    desc: "Android and iOS regularly introduce new operating system versions, SDK requirements, and device changes. We review your application against relevant platform updates and make the changes needed to keep it working properly.",
+    bullets: [
+      "Android and iOS version compatibility",
+      "SDK and dependency updates",
+      "Deprecated API replacement",
+      "Device compatibility checks",
+      "Build and configuration updates",
+      "Regression testing after platform changes",
+      "App Store and Google Play technical requirements"
+    ],
+    footer: "We focus on compatibility before platform changes become production problems."
   },
   {
-    "title": "BUG FIXES & PERFORMANCE MONITORING",
-    "description": "Catching issues in real usage, not waiting for a pattern of complaints to surface. What We Do A bug that only shows up for a fraction of users is still costing you reviews, retention, and word of mouth.",
-    "bullets": [
-      "Crash Reporting & Triage: Monitoring crash reports and prioritizing fixes based on actual user impact.",
-      "Performance Monitoring: Tracking load times, memory usage, and responsiveness as the app scales.",
-      "Bug Fix Development: Addressing issues as they're identified, with a clear release cadence rather than an indefinite backlog.",
-      "Regression Testing: Confirming a fix for one issue doesn't quietly introduce another."
-    ]
+    title: "Bug Fixes & Crash Resolution",
+    desc: "Every application can develop issues as users, devices, dependencies, and integrations change. We investigate reported bugs and production issues to identify the underlying cause rather than repeatedly treating the same symptom.",
+    bullets: [
+      "Crash investigation",
+      "Functional bug fixes",
+      "UI and interaction issues",
+      "Login and authentication problems",
+      "Payment and checkout issues",
+      "Data-related errors",
+      "Regression testing",
+      "Root-cause investigation",
+      "Post-release verification"
+    ],
+    footer: "We prioritize issues based on their impact on your users and business operations."
   },
   {
-    "title": "SECURITY & INFRASTRUCTURE MAINTENANCE",
-    "description": "The unglamorous work that keeps an app from becoming a security liability over time. What We Do Security maintenance is invisible when it's working, and it's exactly the kind of work that gets skipped when nobody's specifically responsible for it.",
-    "bullets": [
-      "Security Patch Management: Applying security fixes promptly across the app and its backend dependencies.",
-      "Backend & Server Maintenance: Keeping infrastructure current, patched, and sized correctly as usage grows.",
-      "Data Backup & Recovery: Regular backups and tested recovery procedures, especially for apps handling sensitive user data.",
-      "Vulnerability Scanning: Periodic scans to catch security gaps before they become real incidents."
-    ]
+    title: "Performance Monitoring & Optimization",
+    desc: "Slow screens, failed requests, crashes, and inefficient processes can affect the user experience. We monitor relevant application and infrastructure signals and investigate performance problems when they appear.",
+    bullets: [
+      "App performance checks",
+      "Crash and error monitoring",
+      "API response analysis",
+      "Server health monitoring",
+      "Database performance checks",
+      "Memory and resource issues",
+      "Slow application flows",
+      "Performance optimization",
+      "Regression testing after optimization"
+    ],
+    footer: "The goal is to keep performance issues visible before they become larger operational problems."
   },
   {
-    "title": "FEATURE UPDATES & PRODUCT EVOLUTION",
-    "description": "Supporting the app as your business's needs continue to change after launch. What We Do An app frozen at its launch-day feature set falls behind user expectations faster than most teams expect.",
-    "bullets": [
-      "New Feature Development: Building functionality your roadmap calls for, without needing a new full project every time.",
-      "A/B Testing Support: Helping test changes with real users before rolling them out to everyone.",
-      "Third-Party Integration Updates: Keeping connections to payment processors, CRMs, or other services working as those platforms change.",
-      "Analytics Review & Recommendations: Flagging usage patterns and opportunities we notice, even outside the immediate maintenance scope."
-    ]
+    title: "Security & Infrastructure Maintenance",
+    desc: "Security requirements do not end when an application launches. We help keep the application, dependencies, and supporting infrastructure maintained as your technology environment changes.",
+    bullets: [
+      "Security patches",
+      "Dependency updates",
+      "Vulnerability reviews",
+      "Server and hosting maintenance",
+      "Database maintenance",
+      "Backup and recovery checks",
+      "Authentication and access reviews",
+      "Configuration updates",
+      "Security-related bug fixes"
+    ],
+    footer: "For applications with specific compliance requirements, the maintenance scope can be planned around those requirements."
   },
   {
-    "title": "REPORTING & DIRECT SUPPORT",
-    "description": "Making maintenance work visible instead of something happening quietly in the background. What We Do Maintenance you can't see the results of is hard to trust, reporting is what makes the ongoing work visible.",
-    "bullets": [
-      "Monthly Maintenance Reports: A clear summary of updates, fixes, and monitoring results each month.",
-      "Incident Communication: Direct notification if something significant comes up, not discovered after the fact.",
-      "Store Rating & Review Monitoring: Keeping an eye on what users are actually saying in App Store and Play Store reviews.",
-      "Direct Access to Your Team: A real point of contact who already knows your app, not a rotating support queue."
-    ]
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Treating an app as finished at launch is one of the most common, and most expensive, assumptions app owners make.",
-  "Skipping Maintenance Doesn't Save Money",
-  "A small fix caught early is inexpensive. The same issue left for a year, discovered after an OS update breaks core functionality, usually costs far more to untangle.",
-  "App Store Ratings Reflect Neglect Quickly",
-  "Crashes and bugs show up in reviews within days, and low ratings suppress future downloads, proactive maintenance is a growth lever, not just a technical chore.",
-  "OS Updates Arrive Whether You're Ready or Not",
-  "Apple and Google don't coordinate their release schedules with your roadmap. An unmaintained app accumulates compatibility debt with every update it misses.",
-  "Different Apps, Different Risks",
-  "An ecommerce app's biggest risk is usually payment integration failure; a SaaS product is usually tenant-level bugs affecting multiple customers at once. Generic, one-size-fits-all monitoring misses what actually matters for your specific app."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "Apple and Google both ship major OS updates every year, and neither one waits for your app to be ready. Libraries go out of date, third-party SDKs get deprecated, and a feature that worked fine on last year's OS version can silently break on this year's, often without any warning until a support ticket or a one-star review shows up. What an Android app needs from maintenance looks different from what a SaaS product or an enterprise system needs, and we scope support around your app's actual platform, not a generic monthly checklist.",
-    "text": "\"Most app problems don't start as emergencies. They start as a skipped update or an unmonitored crash report, and by the time a user notices, the fix that would've taken an hour now takes a week.\" Platform-Specific Support | Proactive Monitoring | One Team, Any App Type"
+    title: "Backend, API & Third-Party Integration Support",
+    desc: "Mobile applications often depend on APIs, databases, payment systems, authentication services, analytics, and other external systems. A change in one system can affect the entire application. We maintain existing backend and integration components to help keep these connections working.",
+    bullets: [
+      "Existing API maintenance",
+      "API error investigation",
+      "Backend bug fixes",
+      "Database-related issues",
+      "Payment integration maintenance",
+      "Authentication integrations",
+      "Third-party service updates",
+      "Integration monitoring",
+      "API compatibility checks"
+    ],
+    footer: "This service focuses on maintaining existing systems. New API architecture or major API development can be handled as a separate development project."
   },
   {
-    "title": "Our App Maintenance & Support Services",
-    "text": "What your app actually needs depends on what kind of app it is, here's how we cover it."
+    title: "App Release & Store Management",
+    desc: "A technically complete update still needs to reach users safely. We support the release process by preparing, testing, and verifying application updates.",
+    bullets: [
+      "Version and build updates",
+      "Release preparation",
+      "Production build support",
+      "Pre-release testing",
+      "App Store submission support",
+      "Google Play submission support",
+      "Release verification",
+      "Staged rollout support where appropriate",
+      "Post-release issue monitoring",
+      "Rollback planning"
+    ],
+    footer: "We help reduce the risk of releasing an update without understanding its production impact."
   },
   {
-    "title": "OS COMPATIBILITY & UPDATE MANAGEMENT",
-    "text": "Keeping the app working correctly as Android and iOS both continue evolving."
+    title: "Feature Enhancements & UX Improvements",
+    desc: "Maintenance does not always mean fixing something that is broken. As your business grows, you may need smaller product improvements without rebuilding the entire application.",
+    bullets: [
+      "Minor feature additions",
+      "Existing feature improvements",
+      "UI and UX refinements",
+      "User-flow improvements",
+      "Analytics-based improvements",
+      "Third-party feature updates",
+      "Small workflow changes",
+      "Product experiments and testing support"
+    ],
+    footer: "Larger feature development can be scoped separately when it requires substantial development capacity."
   },
   {
-    "title": "What We Do",
-    "text": "* Android OS Update Testing: Verifying functionality against new Android releases before they reach wide adoption. * iOS Update Testing: Testing against new iOS versions, including Apple's annual major release cycle. * SDK & Dependency Updates: Keeping third-party libraries and frameworks current before they become deprecated liabilities. * App Store Policy Compliance: Tracking changes to App Store and Google Play guidelines that could affect an already-live app. An app that passed review at launch can still fall out of compliance a year later if nobody's tracking policy changes."
-  },
-  {
-    "title": "BUG FIXES & PERFORMANCE MONITORING",
-    "text": "Catching issues in real usage, not waiting for a pattern of complaints to surface."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Crash Reporting & Triage: Monitoring crash reports and prioritizing fixes based on actual user impact. * Performance Monitoring: Tracking load times, memory usage, and responsiveness as the app scales. * Bug Fix Development: Addressing issues as they're identified, with a clear release cadence rather than an indefinite backlog. * Regression Testing: Confirming a fix for one issue doesn't quietly introduce another. A bug that only shows up for a fraction of users is still costing you reviews, retention, and word of mouth."
-  },
-  {
-    "title": "SECURITY & INFRASTRUCTURE MAINTENANCE",
-    "text": "The unglamorous work that keeps an app from becoming a security liability over time."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Security Patch Management: Applying security fixes promptly across the app and its backend dependencies. * Backend & Server Maintenance: Keeping infrastructure current, patched, and sized correctly as usage grows. * Data Backup & Recovery: Regular backups and tested recovery procedures, especially for apps handling sensitive user data. * Vulnerability Scanning: Periodic scans to catch security gaps before they become real incidents. Security maintenance is invisible when it's working, and it's exactly the kind of work that gets skipped when nobody's specifically responsible for it."
-  },
-  {
-    "title": "FEATURE UPDATES & PRODUCT EVOLUTION",
-    "text": "Supporting the app as your business's needs continue to change after launch."
-  },
-  {
-    "title": "What We Do",
-    "text": "* New Feature Development: Building functionality your roadmap calls for, without needing a new full project every time. * A/B Testing Support: Helping test changes with real users before rolling them out to everyone. * Third-Party Integration Updates: Keeping connections to payment processors, CRMs, or other services working as those platforms change. * Analytics Review & Recommendations: Flagging usage patterns and opportunities we notice, even outside the immediate maintenance scope. An app frozen at its launch-day feature set falls behind user expectations faster than most teams expect."
-  },
-  {
-    "title": "REPORTING & DIRECT SUPPORT",
-    "text": "Making maintenance work visible instead of something happening quietly in the background."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Monthly Maintenance Reports: A clear summary of updates, fixes, and monitoring results each month. * Incident Communication: Direct notification if something significant comes up, not discovered after the fact. * Store Rating & Review Monitoring: Keeping an eye on what users are actually saying in App Store and Play Store reviews. * Direct Access to Your Team: A real point of contact who already knows your app, not a rotating support queue. Maintenance you can't see the results of is hard to trust, reporting is what makes the ongoing work visible. Why Your Business Needs a Real Maintenance Partner Treating an app as finished at launch is one of the most common, and most expensive, assumptions app owners make. Skipping Maintenance Doesn't Save Money A small fix caught early is inexpensive. The same issue left for a year, discovered after an OS update breaks core functionality, usually costs far more to untangle."
-  },
-  {
-    "title": "App Store Ratings Reflect Neglect Quickly",
-    "text": "Crashes and bugs show up in reviews within days, and low ratings suppress future downloads, proactive maintenance is a growth lever, not just a technical chore. OS Updates Arrive Whether You're Ready or Not Apple and Google don't coordinate their release schedules with your roadmap. An unmaintained app accumulates compatibility debt with every update it misses. Different Apps, Different Risks An ecommerce app's biggest risk is usually payment integration failure; a SaaS product is usually tenant-level bugs affecting multiple customers at once. Generic, one-size-fits-all monitoring misses what actually matters for your specific app. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Security, bug fixes, monitoring, and feature updates handled by people who already know your app, not a rotating queue of unfamiliar developers. Platform-Specific, Not Generic We scope maintenance around whether your app is native Android, native iOS, cross-platform, SaaS, or enterprise, each one has genuinely different risks worth watching for."
-  },
-  {
-    "title": "Local & International Coverage",
-    "text": "Based in Dhaka. Supporting apps for businesses across Bangladesh, the US, UK, Australia, Canada, and UAE."
-  },
-  {
-    "title": "Transparent Reporting",
-    "text": "You get regular, specific reports on what's actually being done, not a maintenance retainer that runs silently and unaccountably in the background."
-  },
-  {
-    "title": "OS Compatibility Management",
-    "text": "Testing and updates against new Android and iOS releases, so your app keeps working as the platforms evolve."
-  },
-  {
-    "title": "Bug Fixes & Performance Monitoring",
-    "text": "Crash reports and performance data actively monitored, with fixes prioritized by real user impact."
-  },
-  {
-    "title": "Security & Infrastructure Maintenance",
-    "text": "Patches, backups, and vulnerability scanning handled proactively, not reactively."
-  },
-  {
-    "title": "Feature Development",
-    "text": "Ongoing functionality built as your product roadmap evolves, without starting a new project each time."
-  },
-  {
-    "title": "Monthly Reporting",
-    "text": "Clear, regular summaries of what's been done, so maintenance work stays visible."
-  },
-  {
-    "title": "Direct Team Access",
-    "text": "A real point of contact who already knows your app's history and architecture."
+    title: "Analytics, Monitoring & Reporting",
+    desc: "Maintenance works better when your team can see what is happening inside the application. We use relevant application information to help identify recurring problems, performance issues, and maintenance priorities.",
+    bullets: [
+      "Application health",
+      "Crash and error trends",
+      "Performance issues",
+      "Resolved bugs",
+      "Pending issues",
+      "Security and dependency updates",
+      "Integration issues",
+      "Completed maintenance work",
+      "Recommended next steps"
+    ],
+    footer: "You receive clear communication about the work performed and issues that require attention."
   }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const maintenanceTypes = [
+  {
+    title: "Corrective Maintenance",
+    desc: "Corrective maintenance addresses problems that already exist. This includes bugs, crashes, failed integrations, broken features, and other issues affecting application functionality.",
+    details: "The process typically involves identifying the issue, finding its cause, applying the fix, testing the affected areas, and verifying the result."
+  },
+  {
+    title: "Adaptive Maintenance",
+    desc: "Adaptive maintenance keeps an application compatible with changes around it. These changes can come from operating systems, devices, SDKs, APIs, third-party services, infrastructure, or platform requirements.",
+    examples: [
+      "Android or iOS updates",
+      "SDK changes",
+      "Dependency changes",
+      "API changes",
+      "Third-party service updates",
+      "Infrastructure changes"
+    ]
+  },
+  {
+    title: "Preventive Maintenance",
+    desc: "Preventive maintenance focuses on reducing future problems. Instead of waiting for outdated components to cause failures, we review areas that may become difficult to maintain later.",
+    examples: [
+      "Dependency reviews",
+      "Security updates",
+      "Codebase cleanup",
+      "Technical debt identification",
+      "Monitoring improvements",
+      "Backup checks",
+      "Deprecated component replacement",
+      "Performance reviews"
+    ]
+  },
+  {
+    title: "Perfective Maintenance",
+    desc: "Perfective maintenance improves an application even when it is already functioning correctly. The focus can be usability, performance, maintainability, or product improvements.",
+    examples: [
+      "UX improvements",
+      "Performance optimization",
+      "Minor feature improvements",
+      "Interface refinements",
+      "Workflow improvements",
+      "Maintainability improvements"
+    ]
+  }
+]
 
+const appsWeMaintain = [
+  {
+    title: "Android Apps",
+    desc: "We maintain Android applications across supported Android versions and device environments. Support can include compatibility updates, bug fixes, performance optimization, security updates, dependency maintenance, and release support."
+  },
+  {
+    title: "iOS Apps",
+    desc: "We help maintain iOS applications as Apple introduces new operating system versions, SDK requirements, devices, and platform changes. Maintenance can cover compatibility, bugs, performance, dependencies, integrations, security, and release updates."
+  },
+  {
+    title: "Cross-Platform Apps",
+    desc: "Cross-platform applications have their own framework, dependency, and platform compatibility requirements. We can maintain applications built with supported cross-platform technologies while addressing both the shared codebase and platform-specific issues."
+  },
+  {
+    title: "SaaS & Web Applications",
+    desc: "SaaS applications require ongoing attention across the frontend, backend, database, APIs, infrastructure, authentication, and integrations. Our maintenance approach can cover application stability, security, performance, infrastructure, integrations, and incremental product improvements."
+  },
+  {
+    title: "Enterprise Applications",
+    desc: "Enterprise applications often involve complex workflows, integrations, user roles, internal systems, and security requirements. We can structure maintenance around application stability, integration reliability, security updates, technical improvements, and controlled releases."
+  }
+]
+
+const whyOngoingMaintenance = [
+  {
+    title: "Skipping Maintenance Increases Technical Debt",
+    desc: "Small technical problems can become larger when they remain unresolved. Outdated dependencies, deprecated components, inefficient code, and recurring bugs can make future development slower and more expensive. Regular maintenance helps identify these issues before they become harder to address."
+  },
+  {
+    title: "OS & SDK Changes Can Break Existing Apps",
+    desc: "An application that worked correctly last year may require updates after a major platform change. New operating systems can affect APIs, permissions, background processes, device behavior, and store requirements. Regular compatibility checks help your team prepare for these changes instead of reacting after users encounter problems."
+  },
+  {
+    title: "Security Risks Grow Over Time",
+    desc: "Old dependencies and unpatched components can create unnecessary security exposure. Security maintenance helps keep application components and supporting infrastructure updated as vulnerabilities and technical requirements change."
+  },
+  {
+    title: "Performance Problems Affect User Experience",
+    desc: "Users notice slow loading, crashes, failed requests, and unreliable features quickly. Performance monitoring helps identify problems that may not be obvious during development or basic testing."
+  },
+  {
+    title: "Third-Party Integrations Can Fail",
+    desc: "Your app may depend on payment providers, APIs, authentication services, analytics systems, maps, messaging services, or other external platforms. When those services change, your application may require corresponding updates."
+  },
+  {
+    title: "Maintenance Helps Prevent Costly Rework",
+    desc: "Regular maintenance keeps technical issues from accumulating. It can also make future feature development easier because your application remains closer to a supported and maintainable state."
+  }
+]
+
+const takeoverStages = [
+  {
+    title: "Codebase & Architecture Assessment",
+    desc: "We review the existing codebase to understand how the application is structured and maintained.",
+    bullets: [
+      "Application architecture",
+      "Code organization",
+      "Build configuration",
+      "Technical dependencies",
+      "Known technical debt",
+      "Development documentation",
+      "Maintainability concerns",
+      "Areas requiring immediate attention"
+    ]
+  },
+  {
+    title: "Dependency & Security Review",
+    desc: "We identify outdated, deprecated, or potentially problematic dependencies where they are relevant to the project. The review can also identify security maintenance requirements and components that require updates."
+  },
+  {
+    title: "Infrastructure & Integration Review",
+    desc: "An application rarely operates alone. We review relevant infrastructure, APIs, databases, authentication systems, payment services, third-party integrations, and deployment environments. This helps identify dependencies that could affect future maintenance."
+  },
+  {
+    title: "Maintenance Baseline & Backlog",
+    desc: "After assessment, we organize identified issues into a practical maintenance baseline.",
+    bullets: [
+      "Critical technical issues",
+      "Compatibility requirements",
+      "Security updates",
+      "Performance concerns",
+      "Integration issues",
+      "Technical debt",
+      "Recommended improvements",
+      "Future maintenance priorities"
+    ],
+    footer: "This gives both teams a clearer starting point before ongoing support begins."
+  }
+]
+
+const includedInEveryPlan = [
+  {
+    title: "Onboarding & App Health Review",
+    desc: "We review the application before ongoing maintenance begins. This helps us understand the current codebase, dependencies, infrastructure, integrations, known issues, and technical priorities."
+  },
+  {
+    title: "Compatibility & Security Updates",
+    desc: "We monitor relevant platform and dependency changes and identify updates that require attention. Security maintenance is handled according to the application's technology and agreed scope."
+  },
+  {
+    title: "Monitoring & Issue Detection",
+    desc: "Relevant application health signals are monitored based on the maintenance plan. The goal is to identify crashes, errors, performance issues, and other technical problems that require investigation."
+  },
+  {
+    title: "Bug Fixes & Technical Support",
+    desc: "Bug-fix support is included according to the selected maintenance plan. We investigate reported issues, apply appropriate fixes, test affected functionality, and verify the result."
+  },
+  {
+    title: "Reporting & Communication",
+    desc: "You receive updates about maintenance activities, resolved issues, outstanding work, and relevant recommendations."
+  },
+  {
+    title: "Direct Team Access",
+    desc: "You communicate directly with the team handling your application's maintenance. This keeps technical discussions, issue reporting, and maintenance decisions connected."
+  }
+]
+
+const supportLevels = [
+  {
+    level: "Critical Issues",
+    desc: "Critical issues can affect the application's core operation, major user flows, revenue-generating functions, or a significant portion of users.",
+    examples: [
+      "Application-wide crashes",
+      "Major production outages",
+      "Critical payment failures",
+      "Severe authentication failures",
+      "Major backend failures"
+    ]
+  },
+  {
+    level: "High-Priority Issues",
+    desc: "High-priority issues affect important functionality but may not completely stop the application from operating.",
+    examples: [
+      "Major feature failures",
+      "Significant API problems",
+      "Recurring crashes",
+      "Important integration failures",
+      "Serious performance degradation"
+    ]
+  },
+  {
+    level: "Standard Issues",
+    desc: "Standard issues generally affect specific features or user flows without causing a widespread outage.",
+    examples: [
+      "Individual feature bugs",
+      "UI problems",
+      "Non-critical API errors",
+      "Device-specific issues",
+      "Minor performance problems"
+    ]
+  },
+  {
+    level: "Minor Requests",
+    desc: "Minor requests usually involve small changes or improvements that do not require emergency intervention.",
+    examples: [
+      "Small UI adjustments",
+      "Minor content changes",
+      "Small configuration updates",
+      "Low-impact usability improvements"
+    ]
+  }
+]
+
+const maintenanceVsDevelopment = {
+  headers: ["Situation", "Appropriate Approach"],
+  rows: [
+    ["Existing app works but needs regular updates", "Maintenance"],
+    ["Existing feature needs improvement", "Feature Enhancement"],
+    ["Codebase has growing technical limitations", "Modernization"],
+    ["Architecture is no longer practical to maintain", "Redevelopment"],
+    ["Application needs a completely different product direction", "New Development"]
+  ]
+}
+
+const approachesDetail = [
+  {
+    title: "Maintenance",
+    desc: "Choose maintenance when the existing application remains suitable for your business and mainly needs ongoing technical support."
+  },
+  {
+    title: "Feature Enhancement",
+    desc: "Choose feature enhancement when the core application is stable but you need additional functionality or improvements."
+  },
+  {
+    title: "Major Modernization",
+    desc: "Modernization may be appropriate when the application needs significant technical improvements while preserving important parts of the existing product."
+  },
+  {
+    title: "Complete Redevelopment",
+    desc: "Redevelopment may make more sense when the existing architecture has become too difficult or costly to maintain."
+  }
+]
+
+const whyChooseUs = [
+  {
+    title: "One In-House Team",
+    desc: "Your maintenance work stays with our in-house team. This keeps communication, technical decisions, development, testing, and ongoing support connected."
+  },
+  {
+    title: "Platform-Specific Support",
+    desc: "Android, iOS, cross-platform, SaaS, and enterprise applications have different maintenance requirements. We structure support around the actual platform and architecture instead of treating every application the same way."
+  },
+  {
+    title: "Existing Codebase Takeover",
+    desc: "We can assess applications developed by another team. Our takeover process helps establish the application's current condition before ongoing maintenance begins."
+  },
+  {
+    title: "Transparent Reporting",
+    desc: "You receive clear information about completed work, current issues, maintenance activities, and recommended improvements."
+  },
+  {
+    title: "Local & International Delivery",
+    desc: "We provide app maintenance support from Bangladesh for businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE."
+  },
+  {
+    title: "Long-Term Product Support",
+    desc: "An application should not become difficult to maintain after launch. Our ongoing support model helps businesses manage technical changes, resolve issues, maintain integrations, and improve their applications over time."
+  }
+]
+
+
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+    <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
+      <div className="mx-auto max-w-[95vw]">
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
+        {/* SECTION 1: OUR APP MAINTENANCE & SUPPORT SERVICES */}
+        <div>
+          <SectionIntro
+            eyebrow="Core Service Capabilities"
+            title="Our App Maintenance & Support Services"
+          >
+            App maintenance involves more than fixing problems after they appear. We monitor the parts of your application that can change over time and keep the product aligned with new technical requirements.
+          </SectionIntro>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {maintenanceServices.map((service, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 hover:border-frame-accent transition-colors"
+              >
+                <div>
+                  <span className="font-heading text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Discipline 0{idx + 1}
+                  </span>
+                  <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {service.desc}
+                  </p>
+
+                  <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4">
+                    {service.bullets.map((b, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                          </svg>
+                        </span>
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                  <p className="text-xs font-medium italic text-frame-muted-fg">
+                    {service.footer}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 2: TYPES OF APP MAINTENANCE WE PROVIDE */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Engineering Modalities
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Types of App Maintenance We Provide
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Different applications require different types of maintenance. We organize maintenance work around the reason the application needs an update.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {maintenanceTypes.map((type, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Category 0{i + 1}
+                  </span>
+                  <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                    {type.title}
+                  </h3>
+                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {type.desc}
+                  </p>
+
+                  {type.details && (
+                    <p className="mt-3 text-xs font-medium text-frame-fg border-t border-frame-border/60 pt-3">
+                      {type.details}
+                    </p>
+                  )}
+
+                  {type.examples && (
+                    <div className="mt-4 border-t border-frame-border/60 pt-3">
+                      <p className="text-[11px] font-bold uppercase tracking-wider text-frame-fg">
+                        Examples include:
                       </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
+                      <ul className="mt-2 space-y-1 text-xs text-frame-muted-fg">
+                        {type.examples.map((ex, exIdx) => (
+                          <li key={exIdx}>• {ex}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 3: APPS WE MAINTAIN */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Platform Scope
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Apps We Maintain
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              We adapt the maintenance approach to the application&apos;s platform, architecture, integrations, and business requirements.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+            {appsWeMaintain.map((app, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Platform 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {app.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {app.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 4: WHY YOUR BUSINESS NEEDS ONGOING APP MAINTENANCE */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-12">
+          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+            Lifecycle Realities
+          </span>
+          <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            Why Your Business Needs Ongoing App Maintenance
+          </h2>
+          <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            Launching an application is only the beginning of its technical lifecycle. Your application operates within an environment that continues to change. Operating systems update. Dependencies become outdated. APIs change. Security requirements evolve. User expectations also change.
+          </p>
+
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyOngoingMaintenance.map((reason, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Pillar 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">
+                  {reason.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {reason.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 5: TAKING OVER AN EXISTING APP */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Codebase Transition
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Taking Over an Existing App
+            </h2>
+            <div className="mt-3 max-w-3xl space-y-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p>You do not have to return to the original development company for ongoing maintenance.</p>
+              <p>Framecipher can assess an application built by another developer or agency and establish a practical maintenance baseline. Before taking responsibility for ongoing support, we review the application and its surrounding systems.</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {takeoverStages.map((stage, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Takeover Phase 0{i + 1}
+                  </span>
+                  <h3 className="mt-2 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">
+                    {stage.title}
+                  </h3>
+                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {stage.desc}
+                  </p>
+
+                  {stage.bullets && (
+                    <ul className="mt-4 space-y-1.5 border-t border-frame-border/60 pt-3 text-xs text-frame-muted-fg">
+                      {stage.bullets.map((b, bIdx) => (
+                        <li key={bIdx}>• {b}</li>
                       ))}
                     </ul>
                   )}
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+                {stage.footer && (
+                  <div className="mt-4 border-t border-frame-border/60 pt-3">
+                    <p className="text-xs font-semibold text-frame-fg">
+                      {stage.footer}
+                    </p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 6: WHAT’S INCLUDED IN EVERY MAINTENANCE PLAN */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Standard SLA Inclusions
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              What’s Included in Every Maintenance Plan
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              The exact level of support changes by plan, but every engagement starts with a clear understanding of the application and its maintenance requirements.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {includedInEveryPlan.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Standard 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* SECTION 7: SUPPORT LEVELS & RESPONSE TIMES */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Severity Matrix
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Support Levels &amp; Response Times
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Not every application issue has the same business impact. We categorize support requests by severity so critical problems can receive the appropriate level of attention. Specific response times should be defined in the service agreement based on the selected maintenance plan.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {supportLevels.map((lvl, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Severity Tier 0{i + 1}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
+                  <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                    {lvl.level}
+                  </h3>
+                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {lvl.desc}
+                  </p>
+
+                  <div className="mt-4 border-t border-frame-border/60 pt-3">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-frame-fg">
+                      Examples include:
+                    </p>
+                    <ul className="mt-2 space-y-1 text-xs text-frame-muted-fg">
+                      {lvl.examples.map((ex, exIdx) => (
+                        <li key={exIdx}>• {ex}</li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-              )}
+              </div>
+            ))}
+          </div>
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
+          <p className="mt-6 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent border-t border-frame-border/60 pt-4">
+            Response and resolution expectations depend on the agreed support plan, issue severity, and technical complexity.
+          </p>
+        </div>
 
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
+        {/* SECTION 8: APP MAINTENANCE VS. NEW DEVELOPMENT */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Strategic Decision Matrix
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              App Maintenance vs. New Development
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Not every application problem requires a new app. Sometimes maintenance is enough. Other situations require modernization or redevelopment.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
+                <tr>
+                  {maintenanceVsDevelopment.headers.map((h, i) => (
+                    <th key={i} className="p-4 border-r-2 border-frame-border last:border-r-0">
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
+                {maintenanceVsDevelopment.rows.map((row, rIdx) => (
+                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
+                    {row.map((cell, cIdx) => (
+                      <td key={cIdx} className={`p-4 border-r-2 border-frame-border last:border-r-0 ${cIdx === 1 ? 'font-bold text-frame-accent' : 'font-medium text-frame-fg'}`}>
+                        {cell}
+                      </td>
                     ))}
-                  </div>
-                </div>
-              )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {approachesDetail.map((app, i) => (
+              <div key={i} className="border border-frame-border bg-frame-muted/10 p-5">
+                <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
+                  {app.title}
+                </h4>
+                <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {app.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-6 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent border-t border-frame-border/60 pt-4">
+            We assess the application before recommending the appropriate path.
+          </p>
+        </div>
+
+        {/* SECTION 9: WHY CHOOSE FRAMECIPHER FOR APP MAINTENANCE & SUPPORT */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
+          <div className="mb-8">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+              Agency Differentiators
+            </span>
+            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              Why Choose Framecipher for App Maintenance &amp; Support
+            </h2>
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              Maintenance requires more than reacting to support tickets. Your team needs a partner that understands the application, its business purpose, and the technical environment around it.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {whyChooseUs.map((item, i) => (
+              <div
+                key={i}
+                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
+              >
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Advantage 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+        {/* SECTION 11: APP MAINTENANCE SERVICES ACROSS BANGLADESH & WORLDWIDE */}
+        <div className="mt-28 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-12">
+          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+            Domestic &amp; Global Support
+          </span>
+          <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            App Maintenance Services Across Bangladesh &amp; Worldwide
+          </h2>
+          <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p>
+              Framecipher provides ongoing application maintenance from Bangladesh for businesses that need a reliable technical partner after launch.
+            </p>
+            <div>
+              <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
+                App Maintenance in Bangladesh
+              </h4>
+              <p className="mt-1">
+                We support businesses in Dhaka and across Bangladesh with ongoing application maintenance, bug fixes, platform updates, security maintenance, performance support, and technical improvements. Our local delivery model makes it easier to coordinate directly with your team while maintaining a structured engineering workflow.
+              </p>
+            </div>
+            <div>
+              <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
+                International App Support
+              </h4>
+              <p className="mt-1">
+                We also work with businesses targeting international markets, including the US, UK, Australia, Canada, and UAE. Remote collaboration allows us to support applications across different markets while keeping maintenance communication organized and transparent.
+              </p>
             </div>
           </div>
-        </section>
-      )}
-    </div>
+          <div className="mt-8">
+            <PosterButton href="/contact">Start Your Maintenance Plan &rarr;</PosterButton>
+          </div>
+        </div>
+
+      </div>
+    </section>
   )
 }

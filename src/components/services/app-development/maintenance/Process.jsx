@@ -1,103 +1,105 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const processSteps = [
   {
-    "number": "1",
-    "title": "Initial App Assessment",
-    "description": "We review your app's current platform, codebase health, and any existing known issues before maintenance begins."
+    step: "01",
+    title: "Initial App Assessment",
+    desc: "We begin by reviewing the current application and its technical environment. This can include the codebase, dependencies, application health, crash history, performance, security, backend, APIs, integrations, deployment process, and known issues.",
+    footer: "We then identify the areas that need immediate attention and those that can be planned later."
   },
   {
-    "number": "2",
-    "title": "Maintenance Plan Scoping",
-    "description": "We define what your specific app needs: update frequency, monitoring scope, response time expectations based on platform and risk."
+    step: "02",
+    title: "Maintenance Plan & SLA Scoping",
+    desc: "We define the maintenance scope around the application's actual requirements.",
+    bullets: [
+      "Supported platforms",
+      "Maintenance coverage",
+      "Issue priorities",
+      "Monitoring requirements",
+      "Bug-fix scope",
+      "Security responsibilities",
+      "Feature support",
+      "Communication process",
+      "Response expectations"
+    ],
+    footer: "Where an SLA is required, response and support terms should be defined before the engagement begins."
   },
   {
-    "number": "3",
-    "title": "Ongoing Monitoring & Updates",
-    "description": "Continuous crash and performance monitoring, alongside scheduled OS compatibility testing and security patching."
+    step: "03",
+    title: "Monitoring & Maintenance Setup",
+    desc: "We establish the relevant monitoring and maintenance workflow for the application.",
+    footer: "Depending on the system, this may include application health monitoring, crash and error tracking, performance checks, integration monitoring, security reviews, and issue tracking."
   },
   {
-    "number": "4",
-    "title": "Regular Reporting",
-    "description": "Monthly summaries of work completed, issues caught, and recommendations for what's next."
+    step: "04",
+    title: "Ongoing Updates & Issue Resolution",
+    desc: "Once maintenance begins, we handle planned updates and reported issues according to their priority and scope.",
+    footer: "This can include bug fixes, dependency updates, OS compatibility work, security patches, performance improvements, and integration fixes."
   },
   {
-    "number": "5",
-    "title": "Rapid Response When Needed",
-    "description": "Fast turnaround on urgent issues, backed by a team already familiar with your app's architecture and history."
+    step: "05",
+    title: "Release & Deployment Support",
+    desc: "Before production releases, we review the relevant changes and perform appropriate testing.",
+    footer: "After deployment, we verify the updated application and monitor for issues that require attention."
+  },
+  {
+    step: "06",
+    title: "Regular Reporting & Review",
+    desc: "We provide regular updates on completed work, current issues, maintenance activities, and recommended next steps.",
+    footer: "This keeps your team informed about the application's technical condition without requiring them to manage every engineering detail."
   }
 ]
-  const timeline = service?.timeline || "App maintenance is an ongoing service, not a fixed-length project plan typically run month-to-month or on an annual agreement, with monitoring and updates happening continuously rather than at a single point in time. Initial app assessment and onboarding usually takes 3 to 5 business days before regular maintenance coverage begins.\n\nResponse times for urgent issues depend on the plan tier, with faster turnaround available on higher tiers for apps where downtime carries a higher cost that gets confirmed as part of scoping your specific plan."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Lifecycle Methodology"
+          title="How We Approach App Maintenance & Support"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Our maintenance process starts with understanding the application before making changes. The exact workflow depends on the platform, codebase, infrastructure, and support requirements.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {processSteps.map((step, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8 transition-colors hover:border-frame-accent"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+                  {step.step}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {step.desc}
                 </p>
+
+                {step.bullets && (
+                  <ul className="mt-4 space-y-1.5 border-t border-frame-border/60 pt-3 text-xs text-frame-muted-fg">
+                    {step.bullets.map((b, bIdx) => (
+                      <li key={bIdx} className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+
+              {step.footer && (
+                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                  <p className="text-xs font-semibold text-frame-fg">
+                    {step.footer}
+                  </p>
                 </div>
               )}
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

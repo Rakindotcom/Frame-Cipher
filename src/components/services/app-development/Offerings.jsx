@@ -410,28 +410,6 @@ const whyChooseUs = [
   }
 ]
 
-const portfolioFramework = [
-  {
-    title: "Project Overview",
-    desc: "Show the product type, target users, platforms, core objective, and project scope."
-  },
-  {
-    title: "Challenge",
-    desc: "Explain the business, operational, customer, or technical problem the application needed to solve."
-  },
-  {
-    title: "Solution",
-    desc: "Describe the application architecture, UX approach, core features, integrations, and technical decisions."
-  },
-  {
-    title: "Development",
-    desc: "Show the relevant platforms, technologies, backend systems, integrations, and testing approach."
-  },
-  {
-    title: "Outcome",
-    desc: "Where verified data exists, show measurable outcomes such as successful launch, improved workflows, resolved technical problems, user adoption, or other documented results."
-  }
-]
 
 const startRequirements = [
   "Business or product idea",
@@ -1029,45 +1007,6 @@ export default function Offerings() {
           </div>
         </div>
 
-        {/* SECTION 17: APP DEVELOPMENT PORTFOLIO & CASE STUDIES */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Case Study Methodology
-            </span>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              App Development Portfolio &amp; Case Studies
-            </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              A strong app-development portfolio should show more than screenshots. It should explain what was built, why it was built, and how the project was approached.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {portfolioFramework.map((item, i) => (
-              <div
-                key={i}
-                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-              >
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Element 0{i + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-            <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
-              Only publish ratings, download numbers, revenue figures, performance results, project counts, or other measurable claims when supported by actual evidence.
-            </p>
-          </div>
-        </div>
 
         {/* SECTION 18: WHAT WE NEED TO START YOUR APP PROJECT */}
         <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">

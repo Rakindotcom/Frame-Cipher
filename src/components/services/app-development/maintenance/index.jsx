@@ -7,12 +7,14 @@ import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "App Maintenance & Support",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  "OS & SDK Compatibility",
+  "Root-Cause Bug Resolution",
+  "Continuous Health Monitoring",
+  "Dependency & Security Patching",
+  "API & Third-Party Reliability",
+  "App Store Release Management",
+  "Performance Optimization",
+  "Proactive Maintenance SLA"
 ]
 
 export default function AppDevelopmentMaintenanceService({ service }) {

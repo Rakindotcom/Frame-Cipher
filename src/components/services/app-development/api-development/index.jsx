@@ -7,12 +7,14 @@ import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const keywords = [
-  'Native Architecture',
-  'Scalable Backends',
-  'Real-Device QA',
-  'Security & SSO',
-  'Store Deployment',
-  'Ongoing SLA Support',
+  'REST & GraphQL APIs',
+  'Third-Party Integrations',
+  'Webhook Infrastructure',
+  'OpenAPI / Swagger',
+  'API Gateway Security',
+  'Idempotency & Retry Logic',
+  'Rate Limiting & Caching',
+  'Continuous API Monitoring',
 ]
 
 export default function AppDevelopmentApiDevelopmentService({ service }) {
@@ -31,3 +33,4 @@ export default function AppDevelopmentApiDevelopmentService({ service }) {
 }
 
 export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+
