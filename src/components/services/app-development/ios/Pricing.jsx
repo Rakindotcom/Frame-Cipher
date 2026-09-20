@@ -47,6 +47,10 @@ const approvalCheckpoints = [
   {
     title: "Post-Launch Responsibility",
     desc: "After launch, ongoing updates, new features, bug fixes, and platform changes can be handled under the agreed support arrangement."
+  },
+  {
+    title: "TestFlight Staging Sign-Off",
+    desc: "Internal and external stakeholder validation on TestFlight across target iPhone and iPad form factors before final review."
   }
 ]
 
@@ -70,6 +74,10 @@ const postLaunchItems = [
   {
     title: "Release Updates",
     desc: "We can prepare, test, and support future production releases within the agreed maintenance or development scope."
+  },
+  {
+    title: "App Store Privacy & Certificate Renewal",
+    desc: "Annual Apple Developer certificate renewals, provisioning profiles, privacy nutrition labels, and App Store metadata management."
   }
 ]
 

@@ -362,6 +362,18 @@ const validationMetrics = [
       "Reported problems",
       "Reasons for abandonment"
     ]
+  },
+  {
+    title: "Referral & Organic Advocacy",
+    desc: "Organic recommendations and word-of-mouth signal that the MVP delivers genuine value and solves a real problem well enough for users to share it with peers.",
+    bullets: [
+      "Word-of-mouth signups",
+      "Referral link shares",
+      "Net Promoter Score (NPS)",
+      "Customer recommendations",
+      "Unsolicited social mentions",
+      "Team invites and multi-seat usage"
+    ]
   }
 ]
 

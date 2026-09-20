@@ -127,6 +127,14 @@ const apiTypes = [
   {
     title: "Microservice APIs",
     desc: "For applications using multiple services, APIs can provide controlled communication between independent components. We can design service-to-service APIs around the application's architecture, data requirements, authentication model, and scaling needs."
+  },
+  {
+    title: "Event-Driven & Streaming APIs",
+    desc: "We build real-time event pipelines and streaming APIs using WebSockets, Server-Sent Events (SSE), and message brokers (Kafka, RabbitMQ) for live chats, telemetry, bidding, and low-latency status updates."
+  },
+  {
+    title: "B2B & Partner Integration APIs",
+    desc: "High-throughput, authenticated endpoints architected for third-party vendors, suppliers, and enterprise partners with dedicated token scoping, IP whitelisting, custom rate tiers, and rigorous SLAs."
   }
 ]
 
@@ -206,6 +214,10 @@ const securityAccessItems = [
   {
     title: "Security Testing",
     desc: "Security checks can be included within API testing based on the project's scope and requirements."
+  },
+  {
+    title: "Audit Logging & Compliance",
+    desc: "Capture comprehensive request and response telemetry, security access logs, and administrative actions with immutable audit trails to meet regulatory and corporate security policies."
   }
 ]
 
@@ -249,6 +261,10 @@ const performanceScalability = [
   {
     title: "Performance Monitoring",
     desc: "Response time, error rate, traffic, and other relevant metrics can be monitored after deployment. This gives the team visibility as API usage changes."
+  },
+  {
+    title: "Edge Caching & CDN Distribution",
+    desc: "Deploy read-heavy API responses, media endpoints, and static resources to global edge networks and distributed Redis clusters to minimize server load and geographical latency."
   }
 ]
 
@@ -280,6 +296,10 @@ const documentationItems = [
   {
     title: "API Handoff & Knowledge Transfer",
     desc: "At project completion, we provide the agreed documentation and handoff materials so your team can understand and continue working with the API."
+  },
+  {
+    title: "Client SDKs & Code Samples",
+    desc: "Provide client code snippets and helper SDKs across JavaScript, Python, PHP, and mobile platforms so developers can integrate your endpoints in minutes instead of days."
   }
 ]
 
@@ -311,6 +331,10 @@ const auditModernization = [
   {
     title: "Integration Troubleshooting",
     desc: "If an integration already exists but does not behave reliably, we can investigate the data flow and identify the failure point."
+  },
+  {
+    title: "CI/CD Automated Contract Testing",
+    desc: "Integrate automated contract verification and schema diffing into continuous deployment pipelines so breaking API changes never reach production systems."
   }
 ]
 
@@ -325,7 +349,8 @@ const technologyTooling = [
   "Caching",
   "Automated API testing",
   "Logging and monitoring",
-  "Cloud and existing infrastructure"
+  "Cloud and existing infrastructure",
+  "Message Queues & Event Streaming"
 ]
 
 const useCases = [
@@ -410,6 +435,10 @@ const whyChooseUs = [
   {
     title: "Long-Term Support",
     desc: "API work often continues after launch. When needed, we can support version updates, third-party API changes, performance improvements, security updates, and integration troubleshooting."
+  },
+  {
+    title: "Zero Lock-In & Full IP Ownership",
+    desc: "You retain 100% intellectual property ownership of your API architecture, code, schema specifications, and documentation with zero restrictive vendor lock-in."
   }
 ]
 

@@ -97,6 +97,10 @@ const postLaunchItems = [
   {
     title: "Future Product Releases",
     desc: "Plan, build, test, and deploy future product updates based on the agreed development scope."
+  },
+  {
+    title: "Tenant Isolation & DB Health Audits",
+    desc: "Regular multi-tenant data boundary checks, automated query profiling, backup recovery drills, and database index tuning."
   }
 ]
 

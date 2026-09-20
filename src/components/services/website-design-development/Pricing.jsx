@@ -51,17 +51,12 @@ export default function Pricing() {
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">
         {/* SECTION HEADER */}
-        <div className="mb-14 md:mb-20 max-w-4xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Investment & Scope
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Website Development Pricing
-          </h2>
-          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Website design and development pricing depends on the platform, page count, custom functionality required, and whether you need ongoing maintenance included.
-          </p>
-        </div>
+        <SectionIntro
+          eyebrow="Investment & Scope"
+          title="Website Development Pricing"
+        >
+          Website design and development pricing depends on the platform, page count, custom functionality required, and whether you need ongoing maintenance included.
+        </SectionIntro>
 
         {/* PRICING TABLE */}
         <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">

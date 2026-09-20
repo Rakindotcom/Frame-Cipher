@@ -41,6 +41,12 @@ const processSteps = [
     title: "Deployment, Monitoring & Handoff",
     desc: "We deploy the approved work, confirm data flow, configure agreed monitoring, and provide documentation or handoff materials.",
     deliverable: "a production-ready API or integration with the agreed launch and handoff setup."
+  },
+  {
+    step: "06",
+    title: "Post-Launch Observability & Optimization",
+    desc: "We monitor telemetry, response latencies, and error budgets in production, continuously fine-tuning queries, rate limits, and caching policies as API traffic grows.",
+    deliverable: "sustained high availability, low error rates, and ongoing performance optimization."
   }
 ]
 

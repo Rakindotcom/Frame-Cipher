@@ -60,6 +60,8 @@ const postLaunchItems = [
   "Store updates",
   "New feature development",
   "API and integration updates",
+  "Database & backend health checks",
+  "Third-party SDK maintenance",
   "Ongoing technical support"
 ]
 

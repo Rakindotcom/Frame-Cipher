@@ -51,6 +51,10 @@ const approvalCheckpoints = [
   {
     title: "Post-Launch Support",
     desc: "Bug fixes, compatibility updates, new features, and ongoing maintenance can continue under the agreed support arrangement."
+  },
+  {
+    title: "Target Device & OS Matrix Sign-Off",
+    desc: "Explicit verification of target Android OS versions, screen densities, and manufacturer skins before production deployment."
   }
 ]
 
@@ -63,6 +67,8 @@ const postLaunchItems = [
   "Security maintenance",
   "Google Play updates",
   "API and integration updates",
+  "ANR & memory leak monitoring",
+  "Play Store target SDK compliance updates",
   "New feature development",
   "Ongoing technical support"
 ]
