@@ -125,9 +125,100 @@ header nav [class*='overflow-y-auto']::-webkit-scrollbar-thumb {
   outline: 1px solid var(--frame-border);
 }
 
+/*
+ * Divider-grid cards get a quiet hover: an accent left rule plus a warm fill.
+ * Pure link cards (accent-fill sub-service cards) and cards with their own
+ * intentional accent-fill hover are excluded so those effects are preserved.
+ */
+.grid.gap-px.bg-frame-border > *:not([class*='hover:bg-frame-accent']),
+.bg-frame-border.p-px > .grid.gap-px > *:not([class*='hover:bg-frame-accent']) {
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+  .grid.gap-px.bg-frame-border > *:not(a):not([class*='hover:bg-frame-accent']):hover,
+  .bg-frame-border.p-px > .grid.gap-px > *:not(a):not([class*='hover:bg-frame-accent']):hover {
+    background-color: var(--frame-muted);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--frame-accent) 45%, transparent),
+      inset 3px 0 0 0 var(--frame-accent);
+  }
+}
+
 ::selection {
   background: var(--frame-accent);
   color: var(--frame-accent-fg);
+}
+
+/* Keyboard focus visibility across interactive elements. */
+:focus-visible {
+  outline: 2px solid var(--frame-accent);
+  outline-offset: 2px;
+}
+
+/* FAQ panels reveal softly instead of snapping open. */
+main details[open] > div {
+  animation: faqReveal 0.28s ease-out;
+}
+
+@keyframes faqReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main details summary {
+  transition: background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  main details summary:hover {
+    background-color: color-mix(in srgb, var(--frame-muted) 35%, transparent);
+  }
+}
+
+/* Tables across service pages keep a sturdy row hover. */
+main table tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  main table tbody tr:hover {
+    background-color: color-mix(in srgb, var(--frame-muted) 55%, transparent);
+  }
+  main table tbody tr:hover td:first-child {
+    color: var(--frame-fg);
+  }
+}
+
+/*
+ * Progressive scroll reveal: only in browsers with scroll-driven animation
+ * support, and only when the user does not prefer reduced motion. Sections
+ * simply fade/settle into place as they enter view.
+ */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    main.service-page > section:not(.kinetic-marquee) {
+      animation: sectionReveal 0.7s ease-out both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 38%;
+    }
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes marqueeLTR {

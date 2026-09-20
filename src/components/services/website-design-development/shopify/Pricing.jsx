@@ -45,33 +45,6 @@ const packages = [
   },
 ]
 
-const pricingTable = [
-  {
-    type: 'Starter Store',
-    price: '৳45,000',
-    drivers: 'Up to 50 products, customized existing theme',
-    timeline: '~1–2 weeks',
-  },
-  {
-    type: 'Custom Theme Build',
-    price: '৳85,000',
-    drivers: 'Fully custom theme, up to 300 products, standard app integrations',
-    timeline: '~3–4 weeks',
-  },
-  {
-    type: 'Growth Store',
-    price: '৳140,000',
-    drivers: 'Larger catalog, multiple integrations, conversion optimization',
-    timeline: '~4–6 weeks',
-  },
-  {
-    type: 'Shopify Plus / Custom App Build',
-    price: 'Custom Quote',
-    drivers: 'High-volume catalogs, custom API development, advanced integrations',
-    timeline: '~6–10+ weeks',
-  },
-]
-
 const inclusions = [
   'Strategy & Consultation',
   'Store Architecture',
@@ -182,30 +155,6 @@ export default function Pricing() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* INDICATIVE PRICING TABLE */}
-        <div className="mt-16 overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-          <table className="w-full text-left min-w-[680px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-              <tr>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Type</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Starting Price</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">What Drives the Cost</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Delivery</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm font-medium">
-              {pricingTable.map((row, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-6 font-bold text-frame-fg">{row.type}</td>
-                  <td className="p-5 md:p-6 font-bold text-frame-accent">{row.price}</td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.drivers}</td>
-                  <td className="p-5 md:p-6 text-frame-fg">{row.timeline}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
 
         {/* INCLUSIONS AT EVERY APPLICABLE TIER */}

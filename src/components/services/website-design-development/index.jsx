@@ -1,5 +1,7 @@
 import Hero from './Hero'
 import Offerings from './Offerings'
+import WhoFor from './WhoFor'
+import WhyChoose from './WhyChoose'
 import Process from './Process'
 import Pricing from './Pricing'
 import FAQ from './FAQ'
@@ -8,7 +10,7 @@ import { TypeMarquee } from '../../Kinetic'
 import WebsitePortfolioPreview from '../../projects/WebsitePortfolioPreview'
 import ServiceSubServices from '../ServiceSubServices'
 
-const subServiceNames = [
+const marqueeItems = [
   'Business Websites',
   'Ecommerce Stores',
   'Landing Pages',
@@ -27,6 +29,7 @@ export default function WebsiteDesignDevelopmentService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
+      <TypeMarquee items={marqueeItems} slow />
       <WebsitePortfolioPreview
         eyebrow="Our Website Design & Development Portfolio"
         title="Practical, User-Focused Websites"
@@ -36,6 +39,8 @@ export default function WebsiteDesignDevelopmentService() {
       />
       <ServiceSubServices service={{ pageType: 'Pillar Service', slug: 'website-design-development', sheetTitle: 'Website Design & Development Services' }} />
       <Offerings />
+      <WhoFor />
+      <WhyChoose />
       <Process />
       <Pricing />
       <FAQ />

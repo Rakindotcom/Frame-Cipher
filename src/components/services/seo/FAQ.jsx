@@ -1,34 +1,49 @@
 import { SectionIntro } from '../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "How long does SEO take to show results?",
-    "answer": "Most sites see meaningful movement within three to six months, though an audit and initial technical fixes can be delivered within days. Timelines depend on your industry's competitiveness and your site's starting condition."
+    question: 'How much do SEO services cost in Bangladesh?',
+    answer: 'SEO pricing depends on the website, competition, target market, technical condition, content requirements, and scope. Framecipher\'s current starting reference plans range from ৳25,000 to ৳75,000 per month, with custom pricing for larger or international projects.',
   },
   {
-    "question": "What's the difference between SEO and AI search optimization?",
-    "answer": "Traditional SEO targets Google's organic results. AI search optimization structures content so tools like ChatGPT and Perplexity can cite it directly in generated answers, increasingly important as more queries get answered without a click at all."
+    question: 'How long does SEO take to show results?',
+    answer: 'Technical improvements can sometimes appear within weeks, while meaningful organic growth usually requires several months. The timeline depends on competition, website authority, technical condition, content quality, implementation speed, and ongoing SEO activity.',
   },
   {
-    "question": "Can you help recover from a Google penalty?",
-    "answer": "Yes, penalty recovery starts with diagnosing whether the drop is algorithmic or a manual action, then building a documented path back, which we cover in more depth on our Penalty Recovery page."
+    question: 'What is included in an SEO campaign?',
+    answer: 'Depending on the project, an SEO campaign can include technical SEO, keyword research, search-intent analysis, on-page SEO, content strategy, competitor analysis, local or ecommerce SEO, authority building, AI search optimization, reporting, and ongoing optimization.',
   },
   {
-    "question": "Do you guarantee a #1 Google ranking?",
-    "answer": "No, no agency can honestly guarantee a specific ranking position, since Google's algorithm isn't controlled by any outside provider. We focus on transparent processes and reporting instead of promises we can't actually keep."
+    question: 'Do you provide local SEO in Bangladesh?',
+    answer: 'Yes. Local SEO can include Google Business Profile optimization, local keyword research, Google Maps visibility, location pages, citations, review strategy, local content, and competitor analysis.',
   },
   {
-    "question": "What's included in an SEO audit?",
-    "answer": "A technical review, on-page assessment, content gap analysis, and backlink quality check, delivered as a written report with prioritized recommendations you can act on with or without further work from us."
+    question: 'Can you optimize Shopify, WordPress, Wix, Webflow, Magento, or custom websites?',
+    answer: 'Yes. SEO implementation is adapted to the platform. We work across WordPress, Shopify, Wix, Webflow, Magento, and custom development environments including Next.js.',
   },
   {
-    "question": "Do you serve businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we work with clients in the US, UK, Australia, Canada, and UAE, using the same audit-first process regardless of location."
-  }
+    question: 'Do you provide international SEO?',
+    answer: 'Yes. International SEO can cover country-specific keyword research, localization, international site architecture, hreflang where appropriate, local content, and market-specific authority building.',
+  },
+  {
+    question: 'Can SEO help an ecommerce website?',
+    answer: 'Yes. Ecommerce SEO can improve product and category visibility, internal linking, commercial keyword targeting, structured data, indexation, and other technical areas that affect how search engines discover and understand a store.',
+  },
+  {
+    question: 'Do you offer AI search optimization?',
+    answer: 'Yes. We offer AI-search-focused optimization around content structure, entity clarity, useful answers, topical coverage, and supporting authority. Specific AI citations or placements cannot be guaranteed.',
+  },
+  {
+    question: 'Can you help recover a website after a ranking drop?',
+    answer: 'Yes. We can investigate technical problems, indexing changes, content issues, backlink concerns, competitor changes, manual actions, and other potential causes before recommending a recovery approach.',
+  },
+  {
+    question: 'Do you guarantee a #1 Google ranking?',
+    answer: 'No. Google rankings depend on many factors outside an agency\'s control. We focus on transparent SEO work, measurable progress, and continuous optimization rather than guaranteed positions.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
@@ -36,7 +51,7 @@ export default function FAQ({ service }) {
           eyebrow="Direct Answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about SEO pricing, timelines, and the services covered in a campaign.
         </SectionIntro>
 
         <div className="space-y-4">

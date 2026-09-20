@@ -31,29 +31,6 @@ const packages = [
   },
 ]
 
-const pricingTable = [
-  {
-    type: 'Custom Marketing Site',
-    price: '৳120,000',
-    drivers: 'Custom design, moderate functionality, no complex backend',
-  },
-  {
-    type: 'Standard Web Application',
-    price: '৳300,000',
-    drivers: 'User accounts, custom database, moderate integrations',
-  },
-  {
-    type: 'Complex Web Application',
-    price: '৳500,000+',
-    drivers: 'Multiple roles, extensive integrations, custom business logic',
-  },
-  {
-    type: 'Enterprise / Large-Scale Platform',
-    price: 'Custom Quote',
-    drivers: 'High-volume infrastructure, multiple systems, ongoing development',
-  },
-]
-
 const timelineTable = [
   {
     type: 'Custom Marketing Site',
@@ -167,28 +144,6 @@ export default function Pricing() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* PRICING TABLE */}
-        <div className="mt-16 overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-          <table className="w-full text-left min-w-[640px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-              <tr>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Type</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Starting Price</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">What Drives Cost</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm font-medium">
-              {pricingTable.map((row, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-6 font-bold text-frame-fg">{row.type}</td>
-                  <td className="p-5 md:p-6 font-bold text-frame-accent">{row.price}</td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.drivers}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
         </div>
 
         {/* INCLUSIONS ACROSS CUSTOM PROJECTS */}

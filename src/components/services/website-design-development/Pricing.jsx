@@ -1,25 +1,29 @@
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
-const pricingTiers = [
+const packages = [
   {
-    service: 'Landing Page',
-    range: '৳20,000 – ৳40,000',
+    name: 'Landing Page',
+    price: '৳20,000 – ৳40,000',
     description: 'Single-offer campaign page with focused copy and core lead capture.',
+    timeline: '1–2 weeks',
   },
   {
-    service: 'Business Website',
-    range: '৳50,000 – ৳100,000',
+    name: 'Business Website',
+    price: '৳50,000 – ৳100,000',
     description: 'Multi-page conversion website with CMS, lead forms, and buyer journey mapping.',
+    timeline: '3–5 weeks',
   },
   {
-    service: 'eCommerce Website',
-    range: '৳80,000 – ৳180,000+',
+    name: 'eCommerce Website',
+    price: '৳80,000 – ৳180,000+',
     description: 'Online store with bKash/Nagad/Cards checkout, inventory, and logistics.',
+    timeline: '6–10 weeks',
   },
   {
-    service: 'Website Redesign',
-    range: '৳45,000 – ৳100,000+',
+    name: 'Website Redesign',
+    price: '৳45,000 – ৳100,000+',
     description: 'Rebuilding underperforming sites while preserving valuable SEO rankings.',
+    timeline: '4–8 weeks',
   },
 ]
 
@@ -58,32 +62,37 @@ export default function Pricing() {
           Website design and development pricing depends on the platform, page count, custom functionality required, and whether you need ongoing maintenance included.
         </SectionIntro>
 
-        {/* PRICING TABLE */}
-        <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-          <table className="w-full min-w-[640px] text-left">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-              <tr>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Service</th>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Range</th>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Scope Summary</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-              {pricingTiers.map((tier, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20">
-                  <td className="p-4 md:p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                    {tier.service}
-                  </td>
-                  <td className="p-4 md:p-6 text-base md:text-lg font-bold text-frame-accent">
-                    {tier.range}
-                  </td>
-                  <td className="p-4 md:p-6 text-sm md:text-base text-frame-muted-fg">
-                    {tier.description}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        {/* PACKAGE CARDS */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {packages.map((pkg, i) => (
+            <div
+              key={i}
+              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 transition-colors hover:border-frame-border/80"
+            >
+              <div>
+                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {pkg.name}
+                </h3>
+                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                  {pkg.price}
+                </p>
+                {pkg.timeline && (
+                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
+                    Typical Delivery: {pkg.timeline}
+                  </p>
+                )}
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                  {pkg.description}
+                </p>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-frame-border/60">
+                <PosterButton href="/contact" variant="outline" className="w-full text-xs">
+                  Request Quote
+                </PosterButton>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* TABLE FOOTER / NOTE */}
@@ -139,9 +148,9 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
                 Local & International Reach
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Development for Bangladesh and Worldwide
-              </h3>
+              </h2>
               <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                 Frame Cipher works with businesses in Dhaka and across Bangladesh, as well as clients worldwide. We build websites for startups, small businesses, eCommerce brands, and established companies.
               </p>
@@ -161,9 +170,9 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
                 Quality & Accountability
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Warranty and Ongoing Support
-              </h3>
+              </h2>
               <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                 We review design and development milestones with you before moving to the next stage. This helps keep the project aligned with your expectations and reduces surprises at launch.
               </p>

@@ -1,30 +1,35 @@
 import { PosterButton } from '../../../Kinetic'
 
-const pricingTiers = [
+const packages = [
   {
-    type: 'Blog / Portfolio',
+    name: 'Blog / Portfolio',
     price: '৳25,000',
-    drivers: 'Content volume, category structure, and custom design',
+    timeline: '1–2 weeks',
+    description: 'Content volume, category structure, and custom design',
   },
   {
-    type: 'Business Website',
+    name: 'Business Website',
     price: '৳45,000',
-    drivers: 'Page count, custom functionality, and integrations',
+    timeline: '2–3 weeks',
+    description: 'Page count, custom functionality, and integrations',
   },
   {
-    type: 'E-commerce Store',
+    name: 'E-commerce Store',
     price: '৳90,000',
-    drivers: 'Product count, payment gateways, and inventory requirements',
+    timeline: '4–6 weeks',
+    description: 'Product count, payment gateways, and inventory requirements',
   },
   {
-    type: 'Membership / Directory Site',
+    name: 'Membership / Directory Site',
     price: '৳120,000+',
-    drivers: 'User accounts, subscriptions, access rules, and custom functionality',
+    timeline: '5–8 weeks',
+    description: 'User accounts, subscriptions, access rules, and custom functionality',
   },
   {
-    type: 'Migration or Complex Custom Build',
+    name: 'Migration or Complex Custom Build',
     price: 'Custom Quote',
-    drivers: 'Content volume, migration complexity, integrations, and custom development',
+    timeline: '5–10+ weeks',
+    description: 'Content volume, migration complexity, integrations, and custom development',
   },
 ]
 
@@ -74,25 +79,37 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-            <table className="w-full min-w-[640px] text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                <tr>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Site Type</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Starting Price</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">What Drives the Cost</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {pricingTiers.map((tier, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">{tier.type}</td>
-                    <td className="p-4 md:p-6 text-base md:text-lg font-bold text-frame-accent">{tier.price}</td>
-                    <td className="p-4 md:p-6 text-sm md:text-base text-frame-muted-fg leading-relaxed">{tier.drivers}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          {/* PACKAGE CARDS */}
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {packages.map((pkg, i) => (
+              <div
+                key={i}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 transition-colors hover:border-frame-border/80"
+              >
+                <div>
+                  <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {pkg.name}
+                  </h3>
+                  <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                    {pkg.price}
+                  </p>
+                  {pkg.timeline && (
+                    <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
+                      Typical Delivery: {pkg.timeline}
+                    </p>
+                  )}
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                    {pkg.description}
+                  </p>
+                </div>
+
+                <div className="mt-8 pt-4 border-t border-frame-border/60">
+                  <PosterButton href="/contact" variant={pkg.price === 'Custom Quote' ? 'accent' : 'outline'} className="w-full text-xs">
+                    {pkg.price === 'Custom Quote' ? 'Get a Custom Quote' : 'Request Quote'}
+                  </PosterButton>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
@@ -121,26 +138,28 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm max-w-4xl">
-            <table className="w-full min-w-[500px] text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                <tr>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Type</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Timeline</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timelines.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-6 font-bold text-frame-fg">{row.type}</td>
-                    <td className="p-4 md:p-6 text-frame-accent font-bold">{row.time}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {timelines.map((row, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8"
+              >
+                <div>
+                  <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
+                    Timeline 0{idx + 1}
+                  </span>
+                  <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+                    {row.type}
+                  </h3>
+                </div>
+                <p className="mt-6 pt-4 border-t border-frame-border/60 font-heading text-xl md:text-2xl font-black uppercase tracking-tight text-frame-accent">
+                  {row.time}
+                </p>
+              </div>
+            ))}
           </div>
 
-          <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8 max-w-4xl">
+          <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
             <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
               Projects can move faster when content, brand assets, technical access, and required integrations are ready before development begins. Additional revisions, delayed approvals, custom functionality, or migration issues may extend the timeline.
             </p>

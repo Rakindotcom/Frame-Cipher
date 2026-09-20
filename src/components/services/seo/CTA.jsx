@@ -1,17 +1,15 @@
 import { CTASection } from '../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Search Engine Optimization"
-  const primaryCta = service?.primaryCta || "Get Your Free SEO Audit"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Ready to grow through search?"
+      primaryText="Get Your Free SEO Audit"
+      secondaryText="Talk to the Framecipher SEO Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Find out what may be limiting your website&apos;s organic visibility, which search
+      opportunities matter to your business, and what SEO priorities should come first.
     </CTASection>
   )
 }

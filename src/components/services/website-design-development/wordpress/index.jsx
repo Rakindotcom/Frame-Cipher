@@ -1,5 +1,12 @@
 import Hero from './Hero'
 import Offerings from './Offerings'
+import WooCommerceDev from './WooCommerceDev'
+import Solutions from './Solutions'
+import SeoReady from './SeoReady'
+import ContentStructures from './ContentStructures'
+import BuilderVsCustom from './BuilderVsCustom'
+import Markets from './Markets'
+import WhyChoose from './WhyChoose'
 import Process from './Process'
 import Pricing from './Pricing'
 import FAQ from './FAQ'
@@ -29,6 +36,13 @@ export default function WebsiteDesignDevelopmentWordpressService() {
         buttonHref="/projects#website-work"
       />
       <Offerings />
+      <WooCommerceDev />
+      <Solutions />
+      <SeoReady />
+      <ContentStructures />
+      <BuilderVsCustom />
+      <Markets />
+      <WhyChoose />
       <Process />
       <Pricing />
       <FAQ />

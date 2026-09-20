@@ -24,8 +24,8 @@ export default function Hero() {
         actions={
           <>
             <PosterButton href="/contact">Get a Free Website Quote</PosterButton>
-              <PosterButton href="#sub-services" variant="outline">
-                Explore Services (12)
+            <PosterButton href="#sub-services" variant="outline">
+              Explore Services (12)
             </PosterButton>
           </>
         }

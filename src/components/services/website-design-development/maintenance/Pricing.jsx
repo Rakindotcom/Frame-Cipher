@@ -87,33 +87,6 @@ const packages = [
   },
 ]
 
-const summaryTableRows = [
-  {
-    plan: 'Essential Care',
-    price: '৳3,500/month',
-    bestFor: 'Small business websites, blogs & portfolios',
-    coverage: 'Updates, backups, security checks, uptime monitoring, minor fixes',
-  },
-  {
-    plan: 'Business Care',
-    price: '৳7,500/month',
-    bestFor: 'Active business and service websites',
-    coverage: 'Everything in Essential + performance checks, content updates, integrations and technical support',
-  },
-  {
-    plan: 'Ecommerce Care',
-    price: '৳15,000/month',
-    bestFor: 'WooCommerce, Shopify & Magento stores',
-    coverage: 'Store updates, checkout checks, payment monitoring, product support and performance monitoring',
-  },
-  {
-    plan: 'Custom / Priority Care',
-    price: 'From ৳25,000/month',
-    bestFor: 'Custom applications, high-traffic or business-critical websites',
-    coverage: 'Custom monitoring, priority support, technical maintenance and incident response',
-  },
-]
-
 const auditReviewItems = [
   'Security and update status',
   'Existing backups',
@@ -177,30 +150,6 @@ export default function Pricing() {
                 Our maintenance plans are structured around the actual needs and risk level of your website.
               </p>
             </div>
-          </div>
-
-          {/* SUMMARY REFERENCE TABLE */}
-          <div className="mt-12 overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-            <table className="w-full text-left min-w-[640px]">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/20">
-                <tr>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Maintenance Plan</th>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Price</th>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Best For</th>
-                  <th className="p-5 md:p-7 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Typical Coverage</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {summaryTableRows.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/10 transition-colors">
-                    <td className="p-5 md:p-7 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">{row.plan}</td>
-                    <td className="p-5 md:p-7 font-heading text-lg md:text-xl font-black text-frame-accent">{row.price}</td>
-                    <td className="p-5 md:p-7 text-sm md:text-base text-frame-muted-fg leading-relaxed">{row.bestFor}</td>
-                    <td className="p-5 md:p-7 text-xs sm:text-sm text-frame-fg font-medium leading-relaxed">{row.coverage}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
 
           {/* DETAILED PLAN CARDS */}

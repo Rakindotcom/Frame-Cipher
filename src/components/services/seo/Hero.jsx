@@ -1,60 +1,39 @@
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../Kinetic'
 
-export default function Hero({ service }) {
-  const title = service?.h1 || "Search Engine Optimization Services in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Rankings that actually convert, built on technical fixes, real content strategy, and visibility across both Google and AI search engines, handled by one in-house team. Get a free audit and see where you actually stand."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "________________\n\n\n\n\n\nNotes for you before publishing:\n\n* All pricing figures need your confirmation before publishing.\n\n* Section 4 ("
-
+export default function Hero() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
           <span>/</span>
           <span className="text-frame-accent">Search Engine Optimization</span>
         </div>
       </nav>
 
-      {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
-        meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
+        eyebrow="Core Service Pillar"
+        meta="One In-House Team / Built For Conversion"
+        number="01"
+        title="Search Engine Optimization Services in Bangladesh"
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
+            <PosterButton href="/contact">Get a Free SEO Audit</PosterButton>
+            <PosterButton href="/contact" variant="outline">
+              Talk to the Framecipher SEO Team
             </PosterButton>
           </>
         }
       >
-        {subtitle}
+        Rankings that support real business growth. Framecipher combines technical
+        SEO, content strategy, on-page optimization, authority building, local and
+        ecommerce SEO, and AI search optimization under one in-house team. We help
+        businesses in Bangladesh and international markets turn search visibility
+        into qualified traffic, leads, calls, and sales.
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

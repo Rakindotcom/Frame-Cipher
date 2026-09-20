@@ -91,44 +91,48 @@ export default function Hero() {
       {/* STRATEGIC VALUE BANNER / WHY CHOOSE CUSTOM DEVELOPMENT */}
       <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
         <div className="mx-auto max-w-[95vw]">
-          <div className="max-w-4xl">
-            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Architectural Strategic Fit
-            </p>
-            <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Why Choose Custom / Next.js Development?
-            </h2>
-
-            <div className="space-y-5 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg mt-6">
-              <p>
-                A custom website or application should solve a problem that an off-the-shelf platform cannot handle well.
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-12 lg:items-start">
+            <div>
+              <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+                Architectural Strategic Fit
               </p>
-              <p>
-                Next.js gives businesses a foundation for building custom web experiences while keeping the frontend, application logic, data, integrations, and performance strategy under greater control.
-              </p>
-            </div>
+              <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+                Why Choose Custom / Next.js Development?
+              </h2>
 
-            <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 sm:p-8">
-              <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-frame-fg">
-                Custom development can make sense when you need:
-              </h3>
-              <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
-                {customFitReasons.map((reason, idx) => (
-                  <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-frame-fg">
-                    <span className="text-frame-accent font-bold">✓</span>
-                    <span>{reason}</span>
-                  </div>
-                ))}
+              <div className="space-y-5 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg mt-6">
+                <p>
+                  A custom website or application should solve a problem that an off-the-shelf platform cannot handle well.
+                </p>
+                <p>
+                  Next.js gives businesses a foundation for building custom web experiences while keeping the frontend, application logic, data, integrations, and performance strategy under greater control.
+                </p>
               </div>
             </div>
 
-            <div className="mt-8 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
-              <p>
-                The important question is not whether custom development sounds more advanced. It is whether the additional control creates enough business value to justify the additional development and maintenance.
-              </p>
-              <p className="font-semibold text-frame-fg">
-                That&apos;s why every project starts with a platform-fit assessment before development begins.
-              </p>
+            <div>
+              <div className="border-2 border-frame-border bg-frame-bg p-6 sm:p-8">
+                <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-frame-fg">
+                  Custom development can make sense when you need:
+                </h3>
+                <div className="mt-4 grid gap-2.5 sm:grid-cols-2">
+                  {customFitReasons.map((reason, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-medium text-frame-fg">
+                      <span className="text-frame-accent font-bold">✓</span>
+                      <span>{reason}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p>
+                  The important question is not whether custom development sounds more advanced. It is whether the additional control creates enough business value to justify the additional development and maintenance.
+                </p>
+                <p className="font-semibold text-frame-fg">
+                  That&apos;s why every project starts with a platform-fit assessment before development begins.
+                </p>
+              </div>
             </div>
           </div>
         </div>

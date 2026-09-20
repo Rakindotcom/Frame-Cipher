@@ -13,6 +13,14 @@ function humanizeServiceCopy(value = '') {
 export function PageHero({ eyebrow, title, children, meta, number = '360', actions }) {
   return (
     <section className="relative isolate overflow-hidden border-b-2 border-frame-border px-4 pb-20 pt-28 md:px-8 md:pb-28 md:pt-36">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-24 z-0 h-24 w-1.5 bg-gradient-to-b from-frame-accent via-frame-accent/60 to-transparent md:top-16"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute right-0 top-24 z-0 h-24 w-1.5 bg-gradient-to-b from-frame-accent/60 to-transparent md:top-16"
+      />
       <div className="pointer-events-none absolute -right-6 top-24 -z-10 select-none font-heading text-[36vw] font-bold leading-none tracking-tighter text-frame-muted/70 md:top-8 md:text-[24vw]" aria-hidden="true">
         {number}
       </div>
@@ -45,15 +53,31 @@ export function SectionLabel({ children, className = '' }) {
   )
 }
 
-export function SectionIntro({ eyebrow, title, children, className = '' }) {
+export function SectionIntro({ eyebrow, title, children, className = '', index, align = 'left' }) {
+  const center = align === 'center'
   return (
-    <div className={`mb-14 md:mb-20 max-w-4xl ${className}`}>
-      {eyebrow && <SectionLabel className="mb-3">{eyebrow}</SectionLabel>}
-      <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+    <div className={`mb-14 md:mb-20 max-w-4xl ${center ? 'mx-auto text-center md:max-w-5xl' : ''} ${className}`}>
+      <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
+        {index && (
+          <span
+            aria-hidden="true"
+            className={`select-none font-heading text-4xl font-bold leading-none tracking-tighter md:text-6xl ${center ? 'text-frame-accent' : 'text-frame-muted/60'}`}
+          >
+            {index}
+          </span>
+        )}
+        <span
+          aria-hidden="true"
+          className={`h-0.5 w-10 flex-none bg-frame-accent md:w-16 ${center ? 'hidden' : ''}`}
+        />
+        <SectionLabel>{eyebrow}</SectionLabel>
+        {center && <span aria-hidden="true" className="h-0.5 w-10 flex-none bg-frame-accent md:w-16" />}
+      </div>
+      <h2 className={`mt-4 font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg ${center ? 'mx-auto' : ''}`}>
         {title}
       </h2>
       {children && (
-        <p className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+        <p className={`mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl ${center ? 'mx-auto' : ''}`}>
           {children}
         </p>
       )}
@@ -65,7 +89,7 @@ export function PosterButton({ href, children, variant = 'accent', className = '
   const isFullWidth = className.includes('w-full')
   const widthClasses = isFullWidth ? 'w-full' : 'w-full sm:w-auto'
   const base =
-    `inline-flex min-h-14 ${widthClasses} items-center justify-center border-2 px-8 py-4 text-center text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-12 md:text-base`
+    `inline-flex min-h-14 ${widthClasses} items-center justify-center whitespace-nowrap border-2 px-8 py-4 text-center text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-12 md:text-base`
   const variants = {
     accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-[1.02] hover:bg-transparent hover:text-frame-fg',
     outline:

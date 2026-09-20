@@ -1,5 +1,12 @@
 import Hero from './Hero'
 import Offerings from './Offerings'
+import Solutions from './Solutions'
+import TrafficSources from './TrafficSources'
+import CopyStrategy from './CopyStrategy'
+import ConversionOptimization from './ConversionOptimization'
+import Tracking from './Tracking'
+import WhyDedicated from './WhyDedicated'
+import WhyChoose from './WhyChoose'
 import Process from './Process'
 import Pricing from './Pricing'
 import FAQ from './FAQ'
@@ -29,6 +36,13 @@ export default function WebsiteDesignDevelopmentLandingPagesService() {
         buttonHref="/projects?view=website"
       />
       <Offerings />
+      <Solutions />
+      <TrafficSources />
+      <CopyStrategy />
+      <ConversionOptimization />
+      <Tracking />
+      <WhyDedicated />
+      <WhyChoose />
       <Process />
       <Pricing />
       <FAQ />

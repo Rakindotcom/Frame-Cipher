@@ -1,5 +1,12 @@
 import Hero from './Hero'
 import Offerings from './Offerings'
+import Features from './Features'
+import Payments from './Payments'
+import SeoReady from './SeoReady'
+import Models from './Models'
+import Markets from './Markets'
+import Platforms from './Platforms'
+import WhyChoose from './WhyChoose'
 import Process from './Process'
 import Pricing from './Pricing'
 import FAQ from './FAQ'
@@ -29,6 +36,13 @@ export default function WebsiteDesignDevelopmentEcommerceWebsiteService() {
         buttonHref="/projects?view=website"
       />
       <Offerings />
+      <Features />
+      <Payments />
+      <SeoReady />
+      <Models />
+      <Markets />
+      <Platforms />
+      <WhyChoose />
       <Process />
       <Pricing />
       <FAQ />
