@@ -61,40 +61,54 @@ export default function Conversions() {
             <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
               The conversion journey
             </span>
-            <div className="mt-6 flex flex-wrap items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-2 md:gap-3 text-xs md:text-sm font-black uppercase tracking-wider text-frame-fg">
               {conversionJourney.map((step, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <span className="border-2 border-frame-accent bg-frame-accent/10 px-4 py-2 font-heading text-sm font-bold uppercase tracking-tight text-frame-fg">
+                <div key={index} className="flex items-center gap-2 md:gap-3">
+                  <span
+                    className={[
+                      'border px-3.5 py-2 shadow-sm',
+                      index === conversionJourney.length - 1
+                        ? 'border-frame-accent bg-frame-accent/10 text-frame-accent'
+                        : 'border-frame-border/80 bg-frame-bg',
+                    ].join(' ')}
+                  >
                     {step}
                   </span>
                   {index < conversionJourney.length - 1 && (
-                    <span className="font-heading text-xl font-bold text-frame-accent">&rarr;</span>
+                    <span className="text-frame-accent font-bold">&rarr;</span>
                   )}
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-10 grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-            <div className="space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-              <p>That means we look beyond rankings and traffic.</p>
-              <p>
-                For commercial pages, we consider relevance, content clarity, trust signals,
-                calls to action, internal navigation, and the path users take after arriving
-                from search.
-              </p>
-              <p>
-                For ecommerce websites, that path may lead to a product view, cart, checkout, or
-                purchase.
-              </p>
-              <p>
-                For service businesses, it may lead to a form submission, phone call, WhatsApp
-                conversation, or consultation request.
-              </p>
-              <p>
-                Where reliable tracking is available, we use conversion data to understand which
-                organic traffic contributes to actual business outcomes.
-              </p>
+          <div className="mt-10">
+            <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              That means we look beyond rankings and traffic.
+            </h3>
+            <p className="mt-3 max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              On commercial pages we consider relevance, content clarity, trust signals, calls to action, internal navigation, and the path users take after arriving from search.
+            </p>
+
+            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
+              <div className="bg-frame-bg p-6 md:p-7">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Ecommerce Websites</span>
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  That path may lead to a product view, cart, checkout, or purchase.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-6 md:p-7">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Service Businesses</span>
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  It may lead to a form submission, phone call, WhatsApp conversation, or consultation request.
+                </p>
+              </div>
+              <div className="bg-frame-bg p-6 md:p-7">
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Attribution</span>
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  Where reliable tracking is available, we use conversion data to understand which organic traffic contributes to actual outcomes.
+                </p>
+              </div>
             </div>
           </div>
         </div>
