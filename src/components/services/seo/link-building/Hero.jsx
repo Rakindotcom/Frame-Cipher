@@ -3,7 +3,7 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
   const title = service?.h1 || "Best Off-Page SEO & Link Building Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Off-page SEO and link building done through real outreach, earned backlinks that build authority without risking a future penalty."
+  const subtitle = service?.shortDesc || service?.metaDescription || "Strong search visibility does not come from on-page optimization alone. External links, brand mentions, publisher relationships, and other off-page signals can contribute to how a website is discovered, understood, and evaluated. Framecipher provides off-page SEO and link building services built around relevance, editorial quality, and manual outreach. We identify realistic opportunities, create useful content where needed, and pursue placements that make sense for the publication, audience, and target page. Our campaigns support businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE."
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
   const quote = service?.quote || "The links that actually help a site are the ones that would exist even if Google didn't. A link earned because the content deserved it holds up. A link bought because a tool made it easy usually doesn't."
@@ -19,11 +19,11 @@ export default function Hero({ service }) {
           {pillarParent && (
             <>
               <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
+              <Link href="/services/seo" className="transition hover:text-frame-fg">SEO</Link>
             </>
           )}
           <span>/</span>
-          <span className="text-frame-accent">Off-Page SEO & Link Building</span>
+          <span className="text-frame-accent">Off-Page SEO &amp; Link Building</span>
         </div>
       </nav>
 
@@ -35,7 +35,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>

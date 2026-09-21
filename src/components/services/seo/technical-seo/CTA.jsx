@@ -1,17 +1,19 @@
 import { CTASection } from '../../../Kinetic'
 
 export default function CTA({ service }) {
-  const serviceTitle = "Technical SEO"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
+  const primaryCta = service?.primaryCta || 'Get Your Technical SEO Audit'
 
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Your Technical SEO Audit"
+      primaryText={`${primaryCta} \u2192`}
+      secondaryText="Talk to the Framecipher SEO Team →"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Technical problems can remain hidden until they affect organic visibility, traffic, or
+      website performance. Let Framecipher identify the technical issues that matter most, explain
+      what should be fixed first, and help you build a stronger foundation for long-term search
+      growth.
     </CTASection>
   )
 }

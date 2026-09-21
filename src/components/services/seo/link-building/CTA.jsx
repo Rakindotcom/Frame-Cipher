@@ -1,17 +1,19 @@
 import { CTASection } from '../../../Kinetic'
 
 export default function CTA({ service }) {
-  const serviceTitle = "Off-Page SEO & Link Building"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
+  const primaryCta = service?.primaryCta || 'Get Your Off-Page SEO Consultation'
 
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Building Real Authority"
+      primaryText={`${primaryCta} \u2192`}
+      secondaryText="Talk to the Framecipher SEO Team \u2192"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Your backlink strategy should support the business, not create another list of links that
+      nobody can explain. Framecipher combines backlink research, competitor analysis, manual
+      outreach, content development, digital PR, link reclamation, and transparent monitoring
+      into one in-house program.
     </CTASection>
   )
 }

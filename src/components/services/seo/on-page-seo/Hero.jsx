@@ -3,7 +3,7 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
   const title = service?.h1 || "Best On-Page SEO Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "On-page SEO that matches real search intent content, headings, metadata, and internal linking optimized to rank and actually convert."
+  const subtitle = service?.shortDesc || service?.metaDescription || "A page can target the right keyword and still fail to perform if it does not satisfy the searcher behind that query. Framecipher provides on-page SEO services that align content, page structure, metadata, internal linking, and semantic relevance with real search intent. We optimize existing pages, improve underperforming content, and structure new pages around what users are actually looking for. Our approach is designed for businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE."
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
   const quote = service?.quote || "Optimizing a page for a keyword and optimizing it for the person searching that keyword aren't automatically the same task. Get the second one right, and the first one usually follows."
@@ -19,7 +19,7 @@ export default function Hero({ service }) {
           {pillarParent && (
             <>
               <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
+              <Link href="/services/seo" className="transition hover:text-frame-fg">SEO</Link>
             </>
           )}
           <span>/</span>
@@ -35,7 +35,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>

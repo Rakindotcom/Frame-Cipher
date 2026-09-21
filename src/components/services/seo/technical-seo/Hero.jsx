@@ -3,7 +3,7 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
   const title = service?.h1 || "Best Technical SEO Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Technical SEO that fixes what's actually blocking rankings site speed, crawlability, indexation, and structured data by an in-house team."
+  const subtitle = service?.shortDesc || service?.metaDescription || "A technically strong website gives search engines a clearer path to crawl, understand, and index your important pages. Framecipher provides technical SEO services that identify and fix crawlability, indexation, performance, structured data, rendering, and architecture issues that can limit organic visibility. We work with businesses across Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE."
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
   const quote = service?.quote || "Most sites don't have a content problem. They have a foundation problem that content work can't fix, no matter how good the writing is."
@@ -19,7 +19,7 @@ export default function Hero({ service }) {
           {pillarParent && (
             <>
               <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
+              <Link href="/services/seo" className="transition hover:text-frame-fg">SEO</Link>
             </>
           )}
           <span>/</span>
@@ -35,7 +35,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>

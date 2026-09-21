@@ -1,47 +1,66 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "How is technical SEO different from on-page SEO?",
-    "answer": "Technical SEO addresses the infrastructure that lets search engines crawl, index, and understand your site speed, structured data, architecture. On-page SEO addresses the content and metadata on individual pages. Both matter, and technical issues can undermine even strong content work."
+    question: 'What is technical SEO?',
+    answer: 'Technical SEO focuses on the website infrastructure that helps search engines crawl, render, understand, and index your pages. It covers areas such as site architecture, indexation, performance, structured data, redirects, canonicalization, and rendering.',
   },
   {
-    "question": "Do I need a technical SEO audit if my site looks fine to visitors?",
-    "answer": "Yes, often, technical issues like poor crawlability or missing structured data are usually invisible to a regular visitor but directly affect how search engines evaluate your site."
+    question: 'Why does my website need a technical SEO audit?',
+    answer: 'A website can look normal to visitors while having technical problems that affect search engines. An audit can identify crawl, indexation, performance, architecture, structured-data, and other technical issues that may limit organic visibility.',
   },
   {
-    "question": "How much does site speed actually affect rankings?",
-    "answer": "Page speed is a measured ranking factor, and it also affects visitor behavior directly, slow pages lose both rankings and conversions, which is why we treat it as a priority rather than a secondary concern."
+    question: 'Does technical SEO improve Google rankings?',
+    answer: 'Technical SEO can remove technical barriers that prevent search engines from properly accessing, understanding, or indexing important pages. However, rankings also depend on content, relevance, authority, competition, search demand, and other factors.',
   },
   {
-    "question": "Can you fix technical issues on any platform, or just specific ones?",
-    "answer": "We work across WordPress, Shopify, Webflow, and custom-built sites, the specific fixes vary by platform, but the diagnostic process is the same regardless of what your site runs on."
+    question: 'Can you fix technical SEO issues instead of only providing an audit?',
+    answer: 'Yes. We provide both technical audits and implementation services. The scope depends on the issues identified, your platform, and whether implementation is handled by Framecipher or your existing development team.',
   },
   {
-    "question": "Do you provide ongoing technical monitoring, or just a one-time fix?",
-    "answer": "Both are available, a one-time audit and fix for sites needing a foundation reset, or ongoing monitoring for sites that want technical health tracked continuously.\n\n[Talk to Our SEO Team]"
-  }
+    question: 'Do you provide JavaScript SEO for React and Next.js websites?',
+    answer: 'Yes. We can review JavaScript rendering, dynamically generated content, internal links, metadata, indexability, and other technical SEO requirements for React, Next.js, and other JavaScript-based websites.',
+  },
+  {
+    question: 'Do you analyze server logs?',
+    answer: 'Where server log access is available and useful for the website, we can analyze crawler activity to identify crawl patterns, wasted crawling, status-code issues, and other technical signals.',
+  },
+  {
+    question: 'Can you handle SEO during a website migration?',
+    answer: 'Yes. We can support URL mapping, redirect planning, canonical updates, sitemap changes, staging checks, internal-link reviews, and post-launch technical monitoring.',
+  },
+  {
+    question: 'How do you verify technical SEO fixes?',
+    answer: 'We validate fixes using appropriate technical checks, crawling, Search Console data, structured-data testing, performance measurements, or other relevant evidence depending on the issue.',
+  },
+  {
+    question: 'Do you provide ongoing technical SEO monitoring?',
+    answer: 'Yes. Ongoing monitoring can track crawlability, indexation, Core Web Vitals, Search Console issues, redirects, structured data, broken links, and technical regressions.',
+  },
+  {
+    question: 'How much does technical SEO cost in Bangladesh?',
+    answer: 'Framecipher\u2019s starting reference prices range from \u09F320,000 for a technical SEO audit to \u09F380,000+ for an advanced technical overhaul, with ongoing monitoring starting at \u09F315,000/month. Final pricing depends on the website and required scope.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="Direct Answers"
+          eyebrow="Direct answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about technical SEO, delivery, validation, and engagement models.
         </SectionIntro>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+              className="group border-2 border-frame-border bg-frame-muted/10 open:border-frame-accent transition-colors"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg marker:content-none">
                 <span>{faq.question}</span>
                 <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
                   +

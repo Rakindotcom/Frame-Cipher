@@ -1,18 +1,28 @@
 import Hero from './Hero'
+import Overview from './Overview'
+import Problems from './Problems'
 import Offerings from './Offerings'
 import Process from './Process'
+import Platforms from './Platforms'
+import WhyChoose from './WhyChoose'
+import Results from './Results'
 import Pricing from './Pricing'
+import Timeline from './Timeline'
+import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
+import GettingStarted from './GettingStarted'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
   "Technical SEO",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  "Site Speed",
+  "Crawlability",
+  "Indexation",
+  "Core Web Vitals",
+  "Structured Data",
+  "JavaScript SEO",
+  "SEO Migrations"
 ]
 
 export default function SeoTechnicalSeoService({ service }) {
@@ -20,13 +30,21 @@ export default function SeoTechnicalSeoService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <Problems />
+      <Offerings />
+      <Process />
+      <Platforms />
+      <WhyChoose />
+      <Results />
+      <Pricing />
+      <Timeline />
+      <ServiceAreas />
+      <FAQ />
+      <GettingStarted />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Problems, Offerings, Process, Platforms, WhyChoose, Results, Pricing, Timeline, ServiceAreas, FAQ, GettingStarted, CTA }

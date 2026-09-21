@@ -1,103 +1,81 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Technical Audit",
-    "description": "We review crawlability, indexation, speed, and structured data to find what's actually suppressing rankings."
+    number: '01',
+    title: 'Technical Audit',
+    description: 'We examine the website\u2019s technical infrastructure, crawlability, indexation, performance, architecture, and other relevant areas to identify issues affecting organic visibility.',
   },
   {
-    "number": "2",
-    "title": "Prioritization & Scope Definition",
-    "description": "We rank issues by impact, so the highest-leverage fixes happen first, not whatever's easiest."
+    number: '02',
+    title: 'Prioritization',
+    description: 'Not every technical issue deserves the same level of attention. We prioritize recommendations based on potential impact, urgency, business importance, implementation requirements, and available resources.',
   },
   {
-    "number": "3",
-    "title": "Implementation",
-    "description": "Technical fixes applied with your review and approval at each stage, coordinated with your existing site or development team."
+    number: '03',
+    title: 'Implementation',
+    description: 'Approved technical changes are implemented directly by our team or coordinated with your existing developers, depending on the project. This can include technical configuration, redirects, structured data, internal linking, performance improvements, indexing controls, and other approved fixes.',
   },
   {
-    "number": "4",
-    "title": "Validation & Testing",
-    "description": "Confirming fixes actually resolved the issue, not just that a change was made."
+    number: '04',
+    title: 'Validation',
+    description: 'We verify whether the implemented changes actually resolved the identified problem. Depending on the issue, validation may involve technical testing, crawling, Search Console checks, structured-data validation, performance testing, or other available evidence.',
   },
   {
-    "number": "5",
-    "title": "Ongoing Monitoring",
-    "description": "Continued tracking so technical health doesn't quietly drift backward after the initial work is done."
-  }
+    number: '05',
+    title: 'Monitoring',
+    description: 'After implementation, we monitor the relevant technical signals to identify regressions, new issues, or additional opportunities.',
+  },
 ]
-  const timeline = service?.timeline || "A technical audit is typically delivered within a week of starting. Implementation timelines depend heavily on scope, a standard fix runs 2 to 3 weeks, while a larger site with significant accumulated technical debt can take 4 to 6 weeks or longer.\n\nRanking improvements from technical fixes alone can appear faster than from content work, sometimes within a few weeks of implementation, though the exact timing depends on how significant the underlying issues were."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Execution framework"
+          title="How We Approach Technical SEO"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          We focus on fixing the right problems in the right order rather than trying to change
+          everything at once.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="group relative flex min-h-64 flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
                   {step.description}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+              <span
+                aria-hidden="true"
+                className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-200 group-hover:text-frame-accent-fg"
+              >
+                Phase 0{index + 1}
+              </span>
             </div>
           ))}
-        </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="flex min-h-64 flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Transparency by default
+            </span>
+            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
+              Every approved technical change is reviewed before it touches the live site, so
+              nothing happens without your visibility into what is changing and why.
+            </p>
           </div>
-        )}
+        </div>
       </div>
     </section>
   )

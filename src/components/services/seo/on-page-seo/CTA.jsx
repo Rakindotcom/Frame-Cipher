@@ -1,17 +1,18 @@
 import { CTASection } from '../../../Kinetic'
 
 export default function CTA({ service }) {
-  const serviceTitle = "On-Page SEO"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
+  const primaryCta = service?.primaryCta || 'Get Your On-Page SEO Consultation'
 
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Start Optimizing Your Pages"
+      primaryText={`${primaryCta} \u2192`}
+      secondaryText="Talk to the Framecipher SEO Team \u2192"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Your pages should do more than contain the right keywords. They should clearly answer the
+      searcher&apos;s need, communicate the value of your business, connect naturally with the
+      rest of your website, and give visitors a clear next step.
     </CTASection>
   )
 }
