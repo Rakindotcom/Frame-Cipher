@@ -1,265 +1,158 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const offerings = [
   {
-    "title": "PENALTY DIAGNOSIS & INVESTIGATION",
-    "description": "Before any fix begins, we determine exactly what type of issue is actually responsible for the drop. What We Do Treating an algorithmic drop like a manual action, or vice versa, means applying a fix that doesn't address what actually happened.",
-    "bullets": [
-      "Search Console Manual Action Review: Checking directly for any manual action notices Google has issued against your site.",
-      "Algorithm Update Correlation: Comparing your traffic drop timing against known Google algorithm update dates.",
-      "Traffic Pattern Analysis: Reviewing which pages, keywords, and traffic sources were actually affected, and how.",
-      "Technical & Migration Issue Ruling-Out: Confirming the drop isn't actually a technical problem or a site change mistaken for a penalty."
-    ]
+    title: 'Penalty Diagnosis & Investigation',
+    body: 'We begin with evidence.',
+    lead: 'Our investigation can include:',
+    points: [
+      'Search Console data',
+      'Analytics data where available',
+      'Manual-action and security reports',
+      'Traffic patterns',
+      'Ranking changes',
+      'Affected URL groups',
+      'Technical changes',
+      'Backlink history',
+      'Content changes',
+      'Relevant Google update timing',
+    ],
+    closing: 'The goal is a defensible diagnosis before remediation begins.',
   },
   {
-    "title": "MANUAL ACTION REMEDIATION",
-    "description": "When Google has issued a specific manual action, the fix has to directly address what they flagged. What We Do Google's reconsideration process rewards specific, demonstrated fixes; a vague \"we improved things\" request tends to get rejected.",
-    "bullets": [
-      "Violation-Specific Remediation: Fixing exactly what the manual action notice identifies, unnatural links, thin content, cloaking, whatever the specific flag is.",
-      "Toxic Backlink Removal & Disavow: Identifying and removing or disavowing links responsible for a links-based manual action.",
-      "Content Quality Remediation: Rewriting or removing thin, duplicate, or low-value content flagged under a content-based action.",
-      "Documentation for Reconsideration: Building a clear, evidence-based record of what was fixed and how."
-    ]
+    title: 'Manual Action Remediation',
+    body: 'When Google has issued a manual action, the remediation needs to address the specific violation described in Search Console.',
+    lead: 'Depending on the issue, this may involve:',
+    points: [
+      'Content removal or improvement',
+      'Link remediation',
+      'Technical corrections',
+      'Structured-data changes',
+      'Spam cleanup',
+      'Other violation-specific work',
+    ],
+    closing:
+      'Google\u2019s current manual-action guidance provides issue-specific remediation steps and requires the problem to be addressed before a review request.',
   },
   {
-    "title": "ALGORITHMIC RECOVERY STRATEGY",
-    "description": "Recovering from an algorithm update means addressing the broader quality signals the update is actually measuring. What We Do There's no reconsideration request for an algorithmic drop, recovery means genuinely improving what the update was measuring, then waiting for reassessment.",
-    "bullets": [
-      "Update-Specific Impact Analysis: Understanding what the specific algorithm update in question actually evaluates.",
-      "Content Quality & E-E-A-T Improvement: Strengthening the experience, expertise, authority, and trust signals Google's systems increasingly weigh.",
-      "Technical & UX Signal Review: Addressing site quality signals speed, usability, ad density, that broader updates often account for.",
-      "Competitive Benchmark Analysis: Understanding what sites that weren't affected, or that recovered, are doing differently."
-    ]
+    title: 'Unnatural Link Remediation & Disavow When Appropriate',
+    body: 'We investigate backlinks for patterns that may violate Google\u2019s link spam policies, document problematic links, and pursue removal where appropriate.',
+    closing:
+      'Disavow is treated as an advanced tool, not a routine cleanup step. Google says most sites do not need to use it and recommends removal efforts first when dealing with a genuine unnatural-link issue.',
   },
   {
-    "title": "RECONSIDERATION REQUEST SUPPORT",
-    "description": "For manual actions specifically, the reconsideration request itself has to be built carefully. What We Do A reconsideration request submitted too early, before the underlying issue is genuinely fixed, often gets denied and costs another full review cycle.",
-    "bullets": [
-      "Reconsideration Request Drafting: Writing a clear, specific, evidence-backed request that addresses exactly what was flagged.",
-      "Supporting Documentation Preparation: Compiling proof of the fixes made, removed links, rewritten content, corrected practices.",
-      "Submission Timing Guidance: Advising on when a site is genuinely ready for reconsideration, not just eager to submit.",
-      "Follow-Up Support: Guidance if an initial reconsideration request is denied and further work is needed."
-    ]
+    title: 'Content Quality & People-First Recovery',
+    body: 'For quality-related ranking declines, we review whether important pages provide original, useful, complete, and relevant information for the people searching for it. We assess content depth, topical coverage, intent alignment, originality, page usefulness, first-hand value where relevant, and the overall quality of the publishing experience.',
+    closing:
+      'We also consider E-E-A-T-related qualities without treating E-E-A-T as a single ranking score.',
   },
   {
-    "title": "POST-RECOVERY MONITORING & PREVENTION",
-    "description": "Recovering rankings is only half the job, staying recovered is the other half. What We Do Recovery work often surfaces broader SEO gaps too - see our SEO Strategy & Consulting page for building a stronger, more resilient long-term foundation.",
-    "bullets": [
-      "Ranking & Traffic Recovery Tracking: Monitoring the actual trajectory back toward previous performance.",
-      "Ongoing Compliance Monitoring: Watching for any drift back toward the practices that caused the original issue.",
-      "Preventive Technical Audits: Catching new issues before they compound into another penalty.",
-      "Documentation for Future Reference: Keeping a clear record of what happened and what was done, in case questions arise later."
-    ]
+    title: 'Technical SEO & Migration Recovery',
+    body: 'We investigate technical changes that could have caused lost visibility.',
+    lead: 'This can include:',
+    points: [
+      'Indexing and crawlability',
+      'No index directives',
+      'Canonical implementation',
+      'Redirects',
+      'URL changes',
+      'XML sitemaps',
+      'Internal linking',
+      'HTTP status issues',
+      'Rendering problems',
+      'Migration configuration',
+      'Accidental site-wide changes',
+    ],
+    closing:
+      'The objective is to restore clear, consistent signals that allow search engines to discover, crawl, and understand the intended pages.',
   },
   {
-    "title": "Manual Action or Algorithmic Drop, Which One Are You Dealing With?",
-    "description": "The first, most important question in any recovery determines everything that follows. Manual Action A human reviewer at Google has flagged your site specifically, and you'll see a notice directly in Google Search Console under Manual Actions. This has a defined process: fix the specific violation, then submit a reconsideration request. Algorithmic Update Impact No notice appears anywhere, your traffic simply dropped, often correlating with a known Google algorithm update date. There's no request to submit here; recovery means genuinely improving the quality signals the update evaluates, then waiting for the next reassessment. Something Else Entirely Sometimes a traffic drop isn't a penalty at all, a botched migration, a technical error, a seasonal shift, or a legitimate competitor improvement can all look like a penalty from the outside. Ruling this out first prevents chasing a fix for a problem that was never actually a penalty. Confusing these three is the single most common reason recovery attempts stall, the diagnosis has to come first, every time.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "A traffic drop left unaddressed, or addressed with the wrong fix, tends to compound rather than resolve on its own.",
-  "The Wrong Fix Wastes the Time Recovery Actually Needs",
-  "Treating an algorithmic drop like a manual action, or the reverse, delays genuine recovery while resources go toward the wrong problem.",
-  "Reconsideration Requests Get One Real Shot at a Time",
-  "A poorly documented or premature request often gets denied, costing another full review cycle before you can try again.",
-  "Panic-Driven Changes Can Make Things Worse",
-  "Making sweeping, undocumented changes to a penalized site can obscure what actually caused the problem, complicating diagnosis further.",
-  "Recovery Without Prevention Risks Repeating the Cycle",
-  "Fixing the immediate issue without addressing what led to it in the first place leaves the door open for the same problem to happen again."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "A sudden traffic drop gets blamed on a lot of things that aren't actually the cause, and chasing the wrong explanation wastes the time recovery actually needs. We start by determining whether you're dealing with a manual action, an algorithmic update, or something else entirely a technical issue, a migration gone wrong, because the fix for each one is completely different, and applying the wrong one can extend the recovery timeline instead of shortening it. This isn't work we rush through with generic advice; it's methodical diagnosis first, documented action second.",
-    "text": "\"The businesses that recover fastest are the ones that resist the urge to change everything at once. A penalty has a specific cause. Finding it precisely is what makes the fix actually work.\" Manual Action & Algorithmic Diagnosis | Documented Recovery Plan | Reconsideration Request Support"
+    title: 'Google Core & Spam Update Recovery',
+    body: 'When the evidence points toward an update-related ranking decline rather than a manual action, recovery requires broader improvement rather than reconsideration.',
+    closing:
+      'We analyze the pages and queries most affected, identify quality and relevance gaps, compare competing results, and prioritize changes that improve the site\u2019s usefulness and search alignment.',
   },
   {
-    "title": "Our Penalty Recovery Services",
-    "text": "Recovery depends entirely on correctly identifying what actually happened first."
+    title: 'Reconsideration Request Support',
+    body: 'For manual actions, we prepare the reconsideration process after the underlying issues have been addressed.',
+    closing:
+      'Google recommends that a reconsideration request explain the exact problem, the steps taken to fix it, and the outcome of the remediation. We help prepare the request, organize supporting documentation, and make sure it accurately reflects the work completed.',
   },
   {
-    "title": "PENALTY DIAGNOSIS & INVESTIGATION",
-    "text": "Before any fix begins, we determine exactly what type of issue is actually responsible for the drop."
+    title: 'Post-Recovery Monitoring & Prevention',
+    body: 'Recovery is not complete simply because rankings begin to improve.',
+    closing:
+      'We monitor important visibility indicators, track the pages and queries involved in the original loss, document changes, and look for signs that the original problem could return. Where appropriate, we also recommend preventive technical, content, and SEO controls.',
   },
-  {
-    "title": "What We Do",
-    "text": "* Search Console Manual Action Review: Checking directly for any manual action notices Google has issued against your site. * Algorithm Update Correlation: Comparing your traffic drop timing against known Google algorithm update dates. * Traffic Pattern Analysis: Reviewing which pages, keywords, and traffic sources were actually affected, and how. * Technical & Migration Issue Ruling-Out: Confirming the drop isn't actually a technical problem or a site change mistaken for a penalty. Treating an algorithmic drop like a manual action, or vice versa, means applying a fix that doesn't address what actually happened."
-  },
-  {
-    "title": "MANUAL ACTION REMEDIATION",
-    "text": "When Google has issued a specific manual action, the fix has to directly address what they flagged."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Violation-Specific Remediation: Fixing exactly what the manual action notice identifies, unnatural links, thin content, cloaking, whatever the specific flag is. * Toxic Backlink Removal & Disavow: Identifying and removing or disavowing links responsible for a links-based manual action. * Content Quality Remediation: Rewriting or removing thin, duplicate, or low-value content flagged under a content-based action. * Documentation for Reconsideration: Building a clear, evidence-based record of what was fixed and how. Google's reconsideration process rewards specific, demonstrated fixes; a vague \"we improved things\" request tends to get rejected."
-  },
-  {
-    "title": "ALGORITHMIC RECOVERY STRATEGY",
-    "text": "Recovering from an algorithm update means addressing the broader quality signals the update is actually measuring."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Update-Specific Impact Analysis: Understanding what the specific algorithm update in question actually evaluates. * Content Quality & E-E-A-T Improvement: Strengthening the experience, expertise, authority, and trust signals Google's systems increasingly weigh. * Technical & UX Signal Review: Addressing site quality signals speed, usability, ad density, that broader updates often account for. * Competitive Benchmark Analysis: Understanding what sites that weren't affected, or that recovered, are doing differently. There's no reconsideration request for an algorithmic drop, recovery means genuinely improving what the update was measuring, then waiting for reassessment."
-  },
-  {
-    "title": "RECONSIDERATION REQUEST SUPPORT",
-    "text": "For manual actions specifically, the reconsideration request itself has to be built carefully."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Reconsideration Request Drafting: Writing a clear, specific, evidence-backed request that addresses exactly what was flagged. * Supporting Documentation Preparation: Compiling proof of the fixes made, removed links, rewritten content, corrected practices. * Submission Timing Guidance: Advising on when a site is genuinely ready for reconsideration, not just eager to submit. * Follow-Up Support: Guidance if an initial reconsideration request is denied and further work is needed. A reconsideration request submitted too early, before the underlying issue is genuinely fixed, often gets denied and costs another full review cycle."
-  },
-  {
-    "title": "POST-RECOVERY MONITORING & PREVENTION",
-    "text": "Recovering rankings is only half the job, staying recovered is the other half."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Ranking & Traffic Recovery Tracking: Monitoring the actual trajectory back toward previous performance. * Ongoing Compliance Monitoring: Watching for any drift back toward the practices that caused the original issue. * Preventive Technical Audits: Catching new issues before they compound into another penalty. * Documentation for Future Reference: Keeping a clear record of what happened and what was done, in case questions arise later. Recovery work often surfaces broader SEO gaps too - see our SEO Strategy & Consulting page for building a stronger, more resilient long-term foundation. Manual Action or Algorithmic Drop, Which One Are You Dealing With? The first, most important question in any recovery determines everything that follows."
-  },
-  {
-    "title": "Manual Action",
-    "text": "A human reviewer at Google has flagged your site specifically, and you'll see a notice directly in Google Search Console under Manual Actions. This has a defined process: fix the specific violation, then submit a reconsideration request."
-  },
-  {
-    "title": "Algorithmic Update Impact",
-    "text": "No notice appears anywhere, your traffic simply dropped, often correlating with a known Google algorithm update date. There's no request to submit here; recovery means genuinely improving the quality signals the update evaluates, then waiting for the next reassessment."
-  },
-  {
-    "title": "Something Else Entirely",
-    "text": "Sometimes a traffic drop isn't a penalty at all, a botched migration, a technical error, a seasonal shift, or a legitimate competitor improvement can all look like a penalty from the outside. Ruling this out first prevents chasing a fix for a problem that was never actually a penalty. Confusing these three is the single most common reason recovery attempts stall, the diagnosis has to come first, every time. Why Your Business Needs Real Penalty Recovery Support A traffic drop left unaddressed, or addressed with the wrong fix, tends to compound rather than resolve on its own. The Wrong Fix Wastes the Time Recovery Actually Needs Treating an algorithmic drop like a manual action, or the reverse, delays genuine recovery while resources go toward the wrong problem. Reconsideration Requests Get One Real Shot at a Time A poorly documented or premature request often gets denied, costing another full review cycle before you can try again. Panic-Driven Changes Can Make Things Worse Making sweeping, undocumented changes to a penalized site can obscure what actually caused the problem, complicating diagnosis further. Recovery Without Prevention Risks Repeating the Cycle Fixing the immediate issue without addressing what led to it in the first place leaves the door open for the same problem to happen again. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Technical, content, and link specialists investigate together, so the diagnosis reflects a full picture, not one narrow angle on the problem. Diagnosis Before Action, Always We don't start fixing things before we've confirmed what actually happened, a wrong guess here costs real time."
-  },
-  {
-    "title": "Local & International Recovery Experience",
-    "text": "Based in Dhaka. Supporting recovery for clients across Bangladesh, the US, UK, Australia, Canada, and UAE. Documented, Evidence-Based Process Every step of remediation is documented, since that documentation is often what a reconsideration request actually depends on."
-  },
-  {
-    "title": "Penalty Diagnosis",
-    "text": "A clear determination of whether you're facing a manual action, an algorithmic impact, or something else entirely."
-  },
-  {
-    "title": "Manual Action Remediation",
-    "text": "Violation-specific fixes addressing exactly what Google flagged, not a generic cleanup."
-  },
-  {
-    "title": "Algorithmic Recovery Strategy",
-    "text": "Genuine quality and E-E-A-T improvements addressing what the specific update actually evaluates."
-  },
-  {
-    "title": "Reconsideration Request Support",
-    "text": "A carefully drafted, evidence-backed request built to give you the strongest possible shot."
-  },
-  {
-    "title": "Post-Recovery Monitoring",
-    "text": "Ongoing tracking to confirm recovery holds, and to catch any drift back toward the original issue. Calm, Documented Process Clear communication and evidence at every stage, especially when the situation itself feels uncertain."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro eyebrow="What we cover" title="Our Google Penalty Recovery Services">
+          Penalty recovery is only effective when it targets the actual cause. Our services cover
+          the full arc from diagnosis to remediation, reconsideration, and monitoring.
+        </SectionIntro>
+
+        <div className="space-y-10 md:space-y-14">
+          {offerings.map((item, index) => (
+            <div
+              key={item.title}
+              className="grid gap-6 border-2 border-frame-border bg-frame-bg p-7 md:p-10 lg:grid-cols-[1fr_1.6fr]"
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
+              <div>
+                <div className="flex items-center justify-between gap-4">
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+                    Offer 0{index + 1}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
                 </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
+                </h3>
+                <span className="mt-2 block h-1 w-8 bg-frame-accent" />
+              </div>
+              <div>
+                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.body}
+                </p>
+                {item.lead && (
+                  <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg">
+                    {item.lead}
+                  </p>
+                )}
+                {item.points?.length > 0 && (
+                  <ul className="mt-5 space-y-2.5 border-l-2 border-frame-accent pl-5 text-sm md:text-base font-medium text-frame-fg">
+                    {item.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 leading-snug">
+                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                        <span>{point}</span>
+                      </li>
                     ))}
-                  </div>
-                </div>
-              )}
+                  </ul>
+                )}
+                {item.closing && (
+                  <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {item.closing}
+                  </p>
+                )}
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <p className="max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
+            Not sure what actually caused your traffic drop? Tell us what you are seeing and we will
+            recommend the right diagnostic starting point.
+          </p>
+          <div className="mt-6 lg:mt-0 lg:shrink-0">
+            <PosterButton href="/contact" className="w-full whitespace-nowrap self-center">
+              Request a Penalty Diagnosis
+            </PosterButton>
           </div>
-        </section>
-      )}
-    </div>
+        </div>
+      </div>
+    </section>
   )
 }

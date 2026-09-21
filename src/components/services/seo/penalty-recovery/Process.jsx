@@ -1,103 +1,75 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Diagnosis",
-    "description": "We review Search Console, traffic patterns, and update timing to determine exactly what's actually happening."
+    title: 'Evidence Collection',
+    body: 'We begin by gathering the available evidence: where and when the drop started, which pages and queries were affected, Search Console data, analytics, manual-action reports, and any relevant site changes.',
+    closing: 'This step establishes the factual baseline before anything is assumed.',
   },
   {
-    "number": "2",
-    "title": "Root Cause Investigation",
-    "description": "Identifying the specific violation or quality signal responsible, not just a general sense of \"something's wrong.\""
+    title: 'Root Cause Analysis',
+    body: 'We determine whether the problem appears to be a manual action, a Google update impact, a technical or migration issue, a security problem, or a search-demand and competitive change.',
+    closing: 'Different causes require different recovery paths, so this step shapes everything that follows.',
   },
   {
-    "number": "3",
-    "title": "Remediation Planning & Execution",
-    "description": "Targeted fixes addressing the actual cause, documented as they happen, with your review at each stage."
+    title: 'Recovery Plan Design',
+    body: 'We produce a prioritized, sequenced recovery plan covering the specific issues that need correction, the work required, and the order in which it should happen.',
+    closing: 'The plan is documented so your team always knows where the recovery stands.',
   },
   {
-    "number": "4",
-    "title": "Reconsideration or Reassessment",
-    "description": "For manual actions, a carefully prepared request. For algorithmic impacts, continued improvement and monitoring for the next reassessment."
+    title: 'Remediation & Implementation',
+    body: 'We implement the agreed fixes, including content, technical, structural, and link-related work, depending on the diagnosis and the scope of the engagement.',
+    closing: 'Changes are made carefully and verified rather than applied broadly on assumption.',
   },
   {
-    "number": "5",
-    "title": "Recovery Confirmation & Prevention",
-    "description": "Tracking the actual return to previous performance, with safeguards against the same issue recurring."
-  }
+    title: 'Review Preparation',
+    body: 'For manual actions, we prepare the reconsideration request with the remediation evidence organized clearly after the underlying issues have been resolved.',
+    closing: 'Google asks for an explanation of the problem, the fixes applied, and the outcome, so we document accordingly.',
+  },
+  {
+    title: 'Monitoring & Measurement',
+    body: 'We track the relevant visibility and technical indicators after changes are made, comparing affected pages and queries over time.',
+    closing: 'Recovery is measured through consistent trends, not single-day ranking movement.',
+  },
+  {
+    title: 'Prevention & Maintenance',
+    body: 'Where appropriate, we recommend technical, content, and workflow controls designed to reduce the chance of the same problem returning.',
+    closing: 'The goal is a site that holds up across Google updates rather than a one-time cleanup.',
+  },
 ]
-  const timeline = service?.timeline || "A diagnostic review is typically delivered within a week. Manual action recovery, including remediation and reconsideration request preparation, usually takes 2 to 4 weeks before submission, though Google's own review of the request afterward is outside anyone's control and varies in timing.\n\nAlgorithmic recovery works differently and generally takes longer, often 6 to 12 weeks or more, since it depends on genuinely improving quality signals and waiting for Google's systems to reassess the site, rather than a single request-and-response process."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="How we work" title="How We Approach Google Penalty Recovery">
+          Our process is deliberately evidence-first. The right diagnosis prevents wasted work and
+          shortens the actual recovery path.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 xl:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={step.title} className="flex flex-col justify-between bg-frame-muted/30 p-7 md:p-8">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {step.body}
                 </p>
+                {step.closing && (
+                  <p className="mt-4 border-l-2 border-frame-accent pl-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                    {step.closing}
+                  </p>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

@@ -1,103 +1,130 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Store Audit",
-    "description": "We review technical health, current rankings, and catalog structure to find what's actually limiting sales-driving traffic."
+    title: 'Initial Store Audit',
+    body: 'We begin by understanding your store\u2019s current SEO condition.',
+    points: [
+      'Technical SEO',
+      'Indexation',
+      'Product pages',
+      'Category pages',
+      'Site architecture',
+      'Internal linking',
+      'Search intent',
+      'Content',
+      'Structured data',
+      'Performance',
+      'Competitor visibility',
+    ],
+    note: 'We then prioritize the issues based on potential impact and implementation requirements.',
   },
   {
-    "number": "2",
-    "title": "Buyer-Intent Keyword Strategy",
-    "description": "We identify the specific terms that signal purchase readiness for your product categories."
+    title: 'Keyword & Product-Catalog Mapping',
+    body: 'We connect search demand with your actual catalog. We determine:',
+    points: [
+      'Which keywords belong to categories',
+      'Which keywords belong to products',
+      'Which topics need supporting content',
+      'Which searches need dedicated landing pages',
+      'Which pages should target commercial intent',
+      'Which pages may compete with each other',
+    ],
+    note: 'This creates a practical keyword-to-page roadmap.',
   },
   {
-    "number": "3",
-    "title": "Implementation",
-    "description": "Product, category, and technical fixes executed with your review and approval at each stage."
+    title: 'Technical & Architecture Fixes',
+    body: 'We address technical and structural issues based on priority.',
+    points: [
+      'Canonical fixes',
+      'Indexation controls',
+      'Duplicate URL management',
+      'Faceted navigation',
+      'Internal linking',
+      'XML sitemaps',
+      'Redirects',
+      'Performance',
+      'Site architecture',
+    ],
+    note: 'Development support may be required for complex changes.',
   },
   {
-    "number": "4",
-    "title": "Schema & Rich Result Setup",
-    "description": "Structured data implemented and validated for eligibility where it applies."
+    title: 'Product & Category Optimization',
+    body: 'We optimize the pages that matter most to your search strategy. This includes priority products, categories, collections, and other commercial landing pages. We focus on relevance, usefulness, internal relationships, and customer intent.',
+    points: [],
   },
   {
-    "number": "5",
-    "title": "Ongoing Optimization & Tracking",
-    "description": "Continuous work as the catalog evolves, with rankings and revenue tracked together, not separately."
-  }
+    title: 'Content & Authority Development',
+    body: 'Once your core pages are structured properly, we develop supporting content and authority where needed.',
+    points: [
+      'Buying guides',
+      'Comparison content',
+      'FAQs',
+      'Supporting commercial content',
+      'Internal linking',
+      'Relevant link acquisition',
+      'Content updates',
+    ],
+    note: 'This creates additional entry points into your store.',
+  },
+  {
+    title: 'Measurement & Continuous Optimization',
+    body: 'SEO performance provides data for the next round of decisions. We review:',
+    points: [
+      'Ranking movement',
+      'Search visibility',
+      'Organic clicks',
+      'CTR',
+      'Product performance',
+      'Category performance',
+      'Organic conversions',
+      'Revenue data',
+    ],
+    note: 'We use these insights to identify what needs to be improved, expanded, updated, or prioritized next.',
+  },
 ]
-  const timeline = service?.timeline || "An initial store audit is typically delivered within a week. Technical fixes for smaller catalogs usually complete within 2 to 4 weeks, while larger catalogs with significant structural issues can take 6 to 10 weeks to fully address.\n\nRanking and revenue improvements tend to build gradually as product and category pages get optimized in sequence, rather than shifting all at once, a large catalog especially benefits from prioritizing top-selling categories first."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="Execution Framework" title="How We Approach Ecommerce SEO">
+          Our process moves from diagnosis and research through implementation, content and
+          authority development, and ongoing optimization.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {step.body}
                 </p>
+                {step.points.length > 0 && (
+                  <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                    {step.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {step.note && (
+                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {step.note}
+                  </p>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

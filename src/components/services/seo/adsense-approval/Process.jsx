@@ -1,103 +1,80 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Site Review",
-    "description": "We assess content depth, required pages, structure, and any policy concerns against Google's current requirements."
+    title: 'Initial Website & Eligibility Review',
+    body: 'We start by understanding your site, its publishing model, its audience, its current AdSense status, and the reason you are seeking approval.',
+    closing: 'Then we review the eligibility factors and technical access needed for the application.',
   },
   {
-    "number": "2",
-    "title": "Findings & Honest Assessment",
-    "description": "We tell you clearly what needs to change, and how much work that genuinely represents."
+    title: 'Content & Policy Assessment',
+    body: 'We examine your important pages for originality, usefulness, content depth, prohibited or restricted topics, and other policy risks.',
+    closing: 'We also review the broader publishing experience rather than judging one isolated article.',
   },
   {
-    "number": "3",
-    "title": "Implementation",
-    "description": "Fixes to content, pages, and structure executed with your review and approval at each stage."
+    title: 'Technical & Structural Fixes',
+    body: 'We address the site-level issues that can make the website difficult to navigate, review, or maintain.',
+    closing:
+      'This may include broken links, redirects, accessibility problems, structural issues, page errors, and unfinished sections.',
   },
   {
-    "number": "4",
-    "title": "Pre-Application Check",
-    "description": "A final review to confirm the identified issues are genuinely resolved before you apply."
+    title: 'Content and Page Improvements',
+    body: 'Where necessary, we improve weak pages, strengthen important site sections, create or refine trust and transparency pages, and improve content organization.',
+    closing:
+      'The goal is not to inflate your page count. The goal is to make the existing site more useful and complete.',
   },
   {
-    "number": "5",
-    "title": "Post-Decision Support",
-    "description": "Guidance either way, help setting up compliant ad placement after approval, or targeted remediation if rejected."
-  }
+    title: 'Pre-Submission Review',
+    body: 'After the agreed fixes are completed, we conduct a final review against the issues identified during the initial assessment.',
+    closing:
+      'We only recommend submission when the agreed readiness work has been completed to a reasonable standard.',
+  },
+  {
+    title: 'Post-Decision Support',
+    body: 'Once Google makes its decision, we can help you interpret the outcome.',
+    closing:
+      'If the site is approved, we can support compliant setup and ad implementation. If it is not approved, we use the new information to determine what should be reviewed or corrected before the next submission.',
+  },
 ]
-  const timeline = service?.timeline || "A readiness review is typically delivered within 3 to 5 business days. Standard preparation, including fixes to required pages and structure, usually takes 1 to 2 weeks, while comprehensive preparation involving deeper content work can take 2 to 3 weeks.\n\nGoogle's own review process after you apply is separate and outside anyone's control, typical review times vary, and no provider can speed up Google's side of the decision once a genuinely ready application is submitted."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="How we work" title="How We Prepare Your Website for AdSense">
+          Each engagement follows the same path: understand the site, assess its readiness, fix what
+          needs fixing, and review it again before you submit.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-3xl font-bold leading-none tracking-tighter text-frame-muted">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {step.body}
                 </p>
+                {step.closing && (
+                  <p className="mt-4 border-l-2 border-frame-accent pl-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                    {step.closing}
+                  </p>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
+        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-10">
+          <p className="text-sm md:text-base font-black uppercase leading-tight tracking-tight text-frame-fg">
+            A prepared website that presents useful content, clear structure, and compliant
+            implementation before Google reviews it.
+          </p>
+        </div>
       </div>
     </section>
   )

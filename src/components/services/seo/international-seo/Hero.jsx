@@ -3,10 +3,9 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
   const title = service?.h1 || "Best International SEO Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "International SEO done right, hreflang, multi-region site structure, and localized targeting that avoids cross-market ranking conflicts."
+  const subtitle = "Expanding into a new market takes more than translating your website and adding a country folder. Search demand, competitors, language, content, website structure, and authority can all differ from one country to another. Framecipher helps businesses build an international SEO foundation that supports multiple countries and languages without creating disconnected pages, conflicting signals, or unnecessary technical complexity. We combine market research, technical SEO, hreflang, site architecture, content localization, international link building, and market-level performance tracking for businesses in Bangladesh and international markets."
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "Most international SEO problems aren't content problems. They're technical signals telling Google two things at once, and Google picking one somewhat arbitrarily."
 
   return (
     <div className="bg-frame-bg text-frame-fg">
@@ -35,7 +34,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +43,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

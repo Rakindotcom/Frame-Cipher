@@ -1,18 +1,27 @@
-import Hero from './Hero'
+﻿import Hero from './Hero'
+import Overview from './Overview'
+import WhenToAudit from './WhenToAudit'
 import Offerings from './Offerings'
+import AuditTypes from './AuditTypes'
+import Deliverables from './Deliverables'
 import Process from './Process'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
+import Guarantee from './Guarantee'
+import CaseStudies from './CaseStudies'
+import Markets from './Markets'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "SEO Audit",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'SEO Audit',
+  'Technical Audit',
+  'On-Page Review',
+  'Content Analysis',
+  'Backlink Review',
+  'Competitor Analysis',
+  'Prioritized Roadmap',
 ]
 
 export default function SeoSeoAuditService({ service }) {
@@ -20,13 +29,36 @@ export default function SeoSeoAuditService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <WhenToAudit />
+      <Offerings />
+      <AuditTypes />
+      <Deliverables />
+      <Process />
+      <WhyChoose />
+      <Pricing />
+      <Guarantee />
+      <CaseStudies />
+      <Markets />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  Overview,
+  WhenToAudit,
+  Offerings,
+  AuditTypes,
+  Deliverables,
+  Process,
+  WhyChoose,
+  Pricing,
+  Guarantee,
+  CaseStudies,
+  Markets,
+  FAQ,
+  CTA,
+}

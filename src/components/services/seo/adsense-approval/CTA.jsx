@@ -1,17 +1,17 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Google AdSense Approval"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
+      title="Prepare Your Site for Google AdSense Review"
+      primaryText="Get Your Site Reviewed"
       secondaryText="Talk to Our Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Your goal should not be to find a shortcut around Google&apos;s review. Build a website that
+      is useful, original, accessible, clearly structured, and compliant with the policies that
+      apply to it. Framecipher can assess where your site stands, fix the issues we identify, and
+      help you approach your AdSense application with a clear preparation plan.
     </CTASection>
   )
 }

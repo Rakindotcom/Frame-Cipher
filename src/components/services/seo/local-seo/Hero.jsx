@@ -3,7 +3,7 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
   const title = service?.h1 || "Best Local SEO Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Local SEO that gets you found nearby, Google Business Profile management, Map Pack visibility, and citation building by an in-house team."
+  const subtitle = service?.shortDesc || service?.metaDescription || "Get found by customers searching for your products or services nearby. Framecipher improves local visibility through Google Business Profile optimization, local website signals, citations, reviews, and location-based search strategy. We help businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE."
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
   const quote = service?.quote || "A customer searching nearby has already decided to buy something close to now. Losing that click to a competitor with a more complete listing is one of the more avoidable ways to lose business."
@@ -35,7 +35,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>

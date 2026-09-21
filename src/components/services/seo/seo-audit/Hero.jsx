@@ -2,11 +2,12 @@ import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "Best SEO Audit Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "International SEO done right, hreflang, multi-region site structure, and localized targeting that avoids cross-market ranking conflicts."
+  const title = service?.h1 || 'Best SEO Audit Service in Bangladesh'
+  const subtitle =
+    service?.heroHook ||
+    'Your website may have hundreds of SEO issues, but not every issue deserves the same priority. Framecipher provides SEO audit services in Bangladesh for businesses that need to understand what is limiting their search performance and what to fix first. We combine automated analysis with manual review to identify technical, content, on-page, backlink, competitive, and search visibility issues. Instead of handing you a raw tool export, we turn the findings into a clear action plan with evidence, impact, effort, and recommended next steps. We audit websites for businesses in Bangladesh and international markets, including sites targeting the USA, UK, UAE, Australia, Canada, and other regions.'
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "An audit that lists forty problems with no prioritization isn't a plan, it's a to-do list nobody knows how to start. The value is in the ranking, not just the finding."
 
   return (
     <div className="bg-frame-bg text-frame-fg">
@@ -35,7 +36,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Request an SEO Audit</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +45,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

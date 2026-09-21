@@ -1,38 +1,35 @@
-import { SectionIntro } from '../../../Kinetic'
+import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "Do I need to hire you for execution if I just want a strategy?",
-    "answer": "No, strategy and consulting is available as a standalone service. Some clients execute the roadmap with their own team; others move into execution with us afterward. Both are genuinely fine outcomes."
+    question: 'Do I need to hire you for execution if I just want a strategy?',
+    answer: 'No, strategy and consulting is available as a standalone service. Some clients execute the roadmap with their own team; others move into execution with us afterward. Both are genuinely fine outcomes.',
   },
   {
-    "question": "What's the difference between an SEO audit and SEO strategy consulting?",
-    "answer": "An audit diagnoses what's currently wrong with your site. Strategy consulting goes further, it builds a prioritized, resourced plan for what to actually do about it, sequenced around your specific business and team capacity."
+    question: 'What\u2019s the difference between an SEO audit and SEO strategy consulting?',
+    answer: 'An audit diagnoses what\u2019s currently wrong with your site. Strategy consulting goes further, it builds a prioritized, resourced plan for what to actually do about it, sequenced around your specific business and team capacity.',
   },
   {
-    "question": "What is fractional SEO leadership, and who is it for?",
-    "answer": "It's ongoing, senior-level strategic guidance without a full-time hire, suited to businesses with a capable internal team that lacks a dedicated SEO lead to set direction and priorities."
+    question: 'What is fractional SEO leadership, and who is it for?',
+    answer: 'It\u2019s ongoing, senior-level strategic guidance without a full-time hire, suited to businesses with a capable internal team that lacks a dedicated SEO lead to set direction and priorities.',
   },
   {
-    "question": "Can you train our internal team instead of doing the work for us?",
-    "answer": "Yes, team training and enablement is a specific service we offer, including documentation and workflow setup, for businesses that want to build lasting internal capability rather than ongoing dependency."
+    question: 'Can you train our internal team instead of doing the work for us?',
+    answer: 'Yes, team training and enablement is a specific service we offer, including documentation and workflow setup, for businesses that want to build lasting internal capability rather than ongoing dependency.',
   },
   {
-    "question": "Do you provide strategy consulting for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we provide SEO strategy and consulting for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our SEO Team]"
-  }
+    question: 'Do you provide strategy consulting for businesses outside Bangladesh?',
+    answer: 'Yes, alongside Bangladeshi businesses, we provide SEO strategy and consulting for clients in the US, UK, Australia, Canada, and UAE.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct Answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about our delivery process, technical standards, and engagement models.
+        <SectionIntro eyebrow="Direct Answers" title="Frequently Asked Questions">
+          Common questions about standalone strategy, consulting vs. audits, fractional leadership,
+          training, and geographic coverage.
         </SectionIntro>
 
         <div className="space-y-4">
@@ -52,6 +49,23 @@ export default function FAQ({ service }) {
               </div>
             </details>
           ))}
+        </div>
+
+        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              Still deciding what your team needs?
+            </h3>
+            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              Tell us about your situation, and we will recommend the engagement that actually
+              fits.
+            </p>
+          </div>
+          <div className="mt-6 lg:mt-0 lg:shrink-0">
+            <PosterButton href="/contact" className="whitespace-nowrap">
+              Talk to Our SEO Team
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

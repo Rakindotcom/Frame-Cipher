@@ -1,18 +1,27 @@
-import Hero from './Hero'
+﻿import Hero from './Hero'
+import Overview from './Overview'
+import WhenNeed from './WhenNeed'
 import Offerings from './Offerings'
+import BusinessTypes from './BusinessTypes'
+import Markets from './Markets'
+import WhatYouGet from './WhatYouGet'
 import Process from './Process'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
+import Guarantee from './Guarantee'
+import CaseStudies from './CaseStudies'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "Keyword Research",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'Keyword Research',
+  'Search Intent',
+  'Competitor Gaps',
+  'Keyword Mapping',
+  'Long-Tail Keywords',
+  'Semantic Keywords',
+  'Topic Clusters',
 ]
 
 export default function SeoKeywordResearchService({ service }) {
@@ -20,13 +29,36 @@ export default function SeoKeywordResearchService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <WhenNeed />
+      <Offerings />
+      <BusinessTypes />
+      <Markets />
+      <WhatYouGet />
+      <Process />
+      <WhyChoose />
+      <Pricing />
+      <Guarantee />
+      <CaseStudies />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  Overview,
+  WhenNeed,
+  Offerings,
+  BusinessTypes,
+  Markets,
+  WhatYouGet,
+  Process,
+  WhyChoose,
+  Pricing,
+  Guarantee,
+  CaseStudies,
+  FAQ,
+  CTA,
+}

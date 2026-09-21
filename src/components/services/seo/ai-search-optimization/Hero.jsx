@@ -2,16 +2,17 @@ import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "Best AI Search Optimization (AEO/GEO) Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "AEO and GEO services that get your content cited by ChatGPT, Gemini, and Perplexity, structured for how AI search actually chooses answers."
+  const title = service?.h1 || 'Best AI Search Optimization (AEO/GEO) Service in Bangladesh'
+  const subtitle =
+    'Get your brand discovered, understood, and referenced across AI-powered search. Framecipher helps businesses improve visibility across ChatGPT, Gemini, Perplexity, Google AI search, and other answer experiences through AEO, GEO, entity optimization, content strategy, technical SEO, and AI visibility tracking. We turn real customer queries into clearer answers, stronger brand signals, and a measurable AI search strategy.'
   const isPillar = service?.pageType === 'Pillar Service'
+  const isSubService = service?.pageType === 'Sub Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "Google ranks pages. AI engines extract answers from them. Those are related problems, but they're not the same problem, and optimizing for only one of them is leaving half the opportunity on the table."
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="border-b-2 border-frame-border bg-frame-bg">
       {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
+      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
@@ -29,13 +30,13 @@ export default function Hero({ service }) {
 
       {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
+        eyebrow={isPillar ? 'Core Service Pillar' : isSubService ? 'Specialized Capability' : 'Specialized Capability'}
         meta="One In-House Team / Built For Results"
         number={isPillar ? '01' : '360'}
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Request an AI Search Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +45,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

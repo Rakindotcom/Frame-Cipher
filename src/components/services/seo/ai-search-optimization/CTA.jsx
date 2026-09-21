@@ -1,17 +1,20 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "AI Search Optimization (AEO/GEO)"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
+      title="Become a More Visible Source in AI Search"
+      primaryText="Request an AI Search Consultation"
       secondaryText="Talk to Our Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      AI search is not a replacement for SEO. It is another way people can discover information
+      about your business. Framecipher helps businesses strengthen the foundations behind that
+      visibility: useful content, clear answers, strong entities, credible sources, technical
+      accessibility, relevant topical coverage, and measurable prompt-level research. From AEO and
+      GEO to entity optimization, third-party source strategy, AI visibility testing, and ongoing
+      measurement, we build an AI Search Optimization strategy around the questions your customers
+      are actually asking. Ready to improve how your business appears across AI search?
     </CTASection>
   )
 }

@@ -1,17 +1,19 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "SEO Audit"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
+      title="Get a Clear SEO Action Plan"
+      primaryText="Request an SEO Audit"
       secondaryText="Talk to Our Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      You shouldn&apos;t need to interpret dozens of automated warnings to understand what is
+      holding your website back. Framecipher turns SEO audit data into a practical action plan
+      built around evidence, impact, effort, and priority. From technical SEO and content to
+      backlinks, competitors, analytics, AI search, ecommerce, local, and international SEO, we
+      focus on the issues that matter most to your search performance and business goals. Ready to
+      find out what needs fixing first?
     </CTASection>
   )
 }

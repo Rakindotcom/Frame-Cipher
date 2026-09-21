@@ -2,16 +2,17 @@ import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "Google Penalty Recovery Services in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Google penalty recovery, diagnose whether it's a manual action or algorithmic drop, then a documented path back to your previous rankings."
+  const title = service?.h1 || 'Google Penalty Recovery Services in Bangladesh'
+  const subtitle =
+    'A sudden loss of Google visibility can look like a penalty, but the cause is not always a manual action. It could be a Google ranking-system change, technical issue, migration problem, indexing loss, security issue, or another change affecting your search performance. Framecipher starts with diagnosis before recommending recovery work. We investigate what changed, which pages and queries were affected, whether Google has issued a manual action, and what evidence points to the actual cause. Then we build a documented recovery plan for businesses in Bangladesh and international markets.'
   const isPillar = service?.pageType === 'Pillar Service'
+  const isSubService = service?.pageType === 'Sub Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "The businesses that recover fastest are the ones that resist the urge to change everything at once. A penalty has a specific cause. Finding it precisely is what makes the fix actually work."
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="border-b-2 border-frame-border bg-frame-bg">
       {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
+      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
@@ -29,13 +30,13 @@ export default function Hero({ service }) {
 
       {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
+        eyebrow={isPillar ? 'Core Service Pillar' : isSubService ? 'Specialized Capability' : 'Specialized Capability'}
         meta="One In-House Team / Built For Results"
         number={isPillar ? '01' : '360'}
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +45,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

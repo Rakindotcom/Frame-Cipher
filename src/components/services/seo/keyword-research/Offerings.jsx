@@ -1,285 +1,218 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { SectionIntro } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const services = [
   {
-    "title": "SEED KEYWORD & TOPIC DISCOVERY",
-    "description": "Finding the full range of terms and topics relevant to your business before narrowing anything down. What We Do The words your business uses internally and the words customers actually search are sometimes surprisingly different.",
-    "bullets": [
-      "Business & Industry Term Mapping: Identifying every core term and topic genuinely relevant to what you offer.",
-      "Customer Language Research: Finding the actual words and phrases your customers use, which don't always match internal industry terminology.",
-      "Question & Query Mining: Surfacing the specific questions people ask related to your products or services.",
-      "Seasonal & Trending Term Identification: Catching time-sensitive search patterns worth planning content around."
-    ]
+    title: 'Seed Keyword & Topic Discovery',
+    body: "We start with your business, products, services, audience, and market rather than opening a keyword tool and exporting a list.",
+    pointsHead: 'We identify:',
+    points: [
+      'Core business terms',
+      'Product and service terminology',
+      'Industry topics',
+      'Customer problems',
+      'Category-level topics',
+      'Related concepts',
+      'Question themes',
+      'Initial competitor terms',
+    ],
+    note: 'The starting set becomes the foundation for broader keyword expansion.',
   },
   {
-    "title": "SEARCH VOLUME & DIFFICULTY ANALYSIS",
-    "description": "Weighing genuine opportunity against what it would actually take to compete for a given term. What We Do A high-volume term dominated entirely by page-one authority sites isn't really an opportunity, whatever the volume number says.",
-    "bullets": [
-      "Search Volume Assessment: Understanding real demand behind each term, not just a rounded estimate from a single tool.",
-      "Ranking Difficulty Evaluation: Assessing how competitive a term is relative to your site's current authority.",
-      "Realistic Opportunity Scoring: Balancing volume against difficulty to flag terms genuinely worth pursuing right now.",
-      "SERP Feature Analysis: Checking whether a term's search results include features Map Pack, featured snippets, that change the actual opportunity."
-    ]
+    title: 'Customer Language & Query Research',
+    body: 'Customers do not always use the same language that businesses use internally. We investigate how real users describe:',
+    pointsHead: '',
+    points: [
+      'Problems',
+      'Products',
+      'Services',
+      'Features',
+      'Solutions',
+      'Use cases',
+      'Comparisons',
+      'Questions',
+    ],
+    note: 'Depending on the project, research can include search-query data, autocomplete suggestions, related searches, SERP results, customer language patterns, and other relevant sources. This helps uncover terminology your internal team may not have considered.',
   },
   {
-    "title": "SEARCH INTENT CLASSIFICATION",
-    "description": "Understanding what someone actually wants when they search a specific term. What We Do Targeting a term without understanding its intent often means creating the wrong type of content entirely, however well it's written.",
-    "bullets": [
-      "Intent Categorization: Sorting terms by informational, commercial, transactional, or navigational intent.",
-      "SERP Result Analysis: Reviewing what's currently ranking to understand what format and content type Google favors for each term.",
-      "Buyer Journey Mapping: Connecting keywords to where a searcher likely sits in their decision process.",
-      "Content Format Recommendations: Matching each keyword to the content type most likely to satisfy its actual intent."
-    ]
+    title: 'Search Volume, Competition & Opportunity Analysis',
+    body: 'Search volume is useful, but it should not be the only decision-making factor. We evaluate keywords using a broader set of signals:',
+    pointsHead: '',
+    points: [
+      'Search demand',
+      'Ranking difficulty',
+      'SERP competition',
+      'Domain and page strength',
+      'Search intent',
+      'Business relevance',
+      'Current website authority',
+      'Conversion potential',
+      'Content requirements',
+    ],
+    note: 'A high-volume term dominated by highly established websites may be a weaker short-term opportunity than a lower-volume term with strong relevance and achievable competition. We therefore use search volume as part of the decision, not the entire strategy.',
   },
   {
-    "title": "COMPETITOR KEYWORD ANALYSIS",
-    "description": "Understanding what's already working for sites you're actually competing against. What We Do Competitors have often already done some of the discovery work for you, reviewing what's working for them is a shortcut worth taking.",
-    "bullets": [
-      "Competitor Ranking Discovery: Identifying the terms your direct competitors currently rank for.",
-      "Keyword Gap Analysis: Finding terms competitors target that your site currently doesn't address at all.",
-      "Content Format Benchmarking: Understanding what kind of content is winning for shared target terms.",
-      "Opportunity Prioritization: Flagging gaps that represent genuine, realistic opportunity versus ones too competitive to pursue yet."
-    ]
+    title: 'Search Intent & SERP Analysis',
+    body: 'A keyword cannot be evaluated properly without understanding what users expect to see. We classify terms by intent and examine the current SERP to understand:',
+    pointsHead: '',
+    points: [
+      'Informational intent',
+      'Commercial investigation',
+      'Transactional intent',
+      'Navigational intent',
+      'Local intent where relevant',
+      'Ranking page types',
+      'Content formats',
+      'SERP features',
+      'Search-result patterns',
+      'User expectations',
+    ],
+    note: 'We then recommend the page type most appropriate for the query. A service page, product page, category page, comparison page, or informational article should not automatically target the same type of keyword.',
   },
   {
-    "title": "KEYWORD MAPPING & DELIVERY",
-    "description": "Turning research into something your team can actually act on. What We Do A completed keyword map naturally feeds into execution - see our On-Page SEO and SEO Strategy & Consulting pages for how research becomes published content.",
-    "bullets": [
-      "Topic Cluster Organization: Grouping related keywords around pillar and cluster page structures.",
-      "Page-Type Assignment: Mapping each keyword group to the specific page blog, product, service best suited to target it.",
-      "Priority Sequencing: Ordering the keyword map by realistic impact and difficulty, so execution has a clear starting point.",
-      "Content Brief Foundations: Delivering keyword groups structured to feed directly into content planning."
-    ]
+    title: 'Competitor Keyword Gap Analysis',
+    body: 'Your competitors can reveal search opportunities that your website currently misses. We identify:',
+    pointsHead: '',
+    points: [
+      'Keywords competitors rank for',
+      'Pages driving their visibility',
+      'Shared ranking opportunities',
+      'Missing topics',
+      'Content gaps',
+      'Commercial keyword gaps',
+      'Long-tail gaps',
+      'Supporting-topic opportunities',
+    ],
+    note: 'We then filter those findings through your own business relevance and ranking potential. The objective is not to copy competitors. It is to understand where they have search visibility and determine which opportunities make sense for your website.',
   },
   {
-    "title": "The Kinds of Intent Behind a Search",
-    "description": "Not every keyword deserves the same kind of page, and mixing them up is one of the more common research mistakes. Informational Someone looking to learn something, \"how does X work,\" \"what is Y.\" Best served by educational content, not a sales pitch. Navigational Someone searching for a specific brand or site by name. Usually low-competition, but only relevant if it's actually your brand being searched. Commercial Investigation Someone comparing options before deciding, \"best X for Y,\" \"X vs Y.\" A strong fit for comparison content and buying guides. Transactional Someone ready to act, \"buy X,\" \"X near me,\" \"X pricing.\" The terms that most directly connect to leads and sales, and usually the most competitive. Getting a keyword's intent right determines whether the page built for it has any realistic chance of ranking, let alone converting.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Content built without proper research tends to target either the wrong terms or the right terms with the wrong content type.",
-  "Volume Without Realistic Opportunity Wastes Effort",
-  "Chasing high-volume terms your site has no realistic chance of ranking for burns content budget on pages that will likely sit on page three indefinitely.",
-  "Customer Language Isn't Always Industry Language",
-  "Content written around internal terminology can miss the actual words your customers are typing into search.",
-  "Intent Mismatch Undermines Even Good Content",
-  "A well-written page built for the wrong search intent underperforms regardless of quality, because it's answering a question nobody asked.",
-  "Research Without Organization Is Just a List",
-  "Raw keyword data without topic clustering and page-type assignment leaves your team guessing how to actually use it."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "High search volume and realistic ranking potential are two different things, and chasing the first without checking the second is how businesses end up with content that never sees page one. We balance volume against actual competition and your site's current authority, instead of building a strategy around terms a national brand with a decade of domain history already owns. The output isn't just a list, it's a prioritized map organized by topic, intent, and page type, ready to guide content decisions without requiring anyone on your team to interpret raw tool data themselves.",
-    "text": "\"The keyword with the highest search volume isn't automatically the right one to target. The right one is the highest-volume term you can actually realistically rank for, and those aren't always the same word.\" Intent-Mapped, Not Just Volume-Sorted | Filtered by Realistic Ranking Potential | Delivered Ready to Use"
+    title: 'Long-Tail & Question Keyword Research',
+    body: 'Long-tail queries often reveal specific problems, use cases, buying questions, and lower-volume opportunities. We research:',
+    pointsHead: '',
+    points: [
+      'Specific product queries',
+      'Detailed service searches',
+      'Question keywords',
+      'Problem-based searches',
+      'Comparison queries',
+      'Feature-related searches',
+      'Location modifiers',
+      'Audience-specific searches',
+      'High-intent niche queries',
+    ],
+    note: 'These terms can help newer or less authoritative websites build visibility without relying entirely on highly competitive head terms.',
   },
   {
-    "title": "Our Keyword Research Services",
-    "text": "Good keyword research goes well beyond running a term through a volume tool."
+    title: 'Semantic Keyword & Entity Research',
+    body: 'Search engines increasingly understand topics through relationships between terms, concepts, entities, and user intent. We identify:',
+    pointsHead: '',
+    points: [
+      'Related terms',
+      'Semantic variations',
+      'Entities',
+      'Subtopics',
+      'Supporting concepts',
+      'Related questions',
+      'Topic relationships',
+      'Contextual terminology',
+    ],
+    note: 'This helps create broader topic coverage without forcing the same keyword into every section of a page. The goal is a content structure that fully addresses the subject rather than a list of disconnected keyword variations.',
   },
   {
-    "title": "SEED KEYWORD & TOPIC DISCOVERY",
-    "text": "Finding the full range of terms and topics relevant to your business before narrowing anything down."
+    title: 'Keyword Mapping & Cannibalization Analysis',
+    body: 'Keyword research becomes much more useful when every important keyword has a clear place on the website. We map keyword groups to appropriate:',
+    pointsHead: '',
+    points: [
+      'Service pages',
+      'Product pages',
+      'Category pages',
+      'Location pages',
+      'Blog content',
+      'Guides',
+      'Comparison pages',
+      'Supporting resources',
+    ],
+    note: 'We also look for keyword cannibalization, where multiple URLs target similar search intent. This can include competing service pages, blog and service-page overlap, duplicate keyword targeting, multiple URLs ranking for the same intent, unclear primary pages, and consolidation opportunities. The objective is to create a clearer relationship between keyword to intent to page to URL.',
   },
   {
-    "title": "What We Do",
-    "text": "* Business & Industry Term Mapping: Identifying every core term and topic genuinely relevant to what you offer. * Customer Language Research: Finding the actual words and phrases your customers use, which don't always match internal industry terminology. * Question & Query Mining: Surfacing the specific questions people ask related to your products or services. * Seasonal & Trending Term Identification: Catching time-sensitive search patterns worth planning content around. The words your business uses internally and the words customers actually search are sometimes surprisingly different."
+    title: 'Existing Ranking & Search Console Opportunity Research',
+    body: "Existing search data can reveal some of the fastest opportunities for improving a website's keyword strategy. Where Search Console or equivalent data is available, we can identify:",
+    pointsHead: '',
+    points: [
+      'Queries already generating impressions',
+      'Page-two ranking opportunities',
+      'Keywords with high impressions but low CTR',
+      'Queries ranking with the wrong URL',
+      'Emerging search terms',
+      'Under-optimized pages',
+      'Commercial queries with limited visibility',
+      'Existing pages that can be improved instead of creating new ones',
+    ],
+    note: 'This helps combine new keyword discovery with opportunities the website already has.',
   },
   {
-    "title": "SEARCH VOLUME & DIFFICULTY ANALYSIS",
-    "text": "Weighing genuine opportunity against what it would actually take to compete for a given term."
+    title: 'Content Brief & Page Planning',
+    body: 'Keyword research should lead naturally into content execution. We organize research into planning inputs such as:',
+    pointsHead: '',
+    points: [
+      'Primary keyword',
+      'Secondary terms',
+      'Search intent',
+      'Target audience',
+      'Page type',
+      'Topic cluster',
+      'Supporting questions',
+      'Recommended content angle',
+      'Internal-link opportunities',
+      'Competitor observations',
+    ],
+    note: 'This gives writers and SEO teams a clearer starting point for creating or optimizing the right page.',
   },
-  {
-    "title": "What We Do",
-    "text": "* Search Volume Assessment: Understanding real demand behind each term, not just a rounded estimate from a single tool. * Ranking Difficulty Evaluation: Assessing how competitive a term is relative to your site's current authority. * Realistic Opportunity Scoring: Balancing volume against difficulty to flag terms genuinely worth pursuing right now. * SERP Feature Analysis: Checking whether a term's search results include features Map Pack, featured snippets, that change the actual opportunity. A high-volume term dominated entirely by page-one authority sites isn't really an opportunity, whatever the volume number says."
-  },
-  {
-    "title": "SEARCH INTENT CLASSIFICATION",
-    "text": "Understanding what someone actually wants when they search a specific term."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Intent Categorization: Sorting terms by informational, commercial, transactional, or navigational intent. * SERP Result Analysis: Reviewing what's currently ranking to understand what format and content type Google favors for each term. * Buyer Journey Mapping: Connecting keywords to where a searcher likely sits in their decision process. * Content Format Recommendations: Matching each keyword to the content type most likely to satisfy its actual intent. Targeting a term without understanding its intent often means creating the wrong type of content entirely, however well it's written."
-  },
-  {
-    "title": "COMPETITOR KEYWORD ANALYSIS",
-    "text": "Understanding what's already working for sites you're actually competing against."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Competitor Ranking Discovery: Identifying the terms your direct competitors currently rank for. * Keyword Gap Analysis: Finding terms competitors target that your site currently doesn't address at all. * Content Format Benchmarking: Understanding what kind of content is winning for shared target terms. * Opportunity Prioritization: Flagging gaps that represent genuine, realistic opportunity versus ones too competitive to pursue yet. Competitors have often already done some of the discovery work for you, reviewing what's working for them is a shortcut worth taking."
-  },
-  {
-    "title": "KEYWORD MAPPING & DELIVERY",
-    "text": "Turning research into something your team can actually act on."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Topic Cluster Organization: Grouping related keywords around pillar and cluster page structures. * Page-Type Assignment: Mapping each keyword group to the specific page blog, product, service best suited to target it. * Priority Sequencing: Ordering the keyword map by realistic impact and difficulty, so execution has a clear starting point. * Content Brief Foundations: Delivering keyword groups structured to feed directly into content planning. A completed keyword map naturally feeds into execution - see our On-Page SEO and SEO Strategy & Consulting pages for how research becomes published content."
-  },
-  {
-    "title": "The Kinds of Intent Behind a Search",
-    "text": "Not every keyword deserves the same kind of page, and mixing them up is one of the more common research mistakes."
-  },
-  {
-    "title": "Informational",
-    "text": "Someone looking to learn something, \"how does X work,\" \"what is Y.\" Best served by educational content, not a sales pitch."
-  },
-  {
-    "title": "Navigational",
-    "text": "Someone searching for a specific brand or site by name. Usually low-competition, but only relevant if it's actually your brand being searched."
-  },
-  {
-    "title": "Commercial Investigation",
-    "text": "Someone comparing options before deciding, \"best X for Y,\" \"X vs Y.\" A strong fit for comparison content and buying guides."
-  },
-  {
-    "title": "Transactional",
-    "text": "Someone ready to act, \"buy X,\" \"X near me,\" \"X pricing.\" The terms that most directly connect to leads and sales, and usually the most competitive. Getting a keyword's intent right determines whether the page built for it has any realistic chance of ranking, let alone converting. Why Your Business Needs Real Keyword Research Content built without proper research tends to target either the wrong terms or the right terms with the wrong content type. Volume Without Realistic Opportunity Wastes Effort Chasing high-volume terms your site has no realistic chance of ranking for burns content budget on pages that will likely sit on page three indefinitely. Customer Language Isn't Always Industry Language Content written around internal terminology can miss the actual words your customers are typing into search. Intent Mismatch Undermines Even Good Content A well-written page built for the wrong search intent underperforms regardless of quality, because it's answering a question nobody asked. Research Without Organization Is Just a List Raw keyword data without topic clustering and page-type assignment leaves your team guessing how to actually use it. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Research, content, and technical specialists review keyword priorities together, so the final map reflects more than just tool output."
-  },
-  {
-    "title": "Realistic Over Aspirational",
-    "text": "We don't hand over a wish list of high-volume terms your site has no near-term shot at. Every recommendation accounts for your actual competitive position."
-  },
-  {
-    "title": "Local & International Research Experience",
-    "text": "Based in Dhaka. Researching for clients across Bangladesh, the US, UK, Australia, Canada, and UAE."
-  },
-  {
-    "title": "Delivered Ready to Execute",
-    "text": "The output is a structured map your team can act on directly, not raw data requiring further interpretation."
-  },
-  {
-    "title": "Seed Keyword & Topic Discovery",
-    "text": "A comprehensive starting list built around real customer language, not just internal terminology."
-  },
-  {
-    "title": "Search Volume & Difficulty Analysis",
-    "text": "Every term weighed against your site's actual ability to compete for it."
-  },
-  {
-    "title": "Search Intent Classification",
-    "text": "Keywords sorted by what searchers actually want, matched to the right content format."
-  },
-  {
-    "title": "Competitor Keyword Analysis",
-    "text": "Genuine gaps identified by reviewing what's already working for sites you're competing against."
-  },
-  {
-    "title": "Keyword Mapping & Delivery",
-    "text": "A structured, prioritized map organized by topic cluster and page type."
-  },
-  {
-    "title": "Ready-to-Execute Output",
-    "text": "Research delivered in a form your team can act on immediately, not raw data to decode."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro eyebrow="Capabilities & Scope" title="Our Keyword Research Services">
+          Our keyword research process combines data analysis, SERP research, competitor
+          intelligence, search-intent classification, and manual evaluation.
+        </SectionIntro>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {services.map((item, index) => (
+            <div
+              key={item.title}
+              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Service 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.body}
+                </p>
+                <p className="mt-6 border-t-2 border-frame-border/60 pt-4 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  What We Do
+                </p>
+                <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
+                  {item.points.map((point, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-2">
+                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                      <span className="leading-snug">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.note}
+                </p>
+              </div>
             </div>
-          </div>
-        </section>
-      )}
-
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
-                  </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
-                </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
-          </div>
-        </section>
-      )}
-    </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

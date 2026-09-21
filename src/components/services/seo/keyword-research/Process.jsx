@@ -1,98 +1,150 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Business & Goal Review",
-    "description": "We understand your products, services, and target audience before researching a single term."
+    title: 'Business & Goal Discovery',
+    body: 'Before researching keywords, we understand:',
+    points: [
+      'Products and services',
+      'Target customers',
+      'Business goals',
+      'Primary markets',
+      'Geographic focus',
+      'Conversion goals',
+      'Existing website structure',
+      'Current SEO performance',
+    ],
+    note: 'This ensures keyword recommendations are connected to actual business priorities.',
   },
   {
-    "number": "2",
-    "title": "Seed Discovery & Expansion",
-    "description": "Building out the full range of relevant terms and topics, including customer language and question-based queries."
+    title: 'Seed Expansion & Data Collection',
+    body: 'We build an initial seed set from your business and expand it using relevant keyword and search data. Depending on the project, research may include:',
+    points: [
+      'SEO keyword platforms',
+      'Search Console',
+      'Search suggestions',
+      'Related searches',
+      'People Also Ask',
+      'SERP analysis',
+      'Competitor research',
+      'Customer-language patterns',
+      'Market-specific query research',
+    ],
+    note: 'The objective is to build a broad opportunity set before filtering it.',
   },
   {
-    "number": "3",
-    "title": "Competitor Gap Review",
-    "description": "Comparing findings against what's actually working for sites you're competing against."
+    title: 'SERP, Volume & Competition Analysis',
+    body: 'Each significant keyword is evaluated in its actual search environment. We review:',
+    points: [
+      'Search demand',
+      'Ranking difficulty',
+      'Search results',
+      'SERP features',
+      'Ranking domains',
+      'Ranking page types',
+      'Search intent',
+      'Competitive strength',
+    ],
+    note: 'This helps distinguish theoretical search volume from realistic opportunity.',
   },
   {
-    "number": "4",
-    "title": "Mapping & Delivery",
-    "description": "Final keyword map organized by topic cluster, page type, and priority, delivered ready for content planning."
-  }
+    title: 'Intent & Opportunity Scoring',
+    body: 'We classify search intent and evaluate how valuable and achievable each opportunity is. Factors can include:',
+    points: [
+      'Business relevance',
+      'Search intent',
+      'Search demand',
+      'SERP competitiveness',
+      'Current authority',
+      'Conversion potential',
+      'Content requirements',
+      'Market relevance',
+    ],
+    note: 'This creates a more useful priority system than sorting keywords by volume alone.',
+  },
+  {
+    title: 'Competitor & Gap Analysis',
+    body: 'We compare the keyword landscape against relevant competitors. We look for:',
+    points: [
+      'Missing topics',
+      'Keyword gaps',
+      'Content gaps',
+      'Competitor strengths',
+      'Ranking opportunities',
+      'Commercial gaps',
+      'Supporting-topic opportunities',
+    ],
+    note: 'The final recommendations are filtered through your own business model and ranking potential.',
+  },
+  {
+    title: 'Clustering & Page Mapping',
+    body: 'Related keywords are grouped according to search intent and topic relationship. We then determine:',
+    points: [
+      'Which keywords belong on the same page',
+      'Which require separate pages',
+      'Which should support a primary topic',
+      'Which URLs should be optimized',
+      'Which new pages should be created',
+      'Which pages may be competing unnecessarily',
+    ],
+    note: 'This creates a structured relationship between search demand and website architecture.',
+  },
+  {
+    title: 'Final Review & Delivery',
+    body: 'Before delivery, we review the final keyword set for:',
+    points: [
+      'Relevance',
+      'Duplication',
+      'Intent accuracy',
+      'Opportunity level',
+      'Page mapping',
+      'Priority',
+      'Market targeting',
+    ],
+    note: 'The final output is organized for practical use by your SEO, content, and marketing teams.',
+  },
 ]
-  const timeline = service?.timeline || "A core keyword map is typically delivered within a week. A standard research package including competitor gap analysis usually takes 1 to 2 weeks, while comprehensive, multi-topic research can take 2 to 3 weeks depending on scope.\n\nKeyword research itself is a fixed-timeline deliverable, the ongoing work of publishing content and tracking how those terms perform happens afterward, whether with your own team or through our other services."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="How we work" title="How We Conduct Keyword Research">
+          Our process moves from business understanding to search discovery, competitive analysis,
+          clustering, mapping, and final prioritization.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {steps.map((item, index) => (
+            <div
+              key={item.title}
+              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
+            >
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {item.body}
+                </p>
+                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
+                  {item.points.map((point, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-2">
+                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                      <span className="leading-snug">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  {item.note}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

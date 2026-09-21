@@ -87,11 +87,13 @@ export function SectionIntro({ eyebrow, title, children, className = '', index, 
 
 export function PosterButton({ href, children, variant = 'accent', className = '', onClick, type }) {
   const isFullWidth = className.includes('w-full')
-  const widthClasses = isFullWidth ? 'w-full' : 'w-full sm:w-auto'
+  const isNowrap = className.includes('whitespace-nowrap')
+  const widthClasses = isFullWidth ? 'w-full' : isNowrap ? 'w-auto max-w-full' : 'w-full sm:w-auto'
+  const hPad = isNowrap ? 'px-4' : 'px-6 md:px-8'
   const hasExplicitTextSize = /(^|\s)!?-?text-(xs|sm|base|lg|xl|2xl|3xl|4xl|\[)/.test(className)
-  const defaultSize = hasExplicitTextSize ? '' : 'text-sm md:text-base'
+  const defaultSize = hasExplicitTextSize ? '' : isNowrap ? 'text-xs' : 'text-sm md:text-base'
   const base =
-    `inline-flex min-h-14 ${widthClasses} items-center justify-center border-2 px-6 py-4 text-center ${defaultSize} font-black uppercase leading-tight tracking-tighter transition-all duration-200 active:scale-95 md:min-h-16 md:px-8`
+    `inline-flex min-h-14 ${widthClasses} items-center justify-center border-2 ${hPad} py-4 text-center ${defaultSize} font-black uppercase leading-tight tracking-tighter transition-all duration-200 active:scale-95 overflow-hidden md:min-h-16`
   const variants = {
     accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-[1.02] hover:bg-transparent hover:text-frame-fg',
     outline:

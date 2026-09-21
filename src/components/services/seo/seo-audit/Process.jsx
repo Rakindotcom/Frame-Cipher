@@ -1,98 +1,139 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Site & Goal Review",
-    "description": "We understand your business, target audience, and what you're actually trying to achieve with better rankings."
+    title: 'Business, Site & Goal Discovery',
+    body: 'We begin by understanding:',
+    points: [
+      'Your business model',
+      'Target audience',
+      'Primary markets',
+      'Important products or services',
+      'Organic traffic goals',
+      'Conversion goals',
+      'Current SEO challenges',
+      'Recent website changes',
+    ],
+    note: 'This prevents the audit from becoming a generic checklist disconnected from your business.',
   },
   {
-    "number": "2",
-    "title": "Competitive Benchmarking",
-    "description": "Comparing your site against what's actually outranking you, not just against best-practice checklists in isolation."
+    title: 'Access & Data Collection',
+    body: 'Where available, we collect the data needed for a meaningful audit. This may include:',
+    points: [
+      'Website access',
+      'Google Search Console',
+      'Google Analytics',
+      'Sitemap information',
+      'Backlink data',
+      'Keyword data',
+      'Competitor information',
+      'Platform details',
+      'Previous SEO reports',
+    ],
+    note: 'The exact data requirements depend on the audit scope.',
   },
   {
-    "number": "3",
-    "title": "Prioritization & Report Development",
-    "description": "Every finding is ranked by impact and explained in plain language, with specific recommended actions."
+    title: 'Technical Crawl & Manual Validation',
+    body: 'Automated crawls help identify large numbers of technical conditions quickly. We then manually review important findings to determine:',
+    points: [
+      'Whether the issue is real',
+      'Which pages are affected',
+      'Whether it matters',
+      'What caused it',
+      'What should be done next',
+    ],
+    note: 'This combination reduces the risk of treating automated warnings as equally important problems.',
   },
   {
-    "number": "4",
-    "title": "Findings Walkthrough",
-    "description": "We review the report with you directly, answering questions and clarifying next steps before you decide how to proceed."
-  }
+    title: 'On-Page, Content & Keyword Analysis',
+    body: 'We evaluate important pages against search intent, competitors, keyword targeting, and content quality. The review can identify:',
+    points: [
+      'Weak page targeting',
+      'Missing content',
+      'Cannibalization',
+      'Overlapping pages',
+      'Thin content',
+      'Poor metadata',
+      'Weak internal linking',
+      'Unclear search intent',
+    ],
+    note: 'The focus is on improving the pages that can contribute most to organic growth.',
+  },
+  {
+    title: 'Backlink & Competitor Analysis',
+    body: 'We evaluate your backlink profile alongside the websites competing for relevant searches. This helps identify:',
+    points: [
+      'Authority gaps',
+      'Relevant link opportunities',
+      'Competitor strengths',
+      'Content opportunities',
+      'Keyword gaps',
+      'SERP patterns',
+      'Market-specific weaknesses',
+    ],
+    note: 'The objective is to understand your site within the competitive environment rather than in isolation.',
+  },
+  {
+    title: 'Prioritization & Roadmap Development',
+    body: 'Once the analysis is complete, findings are grouped and prioritized. We consider:',
+    points: [
+      'Impact',
+      'Effort',
+      'Business importance',
+      'Urgency',
+      'Dependency between tasks',
+      'Technical complexity',
+    ],
+    note: 'This creates a practical sequence instead of a long list of disconnected recommendations.',
+  },
+  {
+    title: 'Report & Findings Walkthrough',
+    body: 'The final report brings the findings together into a structured action plan. We then walk through the key findings with you so the report is understood before implementation begins.',
+    points: [],
+  },
 ]
-  const timeline = service?.timeline || "A technical-only audit is typically delivered within a week. A standard audit covering technical, on-page, and basic backlink review usually takes 1 to 2 weeks, while a comprehensive audit including full competitive analysis can take 2 to 3 weeks depending on site size and complexity.\n\nThe audit itself is a fixed-timeline deliverable, not an ongoing engagement, what happens after depends on whether you execute the findings internally or move into ongoing work with us."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="Execution Framework" title="How We Conduct an SEO Audit">
+          Our process combines automated data collection, manual validation, competitive research,
+          and business context.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                  {step.body}
                 </p>
+                {step.points.length > 0 && (
+                  <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                    {step.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {step.note && (
+                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {step.note}
+                  </p>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

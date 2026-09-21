@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "Best Keyword Research Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Keyword research built on realistic ranking potential, search terms your customers actually use, filtered by what your site can genuinely compete for."
+  const title = service?.h1 || 'Best Keyword Research Service in Bangladesh'
+  const subtitle =
+    'Find the search terms your customers actually use, and the opportunities your website can realistically compete for. Framecipher builds keyword strategies around search intent, competition, customer language, competitor gaps, and business value. We turn raw keyword data into prioritized topics, keyword clusters, and page targets your SEO and content teams can act on.'
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "The keyword with the highest search volume isn't automatically the right one to target. The right one is the highest-volume term you can actually realistically rank for, and those aren't always the same word."
 
   return (
     <div className="bg-frame-bg text-frame-fg">
@@ -35,7 +35,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Request a Keyword Research Quote</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +44,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

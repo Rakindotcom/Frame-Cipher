@@ -2,16 +2,17 @@ import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "Google AdSense Approval Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Google AdSense approval support, we fix the site issues that cause rejection and prepare your site to meet Google's actual requirements."
+  const title = service?.h1 || 'Google AdSense Approval Service in Bangladesh'
+  const subtitle =
+    'Getting rejected by Google AdSense can be frustrating, especially when the notice does not clearly explain which part of your site needs attention. Framecipher provides Google AdSense approval service for websites that need a clear readiness assessment, targeted fixes, and practical support before applying or reapplying. We review your content, navigation, site structure, policy compliance, technical setup, traffic sources, and publisher eligibility against Google\u2019s current guidance. We work with publishers and businesses in Bangladesh and across international markets.'
   const isPillar = service?.pageType === 'Pillar Service'
+  const isSubService = service?.pageType === 'Sub Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "AdSense rejection almost never means your business is the problem. It usually means something specific and fixable, content depth, a missing page, unclear navigation, that nobody explained clearly enough to actually go fix."
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="border-b-2 border-frame-border bg-frame-bg">
       {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
+      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
@@ -29,13 +30,13 @@ export default function Hero({ service }) {
 
       {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
+        eyebrow={isPillar ? 'Core Service Pillar' : isSubService ? 'Specialized Capability' : 'Specialized Capability'}
         meta="One In-House Team / Built For Results"
         number={isPillar ? '01' : '360'}
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +45,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

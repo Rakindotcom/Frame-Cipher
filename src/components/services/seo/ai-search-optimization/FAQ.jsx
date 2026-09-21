@@ -1,38 +1,67 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "What's the difference between AEO and GEO?",
-    "answer": "AEO works at the individual content level, structuring specific pages so AI systems can extract and cite a direct answer. GEO works at the brand level, building the topical authority and consistency that makes AI systems trust your business as a source repeatedly, not just once."
+    question: 'What is AI Search Optimization?',
+    answer: 'AI Search Optimization is the process of improving how a business, its content, expertise, and supporting information can be discovered, understood, and referenced across AI-powered search and answer experiences. It builds on traditional SEO while adding focused work around answer clarity, entities, topical coverage, source credibility, and AI-search measurement.',
   },
   {
-    "question": "How is AI search optimization different from traditional SEO?",
-    "answer": "Traditional SEO optimizes for ranking in a list of links, rewarding backlinks and domain authority built over time. AI search optimization structures content for direct extraction and citation, weighing retrieval-readiness and entity clarity more heavily, related goals, but genuinely different mechanics."
+    question: 'What is AEO?',
+    answer: 'AEO, or Answer Engine Optimization, focuses on making specific answers easier to surface in answer-driven search experiences. This can involve direct answers, definitions, FAQs, question-focused content, clear structure, and supporting evidence.',
   },
   {
-    "question": "Can you guarantee my content gets cited by ChatGPT or other AI tools?",
-    "answer": "No, citation decisions happen inside each AI platform's own retrieval algorithm, which no outside provider controls. We structure content according to what's currently understood to improve genuine citation likelihood, without promising a specific outcome."
+    question: 'What is GEO?',
+    answer: 'GEO, or Generative Engine Optimization, generally refers to optimizing a broader content and brand ecosystem for visibility in generative search experiences. It can involve topical authority, entity relationships, source credibility, content coverage, and citation opportunities.',
   },
   {
-    "question": "Is this only relevant for large brands, or does it matter for smaller businesses too?",
-    "answer": "It matters for smaller businesses too, and sometimes more, a smaller site with genuinely well-structured, retrieval-ready content can get cited over a larger competitor whose content was never built with AI extraction in mind."
+    question: 'Is AEO different from GEO?',
+    answer: 'They can describe different layers of the same broader strategy. AEO focuses more on specific answers and content-level visibility, while GEO generally addresses broader generative visibility, citations, brand context, and authority. The terminology is not standardized across the industry, so we use both within a broader AI Search Optimization framework.',
   },
   {
-    "question": "Do you provide AI search optimization for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we provide AEO and GEO services for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our SEO Team]"
-  }
+    question: 'Does AI Search Optimization replace traditional SEO?',
+    answer: 'No. Strong technical SEO, useful content, crawlability, indexability, internal linking, page experience, and authority remain important foundations. AI Search Optimization builds on those foundations rather than replacing them.',
+  },
+  {
+    question: 'Can you guarantee that ChatGPT or Gemini will cite my website?',
+    answer: "No. AI platforms control their own retrieval and response systems, and citation outcomes can vary by query, source availability, platform, and time. We focus on improving the factors within our scope and measuring actual visibility rather than promising a specific citation outcome.",
+  },
+  {
+    question: 'How do you measure AI search visibility?',
+    answer: 'Depending on the project, we can measure prompt-level visibility, brand mentions, citations, competitor presence, cited sources, Google generative-search performance data where available, and downstream traffic or conversions.',
+  },
+  {
+    question: 'Can you optimize content for AI search without hurting Google SEO?',
+    answer: 'Yes. The goal is to improve clarity, usefulness, structure, entity relationships, and search-intent alignment while maintaining strong traditional SEO fundamentals. We do not recommend unnatural formatting or keyword stuffing simply to make content appear \u201CAI optimized.\u201D',
+  },
+  {
+    question: 'Can small businesses benefit from AI Search Optimization?',
+    answer: 'Yes. Small businesses can benefit from clearer service information, stronger entity signals, useful answers, local relevance, credible external references, and targeted visibility testing. The strategy should reflect the business\u2019s actual market and resources rather than imitate enterprise-scale campaigns.',
+  },
+  {
+    question: 'Can you optimize an ecommerce website for AI search?',
+    answer: 'Yes. We can review product information, category content, comparisons, buying questions, product entities, structured data, supporting guides, and other content that may contribute to AI-assisted product discovery.',
+  },
+  {
+    question: 'Can you optimize a local business for AI search?',
+    answer: 'Yes. We can assess local service information, business details, reviews and reputation, local content, entity information, and relevant third-party sources.',
+  },
+  {
+    question: 'Can you help businesses in Bangladesh improve AI search visibility?',
+    answer: 'Yes. We support Bangladeshi businesses targeting local and international audiences, including websites that need English, Bangla, Banglish, multilingual, or country-specific search strategies.',
+  },
+  {
+    question: 'Can you optimize for multiple AI platforms?',
+    answer: 'Yes. The exact platforms and monitoring approach depend on the project. We can design prompt sets and visibility checks across relevant AI-powered search and answer experiences rather than relying on a single platform.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct Answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about our delivery process, technical standards, and engagement models.
+        <SectionIntro eyebrow="Direct Answers" title="Frequently Asked Questions">
+          Common questions about AI Search Optimization, AEO, GEO, measurement, and what we can and
+          can&apos;t guarantee.
         </SectionIntro>
 
         <div className="space-y-4">

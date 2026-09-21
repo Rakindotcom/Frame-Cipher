@@ -3,10 +3,9 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
   const title = service?.h1 || "Best Ecommerce SEO Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Ecommerce SEO is built around buyers, not just browsers, product and category optimization that turns search traffic into actual sales."
+  const subtitle = "Ranking for a product term and selling that product are two different outcomes, and a lot of ecommerce SEO work only chases the first one. Framecipher optimizes product pages, category structure, and site architecture for online stores in Dhaka and clients across the US, UK, Australia, Canada, and UAE, built around the search terms people actually use right before they buy."
   const isPillar = service?.pageType === 'Pillar Service'
   const pillarParent = service?.pillarParent
-  const quote = service?.quote || "are chasing very different visitors."
 
   return (
     <div className="bg-frame-bg text-frame-fg">
@@ -35,7 +34,7 @@ export default function Hero({ service }) {
         title={title}
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
+            <PosterButton href="/contact">Get Free Consultation</PosterButton>
             <PosterButton href="/services" variant="outline">
               Explore All Services
             </PosterButton>
@@ -44,17 +43,6 @@ export default function Hero({ service }) {
       >
         {subtitle}
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

@@ -1,103 +1,61 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const processSteps = [
   {
-    "number": "1",
-    "title": "Initial Local Audit",
-    "description": "We review your Business Profile, citation consistency, and current local rankings against nearby competitors."
+    title: 'Local Search Audit',
+    description: 'We first review the current local search presence. The audit can examine your Google Business Profile, website, local landing pages, business information, citations, reviews, local competitors, search visibility, and technical SEO factors. This gives us a starting point before implementation begins.',
   },
   {
-    "number": "2",
-    "title": "Strategy & Priority Setting",
-    "description": "We identify the highest-impact gaps profile completeness, citations, on-page signals, and prioritize accordingly."
+    title: 'Keyword & Competitor Analysis',
+    description: 'We identify the searches that matter to your business and study the competitive landscape. We connect search terms with services, products, locations, customer intent, and relevant website pages, then identify gaps that can support the next stage of optimization.',
   },
   {
-    "number": "3",
-    "title": "Implementation",
-    "description": "Profile optimization, on-page fixes, and citation building executed with your review at each stage."
+    title: 'GBP & Website Optimization',
+    description: 'Once the research is complete, we optimize the relevant business and website assets. This stage may include profile improvements, website updates, service pages, location pages, internal linking, content improvements, and conversion elements. The objective is to create a clear connection between what your business offers and what local customers search for.',
   },
   {
-    "number": "4",
-    "title": "Review & Reputation Building",
-    "description": "Ongoing review generation and response work begins alongside the technical implementation."
+    title: 'Citation & Reputation Work',
+    description: 'We improve important business information and establish a cleaner local presence across relevant platforms. We also help create a sustainable process for collecting and responding to genuine customer feedback. This stage supports trust and information consistency without relying on mass directory submissions.',
   },
   {
-    "number": "5",
-    "title": "Ongoing Tracking & Reporting",
-    "description": "Continuous monitoring of Map Pack rankings and Business Profile performance, with regular reporting."
-  }
+    title: 'Local Authority Development',
+    description: 'Local authority develops over time. Depending on the business, this can involve relevant local links, industry references, local partnerships, business mentions, community involvement, useful local content, and digital PR opportunities. The focus stays on relevance and genuine business relationships.',
+  },
+  {
+    title: 'Geo-Grid Tracking & Refinement',
+    description: 'After implementation, we examine how local visibility changes across the target geographic area. We compare visibility patterns and identify areas that need additional attention. The findings can influence future content, profile improvements, authority work, or location targeting.',
+  },
 ]
-  const timeline = service?.timeline || "An initial local audit is typically delivered within a few business days. Local SEO and Google Business Profile improvements tend to show results faster than broader organic SEO work, sometimes within four to eight weeks, since local rankings compete less directly against high-volume, difficult national keywords.\n\nCitation building and review generation are ongoing processes by nature, the foundational work happens early, but consistent activity over months is what sustains and strengthens local visibility long-term."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
           eyebrow="Execution Framework"
-          title="Our Structured Process"
+          title="How We Approach Local SEO"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Our process moves from research and diagnosis to implementation, authority development,
+          and ongoing refinement.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          {processSteps.map((step, index) => (
+            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
                   {step.description}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )
