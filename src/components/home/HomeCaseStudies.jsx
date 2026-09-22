@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { growthCaseStudies } from '../../data/growthWork'
 import CaseStudyPortfolioCard from '../case-studies/CaseStudyPortfolioCard'
+import SectionButton from './SectionButton'
 
 export default function HomeCaseStudies() {
   const featuredStudies = growthCaseStudies.slice(0, 3)
@@ -17,15 +17,7 @@ export default function HomeCaseStudies() {
               The receipts, documented.
             </h2>
           </div>
-          <Link
-            href="/case-studies"
-            className="group inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 border-2 border-frame-border bg-transparent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-fg transition-all duration-200 hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg active:scale-95 sm:text-sm md:min-h-14 md:px-8"
-          >
-            <span>Browse all case studies</span>
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
-              &rarr;
-            </span>
-          </Link>
+          <SectionButton href="/case-studies">Browse all case studies</SectionButton>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">

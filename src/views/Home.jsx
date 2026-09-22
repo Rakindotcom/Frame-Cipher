@@ -15,6 +15,8 @@ import {
   HomeProcess,
   HomeEngagement,
   HomeIndustries,
+  HomeComparison,
+  HomeAbout,
   HomeFAQ,
   HomeCTA,
 } from '../components/home'
@@ -38,6 +40,8 @@ export default function Home() {
       <HomeProcess />
       <HomeEngagement />
       <HomeIndustries />
+      <HomeComparison />
+      <HomeAbout />
       <HomeFAQ />
       <HomeCTA />
     </main>

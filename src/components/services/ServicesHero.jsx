@@ -1,18 +1,18 @@
 import { PageHero, PosterButton, TypeMarquee } from '../Kinetic'
 
-export default function ServicesHero({ totalServices, totalPillars, pillarNames }) {
+export default function ServicesHero({ totalServices, pillarNames }) {
   return (
     <>
       <PageHero
         eyebrow="Services"
-        meta={`${totalServices} services / ${totalPillars} service areas / one operating system`}
+        meta={`74+ services / 5 core capabilities / one operating system`}
         number={String(totalServices)}
-        title="Every service your brand needs, connected under one roof"
+        title="Marketing, technology & creative solutions built around your business."
         actions={
           <>
-            <PosterButton href="/contact">Book a strategy call</PosterButton>
-            <PosterButton href="/projects" variant="outline">
-              See the work
+            <PosterButton href="/contact">Start a Project</PosterButton>
+            <PosterButton href="/services#all-services" variant="outline">
+              Explore Our Services
             </PosterButton>
           </>
         }

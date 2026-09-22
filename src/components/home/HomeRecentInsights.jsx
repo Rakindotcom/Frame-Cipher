@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { insightPosts } from '../../data/agency'
 import { InversionCard } from '../Kinetic'
+import SectionButton from './SectionButton'
 
 export default function HomeRecentInsights() {
   return (
@@ -15,15 +15,7 @@ export default function HomeRecentInsights() {
               Useful strategy, not soft thought leadership.
             </h2>
           </div>
-          <Link
-            href="/insights"
-            className="group inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 border-2 border-frame-border bg-transparent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-fg transition-all duration-200 hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg active:scale-95 sm:text-sm md:min-h-14 md:px-8"
-          >
-            <span>View all insights</span>
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
-              &rarr;
-            </span>
-          </Link>
+          <SectionButton href="/insights">View all insights</SectionButton>
         </div>
 
         <div className="grid bg-frame-border gap-px md:grid-cols-3">

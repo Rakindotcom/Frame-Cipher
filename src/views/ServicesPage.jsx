@@ -5,12 +5,20 @@ import {
   getServiceSummary,
   getSubServicesForPillar,
 } from '../data/servicePages'
-import { GrowthOSServices } from '../components/GrowthOS'
 import {
   ServicesHero,
-  ServicesPillarsGrid,
+  ServicesProblemSelector,
+  ServicesBusinessGoals,
+  ServicesConnectedSystem,
+  ServicesCoreCapabilities,
   ServicesAllList,
-  ServicesEngagementModels,
+  ServicesDeliverables,
+  ServicesBundles,
+  ServicesProcess,
+  ServicesIndustries,
+  ServicesCaseStudies,
+  ServicesWhy,
+  ServicesFAQ,
   ServicesCTA,
 } from '../components/services'
 
@@ -31,13 +39,29 @@ export default function ServicesPage() {
         pillarNames={pillarGroups.map((group) => group.name)}
       />
 
-      <GrowthOSServices />
+      <ServicesProblemSelector />
 
-      <ServicesPillarsGrid pillarGroups={pillarGroups} />
+      <ServicesBusinessGoals />
+
+      <ServicesConnectedSystem />
+
+      <ServicesCoreCapabilities />
 
       <ServicesAllList pillarGroups={pillarGroups} />
 
-      <ServicesEngagementModels />
+      <ServicesDeliverables />
+
+      <ServicesBundles />
+
+      <ServicesProcess />
+
+      <ServicesIndustries />
+
+      <ServicesCaseStudies />
+
+      <ServicesWhy />
+
+      <ServicesFAQ />
 
       <ServicesCTA />
     </main>

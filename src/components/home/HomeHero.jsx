@@ -104,7 +104,7 @@ export default function HomeHero() {
                   01 / Scale
                 </p>
                 <p className="mt-1 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-6xl">
-                  70+
+                  74+
                 </p>
                 <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
                   Services Integrated

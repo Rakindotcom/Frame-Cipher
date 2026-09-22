@@ -353,7 +353,7 @@ export const servicePillars = [
 
 export const processSteps = [
   { title: 'Discover', description: 'Understand business, audience, market, competitors, and goals.' },
-  { title: 'Position', description: 'Define the message, offer, brand angle, and growth strategy.' },
+  { title: 'Plan', description: 'Define the message, offer, brand angle, and growth strategy.' },
   { title: 'Create', description: 'Design visuals, content, videos, campaigns, and brand assets.' },
   { title: 'Build', description: 'Develop websites, landing pages, software, automations, and systems.' },
   { title: 'Launch', description: 'Deploy campaigns, publish content, run ads, and activate channels.' },
@@ -389,15 +389,63 @@ export const engagementModels = [
 ]
 
 export const industries = [
-  'Startups',
-  'Restaurants and cafes',
-  'Real estate',
-  'Fashion and lifestyle',
+  'E-commerce',
+  'Real Estate',
+  'Restaurants',
+  'Hotels',
   'Education',
-  'Events',
-  'Corporate brands',
-  'Creators and personal brands',
-  'E-commerce businesses',
+  'Healthcare',
+  'Fashion & Lifestyle',
+  'Startups',
+  'Local Businesses',
+  'Corporate',
+  'Professional Services',
+  'Personal Brands',
+  'Creators',
+]
+
+export const industryDetails = [
+  { industry: 'E-commerce', line: 'Store builds, product content, paid ads, and conversion optimization.' },
+  { industry: 'Real Estate', line: 'Property listing websites, lead-gen ads, and visual content.' },
+  { industry: 'Restaurants', line: 'Local SEO, social content, and an online ordering-ready presence.' },
+  { industry: 'Hotels', line: 'Booking-ready websites, campaign visuals, and local visibility.' },
+  { industry: 'Education', line: 'Enrollment-focused landing pages, content strategy, and lead generation ads.' },
+  { industry: 'Healthcare', line: 'Trust-first websites, local search visibility, and patient inquiry systems.' },
+  { industry: 'Fashion & Lifestyle', line: 'E-commerce builds, product photography, and campaign-ready social assets.' },
+  { industry: 'Startups', line: 'Brand foundation, website, and launch-ready content to get to market fast.' },
+  { industry: 'Local Businesses', line: 'Local SEO, Google Business Profile work, and lead-capture pages.' },
+  { industry: 'Corporate', line: 'Full brand systems, websites, and ongoing marketing execution.' },
+  { industry: 'Professional Services', line: 'Authority positioning, service pages, and structured lead flows.' },
+  { industry: 'Personal Brands', line: 'Content strategy, video production, and platform growth.' },
+  { industry: 'Creators', line: 'Channel strategy, short-form production, and audience growth systems.' },
+]
+
+export const comparisonRows = [
+  {
+    aspect: 'Coordination',
+    us: 'One team, one accountable point of contact.',
+    them: 'You manage handoffs between every vendor yourself.',
+  },
+  {
+    aspect: 'Message consistency',
+    us: 'Strategy, content, and web are all built around the same offer.',
+    them: 'Each vendor follows its own brief, and the message drifts.',
+  },
+  {
+    aspect: 'Team',
+    us: '100% in-house team with consistent quality.',
+    them: 'A freelancer or agency mix, quality can be inconsistent.',
+  },
+  {
+    aspect: 'Reach',
+    us: '74 services across 7 areas, all working together.',
+    them: 'A new vendor to find and brief for every skill you need.',
+  },
+  {
+    aspect: 'Reporting',
+    us: 'Every channel reported from one place.',
+    them: 'Separate reports everywhere, no unified view.',
+  },
 ]
 
 export const serviceLandingOverrides = {

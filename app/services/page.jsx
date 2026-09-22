@@ -1,9 +1,9 @@
 import ServicesPage from '../../src/views/ServicesPage'
 
 export const metadata = {
-  title: 'Services',
+  title: 'Digital Marketing, Web & Software Development Services | FrameCipher',
   description:
-    'Explore Frame Cipher services across 360 marketing, brand strategy, social media, paid ads, SEO, design, video production, websites, software, e-commerce, and automation.',
+    'Explore FrameCipher\u2019s marketing, creative, web development and custom software services built to help businesses build, market and grow.',
   alternates: {
     canonical: '/services',
   },

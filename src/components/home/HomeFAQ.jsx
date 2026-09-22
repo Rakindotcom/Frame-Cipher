@@ -4,27 +4,27 @@ const faqs = [
   {
     question: 'How does Frame Cipher charge for its work?',
     answer:
-      'Most engagements run as fixed, scope-based monthly retainers, so you know exactly what you are paying for each month. Ad spend, media budgets, and third-party tools are quoted separately and never hidden inside the management fee.',
+      'By scope. Single projects like website builds or SEO audits are quoted per project. Ongoing work like social media management or paid ads runs on a monthly retainer, so you always know exactly what you are paying for each month.',
   },
   {
     question: 'Do you work with international clients?',
     answer:
-      'Yes. Frame Cipher works with brands in Bangladesh, the US, the UK, and other international markets. We plan around your target region, currency, platform rules, and reporting standards.',
+      'Yes. Frame Cipher has worked with brands in 20+ countries, fully remote, through video calls, shared project boards, and async reporting.',
   },
   {
-    question: 'How long before we see meaningful results?',
+    question: 'How long before we see results?',
     answer:
-      'It depends on the channel. Paid ads can show directional data within the first few weeks, but sustained, compounding results typically land between 60 and 90 days once tracking, creative, and targeting are stabilized. SEO and content systems take longer and are built to compound.',
+      'It depends on the service. Paid ads and social content usually show early signals within the first month. SEO and organic growth compound over 3 to 6 months, depending on the market and the starting condition of the website.',
   },
   {
     question: 'Do you require a long-term contract?',
     answer:
-      'No. We work on rolling monthly agreements, not lock-in contracts. You stay because the system is producing, not because a contract forces you to.',
+      'No. Ongoing work runs on rolling monthly retainers with no lock-in. You stay because the system is producing, not because a contract forces you to.',
   },
   {
     question: 'Who owns the accounts, websites, and content you produce?',
     answer:
-      'You do. Ad accounts, website properties, brand assets, and content are delivered under your ownership from day one, so you are never locked out of the system we build together.',
+      'The client. Frame Cipher builds and manages the assets, but the ad account, domain, source code, and content ownership always stay with the client.',
   },
 ]
 

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { services } from '../../data/agency'
 
 export default function HomeServicesPulse() {
-  const featuredServices = services.slice(0, 6)
+  const allServices = services
 
   return (
     <section className="border-y-2 border-frame-border bg-frame-accent px-4 py-20 text-frame-accent-fg md:px-8 md:py-32">
@@ -18,7 +18,7 @@ export default function HomeServicesPulse() {
         </div>
 
         <div className="grid bg-frame-accent-fg gap-px sm:grid-cols-2 lg:grid-cols-3">
-          {featuredServices.map((service) => (
+          {allServices.map((service) => (
             <Link
               key={service.slug}
               href={`/services/${service.slug}`}

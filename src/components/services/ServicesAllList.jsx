@@ -7,7 +7,7 @@ export default function ServicesAllList({ pillarGroups }) {
     <section id="all-services" className="scroll-mt-24 border-y-2 border-frame-border bg-frame-muted px-4 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-[95vw]">
         <div className="mb-12 flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
-          <SectionIntro eyebrow="All 74 services" title="Choose the capability your brand needs next.">
+          <SectionIntro eyebrow="Complete services" title="Everything you need to build, market & grow." index="06">
             Browse every current service, grouped by the seven service areas that connect strategy,
             delivery, and measurable growth.
           </SectionIntro>
