@@ -1,60 +1,48 @@
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
-export default function Hero({ service }) {
-  const title = service?.h1 || "Best Meta Ads Management Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Meta Ads management for Facebook and Instagram audience targeting, creative testing, and campaigns built around real buyer behavior."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "On Meta, the ad has to do more work than the offer. Someone scrolling past isn't looking for you yet, the creative's job is to make them stop and reconsider that."
-
+export default function Hero() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
+          <span>/</span>
+          <Link href="/services/paid-advertising" className="transition hover:text-frame-fg">
+            Paid Advertising
+          </Link>
           <span>/</span>
           <span className="text-frame-accent">Meta Ads Management</span>
         </div>
       </nav>
 
-      {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
+        eyebrow="Specialized Capability"
         meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
+        number="360"
+        title="Best Meta Ads Management Service in Bangladesh"
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
+            <PosterButton href="/contact">Get a Free Consultation</PosterButton>
+            <PosterButton href="/services/paid-advertising" variant="outline">
+              Explore Paid Advertising
             </PosterButton>
           </>
         }
       >
-        {subtitle}
+        Meta Ads can help businesses create demand, generate qualified leads, and drive
+        ecommerce sales across Facebook and Instagram. But successful campaigns require more
+        than selecting an audience and boosting a post.
+        {' '}
+        Framecipher provides Meta Ads Management Service in Bangladesh built around creative
+        strategy, conversion data, audience signals, campaign structure, and continuous
+        optimization. We manage campaigns for businesses in Bangladesh and international
+        markets, with strategy adapted to the offer, customer journey, market, and business
+        economics. Your Meta Ads account stays under your ownership. You retain visibility into
+        campaign activity, advertising spend, performance data, and results.
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

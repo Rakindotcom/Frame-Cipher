@@ -1,103 +1,123 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Strategy & Audience Review",
-    "description": "We map who's genuinely involved in your buying decision, titles, seniority, company profile, before building any targeting."
+    title: 'ICP, Sales Process & Goal Definition',
+    body: [
+      'We begin with the customer you want to acquire, how they buy, who influences the decision, and what your sales team considers a qualified opportunity.',
+      'For existing accounts, we review campaign history, targeting, conversion data, creative, spend, and lead quality before recommending major changes.',
+    ],
   },
   {
-    "number": "2",
-    "title": "Campaign & Format Planning",
-    "description": "Format selection and messaging strategy planned around your specific sales cycle and offer."
+    title: 'Audience, Account & Buying Committee Research',
+    body: [
+      'We map the target industries, companies, job functions, seniority, locations, buying-committee roles, target-account lists, existing customer data, and retargeting audiences.',
+    ],
+    note: 'Where appropriate, we evaluate Matched Audiences, Auto-Targeting, Buyer Groups, Predictive Audiences, and other available targeting capabilities.',
   },
   {
-    "number": "3",
-    "title": "Setup & Launch",
-    "description": "Campaigns, creative, and conversion tracking built and reviewed with your approval before spend begins."
+    title: 'Campaign & Creative Planning',
+    body: [
+      'We define the campaign objective, audience, format, offer, creative direction, conversion path, and budget around the sales stage being targeted.',
+    ],
+    note: 'A cold audience may need educational content or industry insight. A warmer audience may be ready for a case study, demo, consultation, or product-specific offer.',
   },
   {
-    "number": "4",
-    "title": "Testing & Lead Quality Review",
-    "description": "Ongoing testing, with lead quality reviewed against your sales team's actual criteria, not just form-fill counts."
+    title: 'Tracking & CRM Setup',
+    body: [
+      'We configure or validate the tracking systems that connect advertising to business outcomes.',
+    ],
+    bullets: [
+      'Insight Tag',
+      'Conversion tracking',
+      'Conversions API',
+      'Lead Gen Forms',
+      'CRM connections',
+      'UTM parameters',
+      'Qualified-lead events',
+      'Conversion definitions',
+    ],
+    note: 'Where supported, the goal is to create a measurement loop between advertising activity and sales outcomes.',
   },
   {
-    "number": "5",
-    "title": "Reporting & Sales Alignment",
-    "description": "Regular reporting built around your pipeline, adjusted based on what's genuinely converting into real opportunities."
-  }
+    title: 'Launch & Initial Learning',
+    body: [
+      'After launch, we monitor delivery, audience size, engagement, conversions, lead quality, and budget utilization.',
+    ],
+    note: 'We avoid making frequent structural changes before sufficient data is available to support a decision.',
+  },
+  {
+    title: 'Testing & Lead Quality Optimization',
+    body: [
+      'We test meaningful variables across the campaign.',
+    ],
+    bullets: [
+      'Audience segments',
+      'Offers',
+      'Creative angles',
+      'Ad formats',
+      'CTAs',
+      'Form structure',
+      'Landing pages',
+      'Retargeting approaches',
+    ],
+    note: 'Where qualified-lead or CRM data is available, we use it to understand whether campaigns are producing prospects that actually fit the sales pipeline.',
+  },
+  {
+    title: 'Reporting, Sales Feedback & Scaling',
+    body: [
+      'Reporting is connected to what the sales team can use. We review lead quality and sales feedback alongside campaign performance, then identify opportunities to scale qualified audiences, expand target accounts, improve creative, strengthen retargeting, enter new markets, improve measurement, and reallocate budget.',
+    ],
+    note: 'Scaling follows evidence rather than raw lead volume.',
+  },
 ]
-  const timeline = service?.timeline || "LinkedIn Ads setup, including targeting, creative, and tracking configuration, typically takes one to two weeks. Given LinkedIn's smaller, more concentrated professional audience compared to consumer platforms, meaningful performance data can take longer to accumulate, often three to six weeks rather than the days-long feedback loop typical on Meta or Google.\n\nB2B sales cycles frequently extend well beyond the initial lead, so full return-on-investment visibility on LinkedIn often only becomes clear over months, not weeks, a pace worth setting expectations around from the start."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Execution framework"
+          title="How We Manage LinkedIn Ads"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Campaigns are built, launched, measured, and scaled through a structured process so
+          decisions are driven by evidence rather than assumptions.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+                <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {step.body.map((paragraph, pIdx) => (
+                    <p key={pIdx}>{paragraph}</p>
+                  ))}
                 </div>
-              )}
+                {step.bullets?.length > 0 && (
+                  <ul className="mt-4 grid gap-1.5 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
+                    {step.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {step.note && (
+                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {step.note}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

@@ -1,32 +1,51 @@
 import Hero from './Hero'
-import Offerings from './Offerings'
+import Overview from './Overview'
+import Campaigns from './Campaigns'
+import Includes from './Includes'
+import ProblemsWeFix from './ProblemsWeFix'
+import WhoFor from './WhoFor'
+import Markets from './Markets'
 import Process from './Process'
+import Results from './Results'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
+import PerformanceCommitment from './PerformanceCommitment'
+import Timeline from './Timeline'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "LinkedIn Ads Management",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  "B2B Targeting",
+  "Sponsored Content",
+  "Lead Gen Forms",
+  "Account-Based Marketing",
+  "Retargeting",
+  "Insight Tag & Conversions API",
+  "Qualified Lead Optimization"
 ]
 
-export default function PaidAdvertisingLinkedinAdsService({ service }) {
+export default function PaidAdvertisingLinkedinAdsService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <Campaigns />
+      <Includes />
+      <ProblemsWeFix />
+      <WhoFor />
+      <Markets />
+      <Process />
+      <Results />
+      <WhyChoose />
+      <Pricing />
+      <PerformanceCommitment />
+      <Timeline />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Includes, Process, Pricing, FAQ, CTA }

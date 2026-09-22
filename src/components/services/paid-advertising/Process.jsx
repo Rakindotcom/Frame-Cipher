@@ -1,98 +1,117 @@
 import { SectionIntro } from '../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const processSteps = [
   {
-    "number": "1",
-    "title": "Free Account & Strategy Audit",
-    "description": "We review your current campaigns, or your goals if you're starting fresh, to identify what's actually working and what isn't."
+    title: 'Account & Business Audit',
+    description: 'We review your current advertising setup, business model, target market, offer, existing results, tracking, landing pages, and available first-party data.',
+    bullets: [
+      'For an existing account: identify wasted spend, structural issues, missed opportunities, tracking gaps, and areas that require testing.',
+      'For a new campaign: establish the commercial foundation before launch.',
+    ],
   },
   {
-    "number": "2",
-    "title": "Platform Strategy & Campaign Planning",
-    "description": "A media plan built around where your actual buyers spend attention, with budget allocated by realistic potential, not just platform popularity."
+    title: 'Audience, Offer & Funnel Research',
+    description: 'We identify who the campaign needs to reach, what action we want them to take, what message is most relevant, and where the biggest friction may exist in the funnel.',
+    note: 'The result is a clearer view of the audience, offer, conversion path, and measurement priorities.',
   },
   {
-    "number": "3",
-    "title": "Setup & Launch",
-    "description": "Campaign structure, creative, and conversion tracking built and reviewed with your approval before any budget goes live."
+    title: 'Platform & Media Strategy',
+    description: 'We select the appropriate channels and define how each should contribute to the broader acquisition strategy.',
+    bullets: [
+      'Platform selection',
+      'Campaign objectives',
+      'Budget allocation',
+      'Audience strategy',
+      'Funnel stages',
+      'Geographic markets',
+      'Testing priorities',
+      'Conversion goals',
+    ],
+    note: 'The strategy is designed around your business rather than around a fixed platform package.',
   },
   {
-    "number": "4",
-    "title": "Ongoing Optimization & Reporting",
-    "description": "Continuous adjustment based on real conversion data, with regular reporting on what your spend is actually producing."
-  }
+    title: 'Tracking, Creative & Campaign Setup',
+    description: 'We build or coordinate the technical and campaign foundations required for launch.',
+    bullets: [
+      'Campaign structure',
+      'Conversion actions',
+      'Analytics configuration',
+      'Audience setup',
+      'Ad creative',
+      'Copy',
+      'Landing-page alignment',
+      'Product feeds or catalogs where relevant',
+      'Reporting setup',
+    ],
+    note: 'Before launch, the agreed campaign plan and budget are reviewed with you.',
+  },
+  {
+    title: 'Launch, Testing & Optimization',
+    description: 'Once campaigns are live, we monitor early data and begin structured testing.',
+    bullets: [
+      'Budget adjustments',
+      'Audience refinement',
+      'Creative changes',
+      'Search-term or placement analysis',
+      'Bid strategy adjustments',
+      'Campaign restructuring',
+      'Landing-page improvements',
+      'Exclusions',
+      'Remarketing refinement',
+    ],
+    note: 'Changes are based on evidence rather than constant activity for the sake of activity.',
+  },
+  {
+    title: 'Reporting & Scaling',
+    description: 'Once enough reliable data exists, we identify what deserves more budget, what needs improvement, and what should be reduced or stopped. Reporting focuses on business-relevant performance and the decisions that follow from the data.',
+    note: 'Scaling should come after the campaign demonstrates enough evidence to justify additional investment.',
+  },
 ]
-  const timeline = service?.timeline || "Campaign setup, including account structure, creative, and conversion tracking, is typically completed within one to two weeks of starting. Search campaigns can begin producing data almost immediately after launch, though meaningful optimization usually takes two to four weeks of real performance data to work with.\n\nUnlike SEO, paid advertising results appear fast, spend stops, traffic stops, on the same day. That immediacy is the tradeoff for not having the compounding, long-term value organic channels built over time."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
           eyebrow="Execution Framework"
-          title="Our Structured Process"
+          title="Our Paid Advertising Process"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Our process is designed to establish the business objective first, then build the
+          campaign system around it.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          {processSteps.map((step, index) => (
+            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
                   {step.description}
                 </p>
+                {step.bullets?.length > 0 && (
+                  <ul className="mt-4 space-y-1.5 text-xs font-semibold text-frame-fg/90">
+                    {step.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {step.note && (
+                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {step.note}
+                  </div>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

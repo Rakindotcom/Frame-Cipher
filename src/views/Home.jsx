@@ -9,10 +9,13 @@ import {
   HomeManifesto,
   HomeTextMarquee,
   HomeFeaturedWork,
+  HomeRecentInsights,
+  HomeCaseStudies,
   HomeServicesPulse,
   HomeProcess,
   HomeEngagement,
   HomeIndustries,
+  HomeFAQ,
   HomeCTA,
 } from '../components/home'
 
@@ -29,10 +32,13 @@ export default function Home() {
       <HomeManifesto />
       <HomeTextMarquee />
       <HomeFeaturedWork />
+      <HomeRecentInsights />
+      <HomeCaseStudies />
       <HomeServicesPulse />
       <HomeProcess />
       <HomeEngagement />
       <HomeIndustries />
+      <HomeFAQ />
       <HomeCTA />
     </main>
   )

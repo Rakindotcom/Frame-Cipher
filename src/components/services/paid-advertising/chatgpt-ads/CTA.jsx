@@ -1,17 +1,17 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "ChatGPT Ads Management"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
-      eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      eyebrow="Start your campaign"
+      title="Start Your ChatGPT Ads Campaign"
+      primaryText="Apply for ChatGPT Ads Management"
+      secondaryText="Request a Free Consultation"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      ChatGPT Ads is one of the earliest channels where being early can still matter. We help
+      clients design honest campaigns that are relevant, measurable, and grounded in what the
+      platform currently allows. Start with a consultation to review your eligibility, campaign
+      strategy, and next steps.
     </CTASection>
   )
 }

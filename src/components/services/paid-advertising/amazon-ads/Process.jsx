@@ -1,103 +1,162 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Account & Listing Audit",
-    "description": "Reviewing account structure, Brand Registry status, and the health of the listings that ads will actually point to."
+    title: 'Account & Product Audit',
+    body: 'We begin with the advertising account, the product catalog, and the current campaign setup to understand where the account stands before changing anything.',
+    items: [
+      'Amazon advertising account',
+      'Product catalog and eligibility',
+      'Account health and status',
+      'Amazon Brand Registry status where relevant',
+      'Current campaign structure',
+      'Current targeting and bidding',
+      'Current Ad Groups and products',
+      'Listing and retail readiness',
+      'Data and reporting setup',
+    ],
   },
   {
-    "number": "2",
-    "title": "Strategy & Campaign Planning",
-    "description": "Structuring campaign types and target ACOS by product, based on category competitiveness and current listing readiness."
+    title: 'Marketplace & Profitability Assessment',
+    body: 'Advertising performs differently by marketplace, category, and product economics. We assess where the realistic opportunity sits before committing spend.',
+    items: [
+      'Estimated marketplace opportunity and competition',
+      'Product economics and margins where available',
+      'Break-even and target ACOS',
+      'Amazon fees and fulfillment implications',
+      'Pricing strategy',
+      'Inventory availability',
+      'Availability of relevant Amazon advertising features',
+      'Realistic expectations based on category and stage',
+    ],
   },
   {
-    "number": "3",
-    "title": "Setup & Launch",
-    "description": "Building campaigns, keyword structures, and tracking, with any urgent listing issues flagged before spend scales up."
+    title: 'Campaign Strategy & Planning',
+    body: 'A plan is built around the products, the marketplace, the budget, and the target outcome rather than a generic template.',
+    items: [
+      'Account structure and hierarchy',
+      'Product selection for advertising',
+      'Keyword and product-targeting research',
+      'Campaign types and targeting approach',
+      'Budget planning and allocation',
+      'ACOS and TACOS targets',
+      'Reporting scope',
+      'Creative and asset coordination where relevant',
+      'Timeline and milestones',
+      'Measurement approach',
+    ],
   },
   {
-    "number": "4",
-    "title": "Early Optimization",
-    "description": "Close monitoring of search term reports and bid performance in the first weeks, when the account is generating the data needed to refine targeting."
+    title: 'Setup & Launch',
+    body: 'Campaigns are built, checked, and launched in a structured sequence so the release is controlled and measurable.',
+    items: [
+      'Campaign creation and organization',
+      'Targeting setup',
+      'Bids and budgets',
+      'Product and negative targeting',
+      'Conversion and reporting checks',
+      'Pre-launch quality review',
+      'Structured launch',
+    ],
   },
   {
-    "number": "5",
-    "title": "Ongoing Management & Reporting",
-    "description": "Regular keyword mining, bid adjustment, and reporting against both ACOS and TACOS on a set cadence."
-  }
+    title: 'Search-Term & Bid Optimization',
+    body: 'Ongoing review of search terms, targeting, bids, and budgets keeps the account moving in the right direction.',
+    items: [
+      'Search-term review',
+      'Negative keyword and product management',
+      'Keyword discovery and harvesting',
+      'Bid adjustments',
+      'Placement analysis',
+      'Budget allocation',
+      'Product-level performance analysis',
+      'Ongoing optimization',
+    ],
+  },
+  {
+    title: 'Listing & Inventory Monitoring',
+    body: 'Amazon advertising depends on products remaining available and eligible. We monitor the retail signals that can affect campaign performance.',
+    items: [
+      'Product availability checks',
+      'Featured Offer eligibility review',
+      'Pricing and competitive positioning',
+      'Review and rating changes',
+      'Inventory alerts',
+      'Retail readiness coordination',
+    ],
+  },
+  {
+    title: 'Ongoing Management & Reporting',
+    body: 'Management continues after launch in structured cycles with transparent reporting.',
+    items: [
+      'Weekly campaign monitoring',
+      'Search-term review',
+      'Bid and budget adjustments',
+      'Product and keyword analysis',
+      'ACOS and TACOS reporting',
+      'Conversion and sales analysis',
+      'Marketplace visibility checks',
+      'Account health review',
+      'Campaign structure review',
+      'New-to-brand reporting where available',
+      'Competitor movement',
+      'Prime Day and seasonal event planning',
+      'Transparent monthly reporting',
+    ],
+  },
 ]
-  const timeline = service?.timeline || "Initial account setup, including campaign structure and tracking, is typically completed within one to two weeks. Because Amazon's ranking algorithm weighs accumulated sales history, meaningful shifts in both ad performance and organic rank usually take four to eight weeks to show clearly, faster for high-velocity categories, slower for lower-volume or highly seasonal ones."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
+      <div className="max-w-7xl mx-auto">
+        <SectionIntro eyebrow="Process" title="Our Amazon Ads Management Process">
+          We do not apply one identical workflow to every brand.
         </SectionIntro>
+        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          The process is structured around the product, the marketplace, the advertising account,
+          and the available data.
+        </p>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="space-y-6">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+            <div
+              key={step.title}
+              className="border-2 border-frame-border bg-frame-bg p-8 md:p-12"
+            >
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div className="lg:max-w-md">
+                  <div className="mb-4 flex items-center gap-4">
+                    <span className="font-heading text-3xl font-bold text-frame-accent">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div className="h-1.5 w-10 bg-frame-accent" />
+                  </div>
+                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                    {step.body}
+                  </p>
                 </div>
-              )}
+
+                <div className="lg:w-1/2">
+                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
+                    We&apos;re focusing on
+                  </p>
+                  <ul className="grid gap-3 md:grid-cols-2">
+                    {step.items.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

@@ -1,103 +1,96 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Brand & Availability Assessment",
-    "description": "We review your current AI visibility and check what sponsored options genuinely exist for your business right now."
+    title: 'Discovery & Readiness Assessment',
+    body: 'We begin by reviewing your business goals, offer, target markets, and the current state of your landing pages. We also confirm whether the account setup and market are eligible for ChatGPT Ads before anything moves forward.',
+    bullets: [
+      'Review goals, offer, and target markets',
+      'Confirm eligibility for ChatGPT Ads',
+      'Define the campaign structure',
+      'Set up the measurement plan',
+    ],
   },
   {
-    "number": "2",
-    "title": "Foundation & Entity Work",
-    "description": "Brand entity consistency and topical authority work that supports visibility regardless of ad format specifics."
+    title: 'Account & Tracking Setup',
+    body: 'The correct account setups belong inside the campaign preparation stage, not after launch. We connect the right advertiser account, prepare the campaign settings, set up conversions, and build the measurement foundation before the first ad goes live.',
+    bullets: [
+      'Connect the advertiser account',
+      'Approve domains and prepare campaigns',
+      'Create or connect conversion events',
+    ],
   },
   {
-    "number": "3",
-    "title": "Small-Scale Test Planning",
-    "description": "Structured, limited-budget test campaigns designed to generate genuine learning, not assumed results."
+    title: 'Campaign & Creative Development',
+    body: 'We develop campaign objectives, ad-group structure, context hints, creative variations, and landing-page alignment. A ChatGPT Ads campaign should reach the right conversation with the right message and the right landing page.',
+    bullets: [
+      'Campaign, ad-group, and creative structure',
+      'Context and intent targeting',
+      'Alignment with landing pages',
+    ],
   },
   {
-    "number": "4",
-    "title": "Testing & Documentation",
-    "description": "Running tests and carefully tracking what actually happens, since no established playbook exists yet."
+    title: 'Launch & Data Collection',
+    body: 'We launch the campaign in a structured way and monitor early delivery. Early data in a new channel can be limited, so we focus on detecting real problems such as tracking issues or delivery problems rather than reacting to normal performance variation.',
+    bullets: [
+      'Structured launch',
+      'Issue detection',
+      'Performance monitoring against baseline targets, if applicable',
+    ],
   },
   {
-    "number": "5",
-    "title": "Ongoing Monitoring & Iteration",
-    "description": "Adjusting quickly as both your results and the platform's own mechanics continue to develop."
-  }
+    title: 'Optimization & Reporting',
+    body: 'We review performance, refine context, test creative, and adjust budgets based on data. Reporting connects the numbers back to your original business objectives, so you always know what you are paying for and why.',
+    bullets: [
+      'Creative, context, and budget refinement',
+      'Testing roadmap',
+      'Reporting progress against objectives',
+    ],
+  },
 ]
-  const timeline = service?.timeline || "Brand foundation and entity work typically begins producing visible groundwork within two to three weeks. Actual ad testing timelines depend entirely on current platform availability, which we can't set a fixed timeline around honestly, since it's determined by the platform's own rollout schedule, not by us.\n\nThis is not a channel where we'll promise fast, predictable results the way we might for Google or Meta, the honest expectation is ongoing monitoring and testing as opportunities genuinely become available."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="How we work"
+          title="Our ChatGPT Ads Management Process"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          A clear process protects your budget and your decision-making, especially on a channel
+          that is still maturing.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="space-y-6 border-t-2 border-frame-border pt-12">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+            <div
+              key={step.title}
+              className="grid gap-8 border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start"
+            >
+              <div className="flex items-start gap-5">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-frame-accent bg-frame-accent/10 font-mono text-base font-black text-frame-accent">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+              <div className="border-t-2 border-frame-border/60 pt-5 lg:border-l-2 lg:border-t-0 lg:pl-10 lg:pt-0">
+                <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  {step.body}
+                </p>
+                <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
+                  {step.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-2">
+                      <span className="text-frame-accent font-bold">✓</span>
+                      <span className="leading-snug">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

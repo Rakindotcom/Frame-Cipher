@@ -1,201 +1,151 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Pricing({ service }) {
-  const pricingData = service?.pricing || {
-  "intro": "Pricing is generally structured around campaign complexity and whether an account is being built new or migrated from Google Ads.",
-  "packages": [],
-  "table": {
-    "headers": [
-      "",
-      "Starting Price"
+const packages = [
+  {
+    name: 'Standard',
+    tag: 'Microsoft Search',
+    fee: '\u09F320,000',
+    feeNote: 'per month',
+    bestFor: 'Businesses starting with structured Microsoft Search campaigns',
+    included: [
+      'Campaign setup and management',
+      'UET and conversion tracking setup',
+      'Keyword strategy',
+      'Search-term review',
+      'Bid and budget optimization',
+      'Performance monitoring',
+      'Monthly reporting',
+      'Ongoing recommendations',
     ],
-    "rows": [
-      [
-        "",
-        "What's Covered"
-      ],
-      [
-        "",
-        "Best For"
-      ],
-      [
-        "",
-        "Microsoft Ads Management - Standard"
-      ],
-      [
-        "",
-        "৳20,000/month (~$170 USD)"
-      ],
-      [
-        "",
-        "Search campaign management, tracking setup, reporting"
-      ],
-      [
-        "",
-        "Businesses testing Microsoft Ads for the first time"
-      ],
-      [
-        "",
-        "Microsoft Ads Management - Full Account"
-      ],
-      [
-        "",
-        "৳30,000/month (~$255 USD)"
-      ],
-      [
-        "",
-        "Everything in Standard, plus Shopping, LinkedIn Profile Targeting, and audience layer management"
-      ],
-      [
-        "",
-        "Businesses running a full-scope search and shopping presence"
-      ],
-      [
-        "",
-        "Google Ads Migration Package"
-      ],
-      [
-        "",
-        "৳15,000 one-time + management fee"
-      ],
-      [
-        "",
-        "Import, cleanup, and post-import audit of an existing Google Ads account"
-      ],
-      [
-        "",
-        "Businesses moving an established Google account onto Microsoft Ads"
-      ],
-      [
-        "",
-        "Included at every tier:"
-      ]
-    ]
-  }
-}
-  const packages = pricingData?.packages || []
-  const table = pricingData?.table
+    cta: 'Request This Plan',
+  },
+  {
+    name: 'Full Account',
+    tag: 'Search + Shopping + Audience',
+    fee: '\u09F330,000',
+    feeNote: 'per month',
+    bestFor: 'Businesses needing Search, Shopping, audience, and LinkedIn Profile Targeting',
+    included: [
+      'Everything in Standard',
+      'Shopping campaign support',
+      'LinkedIn Profile Targeting setup',
+      'Audience strategy',
+      'Audience campaign management',
+      'Network and placement review',
+    ],
+    cta: 'Request This Plan',
+    popular: true,
+  },
+  {
+    name: 'Google Ads Migration',
+    tag: 'Import Package',
+    fee: '\u09F315,000',
+    feeNote: 'one-time + management fee',
+    bestFor: 'Businesses moving an established Google Ads account to Microsoft Advertising',
+    included: [
+      'Google Ads campaign import',
+      'Campaign and ad review',
+      'Keyword cleanup',
+      'Match-type review',
+      'Bid-strategy and budget adjustment',
+      'Conversion-goal verification',
+      'Post-import audit and relaunch',
+    ],
+    cta: 'Request This Plan',
+  },
+]
 
-  if (!packages.length && !table) return null
-
+export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+    <section id="pricing" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Investment & Plans"
-          title="Pricing & Packages"
+          eyebrow="Investment & plans"
+          title="Microsoft Ads Management Pricing"
         >
-          Clear investment tiers based on project scope, strategic complexity, and technical requirements.
+          Our Microsoft Ads management pricing depends on campaign scope, account complexity,
+          Shopping requirements, audience management, migration needs, and reporting requirements.
         </SectionIntro>
 
-        {packages.length > 0 ? (
-          <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((pkg, index) => (
-              <div
-                key={index}
-                className={`border-2 p-7 md:p-9 flex flex-col justify-between ${
-                  index === 1
-                    ? 'border-frame-accent bg-frame-accent/10'
-                    : 'border-frame-border bg-frame-bg'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Tier 0{index + 1}
-                    </span>
-                    {index === 1 && (
-                      <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                        Most Popular
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {pkg.name}
-                  </h3>
-                  <div className="mt-6 border-y-2 border-frame-border/60 py-4">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Starting Price
-                    </span>
-                    <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
-                      {pkg.price}
-                    </div>
-                  </div>
-                  {pkg.description && (
-                    <p className="mt-3 text-xs font-medium text-frame-muted-fg leading-relaxed">
-                      {pkg.description}
-                    </p>
-                  )}
-                  {pkg.features?.length > 0 && (
-                    <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {pkg.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          {packages.map((pkg, i) => (
+            <div
+              key={pkg.name}
+              className={
+                pkg.popular
+                  ? 'relative flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/5 p-6 md:p-7'
+                  : 'relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-7'
+              }
+            >
+              {pkg.popular && (
+                <span className="absolute right-4 top-4 border border-frame-accent bg-frame-accent px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.18em] text-frame-bg">
+                  Most Popular
+                </span>
+              )}
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
+                  Plan 0{i + 1}
+                </span>
+                <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {pkg.name}
+                </h3>
+                <p className="mt-1 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
+                  {pkg.tag}
+                </p>
+                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                  {pkg.fee}
+                  <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-frame-muted-fg">
+                    {pkg.feeNote}
+                  </span>
+                </p>
+                <div className="mt-4 border border-frame-accent/50 bg-frame-accent/5 p-3">
+                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
+                    Best For
+                  </span>
+                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
+                    {pkg.bestFor}
+                  </p>
                 </div>
 
-                <div className="mt-8">
-                  <PosterButton
-                    href="/contact"
-                    variant={index === 1 ? 'accent' : 'outline'}
-                    className="w-full"
-                  >
-                    Choose {pkg.name}
-                  </PosterButton>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : table?.headers ? (
-          <div>
-            <div className="overflow-hidden border-2 border-frame-border bg-frame-bg">
-              <table className="w-full text-left">
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                  {table.rows?.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-frame-muted/20">
-                      {row.map((cell, cIdx) => (
-                        <td
-                          key={cIdx}
-                          className={`p-4 md:p-6 ${
-                            cIdx === 0
-                              ? 'font-bold text-frame-fg'
-                              : cIdx === 1
-                              ? 'font-bold text-frame-accent'
-                              : 'text-frame-muted-fg'
-                          }`}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
+                <p className="mt-5 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
+                  What&apos;s included
+                </p>
+                <ul className="mt-3 space-y-2.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
+                  {pkg.included.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2">
+                      <span className="font-bold text-frame-accent">&#10003;</span>
+                      <span className="leading-snug">{feat}</span>
+                    </li>
                   ))}
-                </tbody>
-              </table>
-            </div>
+                </ul>
+              </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
-                * Pricing is indicative rather than fixed. Final pricing is confirmed after scoping requirements.
-              </p>
-              <div className="shrink-0">
-                <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>
+              <div className="mt-6 border-t border-frame-border/60 pt-4">
+                <PosterButton href="/contact" className="w-full text-xs">
+                  {pkg.cta}
+                </PosterButton>
               </div>
             </div>
+          ))}
+        </div>
+
+        <div className="mt-8 flex flex-col gap-8 border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-9 lg:flex-row lg:items-center lg:justify-between">
+          <div className="max-w-3xl space-y-3 text-sm md:text-base font-medium leading-relaxed">
+            <p className="text-frame-fg">
+              <span className="font-black uppercase tracking-[0.18em] text-frame-accent">Important: </span>
+              Ad spend is separate from management fees. Your advertising spend is paid through the
+              advertising account and remains under your control.
+            </p>
+            <p className="text-frame-muted-fg">
+              Additional creative production, third-party services, or other implementation work can
+              be scoped separately when required. Pricing is quoted in BDT and final pricing is
+              confirmed in a written proposal.
+            </p>
           </div>
-        ) : null}
+          <div className="shrink-0">
+            <PosterButton href="/contact">Get a Custom Microsoft Ads Quote &rarr;</PosterButton>
+          </div>
+        </div>
       </div>
     </section>
   )

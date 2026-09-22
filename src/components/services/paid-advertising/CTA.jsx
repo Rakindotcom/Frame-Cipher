@@ -1,17 +1,15 @@
 import { CTASection } from '../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Paid Advertising"
-  const primaryCta = service?.primaryCta || "Get Your Free Ad Account Audit"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Ready to make your ad spend accountable?"
+      primaryText="Get Your Free Ad Account Audit"
+      secondaryText="Talk to the Framecipher Media Team"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Find out where your budget is actually going, what your campaigns are producing, what
+      should be fixed first, and which opportunities deserve further investment.
     </CTASection>
   )
 }

@@ -1,60 +1,50 @@
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
-export default function Hero({ service }) {
-  const title = service?.h1 || "Best LinkedIn Ads Management Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "LinkedIn Ads management for precise job title, industry, and company targeting for campaigns built around considered, higher-value sales."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "LinkedIn isn't expensive because the platform is inefficient. It's expensive because you're paying for certainty about who's actually seeing the ad, a VP of Operations at a 200-person company, not a rough demographic guess."
-
+export default function Hero() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
+          <span>/</span>
+          <Link href="/services/paid-advertising" className="transition hover:text-frame-fg">
+            Paid Advertising
+          </Link>
           <span>/</span>
           <span className="text-frame-accent">LinkedIn Ads Management</span>
         </div>
       </nav>
 
-      {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
+        eyebrow="Specialized Capability"
         meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
+        number="360"
+        title="Best LinkedIn Ads Management Service in Bangladesh"
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
+            <PosterButton href="/contact">Get a Free Consultation</PosterButton>
+            <PosterButton href="/services/paid-advertising" variant="outline">
+              Explore Paid Advertising
             </PosterButton>
           </>
         }
       >
-        {subtitle}
+        LinkedIn Ads can help B2B businesses reach decision-makers, generate qualified leads,
+        build demand, and support longer sales cycles. The value is not simply reaching more
+        professionals. It is reaching the right companies and people with a message that fits
+        their business needs and buying stage.
+        {' '}
+        Framecipher provides LinkedIn Ads Management Service in Bangladesh for B2B businesses
+        targeting specific industries, companies, job functions, seniority levels, and buying
+        committees. We manage LinkedIn campaigns for businesses in Bangladesh and global
+        markets, with strategy built around your ideal customer profile, sales process,
+        conversion goals, and pipeline economics. Your LinkedIn Campaign Manager account
+        remains under your ownership. You retain access to your campaigns, advertising data,
+        audiences, spend, and performance information.
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

@@ -1,103 +1,120 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Tracking & Data Audit",
-    "description": "Reviewing existing pixel, tag, and server-side tracking setup across every platform in use before building anything on top of it."
+    title: 'Tracking & Data Audit',
+    body: 'We review the existing tracking and data infrastructure before building campaigns on top of it.',
+    items: [
+      'Pixels',
+      'Tags',
+      'Events',
+      'Server-side tracking',
+      'CRM data',
+      'Conversion signals',
+      'Audience lists',
+      'Exclusions',
+    ],
   },
   {
-    "number": "2",
-    "title": "Segmentation Strategy",
-    "description": "Defining the audience segments and exclusion rules that fit the business's actual funnel and catalog."
+    title: 'Segmentation Strategy',
+    body: 'We map the customer journey and define the audience structure before touching the ad account.',
+    items: [
+      'Audience stages',
+      'Recency windows',
+      'Conversion exclusions',
+      'Customer segments',
+      'Funnel movement',
+      'Messaging requirements',
+    ],
   },
   {
-    "number": "3",
-    "title": "Infrastructure & Campaign Setup",
-    "description": "Installing or correcting tracking, building audiences, and setting up campaigns across the relevant platforms."
+    title: 'Audience & Suppression Setup',
+    body: 'We build the required audiences and exclusion logic across the relevant platforms. The exact implementation depends on platform capabilities, traffic volume, consent requirements, and available data.',
   },
   {
-    "number": "4",
-    "title": "Launch & Frequency Tuning",
-    "description": "Monitoring closely in the first weeks to set frequency caps and catch fatigue before it affects performance."
+    title: 'Campaign & Creative Setup',
+    body: 'We build the campaigns, assign the appropriate audiences, prepare creative, configure available frequency controls, and establish the reporting framework.',
   },
   {
-    "number": "5",
-    "title": "Ongoing Management & Reporting",
-    "description": "Regular list refresh, creative rotation, and reporting by segment rather than one blended remarketing number."
-  }
+    title: 'Launch & Exposure Tuning',
+    body: 'After launch, we monitor the evidence and adjust exposure and messaging based on it.',
+    label: 'After launch, we monitor',
+    items: [
+      'Audience size',
+      'Frequency',
+      'Creative response',
+      'Conversion rate',
+      'CPA',
+      'Revenue',
+      'Campaign overlap',
+      'Audience movement',
+    ],
+  },
+  {
+    title: 'Ongoing Optimization & Reporting',
+    body: 'Reporting is structured around meaningful audience and business segments rather than one blended remarketing number.',
+    label: 'We continuously review',
+    items: [
+      'Audience performance',
+      'Recency',
+      'Creative fatigue',
+      'Suppression',
+      'Budget allocation',
+      'Conversion quality',
+      'Cross-platform performance',
+    ],
+  },
 ]
-  const timeline = service?.timeline || "Tracking and audience infrastructure is typically set up within one to two weeks, though audiences need enough traffic volume to reach usable size before campaigns can run efficiently, for lower-traffic sites, this can take several weeks longer than for high-traffic ones. Once audiences are populated, initial performance signals are usually visible within the first two to three weeks of active campaigns."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
+      <div className="max-w-7xl mx-auto">
+        <SectionIntro eyebrow="Process" title="Our Remarketing Process">
+          We apply the same structured method to every remarketing program, with the specific
+          implementation adapted to each business.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="space-y-6">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+            <div key={step.title} className="border-2 border-frame-border bg-frame-bg p-8 md:p-12">
+              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
+                <div className="lg:max-w-md">
+                  <div className="mb-4 flex items-center gap-4">
+                    <span className="font-heading text-3xl font-bold text-frame-accent">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <div className="h-1.5 w-10 bg-frame-accent" />
+                  </div>
+                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+                    {step.title}
+                  </h3>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                    {step.body}
+                  </p>
                 </div>
-              )}
+
+                {step.items && (
+                  <div className="lg:w-1/2">
+                    {step.label && (
+                      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
+                        {step.label}
+                      </p>
+                    )}
+                    <ul className="grid gap-3 md:grid-cols-2">
+                      {step.items.map((item) => (
+                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

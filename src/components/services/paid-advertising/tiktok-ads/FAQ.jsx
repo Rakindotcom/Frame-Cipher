@@ -1,38 +1,66 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "How is TikTok Ads management different from Meta or Instagram ads?",
-    "answer": "TikTok generally requires more creative volume and faster iteration, since content fatigues quicker on the platform. Targeting also leans more on behavior and content interaction than the demographic-heavy targeting common on Meta."
+    question: 'What is a TikTok Ads Management Service?',
+    answer: 'A TikTok Ads Management Service handles the strategy, setup, creative coordination, targeting, tracking, optimization, and reporting required to run paid advertising campaigns on TikTok. Framecipher manages these activities around business objectives such as sales, leads, website conversions, app growth, and customer acquisition.',
   },
   {
-    "question": "Do we need to work with creators, or can ads run with in-house content only?",
-    "answer": "In-house content can work, but creator-produced and Spark Ads content typically outperforms studio-style ads on TikTok, since it matches what people expect to see in the feed."
+    question: 'How much does TikTok Ads management cost?',
+    answer: 'Framecipher\u2019s TikTok Ads management starts at \u09F330,000 per month for standard campaign management. The final fee depends on creative volume, campaign complexity, creator requirements, ecommerce setup, number of markets, and reporting needs. Ad spend is separate from the management fee.',
   },
   {
-    "question": "How much creativity do we actually need each month?",
-    "answer": "It depends on budget and testing pace, but businesses running structured TikTok campaigns typically need several new video variations monthly rather than one or two, we scope this specifically during onboarding rather than assuming a fixed number."
+    question: 'Do I need TikTok videos before starting ads?',
+    answer: 'Not necessarily. We can work with existing content, develop new native-style concepts, coordinate UGC, or plan creator content depending on your campaign requirements. However, having enough creative variation is important for structured testing.',
   },
   {
-    "question": "Can TikTok Shop be set up if we're already selling through Shopify or another platform?",
-    "answer": "Yes, TikTok Shop can typically be connected to an existing product catalog rather than requiring a separate inventory system, though the exact setup depends on the platform in use."
+    question: 'Do you provide UGC and creator content?',
+    answer: 'Yes. We can support UGC planning, creator briefing, content requirements, usage-rights coordination, and Spark Ads setup. Creator selection is based on campaign relevance and content quality rather than follower count alone.',
   },
   {
-    "question": "Do you provide this service for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we manage TikTok Ads for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Ads Team]"
-  }
+    question: 'What are Spark Ads?',
+    answer: 'Spark Ads allow eligible organic TikTok posts or creator content to be used in paid advertising while retaining the original post identity and associated engagement elements. We use them when existing organic or creator content provides a strong foundation for paid distribution.',
+  },
+  {
+    question: 'Do you manage Smart+ campaigns?',
+    answer: 'Yes. We can manage Smart+ campaigns where they are appropriate for the campaign objective and account. TikTok currently provides Smart+ solutions across several performance objectives and allows certain campaign settings to be controlled manually depending on the campaign and account.',
+  },
+  {
+    question: 'Can you manage TikTok Shop Ads?',
+    answer: 'Yes, where TikTok Shop and the relevant advertising features are available for the client\u2019s market and account. TikTok Shop is currently limited to selected markets, so we verify eligibility before including Shop-specific services in a campaign plan.',
+  },
+  {
+    question: 'Can Bangladesh businesses run TikTok Ads?',
+    answer: 'TikTok advertising availability and specific campaign features depend on the account, registration market, targeting options, and current platform availability. We verify the available advertising setup before launching a Bangladesh campaign rather than assuming every TikTok feature is available locally.',
+  },
+  {
+    question: 'Do you manage TikTok Ads outside Bangladesh?',
+    answer: 'Yes. Framecipher works with businesses targeting markets including the US, UK, Australia, Canada, UAE, and other eligible markets. Campaign structure, creative, audience strategy, and measurement are adapted to the target market.',
+  },
+  {
+    question: 'Do you set up the TikTok Pixel and Events API?',
+    answer: 'Yes. We can configure TikTok Pixel, Events API, events, parameters, and related measurement requirements. Where appropriate, Pixel and Events API can be used together to improve the reliability of data shared with TikTok.',
+  },
+  {
+    question: 'How long does it take to launch a TikTok Ads campaign?',
+    answer: 'Most initial setups take around one to two weeks, depending on tracking, creative production, account access, website or app requirements, and approval time. More complex creator, ecommerce, or multi-market campaigns may require additional preparation.',
+  },
+  {
+    question: 'Do you guarantee TikTok Ads results?',
+    answer: 'No agency can reliably guarantee a specific ROAS, CPA, conversion rate, or viral outcome. We instead commit to proper setup, structured testing, transparent reporting, and ongoing optimization based on campaign data.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="Direct Answers"
+          eyebrow="Direct answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about TikTok Ads management, Spark Ads, Smart+, UGC and creator
+          content, TikTok Shop, Pixel and Events API, pricing, and market eligibility.
         </SectionIntro>
 
         <div className="space-y-4">

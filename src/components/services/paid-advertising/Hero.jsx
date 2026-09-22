@@ -1,60 +1,41 @@
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../Kinetic'
 
-export default function Hero({ service }) {
-  const title = service?.h1 || "Paid Advertising Services in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Ad spend that's actually accountable, Google Ads, Meta Ads, and remarketing campaigns built around conversions, not just clicks, managed by one in-house team. Get a free account audit and see where your budget is actually going."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "Get Your Free Ad Account Audit"
-
+export default function Hero() {
   return (
     <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
         <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
           <span>/</span>
           <span className="text-frame-accent">Paid Advertising</span>
         </div>
       </nav>
 
-      {/* HERO */}
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
-        meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
+        eyebrow="Core Service Pillar"
+        meta="One In-House Team / Built For Conversions"
+        number="01"
+        title="Paid Advertising Services in Bangladesh"
         actions={
           <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
+            <PosterButton href="/contact">Get Your Free Ad Account Audit</PosterButton>
+            <PosterButton href="/contact" variant="outline">
+              Talk to the Framecipher Media Team
             </PosterButton>
           </>
         }
       >
-        {subtitle}
+        Ad spend should be accountable. Framecipher provides paid advertising services across
+        Google, Meta, LinkedIn, TikTok, Microsoft, Amazon, and other relevant platforms, with
+        campaigns built around leads, sales, bookings, and measurable business outcomes. We do
+        not treat clicks, impressions, or reach as the final result. Campaign strategy, creative,
+        landing pages, conversion tracking, and optimization are connected so you can see where
+        your budget is going and what it is producing — for businesses in Bangladesh and
+        international markets including the US, UK, Australia, Canada, and UAE.
       </PageHero>
-
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
     </div>
   )
 }

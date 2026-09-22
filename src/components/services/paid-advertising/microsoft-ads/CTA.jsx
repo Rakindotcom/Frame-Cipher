@@ -1,17 +1,17 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Microsoft Ads Management"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
-      eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      eyebrow="Start your campaign"
+      title="Ready to Explore Microsoft Ads for Your Business?"
+      primaryText="Start Your Microsoft Ads Campaign"
+      secondaryText="Request a Free Consultation"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Microsoft Ads can be a useful addition to a broader paid search strategy when the market,
+      audience, and available search demand support it. Framecipher can assess your opportunity,
+      build or migrate the account, configure tracking, and manage the campaign around measurable
+      business outcomes.
     </CTASection>
   )
 }

@@ -1,17 +1,16 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "Remarketing"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
-      eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      eyebrow="Start your remarketing program"
+      title="Ready to Turn More Existing Traffic Into Customers?"
+      primaryText="Start Your Remarketing Campaign"
+      secondaryText="Request a Free Consultation"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Your business has already paid to attract visitors, viewers, leads, and customers. Framecipher
+      can help you build a remarketing system that brings the right audience back with the right
+      message at the right stage.
     </CTASection>
   )
 }

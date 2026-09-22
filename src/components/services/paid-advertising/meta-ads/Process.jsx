@@ -1,103 +1,106 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Account & Audience Audit",
-    "description": "We review existing campaigns if any exist, and research the audience and creative landscape for your specific category."
+    title: 'Audit & Goal Definition',
+    body: [
+      'We start by understanding the business model, offer, target customer, market, existing data, and desired conversion.',
+      'For an existing account, we review historical performance and the current campaign setup before recommending major changes.',
+    ],
   },
   {
-    "number": "2",
-    "title": "Campaign & Creative Strategy",
-    "description": "Funnel structure, audience targeting, and creative concepts planned around your specific goals."
+    title: 'Offer, Audience & Creative Research',
+    body: [
+      'We study what the customer needs, what objections may prevent action, which messages are likely to resonate, and which creative formats fit the buying journey.',
+    ],
+    note: 'We also identify the first-party signals and audience inputs available to the account.',
   },
   {
-    "number": "3",
-    "title": "Setup & Launch",
-    "description": "Campaigns, creative, and conversion tracking built and reviewed with your approval before spend begins."
+    title: 'Tracking & Campaign Setup',
+    body: [
+      'We configure campaign objectives, conversion events, audiences, creative, placements, budgets, and measurement before launch.',
+    ],
+    note: 'Where applicable, this includes Pixel and Conversions API setup or validation.',
   },
   {
-    "number": "4",
-    "title": "Testing & Optimization",
-    "description": "Ongoing creative and audience testing based on real performance data as it accumulates."
+    title: 'Launch & Initial Learning',
+    body: [
+      'After launch, we monitor delivery, conversion signals, spend, creative performance, and early user behavior.',
+    ],
+    note: 'We avoid making constant major changes before the account has enough useful data to support a decision.',
   },
   {
-    "number": "5",
-    "title": "Reporting & Creative Refresh",
-    "description": "Regular reporting on results, with creative refreshes proactively as fatigue signals appear."
-  }
+    title: 'Testing & Creative Refresh',
+    body: [
+      'We test meaningful variations in the elements that influence performance.',
+    ],
+    bullets: [
+      'Hooks',
+      'Offers',
+      'Messages',
+      'Visuals',
+      'Formats',
+      'Calls to action',
+      'Audiences',
+      'Landing pages',
+    ],
+    note: 'The goal is to learn which combination creates the strongest business outcome.',
+  },
+  {
+    title: 'Reporting & Scaling',
+    body: [
+      'Once the campaign has clearer performance signals, we identify opportunities to increase budget, expand winning creative themes, introduce additional formats, enter new markets, improve the conversion flow, consolidate fragmented structures, and improve measurement.',
+    ],
+    note: 'Scaling is based on evidence rather than simply increasing spend because a campaign had a strong short-term result.',
+  },
 ]
-  const timeline = service?.timeline || "Meta Ads account setup, including campaign structure, creative, and conversion tracking, typically takes one to two weeks. Meta's own learning phase, where the algorithm calibrates delivery based on early conversion data, generally needs about a week of stable settings and a minimum number of conversions before performance data becomes reliable.\n\nCreative refresh is ongoing by nature, expect new creative variations introduced every two to four weeks depending on spend level and how quickly fatigue signals appear, since this isn't a set-once-and-leave campaign type."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Execution framework"
+          title="How We Manage Meta Ads"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Campaigns are built, launched, measured, and scaled through a structured process so
+          decisions are driven by evidence rather than assumptions.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+                <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {step.body.map((paragraph, pIdx) => (
+                    <p key={pIdx}>{paragraph}</p>
+                  ))}
                 </div>
-              )}
+                {step.bullets?.length > 0 && (
+                  <ul className="mt-4 grid gap-1.5 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
+                    {step.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {step.note && (
+                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {step.note}
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

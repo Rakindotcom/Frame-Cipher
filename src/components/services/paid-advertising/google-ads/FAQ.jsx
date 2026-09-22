@@ -1,38 +1,54 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "How much should I budget for Google Ads?",
-    "answer": "It depends on your industry's competition and what a conversion is worth to your business. We help calculate a realistic starting budget during the account audit rather than recommending a generic number."
+    question: 'How much should I budget for Google Ads?',
+    answer: 'There is no universal Google Ads budget that works for every business. A practical starting budget depends on your market, competition, average customer value, expected conversion rate, and available demand. We recommend establishing a realistic test budget based on your business economics rather than choosing an arbitrary number.',
   },
   {
-    "question": "What's the difference between Search, Shopping, and Performance Max?",
-    "answer": "Search shows text ads for specific searches, Shopping shows product listings for ecommerce catalogs, and Performance Max is Google's automated campaign type running across multiple placements at once. We recommend based on what your business actually sells and needs."
+    question: 'How much does Google Ads management cost in Bangladesh?',
+    answer: "Framecipher's Google Ads management plans currently start at ৳15,000 per month, with the management fee varying based on campaign complexity, ecommerce requirements, market coverage, and account size. Your advertising spend is separate from the management fee.",
   },
   {
-    "question": "Do you need access to my existing Google Ads account, or do we start fresh?",
-    "answer": "Either works, we can audit and improve an existing account, or build a new one from scratch if you're starting for the first time. You retain ownership of the account either way."
+    question: 'Do you manage existing Google Ads accounts?',
+    answer: "Yes. We can audit, restructure, and manage an existing account rather than requiring you to start again. We first review the existing campaign structure, tracking, keywords, search terms, bidding, budgets, and performance before recommending major changes.",
   },
   {
-    "question": "Why is my conversion tracking important if I just want more clicks?",
-    "answer": "Google's own bidding algorithms optimize based on your conversion data, if tracking is broken or missing, the platform is optimizing blind, which usually means wasted spend regardless of how many clicks come through."
+    question: 'What types of Google Ads campaigns do you manage?',
+    answer: 'We manage Google Search, Shopping, Performance Max, Display, YouTube, and remarketing campaigns, depending on the business model and campaign objectives. We do not recommend every campaign type for every account. Campaign selection should follow the customer journey and business goal.',
   },
   {
-    "question": "Do you manage Google Ads for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we manage Google Ads for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Ads Team]"
-  }
+    question: 'Do you manage Google Shopping and Performance Max?',
+    answer: 'Yes. For ecommerce businesses, we can manage Shopping and Performance Max alongside Merchant Center, product data, conversion tracking, product segmentation, campaign budgets, and performance analysis.',
+  },
+  {
+    question: 'How do you track leads, calls, and sales?',
+    answer: 'Tracking depends on the business model. We can configure and review website conversions, lead forms, phone calls, ecommerce purchases, and other defined conversion actions. Where the technical setup supports it, measurement can also extend to enhanced conversions and downstream lead or sales data.',
+  },
+  {
+    question: 'Do you set up GA4, Google Tag Manager, and conversion tracking?',
+    answer: 'We can configure and review the relevant tracking setup as part of campaign measurement, depending on the website, account structure, and technical requirements. The objective is to make sure Google Ads is receiving useful conversion signals before major optimization or scaling decisions are made.',
+  },
+  {
+    question: 'How long does it take to optimize a Google Ads campaign?',
+    answer: 'Initial setup can often be completed within one to two weeks, depending on the account and requirements. Optimization continues after launch because meaningful campaign management depends on actual search, conversion, and performance data.',
+  },
+  {
+    question: 'Do you manage Google Ads campaigns outside Bangladesh?',
+    answer: "Yes. Framecipher manages campaigns for businesses in Bangladesh as well as clients targeting international markets such as the US, UK, Australia, Canada, and UAE. International campaigns are planned around the search behavior, competition, targeting, and commercial conditions of each market.",
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="Direct Answers"
+          eyebrow="Direct answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about Google Ads budgets, campaign types, pricing, tracking, and
+          international management.
         </SectionIntro>
 
         <div className="space-y-4">

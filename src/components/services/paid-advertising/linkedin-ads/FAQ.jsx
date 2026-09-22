@@ -1,38 +1,58 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "Why is LinkedIn so much more expensive than Meta or Google?",
-    "answer": "LinkedIn's cost reflects the precision of its targeting, verified job title, seniority, industry, and company data that other platforms can only approximate through inferred interest signals, which is a meaningfully different level of accuracy."
+    question: 'What is LinkedIn Ads management?',
+    answer: 'LinkedIn Ads management is the process of planning, launching, measuring, testing, and optimizing LinkedIn advertising campaigns around defined B2B marketing and sales objectives. It can include ICP research, professional audience targeting, Sponsored Content, Lead Gen Forms, Sponsored Messaging, account-based marketing, retargeting, conversion tracking, CRM measurement, and reporting.',
   },
   {
-    "question": "Is LinkedIn Ads worth it for a small B2B business?",
-    "answer": "It depends on deal value and sales cycle. If your average customer value justifies a higher cost-per-lead and the buying decision involves specific professional roles, LinkedIn's precision is usually worth the premium, for low-value or impulse purchases, it typically isn't."
+    question: 'Why should a B2B company use LinkedIn Ads?',
+    answer: 'LinkedIn can be useful when your target audience can be clearly defined by professional characteristics such as company, industry, job function, seniority, or other professional attributes. Whether it makes commercial sense depends on your deal value, audience availability, sales cycle, offer, and ability to convert qualified prospects.',
   },
   {
-    "question": "How do you measure success differently on LinkedIn compared to other platforms?",
-    "answer": "We weight lead quality over lead volume specifically here, tracking how leads actually move through your sales pipeline rather than treating every form submission as an equivalent result."
+    question: 'Are LinkedIn Ads suitable for small B2B businesses?',
+    answer: 'They can be, but audience size and deal economics matter. We evaluate your ICP, customer value, sales cycle, target-market size, and realistic advertising budget before recommending LinkedIn as an acquisition channel.',
   },
   {
-    "question": "What's account-based marketing, and does my business need it?",
-    "answer": "It's targeting a specific, named list of companies rather than a broader audience defined by title or industry, useful for businesses with a smaller number of high-value target accounts rather than a broad addressable market."
+    question: 'What is the difference between LinkedIn Lead Gen Forms and website lead forms?',
+    answer: 'LinkedIn Lead Gen Forms collect information directly within LinkedIn and can use pre-filled member profile information. Website forms send the prospect to your own website before completing the conversion. The appropriate option depends on the offer, qualification requirements, landing page, sales process, and measurement setup.',
   },
   {
-    "question": "Do you manage LinkedIn Ads for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi B2B businesses, we manage LinkedIn Ads for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Ads Team]"
-  }
+    question: 'What is account-based marketing on LinkedIn?',
+    answer: 'Account-based marketing focuses advertising around a defined list of target companies and the professional roles involved in buying from them. It is particularly relevant for businesses selling high-value products or services to a smaller number of strategic accounts.',
+  },
+  {
+    question: 'What are Buyer Groups on LinkedIn?',
+    answer: 'Buyer Groups are an AI-powered LinkedIn audience option designed to help advertisers reach decision-makers and key stakeholders involved in purchasing decisions within companies. They can be considered as part of a broader audience strategy alongside company, role, geographic, first-party, and other relevant signals.',
+  },
+  {
+    question: 'Do you integrate LinkedIn Ads with CRM systems?',
+    answer: 'Where the technical setup supports it, yes. We can connect available CRM or conversion data to help measure qualified leads and downstream sales outcomes. LinkedIn currently supports CRM-connected conversion data and qualified-lead optimization through supported CRM and Conversions API setups.',
+  },
+  {
+    question: 'Do you use LinkedIn Conversions API?',
+    answer: 'Yes, where appropriate. Conversions API can help connect business conversion data with LinkedIn measurement and optimization. We assess the available technical setup before determining the appropriate implementation.',
+  },
+  {
+    question: 'Do you manage LinkedIn Ads outside Bangladesh?',
+    answer: 'Yes. Framecipher manages LinkedIn Ads for businesses targeting Bangladesh as well as international B2B markets such as the US, UK, Australia, Canada, UAE, and other regions.',
+  },
+  {
+    question: 'How much should I budget for LinkedIn Ads?',
+    answer: 'There is no universal budget that works for every B2B campaign. A practical starting budget depends on audience size, market competition, deal value, expected conversion rate, sales cycle, target-account scope, and the amount of data needed to evaluate performance. We recommend planning the media budget around your sales economics rather than choosing an arbitrary monthly figure.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="Direct Answers"
+          eyebrow="Direct answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about LinkedIn Ads management, ICP, Lead Gen Forms, account-based
+          marketing, CRM measurement, and international campaigns.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -1,103 +1,62 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Account & Opportunity Audit",
-    "description": "Reviewing any existing account (or Google Ads account, if migrating) and assessing realistic search volume for the business's category on this network."
+    title: 'Audit & Opportunity Assessment',
+    body: 'We begin by reviewing your business, market, current advertising activity, search demand, website or ecommerce setup, tracking, and conversion goals. If you already use Google Ads, we also assess which campaigns are worth importing and which should be rebuilt or excluded.',
   },
   {
-    "number": "2",
-    "title": "Strategy & Campaign Planning",
-    "description": "Structuring campaign types, keyword strategy, and audience layers around what Microsoft Ads specifically rewards."
+    title: 'Strategy & Campaign Planning',
+    body: 'We define campaign objectives, market and location targeting, keyword structure, audience strategy, budget allocation, conversion goals, network settings, measurement requirements, and the reporting framework.',
   },
   {
-    "number": "3",
-    "title": "Setup & Migration",
-    "description": "Building new campaigns or migrating and cleaning up an imported account, with tracking configured correctly before launch."
+    title: 'Setup or Migration',
+    body: 'We either build the account from the ground up or use Microsoft\u2019s Google Ads import workflow as a starting point. Imported campaigns are reviewed before launch.',
   },
   {
-    "number": "4",
-    "title": "Launch & Early Optimization",
-    "description": "Monitoring closely in the first weeks, since Microsoft's lower volume means it typically takes longer to gather statistically meaningful data than on Google."
+    title: 'Tracking & QA',
+    body: 'Before launch, we verify UET, conversion goals, event tracking, URLs, ad assets, product feeds where applicable, audience settings, campaign budgets, and network settings.',
   },
   {
-    "number": "5",
-    "title": "Ongoing Management & Reporting",
-    "description": "Regular bid, budget, and audience adjustments, with reporting on a set cadence."
-  }
+    title: 'Launch & Early Optimization',
+    body: 'We launch the agreed campaign structure and monitor early delivery closely. Early data is used to identify search-term patterns, conversion issues, audience opportunities, traffic-quality concerns, budget inefficiencies, and creative or landing-page problems.',
+  },
+  {
+    title: 'Ongoing Management & Scaling',
+    body: 'Once the account produces reliable signals, we optimize budgets, bids, audiences, keywords, search terms, assets, and campaign structure based on evidence. Scaling is based on repeatable performance rather than simply increasing spend.',
+  },
 ]
-  const timeline = service?.timeline || "Initial account setup or migration is typically completed within one to two weeks. Because search volume on this network is generally lower than Google's, gathering enough data to properly judge performance usually takes longer here, often four to six weeks rather than two to three, particularly for lower-volume keyword categories."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+      <div className="max-w-7xl mx-auto">
+        <SectionIntro eyebrow="Process" title="Our Microsoft Ads Management Process">
+          A structured path from audit to ongoing management, with every stage tied to the actual
+          business objective.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+            <div
+              key={step.title}
+              className="border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
+            >
+              <div className="mb-5 flex items-center gap-4">
+                <span className="font-heading text-4xl font-bold text-frame-accent">
+                  {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
+                <div className="h-1.5 flex-1 bg-frame-accent" />
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                {step.title}
+              </h3>
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                {step.body}
+              </p>
             </div>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

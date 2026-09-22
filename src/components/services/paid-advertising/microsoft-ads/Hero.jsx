@@ -1,60 +1,53 @@
-import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
-export default function Hero({ service }) {
-  const title = service?.h1 || "Microsoft Ads Management Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "Microsoft Ads management covering Bing, the Search Network, and LinkedIn Profile Targeting for research-driven, desktop-first buyers."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "Microsoft Ads management example showing a Bing search ad"
-
+export default function Hero() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
-          <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
-          <span>/</span>
-          <span className="text-frame-accent">Microsoft Ads Management</span>
-        </div>
-      </nav>
-
-      {/* HERO */}
+    <section className="relative border-2 border-frame-border bg-frame-bg">
       <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
+        eyebrow="Specialized Capability"
         meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
-        actions={
-          <>
-            <PosterButton href="/contact">Book a Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
-            </PosterButton>
-          </>
-        }
-      >
-        {subtitle}
-      </PageHero>
+        number="360"
+      />
+      <div className="relative z-10 px-4 pb-20 pt-6 md:px-8 md:pb-28 md:pt-10 max-w-7xl mx-auto">
+        <nav className="mb-8 flex flex-wrap items-center gap-2 text-[11px] md:text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
+          <a href="/" className="transition-colors hover:text-frame-accent">Home</a>
+          <span className="text-frame-accent">/</span>
+          <a href="/services" className="transition-colors hover:text-frame-accent">Services</a>
+          <span className="text-frame-accent">/</span>
+          <a href="/services/paid-advertising" className="transition-colors hover:text-frame-accent">Paid Advertising</a>
+          <span className="text-frame-accent">/</span>
+          <span className="text-frame-accent">Microsoft Ads</span>
+        </nav>
 
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
-          </div>
-        </section>
-      )}
-    </div>
+        <div className="max-w-4xl">
+          <h1 className="font-heading text-4xl font-bold uppercase leading-[1.05] tracking-tight text-frame-fg sm:text-5xl md:text-6xl lg:text-7xl">
+            Microsoft Ads Management{' '}
+            <span className="text-frame-accent">Service in Bangladesh</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+            Turn Microsoft Search Into Another Measurable Acquisition Channel
+          </p>
+        </div>
+      </div>
+      <div className="relative z-10 border-t-2 border-frame-border px-4 pb-16 md:px-8 max-w-7xl mx-auto">
+        <p className="mt-8 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          Framecipher provides Microsoft Ads Management Service for businesses in Bangladesh and
+          international markets. We build and manage Search, Shopping, audience, LinkedIn Profile
+          Targeting, remarketing, and conversion tracking around your actual business goals.
+        </p>
+        <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          Instead of simply importing a Google Ads account and leaving it unchanged, we adapt
+          keywords, campaign structure, bidding, audiences, network settings, and measurement to
+          Microsoft Advertising. The result is a more deliberate approach to generating qualified
+          leads, ecommerce sales, and measurable customer acquisition.
+        </p>
+        <div className="mt-10 flex flex-wrap items-center gap-6">
+          <PosterButton href="#pricing">Get a Free Consultation</PosterButton>
+          <a href="/services/paid-advertising" className="text-sm font-bold uppercase tracking-widest text-frame-accent transition-colors hover:text-frame-fg">
+            Explore Paid Advertising →
+          </a>
+        </div>
+      </div>
+    </section>
   )
 }

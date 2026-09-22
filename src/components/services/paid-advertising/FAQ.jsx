@@ -1,50 +1,70 @@
 import { SectionIntro } from '../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "How much should I actually budget for paid advertising?",
-    "answer": "It depends on your industry's competition and what a conversion is worth to your business. We help calculate a realistic starting budget during the free audit rather than recommending an arbitrary number."
+    question: 'How much should I budget for paid advertising?',
+    answer: 'There is no universal advertising budget. The right starting point depends on your industry, market size, customer acquisition economics, competition, conversion rate, average order value, sales cycle, and the value of a new customer. We recommend a realistic starting budget after reviewing those factors rather than assigning an arbitrary number.',
   },
   {
-    "question": "What's the difference between your management fee and my ad spend?",
-    "answer": "The management fee pays for strategy, setup, and ongoing optimization; ad spend goes directly to the platform, usually billed separately to you, so you always know exactly what's paying for what."
+    question: "What's the difference between your management fee and my ad spend?",
+    answer: 'The management fee pays Framecipher for strategy, setup, campaign management, optimization, reporting, and other agreed services. Your ad spend is paid separately to the advertising platform. Keeping the two separate makes the total cost of advertising easier to understand and manage.',
   },
   {
-    "question": "How is paid advertising different from SEO?",
-    "answer": "Paid advertising produces traffic immediately but stops the moment it stops. SEO builds slower but keeps producing results without ongoing spend. Many businesses use both, since they solve different timing problems."
+    question: 'Which paid advertising platform should my business use?',
+    answer: "That depends on where your customers search, browse, compare, and make decisions. A local service business may need a different media mix from an ecommerce brand, B2B company, SaaS business, or international brand. We select platforms based on business fit rather than recommending every channel by default.",
   },
   {
-    "question": "Do you guarantee a specific return on ad spend?",
-    "answer": "No, no agency can honestly guarantee a specific return, since results depend on your offer, market, and competition. We focus on transparent tracking and continuous optimization instead of unverifiable promises."
+    question: 'Can you manage an existing Google or Meta Ads account?',
+    answer: 'Yes. We can audit an existing account, identify structural and performance issues, and then manage the campaign under an agreed scope. We can also build campaigns from scratch when there is no existing account structure worth retaining.',
   },
   {
-    "question": "Can you manage campaigns across multiple platforms at once?",
-    "answer": "Yes, Google, Meta, LinkedIn, and the other platforms we manage are often coordinated as one strategy rather than run in isolation, since search, social, professional, and remarketing channels typically perform better together than separately."
+    question: 'Do you create the ad creatives?',
+    answer: 'Creative support depends on the engagement scope. Where creative is included, we can coordinate ad copy, static concepts, short-form formats, product-focused creative, testing variations, and platform-specific messaging. The objective is to create assets that support performance rather than simply make the ads look attractive.',
   },
   {
-    "question": "How do you decide which of these ten platforms my business should actually use?",
-    "answer": "It depends on where your specific buyers actually spend attention and make decisions, a B2B service business needs a very different platform mix than an ecommerce store or a consumer app, and we recommend based on that rather than running every platform by default."
+    question: 'Do you set up conversion tracking?',
+    answer: 'Where tracking is included in the engagement, we configure and validate the agreed conversion events using the available website, analytics, tag-management, CRM, and advertising-platform infrastructure. The exact implementation depends on your website and technology stack.',
   },
   {
-    "question": "Do you actually run ads inside ChatGPT?",
-    "answer": "Yes, where the platform's sponsored placement options are available, it's an early, evolving channel, and we're upfront about it being less proven than Google or Meta, but early positioning in a channel like this can be a genuine advantage before it gets more competitive and expensive."
+    question: 'Can you improve my landing page as part of the campaign?',
+    answer: "Yes, where included in scope. We can review ad-to-landing-page alignment, offer clarity, forms, checkout flow, mobile experience, calls to action, trust signals, and other conversion barriers. Framecipher can also support landing-page and development work when the campaign requires changes beyond the ad platform.",
   },
   {
-    "question": "Do you serve businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we manage paid advertising for clients in the US, UK, Australia, Canada, and UAE."
-  }
+    question: 'How do you measure lead quality?',
+    answer: 'We do not treat every lead as equal. Where the business has a suitable sales or CRM process, campaign analysis can consider qualified leads, booked calls, opportunities, purchases, or other downstream outcomes rather than stopping at the initial form submission.',
+  },
+  {
+    question: 'Do you guarantee ROAS?',
+    answer: 'No. A specific return depends on your offer, price, margins, market competition, customer demand, conversion rate, website performance, and many other variables. We focus on accurate tracking, structured testing, optimization, and transparent reporting instead of promising a number that cannot be controlled.',
+  },
+  {
+    question: 'Can you manage multiple advertising platforms at once?',
+    answer: 'Yes, when the business has a clear reason to use multiple channels. We coordinate the channels as part of one media strategy instead of treating every platform as a separate campaign universe.',
+  },
+  {
+    question: 'Do you manage remarketing campaigns?',
+    answer: 'Yes. Remarketing can be used to reconnect with relevant audiences who have already interacted with your business, subject to the available platform features, audience data, consent requirements, and campaign objective.',
+  },
+  {
+    question: 'Are ChatGPT Ads available for every business?',
+    answer: "No. ChatGPT Ads and Ads Manager access depend on the advertiser's country and eligibility, and availability can change as the platform expands. We assess access and suitability before including the channel in a media plan.",
+  },
+  {
+    question: 'Do you serve businesses outside Bangladesh?',
+    answer: "Yes. Framecipher works with businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE. Campaign structure, targeting, budget, and messaging can be adapted for the specific market rather than copied from a single-region strategy.",
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
           eyebrow="Direct Answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Common questions about paid advertising budgets, tracking, platforms, and how
+          engagement works.
         </SectionIntro>
 
         <div className="space-y-4">

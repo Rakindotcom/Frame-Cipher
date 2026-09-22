@@ -1,139 +1,254 @@
-import { SectionIntro, PosterButton } from '../../Kinetic'
+import { SectionIntro } from '../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const services = [
   {
-    "title": "Paid advertising covers the strategy, creative, and ongoing management needed to turn ad spend into actual leads or sales, and it typically includes platform strategy, campaign setup, ad creative, landing page alignment, and continuous optimization based on real performance data, not just platform-reported vanity metrics. It's built for businesses that want spend treated as an investment with a measurable return, not a monthly line item nobody's fully accountable for.",
-    "description": "Google Ads Management Search and Shopping campaigns that capture people actively looking for what you sell, built around the terms and intent that actually drive purchases. Meta Ads Management Facebook and Instagram campaigns built around genuine buyer behavior and interest data, not just broad demographic guessing. LinkedIn Ads Management B2B-focused campaigns targeted by job title, industry, and company size, where the buyer research and decision-making around higher-consideration purchases actually happens. Pinterest Ads Management Visual discovery campaigns for businesses whose products or content fit how Pinterest users actually browse and plan purchases. ChatGPT Ads Management Advertising placements within ChatGPT and similar AI assistants as sponsored formats open up, an early-mover channel worth testing before it gets more competitive. TikTok Ads Management Short-form video campaigns built around the platform's specific content style and audience behavior, not a repurposed Instagram ad. Microsoft Ads Management Search campaigns on Bing and the Microsoft Search Network, often less competitive and lower-cost than Google Ads for the same search terms. Amazon Ads Management Sponsored product and brand campaigns built around Amazon's own search and buying behavior, for businesses selling directly on the platform. Remarketing Re-engaging people who've already shown interest, visited your site, added to cart, started a form, before that intent quietly disappears. Lead Generation Ads Campaigns built specifically around form fills and direct inquiries rather than ecommerce checkout, with lead quality treated as seriously as lead volume.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Every platform charges for something slightly different, and understanding that changes how a campaign should actually be built.",
-  "Search Platforms: Paying for Intent",
-  "Google Ads and Microsoft Ads charge when someone actively searching for what you offer clicks through, you're paying to reach people who've already expressed intent, which is why search campaigns often convert at a higher rate than platforms built around passive scrolling.",
-  "Social & Discovery Platforms: Paying for Attention",
-  "Meta, TikTok, and Pinterest charge based on reach and engagement among people who weren't necessarily looking for you, the campaign's job is to interrupt attention convincingly enough to create the intent search ads get to assume already exists.",
-  "LinkedIn: Paying for Precision",
-  "LinkedIn's targeting costs more per click than most platforms, but it buys access to job titles, industries, and company sizes that are hard to reach accurately anywhere else; the premium is for precision, not volume.",
-  "Amazon: Paying for Purchase-Ready Traffic",
-  "Amazon Ads put your product in front of people already in a buying mindset on the platform itself, competing directly against similar listings at the exact moment someone's deciding what to buy.",
-  "Remarketing: Paying to Close the Loop",
-  "Remarketing budgets are typically smaller but often carry the highest return, since you're spending to bring back someone who already showed real interest rather than trying to create interest from nothing.",
-  "AI Platform Ads: Paying for a Conversation",
-  "ChatGPT and similar AI assistants are early in monetizing sponsored placements, and the mechanic looks less like a search results page and more like being recommended inside an answer someone's actively asking for, a genuinely different kind of attention than a scroll feed or a search results list.",
-  "Most effective strategies blend a few of these deliberately, rarely all nine at once, based on where your specific buyers actually spend their attention, not which platforms happen to be trending.",
-  "Why This Service Matters",
-  "Every week a poorly structured campaign keeps running, budget keeps flowing toward clicks that were never going to convert, and unlike organic SEO, paid advertising doesn't compound in your favor if it's set up wrong, it just keeps costing money at the same rate until someone actually fixes it. The upside cuts the same way: a properly optimized campaign can start producing results almost immediately, which is the real advantage paid advertising has over slower-building organic channels.",
-  "A common misunderstanding treats ad platforms' own reported metrics, clicks, impressions, reach, as proof of success. A campaign can look excellent by every number the platform shows you and still be losing money once you check what actually happened after the click. The number that matters is what a click turned into, not how many happened."
-]
-  const whyChooseUs = service?.whyChooseUs || [
+    title: 'Paid Media Strategy',
+    summary: 'We build a paid media strategy around your business model, customers, sales cycle, offer, market, and budget.',
+    body: [
+      'The strategy determines which platforms deserve investment, which audiences to prioritize, what funnel stages need support, and how the budget should be distributed.',
+      'For some businesses, that may mean capturing existing search demand. For others, it may require social discovery, lead generation, remarketing, marketplace advertising, or a combination of channels.',
+    ],
+    note: 'We do not recommend every platform simply because it is available.',
+  },
   {
-    "title": "Framecipher runs paid media, landing page development, and conversion tracking under one in-house team, so a campaign's creative, its destination page, and its performance data all get reviewed by people who can actually see the whole picture, not a media buyer optimizing blind to what happens after the click. Every campaign change goes through your review before budget moves, which keeps you informed instead of finding out what happened to your spend after the fact.",
-    "text": "We work with Bangladeshi businesses and international clients across the US, UK, Australia, Canada, and UAE, which means campaign strategy accounts for real differences in platform costs, competition, and buyer behavior between markets rather than applying one region's playbook everywhere. Conversion tracking gets set up properly from day one here, not treated as an afterthought once someone finally asks where the budget actually went."
-  }
+    title: 'Audience & Buyer Research',
+    summary: 'The right audience is more important than simply reaching a large audience.',
+    body: [
+      'We examine who is most likely to buy, what they are searching for or responding to, what problems they are trying to solve, what objections may prevent conversion, and where they are in the buying journey.',
+    ],
+    bullets: [
+      'Search intent and keyword behavior',
+      'Customer segments',
+      'Buyer roles and decision-makers',
+      'Geographic markets',
+      'Existing website audiences',
+      'Remarketing groups',
+      'Product or service interests',
+      'Funnel stage',
+      'Lead and customer quality',
+    ],
+    note: 'This creates targeting decisions based on customer behavior rather than assumptions.',
+  },
+  {
+    title: 'Campaign & Account Management',
+    summary: 'Campaign structure affects how clearly your budget, targeting, creative, and performance can be evaluated.',
+    body: [
+      'We organize accounts around meaningful business objectives and measurable campaign groups, with the right settings, targeting, budgets, bidding approach, audiences, exclusions, and conversion actions for each campaign.',
+    ],
+    bullets: [
+      'Account and campaign structure',
+      'Keyword and audience targeting',
+      'Budget allocation',
+      'Bid and bidding-strategy management',
+      'Ad group and asset organization',
+      'Negative targeting and exclusions',
+      'Product feed or catalog coordination where applicable',
+      'Campaign testing',
+      'Ongoing optimization',
+    ],
+    note: 'The objective is to make account performance easier to understand and easier to improve.',
+  },
+  {
+    title: 'Ad Creative & Testing',
+    summary: 'A strong campaign can still struggle when the creative does not communicate the right message.',
+    body: [
+      'We develop and coordinate ad concepts around the audience, offer, funnel stage, and platform context.',
+    ],
+    bullets: [
+      'Headlines and primary copy',
+      'Offers and calls to action',
+      'Static creative',
+      'Short-form video',
+      'Product-focused creative',
+      'Customer pain points',
+      'Benefits and differentiators',
+      'Social proof',
+      'Different creative angles',
+      'Audience-to-message matching',
+    ],
+    note: 'Creative performance is reviewed as part of the campaign system rather than treated as a separate design task.',
+  },
+  {
+    title: 'Conversion Tracking & Attribution',
+    summary: 'You cannot optimize what you cannot measure reliably.',
+    body: [
+      'We establish the conversion events needed to understand what paid traffic actually produces, subject to the available website, analytics, CRM, and platform setup.',
+    ],
+    bullets: [
+      'Website leads',
+      'Form submissions',
+      'Calls',
+      'Purchases',
+      'Add-to-cart actions',
+      'Checkout events',
+      'Sign-ups',
+      'Bookings',
+      'Key engagement events',
+      'Platform and analytics reporting',
+      'Offline or CRM-based conversion feedback where supported',
+    ],
+    note: 'Where included in scope, tracking setup is reviewed before launch so campaign optimization is based on conversion data instead of clicks alone.',
+  },
+  {
+    title: 'Landing Page & Conversion Optimization',
+    summary: 'The ad is only one part of the conversion path.',
+    body: [
+      'A relevant click can still fail because of a slow page, weak offer, poor message alignment, confusing navigation, weak trust signals, or unnecessary friction during the conversion process.',
+      'We review the relationship between: Ad \u2192 Landing Page \u2192 Offer \u2192 Form or Checkout \u2192 Conversion.',
+    ],
+    bullets: [
+      'Ad-to-page message alignment',
+      'Landing page structure',
+      'Offer presentation',
+      'Call-to-action placement',
+      'Lead form friction',
+      'Mobile experience',
+      'Ecommerce conversion flow',
+      'Trust and credibility elements',
+      'Page speed and technical barriers',
+    ],
+    note: 'When a campaign requires development or landing-page changes, our in-house design and development capabilities can support the post-click experience as well.',
+  },
+  {
+    title: 'Remarketing & Retargeting',
+    summary: 'Not every visitor is ready to convert on the first visit.',
+    body: [
+      'Remarketing helps reconnect with people who have already interacted with your website, products, ads, or other relevant touchpoints. We can build remarketing strategies around different stages of intent.',
+    ],
+    bullets: [
+      'Website visitors',
+      'Product viewers',
+      'Cart or checkout visitors',
+      'Previous leads',
+      'Previous customers',
+      'Engaged social audiences',
+      'High-intent site visitors',
+    ],
+    note: 'The message should change according to what the user already knows. Someone who only viewed a page may need a different message from someone who added a product to their cart.',
+  },
+  {
+    title: 'Performance Reporting & Optimization',
+    summary: 'Reporting should lead to decisions, not simply display numbers.',
+    body: [
+      'We monitor the metrics that matter for the campaign objective and use performance data to determine what should be changed next.',
+    ],
+    bullets: [
+      'Spend',
+      'Impressions',
+      'Clicks',
+      'CTR',
+      'CPC',
+      'Leads',
+      'Cost per lead',
+      'Purchases',
+      'Conversion rate',
+      'Cost per acquisition',
+      'Revenue',
+      'Return on ad spend',
+      'Campaign and audience performance',
+    ],
+    note: 'The goal is to explain what happened, why it happened, and what should happen next.',
+  },
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
+const researchAreas = [
+  {
+    title: 'Ad \u2192 Landing Page Alignment',
+    body: 'The message that earns the click should be the message the page continues. We review whether the landing page delivers the promise the ad made and gives the visitor a clear next step.',
+    tail: 'This is where a large share of paid campaign spend is wasted. The click is earned and then lost in the post-click experience.',
+  },
+  {
+    title: 'Offer, Friction & Trust Review',
+    body: 'A relevant click can still fail because of a weak offer, too much form friction, unclear pricing, missing trust signals, or a conversion path that does not match the customer\u2019s readiness.',
+    tail: 'We identify the specific barriers between the click and the action your campaign was built to produce.',
+  },
+]
 
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+    <section id="offerings" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <div>
+          <SectionIntro
+            eyebrow="Capabilities & Scope"
+            title="What Paid Advertising Services Include"
+          >
+            Paid advertising involves much more than creating ads and pressing launch. We manage
+            the strategy, campaign structure, creative coordination, tracking, landing-page
+            alignment, optimization, and reporting required to turn media spend into measurable
+            business results.
+          </SectionIntro>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
+          <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+            {services.map((item, index) => (
+              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+                <div>
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Service 0{index + 1}
+                  </span>
+                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {item.title}
+                  </h3>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
+                    {item.summary}
+                  </p>
+                  <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {item.body.map((paragraph, pIdx) => (
+                      <p key={pIdx}>{paragraph}</p>
+                    ))}
                   </div>
                   {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                    <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
                       {item.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2">
                           <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
+                          <span className="leading-snug">{bullet}</span>
                         </li>
                       ))}
                     </ul>
                   )}
+                  {item.note && (
+                    <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      {item.note}
+                    </div>
+                  )}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
+        </div>
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
+        <div className="mt-28">
+          <SectionIntro
+            eyebrow="The post-click experience"
+            title="Where Clicks Become Conversions"
+          >
+            Paid advertising does not end when someone clicks. The quality of the landing page,
+            offer, and conversion path determines whether the click produces business value.
+          </SectionIntro>
+
+          <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+            {researchAreas.map((area, index) => (
+              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+                <div>
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+                    Focus 0{index + 1}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    {area.title}
+                  </h3>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {area.body}
+                  </p>
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {area.tail}
+                  </p>
                 </div>
-              )}
-
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </div>
+              </div>
+            ))}
           </div>
-        </section>
-      )}
-    </div>
+        </div>
+      </div>
+    </section>
   )
 }
