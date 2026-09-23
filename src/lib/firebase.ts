@@ -5,7 +5,7 @@ import { getAnalytics, Analytics, isSupported } from "firebase/analytics";
 
 // Fallback configuration if env vars are not set
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyCWldbjbDKKVW7RCEuQhLbOCVgkSR9RN3I",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "frame-cipher.firebaseapp.com",
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "frame-cipher",
   storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "frame-cipher.firebasestorage.app",
