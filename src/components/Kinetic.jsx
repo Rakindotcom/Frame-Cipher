@@ -10,7 +10,7 @@ function humanizeServiceCopy(value = '') {
     .replace(/View Full Pillar/gi, 'View complete solution')
 }
 
-export function PageHero({ eyebrow, title, children, meta, number = '360', actions }) {
+export function PageHero({ eyebrow, title, children, meta, number = '360', actions = null }) {
   return (
     <section className="relative isolate overflow-hidden border-b-2 border-frame-border px-4 pb-20 pt-28 md:px-8 md:pb-28 md:pt-36">
       <div
@@ -183,7 +183,7 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
   return <article className={classes}>{content}</article>
 }
 
-export function CTASection({ eyebrow = 'Next move', title, children, primaryText = 'Book a strategy call', secondaryText = 'Send a brief' }) {
+export function CTASection({ eyebrow = 'Next move', title = 'Ready to build what comes next?', children = null, primaryText = 'Book a strategy call', secondaryText = 'Send a brief' }) {
   return (
     <section className="border-t-2 border-frame-border px-4 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-[95vw]">

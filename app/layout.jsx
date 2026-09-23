@@ -1,7 +1,5 @@
-import Navbar from '../src/components/Navbar'
-import Footer from '../src/components/Footer'
+import { ConditionalLayout } from '../src/components/layout/ConditionalLayout'
 import RouteScrollToTop from '../src/components/RouteScrollToTop'
-import ScrollToTopButton from '../src/components/ScrollToTop'
 import { contact, services, siteUrl } from '../src/data/agency'
 import { getPillarServices, getServiceDisplayName, getSubServicesForPillar } from '../src/data/servicePages'
 import '../src/index.css'
@@ -110,13 +108,9 @@ export default function RootLayout({ children }) {
       </head>
       <body suppressHydrationWarning>
         <RouteScrollToTop />
-        <div className="min-h-screen overflow-x-clip bg-frame-bg text-frame-fg">
-          <div className="kinetic-noise" aria-hidden="true" />
-          <Navbar pillarNavServices={pillarNavServices} />
+        <ConditionalLayout pillarNavServices={pillarNavServices}>
           {children}
-          <Footer />
-          <ScrollToTopButton />
-        </div>
+        </ConditionalLayout>
       </body>
     </html>
   )

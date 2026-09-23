@@ -9,13 +9,13 @@ export default function HomeRecentInsights() {
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              Insights / Signals
+              Blog / Dispatches
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
               Useful strategy, not soft thought leadership.
             </h2>
           </div>
-          <SectionButton href="/insights">View all insights</SectionButton>
+          <SectionButton href="/blog">View all blog posts</SectionButton>
         </div>
 
         <div className="grid bg-frame-border gap-px md:grid-cols-3">
@@ -25,7 +25,7 @@ export default function HomeRecentInsights() {
               eyebrow={post.category}
               title={post.title}
               number={String(index + 1).padStart(2, '0')}
-              href="/insights"
+              href="/blog"
             >
               <p>{post.description}</p>
             </InversionCard>
