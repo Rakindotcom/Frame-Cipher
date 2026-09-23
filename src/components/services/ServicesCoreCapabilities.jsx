@@ -39,7 +39,7 @@ export default function ServicesCoreCapabilities() {
 
           <a
             href="/contact"
-            className="group flex min-h-64 flex-col justify-between border-2 border-frame-accent bg-frame-accent p-7 transition-colors duration-300 hover:bg-frame-fg md:p-9"
+            className="group flex min-h-64 flex-col justify-between border-2 border-frame-accent bg-frame-accent p-7 transition-colors duration-300 md:p-9"
           >
             <div>
               <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent-fg/70 md:text-5xl">

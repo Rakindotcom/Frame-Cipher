@@ -1,0 +1,43 @@
+﻿Γû▓ Next.js 16.2.4 (Turbopack)
+
+  Creating an optimized production build ...
+Γ£ô Compiled successfully in 8.4s
+  Running TypeScript ...
+  Finished TypeScript in 158ms ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/155) ...
+  Generating static pages using 7 workers (38/155) 
+  Generating static pages using 7 workers (77/155) 
+  Generating static pages using 7 workers (116/155) 
+Γ£ô Generating static pages using 7 workers (155/155) in 2.6s
+  Finalizing page optimization ...
+
+Route (app)
+Γöî Γùï /
+Γö£ Γùï /_not-found
+Γö£ Γùï /about
+Γö£ Γùï /case-studies
+Γö£ ΓùÅ /case-studies/[slug]
+Γöé Γö£ /case-studies/dr-ferdoush-saleheen
+Γöé Γö£ /case-studies/facebook-instagram-ads-portfolio
+Γöé Γö£ /case-studies/sumons-aroma-messenger-commerce
+Γöé Γöö [+10 more paths]
+Γö£ Γùï /contact
+Γö£ Γùï /insights
+Γö£ Γùï /privacy
+Γö£ ╞Æ /projects
+Γö£ Γùï /robots.txt
+Γö£ Γùï /services
+Γö£ ΓùÅ /services/[...slug]
+Γöé Γö£ /services/website-design-development
+Γöé Γö£ /services/website-design-development/business-website
+Γöé Γö£ /services/website-design-development/ecommerce-website
+Γöé Γöö [+126 more paths]
+Γö£ Γùï /sitemap.xml
+Γöö Γùï /terms
+
+
+Γùï  (Static)   prerendered as static content
+ΓùÅ  (SSG)      prerendered as static HTML (uses generateStaticParams)
+╞Æ  (Dynamic)  server-rendered on demand
+

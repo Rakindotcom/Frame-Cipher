@@ -8,6 +8,11 @@ import {
   HomeLoop,
   HomeManifesto,
   HomeTextMarquee,
+  HomeProblems,
+  HomeBuild,
+  HomeResults,
+  HomeWhy,
+  HomeTech,
   HomeFeaturedWork,
   HomeRecentInsights,
   HomeCaseStudies,
@@ -26,6 +31,8 @@ export default function Home() {
     <main className="relative bg-frame-bg text-frame-fg">
       <HomeHero />
       <Clients />
+      <HomeProblems />
+      <HomeBuild />
       <Testimonials />
       <GrowthOSHome />
       <HomeMarqueeStats />
@@ -34,12 +41,15 @@ export default function Home() {
       <HomeManifesto />
       <HomeTextMarquee />
       <HomeFeaturedWork />
+      <HomeResults />
       <HomeRecentInsights />
       <HomeCaseStudies />
       <HomeServicesPulse />
       <HomeProcess />
       <HomeEngagement />
       <HomeIndustries />
+      <HomeWhy />
+      <HomeTech />
       <HomeComparison />
       <HomeAbout />
       <HomeFAQ />

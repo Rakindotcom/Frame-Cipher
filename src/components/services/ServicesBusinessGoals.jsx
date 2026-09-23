@@ -80,9 +80,9 @@ export default function ServicesBusinessGoals() {
           ))}
         </div>
 
-        <p className="mt-10 text-center">
+        <div className="mt-10 text-center">
           <SectionLabel>Not sure which goal fits first? Start with a strategy call.</SectionLabel>
-        </p>
+        </div>
       </div>
     </section>
   )

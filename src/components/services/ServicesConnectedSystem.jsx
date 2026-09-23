@@ -91,9 +91,9 @@ export default function ServicesConnectedSystem() {
           </div>
         </div>
 
-        <p className="mt-10 text-center">
+        <div className="mt-10 text-center">
           <SectionLabel>One brief, one team, one system—from strategy to execution.</SectionLabel>
-        </p>
+        </div>
       </div>
     </section>
   )

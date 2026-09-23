@@ -88,12 +88,12 @@ export default function ServicesWhy() {
             </thead>
             <tbody>
               {comparisonRows.map((row) => (
-                <tr key={row.label} className="border-b border-frame-border last:border-b-0">
-                  <td className="p-6 text-base font-bold text-frame-fg">{row.label}</td>
+                <tr key={row.aspect} className="border-b border-frame-border last:border-b-0">
+                  <td className="p-6 text-base font-bold text-frame-fg">{row.aspect}</td>
                   <td className="bg-frame-accent/[0.18] p-6 text-base font-bold text-frame-accent">
-                    {row.frameCipher}
+                    {row.us}
                   </td>
-                  <td className="p-6 text-base font-medium text-frame-muted-fg">{row.vendors}</td>
+                  <td className="p-6 text-base font-medium text-frame-muted-fg">{row.them}</td>
                 </tr>
               ))}
             </tbody>

@@ -108,7 +108,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
         />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <RouteScrollToTop />
         <div className="min-h-screen overflow-x-clip bg-frame-bg text-frame-fg">
           <div className="kinetic-noise" aria-hidden="true" />
