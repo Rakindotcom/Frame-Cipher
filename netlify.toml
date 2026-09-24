@@ -2,5 +2,10 @@
   command = "npm run build"
   publish = ".next"
 
+# Pin Node to v22 (locally verified). Netlify's default v24 kills the
+# Next 16 Turbopack build silently right after "Skipping validation of types".
+[build.environment]
+  NODE_VERSION = "22"
+
 [[plugins]]
   package = "@netlify/plugin-nextjs"
