@@ -3,27 +3,46 @@ import { getAuth, Auth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndP
 import { getFirestore, Firestore, collection, doc, setDoc, addDoc, getDoc, getDocs, query, where, orderBy, deleteDoc, serverTimestamp } from "firebase/firestore";
 import { getAnalytics, Analytics, isSupported } from "firebase/analytics";
 
-// Fallback configuration if env vars are not set
+// Public web config for the canonical `framecipherweb` project, embedded as
+// build-safe fallback defaults. Firebase web keys ship in the client bundle by
+// design (not secrets); env vars still take precedence when set.
+// NOTE: module import must never throw during `next build` page-data
+// collection, so init below stays guarded with try/catch.
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "frame-cipher.firebaseapp.com",
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "frame-cipher",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "frame-cipher.firebasestorage.app",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "1035920780528",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:1035920780528:web:34d5430e5efbf0ced62635",
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-G2QQ51J5TE",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyB0X9PQ7vrw8KxBT23rgKOrB4mOzgkD0_4",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "framecipherweb.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "framecipherweb",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "framecipherweb.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "634798847672",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:634798847672:web:4056e5bf82bca0215fa64d",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-VCCWEYVH74",
 };
 
-// Singleton Firebase initialization (prevents re-initialization during hot reloads)
-const app: FirebaseApp = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
-const auth: Auth = getAuth(app);
-const db: Firestore = getFirestore(app);
+const isFirebaseConfigured = Boolean(firebaseConfig.apiKey);
 
-// Analytics initializes only on client-side
+// Singleton Firebase initialization (prevents re-initialization during hot reloads).
+// Guarded so importing this module on the server during build never throws.
+let app: FirebaseApp | null = null;
+let auth: Auth | null = null;
+let db: Firestore | null = null;
+
+if (isFirebaseConfigured) {
+  try {
+    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    auth = getAuth(app);
+    db = getFirestore(app);
+  } catch {
+    app = null;
+    auth = null;
+    db = null;
+  }
+}
+
+// Analytics initializes only on client-side, and only when configured.
 let analytics: Analytics | null = null;
-if (typeof window !== "undefined") {
+if (typeof window !== "undefined" && app) {
   isSupported().then((supported) => {
-    if (supported) {
+    if (supported && app) {
       analytics = getAnalytics(app);
     }
   }).catch(() => {});
@@ -38,6 +57,9 @@ googleProvider.setCustomParameters({ prompt: "select_account" });
 // ============================================================================
 
 export async function loginWithGoogle(): Promise<{ success: boolean; user?: User; error?: string }> {
+  if (!auth) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const result = await signInWithPopup(auth, googleProvider);
     return { success: true, user: result.user };
@@ -48,6 +70,9 @@ export async function loginWithGoogle(): Promise<{ success: boolean; user?: User
 }
 
 export async function loginWithEmail(email: string, pass: string): Promise<{ success: boolean; user?: User; error?: string }> {
+  if (!auth) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const result = await signInWithEmailAndPassword(auth, email, pass);
     return { success: true, user: result.user };
@@ -58,6 +83,9 @@ export async function loginWithEmail(email: string, pass: string): Promise<{ suc
 }
 
 export async function registerWithEmail(email: string, pass: string): Promise<{ success: boolean; user?: User; error?: string }> {
+  if (!auth) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const result = await createUserWithEmailAndPassword(auth, email, pass);
     return { success: true, user: result.user };
@@ -68,6 +96,9 @@ export async function registerWithEmail(email: string, pass: string): Promise<{ 
 }
 
 export async function logoutUser(): Promise<{ success: boolean; error?: string }> {
+  if (!auth) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     await signOut(auth);
     return { success: true };
@@ -78,6 +109,9 @@ export async function logoutUser(): Promise<{ success: boolean; error?: string }
 }
 
 export function subscribeToAuthChanges(callback: (user: User | null) => void) {
+  if (!auth) {
+    return () => {};
+  }
   return onAuthStateChanged(auth, callback);
 }
 
@@ -105,6 +139,9 @@ export interface SavedInquiryItem {
 export type SavedCalculationItem = SavedInquiryItem;
 
 export async function saveInquiryRecord(item: SavedInquiryItem): Promise<{ success: boolean; id?: string; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const colRef = collection(db, "saved_inquiries");
     const docRef = await addDoc(colRef, {
@@ -121,6 +158,9 @@ export async function saveInquiryRecord(item: SavedInquiryItem): Promise<{ succe
 export const saveCalculationRecord = saveInquiryRecord;
 
 export async function getUserInquiryHistory(userId: string): Promise<SavedInquiryItem[]> {
+  if (!db) {
+    return [];
+  }
   try {
     const colRef = collection(db, "saved_inquiries");
     const q = query(colRef, where("userId", "==", userId));
@@ -147,6 +187,9 @@ export interface ContactInquiry {
 }
 
 export async function saveContactInquiry(inquiry: ContactInquiry): Promise<{ success: boolean; id?: string; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const colRef = collection(db, "contact_messages");
     const docRef = await addDoc(colRef, {
@@ -182,6 +225,9 @@ export function sanitizeForFirestore<T>(value: T): T {
 }
 
 export async function saveBlogPostToFirestore(post: any): Promise<{ success: boolean; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const docRef = doc(db, "blog_posts", post.id || post.slug);
     await setDoc(docRef, {
@@ -196,6 +242,9 @@ export async function saveBlogPostToFirestore(post: any): Promise<{ success: boo
 }
 
 export async function getBlogPostsFromFirestore(): Promise<any[]> {
+  if (!db) {
+    return [];
+  }
   try {
     const colRef = collection(db, "blog_posts");
     const snapshot = await getDocs(colRef);
@@ -211,6 +260,9 @@ export async function getBlogPostsFromFirestore(): Promise<any[]> {
 }
 
 export async function getAuthorProfilesFromFirestore(): Promise<any[]> {
+  if (!db) {
+    return [];
+  }
   try {
     const colRef = collection(db, "author_profiles");
     const snapshot = await getDocs(colRef);
@@ -226,6 +278,9 @@ export async function getAuthorProfilesFromFirestore(): Promise<any[]> {
 }
 
 export async function saveAuthorProfileToFirestore(author: any): Promise<{ success: boolean; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     const docRef = doc(db, "author_profiles", author.id || author.slug);
     await setDoc(docRef, {
@@ -240,6 +295,9 @@ export async function saveAuthorProfileToFirestore(author: any): Promise<{ succe
 }
 
 export async function deleteAuthorProfileFromFirestore(id: string): Promise<{ success: boolean; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
   try {
     await deleteDoc(doc(db, "author_profiles", id));
     return { success: true };
