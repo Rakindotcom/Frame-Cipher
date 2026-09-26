@@ -1,123 +1,200 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { SectionIntro } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || []
-  const whyMatters = service?.whyMatters || []
-  const whyChooseUs = service?.whyChooseUs || [
+const blocks = [
   {
-    "title": "One Page, One Goal",
-    "text": "Every landing page is built around a single conversion action, not diluted by trying to also serve as a general website page."
+    number: '01',
+    title: 'Conversion Research & Audience Understanding',
+    body: [
+      'Before writing, we review the offer, target audience, traffic source, competitors, objections, and existing customer language.',
+    ],
+    bullets: [
+      'Audience awareness and intent',
+      'Traffic source review',
+      'Competitor message review',
+      'Customer language and objections',
+      'Existing analytics or campaign insight',
+    ],
+    note: 'Research keeps the copy specific to the audience instead of generic.',
   },
   {
-    "title": "Copy That Picks Up Where the Ad Left Off",
-    "text": "Message-matched to the specific traffic source, so the promise that earned the click gets confirmed, not restarted. Structure Built Around Where Doubt Actually Happens Objections and proof placed at the exact points in the page where a visitor is deciding, not dropped in as generic blocks."
+    number: '02',
+    title: 'Offer & Value Proposition Messaging',
+    body: [
+      'We identify what the offer actually provides, why it matters to the audience, and why it is different from the alternatives.',
+    ],
+    bullets: [
+      'Core value proposition',
+      'Primary and supporting benefits',
+      'Offer framing',
+      'Differentiation',
+      'Pricing and risk framing where relevant',
+    ],
+    note: 'A clear value proposition gives every later section something specific to build on.',
   },
   {
-    "title": "Built to Keep Improving",
-    "text": "A/B testing support included, so a page's first version is treated as a starting point, not a finished product."
-  }
+    number: '03',
+    title: 'Headline, Subheadline & Hero Copy',
+    body: [
+      'The hero section has a short amount of time to set the frame for the entire page.',
+    ],
+    bullets: [
+      'Primary headline',
+      'Supporting subheadline',
+      'Short supporting statement',
+      'Hero call to action',
+      'Microcopy around buttons or forms',
+    ],
+    note: 'The hero should state the offer, the audience benefit, and the next step without unnecessary detail.',
+  },
+  {
+    number: '04',
+    title: 'Benefit-Led Page Copy',
+    body: [
+      'We translate features into outcomes the audience cares about, in language that is easy to understand and quick to scan.',
+    ],
+    bullets: [
+      'Benefit statements',
+      'Use-case framing',
+      'Outcome language',
+      'Specificity where the business has it',
+      'Consistent message hierarchy',
+    ],
+    note: 'Specific and credible benefits are generally stronger than broad claims.',
+  },
+  {
+    number: '05',
+    title: 'Objection Handling & Trust Messaging',
+    body: [
+      'Most hesitation comes from unanswered questions. We identify likely objections and answer them honestly with the information you provide.',
+    ],
+    bullets: [
+      'Common objections',
+      'Risk and commitment concerns',
+      'Trust signals',
+      'Testimonials or proof placement',
+      'FAQ and reassurance content',
+    ],
+    note: 'We only use genuine proof. Unsupported claims and invented statistics are never added.',
+  },
+  {
+    number: '06',
+    title: 'CTA & Microcopy',
+    body: [
+      'Calls to action should describe the next step accurately rather than using generic language that could apply to any page.',
+    ],
+    bullets: [
+      'Primary CTA text',
+      'Secondary CTA text',
+      'Button microcopy',
+      'Form labels and helper text',
+      'Confirmation or follow-up messaging',
+    ],
+    note: 'Accurate CTA language usually communicates more than simply choosing the most aggressive wording.',
+  },
+  {
+    number: '07',
+    title: 'Message Match With Ads & Traffic Sources',
+    body: [
+      'When the campaign and the landing page communicate the same promise, visitors are less likely to feel they have been moved somewhere unrelated to what they clicked.',
+    ],
+    bullets: [
+      'Ad-to-page consistency',
+      'Audience and intent alignment',
+      'Offer continuity',
+      'Tone and terminology consistency',
+      'Expectation setting',
+    ],
+    note: 'Message match is strongest when the ad and the page are developed from the same campaign brief.',
+  },
+  {
+    number: '08',
+    title: 'SEO-Aware Structure & On-Page Recommendations',
+    body: [
+      'Landing pages often need to be clear and campaign-focused first, but they can still be structured in a way that supports organic visibility where relevant.',
+    ],
+    bullets: [
+      'Heading structure',
+      'Keyword-aware phrasing',
+      'Title and meta direction',
+      'Internal linking recommendations',
+      'Content depth considerations',
+    ],
+    note: 'SEO considerations are applied where they support the campaign goal rather than replacing it.',
+  },
+  {
+    number: '09',
+    title: 'A/B Test Variants & Copy Optimization',
+    body: [
+      'Where testing is appropriate, we can write structured copy variations around the elements most likely to affect conversion.',
+    ],
+    bullets: [
+      'Alternative headlines',
+      'CTA variations',
+      'Section-level variants',
+      'Offer framing variants',
+      'Testing notes and hypotheses',
+    ],
+    note: 'Variants should test one meaningful idea at a time, and testing setup and analysis can be scoped separately.',
+  },
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Capabilities &amp; scope"
+          title="What Our Landing Page Copywriting Service Includes"
+        >
+          Every landing page needs a defined audience, offer, and action. The copy is planned around those three
+          elements first.
+        </SectionIntro>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+          {blocks.map((block) => (
+            <article key={block.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+              <div>
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
+                  {block.number}
+                </span>
+                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                  {block.title}
+                </h3>
+                {block.body.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
-                  </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
+                {block.bullets && (
+                  <ul className="mt-4 space-y-2">
+                    {block.bullets.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                      >
+                        <span aria-hidden="true" className="mt-1 text-frame-accent">
+                          &bull;
+                        </span>
+                        {item}
+                      </li>
                     ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
-                </div>
-              )}
+                  </ul>
+                )}
+              </div>
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              {block.note && (
+                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  {block.note}
+                </p>
               )}
-            </div>
-          </div>
-        </section>
-      )}
-    </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

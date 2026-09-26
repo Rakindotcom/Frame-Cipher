@@ -1,6 +1,14 @@
 import { servicePillars } from '../../data/agency'
 import { InversionCard, SectionIntro } from '../Kinetic'
 
+const pillarLinks = {
+  Strategy: '/services/content-creation/branding',
+  Marketing: '/services/paid-advertising',
+  Creative: '/services/content-creation',
+  Media: '/services/content-creation/commercial-video',
+  Technology: '/services/website-design-development',
+}
+
 export default function AboutCapabilityMix() {
   return (
     <section className="border-y-2 border-frame-border bg-frame-muted px-4 py-24 md:px-8 md:py-32">
@@ -12,7 +20,12 @@ export default function AboutCapabilityMix() {
 
         <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {servicePillars.map((pillar, index) => (
-            <InversionCard key={pillar.title} title={pillar.title} number={`0${index + 1}`}>
+            <InversionCard
+              key={pillar.title}
+              title={pillar.title}
+              number={`0${index + 1}`}
+              href={pillarLinks[pillar.title] || '/services'}
+            >
               <p>{pillar.description}</p>
             </InversionCard>
           ))}

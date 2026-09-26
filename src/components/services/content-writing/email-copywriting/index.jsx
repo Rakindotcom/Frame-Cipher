@@ -1,32 +1,73 @@
-import Hero from './Hero'
-import Offerings from './Offerings'
-import Process from './Process'
-import Pricing from './Pricing'
-import FAQ from './FAQ'
-import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
+import Hero from './Hero'
+import AttentionClarityAction from './AttentionClarityAction'
+import Offerings from './Offerings'
+import HowWeBuild from './HowWeBuild'
+import VsEmailMarketing from './VsEmailMarketing'
+import BusinessGoals from './BusinessGoals'
+import Deliverables from './Deliverables'
+import WhatWeNeed from './WhatWeNeed'
+import Proof from './Proof'
+import WhyChoose from './WhyChoose'
+import Process from './Process'
+import Pricing from './Pricing'
+import Timeline from './Timeline'
+import QualityCommitments from './QualityCommitments'
+import ServiceAreas from './ServiceAreas'
+import FAQ from './FAQ'
+import CTA from './CTA'
+
 const marqueeItems = [
-  "Email Copywriting",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'Attention Before Persuasion',
+  'Sequence Thinking',
+  'Inbox-Aware Writing',
+  'One Job Per Email',
+  'Subject & Preview Strategy',
+  'Lifecycle Messaging',
 ]
 
-export default function ContentWritingEmailCopywritingService({ service }) {
+export default function ContentWritingEmailCopywritingService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <AttentionClarityAction />
+      <Offerings />
+      <HowWeBuild />
+      <VsEmailMarketing />
+      <BusinessGoals />
+      <Deliverables />
+      <WhatWeNeed />
+      <Proof />
+      <WhyChoose />
+      <Process />
+      <Pricing />
+      <Timeline />
+      <QualityCommitments />
+      <ServiceAreas />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  AttentionClarityAction,
+  Offerings,
+  HowWeBuild,
+  VsEmailMarketing,
+  BusinessGoals,
+  Deliverables,
+  WhatWeNeed,
+  Proof,
+  WhyChoose,
+  Process,
+  Pricing,
+  Timeline,
+  QualityCommitments,
+  ServiceAreas,
+  FAQ,
+  CTA,
+}

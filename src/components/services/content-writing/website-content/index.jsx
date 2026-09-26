@@ -1,32 +1,70 @@
-import Hero from './Hero'
-import Offerings from './Offerings'
-import Process from './Process'
-import Pricing from './Pricing'
-import FAQ from './FAQ'
-import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
+import Hero from './Hero'
+import Overview from './Overview'
+import Offerings from './Offerings'
+import Deliverables from './Deliverables'
+import Approach from './Approach'
+import VsBlogLanding from './VsBlogLanding'
+import NewRewriteRefresh from './NewRewriteRefresh'
+import WhoFor from './WhoFor'
+import Process from './Process'
+import WhyChoose from './WhyChoose'
+import Pricing from './Pricing'
+import Timeline from './Timeline'
+import QualityStandard from './QualityStandard'
+import ServiceAreas from './ServiceAreas'
+import FAQ from './FAQ'
+import CTA from './CTA'
+
 const marqueeItems = [
-  "Website Content Writing",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'Website Content',
+  'Homepage & About',
+  'Service Pages',
+  'Brand Voice',
+  'SEO-Aware Structure',
+  'Cross-Page Consistency',
 ]
 
-export default function ContentWritingWebsiteContentService({ service }) {
+export default function ContentWritingWebsiteContentService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <Offerings />
+      <Deliverables />
+      <Approach />
+      <VsBlogLanding />
+      <NewRewriteRefresh />
+      <WhoFor />
+      <Process />
+      <WhyChoose />
+      <Pricing />
+      <Timeline />
+      <QualityStandard />
+      <ServiceAreas />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  Overview,
+  Offerings,
+  Deliverables,
+  Approach,
+  VsBlogLanding,
+  NewRewriteRefresh,
+  WhoFor,
+  Process,
+  WhyChoose,
+  Pricing,
+  Timeline,
+  QualityStandard,
+  ServiceAreas,
+  FAQ,
+  CTA,
+}

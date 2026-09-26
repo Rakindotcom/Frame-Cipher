@@ -1,273 +1,379 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const offerings = [
   {
-    "title": "COMPANY PAGE MANAGEMENT",
-    "description": "The company page establishes legitimacy and serves as a hub, even if it isn't the primary reach driver. What We Do A company page that only posts product announcements reads as an ad account, not a business worth following.",
-    "bullets": [
-      "Company Page Content Strategy: Regular posting that reflects business milestones, culture, and expertise without reading as pure self-promotion.",
-      "Page Optimization: Making sure company details, showcase pages, and profile information are complete and current.",
-      "Employee Advocacy Encouragement: Making it easy and natural for team members to share and engage with company content.",
-      "Job Posting & Recruitment Content: Supporting hiring efforts through the page where relevant to the business."
-    ]
+    title: 'LinkedIn Strategy & Audience Research',
+    description:
+      'Effective LinkedIn management starts with understanding your business, market, audience, and commercial goals. We research the people and organizations you want to reach and identify the topics, questions, expertise, and content angles that matter to them.',
+    bullets: [
+      'Business and LinkedIn presence discovery',
+      'Ideal customer profile research',
+      'Target audience research',
+      'Industry and market research',
+      'Competitor content analysis',
+      'Competitor positioning review',
+      'Audience pain-point research',
+      'Customer-question research',
+      'Content gap analysis',
+      'Content pillar development',
+      'Content objectives',
+      'Topic development',
+      'Format selection',
+      'Brand positioning',
+      'Executive positioning',
+      'Content opportunities',
+      'Market-specific content planning',
+    ],
+    note: 'The result is a LinkedIn strategy built around your business and audience rather than a generic posting calendar.',
   },
   {
-    "title": "EXECUTIVE & FOUNDER GHOSTWRITING",
-    "description": "Personal profile content is where LinkedIn's algorithm actually rewards reach, and it needs to sound genuinely like the person behind it. What We Do Ghostwritten content that doesn't sound like the actual person tends to get noticed as inauthentic, which undermines the credibility it's meant to build.",
-    "bullets": [
-      "Voice Development: Understanding how a specific executive actually thinks and talks, so ghostwritten content sounds authentically like them, not generic LinkedIn filler.",
-      "Thought Leadership Content Planning: Building a content calendar around genuine expertise and opinions, not manufactured hot takes.",
-      "Post Drafting & Review: Writing draft posts for review and approval, keeping the executive's actual voice and perspective central.",
-      "Engagement Coaching: Guidance on responding to comments personally where it matters most, since personal replies carry real weight here."
-    ]
+    title: 'Company Page Management',
+    description:
+      'Your LinkedIn Company Page provides an official professional presence for your organization. We can manage the page as a business communication, credibility, and content hub.',
+    bullets: [
+      'Company Page strategy',
+      'Page optimization',
+      'About section improvement',
+      'Company description refinement',
+      'Industry and business information',
+      'Product and service positioning',
+      'Showcase Page strategy where relevant',
+      'Company updates',
+      'Educational content',
+      'Industry insights',
+      'Company milestones',
+      'Case-study content',
+      'Customer-focused content',
+      'Employer-brand content',
+      'Recruitment-related content',
+      'Event and announcement content',
+      'Comment monitoring',
+      'Page engagement',
+      'Publishing and scheduling',
+    ],
+    note: 'We avoid turning your page into a stream of product announcements. The goal is useful, credible content that gives people a reason to understand and follow your business.',
   },
   {
-    "title": "THOUGHT LEADERSHIP CONTENT STRATEGY",
-    "description": "LinkedIn rewards genuine expertise and perspective over generic industry commentary. What We Do Generic \"5 tips for success\" content is exactly what LinkedIn's audience has learned to scroll past without a second look.",
-    "bullets": [
-      "Content Pillar Development: Identifying the specific topics and angles where your business or executives genuinely have something worth saying.",
-      "Industry Commentary: Timely posts responding to genuine industry developments, not generic motivational content.",
-      "Long-Form & Document Posts: Using LinkedIn's native long-form and carousel document formats for genuinely substantive content.",
-      "Original Insight Development: Working with subject matter experts internally to surface content that's actually original, not recycled industry talking points."
-    ]
+    title: 'Executive & Founder LinkedIn Management',
+    description:
+      'Executive profiles can provide a more personal channel for expertise, professional perspective, and relationship building. Framecipher can support founders, CEOs, directors, consultants, subject-matter experts, and other executives with structured LinkedIn management.',
+    bullets: [
+      'Executive profile review',
+      'Personal positioning',
+      'Voice development',
+      'Content pillar development',
+      'Thought leadership planning',
+      'Post writing',
+      'Founder-led storytelling',
+      'Industry commentary',
+      'Case-study content',
+      'Expertise-based content',
+      'Professional experiences and lessons',
+      'Content review and approval',
+      'Publishing support',
+      'Comment and engagement guidance',
+      'Performance analysis',
+    ],
+    note: 'For ghostwritten content, we work from the executive’s experience, opinions, expertise, and communication style. The objective is not to make every executive sound like a marketing department, but to turn genuine expertise into useful content while keeping the executive’s voice central.',
   },
   {
-    "title": "NETWORKING & ENGAGEMENT STRATEGY",
-    "description": "Visibility on LinkedIn comes from engagement as much as posting. What We Do A thoughtful comment on someone else's post sometimes earns more visibility than an original post of your own.",
-    "bullets": [
-      "Strategic Commenting: Thoughtful engagement on relevant industry posts and connections, which builds visibility beyond your own content.",
-      "Connection Strategy: Growing a genuinely relevant network rather than accepting every connection request indiscriminately.",
-      "Group & Community Participation: Engaging in relevant LinkedIn Groups or communities where genuine industry conversation happens.",
-      "Relationship-Building Outreach: Identifying and engaging with prospects, partners, or industry figures worth a genuine connection."
-    ]
+    title: 'LinkedIn Profile & Page SEO',
+    description:
+      'Your LinkedIn profile and company page should make it easy for people to understand who you are, what you do, and who you serve. We optimize relevant profile and page elements for clarity, professional positioning, and discoverability.',
+    bullets: [
+      'Profile headline',
+      'About section',
+      'Company description',
+      'Relevant keywords',
+      'Industry information',
+      'Services',
+      'Experience sections',
+      'Featured content',
+      'Profile positioning',
+      'Company Page information',
+      'Showcase Pages where relevant',
+      'Calls to action',
+      'Website links',
+      'Visual profile elements',
+      'Content-topic alignment',
+    ],
+    note: 'LinkedIn search and discovery depend on context, relevance, profile information, content, relationships, and other platform factors. We therefore focus on meaningful optimization rather than keyword stuffing.',
   },
   {
-    "title": "PERFORMANCE TRACKING & REPORTING",
-    "description": "Understanding what's actually building reach and credibility on a platform where the metrics that matter aren't always obvious. What We Do LinkedIn organic content often supports paid lead generation efforts directly - see our LinkedIn Ads Management page for how organic credibility strengthens paid campaign performance.",
-    "bullets": [
-      "Reach & Impression Tracking: Monitoring how far content actually travels beyond your immediate network.",
-      "Engagement Quality Analysis: Reviewing who's engaging genuine industry contacts versus generic engagement not just raw numbers.",
-      "Profile View & Connection Growth: Tracking whether content strategy is translating into genuine network and visibility growth.",
-      "Monthly Reporting: Clear reporting connecting content activity to actual business-relevant outcomes."
-    ]
+    title: 'Thought Leadership Content Strategy',
+    description:
+      'Strong LinkedIn thought leadership starts with genuine expertise. We identify the subjects where your executives and business have something useful to contribute and turn those insights into a structured content system.',
+    bullets: [
+      'Industry insights',
+      'Expert opinions',
+      'Original perspectives',
+      'Founder stories',
+      'Professional lessons',
+      'Case-study insights',
+      'Customer problems',
+      'Industry developments',
+      'Educational content',
+      'Data and research commentary',
+      'Common misconceptions',
+      'Behind-the-scenes expertise',
+      'Business lessons',
+      'Strategic viewpoints',
+      'Practical frameworks',
+    ],
+    note: 'We avoid producing generic motivational content simply because it is common on LinkedIn. Your content should give the audience a reason to remember the person or business behind it.',
   },
   {
-    "title": "Why Personal Profiles Outperform Company Pages Here",
-    "description": "This is the single most important thing to understand about LinkedIn strategy, and most businesses haven't caught up to it. The Algorithm's Actual Preference LinkedIn's distribution consistently favors content from individual profiles over company pages, a pattern that's held steady enough to plan a whole strategy around it. Why That Makes Sense for the Platform LinkedIn is fundamentally a network of people, not brands, the algorithm reflects that by rewarding content that reads as genuinely personal and opinionated. What This Means Practically A business relying entirely on its company page, however well-maintained, is likely reaching a fraction of what a genuinely active executive profile could reach with similar effort. Why Both Still Matter The company page provides legitimacy, searchability, and a professional hub - personal profiles provide the reach. Neither replaces the other; they do different jobs.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "LinkedIn rewards a specific kind of effort, and most businesses aren't currently structured to give it that.",
-  "Company-Only Strategy Structurally Limits Reach",
-  "Without genuine personal profile activity from someone at the business, a company page alone is working against LinkedIn's own algorithmic preferences.",
-  "Generic Content Gets Scrolled Past",
-  "LinkedIn's audience has grown accustomed to formulaic advice posts - genuine perspective and specific expertise stand out precisely because most content doesn't offer either.",
-  "Consistency Builds Compounding Authority",
-  "A single strong post does little on its own; sustained, genuine thought leadership over months builds the kind of recognized authority that actually shapes business outcomes.",
-  "Networking Is Part of the Strategy, Not Separate From It",
-  "Engagement on other people's content and genuine relationship-building often drive as much real business value as original posting does."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "LinkedIn's algorithm consistently favors personal profile content over company page posts, often by a wide margin, which means a business relying solely on its company page is leaving significant reach on the table regardless of content quality. We build strategy around both, a company page that establishes legitimacy and serves as a hub, and founder or executive ghostwriting that actually earns the reach LinkedIn's algorithm is built to reward. Thought leadership only works if it sounds like an actual person with actual opinions, not a corporate account performing personality.",
-    "text": "\"LinkedIn rewards people, not brands. A company page alone is necessary for credibility, but it's rarely where the real reach happens - that's almost always a person's profile.\" Personal Profile Reach, Handled Properly | Genuine Thought Leadership, Not Corporate Filler | Built for B2B Credibility"
+    title: 'LinkedIn Posts, Carousels & Documents',
+    description:
+      'Different LinkedIn formats can support different communication goals. We create and manage the formats that fit the objective rather than forcing every topic into the same type of post.',
+    bullets: [
+      'Text posts',
+      'Founder-led posts',
+      'Executive thought leadership',
+      'Company updates',
+      'Educational posts',
+      'Industry commentary',
+      'Case-study posts',
+      'Story-driven posts',
+      'Image posts',
+      'LinkedIn Carousels',
+      'Document posts',
+      'Data-led content',
+      'Frameworks',
+      'Checklists',
+      'Process explainers',
+      'Customer-focused content',
+      'Recruitment content',
+      'Event-related content',
+    ],
+    carousel: [
+      'Step-by-step guides',
+      'Industry insights',
+      'Frameworks',
+      'Checklists',
+      'Comparisons',
+      'Case studies',
+      'Research summaries',
+      'Educational topics',
+      'Practical business advice',
+    ],
+    note: 'The format follows the communication objective rather than forcing every topic into the same type of post.',
   },
   {
-    "title": "Our LinkedIn Management Services",
-    "text": "Managing LinkedIn well means treating company page and personal profile strategy as genuinely different tasks that reinforce each other."
+    title: 'Employee Advocacy & Internal Amplification',
+    description:
+      'Your employees can help extend your organization’s professional presence when participation is voluntary, relevant, and properly supported. We can help businesses structure employee advocacy around the right foundations.',
+    bullets: [
+      'Employee advocacy planning',
+      'Internal content distribution',
+      'Share-ready content',
+      'Employee participation guidelines',
+      'Executive amplification',
+      'Employee content ideas',
+      'Engagement guidance',
+      'Company-content sharing',
+      'Internal communication workflows',
+      'Advocacy performance tracking',
+    ],
+    note: 'We do not treat employees as automated distribution channels. The goal is to make participation simple while allowing employees to communicate naturally and add their own professional perspective where appropriate.',
   },
   {
-    "title": "COMPANY PAGE MANAGEMENT",
-    "text": "The company page establishes legitimacy and serves as a hub, even if it isn't the primary reach driver."
+    title: 'Community Engagement & Networking',
+    description:
+      'LinkedIn management should not stop when a post is published. We can support ongoing engagement around your content and relevant industry conversations.',
+    bullets: [
+      'Comment monitoring',
+      'Comment responses',
+      'Page engagement',
+      'Executive engagement guidance',
+      'Strategic commenting',
+      'Relevant industry conversations',
+      'Professional relationship development',
+      'Community participation',
+      'Conversation monitoring',
+      'Inquiry escalation',
+      'Engagement guidelines',
+    ],
+    note: 'We do not rely on spammy automation or indiscriminate connection activity. Sensitive, sales-critical, or relationship-specific conversations can be escalated to the appropriate person within your organization.',
   },
   {
-    "title": "What We Do",
-    "text": "* Company Page Content Strategy: Regular posting that reflects business milestones, culture, and expertise without reading as pure self-promotion. * Page Optimization: Making sure company details, showcase pages, and profile information are complete and current. * Employee Advocacy Encouragement: Making it easy and natural for team members to share and engage with company content. * Job Posting & Recruitment Content: Supporting hiring efforts through the page where relevant to the business. A company page that only posts product announcements reads as an ad account, not a business worth following."
+    title: 'LinkedIn Events, Newsletters & Additional Features',
+    description:
+      'LinkedIn provides additional publishing and community features that may be useful depending on your business and account eligibility. Where relevant and available, we can support them as part of the broader strategy.',
+    bullets: [
+      'LinkedIn Events',
+      'Event promotion content',
+      'Event-related publishing',
+      'LinkedIn Newsletter strategy',
+      'Newsletter topic planning',
+      'Newsletter content',
+      'Professional announcements',
+      'Showcase Pages',
+      'Product-focused content',
+      'Recruitment content',
+      'Employer-brand content',
+      'Additional LinkedIn publishing features',
+    ],
+    note: 'We assess whether a feature supports your actual business objective before adding it to the strategy. Using more LinkedIn features does not automatically create a better LinkedIn presence.',
   },
   {
-    "title": "EXECUTIVE & FOUNDER GHOSTWRITING",
-    "text": "Personal profile content is where LinkedIn's algorithm actually rewards reach, and it needs to sound genuinely like the person behind it."
+    title: 'Performance Tracking & Reporting',
+    description:
+      'LinkedIn management should be measured against meaningful objectives rather than activity alone. We monitor relevant metrics and, where reliable tracking exists, align them with agreed business indicators.',
+    metrics: [
+      'Impressions',
+      'Reach where available',
+      'Engagement',
+      'Reactions',
+      'Comments',
+      'Shares',
+      'Saves where available',
+      'Follower growth',
+      'Page visits',
+      'Profile views',
+      'Connection growth',
+      'Content performance',
+      'Audience response',
+      'Website clicks where available',
+      'Lead or inquiry activity where reliable tracking exists',
+    ],
+    business: [
+      'Qualified inquiries',
+      'Contact requests',
+      'Website visits',
+      'Content-assisted conversions',
+      'Lead sources',
+      'Relevant audience growth',
+      'Sales conversations influenced by LinkedIn',
+    ],
+    note: 'We compare content performance by topic, format, audience response, and business objective to determine what should be repeated, improved, reduced, or tested.',
   },
-  {
-    "title": "What We Do",
-    "text": "* Voice Development: Understanding how a specific executive actually thinks and talks, so ghostwritten content sounds authentically like them, not generic LinkedIn filler. * Thought Leadership Content Planning: Building a content calendar around genuine expertise and opinions, not manufactured hot takes. * Post Drafting & Review: Writing draft posts for review and approval, keeping the executive's actual voice and perspective central. * Engagement Coaching: Guidance on responding to comments personally where it matters most, since personal replies carry real weight here. Ghostwritten content that doesn't sound like the actual person tends to get noticed as inauthentic, which undermines the credibility it's meant to build."
-  },
-  {
-    "title": "THOUGHT LEADERSHIP CONTENT STRATEGY",
-    "text": "LinkedIn rewards genuine expertise and perspective over generic industry commentary."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Content Pillar Development: Identifying the specific topics and angles where your business or executives genuinely have something worth saying. * Industry Commentary: Timely posts responding to genuine industry developments, not generic motivational content. * Long-Form & Document Posts: Using LinkedIn's native long-form and carousel document formats for genuinely substantive content. * Original Insight Development: Working with subject matter experts internally to surface content that's actually original, not recycled industry talking points. Generic \"5 tips for success\" content is exactly what LinkedIn's audience has learned to scroll past without a second look."
-  },
-  {
-    "title": "NETWORKING & ENGAGEMENT STRATEGY",
-    "text": "Visibility on LinkedIn comes from engagement as much as posting."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Strategic Commenting: Thoughtful engagement on relevant industry posts and connections, which builds visibility beyond your own content. * Connection Strategy: Growing a genuinely relevant network rather than accepting every connection request indiscriminately. * Group & Community Participation: Engaging in relevant LinkedIn Groups or communities where genuine industry conversation happens. * Relationship-Building Outreach: Identifying and engaging with prospects, partners, or industry figures worth a genuine connection. A thoughtful comment on someone else's post sometimes earns more visibility than an original post of your own."
-  },
-  {
-    "title": "PERFORMANCE TRACKING & REPORTING",
-    "text": "Understanding what's actually building reach and credibility on a platform where the metrics that matter aren't always obvious."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Reach & Impression Tracking: Monitoring how far content actually travels beyond your immediate network. * Engagement Quality Analysis: Reviewing who's engaging genuine industry contacts versus generic engagement not just raw numbers. * Profile View & Connection Growth: Tracking whether content strategy is translating into genuine network and visibility growth. * Monthly Reporting: Clear reporting connecting content activity to actual business-relevant outcomes. LinkedIn organic content often supports paid lead generation efforts directly - see our LinkedIn Ads Management page for how organic credibility strengthens paid campaign performance. Why Personal Profiles Outperform Company Pages Here This is the single most important thing to understand about LinkedIn strategy, and most businesses haven't caught up to it. The Algorithm's Actual Preference LinkedIn's distribution consistently favors content from individual profiles over company pages, a pattern that's held steady enough to plan a whole strategy around it."
-  },
-  {
-    "title": "Why That Makes Sense for the Platform",
-    "text": "LinkedIn is fundamentally a network of people, not brands, the algorithm reflects that by rewarding content that reads as genuinely personal and opinionated."
-  },
-  {
-    "title": "What This Means Practically",
-    "text": "A business relying entirely on its company page, however well-maintained, is likely reaching a fraction of what a genuinely active executive profile could reach with similar effort."
-  },
-  {
-    "title": "Why Both Still Matter",
-    "text": "The company page provides legitimacy, searchability, and a professional hub - personal profiles provide the reach. Neither replaces the other; they do different jobs. Why Your Business Needs Real LinkedIn Management LinkedIn rewards a specific kind of effort, and most businesses aren't currently structured to give it that. Company-Only Strategy Structurally Limits Reach Without genuine personal profile activity from someone at the business, a company page alone is working against LinkedIn's own algorithmic preferences."
-  },
-  {
-    "title": "Generic Content Gets Scrolled Past",
-    "text": "LinkedIn's audience has grown accustomed to formulaic advice posts - genuine perspective and specific expertise stand out precisely because most content doesn't offer either."
-  },
-  {
-    "title": "Consistency Builds Compounding Authority",
-    "text": "A single strong post does little on its own; sustained, genuine thought leadership over months builds the kind of recognized authority that actually shapes business outcomes. Networking Is Part of the Strategy, Not Separate From It Engagement on other people's content and genuine relationship-building often drive as much real business value as original posting does. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Company page strategy and executive ghostwriting handled together, so the two reinforce each other instead of running as disconnected efforts. We Write to Sound Like You, Not Like LinkedIn Ghostwritten content is built around your actual voice and genuine opinions, not a generic template that could belong to anyone. Local & International B2B Presence Experience Based in Dhaka. Managing LinkedIn presence for clients across Bangladesh, the US, UK, Australia, Canada, and UAE. We Understand the Personal-Profile Advantage Strategy is built around what LinkedIn's algorithm actually rewards, not just what feels like the \"official\" business channel."
-  },
-  {
-    "title": "Company Page Management",
-    "text": "A page that establishes real legitimacy and serves as a professional hub for your business."
-  },
-  {
-    "title": "Executive Ghostwriting",
-    "text": "Content that sounds genuinely like the person behind it, built to earn the reach personal profiles actually get."
-  },
-  {
-    "title": "Thought Leadership Strategy",
-    "text": "Content built around genuine expertise and perspective, not generic industry filler."
-  },
-  {
-    "title": "Networking & Engagement Strategy",
-    "text": "Visibility built through strategic commenting and relationship-building, not posting alone."
-  },
-  {
-    "title": "Performance Reporting",
-    "text": "Clear reporting connects activity to genuine reach and network growth."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Every piece of content will be reviewed and approved by you or your executives before it is published."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Services explained"
+          title="What Our LinkedIn Management Service Includes"
+        >
+          Our LinkedIn Management Service covers the strategic, creative, operational, and analytical
+          work required to build and maintain a professional LinkedIn presence.
+        </SectionIntro>
+
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
+          {offerings.map((item, index) => (
+            <article
+              key={item.title}
+              className="flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-muted/20 md:p-8"
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Service {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.description}
+                </p>
+              </div>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+              {item.bullets && (
+                <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs font-medium text-frame-fg/90 md:text-sm">
+                  {item.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-2">
+                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                      </span>
+                      <span className="leading-snug">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+              {item.metrics && (
+                <div className="mt-6 border-t-2 border-frame-border/60 pt-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Metrics we monitor
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {item.metrics.map((metric) => (
+                      <li
+                        key={metric}
+                        className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                      >
+                        {metric}
+                      </li>
                     ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  </ul>
                 </div>
               )}
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
+              {item.business && (
+                <div className="mt-6 border-2 border-frame-accent/50 bg-frame-accent/5 p-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    B2B indicators we can align reporting with
+                  </span>
+                  <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                    {item.business.map((indicator) => (
+                      <li key={indicator} className="flex items-start gap-2 text-xs font-medium leading-snug text-frame-fg">
+                        <span aria-hidden="true" className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                        <span>{indicator}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               )}
-            </div>
+
+              {item.carousel && (
+                <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Carousel &amp; document structures
+                  </span>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {item.carousel.map((entry) => (
+                      <li
+                        key={entry}
+                        className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                      >
+                        {entry}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+              {item.note && (
+                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  {item.note}
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Not sure where to start?
+            </span>
+            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+              Start with a free LinkedIn presence audit
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+              We review the actual pages, profiles, and content performance before any management work
+              begins.
+            </p>
           </div>
-        </section>
-      )}
-    </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Request Your LinkedIn Management Quote &rarr;</PosterButton>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

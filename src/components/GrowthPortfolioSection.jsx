@@ -107,7 +107,9 @@ export function ProjectCard({ project, number, showSummary = false, className = 
           {project.category === 'Paid Ads' ? 'Meta advertising' : project.tags[0]}
         </p>
         <h4 className="mt-3 font-heading text-3xl font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
-          {project.client}
+          <Link href={`/case-studies/${project.slug}`} className="hover:text-frame-accent transition-colors">
+            {project.client}
+          </Link>
         </h4>
         {showSummary && (
           <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">

@@ -1,281 +1,200 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const blocks = [
   {
-    "title": "COMMENT & MESSAGE RESPONSE",
-    "description": "The core of the service: making sure nothing sits unanswered longer than it should. What We Do The gap between a business that responds in an hour and one that responds in three days is often the gap between a lead and a lost inquiry.",
-    "bullets": [
-      "Comment Monitoring & Response: Timely, on-brand replies across Facebook, Instagram, LinkedIn, TikTok, and YouTube.",
-      "Direct Message Management: Responding to inquiries that arrive through DMs, often the first genuine sales conversation with a prospective customer.",
-      "Response Time Standards: Working to a defined response window your business can actually rely on, not an inconsistent, whenever-someone-notices approach.",
-      "Tone & Voice Consistency: Keeping every response recognizably on-brand, regardless of which platform or which team member is behind it."
-    ]
+    number: '01',
+    title: 'Comment & Message Management',
+    body: [
+      'Most customer conversations happen in the comments and direct messages under your posts.',
+      'We help you respond consistently without letting routine interactions consume internal team time.',
+    ],
+    list: [
+      'Comment monitoring and response',
+      'Direct message triage and response',
+      'FAQ-based responses',
+      'Brand voice consistency',
+      'Escalation of unresolved questions',
+    ],
+    note: 'The goal is a dependable response standard, not a promise of instant replies at every hour of the day.',
   },
   {
-    "title": "REVIEW MONITORING & RESPONSE",
-    "description": "Reviews sit publicly and permanently, which makes how they're handled part of the business's actual reputation. What We Do A thoughtfully handled negative review can build more trust with someone reading it later than a perfect five-star record with no reviews at all.",
-    "bullets": [
-      "Review Monitoring Across Platforms: Tracking new reviews on Google, Facebook, and other relevant platforms as they come in.",
-      "Professional Response to Negative Reviews: Addressing criticism calmly and constructively, without getting defensive in public.",
-      "Positive Review Engagement: Thanking and acknowledging positive reviews, which encourages more of them over time.",
-      "Escalation for Serious Complaints: Flagging genuinely serious issues to your team quickly, beyond a standard public reply."
-    ]
+    number: '02',
+    title: 'Review Monitoring & Response',
+    body: [
+      'Customer reviews are often the first place potential buyers look before deciding whether to contact you.',
+      'We help you monitor relevant review platforms and respond in a way that reflects your brand voice.',
+    ],
+    list: [
+      'Review monitoring',
+      'Professional response to positive and negative reviews',
+      'Google review reply support',
+      'Review tone alignment',
+      'Escalation for serious complaints',
+    ],
+    cta: 'Discuss Review Management',
+    note: 'A thoughtful public response to a complaint often builds more trust than the complaint itself would have cost if ignored.',
   },
   {
-    "title": "CUSTOMER SERVICE ESCALATION",
-    "description": "Not every comment or message can be resolved in the comment section, and knowing the difference matters. What We Do A public complaint moved to a private conversation and genuinely resolved often turns into a customer who becomes more loyal, not less.",
-    "bullets": [
-      "Issue Triage: Distinguishing a quick public reply from something that genuinely needs your team's direct involvement.",
-      "Internal Escalation Process: A clear system for routing real customer service issues to the right person, quickly.",
-      "Follow-Up Tracking: Making sure escalated issues actually get resolved, not just handed off and forgotten.",
-      "Sensitive Situation Handling: Managing public complaints or crises with judgment, moving serious conversations to private channels where appropriate."
-    ]
+    number: '03',
+    title: 'Customer Service Escalation',
+    body: [
+      'Not every question should be answered immediately with a generic response.',
+      'Some conversations need access to your product, service, order, or account information that only your team can provide.',
+    ],
+    list: [
+      'Issue classification',
+      'Escalation rules',
+      'Internal team coordination',
+      'Follow-up tracking',
+      'Resolution status updates',
+    ],
+    note: 'Customers should not receive an automated holding reply indefinitely. Escalation keeps response honest and useful.',
   },
   {
-    "title": "MODERATION & BRAND PROTECTION",
-    "description": "Keeping a community space genuinely usable, not overrun by spam or hostility. What We Do Deleting every piece of criticism reads as worse than leaving it up and responding to it well - the goal is a clean space, not a censored one.",
-    "bullets": [
-      "Spam & Bot Comment Removal: Keeping comment sections clean of spam that undermines a page's credibility.",
-      "Inappropriate Content Moderation: Removing genuinely inappropriate content while respecting legitimate criticism, which is a different thing entirely.",
-      "Community Guideline Enforcement: Applying clear, consistent standards for what is and isn't acceptable in your community spaces.",
-      "Crisis Monitoring: Watching for a sudden spike in negative sentiment that might signal a bigger issue developing."
-    ]
+    number: '04',
+    title: 'Moderation & Brand Safety',
+    body: [
+      'Not every comment deserves a reply, and not every comment should remain visible.',
+      'Moderation decisions are made against clear rules, not personal reaction.',
+    ],
+    list: [
+      'Comment moderation',
+      'Spam and abuse management',
+      'Fake engagement review',
+      'Content removal requests',
+      'Sensitive issue escalation',
+    ],
+    note: 'Moderation rules should be documented and agreed in advance, so decisions stay consistent even when conversations become difficult.',
   },
   {
-    "title": "COMMUNITY GROWTH & ENGAGEMENT",
-    "description": "Beyond reactive response, actively building a sense of genuine community around a brand. What We Do Community management works best as part of a broader content strategy - see our Content Calendar & Strategy page for how the two connect.",
-    "bullets": [
-      "Proactive Engagement: Initiating conversation, not just responding to it, to build a more active community over time.",
-      "User-Generated Content Encouragement: Prompting and reposting genuine customer content, which builds trust more than brand-produced content alone.",
-      "Community Event Participation: Engaging around relevant conversations, hashtags, or events where your audience is already active.",
-      "Advocate & Superfan Identification: Recognizing and building relationships with the people most genuinely engaged with your brand."
-    ]
+    number: '05',
+    title: 'Social Listening & Sentiment Monitoring',
+    body: [
+      'Community management also involves noticing what people are saying when they are not directly addressing you.',
+      'Monitoring relevant keywords, brand mentions, and recurring themes helps surface potential issues early.',
+    ],
+    list: [
+      'Brand mention monitoring',
+      'Relevant keyword monitoring',
+      'Sentiment direction',
+      'Recurring issue tracking',
+      'Reputation and trust signals',
+    ],
+    note: 'These signals are most useful when they reach the right person early, before a small pattern becomes a visible reputation problem.',
   },
   {
-    "title": "What Response Time Actually Signals",
-    "description": "Understanding why speed matters this much changes how community management should genuinely be prioritized. To the Customer A fast, thoughtful response signals a business that's actually paying attention, a slow or absent one signals the opposite, regardless of how good the underlying product or service is. To the Platform Comments and DMs responded to quickly often carry algorithmic weight, especially on platforms like Instagram and Facebook, where engagement signals influence how far content reaches. To Everyone Else Watching Public responses aren't just for the person who asked, every visible interaction is being read by everyone else who happens to see the thread, forming an impression before they've engaged directly at all. The Cost of Getting It Wrong A single visibly ignored or poorly handled comment can do more reputational damage than several pieces of genuinely good content can offset.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Neglected comments and messages cost more than they appear to on the surface.",
-  "Unanswered Questions Are Lost Opportunities",
-  "A prospective customer asking a question in the comments who never gets a reply usually doesn't ask twice, they just go elsewhere.",
-  "Negative Comments Left Unaddressed Compound",
-  "A single unanswered complaint sitting visibly on a post can shape how every future visitor reads that post, long after the original issue would have been resolvable.",
-  "DMs Are Often the Real Inquiry Channel",
-  "For a lot of businesses, direct messages carry more genuine sales potential than public comments, and they're also the easiest channel to quietly neglect.",
-  "Consistency Across Platforms Is Harder Than It Looks",
-  "Maintaining the same tone, response speed, and quality across five different platforms takes deliberate process, not just good intentions."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "Content gets most of the attention in social media strategy, and community management usually gets whatever time is left over, which is backwards, given how directly response time and tone affect whether someone actually trusts a business enough to buy from it. We treat comments, DMs, and reviews as a genuine customer touchpoint, not background noise around the \"real\" work of posting. A single well-handled negative comment, answered publicly and professionally, often does more for trust than the content that prompted it in the first place.",
-    "text": "\"Nobody remembers most individual posts. People remember how a business responded when they had a question or a complaint, that's the part that actually shapes reputation.\" Timely, Cross-Platform Response | Genuine Customer Service, Not Just Engagement | Reputation Protected in Public View"
+    number: '06',
+    title: 'Proactive Community Engagement',
+    body: [
+      'Community management is not limited to reacting to inbound messages.',
+      'Proactive engagement can help build a more active and connected audience around your brand.',
+    ],
+    list: [
+      'Relevant conversation participation',
+      'Audience interaction',
+      'Engagement-quality support',
+      'Community tone development',
+      'Opportunity identification',
+    ],
+    note: 'Proactive engagement should feel like genuine participation rather than automated activity, which is why brand voice guidance matters here.',
   },
   {
-    "title": "Our Community Management Services",
-    "text": "Good community management touches response speed, tone, escalation, and moderation together, not just replying quickly."
+    number: '07',
+    title: 'User-Generated Content & Community Advocacy',
+    body: [
+      'Customers already create content about the brands they support.',
+      'Community management can help identify that content, coordinate permission where relevant, and recognize contributors.',
+    ],
+    list: [
+      'Customer content identification',
+      'Permission coordination',
+      'Content collection support',
+      'Advocacy recognition',
+      'Community appreciation',
+    ],
+    note: 'This is often one of the most underused opportunities in social media, because the content is already being created by people who chose to support you.',
   },
   {
-    "title": "COMMENT & MESSAGE RESPONSE",
-    "text": "The core of the service: making sure nothing sits unanswered longer than it should."
+    number: '08',
+    title: 'Community Reporting & Insights',
+    body: [
+      'Ongoing community management should produce something useful for the business, not just a higher response count.',
+      'Reporting can show what customers are asking, complaining about, and responding to.',
+    ],
+    list: [
+      'Response volume reporting',
+      'Recurring question reporting',
+      'Escalation summaries',
+      'Sentiment insights',
+      'Platform-level observations',
+    ],
+    note: 'Recurring questions and feedback themes are often useful inputs for content planning, customer experience decisions, and marketing priorities.',
   },
-  {
-    "title": "What We Do",
-    "text": "* Comment Monitoring & Response: Timely, on-brand replies across Facebook, Instagram, LinkedIn, TikTok, and YouTube. * Direct Message Management: Responding to inquiries that arrive through DMs, often the first genuine sales conversation with a prospective customer. * Response Time Standards: Working to a defined response window your business can actually rely on, not an inconsistent, whenever-someone-notices approach. * Tone & Voice Consistency: Keeping every response recognizably on-brand, regardless of which platform or which team member is behind it. The gap between a business that responds in an hour and one that responds in three days is often the gap between a lead and a lost inquiry."
-  },
-  {
-    "title": "REVIEW MONITORING & RESPONSE",
-    "text": "Reviews sit publicly and permanently, which makes how they're handled part of the business's actual reputation."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Review Monitoring Across Platforms: Tracking new reviews on Google, Facebook, and other relevant platforms as they come in. * Professional Response to Negative Reviews: Addressing criticism calmly and constructively, without getting defensive in public. * Positive Review Engagement: Thanking and acknowledging positive reviews, which encourages more of them over time. * Escalation for Serious Complaints: Flagging genuinely serious issues to your team quickly, beyond a standard public reply. A thoughtfully handled negative review can build more trust with someone reading it later than a perfect five-star record with no reviews at all."
-  },
-  {
-    "title": "CUSTOMER SERVICE ESCALATION",
-    "text": "Not every comment or message can be resolved in the comment section, and knowing the difference matters."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Issue Triage: Distinguishing a quick public reply from something that genuinely needs your team's direct involvement. * Internal Escalation Process: A clear system for routing real customer service issues to the right person, quickly. * Follow-Up Tracking: Making sure escalated issues actually get resolved, not just handed off and forgotten. * Sensitive Situation Handling: Managing public complaints or crises with judgment, moving serious conversations to private channels where appropriate. A public complaint moved to a private conversation and genuinely resolved often turns into a customer who becomes more loyal, not less."
-  },
-  {
-    "title": "MODERATION & BRAND PROTECTION",
-    "text": "Keeping a community space genuinely usable, not overrun by spam or hostility."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Spam & Bot Comment Removal: Keeping comment sections clean of spam that undermines a page's credibility. * Inappropriate Content Moderation: Removing genuinely inappropriate content while respecting legitimate criticism, which is a different thing entirely. * Community Guideline Enforcement: Applying clear, consistent standards for what is and isn't acceptable in your community spaces. * Crisis Monitoring: Watching for a sudden spike in negative sentiment that might signal a bigger issue developing. Deleting every piece of criticism reads as worse than leaving it up and responding to it well - the goal is a clean space, not a censored one."
-  },
-  {
-    "title": "COMMUNITY GROWTH & ENGAGEMENT",
-    "text": "Beyond reactive response, actively building a sense of genuine community around a brand."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Proactive Engagement: Initiating conversation, not just responding to it, to build a more active community over time. * User-Generated Content Encouragement: Prompting and reposting genuine customer content, which builds trust more than brand-produced content alone. * Community Event Participation: Engaging around relevant conversations, hashtags, or events where your audience is already active. * Advocate & Superfan Identification: Recognizing and building relationships with the people most genuinely engaged with your brand. Community management works best as part of a broader content strategy - see our Content Calendar & Strategy page for how the two connect."
-  },
-  {
-    "title": "What Response Time Actually Signals",
-    "text": "Understanding why speed matters this much changes how community management should genuinely be prioritized."
-  },
-  {
-    "title": "To the Customer",
-    "text": "A fast, thoughtful response signals a business that's actually paying attention, a slow or absent one signals the opposite, regardless of how good the underlying product or service is."
-  },
-  {
-    "title": "To the Platform",
-    "text": "Comments and DMs responded to quickly often carry algorithmic weight, especially on platforms like Instagram and Facebook, where engagement signals influence how far content reaches."
-  },
-  {
-    "title": "To Everyone Else Watching",
-    "text": "Public responses aren't just for the person who asked, every visible interaction is being read by everyone else who happens to see the thread, forming an impression before they've engaged directly at all."
-  },
-  {
-    "title": "The Cost of Getting It Wrong",
-    "text": "A single visibly ignored or poorly handled comment can do more reputational damage than several pieces of genuinely good content can offset. Why Your Business Needs Real Community Management Neglected comments and messages cost more than they appear to on the surface. Unanswered Questions Are Lost Opportunities A prospective customer asking a question in the comments who never gets a reply usually doesn't ask twice, they just go elsewhere. Negative Comments Left Unaddressed Compound A single unanswered complaint sitting visibly on a post can shape how every future visitor reads that post, long after the original issue would have been resolvable."
-  },
-  {
-    "title": "DMs Are Often the Real Inquiry Channel",
-    "text": "For a lot of businesses, direct messages carry more genuine sales potential than public comments, and they're also the easiest channel to quietly neglect. Consistency Across Platforms Is Harder Than It Looks Maintaining the same tone, response speed, and quality across five different platforms takes deliberate process, not just good intentions. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Response, escalation, and moderation handled by people who know your brand voice and your actual business, not a rotating queue of unfamiliar staff."
-  },
-  {
-    "title": "We Treat Response Time as a Real Metric",
-    "text": "Not an afterthought squeezed in around content production, but a measured, prioritized part of the service. Local & International Community Experience Based in Dhaka. Managing community response for clients across Bangladesh, the US, UK, Australia, Canada, and UAE. We Know When to Escalate, Not Just Reply Genuine customer service issues get flagged to your team quickly, not buried under a generic public response."
-  },
-  {
-    "title": "Comment & Message Response",
-    "text": "Timely, on-brand replies across every platform your business is active on."
-  },
-  {
-    "title": "Review Monitoring & Response",
-    "text": "Professional handling of both positive and negative reviews, protecting your public reputation."
-  },
-  {
-    "title": "Customer Service Escalation",
-    "text": "A clear process for routing genuine issues to your team quickly, with follow-up tracked to resolution."
-  },
-  {
-    "title": "Moderation & Brand Protection",
-    "text": "Clean, well-maintained community spaces, free of spam without silencing legitimate feedback."
-  },
-  {
-    "title": "Community Growth",
-    "text": "Proactive engagement that builds genuine relationships, not just reactive response."
-  },
-  {
-    "title": "Transparent Reporting",
-    "text": "Clear tracking of response times and community sentiment over time."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
-            >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Capabilities &amp; scope"
+          title="What Our Community Management Service Includes"
+        >
+          Comment and message response, review management, escalation, moderation, social listening,
+          proactive engagement, user-generated content support, and community reporting.
+        </SectionIntro>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+          {blocks.map((block) => (
+            <article key={block.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+              <div>
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
+                  {block.number}
+                </span>
+                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                  {block.title}
+                </h3>
+                {block.body.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
-                  </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
-                </div>
+              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  This can include
+                </span>
+                <ul className="mt-3 flex flex-wrap gap-2">
+                  {block.list.map((entry) => (
+                    <li
+                      key={entry}
+                      className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                    >
+                      {entry}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {block.note && (
+                <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  {block.note}
+                </p>
               )}
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
+              {block.cta && (
+                <div className="mt-6">
+                  <PosterButton href="/contact">{block.cta} &rarr;</PosterButton>
                 </div>
               )}
-            </div>
-          </div>
-        </section>
-      )}
-    </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

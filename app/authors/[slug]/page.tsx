@@ -2,9 +2,14 @@ import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAuthorBySlug } from "@/lib/authors/getAuthors";
+import { getServerAuthorBySlug } from "@/lib/authors/serverAuthorStorage";
+import { getServerBlogPosts } from "@/lib/blog/serverBlogStorage";
 import { buildPersonSchema } from "@/lib/schema/personSchema";
-import { getAllCanonicalPosts } from "@/lib/blog/getBlogPosts";
+import { BASE_URL } from "@/lib/seo/site";
+import { getMergedPostsFromStorage, isLegacyDemoPost } from "@/lib/blog/getBlogPosts";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { generatePageSchema } from "@/lib/seo/schema";
+
 import {
   Mail,
   Globe,
@@ -13,9 +18,9 @@ import {
 } from "lucide-react";
 import { SOCIAL_LABELS, SocialIcon } from "@/components/icons/SocialIcon";
 
-export const revalidate = 3600;
-
-const SITE_URL = "https://framecipher.com";
+export const dynamic = "force-dynamic";
+export const dynamicParams = true;
+export const revalidate = 0;
 
 function initialsOf(name: string): string {
   return name
@@ -27,13 +32,17 @@ function initialsOf(name: string): string {
     .toUpperCase();
 }
 
+function withBrandSuffix(value: string): string {
+  return /\|\s*Frame\s*Cipher/i.test(value) ? value : `${value} | Frame Cipher`;
+}
+
 export async function generateMetadata({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const author = await getAuthorBySlug(slug);
+  const author = await getServerAuthorBySlug(slug);
 
   if (!author) {
     return {
@@ -43,19 +52,22 @@ export async function generateMetadata({
   }
 
   const ogImage = author.image?.url;
+  const authorTitle = withBrandSuffix(
+    author.seoTitle || `${author.name} — ${author.jobTitle}`
+  );
   const metadata: Metadata = {
-    title: author.seoTitle || `${author.name} — ${author.jobTitle} — FrameCipher`,
+    title: authorTitle,
     description:
       author.metaDescription ||
       author.shortBio ||
       `Author profile for ${author.name} at FrameCipher.`,
     alternates: {
-      canonical: `${SITE_URL}/authors/${author.slug}`,
+      canonical: `${BASE_URL}/authors/${author.slug}`,
     },
     openGraph: {
-      title: author.seoTitle || `${author.name} — ${author.jobTitle} — FrameCipher`,
+      title: authorTitle,
       description: author.metaDescription || author.shortBio,
-      url: `${SITE_URL}/authors/${author.slug}`,
+      url: `${BASE_URL}/authors/${author.slug}`,
       type: "profile",
       images: ogImage
         ? [
@@ -68,7 +80,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary",
-      title: author.seoTitle || `${author.name} — ${author.jobTitle} — FrameCipher`,
+      title: authorTitle,
       description: author.metaDescription || author.shortBio,
     },
     robots: {
@@ -90,25 +102,49 @@ export default async function AuthorProfilePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const author = await getAuthorBySlug(slug);
+  const author = await getServerAuthorBySlug(slug);
 
-  if (!author || author.status !== "published") {
+  if (!author || (author.status && author.status !== "published")) {
     notFound();
   }
 
-  const personSchema = buildPersonSchema(author);
-  const schemaJson = JSON.stringify(personSchema);
+  const authorSlug = author.slug || slug;
+  const canonicalUrl = `${BASE_URL}/authors/${authorSlug}`;
+  const authorSchema = generatePageSchema({
+    pageType: "author",
+    data: {
+      author,
+      canonicalUrl,
+      title: `${author.name} | Frame Cipher`,
+      description: author.shortBio || author.bio,
+    },
+  });
 
   const hasImage = Boolean(author.image?.url);
   const socials = Object.entries(author.socialLinks || {}).filter(
     ([, value]) => value && value.trim().length > 0
   );
 
-  const articles = getAllCanonicalPosts().filter(
-    (post) =>
-      post.status === "published" &&
-      post.author?.toLowerCase() === author.name.toLowerCase()
-  );
+  const rawPosts = await getServerBlogPosts();
+  const allPosts = getMergedPostsFromStorage(rawPosts);
+  const targetAuthorName = (author.name || "").toLowerCase().trim();
+  const targetAuthorSlug = (author.slug || "").toLowerCase().trim();
+  const targetAuthorId = (author.id || "").toLowerCase().trim();
+
+  const articles = allPosts.filter((post) => {
+    if (isLegacyDemoPost(post) || (post.status && post.status !== "published")) return false;
+    const postAuthor = (post.author || "").toLowerCase().trim();
+    if (!postAuthor) return false;
+    const postAuthorSlug = postAuthor.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+    return (
+      postAuthor === targetAuthorName ||
+      postAuthor === targetAuthorSlug ||
+      postAuthor === targetAuthorId ||
+      postAuthorSlug === targetAuthorSlug ||
+      (targetAuthorName.length > 3 && targetAuthorName.includes(postAuthor)) ||
+      (postAuthor.length > 3 && postAuthor.includes(targetAuthorName))
+    );
+  });
 
   const bioParagraphs = (author.bio || author.shortBio || "Detailed professional background coming soon.")
     .split(/\n\s*\n/)
@@ -116,11 +152,8 @@ export default async function AuthorProfilePage({
 
   return (
     <main className="author-page">
-      {/* Author JSON-LD structured data (auto-generated Person schema) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: schemaJson }}
-      />
+      {/* Author JSON-LD structured data (Specification Point 20, 33) */}
+      <JsonLd data={authorSchema} />
 
       {/* Profile Hero */}
       <section className="pt-24 sm:pt-28 pb-16 px-6 sm:px-10 lg:px-16 border-b border-frame-border">

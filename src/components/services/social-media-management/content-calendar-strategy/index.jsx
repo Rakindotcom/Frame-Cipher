@@ -1,32 +1,71 @@
+import { TypeMarquee } from '../../../Kinetic'
 import Hero from './Hero'
+import Overview from './Overview'
 import Offerings from './Offerings'
+import VsStrategy from './VsStrategy'
+import CrossPlatform from './CrossPlatform'
+import WhereFits from './WhereFits'
+import Outcomes from './Outcomes'
+import WhoFor from './WhoFor'
 import Process from './Process'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
+import Timeline from './Timeline'
+import Guarantee from './Guarantee'
+import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
 import CTA from './CTA'
-import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "Content Calendar & Strategy",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'Content Strategy',
+  'Content Pillars',
+  'Master Calendar',
+  'Campaign Planning',
+  'Repurposing',
+  'Platform Adaptation',
+  'Approval Workflows',
+  'Performance Review',
 ]
 
-export default function SocialMediaManagementContentCalendarStrategyService({ service }) {
+export default function SocialMediaManagementContentCalendarStrategyService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <Offerings />
+      <VsStrategy />
+      <CrossPlatform />
+      <WhereFits />
+      <Outcomes />
+      <WhoFor />
+      <Process />
+      <WhyChoose />
+      <Pricing />
+      <Timeline />
+      <Guarantee />
+      <ServiceAreas />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  Overview,
+  Offerings,
+  VsStrategy,
+  CrossPlatform,
+  WhereFits,
+  Outcomes,
+  WhoFor,
+  Process,
+  WhyChoose,
+  Pricing,
+  Timeline,
+  Guarantee,
+  ServiceAreas,
+  FAQ,
+  CTA,
+}

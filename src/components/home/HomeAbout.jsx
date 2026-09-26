@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { founders } from '../../data/founders'
 import SectionButton from './SectionButton'
 
@@ -23,10 +24,9 @@ export default function HomeAbout() {
             </h2>
           </div>
           <p className="max-w-xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-            Frame Cipher is a 360 marketing, media, and technology agency headquartered in Mirpur 14, Dhaka,
-            Bangladesh. The team works with brands in Bangladesh and worldwide, from B2B and B2C to personal
-            brands and e-commerce, with an entirely in-house team across Website Design &amp; Development, App
-            Development, SEO, Paid Advertising, Social Media Management, Content Writing, and Content Creation.
+            Frame Cipher is a <Link href="/services/360-marketing" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">360 marketing</Link>, media, and technology agency headquartered in Ecb Chattar, Matikata,
+            Dhaka. The team works with brands in Bangladesh and worldwide, from B2B and B2C to personal
+            brands and e-commerce, with an entirely in-house team across <Link href="/services/website-design-development" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Website Design &amp; Development</Link>, <Link href="/services/app-development" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">App Development</Link>, <Link href="/services/seo" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">SEO</Link>, <Link href="/services/paid-advertising" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Paid Advertising</Link>, <Link href="/services/social-media-management" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Social Media Management</Link>, <Link href="/services/content-writing" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Content Writing</Link>, and <Link href="/services/content-creation" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Content Creation</Link>.
           </p>
         </div>
 

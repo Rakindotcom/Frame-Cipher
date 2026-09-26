@@ -28,10 +28,19 @@ export default function Footer() {
           <div>
             <h2 className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Core Services</h2>
             <ul className="grid gap-2 text-sm">
-              {services.slice(0, 8).map((service) => (
-                <li key={service.slug}>
-                  <Link href={`/services/${service.slug}`} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                    {service.title}
+              {[
+                { title: '360 Marketing', href: '/services/360-marketing' },
+                { title: 'Paid Advertising', href: '/services/paid-advertising' },
+                { title: 'SEO Services', href: '/services/seo' },
+                { title: 'Brand Identity', href: '/services/content-creation/branding' },
+                { title: 'Social Media Marketing', href: '/services/social-media-management' },
+                { title: 'Video Production', href: '/services/content-creation/commercial-video' },
+                { title: 'Photography', href: '/services/content-creation/product-photography' },
+                { title: 'Website Development', href: '/services/website-design-development' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
+                    {item.title}
                   </Link>
                 </li>
               ))}

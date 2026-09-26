@@ -18,7 +18,7 @@ import {
   Briefcase,
   UserRound,
 } from "lucide-react";
-import { logoutAdmin } from "@/lib/admin/auth";
+import { destroyAdminSession } from "@/lib/admin/auth";
 
 const navGroups = [
   {
@@ -96,7 +96,7 @@ export function AdminSidebar() {
   const pathname = usePathname();
 
   const handleLogout = () => {
-    logoutAdmin();
+    void destroyAdminSession();
     window.location.href = "/admin/login";
   };
 
@@ -105,8 +105,15 @@ export function AdminSidebar() {
       {/* Brand Header */}
       <div className="p-5 border-b border-[#E2E8F0] flex items-center justify-between">
         <Link href="/admin" className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-xl bg-frame-accent text-white flex items-center justify-center font-heading font-bold text-sm shadow-xs border border-purple-400">
-            FC
+          <div className="w-9 h-9 rounded-xl bg-black border border-neutral-800 flex items-center justify-center p-1.5 shadow-sm shrink-0">
+            <img
+              src="/logo.webp"
+              alt="FrameCipher Logo"
+              className="w-full h-full object-contain"
+              onError={(e) => {
+                e.currentTarget.src = "/logo.png";
+              }}
+            />
           </div>
           <div>
             <div className="text-sm font-heading font-bold uppercase tracking-tight text-[#0F172A]">Frame Cipher</div>

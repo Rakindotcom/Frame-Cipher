@@ -1,7 +1,9 @@
-import { siteUrl } from "../../data/agency";
+import { SITE_NAME, SITE_URL } from "./site";
 
-export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || siteUrl || "https://framecipher.info";
-export const SITE_NAME = "Frame Cipher";
+export const BASE_URL = SITE_URL;
+export { SITE_NAME };
+
+export { generatePageMetadata } from "./metadata.ts";
 
 export function buildBlogMetadata(post) {
   if (!post) {

@@ -1,6 +1,9 @@
+import Script from 'next/script'
 import { ConditionalLayout } from '../src/components/layout/ConditionalLayout'
 import RouteScrollToTop from '../src/components/RouteScrollToTop'
-import { contact, services, siteUrl } from '../src/data/agency'
+import { AnalyticsTracker } from '../src/components/analytics/AnalyticsTracker'
+import { siteUrl } from '../src/data/agency'
+import { buildSiteGraph } from '../src/lib/seo/schema'
 import { getPillarServices, getServiceDisplayName, getSubServicesForPillar } from '../src/data/servicePages'
 import '../src/index.css'
 
@@ -11,7 +14,6 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
-    template: '%s | Frame Cipher',
   },
   description: siteDescription,
   keywords: [
@@ -29,9 +31,6 @@ export const metadata = {
   authors: [{ name: 'Frame Cipher' }],
   icons: {
     icon: '/logo.png',
-  },
-  alternates: {
-    canonical: '/',
   },
   robots: {
     index: true,
@@ -56,31 +55,10 @@ export const metadata = {
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
+  themeColor: '#0d0d11',
 }
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': ['Organization', 'LocalBusiness'],
-  name: 'Frame Cipher',
-  url: siteUrl,
-  logo: `${siteUrl}/logo.png`,
-  description: siteDescription,
-  slogan: 'One Team for Brand, Content, Tech, and Growth.',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: 'Mirpur 14',
-    addressLocality: 'Dhaka',
-    addressCountry: 'BD',
-  },
-  contactPoint: {
-    '@type': 'ContactPoint',
-    telephone: contact.phoneHref,
-    contactType: 'Customer Service',
-    email: contact.email,
-  },
-  areaServed: ['Bangladesh', 'Worldwide'],
-  serviceType: services.map((service) => service.title),
-}
+const siteGraph = JSON.stringify(buildSiteGraph())
 
 const pillarNavServices = getPillarServices().map((pillar) => ({
   name: getServiceDisplayName(pillar),
@@ -103,10 +81,30 @@ export default function RootLayout({ children }) {
         />
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+          dangerouslySetInnerHTML={{ __html: siteGraph.replace(/</g, '\\u003c') }}
+        />
+        {/* Google Analytics 4 (GA4) */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-VCCWEYVH74"
+        />
+        <Script
+          id="google-analytics-init"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-VCCWEYVH74', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
         />
       </head>
       <body suppressHydrationWarning>
+        <AnalyticsTracker />
         <RouteScrollToTop />
         <ConditionalLayout pillarNavServices={pillarNavServices}>
           {children}

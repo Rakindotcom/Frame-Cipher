@@ -1,103 +1,167 @@
-import { SectionIntro } from '../../../Kinetic'
+import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Channel & Content Audit",
-    "description": "Reviewing existing content, metadata, and performance history before building a forward strategy."
+    number: '01',
+    title: 'Channel & Business Audit',
+    body: 'We start by understanding your current channel and business.',
+    points: [
+      'Existing content',
+      'Channel structure',
+      'Branding',
+      'Topics',
+      'Titles',
+      'Thumbnails',
+      'SEO',
+      'Audience',
+      'Analytics',
+      'Competitors',
+      'Conversion opportunities',
+    ],
   },
   {
-    "number": "2",
-    "title": "Strategy & Content Planning",
-    "description": "Defining content pillars, upload cadence, and the long-form/Shorts split based on the channel's goals and production capacity."
+    number: '02',
+    title: 'Audience & Competitor Research',
+    body: 'We research the people you want to reach and the content already competing for their attention. This helps identify opportunities.',
+    points: [
+      'Audience questions',
+      'Content gaps',
+      'Search opportunities',
+      'Competitor topics',
+      'Content formats',
+      'Packaging patterns',
+      'Market opportunities',
+    ],
   },
   {
-    "number": "3",
-    "title": "Production & SEO Setup",
-    "description": "Producing the first content batch with metadata, thumbnails, and titles optimized from the start."
+    number: '03',
+    title: 'Strategy & Content Planning',
+    body: 'We turn the research into an actionable content plan.',
+    points: [
+      'Content pillars',
+      'Topics',
+      'Video formats',
+      'Publishing cadence',
+      'Shorts opportunities',
+      'Long-form opportunities',
+      'CTAs',
+      'Content priorities',
+    ],
   },
   {
-    "number": "4",
-    "title": "Launch & Early Optimization",
-    "description": "Monitoring CTR and retention closely on early uploads and adjusting thumbnails, titles, or format mix based on real data."
+    number: '04',
+    title: 'Production & Approval',
+    body: 'Content moves through an organized production workflow.',
+    flow: ['Brief', 'Script', 'Production', 'Editing', 'Thumbnail', 'SEO', 'Client Review', 'Approval'],
+    note: 'Client approval remains part of the process where required by the service agreement.',
   },
   {
-    "number": "5",
-    "title": "Ongoing Management & Reporting",
-    "description": "Regular production, metadata refinement on underperforming videos, and reporting on a set cadence."
-  }
+    number: '05',
+    title: 'Publishing & Optimization',
+    body: 'Approved videos are prepared and published according to the agreed schedule. We manage relevant upload elements.',
+    points: [
+      'Titles',
+      'Descriptions',
+      'Thumbnails',
+      'Playlists',
+      'Chapters',
+      'End screens',
+      'Publishing settings',
+      'Related content connections',
+    ],
+  },
+  {
+    number: '06',
+    title: 'Reporting & Continuous Improvement',
+    body: 'Each reporting cycle turns performance data into practical next steps.',
+    points: [
+      'What performed well',
+      'What underperformed',
+      'Which topics attracted viewers',
+      'Where retention changed',
+      'How packaging performed',
+      'Which formats generated stronger response',
+      'What should be tested next',
+    ],
+    note: 'The strategy evolves as meaningful channel data becomes available.',
+  },
 ]
-  const timeline = service?.timeline || "Channel strategy and the first content batch are typically ready within two to three weeks, generally longer than shorter-form platforms given production complexity. Because YouTube rewards accumulated channel history, meaningful growth in both individual video performance and overall channel trajectory usually takes three to six months of consistent uploads to become clear, longer than most other platforms, and worth planning budget around from the start."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="Execution framework" title="How Our YouTube Management Process Works">
+          A structured workflow keeps content aligned with your business goals and makes performance
+          easier to evaluate.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-3">
+          {steps.map((step) => (
+            <article
+              key={step.number}
+              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+                  {step.body}
                 </p>
               </div>
-              {step.deliverable && (
+
+              {step.flow && (
                 <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+                  <ul className="flex flex-wrap items-center gap-1.5">
+                    {step.flow.map((entry, index) => (
+                      <li key={entry} className="flex items-center gap-1.5">
+                        <span className="border border-frame-accent/50 bg-frame-bg px-2 py-0.5 text-[10px] font-bold text-frame-fg">
+                          {entry}
+                        </span>
+                        {index < step.flow.length - 1 && (
+                          <span aria-hidden="true" className="text-frame-accent">
+                            &rarr;
+                          </span>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
-            </div>
+
+              {step.points && (
+                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 transition-colors duration-200 group-hover:border-frame-accent-fg/30 group-hover:text-frame-accent-fg/90 md:text-sm">
+                  {step.points.map((point) => (
+                    <li key={point} className="flex items-start gap-2">
+                      <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg" />
+                      <span className="leading-snug">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {step.note && (
+                <p className="mt-4 text-xs font-semibold leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80">
+                  {step.note}
+                </p>
+              )}
+            </article>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            Every stage produces something the next stage can use: research feeds planning, planning
+            feeds production, and performance data feeds the next cycle.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact">Get a Free Consultation &rarr;</PosterButton>
           </div>
-        )}
+        </div>
       </div>
     </section>
   )

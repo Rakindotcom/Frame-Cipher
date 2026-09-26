@@ -1,129 +1,212 @@
+import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const offeringsList = [
   {
-    "title": "Content creation covers the actual production of visual assets a brand needs to exist anywhere online, video, photography, and design work, built to a consistent visual identity rather than each piece looking like it came from a different source. It typically includes concepting, production, editing or design execution, and delivery in the formats each platform actually requires, and it's built for businesses that want their visual content to look like it belongs to one coherent brand, not a patchwork of disconnected production jobs.",
-    "description": "Video Production Full video production for ads, brand films, and longer-form content concepting, filming, and editing handled as one coordinated process, from initial script or shot list through color correction and final export, rather than separate stages handed between disconnected vendors. Includes pre-production planning, on-location or studio filming, sound design, and delivery in the specific formats and aspect ratios each intended platform actually requires. Short-Form Video (Reels/Shorts/TikTok) Vertical, fast-paced video built specifically for how short-form platforms distribute content, fast hooks in the first second, native-feeling editing, and pacing suited to how people actually watch and scroll, not a long-form video awkwardly cropped down to fit a 9:16 frame. Includes concepts built around trend and format awareness, filming or sourcing footage, editing with platform-native pacing, and captions or text overlay written for how these videos actually get discovered. YouTube Video Production Longer-form video built around retention and YouTube's own search function, since the platform rewards a genuinely different production approach than a 15-second vertical clip, thumbnail strategy, pacing that holds attention across minutes rather than seconds, and structure built for how YouTube surfaces content through both search and recommendations. Includes scripting or outline development, filming, editing, thumbnail design, and title/description optimization for on-platform discoverability. Motion Graphics & Animation Animated explainer content, kinetic typography, and motion design for ideas that are genuinely easier to show moving than to explain in static text or plain video, a product feature, a process, a data point that benefits from visual motion to actually land. Includes concept and storyboard development, 2D animation, motion typography for social and marketing content, and animated logo stings or brand intros where relevant. Graphic Design The visual design work supporting everything else a brand needs, presentations, one-pagers, digital ads, print materials, and marketing assets built to a consistent visual system rather than each piece designed in isolation. Includes template development for recurring materials, custom design for specific campaigns or launches, and design work that stays visually coherent with existing brand guidelines rather than introducing a new look with every new piece. Logo Design The single visual mark a brand gets recognized by, designed to hold up legibly across every size and context it'll actually be used in, a favicon, a business card, a billboard, a social media profile photo. Includes concept development and multiple initial directions, refinement based on feedback, and delivery in the full range of file formats and color variations (full color, single color, reversed) a business actually needs across real-world use cases. Branding The visual identity system underneath a logo, color palette, typography choices, imagery style, and usage guidelines, that keeps every other piece of content looking like it genuinely belongs to the same business, regardless of who produces it or when. Includes brand strategy discovery, visual identity development across color/type/imagery, and a documented brand guideline that your team or any future vendor can actually follow consistently. Product Photography Photography built around how a specific product category actually needs to be presented to sell, clean studio shots for ecommerce listings, lifestyle context shots showing real use, or detail shots highlighting texture and quality, chosen based on what that specific product needs, not a generic photo package applied regardless of category. Includes shot planning, styling and setup, photography, and retouching/editing delivered in the sizes and formats your platforms actually require. Social Media Graphics Templated and custom graphics built for how each platform's feed actually displays and crops content, a graphic designed without platform-specific dimensions in mind often gets awkwardly cropped or loses key text in a feed preview. Includes template systems for recurring content types (quotes, announcements, promotions), custom graphics for specific campaigns, and format variations sized correctly for each platform's actual display requirements.",
-    "bullets": []
+    tag: 'Format 01',
+    title: 'Video Production',
+    slug: '/services/content-creation/video-production',
+    description: 'We produce promotional, corporate, product, brand, campaign, and other commercial videos from concept through final delivery. The exact production setup depends on the project\'s goals, locations, talent, equipment, duration, and required output.',
+    bullets: [
+      'Creative direction, scripting, and shot planning',
+      'Studio and on-location filming with high-end optics',
+      'Commercial video editing, color correction, and grading',
+      'Sound design, custom audio mixing, and licensed music',
+      'Motion graphics, subtitles, and platform-specific exports'
+    ],
+    actionText: 'Explore Video Production →',
+    actionHref: '/services/content-creation/video-production'
   },
   {
-    "title": "Where This Fits Next to Social Media Management",
-    "description": "Content creation and social media management sound like they overlap completely, and the actual distinction is worth being clear about upfront. Creation: Making the Actual Asset Content creation is the production work itself, filming, editing, shooting, designing, the physical or digital asset that ends up existing. Management: Planning, Posting, and Engaging Social media management, covered under our separate Social Media Management services, is the ongoing posting, scheduling, and community engagement built around assets, whether we produced them or you did. Why Most Businesses Need Both, Coordinated A well-managed posting schedule with weak, inconsistent visuals underperforms, and beautifully produced content that never gets posted consistently accomplishes nothing either, the two functions genuinely depend on each other rather than standing in for one another.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Every piece of visually inconsistent or low-quality content published under a brand's name is quietly working against every other piece, a strong logo undercut by amateur product photography, or a polished website next to shaky, poorly lit video, sends a mixed signal about how seriously the business actually takes itself. The cost compounds the way most brand-perception issues do: no single piece looks disqualifying on its own, but the pattern across everything a visitor sees adds up to an impression, whether that impression was the intended one or not.",
-  "A common misunderstanding treats content creation as a single, interchangeable skill. Hire someone who can \"do video\" or \"do design,\" and any format comes out fine. It doesn't work that way. A wedding videographer and a short-form Reels editor are solving genuinely different problems, and production built for one format rarely translates cleanly to another without real adjustment."
-]
-  const whyChooseUs = service?.whyChooseUs || [
+    tag: 'Format 02',
+    title: 'Short-Form Video (Reels, Shorts & TikTok)',
+    slug: '/services/content-creation/short-form-video',
+    description: 'Short-form content needs a different production approach from longer video. We create vertical videos designed around fast openings, clear messaging, strong pacing, visual variety, and platform-ready delivery.',
+    bullets: [
+      'Concept and high-retention hook development',
+      'Vertical 9:16 filming or footage sourcing',
+      'Platform-native fast-paced editing and pacing',
+      'Captions, text overlays, and dynamic motion elements',
+      'Music, sound effects, and multiple testing cutdowns'
+    ],
+    actionText: 'Plan Your Short-Form Content →',
+    actionHref: '/contact'
+  },
   {
-    "title": "Framecipher produces video, photography, and design under one in-house creative team, so a brand's visual identity carries consistently across a product photo, a YouTube video, and an Instagram graphic, instead of each one looking like it came from a different source with different instincts. Every deliverable goes through your review before it's considered final, which keeps quality and brand consistency in your control rather than discovered after delivery.",
-    "text": "We produce content for Bangladeshi businesses and international clients across the US, UK, Australia, Canada, and UAE, which means production accounts for real differences in platform requirements and audience expectations between markets rather than one region's visual style applied everywhere. Content here gets built around a coherent brand identity from the start, not assembled from whatever separate freelancers happened to produce independently."
+    tag: 'Format 03',
+    title: 'YouTube Video Production',
+    slug: '/services/content-creation/youtube-videos',
+    description: 'Long-form video needs more than simply extending a short clip. We produce YouTube content with attention to structure, pacing, audio quality, visual continuity, editing, thumbnails, and the viewing experience across longer videos.',
+    bullets: [
+      'Video concept and outline development',
+      'Script development or script support',
+      'Filming and multi-camera capture',
+      'Video editing, sound editing, and grading',
+      'Motion graphics, captions, and thumbnail design'
+    ],
+    actionText: 'Explore YouTube Production →',
+    actionHref: '/services/content-creation/youtube-videos'
+  },
+  {
+    tag: 'Format 04',
+    title: 'Motion Graphics & Animation',
+    slug: '/services/content-creation/motion-graphics-animation',
+    description: 'Some ideas are easier to explain through movement than live footage. We create motion graphics and animation for product explanations, processes, statistics, presentations, social content, advertisements, brand assets, and other communication needs.',
+    bullets: [
+      'Kinetic typography & dynamic animated graphics',
+      '2D character and vector animation',
+      'Product animations and 3D/2D explainer visuals',
+      'Logo animation, intro stings, and brand identifiers',
+      'Data visualization and social motion graphics'
+    ],
+    actionText: 'Explore Motion Graphics →',
+    actionHref: '/services/content-creation/motion-graphics-animation'
+  },
+  {
+    tag: 'Format 05',
+    title: 'Commercial & Brand Photography',
+    slug: '/services/content-creation/product-photography',
+    description: 'Professional photography helps businesses present products, people, places, and experiences with greater consistency. Our photography covers product, ecommerce, lifestyle, corporate, campaign, food, fashion, and other commercial requirements.',
+    bullets: [
+      'Shoot planning, styling direction, and moodboards',
+      'Studio lighting, product setups, and on-location shoots',
+      'Commercial ecommerce catalog and lifestyle visuals',
+      'Corporate headshots, office culture, and facility capture',
+      'High-end editing, color calibration, and retouching'
+    ],
+    actionText: 'Explore Photography →',
+    actionHref: '/services/content-creation/product-photography'
+  },
+  {
+    tag: 'Format 06',
+    title: 'Graphic Design & Marketing Assets',
+    slug: '/services/content-creation/graphic-design',
+    description: 'Graphic design supports the everyday visual needs of a business. Every design is created within an agreed visual direction so individual assets remain part of the same brand system.',
+    bullets: [
+      'Social media graphics & paid advertising creatives',
+      'Pitch decks, keynote presentations & one-pagers',
+      'Brochures, flyers, lookbooks & print collaterals',
+      'Digital banners, display ads & web graphic assets',
+      'Unified brand campaign collateral systems'
+    ],
+    actionText: 'Explore Graphic Design →',
+    actionHref: '/services/content-creation/graphic-design'
+  },
+  {
+    tag: 'Format 07',
+    title: 'Logo Design',
+    slug: '/services/content-creation/logo-design',
+    description: 'A logo needs to work across more than a presentation mockup. We design logos that can be used across websites, social profiles, packaging, business materials, advertising, print, and other real-world applications.',
+    bullets: [
+      'Concept development and initial creative directions',
+      'Typographic marks, emblems, and abstract brand icons',
+      'Rigorous legibility testing at micro and macro scales',
+      'Refinement cycles based on structured feedback',
+      'Comprehensive vector (AI, SVG) and raster formats'
+    ],
+    actionText: 'Explore Logo Design →',
+    actionHref: '/services/content-creation/logo-design'
+  },
+  {
+    tag: 'Format 08',
+    title: 'Branding & Visual Identity',
+    slug: '/services/content-creation/branding',
+    description: 'A logo is only one part of a brand identity. Our branding work establishes the broader visual system that guides future content, including color direction, typography, imagery style, graphic elements, visual consistency, and usage guidelines.',
+    bullets: [
+      'Color palette direction and contrast standards',
+      'Typography hierarchy and pairing guidelines',
+      'Imagery styling, art direction, and moodboards',
+      'Graphic elements, patterns, and iconography',
+      'Comprehensive brand usage guidelines and applications'
+    ],
+    actionText: 'Explore Branding →',
+    actionHref: '/services/content-creation/branding'
+  },
+  {
+    tag: 'Format 09',
+    title: 'Social Media Graphics',
+    slug: '/services/content-creation/social-media-graphics',
+    description: 'Social media graphics need to work within the format and context of each platform. We create custom and recurring graphics for announcements, promotions, educational content, campaigns, product launches, offers, and reusable template systems.',
+    bullets: [
+      'Platform-native sizing for Instagram, LinkedIn, Facebook & X',
+      'Educational multi-slide carousels and infographics',
+      'Promotional announcements, discount reveals, and event graphics',
+      'Reusable templates for recurring, scalable publishing',
+      'Cohesive feed aesthetics aligned with your brand guidelines'
+    ],
+    actionText: 'Explore Social Graphics →',
+    actionHref: '/services/content-creation/social-media-graphics'
+  },
+  {
+    tag: 'Format 10',
+    title: 'UGC & Creator-Style Content',
+    slug: '/contact',
+    description: 'For businesses that use creator-led or user-generated-style content, we support production requirements such as concepts, creative direction, editing, platform formatting, and branded variations.',
+    bullets: [
+      'Native creator hooks and authentic visual scripting',
+      'Pacing and retention editing for supplied footage',
+      'Dynamic typography, captions, and trending audio sync',
+      'Original creator coordination and on-screen talent guidance',
+      'Ad creative variations for Meta and TikTok advertising'
+    ],
+    actionText: 'Discuss UGC Production →',
+    actionHref: '/contact'
   }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Capabilities & Scope"
+          title="What Content Creation Services Include"
+          index="01"
+        >
+          Our content creation services cover the main visual formats businesses use to communicate, promote products, launch campaigns, and maintain a consistent brand presence.
+        </SectionIntro>
+
+        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+          {offeringsList.map((item, index) => (
+            <div
+              key={index}
+              className="group bg-frame-bg p-7 md:p-8 flex flex-col justify-between transition-colors hover:bg-frame-muted/20"
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  {item.tag}
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg group-hover:text-frame-accent transition-colors">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.description}
+                </p>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
-                  </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
+                {item.bullets?.length > 0 && (
+                  <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                    {item.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
                     ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
-                </div>
-              )}
+                  </ul>
+                )}
+              </div>
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+              <div className="mt-8 border-t-2 border-frame-border/60 pt-4">
+                <Link
+                  href={item.actionHref}
+                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent hover:underline"
+                >
+                  <span>{item.actionText}</span>
+                </Link>
+              </div>
             </div>
-          </div>
-        </section>
-      )}
-    </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

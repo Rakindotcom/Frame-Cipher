@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation'
 import CaseStudyDetailPage from '../../../src/views/CaseStudyDetailPage'
 import { getGrowthCaseStudyBySlug, getGrowthCaseStudySlugs } from '../../../src/data/growthWork'
+import { buildCaseStudySchema } from '../../../src/lib/seo/schema'
 
 export function generateStaticParams() {
   return getGrowthCaseStudySlugs().map((slug) => ({ slug }))
@@ -40,5 +41,17 @@ export default async function Page({ params }) {
     notFound()
   }
 
-  return <CaseStudyDetailPage study={study} />
+  const schema = buildCaseStudySchema(study)
+
+  return (
+    <>
+      {schema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replaceAll('<', '\\u003c') }}
+        />
+      )}
+      <CaseStudyDetailPage study={study} />
+    </>
+  )
 }

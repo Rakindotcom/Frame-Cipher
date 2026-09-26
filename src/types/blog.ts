@@ -15,7 +15,7 @@ export interface BlogPostItem {
   publishDate: string;
   views: number;
   wordCount: number;
-  seoScore: number;
+  seoScore: number | null;
   featuredImage: {
     url: string;
     alt: string;

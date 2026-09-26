@@ -1,57 +1,107 @@
-import { SectionIntro } from '../../../Kinetic'
+import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "Is this the same as the content strategy work included in your platform-specific pages?",
-    "answer": "No, and this is worth being clear about. Each platform page's content strategy work is scoped to that platform alone, what to post on Instagram, for instance. This service is the coordination layer above all of them, making sure those individual plans work together as one business story rather than five disconnected ones."
+    q: 'What is a Content Calendar & Strategy Service?',
+    a: 'A Content Calendar & Strategy Service combines strategic content planning with an organized publishing calendar. It helps determine what your business should communicate, which platforms should carry the content, how content should be adapted, when it should be published, and how different content pieces should support broader business goals.',
   },
   {
-    "question": "Do we need this if we're only active on one platform?",
-    "answer": "Generally not as a separate service, a single platform's own content strategy work covers what's needed. This becomes valuable once a second or third platform enters the picture and nobody's tracking how they relate to each other."
+    q: 'What is the difference between a content calendar and content strategy?',
+    a: 'Content strategy defines the direction behind your content, including your audience, goals, messaging, content pillars, and platform roles. A content calendar organizes that strategy into specific topics, formats, platforms, dates, campaigns, CTAs, and production requirements.',
   },
   {
-    "question": "Can this work alongside our in-house social media team?",
-    "answer": "Yes, the Setup Only option is built specifically for businesses that want the calendar and framework built professionally, then maintained internally by an existing team."
+    q: 'What does a social media content calendar include?',
+    a: 'Depending on the scope, a social media content calendar can include content topics, content pillars, publishing dates, platforms, formats, campaigns, CTAs, asset requirements, production deadlines, approval stages, and publishing status.',
   },
   {
-    "question": "How is this different from just using a scheduling tool?",
-    "answer": "A scheduling tool handles when something posts. This service decides what should be said, on which platform, in what order, and how one idea should be adapted differently across five different audiences, the strategic layer a tool alone doesn't provide."
+    q: 'How far ahead do you plan content?',
+    a: 'The planning period depends on the engagement and business requirements. Many ongoing social media programs use monthly planning cycles, while larger campaigns, launches, or international projects may require a longer planning horizon.',
   },
   {
-    "question": "Do you provide this service for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we build Content Calendar & Strategy systems for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Team]"
-  }
+    q: 'Do you create the content or only build the calendar?',
+    a: 'The service can be provided as a strategy and planning engagement for your internal team, or it can be coordinated with Framecipher\u2019s platform-specific social media management and content production services when included in the agreed scope.',
+  },
+  {
+    q: 'Can you build a calendar for our in-house marketing team?',
+    a: 'Yes. Our Setup Only option is designed for businesses that want a professional content framework and master calendar that their internal team can execute and maintain.',
+  },
+  {
+    q: 'Can you coordinate Facebook, Instagram, LinkedIn, TikTok, and YouTube?',
+    a: 'Yes. The planning system can coordinate multiple platforms while keeping the content adapted to each platform\u2019s audience, format, communication style, and role within the wider strategy.',
+  },
+  {
+    q: 'Can you adapt one campaign for different platforms?',
+    a: 'Yes. We begin with the campaign\u2019s core message and then plan platform-specific content formats, angles, publishing sequences, and CTAs.',
+  },
+  {
+    q: 'How is this different from using a social media scheduling tool?',
+    a: 'A scheduling tool primarily helps organize or publish content at selected times. Content Calendar & Strategy goes further by determining what should be communicated, why it matters, where it should appear, how the idea should be adapted, how campaigns should be coordinated, and how future planning can respond to performance.',
+  },
+  {
+    q: 'Do you publish the content for us?',
+    a: 'Publishing depends on the selected scope. The calendar can be delivered to your internal team for execution, or it can be connected with Framecipher\u2019s platform management services when publishing is included.',
+  },
+  {
+    q: 'Do you need to manage all our social media platforms?',
+    a: 'No. We can build a content planning system around the platforms relevant to your business. The service becomes especially useful when multiple platforms need to work together, but the exact scope depends on your goals and content operation.',
+  },
+  {
+    q: 'Do you provide Content Calendar & Strategy Service outside Bangladesh?',
+    a: 'Yes. Framecipher works with businesses across Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
-          eyebrow="Direct Answers"
+          eyebrow="Direct answers"
           title="Frequently Asked Questions"
         >
-          Common questions about our delivery process, technical standards, and engagement models.
+          Straight answers about scope, planning periods, coordination, pricing, and how this differs from a
+          scheduling tool.
         </SectionIntro>
 
         <div className="space-y-4">
-          {faqs.map((faq, index) => (
+          {faqs.map((faq) => (
             <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+              key={faq.q}
+              className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-base font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:text-lg">
+                <span>{faq.q}</span>
+                <span
+                  aria-hidden="true"
+                  className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
+                >
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                {faq.answer}
+              <div className="border-t-2 border-frame-border p-6">
+                {faq.a.split('\n\n').map((paragraph, pIdx) => (
+                  <p
+                    key={pIdx}
+                    className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
+                      pIdx > 0 ? 'mt-4' : ''
+                    }`}
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
             </details>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            Have a question that is not answered here? Ask during the consultation and we will answer it
+            directly.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact">Request a Consultation &rarr;</PosterButton>
+          </div>
         </div>
       </div>
     </section>

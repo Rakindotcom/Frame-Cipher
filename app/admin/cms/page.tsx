@@ -7,8 +7,7 @@ import { BlogPostItem } from "@/types/blog";
 import { isLegacyDemoPost } from "@/lib/blog/getBlogPosts";
 import { CANONICAL_BLOG_POSTS } from "@/lib/blog/canonicalPosts";
 import { WordPressEditor } from "@/components/admin/cms/WordPressEditor";
-import { getBlogPostsFromFirestore, saveBlogPostToFirestore } from "@/lib/firebase";
-import { revalidateSitemaps } from "@/lib/actions/revalidateSitemap";
+import { getBlogPostsFromFirestore, saveBlogPostToFirestore, deleteBlogPostFromFirestore } from "@/lib/firebase";
 import {
   FileText,
   Plus,
@@ -68,9 +67,9 @@ function getCanonicalAsBlogItems(): BlogPostItem[] {
     status: (c.status as "published" | "draft" | "scheduled") || "published",
     author: c.author,
     publishDate: c.publishDate,
-    views: c.views || 1,
+    views: typeof c.views === "number" ? c.views : 0,
     wordCount: c.wordCount || 1800,
-    seoScore: c.seoScore || 95,
+    seoScore: typeof c.seoScore === "number" ? c.seoScore : null,
     featuredImage: c.featuredImage,
     focusKeyword: c.focusKeyword,
     canonicalUrl: c.canonicalUrl,
@@ -133,52 +132,78 @@ export default function BlogCmsPage() {
   // Bulk Selection State for Blog Posts
   const [selectedPostIds, setSelectedPostIds] = useState<Set<string>>(new Set());
 
-  // Load persistent posts from Firestore or localStorage fallback on mount, merging with canonical code posts
+  // Load persistent posts from Server API / Firestore / localStorage on mount
   useEffect(() => {
     async function loadPosts() {
-      try {
-        const firestorePosts = await getBlogPostsFromFirestore();
-        if (firestorePosts && firestorePosts.length > 0) {
-          const merged = mergeCanonicalWithCustom(firestorePosts);
-          setPosts(merged);
-          return;
-        }
-      } catch (err) {
-        console.warn("Firestore posts fetch error:", err);
-      }
-
+      let localFallback: BlogPostItem[] = [];
       try {
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved !== null) {
           const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            const merged = mergeCanonicalWithCustom(parsed);
-            setPosts(merged);
-            return;
+          if (Array.isArray(parsed)) {
+            localFallback = parsed.filter((p) => !isLegacyDemoPost(p));
           }
         }
       } catch {}
 
-      // Default to code-defined canonical posts
-      setPosts(getCanonicalAsBlogItems());
+      // 1. Fetch from unified server API (/api/blog)
+      try {
+        const res = await fetch("/api/blog", { cache: "no-store" });
+        if (res.ok) {
+          const apiPosts = await res.json();
+          if (Array.isArray(apiPosts) && apiPosts.length > 0) {
+            const clean = apiPosts.filter((p: BlogPostItem) => !isLegacyDemoPost(p));
+            if (clean.length > 0) {
+              const merged = mergeCanonicalWithCustom(clean);
+              setPosts(merged);
+              try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
+              } catch {}
+              return;
+            }
+          }
+        }
+      } catch (apiErr) {
+        console.warn("API blog fetch error:", apiErr);
+      }
+
+      // 2. If API was empty but localStorage had newly created posts, sync them to server
+      if (localFallback.length > 0) {
+        setPosts(localFallback);
+        localFallback.forEach((p) => {
+          fetch("/api/blog", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ post: p }),
+          }).catch(() => {});
+        });
+        return;
+      }
+
+      // 3. If no posts exist anywhere, ensure library state is empty
+      setPosts([]);
     }
     loadPosts();
   }, []);
 
-  // Save to localStorage & Firestore whenever posts change
-  const persistPosts = (updatedList: BlogPostItem[]) => {
-    setPosts(updatedList);
+  // Save to localStorage, server API & Firestore whenever posts change
+  const persistPosts = async (updatedList: BlogPostItem[]) => {
+    const cleanList = updatedList.filter((p) => !isLegacyDemoPost(p));
+    setPosts(cleanList);
     try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedList));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleanList));
     } catch {}
 
-    // Asynchronously save to Firestore database
-    updatedList.forEach((p) => {
-      saveBlogPostToFirestore(p).catch(() => {});
-    });
-
-    // Regenerate the post sitemap so published/unpublished changes land immediately.
-    revalidateSitemaps(["post", "category"]).catch(() => {});
+    // Save all posts atomically via Server API
+    try {
+      await fetch("/api/blog", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ posts: cleanList }),
+      });
+    } catch (e) {
+      console.warn("Server save error:", e);
+    }
   };
 
   const handleOpenNew = () => {
@@ -186,10 +211,10 @@ export default function BlogCmsPage() {
       title: "",
       slug: "",
       category: "Growth Marketing",
-      status: "published",
+      status: "draft",
       author: "Mahedi Hasan Perves",
-      wordCount: 2200,
-      seoScore: 94,
+      wordCount: 0,
+      seoScore: null,
       focusKeyword: "",
       canonicalUrl: "",
       featuredImage: {
@@ -211,6 +236,8 @@ export default function BlogCmsPage() {
     if (confirm("Are you sure you want to delete this dispatch?")) {
       const updated = posts.filter((p) => p.id !== id);
       persistPosts(updated);
+      fetch(`/api/blog?id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => {});
+      deleteBlogPostFromFirestore(id).catch(() => {});
       setSelectedPostIds((prev) => {
         const next = new Set(prev);
         next.delete(id);
@@ -248,6 +275,10 @@ export default function BlogCmsPage() {
 
     const remaining = posts.filter((p) => !selectedPostIds.has(p.id));
     persistPosts(remaining);
+    selectedPostIds.forEach((id) => {
+      fetch(`/api/blog?id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => {});
+      deleteBlogPostFromFirestore(id).catch(() => {});
+    });
     setSelectedPostIds(new Set());
   };
 
@@ -302,7 +333,7 @@ export default function BlogCmsPage() {
             <div className="my-1.5">
               <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">
                 {Math.round(
-                  (posts.filter((p) => p.featuredImage.hasAlt).length / (posts.length || 1)) *
+                  (posts.filter((p) => p.featuredImage?.hasAlt).length / (posts.length || 1)) *
                     100
                 )}
                 %
@@ -499,9 +530,15 @@ export default function BlogCmsPage() {
                   <span className="text-[11px] font-bold text-[#1D4ED8] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
                     {post.category}
                   </span>
-                  <span className="font-mono text-[11px] text-[#16A34A] font-bold bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
-                    SEO: {post.seoScore}/100
-                  </span>
+                  {post.seoScore === null ? (
+                    <span className="font-mono text-[11px] text-[#94A3B8] font-bold bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">
+                      SEO: not analysed
+                    </span>
+                  ) : (
+                    <span className="font-mono text-[11px] text-[#16A34A] font-bold bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                      SEO: {post.seoScore}/100
+                    </span>
+                  )}
                   <span className="font-mono text-xs font-semibold text-[#64748B]">
                     {post.wordCount.toLocaleString()} words
                   </span>
@@ -584,7 +621,7 @@ export default function BlogCmsPage() {
                       </td>
 
                       <td className="py-3.5 px-4 text-center whitespace-nowrap">
-                        {post.featuredImage.hasAlt ? (
+                        {post.featuredImage?.hasAlt ? (
                           <span className="inline-flex items-center gap-1 text-xs font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
                             <CheckCircle2 className="h-3.5 w-3.5" />
                             <span>Alt Tag OK</span>
@@ -602,9 +639,15 @@ export default function BlogCmsPage() {
                       </td>
 
                       <td className="py-3.5 px-4 text-center whitespace-nowrap">
-                        <span className="inline-block font-mono font-bold text-xs text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
-                          {post.seoScore} / 100
-                        </span>
+                        {post.seoScore === null ? (
+                          <span className="inline-block font-mono font-bold text-[11px] text-[#94A3B8] bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">
+                            not analysed
+                          </span>
+                        ) : (
+                          <span className="inline-block font-mono font-bold text-xs text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0]">
+                            {post.seoScore} / 100
+                          </span>
+                        )}
                       </td>
 
                       <td className="py-3.5 px-4 text-center whitespace-nowrap">

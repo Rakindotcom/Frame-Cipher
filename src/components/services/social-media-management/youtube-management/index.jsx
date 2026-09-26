@@ -1,32 +1,74 @@
 import Hero from './Hero'
+import Overview from './Overview'
 import Offerings from './Offerings'
+import Discoverability from './Discoverability'
+import LongTerm from './LongTerm'
+import Formats from './Formats'
+import Outcomes from './Outcomes'
+import WhoFor from './WhoFor'
+import VsAds from './VsAds'
 import Process from './Process'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
+import Timeline from './Timeline'
+import Guarantee from './Guarantee'
+import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "YouTube Management",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'Channel Strategy',
+  'Long-Form Production',
+  'YouTube SEO',
+  'Thumbnails & Titles',
+  'Shorts',
+  'Publishing',
+  'Community Management',
+  'Analytics',
 ]
 
-export default function SocialMediaManagementYoutubeManagementService({ service }) {
+export default function SocialMediaManagementYoutubeManagementService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Overview />
+      <Offerings />
+      <Discoverability />
+      <LongTerm />
+      <Formats />
+      <Outcomes />
+      <WhoFor />
+      <VsAds />
+      <Process />
+      <WhyChoose />
+      <Pricing />
+      <Timeline />
+      <Guarantee />
+      <ServiceAreas />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  Overview,
+  Offerings,
+  Discoverability,
+  LongTerm,
+  Formats,
+  Outcomes,
+  WhoFor,
+  VsAds,
+  Process,
+  WhyChoose,
+  Pricing,
+  Timeline,
+  Guarantee,
+  ServiceAreas,
+  FAQ,
+  CTA,
+}

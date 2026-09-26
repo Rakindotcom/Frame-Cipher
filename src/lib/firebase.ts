@@ -1,6 +1,11 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import { getAuth, Auth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from "firebase/auth";
-import { getFirestore, Firestore, collection, doc, setDoc, addDoc, getDoc, getDocs, query, where, orderBy, deleteDoc, serverTimestamp } from "firebase/firestore";
+import { getFirestore, Firestore, collection, doc, setDoc, addDoc, getDoc, getDocs, query, where, orderBy, deleteDoc, serverTimestamp, setLogLevel } from "firebase/firestore";
+import { getStorage, FirebaseStorage, ref as storageRef, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+
+try {
+  setLogLevel("silent");
+} catch {}
 import { getAnalytics, Analytics, isSupported } from "firebase/analytics";
 
 // Public web config for the canonical `framecipherweb` project, embedded as
@@ -25,16 +30,19 @@ const isFirebaseConfigured = Boolean(firebaseConfig.apiKey);
 let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
 let db: Firestore | null = null;
+let storage: FirebaseStorage | null = null;
 
 if (isFirebaseConfigured) {
   try {
     app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
     auth = getAuth(app);
     db = getFirestore(app);
+    storage = getStorage(app);
   } catch {
     app = null;
     auth = null;
     db = null;
+    storage = null;
   }
 }
 
@@ -150,7 +158,7 @@ export async function saveInquiryRecord(item: SavedInquiryItem): Promise<{ succe
     });
     return { success: true, id: docRef.id };
   } catch (error: any) {
-    console.error("Firestore Save Inquiry Error:", error);
+    console.warn("Firestore Save Inquiry Note:", error?.message);
     return { success: false, error: error?.message || "Failed to save inquiry to cloud." };
   }
 }
@@ -170,8 +178,8 @@ export async function getUserInquiryHistory(userId: string): Promise<SavedInquir
       items.push({ id: doc.id, ...(doc.data() as any) });
     });
     return items;
-  } catch (error) {
-    console.error("Firestore Fetch Inquiry Error:", error);
+  } catch (error: any) {
+    console.warn("Firestore Fetch Inquiry Note:", error?.message);
     return [];
   }
 }
@@ -199,7 +207,7 @@ export async function saveContactInquiry(inquiry: ContactInquiry): Promise<{ suc
     });
     return { success: true, id: docRef.id };
   } catch (error: any) {
-    console.error("Firestore Contact Inquiry Error:", error);
+    console.warn("Firestore Contact Inquiry Note:", error?.message);
     return { success: false, error: error?.message || "Failed to dispatch message to Firestore." };
   }
 }
@@ -224,6 +232,42 @@ export function sanitizeForFirestore<T>(value: T): T {
   return value;
 }
 
+export async function saveAdminProfileToFirestore(
+  profile: { uid: string; email: string; name: string; role: string }
+): Promise<{ success: boolean; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
+  try {
+    const docRef = doc(db, "admin_profiles", profile.uid);
+    await setDoc(
+      docRef,
+      { ...sanitizeForFirestore(profile), updatedAt: serverTimestamp() },
+      { merge: true }
+    );
+    return { success: true };
+  } catch (error: any) {
+    console.warn("Firestore Admin Profile Note:", error?.message);
+    return { success: false, error: error?.message || "Failed to save administrator profile." };
+  }
+}
+
+export async function getAdminProfileFromFirestore(
+  uid: string
+): Promise<{ success: boolean; profile?: any; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
+  try {
+    const snap = await getDoc(doc(db, "admin_profiles", uid));
+    if (!snap.exists()) return { success: true };
+    return { success: true, profile: snap.data() };
+  } catch (error: any) {
+    console.warn("Firestore Admin Profile Read Note:", error?.message);
+    return { success: false, error: error?.message || "Failed to read administrator profile." };
+  }
+}
+
 export async function saveBlogPostToFirestore(post: any): Promise<{ success: boolean; error?: string }> {
   if (!db) {
     return { success: false, error: "Firebase is not configured." };
@@ -232,35 +276,60 @@ export async function saveBlogPostToFirestore(post: any): Promise<{ success: boo
     const docRef = doc(db, "blog_posts", post.id || post.slug);
     await setDoc(docRef, {
       ...sanitizeForFirestore(post),
+      // Always written so the public read filter can rely on the field existing.
+      // Legacy documents without it are treated as public by the rules.
+      status: post.status || "draft",
+      visibility: post.visibility || "public",
       updatedAt: serverTimestamp(),
     }, { merge: true });
     return { success: true };
   } catch (error: any) {
-    console.error("Firestore Save Blog Post Error:", error);
+    console.warn("Firestore Save Blog Post Note:", error?.message);
     return { success: false, error: error?.message || "Failed to save blog post." };
   }
 }
 
-export async function getBlogPostsFromFirestore(): Promise<any[]> {
+export async function deleteBlogPostFromFirestore(id: string): Promise<{ success: boolean; error?: string }> {
   if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
+  try {
+    const docRef = doc(db, "blog_posts", id);
+    await deleteDoc(docRef);
+    return { success: true };
+  } catch (error: any) {
+    console.warn("Firestore Delete Blog Post Note:", error?.message);
+    return { success: false, error: error?.message || "Failed to delete blog post." };
+  }
+}
+
+export async function getBlogPostsFromFirestore(): Promise<any[]> {
+  if (!db || typeof window === "undefined") {
     return [];
   }
   try {
+    // Both filters are required: the security rules only grant public reads for
+    // documents where status == 'published' and visibility == 'public', and
+    // Firestore rejects any query that could return a document failing that test.
     const colRef = collection(db, "blog_posts");
-    const snapshot = await getDocs(colRef);
+    const q = query(
+      colRef,
+      where("status", "==", "published"),
+      where("visibility", "==", "public")
+    );
+    const snapshot = await getDocs(q);
     const posts: any[] = [];
     snapshot.forEach((d) => {
       posts.push({ id: d.id, ...d.data() });
     });
     return posts;
   } catch (error) {
-    console.error("Firestore Fetch Blog Posts Error:", error);
     return [];
   }
 }
 
 export async function getAuthorProfilesFromFirestore(): Promise<any[]> {
-  if (!db) {
+  if (!db || typeof window === "undefined") {
     return [];
   }
   try {
@@ -272,7 +341,6 @@ export async function getAuthorProfilesFromFirestore(): Promise<any[]> {
     });
     return authors;
   } catch (error) {
-    console.error("Firestore Fetch Author Profiles Error:", error);
     return [];
   }
 }
@@ -289,7 +357,7 @@ export async function saveAuthorProfileToFirestore(author: any): Promise<{ succe
     }, { merge: true });
     return { success: true };
   } catch (error: any) {
-    console.error("Firestore Save Author Profile Error:", error);
+    console.warn("Firestore Save Author Profile Note:", error?.message);
     return { success: false, error: error?.message || "Failed to save author profile." };
   }
 }
@@ -302,9 +370,162 @@ export async function deleteAuthorProfileFromFirestore(id: string): Promise<{ su
     await deleteDoc(doc(db, "author_profiles", id));
     return { success: true };
   } catch (error: any) {
-    console.error("Firestore Delete Author Profile Error:", error);
+    console.warn("Firestore Delete Author Profile Note:", error?.message);
     return { success: false, error: error?.message || "Failed to delete author profile." };
   }
 }
 
-export { app, auth, db, analytics };
+export interface MediaRecord {
+  id: string;
+  title: string;
+  filename: string;
+  url: string;
+  storagePath: string;
+  alt: string;
+  caption: string;
+  description: string;
+  uploadedAt: string;
+  fileSize: string;
+  dimensions: string;
+  type: string;
+}
+
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
+/**
+ * Uploads the binary to Cloud Storage for Firebase and keeps only the metadata
+ * document in Firestore. Previously images were stored as base64 data URLs in
+ * browser localStorage, which meant media existed only on the machine that
+ * uploaded it and never reached the published site.
+ */
+export async function uploadMediaFile(
+  file: File,
+  dimensions: string,
+  title: string
+): Promise<{ success: boolean; item?: MediaRecord; error?: string }> {
+  try {
+    const formData = new FormData();
+    formData.append("file", file);
+    formData.append("dimensions", dimensions);
+    formData.append("title", title);
+
+    const res = await fetch("/api/media", {
+      method: "POST",
+      body: formData,
+    });
+
+    const data = await res.json();
+    if (res.ok && data?.success && data?.item) {
+      // Also optionally backup metadata to Firestore if configured
+      if (db) {
+        try {
+          await setDoc(doc(db, "media", data.item.id), {
+            ...sanitizeForFirestore(data.item),
+            createdAt: serverTimestamp(),
+          });
+        } catch {}
+      }
+      return { success: true, item: data.item };
+    }
+
+    // Fallback to Firebase Storage if /api/media returned error and storage is configured
+    if (storage && db) {
+      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-").toLowerCase();
+      const path = `media/${Date.now()}-${safeName}`;
+      const objectRef = storageRef(storage, path);
+      await uploadBytes(objectRef, file, { contentType: file.type || "image/jpeg" });
+      const url = await getDownloadURL(objectRef);
+
+      const item: MediaRecord = {
+        id: `media-${Date.now()}`,
+        title,
+        filename: file.name,
+        url,
+        storagePath: path,
+        alt: title,
+        caption: "",
+        description: "",
+        uploadedAt: new Date().toISOString(),
+        fileSize: formatFileSize(file.size),
+        dimensions,
+        type: file.type || "image/jpeg",
+      };
+
+      await setDoc(doc(db, "media", item.id), {
+        ...sanitizeForFirestore(item),
+        createdAt: serverTimestamp(),
+      });
+
+      return { success: true, item };
+    }
+
+    return { success: false, error: data?.error || "Upload failed." };
+  } catch (error: any) {
+    console.warn("Media upload failed:", error?.message);
+    return { success: false, error: error?.message || "Upload failed." };
+  }
+}
+
+export async function listMediaFromFirestore(): Promise<MediaRecord[]> {
+  try {
+    const res = await fetch("/api/media", { cache: "no-store" });
+    if (res.ok) {
+      const items = await res.json();
+      if (Array.isArray(items) && items.length > 0) {
+        return items as MediaRecord[];
+      }
+    }
+  } catch (error) {
+    console.warn("Could not list local media:", error);
+  }
+
+  if (!db) return [];
+  try {
+    const snapshot = await getDocs(query(collection(db, "media"), orderBy("createdAt", "desc")));
+    const items: MediaRecord[] = [];
+    snapshot.forEach((d) => {
+      items.push({ id: d.id, ...d.data() } as MediaRecord);
+    });
+    return items;
+  } catch (error) {
+    console.warn("Could not list media from Firestore:", error);
+    return [];
+  }
+}
+
+export async function saveMediaMetadata(item: MediaRecord): Promise<{ success: boolean; error?: string }> {
+  if (db) {
+    try {
+      await setDoc(doc(db, "media", item.id), sanitizeForFirestore(item), { merge: true });
+    } catch {}
+  }
+  return { success: true };
+}
+
+export async function deleteMediaItem(item: MediaRecord): Promise<{ success: boolean; error?: string }> {
+  try {
+    await fetch("/api/media", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: item.id, filename: item.filename }),
+    });
+  } catch (err) {
+    console.warn("Failed to delete local media file:", err);
+  }
+
+  if (db) {
+    try {
+      if (storage && item.storagePath && item.storagePath.startsWith("media/")) {
+        await deleteObject(storageRef(storage, item.storagePath)).catch(() => {});
+      }
+      await deleteDoc(doc(db, "media", item.id));
+    } catch {}
+  }
+  return { success: true };
+}
+
+export { app, auth, db, storage, analytics };

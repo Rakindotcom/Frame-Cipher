@@ -1,103 +1,192 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
+      <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+const steps = [
   {
-    "number": "1",
-    "title": "Shot List & Platform Planning",
-    "description": "Identifying which shot types and platform formats a product catalog actually needs before the shoot day."
+    num: "01",
+    title: "Product & Platform Brief",
+    subtitle: "Discovery",
+    desc: "We start by understanding the products, quantity, intended platforms (Amazon, Daraz, Shopify, Social Ads), target audience, visual direction, and the business use of the images.",
+    deliverable: "Shoot Brief & Specification Alignment"
   },
   {
-    "number": "2",
-    "title": "Studio or Location Setup",
-    "description": "Preparing lighting, background, and any lifestyle staging required for the specific products being shot."
+    num: "02",
+    title: "Shot List & Direction",
+    subtitle: "Roadmap",
+    desc: "We determine which products need hero, detail, lifestyle, scale, multi-angle, or other photography. This prevents unnecessary shots while making sure critical buyer questions are answered.",
+    deliverable: "Approved SKU Shot List & Moodboard"
   },
   {
-    "number": "3",
-    "title": "Shooting",
-    "description": "Capturing hero, lifestyle, detail, and multi-angle coverage in a single organized session."
+    num: "03",
+    title: "Studio or Location Setup",
+    subtitle: "Calibration",
+    desc: "We prepare the appropriate lighting, backgrounds (pure white cyc or styled sets), equipment, props, styling, models, or location requirements based on the approved shoot plan.",
+    deliverable: "Calibrated Lighting Grids & Set Staging"
   },
   {
-    "number": "4",
-    "title": "Retouching & Color Correction",
-    "description": "Post-production work to marketplace compliance standards and consistent color accuracy."
+    num: "04",
+    title: "Photography",
+    subtitle: "Capture",
+    desc: "Products are photographed according to the agreed shot list. For catalog projects, strict consistency in framing, lighting, camera position, and styling is maintained across the entire product set.",
+    deliverable: "High-Resolution RAW Exposure Capture"
   },
   {
-    "number": "5",
-    "title": "Client Review & Multi-Format Delivery",
-    "description": "Review before final delivery, with files exported and organized for every platform they'll actually be used on."
+    num: "05",
+    title: "Retouching & QC",
+    subtitle: "Post-Production",
+    desc: "Selected images move through color calibration, cleanup, dust removal, shadow mapping, cropping, and quality checks. We review the complete set for consistency before delivery.",
+    deliverable: "Retouched & Color-Balanced Masters"
+  },
+  {
+    num: "06",
+    title: "Review & Delivery",
+    subtitle: "Packaging",
+    desc: "You review the agreed image set before final handover. Approved images are exported, organized by SKU, and delivered in platform-compliant formats ready for instant publishing.",
+    deliverable: "Organized Multi-Platform Asset Handover"
   }
 ]
-  const timeline = service?.timeline || "Shot list planning typically takes a few business days. A standard studio shoot is usually completed within a day for smaller catalogs, with retouched, platform-formatted files delivered within a week; larger catalog shoots and lifestyle sessions are scoped individually based on volume and complexity."
 
-  if (!steps?.length) return null
+const timelines = [
+  {
+    projectType: "Small Studio Shoot",
+    timeline: "2–5 business days",
+    scope: "1–5 products, white-background hero shots & essential angles",
+    idealFor: "Quick Amazon ASIN updates & new standalone product drops"
+  },
+  {
+    projectType: "Standard Product Batch",
+    timeline: "4–7 business days",
+    scope: "10–30 products, hero + macro detail + basic packaging shots",
+    idealFor: "Seasonal brand launches & primary store updates"
+  },
+  {
+    projectType: "Lifestyle Photography",
+    timeline: "1–2 weeks",
+    scope: "Dedicated studio or location session with props & environmental staging",
+    idealFor: "Hero website banners, marketing campaigns & social ad creatives"
+  },
+  {
+    projectType: "Larger Catalog Shoot",
+    timeline: "1–3+ weeks",
+    scope: "50+ SKUs with standardized batch lighting and batch retouching",
+    idealFor: "Full ecommerce store launches & comprehensive catalog overhauls"
+  },
+  {
+    projectType: "Complex Campaign Production",
+    timeline: "Scoped individually",
+    scope: "Custom set builds, multi-location, talent casting & multi-media integration",
+    idealFor: "National brand campaigns & flagship launch rollouts"
+  }
+]
 
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
+        
+        {/* PROCESS INTRO */}
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Workflow Rigor"
+          title="Our Product Photography Process"
+          align="center"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          From brief to final catalog-ready assets, every phase is engineered to guarantee visual consistency, color fidelity, and strict platform compliance.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* 6-STEP PROCESS GRID (3x2) */}
+        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={index} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
+                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3 mb-4">
+                  <span className="font-heading text-3xl font-black text-frame-accent">
+                    {step.num}
                   </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-frame-muted-fg border border-frame-border px-1.5 py-0.5">
+                    {step.subtitle}
                   </span>
                 </div>
-              )}
+
+                <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg leading-snug">
+                  {step.title}
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {step.desc}
+                </p>
+              </div>
+
+              <div className="mt-6 border-t border-frame-border/60 pt-4">
+                <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+                  Deliverable
+                </span>
+                <span className="text-xs font-bold text-frame-fg flex items-start gap-1.5">
+                  <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
+                  <span className="leading-snug">{step.deliverable}</span>
+                </span>
+              </div>
             </div>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
+        {/* TIMELINE MATRIX SECTION */}
+        <div className="mt-20 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-10">
+          <div className="max-w-3xl mb-8">
+            <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-frame-accent block mb-2">
+              Production Turnaround
+            </span>
+            <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              Typical Product Photography Timelines
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+              Timelines depend on product quantity, photography style, styling requirements, and post-production scope. For larger catalogs, production can be scheduled in staged batches so approved images can be uploaded progressively.
+            </p>
+          </div>
+
+          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
+            <table className="w-full text-left text-xs md:text-sm">
+              <thead className="border-b-2 border-frame-border bg-frame-muted/40 font-mono text-[11px] font-black uppercase tracking-wider text-frame-accent">
+                <tr>
+                  <th className="p-4 md:p-5">Project Type</th>
+                  <th className="p-4 md:p-5">Typical Timeline</th>
+                  <th className="p-4 md:p-5 hidden sm:table-cell">Production Scope</th>
+                  <th className="p-4 md:p-5 hidden md:table-cell">Best Fit</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y border-frame-border font-medium">
+                {timelines.map((item, tIdx) => (
+                  <tr key={tIdx} className="hover:bg-frame-muted/20 transition-colors">
+                    <td className="p-4 md:p-5 font-bold text-frame-fg whitespace-nowrap">
+                      {item.projectType}
+                    </td>
+                    <td className="p-4 md:p-5 font-mono font-bold text-frame-accent whitespace-nowrap">
+                      {item.timeline}
+                    </td>
+                    <td className="p-4 md:p-5 text-frame-muted-fg hidden sm:table-cell">
+                      {item.scope}
+                    </td>
+                    <td className="p-4 md:p-5 text-frame-muted-fg hidden md:table-cell">
+                      {item.idealFor}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        )}
+
+          <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-frame-border/80 pt-4 text-xs font-mono text-frame-muted-fg">
+            <span>Progressive batch delivery available for large catalogs (50+ products).</span>
+            <span className="text-frame-accent font-bold">Fast-track options available on request</span>
+          </div>
+        </div>
+
       </div>
     </section>
   )

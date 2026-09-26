@@ -62,7 +62,7 @@ export function WordPressSidebar({
                 >
                   {cat === "All Articles"
                     ? recentPosts.length
-                    : recentPosts.filter((p) => p.category === cat).length || 1}
+                    : recentPosts.filter((p) => p.category === cat || (p.categories && p.categories.includes(cat))).length}
                 </span>
               </button>
             );
@@ -70,13 +70,13 @@ export function WordPressSidebar({
         </div>
       </div>
 
-      {/* WIDGET 3: Latest 3 Posts with Featured Image Thumbnail */}
+      {/* WIDGET 3: Latest Posts with Featured Image Thumbnail */}
       {filteredRecent.length > 0 && (
         <div className="border-2 border-frame-border bg-[#121214] p-6 shadow-sm space-y-4 text-frame-fg rounded-2xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-frame-accent font-heading">
               <BookOpen className="h-4 w-4" />
-              <span>Latest Posts (3)</span>
+              <span>Latest Posts ({filteredRecent.length})</span>
             </div>
             <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
               Fresh

@@ -23,12 +23,18 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
   const isLoginPage = pathname === "/admin/login";
 
   useEffect(() => {
-    const active = isSessionActive();
-    setIsAuthenticated(active);
+    if (isLoginPage) return;
+    let cancelled = false;
 
-    if (!isLoginPage && !active) {
-      window.location.href = "/admin/login";
-    }
+    isSessionActive().then((active) => {
+      if (cancelled) return;
+      setIsAuthenticated(active);
+      if (!active) window.location.href = "/admin/login?session=expired";
+    });
+
+    return () => {
+      cancelled = true;
+    };
   }, [pathname, isLoginPage]);
 
   if (isLoginPage) {

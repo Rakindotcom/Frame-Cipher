@@ -1,103 +1,65 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Community Audit",
-    "description": "We review your current comments, messages, and reviews across platforms to understand response history and gaps."
+    number: '01',
+    title: 'Community Audit',
+    body: 'We review your active platforms, recent interactions, common questions, existing response patterns, reviews, moderation issues, and escalation needs.',
   },
   {
-    "number": "2",
-    "title": "Voice & Escalation Strategy",
-    "description": "Establishing your brand voice guidelines and a clear process for what gets escalated versus handled directly."
+    number: '02',
+    title: 'Brand Voice & Response Guidelines',
+    body: 'We establish practical guidance for tone, frequently asked questions, response boundaries, CTAs, and situations that require escalation.',
   },
   {
-    "number": "3",
-    "title": "Response & Monitoring Begins",
-    "description": "Ongoing comment, DM, and review monitoring starts, with your approval process built in for anything sensitive."
+    number: '03',
+    title: 'Escalation & Moderation Setup',
+    body: 'We define which issues can be handled directly, which require approval, and which should be routed to your team. Moderation rules and platform-specific requirements are also considered.',
   },
   {
-    "number": "4",
-    "title": "Moderation & Community Building",
-    "description": "Spam and inappropriate content managed, alongside proactive engagement to build genuine community."
+    number: '04',
+    title: 'Monitoring & Response',
+    body: 'Once the workflow is approved, ongoing monitoring and response begin across the agreed platforms and coverage windows.',
   },
   {
-    "number": "5",
-    "title": "Reporting & Process Refinement",
-    "description": "Regular reporting on response time and sentiment, with the escalation process refined based on what's actually coming up."
-  }
+    number: '05',
+    title: 'Proactive Engagement',
+    body: 'Where included, we participate in relevant conversations, encourage useful interactions, and identify opportunities for deeper community engagement.',
+  },
+  {
+    number: '06',
+    title: 'Reporting & Optimization',
+    body: 'We review response activity, recurring questions, feedback themes, escalations, and other relevant metrics to improve the workflow over time.',
+  },
 ]
-  const timeline = service?.timeline || "An initial community audit is typically delivered within a few business days. Response coverage and escalation processes are usually fully operational within one week of starting, since this service depends less on content production lead time than on processes being set up correctly from the start.\n\nCommunity management is inherently ongoing rather than a fixed-scope project, the value compounds through sustained, consistent response over months, not a one-time setup."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Engagement workflow"
+          title="How Our Community Management Process Works"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Community management should follow a defined process rather than relying on whoever happens to
+          check the comments that day.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
-            </div>
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <article key={step.number} className="bg-frame-bg p-7 md:p-8">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
+                {step.number}
+              </span>
+              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                {step.title}
+              </h3>
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                {step.body}
+              </p>
+            </article>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

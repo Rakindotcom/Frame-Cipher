@@ -2,10 +2,13 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { AdminHeader } from "@/components/admin/AdminHeader";
+import { type MediaItem } from "@/components/admin/cms/MediaLibraryModal";
 import {
-  INITIAL_MEDIA_ITEMS,
-  MediaItem,
-} from "@/components/admin/cms/MediaLibraryModal";
+  listMediaFromFirestore,
+  saveMediaMetadata,
+  deleteMediaItem,
+  uploadMediaFile,
+} from "@/lib/firebase";
 import {
   UploadCloud,
   Search,
@@ -15,7 +18,6 @@ import {
   Check,
   Trash2,
   Image as ImageIcon,
-  HardDrive,
   FileImage,
   CheckCircle2,
   AlertCircle,
@@ -26,7 +28,28 @@ import {
   X,
 } from "lucide-react";
 
-const STORAGE_KEY = "framecipher_media_library";
+const ACCEPTED_TYPES = ["image/webp", "image/png", "image/jpeg", "image/avif", "image/gif"];
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
+
+function readImageDimensions(file: File): Promise<string> {
+  return new Promise((resolve) => {
+    if (typeof window === "undefined" || typeof URL.createObjectURL !== "function") {
+      resolve("unknown");
+      return;
+    }
+    const objectUrl = URL.createObjectURL(file);
+    const image = new Image();
+    image.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      resolve(`${image.naturalWidth} × ${image.naturalHeight}`);
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      resolve("unknown");
+    };
+    image.src = objectUrl;
+  });
+}
 
 export default function AdminMediaPage() {
   const [items, setItems] = useState<MediaItem[]>([]);
@@ -42,94 +65,67 @@ export default function AdminMediaPage() {
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Load persistent media library on mount
+  // Media lives in Cloud Storage + Firestore, shared across every admin.
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored !== null) {
-        const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed)) {
-          setItems(parsed);
-          setSelectedItem(parsed[0] || null);
-          return;
-        }
-      } else {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(INITIAL_MEDIA_ITEMS));
-        setItems(INITIAL_MEDIA_ITEMS);
-        setSelectedItem(INITIAL_MEDIA_ITEMS[0] || null);
-        return;
-      }
-    } catch {}
-    setItems([]);
-    setSelectedItem(null);
+    let cancelled = false;
+    (async () => {
+      const stored = await listMediaFromFirestore();
+      if (cancelled) return;
+      setItems(stored);
+      setSelectedItem(stored[0] || null);
+    })();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
-  // Save changes to localStorage
   const persistItems = (updated: MediaItem[]) => {
     setItems(updated);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-    } catch (e) {
-      console.warn("Storage quota exceeded or error", e);
-    }
   };
-
-  const readFileAsDataUrl = (file: File): Promise<string> =>
-    new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(reader.result as string);
-      reader.onerror = () => reject(reader.error);
-      reader.readAsDataURL(file);
-    });
 
   const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
     setIsUploading(true);
+    setSaveStatus(null);
     const newItems: MediaItem[] = [];
 
     for (const file of Array.from(files)) {
-      try {
-        const url = await readFileAsDataUrl(file);
-        const sizeKB = (file.size / 1024).toFixed(0);
-
-        const newItem: MediaItem = {
-          id: `media-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-          title: file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " "),
-          filename: file.name,
-          url: url,
-          alt: file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ") + " engineering diagram",
-          caption: "Uploaded technical diagram asset",
-          description: `Direct upload ${file.name} (${file.type})`,
-          uploadedAt: new Date().toLocaleDateString("en-US", {
-            month: "long",
-            day: "numeric",
-            year: "numeric",
-          }),
-          fileSize: `${sizeKB} KB`,
-          dimensions: "1200 × 630",
-          type: file.type || "image/png",
-        };
-        newItems.unshift(newItem);
-      } catch (err) {
-        console.warn("Failed to read uploaded file:", err);
+      if (!ACCEPTED_TYPES.includes(file.type)) {
+        setSaveStatus(`${file.name}: unsupported type. Use WEBP, PNG, JPG, SVG or AVIF.`);
+        continue;
       }
+      if (file.size > MAX_UPLOAD_BYTES) {
+        setSaveStatus(`${file.name}: exceeds the 10 MB limit.`);
+        continue;
+      }
+
+      const dimensions = await readImageDimensions(file);
+      const result = await uploadMediaFile(
+        file,
+        dimensions,
+        file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ")
+      );
+
+      if (!result.success || !result.item) {
+        setSaveStatus(`${file.name}: ${result.error || "upload failed"}`);
+        continue;
+      }
+      newItems.unshift(result.item);
     }
 
-    if (newItems.length > 0) {
-      const combined = [...newItems, ...items];
-      persistItems(combined);
-      setSelectedItem(newItems[0]);
-    }
+    e.target.value = "";
     setIsUploading(false);
 
-    if (fileInputRef.current) {
-      fileInputRef.current.value = "";
+    if (newItems.length > 0) {
+      setItems((prev) => [...newItems, ...prev]);
+      setSelectedItem(newItems[0]);
+      setSaveStatus(`Uploaded ${newItems.length} file${newItems.length === 1 ? "" : "s"} to Cloud Storage.`);
     }
   };
 
-  const handleUpdateSelected = (field: keyof MediaItem, value: string) => {
+  const handleUpdateSelected = async (field: keyof MediaItem, value: string) => {
     if (!selectedItem) return;
     const updated = { ...selectedItem, [field]: value };
     setSelectedItem(updated);
@@ -137,12 +133,22 @@ export default function AdminMediaPage() {
       item.id === selectedItem.id ? updated : item
     );
     persistItems(updatedList);
-    setSaveStatus("Saved changes");
-    setTimeout(() => setSaveStatus(null), 2000);
+    const result = await saveMediaMetadata(updated);
+    setSaveStatus(result.success ? "Saved to Firestore" : result.error || "Save failed");
+    setTimeout(() => setSaveStatus(null), 2500);
   };
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
+    const target = items.find((item) => item.id === id);
+    if (!target) return;
     if (!confirm("Are you sure you want to delete this media asset permanently?")) return;
+
+    const result = await deleteMediaItem(target);
+    if (!result.success) {
+      setSaveStatus(result.error || "Delete failed");
+      return;
+    }
+
     const remaining = items.filter((item) => item.id !== id);
     persistItems(remaining);
     setSelectedIds((prev) => {
@@ -177,10 +183,17 @@ export default function AdminMediaPage() {
     }
   };
 
-  const handleBulkDelete = () => {
-    const count = selectedIds.size;
-    if (count === 0) return;
-    if (!confirm(`Are you sure you want to permanently delete ${count} selected media assets?`)) return;
+  const handleBulkDelete = async () => {
+    const targets = items.filter((item) => selectedIds.has(item.id));
+    if (targets.length === 0) return;
+    if (!confirm(`Are you sure you want to permanently delete ${targets.length} selected media assets?`))
+      return;
+
+    const results = await Promise.all(targets.map((item) => deleteMediaItem(item)));
+    const failed = results.filter((result) => !result.success);
+    if (failed.length > 0) {
+      setSaveStatus(`${failed.length} of ${targets.length} could not be deleted.`);
+    }
 
     const remaining = items.filter((item) => !selectedIds.has(item.id));
     persistItems(remaining);

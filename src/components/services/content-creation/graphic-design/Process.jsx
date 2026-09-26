@@ -1,103 +1,133 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const processStepsData = [
   {
-    "number": "1",
-    "title": "Brief & Brand Review",
-    "description": "Understanding the specific piece needed and reviewing existing brand guidelines, or flagging where they don't yet exist."
+    number: '01',
+    title: 'Brief & Brand Review',
+    description: 'We begin by understanding what you need, where the design will be used, who will see it, and what the final asset needs to achieve. We review project objectives, target audience, existing brand guidelines, logo files, approved copy, references, deadlines, and technical specifications.'
   },
   {
-    "number": "2",
-    "title": "Concept & System Development",
-    "description": "Designing within (or establishing) a consistent system rather than treating each piece as a standalone request."
+    number: '02',
+    title: 'Content & Information Structure',
+    description: 'Design works better when the information has a clear hierarchy. We review supplied content to determine what needs primary attention, what supports the main message, and what can be grouped visually. For longer documents, we establish the page or section structure first.'
   },
   {
-    "number": "3",
-    "title": "Production-Ready Design",
-    "description": "Building files correctly for their actual output, print specifications, platform ad specs, or digital delivery, as the piece requires."
+    number: '03',
+    title: 'Concept & Visual Direction',
+    description: 'We develop the visual direction around the brand and intended application: typography direction, layout approach, color application, image treatment, graphic elements, iconography, and data visualization style to establish a cohesive visual language.'
   },
   {
-    "number": "4",
-    "title": "Client Review",
-    "description": "Every piece goes through review before it's considered final, with brand consistency checked directly."
+    number: '04',
+    title: 'Design & Refinement',
+    description: 'Once direction is approved, we develop the complete design. For multi-page projects, we maintain layout consistency across spreads. For multi-format projects, we adapt the design across required dimensions rather than simply stretching or shrinking original artwork.'
   },
   {
-    "number": "5",
-    "title": "Delivery & Template Handoff",
-    "description": "Final files delivered in the formats needed, with reusable templates handed off where relevant for future use."
+    number: '05',
+    title: 'Production Preparation',
+    description: 'Before final delivery, we prepare artwork for its intended use. For print, this includes exact page dimensions, bleed, trim margins, color separation, and printer requirements. For digital, we prepare required pixel sizes, formats, and optimized exports.'
+  },
+  {
+    number: '06',
+    title: 'Review & Final Handover',
+    description: 'After the agreed revision stage, we prepare approved final assets. Delivery includes print-ready files, digital PDFs, editable source files, presentation files, packaging artwork, or reusable master templates as confirmed in project scope.'
   }
 ]
-  const timeline = service?.timeline || "A single design piece is typically turned around within three to five business days. Pitch decks and print collateral packages generally take one to two weeks depending on scope, and packaging design is scoped individually based on the complexity of the physical structure involved."
 
-  if (!steps?.length) return null
+const timelineMatrix = [
+  { type: 'Single Design Piece', time: '3–5 business days', note: 'One flyer, one-pager, single ad, or standalone asset' },
+  { type: 'Pitch Deck / Presentation', time: '1–2 weeks', note: '10–20 slide custom deck with data visualization & template' },
+  { type: 'Company Profile', time: '1–2 weeks', note: 'Multi-page corporate document with structured layout system' },
+  { type: 'Print Collateral Package', time: '1–2 weeks', note: 'Business cards, letterhead, envelopes, and corporate brochure' },
+  { type: 'Packaging / Label Project', time: '1–3 weeks', note: 'Dieline engineering, label systems & variant colorways' },
+  { type: 'Catalogue / Larger Publication', time: '2–4+ weeks', note: 'Extensive product catalogs, annual reports & lookbooks' },
+  { type: 'Ongoing Design Retainer', time: 'Monthly delivery', note: 'Scheduled monthly sprints with dedicated turnaround queues' }
+]
+
+export default function Process({ service }) {
+  const steps = service?.processSteps?.length === 6 ? service.processSteps : processStepsData
 
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Execution Methodology"
+          title="Our Graphic Design Process"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          From brief to final production handover, our 6-step workflow keeps stakeholders aligned and ensures files pass strict mechanical and digital production standards.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* 6-STEP PROCESS GRID */}
+        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
                   {step.number || String(index + 1).padStart(2, '0')}
                 </span>
                 <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
                   {step.description}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
             </div>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
+        {/* TYPICAL TIMELINES TABLE */}
+        <div className="mt-16">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-frame-border pb-4">
+            <div>
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                Production Benchmarks
+              </span>
+              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                Typical Graphic Design Timelines
+              </h3>
+            </div>
+            <p className="text-xs font-mono text-frame-muted-fg">
+              Timelines begin after scope, brand assets, and content are approved
+            </p>
+          </div>
+
+          <div className="mt-6 overflow-x-auto border-2 border-frame-border bg-frame-bg">
             <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
+              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+                <tr>
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Project Type
+                  </th>
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Typical Timeline
+                  </th>
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                    Scope Details
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y-2 divide-frame-border text-xs sm:text-sm font-medium">
+                {timelineMatrix.map((item, idx) => (
+                  <tr key={idx} className="hover:bg-frame-muted/20">
+                    <td className="p-4 md:p-5 font-bold uppercase tracking-tight text-frame-fg">
+                      {item.type}
+                    </td>
+                    <td className="p-4 md:p-5 font-bold text-frame-accent whitespace-nowrap">
+                      {item.time}
+                    </td>
+                    <td className="p-4 md:p-5 text-frame-muted-fg">
+                      {item.note}
+                    </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-        )}
+
+          <p className="mt-4 text-xs font-medium text-frame-muted-fg leading-relaxed">
+            * Note: Timelines commence after the project scope, required content, brand assets, and technical specifications are confirmed. Larger corporate profiles, extensive catalogues, or complex packaging dielines receive custom schedule estimates.
+          </p>
+        </div>
       </div>
     </section>
   )

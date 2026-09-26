@@ -1,4 +1,7 @@
+import Link from 'next/link'
 import { PageHero, PosterButton, TypeMarquee } from '../Kinetic'
+
+const inlineLink = "text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors"
 
 export default function ServicesHero({ totalServices, pillarNames }) {
   return (
@@ -17,7 +20,13 @@ export default function ServicesHero({ totalServices, pillarNames }) {
           </>
         }
       >
-        From websites and apps to search, paid media, social, writing, and production, every service
+        From <Link href="/services/website-design-development" className={inlineLink}>websites</Link> and{' '}
+        <Link href="/services/app-development" className={inlineLink}>apps</Link> to{' '}
+        <Link href="/services/seo" className={inlineLink}>search</Link>,{' '}
+        <Link href="/services/paid-advertising" className={inlineLink}>paid media</Link>,{' '}
+        <Link href="/services/social-media-management" className={inlineLink}>social</Link>,{' '}
+        <Link href="/services/content-writing" className={inlineLink}>writing</Link>, and{' '}
+        <Link href="/services/content-creation" className={inlineLink}>production</Link>, every service
         is connected to one accountable growth system.
       </PageHero>
 

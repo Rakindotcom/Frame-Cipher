@@ -1,5 +1,14 @@
 import { PageHero, PosterButton } from '../src/components/Kinetic'
 
+export const metadata = {
+  title: 'Page Not Found | Frame Cipher',
+  description: 'The page you requested could not be found on Frame Cipher.',
+  robots: {
+    index: false,
+    follow: true,
+  },
+}
+
 export default function NotFound() {
   return (
     <main className="bg-frame-bg text-frame-fg">

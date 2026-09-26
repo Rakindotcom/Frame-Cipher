@@ -1,32 +1,67 @@
-import Hero from './Hero'
-import Offerings from './Offerings'
-import Process from './Process'
-import Pricing from './Pricing'
-import FAQ from './FAQ'
-import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
+import Hero from './Hero'
+import ProvesResults from './ProvesResults'
+import Offerings from './Offerings'
+import TypesOfCaseStudies from './TypesOfCaseStudies'
+import Credibility from './Credibility'
+import BuyerJourney from './BuyerJourney'
+import MultiFormat from './MultiFormat'
+import WhatWeNeed from './WhatWeNeed'
+import WhyChoose from './WhyChoose'
+import Process from './Process'
+import Pricing from './Pricing'
+import Timeline from './Timeline'
+import ServiceAreas from './ServiceAreas'
+import FAQ from './FAQ'
+import CTA from './CTA'
+
 const marqueeItems = [
-  "Case Study Writing",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'Research Before Writing',
+  'Interview-Led Stories',
+  'Verified Metrics',
+  'Approval Coordinated',
+  'One Research, Many Formats',
+  'No Invented Results',
 ]
 
-export default function ContentWritingCaseStudyWritingService({ service }) {
+export default function ContentWritingCaseStudyWritingService() {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <ProvesResults />
+      <Offerings />
+      <TypesOfCaseStudies />
+      <Credibility />
+      <BuyerJourney />
+      <MultiFormat />
+      <WhatWeNeed />
+      <WhyChoose />
+      <Process />
+      <Pricing />
+      <Timeline />
+      <ServiceAreas />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  ProvesResults,
+  Offerings,
+  TypesOfCaseStudies,
+  Credibility,
+  BuyerJourney,
+  MultiFormat,
+  WhatWeNeed,
+  WhyChoose,
+  Process,
+  Pricing,
+  Timeline,
+  ServiceAreas,
+  FAQ,
+  CTA,
+}

@@ -1,34 +1,57 @@
 import Hero from './Hero'
+import Overview from './Overview'
 import Offerings from './Offerings'
+import ContentJobs from './ContentJobs'
+import SeoWriting from './SeoWriting'
+import VsCopywriting from './VsCopywriting'
+import WhatGoodContentDoes from './WhatGoodContentDoes'
+import WhoFor from './WhoFor'
 import Process from './Process'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
+import Timeline from './Timeline'
+import QualityStandard from './QualityStandard'
+import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../Kinetic'
 import ServiceSubServices from '../ServiceSubServices'
 
 const marqueeItems = [
-  "Content Writing",
-  "Strategic Execution",
-  "Dedicated In-House Team",
-  "Built For Conversion",
-  "Quality Assured",
-  "Ongoing Support"
+  'SEO & Blog Writing',
+  'Website Content',
+  'Landing Page Copy',
+  'Product Descriptions',
+  'Sales Copywriting',
+  'Email Copywriting',
+  'Case Studies',
+  'Rewriting & Refresh',
+  'Content Strategy',
 ]
 
 export default function ContentWritingService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
-      <Hero service={service} />
+      <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <Overview />
       <ServiceSubServices service={service} />
-      <Offerings service={service} />
-      <Process service={service} />
-      <Pricing service={service} />
-      <FAQ service={service} />
-      <CTA service={service} />
+      <Offerings />
+      <ContentJobs />
+      <SeoWriting />
+      <VsCopywriting />
+      <WhatGoodContentDoes />
+      <WhoFor />
+      <Process />
+      <WhyChoose />
+      <Pricing />
+      <Timeline />
+      <QualityStandard />
+      <ServiceAreas />
+      <FAQ />
+      <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Offerings, Process, WhyChoose, Pricing, FAQ, CTA }

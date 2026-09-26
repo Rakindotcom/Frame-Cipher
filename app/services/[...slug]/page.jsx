@@ -4,16 +4,26 @@ import ServiceExperience from '../../../src/views/ServiceExperience'
 import ServiceDetailPage from '../../../src/views/ServiceDetailPage'
 import { getServiceComponent } from '../../../src/components/services/registry'
 import { getServicePageBySlug, getAllServicePages } from '../../../src/data/servicePages'
-import { getServiceBySlug, getServiceRouteSlugs, siteUrl } from '../../../src/data/agency'
+import { siteUrl, getServiceBySlug } from '../../../src/data/agency'
+import { buildLegacyServiceSchema, buildServiceSchema } from '../../../src/lib/seo/schema'
+import ServiceClusterSection from '../../../src/components/services/ServiceClusterSection'
+
+function schemaScript(schema) {
+  if (!schema) return null
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema).replaceAll('<', '\\u003c') }}
+    />
+  )
+}
 
 export function generateStaticParams() {
   const docRoutes = getAllServicePages().map((page) => ({
     slug: page.slug.split('/'),
   }))
 
-  const legacyRoutes = getServiceRouteSlugs().map((slug) => ({
-    slug: [slug],
-  }))
+  const legacyRoutes = [{ slug: ['360-marketing'] }]
 
   // Deduplicate routes
   const seen = new Set()
@@ -91,17 +101,28 @@ export default async function Page({ params }) {
   // Check 74 doc service pages first
   const docPage = getServicePageBySlug(slugArray)
   if (docPage) {
-const SpecificService = getServiceComponent(docPage.slug)
-    if (SpecificService) {
-      return createElement(SpecificService, { service: docPage })
-    }
-    return <ServiceExperience service={docPage} />
+    const SpecificService = getServiceComponent(docPage.slug)
+    const content = SpecificService
+      ? createElement(SpecificService, { service: docPage })
+      : <ServiceExperience service={docPage} />
+    return (
+      <>
+        {schemaScript(buildServiceSchema(docPage))}
+        {content}
+        <ServiceClusterSection service={docPage} />
+      </>
+    )
   }
 
   // Check legacy services
   const legacyService = slugArray.length === 1 ? getServiceBySlug(slugArray[0]) : null
   if (legacyService) {
-    return <ServiceDetailPage service={legacyService} />
+    return (
+      <>
+        {schemaScript(buildLegacyServiceSchema(legacyService))}
+        <ServiceDetailPage service={legacyService} />
+      </>
+    )
   }
 
   notFound()

@@ -1,0 +1,218 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------------------------------------------------------------------------
+    // Admin allowlist
+    //
+    // Firestore rules cannot read process.env, so this list MUST be kept in sync
+    // with the ADMIN_EMAILS environment variable by hand. The app-side check
+    // lives in src/lib/admin/token.ts and fails closed when it disagrees.
+    // ---------------------------------------------------------------------------
+    function adminEmails() {
+      return ['pervesmahedi@gmail.com'];
+    }
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.lower() in adminEmails();
+    }
+
+    // A post is public only when it is published and not hidden behind a
+    // password or marked private.
+    //
+    // `visibility` is deliberately required with no default. A `.get(key,
+    // default)` fallback cannot be reasoned about when Firestore validates a
+    // query, which allowed a `status == 'published'` query to return
+    // password-protected posts. Requiring the field keeps production and the
+    // emulator in agreement and fails closed for legacy documents that predate
+    // the field: they stay private until re-saved through the CMS, which always
+    // writes it.
+    function isPublished() {
+      return resource.data.status == 'published'
+        && resource.data.visibility == 'public';
+    }
+
+    // ---------------------------------------------------------------------------
+    // Admin-only collections
+    // ---------------------------------------------------------------------------
+
+    match /admin_profiles/{userId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /post_revisions/{revisionId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Written by trusted server aggregation jobs only.
+    match /post_analytics_daily/{dayId} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+
+    // ---------------------------------------------------------------------------
+    // Blog
+    //
+    // Reads are restricted to published, publicly visible posts so that drafts,
+    // scheduled posts, and password/private posts are never exposed to the
+    // public. Note that an unfiltered collection query is rejected: clients must
+    // query with `status == 'published'` AND `visibility == 'public'`.
+    // ---------------------------------------------------------------------------
+    match /blog_posts/{postId} {
+      allow get, list: if isAdmin() || isPublished();
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /author_profiles/{authorId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /categories/{categoryId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /tags/{tagId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /redirects/{redirectId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /media/{mediaId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------------
+    // Public writes
+    // ---------------------------------------------------------------------------
+
+    // Comments may be submitted anonymously but can never set moderation fields,
+    // which prevents a submitter from approving their own comment.
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if request.resource.data.keys().hasAll(['postId', 'bodyHtml', 'createdAt'])
+        && !request.resource.data.keys().hasAny(['status', 'isApproved', 'isAdmin', 'role'])
+        && request.resource.data.postId is string
+        && request.resource.data.postId.size() > 0
+        && request.resource.data.postId.size() <= 512
+        && request.resource.data.bodyHtml is string
+        && request.resource.data.bodyHtml.size() > 0
+        && request.resource.data.bodyHtml.size() <= 5000;
+      allow update, delete: if isAdmin();
+    }
+
+    // Newsletter signups cannot smuggle in extra fields such as `role`.
+    match /newsletter_subscribers/{subscriberId} {
+      allow create: if request.resource.data.keys().hasOnly(['email', 'status', 'createdAt', 'token'])
+        && request.resource.data.keys().hasAll(['email', 'createdAt'])
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() <= 254;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Calculator/inquiry saves are anonymous, so the payload is constrained to a
+    // known key set with bounded sizes. Firestore rules cannot count documents,
+    // so true rate limiting has to happen in the API route.
+    match /saved_inquiries/{inquiryId} {
+      allow create: if request.resource.data.keys().hasOnly([
+          'userId', 'userEmail', 'serviceSlug', 'serviceTitle', 'category',
+          'inputs', 'primaryResult', 'notes', 'createdAt'
+        ])
+        && request.resource.data.keys().hasAny(['serviceSlug', 'serviceTitle', 'inputs', 'primaryResult'])
+        && (!('userId' in request.resource.data)
+          || (request.resource.data.userId is string
+            && request.resource.data.userId.size() <= 128))
+        && (!('userEmail' in request.resource.data)
+          || (request.resource.data.userEmail is string
+            && request.resource.data.userEmail.size() <= 254))
+        && (!('serviceSlug' in request.resource.data)
+          || (request.resource.data.serviceSlug is string
+            && request.resource.data.serviceSlug.size() <= 256))
+        && (!('serviceTitle' in request.resource.data)
+          || (request.resource.data.serviceTitle is string
+            && request.resource.data.serviceTitle.size() <= 256))
+        && (!('notes' in request.resource.data)
+          || (request.resource.data.notes is string
+            && request.resource.data.notes.size() <= 2000));
+      allow read: if isAdmin()
+        || (request.auth != null
+          && resource.data.userId is string
+          && resource.data.userId == request.auth.uid);
+      allow update, delete: if isAdmin();
+    }
+
+    // Contact form submissions. Field set is locked so nothing extra can be
+    // written, and the message length is bounded.
+    match /contact_messages/{messageId} {
+      allow create: if request.resource.data.keys().hasOnly([
+          'name', 'email', 'message', 'createdAt', 'status', 'read'
+        ])
+        && request.resource.data.keys().hasAll(['name', 'email', 'message', 'createdAt'])
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 120
+        && request.resource.data.email is string
+        && request.resource.data.email.size() > 3
+        && request.resource.data.email.size() <= 254
+        && request.resource.data.message is string
+        && request.resource.data.message.size() > 0
+        && request.resource.data.message.size() <= 10000;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------------
+    // Analytics
+    //
+    // Writes are public because hits are recorded from the browser, so the
+    // payload is restricted to a known key set with bounded string sizes. The
+    // values are self-reported and must never be treated as verified data.
+    // ---------------------------------------------------------------------------
+    match /analytics_hits/{hitId} {
+      allow create: if request.resource.data.keys().hasOnly([
+          'sessionId', 'path', 'referrer', 'timestamp', 'isCalculation',
+          'browser', 'os', 'device', 'country'
+        ])
+        && request.resource.data.keys().hasAll(['sessionId', 'path', 'timestamp'])
+        && request.resource.data.sessionId is string
+        && request.resource.data.sessionId.size() > 0
+        && request.resource.data.sessionId.size() <= 128
+        && request.resource.data.path is string
+        && request.resource.data.path.size() > 0
+        && request.resource.data.path.size() < 512
+        && (!('referrer' in request.resource.data)
+          || (request.resource.data.referrer is string
+            && request.resource.data.referrer.size() <= 2048))
+        && (!('browser' in request.resource.data)
+          || (request.resource.data.browser is string
+            && request.resource.data.browser.size() <= 64))
+        && (!('os' in request.resource.data)
+          || (request.resource.data.os is string
+            && request.resource.data.os.size() <= 64))
+        && (!('device' in request.resource.data)
+          || (request.resource.data.device is string
+            && request.resource.data.device.size() <= 32))
+        && (!('country' in request.resource.data)
+          || (request.resource.data.country is string
+            && request.resource.data.country.size() <= 64));
+      allow read, update, delete: if isAdmin();
+    }
+
+    // ---------------------------------------------------------------------------
+    // Default deny
+    // ---------------------------------------------------------------------------
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

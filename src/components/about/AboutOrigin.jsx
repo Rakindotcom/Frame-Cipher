@@ -1,23 +1,35 @@
+import Link from 'next/link'
 import { InversionCard, SectionIntro } from '../Kinetic'
+
+const inlineLinkClass = "underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors"
 
 const storyBlocks = [
   {
     eyebrow: 'Why we exist',
     title: 'Connect the work growth depends on',
-    description:
-      'Many brands hire one person for ads, another for design, another for video, and another for websites. The result is slow execution and campaigns that do not feel connected.',
+    description: (
+      <>
+        Many brands hire one person for <Link href="/services/paid-advertising" className={inlineLinkClass}>ads</Link>, another for <Link href="/services/content-creation/graphic-design" className={inlineLinkClass}>design</Link>, another for <Link href="/services/content-creation/commercial-video" className={inlineLinkClass}>video</Link>, and another for <Link href="/services/website-design-development" className={inlineLinkClass}>websites</Link>. The result is slow execution and campaigns that do not feel connected.
+      </>
+    ),
   },
   {
     eyebrow: 'What changes',
     title: 'Scattered execution becomes one operating system',
-    description:
-      'We bring strategy, creative, media, software, and performance work into one workflow so content, platforms, campaigns, and data can support the same business goal.',
+    description: (
+      <>
+        We bring <Link href="/services/content-creation/branding" className={inlineLinkClass}>strategy</Link>, <Link href="/services/content-creation" className={inlineLinkClass}>creative</Link>, <Link href="/services/content-creation/commercial-video" className={inlineLinkClass}>media</Link>, <Link href="/services/app-development" className={inlineLinkClass}>software</Link>, and <Link href="/services/paid-advertising" className={inlineLinkClass}>performance work</Link> into one workflow so content, platforms, campaigns, and data can support the same business goal.
+      </>
+    ),
   },
   {
     eyebrow: 'How it started',
     title: 'From visual production to growth infrastructure',
-    description:
-      'Frame Cipher began with visual execution and expanded toward the systems that make creative work perform: positioning, websites, campaign planning, software, and optimization.',
+    description: (
+      <>
+        Frame Cipher began with visual execution and expanded toward the systems that make creative work perform: <Link href="/services/content-creation/branding" className={inlineLinkClass}>positioning</Link>, <Link href="/services/website-design-development" className={inlineLinkClass}>websites</Link>, campaign planning, software, and <Link href="/services/seo" className={inlineLinkClass}>optimization</Link>.
+      </>
+    ),
   },
 ]
 

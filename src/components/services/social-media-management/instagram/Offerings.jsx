@@ -1,269 +1,357 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const offerings = [
   {
-    "title": "CONTENT STRATEGY ACROSS FORMATS",
-    "description": "Instagram now spans several genuinely different formats, and each one plays a different role in a real strategy. What We Do Treating every format the same way wastes what each one is actually built to do within the platform's own system.",
-    "bullets": [
-      "Reels-First Content Planning: Building the content calendar around short-form video as the primary driver of reach, not an afterthought.",
-      "Feed Post Strategy: Curating feed content for visual coherence and profile credibility, distinct from Reels' reach-driving role.",
-      "Stories Strategy: Using Stories for daily, lower-production engagement and direct audience interaction.",
-      "Carousel & Guide Content: Building save-worthy educational or list-style content that performs well in Instagram's current algorithm."
-    ]
+    title: 'Instagram Strategy, Audience & Competitor Research',
+    description:
+      'Effective Instagram management starts with understanding your business, audience, market, and competitors. We review your existing account and research the people you want to reach. We also study competing accounts to identify content patterns, positioning opportunities, audience questions, and gaps your brand can address.',
+    bullets: [
+      'Business and account discovery',
+      'Target audience research',
+      'Customer question and pain-point research',
+      'Competitor content analysis',
+      'Competitor positioning review',
+      'Content gap analysis',
+      'Content pillar development',
+      'Audience interests and behavior',
+      'Market-specific content opportunities',
+      'Content objectives',
+      'Recurring content themes',
+      'Format selection',
+      'Brand messaging direction',
+      'Content opportunities based on customer intent',
+    ],
+    note: 'The result is a structured content direction instead of publishing ideas whenever something comes to mind.',
   },
   {
-    "title": "REELS PRODUCTION & OPTIMIZATION",
-    "description": "Reels currently carry the most reach potential on the platform, and they have their own specific rules. What We Do The first second of a Reel does more work than almost anything else in the entire piece of content.",
-    "bullets": [
-      "Reels Concepting: Developing ideas built around what genuinely earns watch-through and shares in your specific category.",
-      "Trend & Audio Strategy: Using trending audio and formats deliberately, adapted to your brand rather than copied wholesale.",
-      "Editing & Pacing: Native-feeling edits built for how people actually watch Reels fast hooks, tight pacing, no dead time.",
-      "Caption & Hook Writing: Opening lines and captions written to stop a scroll in the first second, since that's when most viewers decide whether to keep watching."
-    ]
+    title: 'Instagram Profile Optimization & SEO',
+    description:
+      'Your Instagram profile is often the first place someone evaluates after discovering your content. We optimize the profile so visitors can quickly understand who you serve, what you offer, and what action they can take next.',
+    bullets: [
+      'Username review',
+      'Profile name optimization',
+      'Bio optimization',
+      'Relevant keyword placement',
+      'Business category',
+      'Contact information',
+      'Location information',
+      'Website and link strategy',
+      'Profile image guidance',
+      'Call-to-action setup',
+      'Pinned post strategy',
+      'Story Highlight organization',
+      'Service or product information',
+      'Search-friendly content structure',
+      'Profile-to-conversion journey',
+      'Relevant topic and hashtag discovery where appropriate',
+    ],
+    note: 'Instagram search and discovery can change over time, so we focus on making your profile and content clear, relevant, and aligned with the language your target audience uses.',
   },
   {
-    "title": "VISUAL IDENTITY & FEED STRATEGY",
-    "description": "The feed still matters, just not as the primary reach driver it once was. What We Do A coherent-looking profile still builds credibility, even if it's no longer the primary lever for reach.",
-    "bullets": [
-      "Brand Visual Guidelines: Establishing a consistent look and feel across photo and video content.",
-      "Feed Layout Planning: Thinking about how the grid reads as a whole, since a visitor's first impression is often the full grid, not one post.",
-      "Photography & Graphic Direction: Guidance on visual style, whether content comes from your own team or ours.",
-      "Highlight & Profile Organization: Structuring Story Highlights and profile elements for a visitor who's actually evaluating whether to follow or buy."
-    ]
+    title: 'Multi-Format Content Strategy',
+    description:
+      'Instagram gives businesses several content formats, and each format can support a different objective. We build a content system that can combine the formats that fit your business instead of forcing every idea into one post type.',
+    bullets: [
+      'Reels for short-form discovery and storytelling',
+      'Feed posts for brand communication',
+      'Carousels for educational and informational content',
+      'Stories for regular interaction and updates',
+      'Highlights for important evergreen information',
+      'Product content for ecommerce brands',
+      'Customer-focused content for trust and conversion',
+    ],
+    note: 'The format should support the idea. A product demonstration may work better as a Reel. A step-by-step explanation may work better as a Carousel. A limited-time update may work better through Stories.',
   },
   {
-    "title": "COMMUNITY & DM MANAGEMENT",
-    "description": "Instagram's comments and DMs have become a genuine sales and customer service channel for a lot of businesses. What We Do DMs on Instagram function as a real inbox for a lot of businesses now, not just a casual messaging feature.",
-    "bullets": [
-      "Comment Response: Timely, on-brand replies that also signal genuine engagement to the algorithm.",
-      "DM Management: Responding to inquiries and questions that come in through direct messages, often a real sales channel.",
-      "Story Interaction: Responding to polls, questions, and Story replies that build a genuine sense of relationship.",
-      "Influencer & Creator Coordination: Managing collaboration logistics where partnerships are part of the strategy."
-    ]
+    title: 'Reels Strategy, Production & Optimization',
+    description:
+      'Reels are an important part of Instagram’s current content ecosystem, particularly for brands looking to reach people beyond their existing audience.',
+    bullets: [
+      'Reel concept development',
+      'Topic research',
+      'Audience-focused content angles',
+      'Hook development',
+      'Scriptwriting',
+      'Short-form storytelling',
+      'Trend and audio research',
+      'Brand-specific trend adaptation',
+      'Vertical video editing',
+      'On-screen text',
+      'Captions and subtitles',
+      'Pacing and scene selection',
+      'Cover design',
+      'Caption writing',
+      'Calls to action',
+      'Performance review',
+    ],
+    note: 'We do not use every trend simply because it is popular, and we prioritize original and meaningful content rather than building your strategy around repetitive or low-value reposting.',
   },
   {
-    "title": "PERFORMANCE TRACKING & OPTIMIZATION",
-    "description": "Understanding what's actually earning reach and engagement, format by format. What We Do Instagram content strategy pairs naturally with paid reach for specific goals - see our Meta Ads Management page for how organic and paid work together on the platform.",
-    "bullets": [
-      "Reels vs. Feed Performance Comparison: Understanding which formats are genuinely driving reach and engagement for your account specifically.",
-      "Engagement Quality Tracking: Monitoring saves and shares as stronger signals than likes alone.",
-      "Hashtag & Discovery Analysis: Reviewing what's actually helping content get discovered beyond your existing followers.",
-      "Monthly Reporting: Clear reporting on what's working, with context rather than a raw metrics screenshot."
-    ]
+    title: 'Feed, Carousel & Visual Content',
+    description:
+      'Your Feed remains important for people evaluating your brand after discovering your account.',
+    bullets: [
+      'Static Feed posts',
+      'Educational Carousels',
+      'Product Carousels',
+      'Service-focused content',
+      'Promotional posts',
+      'Brand storytelling',
+      'Customer-focused content',
+      'Testimonials and social proof',
+      'Educational graphics',
+      'Infographics',
+      'Product features',
+      'Announcements',
+      'Seasonal content',
+      'FAQ-based content',
+    ],
+    carousel: [
+      'Checklists',
+      'Comparisons',
+      'Processes',
+      'FAQs',
+      'Step-by-step guides',
+      'Practical tips',
+      'Product education',
+      'Industry insights',
+    ],
+    note: 'We maintain visual consistency without allowing design to become more important than the message.',
   },
   {
-    "title": "How Instagram's Algorithm Actually Weighs Content",
-    "description": "Understanding what the algorithm rewards changes what \"good content\" actually means in practice. Watch Time and Completion Rate For video, how much of a Reel someone actually watches matters more than almost any other single signal, a short, tightly edited piece that gets watched fully often outperforms a longer one people scroll past. Saves and Shares Over Likes A like is a low-effort, low-signal action. A save or a share signals genuine value, and the algorithm weighs those far more heavily when deciding what to show more people. Consistency Over Bursts Regular posting tends to outperform sporadic bursts of activity, since the algorithm has less signal to work with around an inconsistent account. Follower Count Matters Less Than It Used To Content can reach far beyond an existing follower base through Explore and Reels recommendations, which is both an opportunity and the reason a small account with strong content can outperform a larger, less engaging one.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "Instagram rewards genuine strategy visibly, and it punishes a stale, photo-only approach just as visibly.",
-  "Video Isn't Optional Anymore",
-  "An account still treating Reels as a nice-to-have is leaving the platform's primary reach mechanism largely unused.",
-  "A Beautiful Feed Alone Doesn't Reach New People",
-  "Visual polish builds credibility with people who already found you, it does comparatively little to help new people find you in the first place.",
-  "Engagement Quality Compounds",
-  "Content that consistently earns saves and shares builds algorithmic trust over time, making future content more likely to reach further too.",
-  "DMs Are Often an Unmonitored Sales Channel",
-  "A business not actively checking Instagram DMs may be missing real inquiries sitting unanswered in a place they're not used to checking regularly."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "Instagram's algorithm has shifted its weight heavily toward Reels and genuine engagement signals saves, shares, watch time, over follower count or a flawlessly matched color palette. A beautiful grid with low engagement now performs worse than a slightly rougher one that people actually save and share, and treating Instagram like a portfolio rather than a distribution platform is how good-looking content ends up seen by almost nobody. We build content strategy around what the algorithm currently rewards, while still keeping enough visual coherence that a profile looks intentional to an actual human visiting it.",
-    "text": "\"Instagram stopped being a photo-sharing app with ads a while ago. It's a short-form video platform with a legacy photo feature attached, and strategy that hasn't caught up to that is leaving reach on the table.\" Video-First Strategy | Built for Current Algorithm Signals | Visual Coherence Without Sacrificing Reach"
+    title: 'Stories & Highlights Management',
+    description:
+      'Stories create a more frequent and interactive layer of communication between your brand and audience.',
+    bullets: [
+      'Daily or scheduled Story planning',
+      'Product and service updates',
+      'Behind-the-scenes content',
+      'Polls',
+      'Questions',
+      'Quizzes',
+      'Customer feedback',
+      'Product demonstrations',
+      'Promotions',
+      'Announcements',
+      'Website and campaign links where available',
+      'Story replies',
+      'Audience interactions',
+      'Highlight organization',
+    ],
+    highlightExamples: ['Services', 'Products', 'Reviews', 'FAQs', 'About Us', 'Offers', 'Locations', 'Contact'],
+    note: 'We can also structure highlights around information people may need after discovering your profile.',
   },
   {
-    "title": "Our Instagram Management Services",
-    "text": "Managing Instagram well today means treating video as the primary format, not an occasional addition to a photo-led feed."
+    title: 'Community & DM Management',
+    description:
+      'Instagram can function as an important customer communication channel, not just a publishing platform. Depending on your selected scope, we can manage the conversations that happen around your content.',
+    bullets: [
+      'Comment responses',
+      'Direct messages',
+      'Story replies',
+      'Customer questions',
+      'Product inquiries',
+      'Service inquiries',
+      'Basic information requests',
+      'Lead qualification',
+      'Inquiry escalation',
+      'Spam and inappropriate comments',
+      'Community interactions',
+      'Customer communication guidelines',
+    ],
+    note: 'For sensitive, complex, or sales-critical conversations, we follow an agreed escalation process so the appropriate person from your business can take over. Community coverage, response windows, and escalation procedures are defined according to the selected management plan.',
   },
   {
-    "title": "CONTENT STRATEGY ACROSS FORMATS",
-    "text": "Instagram now spans several genuinely different formats, and each one plays a different role in a real strategy."
+    title: 'UGC, Creator & Collaboration Management',
+    description:
+      'User-generated content and creator collaborations can provide additional content opportunities and social proof when the partnership fits your audience.',
+    bullets: [
+      'UGC content planning',
+      'Creator research',
+      'Collaboration planning',
+      'Creator briefs',
+      'Content requirements',
+      'Communication coordination',
+      'Content approval workflows',
+      'Campaign content organization',
+      'Brand guidelines for creators',
+      'Performance tracking',
+      'Usage-rights coordination with relevant parties',
+      'Creator Marketplace research or coordination where available and applicable',
+    ],
+    note: 'We focus on audience relevance and brand fit rather than selecting creators based only on follower count.',
   },
   {
-    "title": "What We Do",
-    "text": "* Reels-First Content Planning: Building the content calendar around short-form video as the primary driver of reach, not an afterthought. * Feed Post Strategy: Curating feed content for visual coherence and profile credibility, distinct from Reels' reach-driving role. * Stories Strategy: Using Stories for daily, lower-production engagement and direct audience interaction. * Carousel & Guide Content: Building save-worthy educational or list-style content that performs well in Instagram's current algorithm. Treating every format the same way wastes what each one is actually built to do within the platform's own system."
+    title: 'Instagram Ecommerce & Product Content',
+    description:
+      'For ecommerce brands, Instagram can support product discovery, education, social proof, customer questions, and purchase consideration.',
+    bullets: [
+      'Product launches',
+      'Product demonstrations',
+      'Product features',
+      'Benefits and use cases',
+      'Product comparisons',
+      'Customer reviews',
+      'UGC',
+      'Product-focused Reels',
+      'Promotional campaigns',
+      'Seasonal collections',
+      'Product FAQs',
+      'Purchase-related DMs',
+      'Website traffic',
+      'Product discovery',
+    ],
+    note: 'Where Instagram Shopping or related commerce features are available and your account meets the applicable requirements, we can incorporate them into the broader content strategy. The exact commerce features available can depend on market, account eligibility, product category, and Instagram’s current requirements.',
   },
   {
-    "title": "REELS PRODUCTION & OPTIMIZATION",
-    "text": "Reels currently carry the most reach potential on the platform, and they have their own specific rules."
+    title: 'Publishing & Content Calendar Management',
+    description:
+      'Consistent publishing becomes easier when content is planned before the publishing date. We build and manage content calendars so production and approvals have a clear schedule.',
+    bullets: [
+      'Content themes',
+      'Formats',
+      'Campaigns',
+      'Product launches',
+      'Promotions',
+      'Important dates',
+      'Seasonal opportunities',
+      'Audience needs',
+      'Brand priorities',
+      'Production timelines',
+      'Approval schedules',
+    ],
+    note: 'Before publishing, content follows the agreed review and approval process. We then schedule or publish approved content according to the agreed plan.',
   },
   {
-    "title": "What We Do",
-    "text": "* Reels Concepting: Developing ideas built around what genuinely earns watch-through and shares in your specific category. * Trend & Audio Strategy: Using trending audio and formats deliberately, adapted to your brand rather than copied wholesale. * Editing & Pacing: Native-feeling edits built for how people actually watch Reels fast hooks, tight pacing, no dead time. * Caption & Hook Writing: Opening lines and captions written to stop a scroll in the first second, since that's when most viewers decide whether to keep watching. The first second of a Reel does more work than almost anything else in the entire piece of content."
+    title: 'Performance Tracking & Optimization',
+    description:
+      'Publishing content without reviewing performance makes it difficult to know what deserves more investment. We monitor relevant account and content metrics and use them to decide what comes next.',
+    bullets: [
+      'Reach',
+      'Views',
+      'Watch time where available',
+      'Engagement',
+      'Saves',
+      'Shares',
+      'Comments',
+      'Profile visits',
+      'Follows',
+      'Link clicks where available',
+      'DM activity',
+      'Content format performance',
+      'Audience response',
+      'Discovery activity',
+    ],
+    note: 'Where reliable tracking is available, we can also consider relevant website visits, inquiries, product interest, or other agreed business actions. We compare performance across formats, content themes, audience responses, and business objectives to identify what should be repeated, improved, reduced, or tested next.',
   },
-  {
-    "title": "VISUAL IDENTITY & FEED STRATEGY",
-    "text": "The feed still matters, just not as the primary reach driver it once was."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Brand Visual Guidelines: Establishing a consistent look and feel across photo and video content. * Feed Layout Planning: Thinking about how the grid reads as a whole, since a visitor's first impression is often the full grid, not one post. * Photography & Graphic Direction: Guidance on visual style, whether content comes from your own team or ours. * Highlight & Profile Organization: Structuring Story Highlights and profile elements for a visitor who's actually evaluating whether to follow or buy. A coherent-looking profile still builds credibility, even if it's no longer the primary lever for reach."
-  },
-  {
-    "title": "COMMUNITY & DM MANAGEMENT",
-    "text": "Instagram's comments and DMs have become a genuine sales and customer service channel for a lot of businesses."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Comment Response: Timely, on-brand replies that also signal genuine engagement to the algorithm. * DM Management: Responding to inquiries and questions that come in through direct messages, often a real sales channel. * Story Interaction: Responding to polls, questions, and Story replies that build a genuine sense of relationship. * Influencer & Creator Coordination: Managing collaboration logistics where partnerships are part of the strategy. DMs on Instagram function as a real inbox for a lot of businesses now, not just a casual messaging feature."
-  },
-  {
-    "title": "PERFORMANCE TRACKING & OPTIMIZATION",
-    "text": "Understanding what's actually earning reach and engagement, format by format."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Reels vs. Feed Performance Comparison: Understanding which formats are genuinely driving reach and engagement for your account specifically. * Engagement Quality Tracking: Monitoring saves and shares as stronger signals than likes alone. * Hashtag & Discovery Analysis: Reviewing what's actually helping content get discovered beyond your existing followers. * Monthly Reporting: Clear reporting on what's working, with context rather than a raw metrics screenshot. Instagram content strategy pairs naturally with paid reach for specific goals - see our Meta Ads Management page for how organic and paid work together on the platform. How Instagram's Algorithm Actually Weighs Content Understanding what the algorithm rewards changes what \"good content\" actually means in practice."
-  },
-  {
-    "title": "Watch Time and Completion Rate",
-    "text": "For video, how much of a Reel someone actually watches matters more than almost any other single signal, a short, tightly edited piece that gets watched fully often outperforms a longer one people scroll past."
-  },
-  {
-    "title": "Saves and Shares Over Likes",
-    "text": "A like is a low-effort, low-signal action. A save or a share signals genuine value, and the algorithm weighs those far more heavily when deciding what to show more people."
-  },
-  {
-    "title": "Consistency Over Bursts",
-    "text": "Regular posting tends to outperform sporadic bursts of activity, since the algorithm has less signal to work with around an inconsistent account. Follower Count Matters Less Than It Used To Content can reach far beyond an existing follower base through Explore and Reels recommendations, which is both an opportunity and the reason a small account with strong content can outperform a larger, less engaging one. Why Your Business Needs Real Instagram Management Instagram rewards genuine strategy visibly, and it punishes a stale, photo-only approach just as visibly. Video Isn't Optional Anymore An account still treating Reels as a nice-to-have is leaving the platform's primary reach mechanism largely unused. A Beautiful Feed Alone Doesn't Reach New People Visual polish builds credibility with people who already found you, it does comparatively little to help new people find you in the first place."
-  },
-  {
-    "title": "Engagement Quality Compounds",
-    "text": "Content that consistently earns saves and shares builds algorithmic trust over time, making future content more likely to reach further too. DMs Are Often an Unmonitored Sales Channel A business not actively checking Instagram DMs may be missing real inquiries sitting unanswered in a place they're not used to checking regularly. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Content strategy, Reels production, and community management handled together, so what performs well informs what gets made next, in a tight loop. Video-First, Not Video-Occasional Reels get the strategic weight the algorithm actually gives them, not treated as an occasional addition to a photo-led calendar. Local & International Instagram Experience Based in Dhaka. Managing accounts for clients across Bangladesh, the US, UK, Australia, Canada, and UAE. We Watch DMs and Comments Like They Matter Because on Instagram, they genuinely do, inquiries and engagement signals both live there."
-  },
-  {
-    "title": "Multi-Format Content Strategy",
-    "text": "A calendar built around Reels, Feed, Stories, and Carousels each doing what they're actually good at."
-  },
-  {
-    "title": "Reels Production & Optimization",
-    "text": "Content concept, editing, and caption specifically for how the algorithm and viewers actually respond to short-form video."
-  },
-  {
-    "title": "Visual Identity & Feed Strategy",
-    "text": "A coherent, credible profile look, balanced against what actually drives reach."
-  },
-  {
-    "title": "Community & DM Management",
-    "text": "Timely responses to comments and direct messages, treated as a real engagement and sales channel."
-  },
-  {
-    "title": "Performance Tracking",
-    "text": "Clear reporting on saves, shares, and watch time, not just surface-level likes."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Every piece of content will be reviewed and approved by you before it is published."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Services explained"
+          title="What Our Instagram Management Service Includes"
+        >
+          Our Instagram Management Service covers the strategic, creative, operational, and
+          analytical work required to maintain and grow a professional Instagram presence.
+        </SectionIntro>
+
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
+          {offerings.map((item, index) => (
+            <article
+              key={item.title}
+              className="flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-muted/20 md:p-8"
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Service {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.description}
+                </p>
+              </div>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
+              <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs font-medium text-frame-fg/90 md:text-sm">
+                {item.bullets.map((bullet, bIdx) => (
+                  <li key={bIdx} className="flex items-start gap-2">
+                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
                     </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+                    <span className="leading-snug">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+              {item.carousel?.length > 0 && (
+                <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Carousel structures
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {item.carousel.map((entry) => (
+                      <li
+                        key={entry}
+                        className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                      >
+                        {entry}
+                      </li>
                     ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  </ul>
                 </div>
               )}
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
+              {item.highlightExamples?.length > 0 && (
+                <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Highlight examples
+                  </span>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {item.highlightExamples.map((entry) => (
+                      <li
+                        key={entry}
+                        className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                      >
+                        {entry}
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               )}
-            </div>
+
+              {item.note && (
+                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  {item.note}
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Not sure what your account needs?
+            </span>
+            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+              Start with a free Instagram account audit
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+              We review the actual account and tell you which improvements matter most before any
+              management work begins.
+            </p>
           </div>
-        </section>
-      )}
-    </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Request Your Instagram Management Quote &rarr;</PosterButton>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

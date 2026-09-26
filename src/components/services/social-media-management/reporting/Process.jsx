@@ -1,103 +1,70 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Goal & Metric Definition",
-    "description": "We establish what genuinely matters for your business, so reporting tracks real goals, not generic default metrics."
+    number: '01',
+    title: 'Business Goals & KPI Definition',
+    body: 'We first identify what social media is expected to contribute to the business. Then we establish the relevant metrics and reporting priorities.',
   },
   {
-    "number": "2",
-    "title": "Data Collection & Consolidation",
-    "description": "Pulling performance data from every active platform into one consistent, comparable format."
+    number: '02',
+    title: 'Data Collection & Tracking Setup',
+    body: 'We identify the platforms, accounts, available analytics, website tracking, campaign data, and other relevant measurement sources. Where required data is unavailable, we make that limitation clear rather than filling the gap with assumptions.',
   },
   {
-    "number": "3",
-    "title": "Analysis & Interpretation",
-    "description": "Reviewing the data for genuine patterns and context, not just summarizing raw numbers."
+    number: '03',
+    title: 'Cross-Platform Data Consolidation',
+    body: 'Relevant data is organized into a consistent reporting structure. Platform-specific differences are preserved where they affect interpretation.',
   },
   {
-    "number": "4",
-    "title": "Report Delivery & Walkthrough",
-    "description": "Delivering the report with a direct walkthrough, so you can ask questions and clarify anything unclear."
+    number: '04',
+    title: 'Analysis & Interpretation',
+    body: 'We review trends, content, campaigns, audience behavior, community activity, and other relevant signals. The objective is to explain performance rather than simply repeat it.',
   },
   {
-    "number": "5",
-    "title": "Strategy Feedback Loop",
-    "description": "Findings feed directly back into the next month's content and community strategy."
-  }
+    number: '05',
+    title: 'Report Preparation',
+    body: 'The findings are organized into a readable monthly report focused on the metrics and insights that matter to your business.',
+  },
+  {
+    number: '06',
+    title: 'Walkthrough & Recommendations',
+    body: 'Where included in your plan, we walk through the report and explain the important findings. Recommendations are tied to the actual data and business goals.',
+  },
+  {
+    number: '07',
+    title: 'Ongoing Trend Analysis',
+    body: 'Over time, monthly reports create a larger performance history. That makes it easier to identify recurring patterns rather than making decisions from one isolated month.',
+  },
 ]
-  const timeline = service?.timeline || "Initial goal and metric definition typically takes a few days at the start of an engagement. Ongoing monthly reports are delivered on a consistent monthly schedule, usually within the first week of each new month, covering the full prior month's activity.\n\nMeaningful trend analysis genuinely requires a few months of data to become useful, a single month's report shows a snapshot, but the real value of reporting compounds once there's a trend line to actually compare against."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Reporting workflow"
+          title="How Our Monthly Reporting &amp; Analytics Process Works"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          Reporting works better when the goal, the KPI set, and the available data are defined before
+          analysis begins.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
-            </div>
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <article key={step.number} className="bg-frame-bg p-7 md:p-8">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
+                {step.number}
+              </span>
+              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                {step.title}
+              </h3>
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                {step.body}
+              </p>
+            </article>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

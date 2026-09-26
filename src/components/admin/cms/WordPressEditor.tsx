@@ -170,6 +170,24 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
     post.status || "published"
   );
   const [author, setAuthor] = useState(post.author || "Mahedi Hasan Perves");
+  const [availableAuthors, setAvailableAuthors] = useState<string[]>([
+    "Mahedi Hasan Perves",
+    "FrameCipher Growth Team",
+    "FrameCipher Design Studio",
+    "Admin",
+  ]);
+
+  useEffect(() => {
+    fetch("/api/authors")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          const names = data.map((a: any) => a.name).filter(Boolean);
+          setAvailableAuthors((prev) => Array.from(new Set([...names, ...prev])));
+        }
+      })
+      .catch(() => {});
+  }, []);
   const [excerpt, setExcerpt] = useState(post.excerpt || "");
   const [visibility, setVisibility] = useState<"public" | "password" | "private">(post.visibility || "public");
   const [postPassword, setPostPassword] = useState(post.postPassword || "");
@@ -1253,14 +1271,14 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
     const targetSlug = slug.trim() || "guide";
     const articleGraph: any = {
       "@type": schemaType,
-      "@id": `https://framecipher.com/blog/${targetSlug}#article`,
+      "@id": `https://framecipher.info/blog/${targetSlug}#article`,
       headline: seoTitle || title || "FrameCipher Strategic Insight",
       description: metaDescription,
       image: featuredImageUrl.startsWith("http") ||
         featuredImageUrl.startsWith("data:") ||
         featuredImageUrl.startsWith("blob:")
         ? featuredImageUrl
-        : `https://framecipher.com${featuredImageUrl}`,
+        : `https://framecipher.info${featuredImageUrl}`,
       author: {
         "@type": "Person",
         name: author,
@@ -1273,16 +1291,16 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
       publisher: {
         "@type": "Organization",
         name: "FrameCipher",
-        url: "https://framecipher.com",
+        url: "https://framecipher.info",
         logo: {
           "@type": "ImageObject",
-          url: "https://framecipher.com/logo.png",
+          url: "https://framecipher.info/logo.png",
         },
       },
       datePublished: post.publishDate || new Date().toISOString().split("T")[0],
       mainEntityOfPage: {
         "@type": "WebPage",
-        "@id": `https://framecipher.com/blog/${targetSlug}`,
+        "@id": `https://framecipher.info/blog/${targetSlug}`,
       },
     };
 
@@ -1294,7 +1312,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
     if (validFaqs.length > 0) {
       graph.push({
         "@type": "FAQPage",
-        "@id": `https://framecipher.com/blog/${targetSlug}#faq`,
+        "@id": `https://framecipher.info/blog/${targetSlug}#faq`,
         mainEntity: validFaqs.map((f) => ({
           "@type": "Question",
           name: f.question,
@@ -1369,7 +1387,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
         hasAlt: Boolean(featuredImageAlt.trim()),
       },
       focusKeyword,
-      canonicalUrl: `https://framecipher.com/blog/${targetSlug}`,
+      canonicalUrl: `https://framecipher.info/blog/${targetSlug}`,
       relatedToolSlugs: selectedTools,
       schemaType,
       faqs,
@@ -1557,7 +1575,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                 <span className="font-heading font-bold uppercase tracking-wider text-[#0F172A] text-[10px]">
                   Permalink:
                 </span>
-                <span className="truncate">https://framecipher.com/blog/</span>
+                <span className="truncate">https://framecipher.info/blog/</span>
                 {isEditingSlug ? (
                   <div className="inline-flex items-center gap-1">
                     <input
@@ -2073,7 +2091,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                   onDragEnd={handleEditorDragEnd}
                   onDragOver={(event) => event.preventDefault()}
                   onDrop={handleEditorDrop}
-                  className="min-h-[420px] p-5 sm:p-8 prose prose-slate max-w-none focus:outline-none bg-white text-[#0F172A] [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:tracking-tight [&_h2]:mt-7 [&_h2]:mb-3 [&_h2]:text-3xl [&_h2]:font-extrabold [&_h2]:leading-tight [&_h2]:tracking-tight [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:leading-tight [&_h4]:mt-5 [&_h4]:mb-2 [&_h4]:text-xl [&_h4]:font-bold [&_h4]:leading-snug [&_h5]:mt-4 [&_h5]:mb-1.5 [&_h5]:text-lg [&_h5]:font-bold [&_h5]:leading-snug [&_h6]:mt-4 [&_h6]:mb-1.5 [&_h6]:text-base [&_h6]:font-extrabold [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:leading-snug [&_img]:max-h-[500px] [&_img]:cursor-move [&_img]:rounded-md [&_img]:object-contain [&_.alignleft]:float-left [&_.alignleft]:mr-5 [&_.alignleft]:mb-4 [&_.alignright]:float-right [&_.alignright]:ml-5 [&_.alignright]:mb-4 [&_.aligncenter]:block [&_.aligncenter]:mx-auto [&_.aligncenter]:my-5 [&_.aligncenter]:text-center [&_.aligncenter]:clear-both [&_.alignnone]:my-3 [&_figure]:my-5 [&_figcaption]:text-center [&_figcaption]:text-xs [&_figcaption]:text-slate-500 [&_figcaption]:mt-1.5 [&_figcaption]:italic"
+                  className="admin-editor-canvas min-h-[420px] p-5 sm:p-8 max-w-none focus:outline-none bg-white text-[#0F172A] [&_h1]:mt-8 [&_h1]:mb-4 [&_h1]:text-4xl [&_h1]:font-black [&_h1]:leading-tight [&_h1]:tracking-tight [&_h2]:mt-7 [&_h2]:mb-3 [&_h2]:text-3xl [&_h2]:font-extrabold [&_h2]:leading-tight [&_h2]:tracking-tight [&_h3]:mt-6 [&_h3]:mb-2 [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:leading-tight [&_h4]:mt-5 [&_h4]:mb-2 [&_h4]:text-xl [&_h4]:font-bold [&_h4]:leading-snug [&_h5]:mt-4 [&_h5]:mb-1.5 [&_h5]:text-lg [&_h5]:font-bold [&_h5]:leading-snug [&_h6]:mt-4 [&_h6]:mb-1.5 [&_h6]:text-base [&_h6]:font-extrabold [&_h6]:uppercase [&_h6]:tracking-wide [&_h6]:leading-snug [&_img]:max-h-[500px] [&_img]:cursor-move [&_img]:rounded-md [&_img]:object-contain [&_.alignleft]:float-left [&_.alignleft]:mr-5 [&_.alignleft]:mb-4 [&_.alignright]:float-right [&_.alignright]:ml-5 [&_.alignright]:mb-4 [&_.aligncenter]:block [&_.aligncenter]:mx-auto [&_.aligncenter]:my-5 [&_.aligncenter]:text-center [&_.aligncenter]:clear-both [&_.alignnone]:my-3 [&_figure]:my-5 [&_figcaption]:text-center [&_figcaption]:text-xs [&_figcaption]:text-slate-500 [&_figcaption]:mt-1.5 [&_figcaption]:italic"
                 />
               ) : (
                 /* Raw HTML / Text Editor */
@@ -2596,7 +2614,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                             FrameCipher
                           </div>
                           <div className="text-[#5f6368] text-[10px] truncate">
-                            https://framecipher.com › blog › {slug || "guide"}
+                            https://framecipher.info › blog › {slug || "guide"}
                           </div>
                         </div>
                       </div>
@@ -3022,7 +3040,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                     )}
                   </div>
                     <div className="p-3 bg-[#F8FAFC] border-t border-[#E2E8F0] space-y-1">
-                      <div className="text-[10px] text-[#1D4ED8] uppercase font-bold font-mono">framecipher.com</div>
+                      <div className="text-[10px] text-[#1D4ED8] uppercase font-bold font-mono">framecipher.info</div>
                       <div className="font-bold text-xs text-[#0F172A] line-clamp-1">{seoTitle}</div>
                       <div className="text-[11px] text-[#64748B] line-clamp-2">{metaDescription}</div>
                     </div>
@@ -3226,10 +3244,11 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                         onChange={(e) => setAuthor(e.target.value)}
                         className="bg-transparent font-bold text-[#0F172A] border-b border-dashed border-[#CBD5E1] cursor-pointer text-xs"
                       >
-                        <option value="Mahedi Hasan Perves">Mahedi Hasan Perves</option>
-                        <option value="FrameCipher Growth Team">FrameCipher Growth Team</option>
-                        <option value="FrameCipher Design Studio">FrameCipher Design Studio</option>
-                        <option value="Admin">Admin</option>
+                        {Array.from(new Set([author, ...availableAuthors])).map((name) => (
+                          <option key={name} value={name}>
+                            {name}
+                          </option>
+                        ))}
                       </select>
                     </div>
 

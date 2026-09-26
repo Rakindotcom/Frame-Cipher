@@ -2,7 +2,7 @@ import { siteUrl, services } from "../../data/agency";
 import { getAllServicePages } from "../../data/servicePages";
 import { growthCaseStudies } from "../../data/growthWork";
 import { CANONICAL_BLOG_POSTS } from "../blog/canonicalPosts";
-import { BLOG_CATEGORIES, blogCategorySlug } from "../blog/getBlogPosts";
+import { BLOG_CATEGORIES, blogCategorySlug, isLegacyDemoPost } from "../blog/getBlogPosts";
 import { CANONICAL_AUTHORS } from "../authors/canonicalAuthors";
 import { getBlogPostsFromFirestore, getAuthorProfilesFromFirestore } from "../firebase";
 
@@ -89,8 +89,10 @@ export async function categoryEntries() {
   }));
 }
 
+import { getServerBlogPosts } from "../blog/serverBlogStorage";
+
 // Published blog posts: canonical seeds + any dashboard-created posts from
-// Firestore, with a short timeout so a slow CMS never blocks the sitemap.
+// Server storage / Firestore, with a short timeout so a slow CMS never blocks the sitemap.
 export async function publishedBlogEntries() {
   const entries = CANONICAL_BLOG_POSTS.filter((post) => post.status === "published").map((post) => ({
     path: `/blog/${post.slug}`,
@@ -99,11 +101,16 @@ export async function publishedBlogEntries() {
 
   try {
     const posts = await Promise.race([
-      getBlogPostsFromFirestore(),
-      new Promise((_, reject) => setTimeout(() => reject(new Error("CMS blog sitemap timeout")), 1500)),
+      getServerBlogPosts(),
+      new Promise((_, reject) => setTimeout(() => reject(new Error("CMS blog sitemap timeout")), 2000)),
     ]);
     posts
-      .filter((post) => post?.status === "published" && typeof post?.slug === "string")
+      .filter(
+        (post) =>
+          post?.status === "published" &&
+          typeof post?.slug === "string" &&
+          !isLegacyDemoPost(post)
+      )
       .forEach((post) => {
         entries.push({
           path: `/blog/${post.slug}`,
@@ -111,7 +118,7 @@ export async function publishedBlogEntries() {
         });
       });
   } catch {
-    // Canonical posts remain available if Firestore is temporarily unavailable.
+    // Canonical posts remain available if Firestore/storage is temporarily unavailable.
   }
 
   return entries;

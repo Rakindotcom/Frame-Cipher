@@ -1,6 +1,22 @@
 import Link from 'next/link'
 import { services } from '../../data/agency'
 
+const serviceCanonicalLinks = {
+  '360-marketing': '/services/360-marketing',
+  'brand-strategy': '/services/content-creation/branding',
+  'social-media-marketing': '/services/social-media-management',
+  'paid-ads': '/services/paid-advertising',
+  'seo': '/services/seo',
+  'branding-design': '/services/content-creation/branding',
+  'video-production': '/services/content-creation/commercial-video',
+  'photography': '/services/content-creation/product-photography',
+  'web-development': '/services/website-design-development',
+  'software-solutions': '/services/app-development',
+  'ecommerce': '/services/website-design-development/ecommerce-website',
+  'landing-pages': '/services/website-design-development/landing-pages',
+  'automation-crm': '/services/app-development/saas-apps',
+}
+
 export default function HomeServicesPulse() {
   const allServices = services
 
@@ -21,7 +37,7 @@ export default function HomeServicesPulse() {
           {allServices.map((service) => (
             <Link
               key={service.slug}
-              href={`/services/${service.slug}`}
+              href={serviceCanonicalLinks[service.slug] || `/services/${service.slug}`}
               className="group flex min-h-72 flex-col justify-between bg-frame-accent p-6 text-frame-accent-fg transition-colors duration-300 hover:bg-frame-bg hover:text-frame-fg md:p-8"
             >
               <div>

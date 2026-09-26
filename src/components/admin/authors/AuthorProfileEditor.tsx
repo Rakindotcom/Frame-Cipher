@@ -23,7 +23,7 @@ import {
   X,
 } from "lucide-react";
 
-const SITE_URL = "https://framecipher.com";
+const SITE_URL = "https://framecipher.info";
 
 interface AuthorProfileEditorProps {
   author: Partial<AuthorProfile>;

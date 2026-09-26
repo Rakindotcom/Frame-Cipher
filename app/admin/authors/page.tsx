@@ -80,13 +80,19 @@ export default function AuthorsPage() {
   useEffect(() => {
     async function loadAuthors() {
       try {
-        const firestoreAuthors = await getAuthorProfilesFromFirestore();
-        if (firestoreAuthors && firestoreAuthors.length > 0) {
-          setAuthors(mergeCanonicalWithCustom(firestoreAuthors));
-          return;
+        const res = await fetch("/api/authors", { cache: "no-store" });
+        if (res.ok) {
+          const apiAuthors = await res.json();
+          if (Array.isArray(apiAuthors) && apiAuthors.length > 0) {
+            setAuthors(apiAuthors);
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(apiAuthors));
+            } catch {}
+            return;
+          }
         }
       } catch (err) {
-        console.warn("Firestore authors fetch error:", err);
+        console.warn("API authors fetch error:", err);
       }
 
       try {
@@ -94,7 +100,7 @@ export default function AuthorsPage() {
         if (saved !== null) {
           const parsed = JSON.parse(saved);
           if (Array.isArray(parsed) && parsed.length > 0) {
-            setAuthors(mergeCanonicalWithCustom(parsed));
+            setAuthors(parsed);
             return;
           }
         }
@@ -105,15 +111,22 @@ export default function AuthorsPage() {
     loadAuthors();
   }, []);
 
-  const persistAuthors = (updatedList: AuthorProfile[]) => {
+  const persistAuthors = async (updatedList: AuthorProfile[]) => {
     setAuthors(updatedList);
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedList));
     } catch {}
 
-    updatedList.forEach((a) => {
-      saveAuthorProfileToFirestore(a).catch(() => {});
-    });
+    try {
+      await fetch("/api/authors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ authors: updatedList }),
+      });
+    } catch (err) {
+      console.error("Failed to persist authors to server:", err);
+    }
+
 
     // Regenerate the author sitemap so published profile changes land immediately.
     revalidateSitemaps(["author"]).catch(() => {});
@@ -149,8 +162,11 @@ export default function AuthorsPage() {
   const handleDeleteAuthor = (id: string) => {
     if (confirm("Are you sure you want to permanently delete this author profile? Person schema will be removed with it.")) {
       const updated = authors.filter((a) => a.id !== id);
-      persistAuthors(updated);
-      deleteAuthorProfileFromFirestore(id).catch(() => {});
+      setAuthors(updated);
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
+      } catch {}
+      fetch(`/api/authors?id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => {});
       if (schemaAuthor?.id === id) setSchemaAuthor(null);
     }
   };

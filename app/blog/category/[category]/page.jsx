@@ -1,14 +1,20 @@
 import React from "react";
 import Link from "next/link";
+import { ChevronRight, Clock, BookOpen } from "lucide-react";
 import {
   BLOG_CATEGORIES,
   blogCategorySlug,
   blogCategoryFromSlug,
   getAllCanonicalPosts,
+  getMergedPostsFromStorage,
 } from "@/lib/blog/getBlogPosts";
 import { buildCategoryMetadata } from "@/lib/seo/metadata";
 import { WordPressSidebar } from "@/components/blog/WordPressSidebar";
-import { ChevronRight, Clock, ArrowRight, BookOpen } from "lucide-react";
+import { getServerBlogPosts } from "@/lib/blog/serverBlogStorage";
+
+export const dynamic = "force-dynamic";
+export const dynamicParams = false;
+
 
 export async function generateStaticParams() {
   return BLOG_CATEGORIES.filter((c) => c !== "All Articles").map((cat) => ({
@@ -29,12 +35,21 @@ export async function generateMetadata({ params }) {
 export default async function CategoryPage({ params }) {
   const { category: catSlug } = await params;
   const categoryName = blogCategoryFromSlug(catSlug) || catSlug.replace(/-/g, " ");
-  const allPosts = getAllCanonicalPosts();
+
+  let allPosts = getAllCanonicalPosts();
+  try {
+    const remotePosts = await getServerBlogPosts();
+    allPosts = getMergedPostsFromStorage(JSON.stringify(remotePosts));
+  } catch (error) {
+    console.error("Category page could not load server blog posts:", error);
+  }
+
   const categoryPosts = allPosts.filter(
     (p) =>
-      blogCategorySlug(p.category) === catSlug ||
-      p.category.toLowerCase() === categoryName.toLowerCase() ||
-      (p.categories && p.categories.some((c) => c.toLowerCase() === categoryName.toLowerCase()))
+      p.status === "published" &&
+      (blogCategorySlug(p.category) === catSlug ||
+        (Array.isArray(p.categories) &&
+          p.categories.some((c) => blogCategorySlug(c) === catSlug)))
   );
 
   return (

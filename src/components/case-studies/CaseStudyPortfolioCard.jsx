@@ -13,7 +13,10 @@ export default function CaseStudyPortfolioCard({ study, index }) {
     >
       <div>
         {/* Featured Image Container */}
-        <div className="relative aspect-[16/10] w-full overflow-hidden border-b-2 border-frame-border bg-black">
+        <Link
+          href={`/case-studies/${study.slug}`}
+          className="relative block aspect-[16/10] w-full overflow-hidden border-b-2 border-frame-border bg-black"
+        >
           <img
             src={imageSrc}
             alt={study.image?.alt || `${study.client} case study`}
@@ -43,7 +46,7 @@ export default function CaseStudyPortfolioCard({ study, index }) {
               </span>
             )}
           </div>
-        </div>
+        </Link>
 
         {/* Card Content */}
         <div className="p-6 md:p-7">
@@ -58,7 +61,9 @@ export default function CaseStudyPortfolioCard({ study, index }) {
           </div>
 
           <h3 className="mt-3 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors group-hover:text-frame-accent md:text-3xl">
-            {study.title}
+            <Link href={`/case-studies/${study.slug}`} className="hover:text-frame-accent transition-colors">
+              {study.title}
+            </Link>
           </h3>
 
           <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">

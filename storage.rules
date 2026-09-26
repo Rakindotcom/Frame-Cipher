@@ -1,0 +1,62 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    // Keep in sync with the ADMIN_EMAILS environment variable and with
+    // isAdmin() in firestore.rules. Storage rules cannot read process.env.
+    function adminEmails() {
+      return ['pervesmahedi@gmail.com'];
+    }
+
+    function isAdmin() {
+      return request.auth != null
+        && request.auth.token.email is string
+        && request.auth.token.email_verified == true
+        && request.auth.token.email.lower() in adminEmails();
+    }
+
+    // Raster images only. SVG is deliberately excluded: Firebase Storage serves
+    // the stored content type inline, so an uploaded SVG can execute script when
+    // the download URL is opened directly, which is a stored XSS vector on this
+    // origin. Supporting SVG safely requires sanitising it before upload.
+    function isAllowedImage() {
+      return request.resource.contentType in [
+        'image/jpeg',
+        'image/png',
+        'image/webp',
+        'image/avif',
+        'image/gif'
+      ];
+    }
+
+    // `size <= limit` so the rules boundary matches the client-side check,
+    // which rejects only when the file is strictly larger than the limit.
+    function isImageUnder(limitMb) {
+      return request.resource.size <= limitMb * 1024 * 1024
+        && isAllowedImage();
+    }
+
+    match /media/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isImageUnder(10);
+      allow delete: if isAdmin();
+    }
+
+    match /avatars/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isImageUnder(5);
+      allow delete: if isAdmin();
+    }
+
+    match /covers/{allPaths=**} {
+      allow read: if true;
+      allow create, update: if isAdmin() && isImageUnder(10);
+      allow delete: if isAdmin();
+    }
+
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

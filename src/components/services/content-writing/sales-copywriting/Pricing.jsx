@@ -1,201 +1,158 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Pricing({ service }) {
-  const pricingData = service?.pricing || {
-  "intro": "Pricing depends on format and the depth of research and proof-gathering the argument requires.",
-  "packages": [],
-  "table": {
-    "headers": [
-      "",
-      "Starting Price"
-    ],
-    "rows": [
-      [
-        "",
-        "What's Covered"
-      ],
-      [
-        "",
-        "Best For"
-      ],
-      [
-        "",
-        "Sales Page / Long-Form Copy"
-      ],
-      [
-        "",
-        "৳15,000/page"
-      ],
-      [
-        "",
-        "Research, full persuasion sequence, one round of revisions"
-      ],
-      [
-        "",
-        "Dedicated sales pages or major offers"
-      ],
-      [
-        "",
-        "Proposal or Pitch Deck Copy"
-      ],
-      [
-        "",
-        "৳12,000/document"
-      ],
-      [
-        "",
-        "Structure, narrative, and full copywriting for a proposal or deck"
-      ],
-      [
-        "",
-        "Businesses pitching deals or clients"
-      ],
-      [
-        "",
-        "VSL / Sales Script"
-      ],
-      [
-        "",
-        "৳10,000/script"
-      ],
-      [
-        "",
-        "Full spoken script with pacing and visual notes"
-      ],
-      [
-        "",
-        "Video-based sales funnels"
-      ],
-      [
-        "",
-        "Included at every tier:"
-      ]
-    ]
-  }
-}
-  const packages = pricingData?.packages || []
-  const table = pricingData?.table
+const packages = [
+  {
+    name: 'Sales Page / Long-Form Copy',
+    price: '৳15,000/page',
+    for: 'Dedicated sales pages and major offers',
+    scope: 'Research, persuasion structure, full copy, one revision round',
+    timeline: 'About 5–7 business days',
+    cta: 'Request a Sales Page Quote',
+  },
+  {
+    name: 'Proposal / Pitch Deck Copy',
+    price: '৳12,000/document',
+    for: 'B2B proposals and sales presentations',
+    scope: 'Structure, narrative, full copy, one revision round',
+    timeline: 'About 5–7 business days',
+    cta: 'Request a Proposal Quote',
+  },
+  {
+    name: 'VSL / Sales Script',
+    price: '৳10,000/script',
+    for: 'Video-based sales funnels',
+    scope: 'Spoken script, persuasion structure, pacing and visual notes',
+    timeline: 'About 3–5 business days',
+    cta: 'Request a VSL Quote',
+  },
+  {
+    name: 'Other Sales Collateral',
+    price: 'Custom Quote',
+    for: 'One-pagers, brochures, sales enablement and other materials',
+    scope: 'Scope based on format and volume',
+    timeline: 'Custom schedule',
+    tag: 'Custom scope',
+    cta: 'Discuss Sales Collateral',
+  },
+]
 
-  if (!packages.length && !table) return null
+const included = [
+  'Offer and audience research',
+  'Proof-point review',
+  'Objection mapping',
+  'Sales argument structure',
+  'Format-specific copywriting',
+  'One agreed revision round',
+  'Claim and urgency review',
+]
 
+export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+    <section
+      id="pricing"
+      className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20"
+    >
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Plans"
-          title="Pricing & Packages"
-        >
-          Clear investment tiers based on project scope, strategic complexity, and technical requirements.
+        <SectionIntro eyebrow="Pricing & packages" title="Sales Copywriting Pricing">
+          Pricing depends on the format, offer complexity, research depth, proof available, and amount of copy
+          required.
         </SectionIntro>
 
-        {packages.length > 0 ? (
-          <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((pkg, index) => (
-              <div
-                key={index}
-                className={`border-2 p-7 md:p-9 flex flex-col justify-between ${
-                  index === 1
-                    ? 'border-frame-accent bg-frame-accent/10'
-                    : 'border-frame-border bg-frame-bg'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Tier 0{index + 1}
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-4">
+          {packages.map((pkg, index) => (
+            <article
+              key={pkg.name}
+              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40"
+            >
+              <div>
+                <div className="mb-3 flex min-h-[22px] items-center justify-between gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Tier 0{index + 1}
+                  </span>
+                  {pkg.tag && (
+                    <span className="border-2 border-frame-border px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                      {pkg.tag}
                     </span>
-                    {index === 1 && (
-                      <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                        Most Popular
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {pkg.name}
-                  </h3>
-                  <div className="mt-6 border-y-2 border-frame-border/60 py-4">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Starting Price
-                    </span>
-                    <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
-                      {pkg.price}
-                    </div>
-                  </div>
-                  {pkg.description && (
-                    <p className="mt-3 text-xs font-medium text-frame-muted-fg leading-relaxed">
-                      {pkg.description}
-                    </p>
-                  )}
-                  {pkg.features?.length > 0 && (
-                    <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {pkg.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
                   )}
                 </div>
 
-                <div className="mt-8">
-                  <PosterButton
-                    href="/contact"
-                    variant={index === 1 ? 'accent' : 'outline'}
-                    className="w-full"
-                  >
-                    Choose {pkg.name}
+                <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                  {pkg.name}
+                </h3>
+                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  {pkg.for}
+                </p>
+
+                <div className="mt-6 border-y-2 border-frame-border/60 py-5">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Starting Price
+                  </span>
+                  <div className="mt-1 font-heading text-xl font-bold tracking-tight text-frame-fg md:text-2xl">
+                    {pkg.price}
+                  </div>
+                </div>
+
+                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-fg md:text-sm">
+                  {pkg.scope}
+                </p>
+              </div>
+
+              <div className="mt-7 border-t-2 border-frame-border pt-4">
+                <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                  Typical Timeline
+                </span>
+                <span className="mt-1 block text-xs font-semibold leading-relaxed text-frame-fg md:text-sm">
+                  {pkg.timeline}
+                </span>
+                <div className="mt-5">
+                  <PosterButton href="/contact" variant="outline" className="w-full">
+                    {pkg.cta}
                   </PosterButton>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : table?.headers ? (
-          <div>
-            <div className="overflow-hidden border-2 border-frame-border bg-frame-bg">
-              <table className="w-full text-left">
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                  {table.rows?.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-frame-muted/20">
-                      {row.map((cell, cIdx) => (
-                        <td
-                          key={cIdx}
-                          className={`p-4 md:p-6 ${
-                            cIdx === 0
-                              ? 'font-bold text-frame-fg'
-                              : cIdx === 1
-                              ? 'font-bold text-frame-accent'
-                              : 'text-frame-muted-fg'
-                          }`}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            </article>
+          ))}
+        </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
-                * Pricing is indicative rather than fixed. Final pricing is confirmed after scoping requirements.
-              </p>
-              <div className="shrink-0">
-                <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>
-              </div>
+        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-[1.4fr_0.6fr]">
+          <div className="bg-frame-bg p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Included in standard projects
+            </span>
+            <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+              What Every Engagement Starts With
+            </h3>
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+              {included.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                >
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              Final pricing is confirmed after the scope, format, research requirements, and delivery schedule
+              are agreed.
+            </p>
+          </div>
+
+          <div className="flex flex-col justify-between gap-6 bg-frame-accent/10 p-7 md:p-8">
+            <p className="text-sm font-medium leading-relaxed text-frame-fg">
+              Send us the format, the offer, and the proof you can actually document. We will tell you what the
+              argument needs.
+            </p>
+            <div>
+              <PosterButton href="/contact" className="w-full">
+                Request a Custom Quote &rarr;
+              </PosterButton>
             </div>
           </div>
-        ) : null}
+        </div>
       </div>
     </section>
   )

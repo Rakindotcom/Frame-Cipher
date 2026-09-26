@@ -1,13 +1,39 @@
 import Link from "next/link";
 import { Metadata } from "next";
-import { getAllAuthors } from "@/lib/authors/getAuthors";
+import { getServerAuthors } from "@/lib/authors/serverAuthorStorage";
 
-export const revalidate = 3600;
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export const metadata: Metadata = {
   title: "Authors | FrameCipher",
   description:
     "Meet the strategists and contributors behind FrameCipher's Webflow builds, B2B growth systems and technical SEO insights.",
+  alternates: {
+    canonical: "/authors",
+  },
+  openGraph: {
+    type: "website",
+    url: "/authors",
+    siteName: "FrameCipher",
+    title: "Authors | FrameCipher",
+    description:
+      "Meet the strategists and contributors behind FrameCipher's Webflow builds, B2B growth systems and technical SEO insights.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "FrameCipher authors",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Authors | FrameCipher",
+    description:
+      "Meet the strategists and contributors behind FrameCipher's Webflow builds, B2B growth systems and technical SEO insights.",
+  },
 };
 
 function initialsOf(name: string): string {
@@ -21,9 +47,10 @@ function initialsOf(name: string): string {
 }
 
 export default async function AuthorsIndexPage() {
-  const authors = (await getAllAuthors()).filter(
+  const authors = (await getServerAuthors()).filter(
     (a) => a.status === "published" && a.name
   );
+
 
   return (
     <main className="author-page">

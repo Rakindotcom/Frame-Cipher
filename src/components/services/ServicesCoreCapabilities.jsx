@@ -1,5 +1,14 @@
+import Link from 'next/link'
 import { servicePillars } from '../../data/agency'
 import { SectionIntro } from '../Kinetic'
+
+const pillarLinks = {
+  Strategy: '/services/content-creation/branding',
+  Marketing: '/services/paid-advertising',
+  Creative: '/services/content-creation',
+  Media: '/services/content-creation/commercial-video',
+  Technology: '/services/website-design-development',
+}
 
 export default function ServicesCoreCapabilities() {
   return (
@@ -16,8 +25,9 @@ export default function ServicesCoreCapabilities() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {servicePillars.map((pillar, index) => (
-            <article
+            <Link
               key={pillar.title}
+              href={pillarLinks[pillar.title] || '/services'}
               className="group flex min-h-64 flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors duration-300 hover:border-frame-accent md:p-9"
             >
               <div>
@@ -34,7 +44,7 @@ export default function ServicesCoreCapabilities() {
               <p className="mt-8 text-base font-medium leading-snug text-frame-muted-fg md:text-lg">
                 {pillar.description}
               </p>
-            </article>
+            </Link>
           ))}
 
           <a

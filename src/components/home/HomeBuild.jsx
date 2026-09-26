@@ -4,37 +4,37 @@ const buildItems = [
   {
     title: 'Brand & marketing systems',
     description: 'Positioning, messaging, identity, and campaign direction built as one system.',
-    href: '/services/brand-strategy',
+    href: '/services/content-creation/branding',
     tag: 'Strategy',
   },
   {
     title: 'High-converting websites',
     description: 'Fast, modern websites and landing pages designed around clear next actions.',
-    href: '/services/web-development',
+    href: '/services/website-design-development',
     tag: 'Web',
   },
   {
     title: 'E-commerce platforms',
     description: 'Storefronts, product pages, checkout flows, and tracking built for sales.',
-    href: '/services/ecommerce',
+    href: '/services/website-design-development/ecommerce-website',
     tag: 'E-commerce',
   },
   {
     title: 'Custom software',
     description: 'Web applications, dashboards, and tools built around how your business operates.',
-    href: '/services/software-solutions',
+    href: '/services/app-development',
     tag: 'Software',
   },
   {
     title: 'CRM & business systems',
     description: 'Lead capture, pipelines, automations, and reporting that keep teams organized.',
-    href: '/services/automation-crm',
+    href: '/services/app-development/saas-apps',
     tag: 'Automation',
   },
   {
     title: 'Content & media systems',
     description: 'Social content, video, photography, and creative production on a repeatable rhythm.',
-    href: '/services/social-media-marketing',
+    href: '/services/social-media-management',
     tag: 'Content',
   },
   {
@@ -46,7 +46,7 @@ const buildItems = [
   {
     title: 'Paid acquisition systems',
     description: 'Campaign strategy, creative, targeting, tracking, and continuous optimization.',
-    href: '/services/paid-ads',
+    href: '/services/paid-advertising',
     tag: 'Ads',
   },
 ]

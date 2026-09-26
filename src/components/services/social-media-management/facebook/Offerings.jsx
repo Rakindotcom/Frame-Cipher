@@ -1,285 +1,281 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || [
+const offerings = [
   {
-    "title": "CONTENT STRATEGY & POSTING",
-    "description": "Content built around genuine engagement rather than reach that's structurally harder to earn than it once was. What We Do A post that earns five genuine comments often reaches more people than one that earns fifty silent likes.",
-    "bullets": [
-      "Content Planning & Scheduling: A realistic posting cadence built around what your audience actually responds to, not an arbitrary daily quota.",
-      "Format Mix Strategy: Balancing photos, video, links, and text posts based on what Facebook's current algorithm favors and what your audience engages with.",
-      "Event & Announcement Promotion: Using Facebook Events and announcements for genuine business updates that benefit from the platform's native tools.",
-      "Caption & Copy Writing: Written to prompt comments and shares specifically, since those signals carry more algorithmic weight than passive likes."
-    ]
+    title: 'Facebook Page Strategy & Optimization',
+    description:
+      'We start with the Page itself. A poorly structured Page can create unnecessary friction before a customer ever contacts your business. We review the information customers see and the operational setup behind the Page.',
+    bullets: [
+      'Facebook Page audit',
+      'Business category review',
+      'Page name and username recommendations',
+      'Page URL and vanity URL review',
+      'About section optimization',
+      'Business description and service information',
+      'Contact information',
+      'Location and operating hours',
+      'Call-to-action setup',
+      'Profile and cover image recommendations',
+      'Services and business information',
+      'Page information consistency',
+      'Basic Facebook Page SEO',
+      'Local discoverability improvements',
+      'Content structure recommendations',
+      'Messenger readiness',
+      'Page access and role review',
+      'Meta Business Suite workflow coordination',
+      'Basic Page health and restriction checks',
+    ],
+    note: 'Where appropriate, we also review whether your Page information is consistent across your website and other business profiles. We do not use keyword stuffing or artificial tactics. The goal is to make your Page clearer for both people and the platforms that interpret your business information.',
   },
   {
-    "title": "FACEBOOK GROUPS MANAGEMENT",
-    "description": "Groups remain one of the platform's genuinely active spaces, where relevant to a business. What We Do A Group only holds value if it stays genuinely active, a dormant one does less for a business than no Group at all.",
-    "bullets": [
-      "Group Strategy Assessment: Determining whether a branded or community group actually makes sense for your business model.",
-      "Group Content & Moderation: Ongoing posting, discussion prompts, and moderation to keep a group genuinely active rather than dormant.",
-      "Member Engagement: Encouraging discussion and interaction that builds a real sense of community, not just membership numbers.",
-      "Group-to-Page Integration: Connecting group activity with your broader Page strategy where it makes sense to do so."
-    ]
+    title: 'Facebook Page SEO & Discoverability',
+    description:
+      'Facebook search visibility starts with a clear business identity. We review the parts of your Page that help customers understand what you offer and where you operate.',
+    bullets: [
+      'Business category',
+      'Page name',
+      'Username',
+      'About information',
+      'Services',
+      'Location information',
+      'Contact details',
+      'Relevant business terminology',
+      'Content topics',
+      'Local business signals',
+      'Consistency across important business information',
+    ],
+    note: 'For Bangladesh businesses, we can also consider Bangla and English communication where it makes sense for the target audience. Facebook Page SEO is not the same as traditional website SEO. We treat it as part of your broader social presence and customer discovery strategy.',
   },
   {
-    "title": "COMMUNITY & CUSTOMER SERVICE MANAGEMENT",
-    "description": "For a lot of customers, your Facebook Page is where they'll ask a question or raise a concern first. What We Do A public complaint left unanswered for days often does more damage than the original issue itself.",
-    "bullets": [
-      "Comment & Message Response: Timely, on-brand responses to comments and Messenger inquiries, since delayed responses reflect visibly on the business.",
-      "Review Monitoring & Response: Responding to Page reviews and recommendations, both positive and negative, professionally and promptly.",
-      "Customer Service Escalation: Flagging genuine service issues to your team quickly, rather than letting them sit in the comments.",
-      "Spam & Inappropriate Content Moderation: Keeping the Page's public-facing comments and reviews clean and professional."
-    ]
+    title: 'Content Strategy & Content Creation',
+    description:
+      'Good Facebook management needs more than a posting schedule. We build content around your business, audience questions, customer journey, and brand voice.',
+    bullets: [
+      'Educational posts',
+      'Product or service content',
+      'Promotional posts',
+      'Customer FAQs',
+      'Tips and how-to content',
+      'Brand stories',
+      'Customer testimonials',
+      'Social proof',
+      'Behind-the-scenes content',
+      'Product features',
+      'Customer-focused posts',
+      'Seasonal content',
+      'Event-related content',
+      'Company announcements',
+      'Community-focused content',
+      'Offer and campaign content',
+    ],
+    creative: [
+      'Branded graphics',
+      'Carousels',
+      'Short-form videos',
+      'Reels',
+      'Story creatives',
+      'Captions',
+      'Content hooks',
+      'Calls to action',
+      'Relevant hashtag planning',
+    ],
+    note: 'Every content calendar is planned around your business priorities rather than filling empty posting slots.',
   },
   {
-    "title": "LOCAL DISCOVERY & PROFILE OPTIMIZATION",
-    "description": "Facebook still functions as a genuine local search and discovery tool for a lot of businesses. What We Do A visitor checking your Facebook Page before visiting in person is checking whether the business looks active and legitimate, details matter more than they might seem to.",
-    "bullets": [
-      "Page Information Optimization: Making sure hours, location, contact details, and category are accurate and complete.",
-      "Facebook Marketplace Presence: Setting up and maintaining Marketplace listings where relevant to the business.",
-      "Check-In & Local Tag Encouragement: Encouraging the local signals that help a Page surface in nearby search and recommendations.",
-      "Photo & Visual Content Management: Keeping the Page's visual presence current and representative of the actual business."
-    ]
+    title: 'Facebook Reels, Stories & Feed Content',
+    description:
+      'Facebook users do not interact with every format in the same way. We plan content across the formats that make sense for your audience and goals.',
+    bullets: [
+      'Feed content for education, announcements, product information, offers, social proof, and brand communication',
+      'Reels for short-form education, product demonstrations, behind-the-scenes content, trends, and attention-focused creative',
+      'Stories for timely updates, offers, questions, reminders, polls, events, and lighter daily communication',
+    ],
+    note: 'The objective is not to publish every format simply because it exists. We choose formats based on the content idea, audience, business goal, and available creative assets.',
   },
   {
-    "title": "PERFORMANCE TRACKING & REPORTING",
-    "description": "Understanding what's actually working on a platform where reach alone doesn't tell the full story anymore. What We Do Facebook Page management often pairs with paid campaigns for reach that organic posting alone can't reliably deliver - see our Meta Ads Management page for how that works together.",
-    "bullets": [
-      "Engagement Rate Tracking: Monitoring comments, shares, and reactions as the metrics that actually reflect genuine interest.",
-      "Content Performance Analysis: Identifying which formats and topics are earning real engagement, so strategy adjusts accordingly.",
-      "Community Response Time Tracking: Monitoring how quickly comments and messages are actually being addressed.",
-      "Monthly Reporting: Clear reporting with context, not just a raw Facebook Insights export."
-    ]
+    title: 'Community & Customer Service Management',
+    description:
+      'Your Facebook Page is also a customer communication channel. We help manage the conversations that happen around your content and Page.',
+    bullets: [
+      'Comment monitoring',
+      'Comment responses',
+      'Messenger monitoring',
+      'Customer question handling',
+      'Basic product or service information',
+      'Conversation follow-up',
+      'Lead or inquiry escalation',
+      'Service issue escalation',
+      'Community engagement',
+      'Relevant audience interactions',
+      'Spam identification',
+      'Sensitive conversation escalation',
+    ],
+    note: 'We follow an agreed brand voice and escalation process. When a question requires information or authority outside the agreed scope, we escalate it to the appropriate person on your team instead of guessing.',
   },
   {
-    "title": "What Facebook Is Actually Good For Now",
-    "description": "Understanding what the platform still does well shapes a realistic strategy more than chasing what it used to do. Trust Verification A potential customer checking your Page before buying is looking for signs of an active, legitimate business, recent posts, responses to reviews, real engagement. Customer Service Messenger and comment sections have become genuine customer service channels for a lot of businesses, sometimes the first place a question actually gets asked. Local Discovery For businesses tied to a physical location, Facebook still functions as a real local search and recommendation tool, distinct from its role as a content feed. Community, Where It Fits Groups and highly engaged Page communities remain one of the platform's genuinely active spaces, even as general Page reach has declined. Organic reach for broad brand awareness is largely a paid function on Facebook now, the organic side of the platform earns its keep elsewhere.",
-    "bullets": []
-  }
-]
-  const whyMatters = service?.whyMatters || [
-  "An inactive or poorly managed Page costs more than it might seem to, given how it's actually being used.",
-  "Your Page Is Often a Trust Check, Not Just a Marketing Channel",
-  "A customer who finds an inactive or unresponsive Page right before a purchase decision may quietly reconsider, even if your actual product or service is solid.",
-  "Response Time Is a Visible Signal",
-  "Comments and messages sitting unanswered for days are publicly visible evidence of neglect, in a way a slow email reply never is.",
-  "Reviews Compound Either Direction",
-  "An unanswered negative review sits there indefinitely; a thoughtfully handled one can actually build more trust than if the issue had never come up.",
-  "The Platform Rewards What Chasing Old Metrics Misses",
-  "Strategies still optimizing to reach the way they might have years ago miss the engagement and community signals that actually matter to Facebook's current algorithm."
-]
-  const whyChooseUs = service?.whyChooseUs || [
-  {
-    "title": "Facebook's algorithm has shifted decisively toward friends-and-family content over business Pages for years now, which means a Page posting the way it might have in 2015 is working against the platform, not with it. We manage Pages around what Facebook still genuinely rewards, active community response, groups, local relevance, and content built to spark actual comments rather than passive scrolls past. A Page's real value today is often less about reach and more about being a credible, active presence someone finds when they're already considering you.",
-    "text": "\"Facebook stopped being primarily a reach platform for businesses years ago. Treating it like one is how a Page ends up posting into a void and calling it a strategy.\" Built for How Facebook Works Now | Community & Trust-Focused | Local Discovery & Review Management"
+    title: 'Messenger Workflow & Inquiry Management',
+    description:
+      'Messenger can become an important part of the customer journey for many Facebook-led businesses. We help establish a practical workflow.',
+    bullets: [
+      'Common customer questions',
+      'Product or service inquiries',
+      'Pricing questions',
+      'Availability questions',
+      'Location and business-hour questions',
+      'Lead or inquiry escalation',
+      'Follow-up requirements',
+      'Sensitive customer issues',
+      'Internal handoff',
+    ],
+    note: 'Where automation is appropriate, we can help structure the workflow around your existing business process. We do not promise that every message becomes a sale. The goal is to make customer communication more consistent, useful, and easier for your team to manage.',
   },
   {
-    "title": "Our Facebook Management Services",
-    "text": "Managing a Page well today means understanding what Facebook actually rewards, not what used to work."
+    title: 'Comment & Review Management',
+    description:
+      'Public comments and reviews can influence how potential customers perceive your business. We monitor relevant interactions and help maintain a professional response process.',
+    bullets: [
+      'Positive review responses',
+      'Negative review responses',
+      'Customer concern handling',
+      'Comment responses',
+      'Spam comment management',
+      'Repetitive promotional comments',
+      'Sensitive conversations',
+      'Escalation of serious complaints',
+      'Review monitoring',
+      'Response consistency',
+    ],
+    note: 'We do not use fake reviews or manufactured engagement. The goal is to help your Page maintain a credible public presence while giving genuine customer feedback the right attention.',
   },
   {
-    "title": "CONTENT STRATEGY & POSTING",
-    "text": "Content built around genuine engagement rather than reach that's structurally harder to earn than it once was."
+    title: 'Facebook Page Moderation',
+    description:
+      'Active Pages need moderation. We can monitor and manage content that falls within your agreed moderation policy.',
+    bullets: [
+      'Spam',
+      'Promotional spam',
+      'Repetitive comments',
+      'Abusive comments',
+      'Inappropriate content',
+      'Suspicious activity',
+      'Off-topic discussions',
+      'Potentially harmful interactions',
+      'Comments requiring internal escalation',
+    ],
+    note: 'Moderation rules are defined around your brand and business requirements. Where an issue involves a platform policy, account restriction, or decision by Meta, we can identify the issue and guide the appropriate next step. We do not guarantee that Meta will approve an appeal or remove a restriction.',
   },
   {
-    "title": "What We Do",
-    "text": "* Content Planning & Scheduling: A realistic posting cadence built around what your audience actually responds to, not an arbitrary daily quota. * Format Mix Strategy: Balancing photos, video, links, and text posts based on what Facebook's current algorithm favors and what your audience engages with. * Event & Announcement Promotion: Using Facebook Events and announcements for genuine business updates that benefit from the platform's native tools. * Caption & Copy Writing: Written to prompt comments and shares specifically, since those signals carry more algorithmic weight than passive likes. A post that earns five genuine comments often reaches more people than one that earns fifty silent likes."
+    title: 'Performance Tracking & Reporting',
+    description:
+      'Posting without reviewing performance makes optimization difficult. We track relevant Facebook performance data and use it to improve future content and management decisions.',
+    bullets: [
+      'Reach',
+      'Engagement',
+      'Reactions',
+      'Comments',
+      'Shares',
+      'Video performance',
+      'Page activity',
+      'Message activity',
+      'Response performance',
+      'Top-performing content',
+      'Underperforming content',
+      'Audience trends',
+      'Content format performance',
+      'Monthly observations',
+      'Recommended next actions',
+    ],
+    note: 'The focus is not on vanity numbers alone. We look at what the data tells us about content, audience behavior, customer interaction, and future opportunities.',
   },
-  {
-    "title": "FACEBOOK GROUPS MANAGEMENT",
-    "text": "Groups remain one of the platform's genuinely active spaces, where relevant to a business."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Group Strategy Assessment: Determining whether a branded or community group actually makes sense for your business model. * Group Content & Moderation: Ongoing posting, discussion prompts, and moderation to keep a group genuinely active rather than dormant. * Member Engagement: Encouraging discussion and interaction that builds a real sense of community, not just membership numbers. * Group-to-Page Integration: Connecting group activity with your broader Page strategy where it makes sense to do so. A Group only holds value if it stays genuinely active, a dormant one does less for a business than no Group at all."
-  },
-  {
-    "title": "COMMUNITY & CUSTOMER SERVICE MANAGEMENT",
-    "text": "For a lot of customers, your Facebook Page is where they'll ask a question or raise a concern first."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Comment & Message Response: Timely, on-brand responses to comments and Messenger inquiries, since delayed responses reflect visibly on the business. * Review Monitoring & Response: Responding to Page reviews and recommendations, both positive and negative, professionally and promptly. * Customer Service Escalation: Flagging genuine service issues to your team quickly, rather than letting them sit in the comments. * Spam & Inappropriate Content Moderation: Keeping the Page's public-facing comments and reviews clean and professional. A public complaint left unanswered for days often does more damage than the original issue itself."
-  },
-  {
-    "title": "LOCAL DISCOVERY & PROFILE OPTIMIZATION",
-    "text": "Facebook still functions as a genuine local search and discovery tool for a lot of businesses."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Page Information Optimization: Making sure hours, location, contact details, and category are accurate and complete. * Facebook Marketplace Presence: Setting up and maintaining Marketplace listings where relevant to the business. * Check-In & Local Tag Encouragement: Encouraging the local signals that help a Page surface in nearby search and recommendations. * Photo & Visual Content Management: Keeping the Page's visual presence current and representative of the actual business. A visitor checking your Facebook Page before visiting in person is checking whether the business looks active and legitimate, details matter more than they might seem to."
-  },
-  {
-    "title": "PERFORMANCE TRACKING & REPORTING",
-    "text": "Understanding what's actually working on a platform where reach alone doesn't tell the full story anymore."
-  },
-  {
-    "title": "What We Do",
-    "text": "* Engagement Rate Tracking: Monitoring comments, shares, and reactions as the metrics that actually reflect genuine interest. * Content Performance Analysis: Identifying which formats and topics are earning real engagement, so strategy adjusts accordingly. * Community Response Time Tracking: Monitoring how quickly comments and messages are actually being addressed. * Monthly Reporting: Clear reporting with context, not just a raw Facebook Insights export. Facebook Page management often pairs with paid campaigns for reach that organic posting alone can't reliably deliver - see our Meta Ads Management page for how that works together."
-  },
-  {
-    "title": "What Facebook Is Actually Good For Now",
-    "text": "Understanding what the platform still does well shapes a realistic strategy more than chasing what it used to do."
-  },
-  {
-    "title": "Trust Verification",
-    "text": "A potential customer checking your Page before buying is looking for signs of an active, legitimate business, recent posts, responses to reviews, real engagement."
-  },
-  {
-    "title": "Customer Service",
-    "text": "Messenger and comment sections have become genuine customer service channels for a lot of businesses, sometimes the first place a question actually gets asked."
-  },
-  {
-    "title": "Local Discovery",
-    "text": "For businesses tied to a physical location, Facebook still functions as a real local search and recommendation tool, distinct from its role as a content feed. Community, Where It Fits Groups and highly engaged Page communities remain one of the platform's genuinely active spaces, even as general Page reach has declined. Organic reach for broad brand awareness is largely a paid function on Facebook now, the organic side of the platform earns its keep elsewhere. Why Your Business Needs Real Facebook Management An inactive or poorly managed Page costs more than it might seem to, given how it's actually being used. Your Page Is Often a Trust Check, Not Just a Marketing Channel A customer who finds an inactive or unresponsive Page right before a purchase decision may quietly reconsider, even if your actual product or service is solid."
-  },
-  {
-    "title": "Response Time Is a Visible Signal",
-    "text": "Comments and messages sitting unanswered for days are publicly visible evidence of neglect, in a way a slow email reply never is."
-  },
-  {
-    "title": "Reviews Compound Either Direction",
-    "text": "An unanswered negative review sits there indefinitely; a thoughtfully handled one can actually build more trust than if the issue had never come up. The Platform Rewards What Chasing Old Metrics Misses Strategies still optimizing to reach the way they might have years ago miss the engagement and community signals that actually matter to Facebook's current algorithm. Why We're Different"
-  },
-  {
-    "title": "One In-House Team",
-    "text": "Content, community response, and reporting handled by people who actually understand how Facebook's current algorithm and audience behavior actually work, not a generic \"post daily\" playbook."
-  },
-  {
-    "title": "We Manage for What Facebook Rewards Now",
-    "text": "No strategy built around chasing organic reach the platform structurally doesn't offer to Pages the way it once did."
-  },
-  {
-    "title": "Local & International Facebook Experience",
-    "text": "Based in Dhaka. Managing Pages for clients across Bangladesh, the US, UK, Australia, Canada, and UAE. Real Response Time, Not a Monthly Check-In Comments and messages get monitored and answered promptly, not batched into an occasional catch-up session."
-  },
-  {
-    "title": "Content Strategy & Posting",
-    "text": "A realistic, algorithm-aware posting cadence built around genuine engagement, not a reach strategy that no longer applies."
-  },
-  {
-    "title": "Facebook Groups Management",
-    "text": "Active group management where it genuinely fits your business, not a dormant group nobody's watching."
-  },
-  {
-    "title": "Community & Customer Service",
-    "text": "Timely, professional responses to comments, messages, and reviews, with real issues flagged to your team fast."
-  },
-  {
-    "title": "Local Discovery Optimization",
-    "text": "Page details and Marketplace presence kept accurate and current for the customers checking before they visit."
-  },
-  {
-    "title": "Performance Reporting",
-    "text": "Clear reporting on engagement and response time, with context, not a raw metrics dump."
-  },
-  {
-    "title": "Transparent Process",
-    "text": "Every piece of content will be reviewed and approved by you before it is published."
-  }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Services explained"
+          title="What Our Facebook Management Service Includes"
+        >
+          Every plan is built from the same in-house team, so Page optimization, content, community
+          care, moderation, and reporting stay coordinated rather than split across vendors.
+        </SectionIntro>
+
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
+          {offerings.map((item, index) => (
+            <article
+              key={item.title}
+              className="flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-muted/20 md:p-8"
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
+              <div>
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Service {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                  {item.title}
+                </h3>
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.description}
+                </p>
+              </div>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
+              <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs font-medium text-frame-fg/90 md:text-sm">
+                {item.bullets.map((bullet, bIdx) => (
+                  <li key={bIdx} className="flex items-start gap-2">
+                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
+                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
                     </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
+                    <span className="leading-snug">{bullet}</span>
+                  </li>
+                ))}
+              </ul>
 
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+              {item.creative?.length > 0 && (
+                <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-5">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Creative we can develop
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
+                  <ul className="mt-3 space-y-2 text-xs font-medium text-frame-fg/90">
+                    {item.creative.map((asset, cIdx) => (
+                      <li key={cIdx} className="flex items-center gap-2">
+                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                        <span>{asset}</span>
+                      </li>
                     ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  </ul>
                 </div>
               )}
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+              {item.note && (
+                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  {item.note}
+                </p>
               )}
-            </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div>
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Not sure what your Page needs?
+            </span>
+            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+              Start with a free Facebook Page audit
+            </h3>
+            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+              We review the actual Page and tell you which improvements matter most before any
+              management work begins.
+            </p>
           </div>
-        </section>
-      )}
-    </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Request a Monthly Management Plan &rarr;</PosterButton>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

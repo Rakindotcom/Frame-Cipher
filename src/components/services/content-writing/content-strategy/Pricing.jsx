@@ -1,217 +1,154 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Pricing({ service }) {
-  const pricingData = service?.pricing || {
-  "intro": "Content strategy pricing depends on audit depth, the size of the existing content library, and whether it's a one-time strategic plan or ongoing quarterly refinement.",
-  "packages": [],
-  "table": {
-    "headers": [
-      "",
-      "Starting Price"
-    ],
-    "rows": [
-      [
-        "",
-        "What's Covered"
-      ],
-      [
-        "",
-        "Best For"
-      ],
-      [
-        "",
-        "Strategy Sprint"
-      ],
-      [
-        "",
-        "৳25,000"
-      ],
-      [
-        "",
-        "Content audit, goal alignment, and a 3-month calendar"
-      ],
-      [
-        "",
-        "Businesses needing direction to start with"
-      ],
-      [
-        "",
-        "Full Strategy Build"
-      ],
-      [
-        "",
-        "৳45,000"
-      ],
-      [
-        "",
-        "Full audit, pillar architecture, and a 6-month calendar"
-      ],
-      [
-        "",
-        "Businesses building a comprehensive content plan"
-      ],
-      [
-        "",
-        "Ongoing Strategy Partner"
-      ],
-      [
-        "",
-        "৳20,000/month"
-      ],
-      [
-        "",
-        "Quarterly reviews and continuous calendar refinement"
-      ],
-      [
-        "",
-        "Businesses wanting sustained strategic guidance"
-      ],
-      [
-        "",
-        "Enterprise / Multi-Brand"
-      ],
-      [
-        "",
-        "Custom Quote"
-      ],
-      [
-        "",
-        "Multi-brand or multi-market strategy coordination"
-      ],
-      [
-        "",
-        "Large or complex content operations"
-      ],
-      [
-        "",
-        "Included at every tier:"
-      ]
-    ]
-  }
-}
-  const packages = pricingData?.packages || []
-  const table = pricingData?.table
+const packages = [
+  {
+    name: 'Strategy Sprint',
+    price: '৳25,000',
+    for: 'Businesses that need strategic direction',
+    scope: 'Content audit, goal alignment, and 3-month roadmap',
+    timeline: 'About 1–2 weeks',
+    cta: 'Request a Strategy Sprint Quote',
+  },
+  {
+    name: 'Full Strategy Build',
+    price: '৳45,000',
+    for: 'Businesses building a comprehensive content system',
+    scope: 'Full audit, audience research, topic architecture, and 6-month plan',
+    timeline: 'About 3–4 weeks',
+    cta: 'Discuss a Full Strategy Build',
+  },
+  {
+    name: 'Ongoing Strategy Partner',
+    price: '৳20,000/month',
+    for: 'Businesses needing continuous guidance',
+    scope: 'Performance reviews and ongoing strategy refinement',
+    timeline: 'Ongoing, reviewed each cycle',
+    cta: 'Discuss Ongoing Strategy Support',
+  },
+  {
+    name: 'Enterprise / Multi-Brand',
+    price: 'Custom Quote',
+    for: 'Larger or complex content operations',
+    scope: 'Multi-brand or multi-market strategy coordination',
+    timeline: 'Scoped to the operation',
+    tag: 'Custom scope',
+    cta: 'Discuss a Multi-Brand Engagement',
+  },
+]
 
-  if (!packages.length && !table) return null
+const included = [
+  'Content audit',
+  'Goal and priority alignment',
+  'Audience and intent research',
+  'Topic architecture',
+  'Competitive gap analysis',
+  'Strategy documentation',
+  'Editorial planning',
+  'Content roadmap',
+  'Review session',
+]
 
+export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+    <section
+      id="pricing"
+      className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20"
+    >
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Plans"
-          title="Pricing & Packages"
-        >
-          Clear investment tiers based on project scope, strategic complexity, and technical requirements.
+        <SectionIntro eyebrow="Pricing structure" title="Content Strategy Pricing">
+          Content strategy pricing depends on the size of your existing content library, research depth, number of
+          markets, strategic scope, and whether you need a one-time plan or ongoing support.
         </SectionIntro>
 
-        {packages.length > 0 ? (
-          <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((pkg, index) => (
-              <div
-                key={index}
-                className={`border-2 p-7 md:p-9 flex flex-col justify-between ${
-                  index === 1
-                    ? 'border-frame-accent bg-frame-accent/10'
-                    : 'border-frame-border bg-frame-bg'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Tier 0{index + 1}
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-4">
+          {packages.map((pkg, index) => (
+            <article
+              key={pkg.name}
+              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40"
+            >
+              <div>
+                <div className="mb-3 flex min-h-[22px] items-center justify-between gap-2">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Plan 0{index + 1}
+                  </span>
+                  {pkg.tag && (
+                    <span className="border-2 border-frame-border px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                      {pkg.tag}
                     </span>
-                    {index === 1 && (
-                      <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                        Most Popular
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {pkg.name}
-                  </h3>
-                  <div className="mt-6 border-y-2 border-frame-border/60 py-4">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Starting Price
-                    </span>
-                    <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
-                      {pkg.price}
-                    </div>
-                  </div>
-                  {pkg.description && (
-                    <p className="mt-3 text-xs font-medium text-frame-muted-fg leading-relaxed">
-                      {pkg.description}
-                    </p>
-                  )}
-                  {pkg.features?.length > 0 && (
-                    <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {pkg.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
                   )}
                 </div>
 
-                <div className="mt-8">
-                  <PosterButton
-                    href="/contact"
-                    variant={index === 1 ? 'accent' : 'outline'}
-                    className="w-full"
-                  >
-                    Choose {pkg.name}
+                <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                  {pkg.name}
+                </h3>
+                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  {pkg.for}
+                </p>
+
+                <div className="mt-6 border-y-2 border-frame-border/60 py-5">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                    Starting Price
+                  </span>
+                  <div className="mt-1 font-heading text-xl font-bold tracking-tight text-frame-fg md:text-2xl">
+                    {pkg.price}
+                  </div>
+                </div>
+
+                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-fg md:text-sm">{pkg.scope}</p>
+              </div>
+
+              <div className="mt-7 border-t-2 border-frame-border pt-4">
+                <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                  Typical Timeline
+                </span>
+                <span className="mt-1 block text-xs font-semibold leading-relaxed text-frame-fg md:text-sm">
+                  {pkg.timeline}
+                </span>
+                <div className="mt-5">
+                  <PosterButton href="/contact" variant="outline" className="w-full">
+                    {pkg.cta}
                   </PosterButton>
                 </div>
               </div>
-            ))}
-          </div>
-        ) : table?.headers ? (
-          <div>
-            <div className="overflow-hidden border-2 border-frame-border bg-frame-bg">
-              <table className="w-full text-left">
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                  {table.rows?.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-frame-muted/20">
-                      {row.map((cell, cIdx) => (
-                        <td
-                          key={cIdx}
-                          className={`p-4 md:p-6 ${
-                            cIdx === 0
-                              ? 'font-bold text-frame-fg'
-                              : cIdx === 1
-                              ? 'font-bold text-frame-accent'
-                              : 'text-frame-muted-fg'
-                          }`}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            </article>
+          ))}
+        </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
-                * Pricing is indicative rather than fixed. Final pricing is confirmed after scoping requirements.
-              </p>
-              <div className="shrink-0">
-                <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>
-              </div>
+        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-[1.4fr_0.6fr]">
+          <div className="bg-frame-bg p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Typical inclusions
+            </span>
+            <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+              What Every Engagement Covers
+            </h3>
+            <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
+              {included.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                >
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                    ✓
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="flex flex-col justify-between gap-6 bg-frame-accent/10 p-7 md:p-8">
+            <p className="text-sm font-medium leading-relaxed text-frame-fg">
+              Pricing depends on audit scope, research depth, content library size, number of markets, and ongoing
+              support required.
+            </p>
+            <div>
+              <PosterButton href="/contact" className="w-full">
+                Get a Custom Content Strategy Quote &rarr;
+              </PosterButton>
             </div>
           </div>
-        ) : null}
+        </div>
       </div>
     </section>
   )

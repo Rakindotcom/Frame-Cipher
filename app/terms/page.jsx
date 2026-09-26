@@ -1,7 +1,7 @@
 import TermsPage from '../../src/views/TermsPage'
 
 export const metadata = {
-  title: 'Terms of Service',
+  title: 'Terms of Service | Frame Cipher',
   description: 'Frame Cipher terms of service for website visitors and production inquiries.',
   alternates: {
     canonical: '/terms',

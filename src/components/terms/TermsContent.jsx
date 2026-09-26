@@ -128,7 +128,7 @@ export default function TermsContent() {
             <p>For questions about these Terms of Service, contact us:</p>
             <p>Email: <a href="mailto:teamframecipher@gmail.com">teamframecipher@gmail.com</a></p>
             <p>Phone: <a href="tel:+8801768146650">+880 1768-146650</a></p>
-            <p>Address: Mirpur 14, Dhaka, Bangladesh</p>
+            <p>Address: Ecb Chattar, Matikata, Khan Polli Mosque, Dhaka-1206, Bangladesh</p>
           </LegalSection>
 
           <LegalSection title="Entire Agreement">

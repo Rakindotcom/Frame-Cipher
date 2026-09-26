@@ -1,103 +1,72 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Offer & Audience Research",
-    "description": "Understanding what's being sold, to whom, and what real stakes and proof points the argument can draw on."
+    number: '1',
+    title: 'Offer & Audience Research',
+    description:
+      'We review the offer, target audience, existing messaging, available proof, competitors, and buying context.',
   },
   {
-    "number": "2",
-    "title": "Argument Structuring",
-    "description": "Mapping the full persuasion sequence before drafting, including where objections and proof need to land."
+    number: '2',
+    title: 'Argument Strategy',
+    description:
+      'We map the central case before drafting. This establishes the problem, stakes, solution, proof, objections, offer, and CTA.',
   },
   {
-    "number": "3",
-    "title": "Drafting by Format",
-    "description": "Writing the argument for its specific format, page, proposal, script, or print, while keeping it consistent with other formats using the same core case."
+    number: '3',
+    title: 'Copy Structure',
+    description:
+      'The argument is translated into the format required for the project. A sales page, proposal, pitch deck, and VSL each need different presentation and pacing.',
   },
   {
-    "number": "4",
-    "title": "Client Review",
-    "description": "Every piece goes through review before it's considered final, with any unsupported claim or manufactured urgency flagged directly, even in a requested revision."
+    number: '4',
+    title: 'Drafting & Refinement',
+    description:
+      'We write the first complete version and refine the language for clarity, specificity, flow, and consistency.',
   },
   {
-    "number": "5",
-    "title": "Performance Feedback Loop",
-    "description": "Where results data is available, using it to refine future sales copy rather than treating each piece as a one-off."
-  }
+    number: '5',
+    title: 'Client Review',
+    description:
+      'You review the draft against your business knowledge and offer details. Required factual corrections and agreed revisions are incorporated during the revision stage.',
+  },
+  {
+    number: '6',
+    title: 'Final Delivery',
+    description:
+      'The final copy is delivered in the agreed format and prepared for implementation, presentation, publication, or production.',
+  },
+  {
+    number: '7',
+    title: 'Performance Feedback',
+    description:
+      'Where performance data is available, future copy can be refined using actual customer and campaign feedback. Copy is only one part of the result, so performance analysis considers the offer, audience, traffic, pricing, page experience, and other relevant factors too.',
+  },
 ]
-  const timeline = service?.timeline || "Research and argument structure are typically ready within a few business days. A standard sales page or proposal is usually drafted and through review within one week; VSL scripts generally turn around in three to five business days once the offer and proof points are confirmed."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
-        >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+        <SectionIntro eyebrow="Workflow" title="Our Sales Copywriting Process">
+          The argument is mapped before any copy is written, and the format is decided before the drafting
+          begins.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
-              </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
-            </div>
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-4">
+          {steps.map((step) => (
+            <article key={step.number} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+                {step.number}
+              </span>
+              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                {step.title}
+              </h3>
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{step.description}</p>
+            </article>
           ))}
         </div>
-
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        )}
       </div>
     </section>
   )

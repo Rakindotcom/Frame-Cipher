@@ -79,26 +79,8 @@ export default function ServiceExperience({ service }) {
   const processCount = service.processSteps?.length || 0
   const heroCopy = getHeroCopy(service)
 
-  const faqSchema = service.faqs?.length
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: service.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: { '@type': 'Answer', text: cleanText(faq.answer) },
-        })),
-      }
-    : null
-
   return (
     <main className="service-experience bg-frame-bg text-frame-fg min-h-screen">
-      {faqSchema && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replaceAll('<', '\\u003c') }}
-        />
-      )}
 
       <ServiceExperienceHero
         service={service}

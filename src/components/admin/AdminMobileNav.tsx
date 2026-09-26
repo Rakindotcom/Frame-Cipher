@@ -18,7 +18,7 @@ import {
   Radio,
   UserRound,
 } from "lucide-react";
-import { logoutAdmin } from "@/lib/admin/auth";
+import { destroyAdminSession } from "@/lib/admin/auth";
 
 export function AdminMobileNav() {
   const pathname = usePathname();
@@ -29,7 +29,7 @@ export function AdminMobileNav() {
   }, [pathname]);
 
   const handleLogout = () => {
-    logoutAdmin();
+    void destroyAdminSession();
     window.location.href = "/admin/login";
   };
 
@@ -113,8 +113,15 @@ export function AdminMobileNav() {
               {/* Header */}
               <div className="flex items-center justify-between pb-4 border-b border-[#E2E8F0]">
                 <div className="flex items-center gap-2.5 font-bold text-[#0F172A] text-sm">
-                  <div className="h-8 w-8 rounded-xl bg-frame-accent border border-purple-400 flex items-center justify-center text-white font-heading font-bold text-xs">
-                    FC
+                  <div className="h-9 w-9 rounded-xl bg-black border border-neutral-800 flex items-center justify-center p-1.5 shrink-0 shadow-sm">
+                    <img
+                      src="/logo.webp"
+                      alt="FrameCipher Logo"
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.currentTarget.src = "/logo.png";
+                      }}
+                    />
                   </div>
                   <div>
                     <span className="text-[#0F172A] font-heading font-bold uppercase tracking-tight">FrameCipher</span>

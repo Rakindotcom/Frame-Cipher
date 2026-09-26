@@ -1,6 +1,5 @@
 import { AuthorProfile } from "@/types/author";
-
-const SITE_URL = "https://framecipher.com";
+import { SITE_URL } from "@/lib/seo/site";
 
 function toAbsoluteImageUrl(url: string | undefined): string {
   if (!url) return `${SITE_URL}/logo.png`;
@@ -36,6 +35,7 @@ export function buildPersonSchema(author: Partial<AuthorProfile>) {
   if ((author.worksFor || "FrameCipher").trim()) {
     person.worksFor = {
       "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
       name: (author.worksFor || "FrameCipher").trim(),
       url: SITE_URL,
     };

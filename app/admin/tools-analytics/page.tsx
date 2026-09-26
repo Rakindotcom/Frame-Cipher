@@ -9,11 +9,9 @@ import { getFirestoreAnalyticsSummary, AnalyticsSummary } from "@/lib/analytics/
 import {
   Activity,
   Briefcase,
-  Layers,
   Search,
   ExternalLink,
   Users,
-  Eye,
   TrendingUp,
 } from "lucide-react";
 
@@ -45,11 +43,13 @@ export default function ServicesAnalyticsPage() {
     });
   }, [search, selectedType]);
 
-  const totalInquiries = analytics?.totalCalculations || 0;
-  const totalVisitors = analytics?.totalVisitors || 0;
-  const conversionRate = totalVisitors > 0
-    ? `${((totalInquiries / totalVisitors) * 100).toFixed(1)}%`
-    : "0.0%";
+  const totalInquiries = analytics?.totalCalculations ?? 0;
+  const visitorsInRange =
+    analytics?.dailyCounts.reduce((sum, day) => sum + day.visitors, 0) ?? 0;
+  const conversionRate =
+    visitorsInRange > 0
+      ? `${((totalInquiries / visitorsInRange) * 100).toFixed(1)}%`
+      : "—";
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans relative overflow-x-hidden pb-16">
@@ -69,6 +69,11 @@ export default function ServicesAnalyticsPage() {
           <MetricCard
             label="Client Inquiries (28D)"
             value={totalInquiries}
+            icon={Users}
+          />
+          <MetricCard
+            label="Unique Visitors (28D)"
+            value={visitorsInRange}
             icon={Users}
           />
           <MetricCard
@@ -112,8 +117,8 @@ export default function ServicesAnalyticsPage() {
                 className="px-3 py-2 rounded-xl text-xs border border-[#CBD5E1] bg-white text-[#0F172A]"
               >
                 <option value="all">All Types</option>
-                <option value="Service">Services (74)</option>
-                <option value="Case Study">Case Studies (13)</option>
+                <option value="Service">Services ({totalServices})</option>
+                <option value="Case Study">Case Studies ({totalCaseStudies})</option>
               </select>
             </div>
           </div>

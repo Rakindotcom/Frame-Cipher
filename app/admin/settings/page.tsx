@@ -2,11 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin/AdminHeader";
-import {
-  getStoredCredentials,
-  changeAdminCredentials,
-  AdminCredentials,
-} from "@/lib/admin/auth";
+import { getAdminProfile, setAdminProfile, type AdminUser } from "@/lib/admin/auth";
+import { saveAdminProfileToFirestore } from "@/lib/firebase";
 import {
   ShieldCheck,
   Flame,
@@ -16,151 +13,131 @@ import {
   Save,
   Globe,
   Lock,
-  Eye,
-  EyeOff,
   AlertCircle,
   Cpu,
   Radio,
 } from "lucide-react";
 
 export default function AdminSettingsPage() {
-  const [creds, setCreds] = useState<AdminCredentials | null>(null);
+  const [profile, setProfile] = useState<AdminUser | null>(null);
 
-  // Security Credentials Change Form
-  const [currentPassword, setCurrentPassword] = useState("");
-  const [newEmail, setNewEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [showPasswords, setShowPasswords] = useState(false);
-  const [securityStatus, setSecurityStatus] = useState<{
+  // Profile State
+  const [profileName, setProfileName] = useState("");
+  const [profileRole, setProfileRole] = useState("");
+  const [profileStatus, setProfileStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
   }>({ type: null, message: "" });
-
-  // General Profile State
-  const [profileSaved, setProfileSaved] = useState(false);
+  const [isSavingProfile, setIsSavingProfile] = useState(false);
 
   useEffect(() => {
-    const current = getStoredCredentials();
-    setCreds(current);
-    setNewEmail(current.email);
+    const current = getAdminProfile();
+    setProfile(current);
+    if (current) {
+      setProfileName(current.name || "");
+      setProfileRole(current.role || "editor");
+    }
   }, []);
 
-  const handleUpdateSecurity = (e: React.FormEvent) => {
+  const handleSaveProfile = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSecurityStatus({ type: null, message: "" });
+    setIsSavingProfile(true);
+    setProfileStatus({ type: null, message: "" });
 
-    if (!currentPassword) {
-      setSecurityStatus({
+    try {
+      const res = await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: profileName, role: profileRole }),
+      });
+      const payload = await res.json().catch(() => null);
+
+      if (!res.ok || !payload?.success) {
+        setProfileStatus({
+          type: "error",
+          message: payload?.error || "Could not save the administrator profile.",
+        });
+        return;
+      }
+
+      const persisted = await saveAdminProfileToFirestore(payload.profile);
+      if (!persisted.success) {
+        setProfileStatus({
+          type: "error",
+          message: persisted.error || "The profile was authorized but could not be written to Firestore.",
+        });
+        return;
+      }
+
+      setAdminProfile(payload.profile);
+      setProfileStatus({ type: "success", message: "Administrator profile saved." });
+      setProfile(payload.profile);
+    } catch {
+      setProfileStatus({
         type: "error",
-        message: "Please enter your current administrative password to authorize changes.",
+        message: "Network error while saving the administrator profile.",
       });
-      return;
+    } finally {
+      setIsSavingProfile(false);
     }
-
-    if (!newEmail || !newEmail.includes("@")) {
-      setSecurityStatus({
-        type: "error",
-        message: "Please enter a valid administrative email address.",
-      });
-      return;
-    }
-
-    if (newPassword && newPassword.length < 8) {
-      setSecurityStatus({
-        type: "error",
-        message: "New password must be at least 8 characters long for security protection.",
-      });
-      return;
-    }
-
-    if (newPassword && newPassword !== confirmPassword) {
-      setSecurityStatus({
-        type: "error",
-        message: "New password and confirmation do not match. Please verify typing.",
-      });
-      return;
-    }
-
-    const passToSet = newPassword || currentPassword;
-    const result = changeAdminCredentials(currentPassword, newEmail, passToSet);
-
-    if (result.success) {
-      setSecurityStatus({
-        type: "success",
-        message: "Administrative credentials updated and secured successfully!",
-      });
-      setCurrentPassword("");
-      setNewPassword("");
-      setConfirmPassword("");
-      setCreds(getStoredCredentials());
-      setTimeout(() => setSecurityStatus({ type: null, message: "" }), 5000);
-    } else {
-      setSecurityStatus({
-        type: "error",
-        message: result.error || "Authentication verification failed.",
-      });
-    }
-  };
-
-  const handleSaveProfile = (e: React.FormEvent) => {
-    e.preventDefault();
-    setProfileSaved(true);
-    setTimeout(() => setProfileSaved(false), 3000);
   };
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-body relative overflow-x-hidden pb-16">
       <AdminHeader
         title="Platform Security & Settings"
-        subtitle="Credentials management, Google Analytics 4 telemetry, and administrator profile"
+        subtitle="Firebase Authentication, Google Analytics 4 telemetry, and administrator profile"
       />
 
       <div className="px-4 sm:px-6 lg:px-8 pt-6 space-y-6 relative z-10 max-w-7xl mx-auto">
         {/* Top 4 KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs flex flex-col justify-between">
-            <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Security Shield</span>
+            <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Session Security</span>
             <div className="my-1.5">
-              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">Active</div>
+              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">
+                {profile?.email ? "Signed in" : "Unknown"}
+              </div>
             </div>
             <span className="text-xs font-heading font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full self-start whitespace-nowrap">
-              Brute-Force Lockout (15m)
+              HttpOnly Signed Cookie
             </span>
           </div>
 
           <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs flex flex-col justify-between">
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Firebase GA4</span>
             <div className="my-1.5">
-              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">Connected</div>
+              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">Receiving</div>
             </div>
             <span className="text-xs font-heading font-bold text-[#0284C7] bg-[#E0F2FE] px-2.5 py-0.5 rounded-full self-start whitespace-nowrap">
-              G-G2QQ51J5TE Live
+              {process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "Not configured"}
             </span>
           </div>
 
           <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs flex flex-col justify-between">
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Admin Role</span>
             <div className="my-1.5">
-              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">Superadmin</div>
+              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight capitalize">
+                {profile?.role || "editor"}
+              </div>
             </div>
             <span className="text-xs font-heading font-bold text-[#1D4ED8] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full self-start truncate max-w-full">
-              {creds?.email || "pervesmahedi@gmail.com"}
+              {profile?.email || "Not signed in"}
             </span>
           </div>
 
           <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs flex flex-col justify-between">
-            <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Partner Authority</span>
+            <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Password Source</span>
             <div className="my-1.5">
-              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">FrameCipher</div>
+              <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">Firebase Auth</div>
             </div>
             <span className="text-xs font-heading font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full self-start whitespace-nowrap">
-              Pure Dofollow Citation
+              No Passwords In Code
             </span>
           </div>
         </div>
 
-        {/* Change Password & Security Credentials Card */}
+        {/* Administrator Profile Card */}
         <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-xs space-y-5">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-[#F1F5F9] gap-3">
             <div className="flex items-center gap-3">
@@ -169,95 +146,56 @@ export default function AdminSettingsPage() {
               </div>
               <div>
                 <h3 className="text-base font-heading font-bold uppercase tracking-wider text-[#0F172A]">
-                  Administrative Credentials &amp; Access Protection
+                  Administrator Profile
                 </h3>
                 <p className="text-xs text-[#64748B]">
-                  Update administrative login email and master password. Protected by 15-minute brute-force lockout.
+                  Displayed in the admin panel. Authentication is managed entirely by Firebase Auth.
                 </p>
               </div>
             </div>
-
-            <button
-              type="button"
-              onClick={() => setShowPasswords(!showPasswords)}
-              className="text-xs font-heading font-bold uppercase tracking-wider text-[#475569] flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] self-start sm:self-auto whitespace-nowrap"
-            >
-              {showPasswords ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
-              <span>{showPasswords ? "Hide Passwords" : "Show Passwords"}</span>
-            </button>
           </div>
 
-          {securityStatus.message && (
+          {profileStatus.message && (
             <div
               className={`p-4 rounded-xl border flex items-center gap-3 text-xs font-medium ${
-                securityStatus.type === "success"
+                profileStatus.type === "success"
                   ? "bg-[#DCFCE7] border-[#BBF7D0] text-[#16A34A]"
                   : "bg-[#FEF2F2] border-[#FECACA] text-[#DC2626]"
               }`}
             >
-              {securityStatus.type === "success" ? (
+              {profileStatus.type === "success" ? (
                 <CheckCircle2 className="h-4 w-4 text-[#16A34A] shrink-0" />
               ) : (
                 <AlertCircle className="h-4 w-4 text-[#DC2626] shrink-0" />
               )}
-              <span>{securityStatus.message}</span>
+              <span>{profileStatus.message}</span>
             </div>
           )}
 
-          <form onSubmit={handleUpdateSecurity} className="space-y-4">
+          <form onSubmit={handleSaveProfile} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1.5">
-                  Current Master Password <span className="text-[#DC2626]">*</span>
+                  Display Name
                 </label>
                 <input
-                  type={showPasswords ? "text" : "password"}
-                  value={currentPassword}
-                  onChange={(e) => setCurrentPassword(e.target.value)}
-                  placeholder="Enter current password to authorize..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white font-mono"
-                  required
+                  type="text"
+                  value={profileName}
+                  onChange={(e) => setProfileName(e.target.value)}
+                  placeholder="Your name"
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white"
                 />
               </div>
 
               <div>
                 <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1.5">
-                  Administrative Email <span className="text-[#DC2626]">*</span>
+                  Role
                 </label>
                 <input
-                  type="email"
-                  value={newEmail}
-                  onChange={(e) => setNewEmail(e.target.value)}
-                  placeholder="pervesmahedi@gmail.com"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white font-mono"
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1.5">
-                  New Master Password (Leave blank to keep current)
-                </label>
-                <input
-                  type={showPasswords ? "text" : "password"}
-                  value={newPassword}
-                  onChange={(e) => setNewPassword(e.target.value)}
-                  placeholder="Minimum 8 characters..."
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white font-mono"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1.5">
-                  Confirm New Password
-                </label>
-                <input
-                  type={showPasswords ? "text" : "password"}
-                  value={confirmPassword}
-                  onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Re-type new password..."
+                  type="text"
+                  value={profileRole}
+                  onChange={(e) => setProfileRole(e.target.value)}
+                  placeholder="owner | editor | author"
                   className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white font-mono"
                 />
               </div>
@@ -265,14 +203,15 @@ export default function AdminSettingsPage() {
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-2 gap-3">
               <span className="text-[11px] text-[#64748B] font-medium">
-                Brute-force security automatically locks access after 5 incorrect password attempts.
+                Roles are enforced on the server from the ADMIN_ROLES environment variable.
               </span>
               <button
                 type="submit"
-                className="px-5 py-2.5 rounded-xl bg-[#1D4ED8] text-white text-xs font-heading font-bold uppercase tracking-wider shadow-xs flex items-center justify-center gap-2 shrink-0"
+                disabled={isSavingProfile}
+                className="px-5 py-2.5 rounded-xl bg-[#1D4ED8] text-white text-xs font-heading font-bold uppercase tracking-wider shadow-xs flex items-center justify-center gap-2 shrink-0 disabled:opacity-50"
               >
                 <Save className="h-4 w-4" />
-                <span>Save New Credentials</span>
+                <span>{isSavingProfile ? "Saving..." : "Save Profile"}</span>
               </button>
             </div>
           </form>
@@ -321,7 +260,7 @@ export default function AdminSettingsPage() {
           </div>
         </div>
 
-        {/* Administrator Verified Profile Card */}
+        {/* Signed-in Identity Card */}
         <div className="rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-xs space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
             <div className="flex items-center gap-3">
@@ -329,103 +268,36 @@ export default function AdminSettingsPage() {
                 <ShieldCheck className="h-5 w-5" />
               </div>
               <div>
-                <h3 className="text-base font-heading font-bold uppercase tracking-wider text-[#0F172A]">Verified Platform Architect Profile</h3>
+                <h3 className="text-base font-heading font-bold uppercase tracking-wider text-[#0F172A]">Signed-in Identity</h3>
                 <p className="text-xs text-[#64748B]">
-                  Electrical engineer accreditation and Dofollow developer backlinks
+                  Read from the verified Firebase ID token on the server. Not editable from the browser.
                 </p>
               </div>
             </div>
           </div>
 
-          {profileSaved && (
-            <div className="p-3.5 rounded-xl bg-[#DCFCE7] border border-[#BBF7D0] text-xs text-[#16A34A] font-semibold flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-[#16A34A]" />
-              <span>Architect profile information synchronized!</span>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+              <span className="text-[#64748B] block text-[10px] font-heading font-bold uppercase tracking-wider">Email</span>
+              <span className="text-[#334155] truncate block font-mono text-xs">{profile?.email || "-"}</span>
             </div>
-          )}
-
-          <form onSubmit={handleSaveProfile} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1">
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  defaultValue="Mahedi Hasan Perves"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white"
-                />
-              </div>
-              <div>
-                <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1">
-                  Engineering Qualification &amp; Institution
-                </label>
-                <input
-                  type="text"
-                  defaultValue="Electrical Engineer (AIUB Graduate)"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white"
-                />
-              </div>
+            <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+              <span className="text-[#64748B] block text-[10px] font-heading font-bold uppercase tracking-wider">User ID</span>
+              <span className="text-[#334155] truncate block font-mono text-xs">{profile?.uid || "-"}</span>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1">
-                  Engineering Firm Link (Pure Dofollow)
-                </label>
-                <div className="flex items-center gap-2">
-                  <input
-                    type="text"
-                    defaultValue="https://framecipher.info"
-                    readOnly
-                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#475569] focus:outline-none font-mono"
-                  />
-                  <a
-                    href="https://framecipher.info"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE]"
-                    title="Visit framecipher.info"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
-
-              <div>
-                <label className="block text-xs font-heading font-bold uppercase tracking-wider text-[#475569] mb-1">
-                  Personal Portfolio (Pure Dofollow)
-                </label>
-                <div className="flex items-center gap-2">
-                  <input
-                    type="text"
-                    defaultValue="https://mahedihasanperves.vercel.app"
-                    readOnly
-                    className="flex-1 px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#475569] focus:outline-none font-mono"
-                  />
-                  <a
-                    href="https://mahedihasanperves.vercel.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE]"
-                    title="Visit Portfolio"
-                  >
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
+            <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-1">
+              <span className="text-[#64748B] block text-[10px] font-heading font-bold uppercase tracking-wider">Role</span>
+              <span className="text-[#334155] block font-mono text-xs capitalize">{profile?.role || "-"}</span>
             </div>
+          </div>
 
-            <div className="flex justify-end pt-2">
-              <button
-                type="submit"
-                className="px-5 py-2.5 rounded-xl bg-[#1D4ED8] text-white text-xs font-heading font-bold uppercase tracking-wider shadow-xs flex items-center gap-1.5"
-              >
-                <Save className="h-3.5 w-3.5" />
-                <span>Save Architect Profile</span>
-              </button>
-            </div>
-          </form>
+          <div className="p-3.5 rounded-xl bg-[#FFFBEB] border border-[#FDE68A] text-xs text-[#92400E] flex items-start gap-2.5">
+            <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
+            <span>
+              To change the administrator email or password, use Firebase Authentication (Email/Password or Google).
+              To change who is allowed in, update the ADMIN_EMAILS environment variable and redeploy.
+            </span>
+          </div>
         </div>
       </div>
     </div>

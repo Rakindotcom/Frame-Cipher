@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const caseStudyMetrics = [
@@ -63,7 +64,62 @@ export default function Results() {
                 account or approved client data.
               </p>
             </div>
-            <PosterButton href="/case-studies">View Our Case Studies</PosterButton>
+            <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7 space-y-3">
+              <h4 className="font-heading text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                Verified Meta Ads Case Studies
+              </h4>
+              <ul className="grid gap-2.5 sm:grid-cols-2 text-xs font-semibold">
+                <li>
+                  <Link href="/case-studies/facebook-instagram-ads-portfolio" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">FB &amp; IG Ads Portfolio</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/sumons-aroma-messenger-commerce" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">Sumon&apos;s Aroma Commerce</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/ipb-edu-happy-tours-meta-ads" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">IPB Edu &amp; Tours</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/ruposhi-mart-meta-ads" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">Ruposhi Mart E-Commerce</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/rihawebtech-meta-ads" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">Riha Web Tech Leads</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/rpl-consultancy-meta-ads" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">RPL Consultancy Client Gen</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/luxury-beauty-rwt-meta-ads" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">Luxury Beauty Ad Scaling</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/case-studies/travel-lifestyle-meta-ads" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span className="truncate">Travel &amp; Lifestyle Bookings</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <PosterButton href="/case-studies">View All Case Studies</PosterButton>
           </div>
         </div>
       </div>

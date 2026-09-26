@@ -1,4 +1,13 @@
+import Link from 'next/link'
 import { servicePillars } from '../../data/agency'
+
+const pillarLinks = {
+  Strategy: '/services/content-creation/branding',
+  Marketing: '/services/paid-advertising',
+  Creative: '/services/content-creation',
+  Media: '/services/content-creation/commercial-video',
+  Technology: '/services/website-design-development',
+}
 
 export default function HomePillars() {
   return (
@@ -18,8 +27,9 @@ export default function HomePillars() {
 
         <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {servicePillars.map((pillar, index) => (
-            <article
+            <Link
               key={pillar.title}
+              href={pillarLinks[pillar.title] || '/services'}
               className="group flex flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent sm:p-7 md:min-h-80"
             >
               <div>
@@ -36,7 +46,7 @@ export default function HomePillars() {
               <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
                 {pillar.description}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
       </div>

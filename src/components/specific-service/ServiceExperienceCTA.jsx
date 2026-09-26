@@ -30,7 +30,7 @@ export default function ServiceExperienceCTA({ serviceName, primaryCta }) {
               Ready to move your {serviceName.toLowerCase()} project forward?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-300">
-              Tell us what you are trying to achieve. We will review the scope and recommend a practical next step without sales pressure.
+              Tell us what you are trying to achieve. We will review the scope and recommend a practical next step without sales pressure, or explore our verified <Link href="/case-studies" className="text-white underline decoration-violet-400 hover:text-violet-300 transition-colors">case studies</Link> to see documented results.
             </p>
           </div>
           <PrimaryLink href="/contact">{primaryCta || 'Request a consultation'}</PrimaryLink>

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import {
   X,
   UploadCloud,
@@ -10,23 +10,22 @@ import {
   Copy,
   CheckCircle2,
   Trash2,
+  AlertTriangle,
 } from "lucide-react";
+import {
+  uploadMediaFile,
+  listMediaFromFirestore,
+  saveMediaMetadata,
+  deleteMediaItem,
+  type MediaRecord,
+} from "@/lib/firebase";
 
-export interface MediaItem {
-  id: string;
-  title: string;
-  filename: string;
-  url: string;
-  alt: string;
-  caption: string;
-  description: string;
-  uploadedAt: string;
-  fileSize: string;
-  dimensions: string;
-  type: string;
-}
+export type MediaItem = MediaRecord;
 
 export const INITIAL_MEDIA_ITEMS: MediaItem[] = [];
+
+const ACCEPTED_TYPES = ["image/webp", "image/png", "image/jpeg", "image/avif", "image/gif"];
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
 interface MediaLibraryModalProps {
   isOpen: boolean;
@@ -34,6 +33,26 @@ interface MediaLibraryModalProps {
   onSelectMedia: (item: MediaItem) => void;
   title?: string;
   buttonLabel?: string;
+}
+
+function readImageDimensions(file: File): Promise<string> {
+  return new Promise((resolve) => {
+    if (typeof window === "undefined" || typeof URL.createObjectURL !== "function") {
+      resolve("unknown");
+      return;
+    }
+    const objectUrl = URL.createObjectURL(file);
+    const image = new Image();
+    image.onload = () => {
+      URL.revokeObjectURL(objectUrl);
+      resolve(`${image.naturalWidth} × ${image.naturalHeight}`);
+    };
+    image.onerror = () => {
+      URL.revokeObjectURL(objectUrl);
+      resolve("unknown");
+    };
+    image.src = objectUrl;
+  });
 }
 
 export function MediaLibraryModal({
@@ -48,35 +67,27 @@ export function MediaLibraryModal({
   const [selectedId, setSelectedId] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedUrl, setCopiedUrl] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Load from shared media library localStorage whenever modal opens
-  React.useEffect(() => {
-    if (isOpen) {
-      try {
-        const stored = localStorage.getItem("framecipher_media_library");
-        if (stored !== null) {
-          const parsed = JSON.parse(stored);
-          if (Array.isArray(parsed)) {
-            setMediaList(parsed);
-            if (parsed.length > 0) {
-              setSelectedId((prev) => (parsed.some((p: MediaItem) => p.id === prev) ? prev : parsed[0].id));
-            } else {
-              setSelectedId("");
-            }
-          }
-        }
-      } catch {}
-    }
-  }, [isOpen]);
+  // Media lives in Cloud Storage + Firestore, so every admin sees the same library.
+  const loadLibrary = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    const items = await listMediaFromFirestore();
+    setMediaList(items);
+    setSelectedId((prev) => (prev && items.some((item) => item.id === prev) ? prev : items[0]?.id || ""));
+    setIsLoading(false);
+  }, []);
 
-  const persistMedia = (updated: MediaItem[]) => {
+  React.useEffect(() => {
+    if (isOpen) loadLibrary();
+  }, [isOpen, loadLibrary]);
+
+  const persistMedia = async (updated: MediaItem[]) => {
     setMediaList(updated);
-    try {
-      localStorage.setItem("framecipher_media_library", JSON.stringify(updated));
-    } catch (e) {
-      console.warn("Error persisting media", e);
-    }
   };
 
   if (!isOpen) return null;
@@ -90,48 +101,51 @@ export function MediaLibraryModal({
       item.alt.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleUpdateItem = (field: keyof MediaItem, value: string) => {
+  const handleUpdateItem = async (field: keyof MediaItem, value: string) => {
     if (!selectedItem) return;
     const updated = mediaList.map((item) =>
       item.id === selectedItem.id ? { ...item, [field]: value } : item
     );
-    persistMedia(updated);
+    await persistMedia(updated);
+    await saveMediaMetadata({ ...selectedItem, [field]: value });
   };
 
-  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
     if (!files || files.length === 0) return;
 
     const file = files[0];
-    const reader = new FileReader();
+    setError(null);
 
-    reader.onload = (uploadEvent) => {
-      const result = uploadEvent.target?.result as string;
-      const newItem: MediaItem = {
-        id: `media-${Date.now()}`,
-        title: file.name.replace(/\.[^/.]+$/, "").replace(/[-_]+/g, " "),
-        filename: file.name,
-        url: result,
-        alt: file.name.replace(/\.[^/.]+$/, "").replace(/[-_]+/g, " "),
-        caption: "",
-        description: "",
-        uploadedAt: new Date().toLocaleDateString("en-US", {
-          month: "long",
-          day: "numeric",
-          year: "numeric",
-        }),
-        fileSize: `${Math.round(file.size / 1024)} KB`,
-        dimensions: "1200 × 630",
-        type: file.type || "image/jpeg",
-      };
+    if (!ACCEPTED_TYPES.includes(file.type)) {
+      setError(`${file.type || "This file type"} is not supported. Use WEBP, PNG, JPG, SVG or AVIF.`);
+      e.target.value = "";
+      return;
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setError(`File is ${(file.size / (1024 * 1024)).toFixed(1)} MB. The limit is 10 MB.`);
+      e.target.value = "";
+      return;
+    }
 
-      const updated = [newItem, ...mediaList];
-      persistMedia(updated);
-      setSelectedId(newItem.id);
-      setActiveTab("library");
-    };
+    setIsUploading(true);
+    const dimensions = await readImageDimensions(file);
+    const result = await uploadMediaFile(
+      file,
+      dimensions,
+      file.name.replace(/\.[^/.]+$/, "").replace(/[-_]+/g, " ")
+    );
+    setIsUploading(false);
+    e.target.value = "";
 
-    reader.readAsDataURL(file);
+    if (!result.success || !result.item) {
+      setError(result.error || "Upload failed. Check the Storage rules are deployed.");
+      return;
+    }
+
+    setMediaList((prev) => [result.item as MediaItem, ...prev]);
+    setSelectedId(result.item.id);
+    setActiveTab("library");
   };
 
   const handleCopyUrl = () => {
@@ -142,16 +156,20 @@ export function MediaLibraryModal({
     }
   };
 
-  const handleDeleteItem = (id: string) => {
-    if (confirm("Are you sure you want to permanently delete this media attachment?")) {
-      const remaining = mediaList.filter((m) => m.id !== id);
-      persistMedia(remaining);
-      if (remaining.length > 0) {
-        setSelectedId(remaining[0].id);
-      } else {
-        setSelectedId("");
-      }
+  const handleDeleteItem = async (id: string) => {
+    const target = mediaList.find((item) => item.id === id);
+    if (!target) return;
+    if (!confirm("Are you sure you want to permanently delete this media attachment?")) return;
+
+    const result = await deleteMediaItem(target);
+    if (!result.success) {
+      setError(result.error || "Delete failed.");
+      return;
     }
+
+    const remaining = mediaList.filter((m) => m.id !== id);
+    setMediaList(remaining);
+    setSelectedId(remaining[0]?.id || "");
   };
 
   const handleConfirmSelection = () => {
@@ -235,8 +253,19 @@ export function MediaLibraryModal({
                   className="hidden"
                 />
                 <p className="text-[11px] text-[#94A3B8] mt-6">
-                  Maximum upload file size: 64 MB. Accepted formats: WEBP, PNG, JPG, SVG, AVIF.
+                  Maximum upload file size: 10 MB. Accepted formats: WEBP, PNG, JPG, SVG, AVIF.
                 </p>
+                {isUploading && (
+                  <p className="text-[11px] text-[#1D4ED8] mt-2 font-semibold">
+                    Uploading to Cloud Storage…
+                  </p>
+                )}
+                {error && (
+                  <p className="text-[11px] text-[#B91C1C] mt-2 font-semibold flex items-center gap-1">
+                    <AlertTriangle className="h-3.5 w-3.5" />
+                    {error}
+                  </p>
+                )}
               </div>
             </div>
           ) : (
@@ -246,16 +275,9 @@ export function MediaLibraryModal({
               <div className="flex-1 flex flex-col overflow-hidden bg-white border-r border-[#E2E8F0]">
                 {/* Filter Toolbar */}
                 <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-2 shrink-0">
-                  <div className="flex items-center gap-2">
-                    <select className="text-xs bg-white border border-[#CBD5E1] rounded-lg px-2.5 py-1 text-[#0F172A]">
-                      <option>All media items</option>
-                      <option>Images</option>
-                    </select>
-                    <select className="text-xs bg-white border border-[#CBD5E1] rounded-lg px-2.5 py-1 text-[#0F172A]">
-                      <option>All dates</option>
-                      <option>September 2026</option>
-                    </select>
-                  </div>
+                  <span className="text-[11px] text-[#64748B] font-semibold">
+                    {isLoading ? "Loading library…" : `${mediaList.length} item${mediaList.length === 1 ? "" : "s"} in Cloud Storage`}
+                  </span>
                   <div className="relative">
                     <Search className="h-3.5 w-3.5 text-[#94A3B8] absolute left-2.5 top-1/2 -translate-y-1/2" />
                     <input
@@ -270,6 +292,16 @@ export function MediaLibraryModal({
 
                 {/* Grid */}
                 <div className="flex-1 p-4 overflow-y-auto">
+                  {!isLoading && filteredItems.length === 0 ? (
+                    <div className="h-full flex flex-col items-center justify-center text-center gap-2 py-12">
+                      <ImageIcon className="h-8 w-8 text-[#CBD5E1]" />
+                      <p className="text-sm font-semibold text-[#64748B]">No media uploaded yet</p>
+                      <p className="text-xs text-[#94A3B8] max-w-sm">
+                        Upload a file in the Upload tab. Images are stored in Cloud Storage for
+                        Firebase and are available to every admin on this project.
+                      </p>
+                    </div>
+                  ) : (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
                     {filteredItems.map((item) => {
                       const isSelected = item.id === selectedId;
@@ -312,6 +344,7 @@ export function MediaLibraryModal({
                       );
                     })}
                   </div>
+                  )}
                 </div>
               </div>
 

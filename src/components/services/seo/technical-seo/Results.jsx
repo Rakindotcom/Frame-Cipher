@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const metrics = [
@@ -58,6 +59,19 @@ export default function Results() {
                 Only verified Framecipher results should be published here, so every study is
                 documented with available evidence rather than unverified performance claims.
               </p>
+            </div>
+            <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7 space-y-3">
+              <h4 className="font-heading text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                Verified Technical Case Study
+              </h4>
+              <ul className="space-y-2.5 text-sm font-semibold">
+                <li>
+                  <Link href="/case-studies/jarixo-topical-map-seo-visibility" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
+                    <span>Jarixo Topical Map &amp; Search Visibility</span>
+                    <span className="text-frame-accent">&rarr;</span>
+                  </Link>
+                </li>
+              </ul>
             </div>
             <PosterButton href="/case-studies">View Our Case Studies</PosterButton>
           </div>

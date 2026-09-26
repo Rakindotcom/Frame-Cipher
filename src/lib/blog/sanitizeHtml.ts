@@ -1,4 +1,4 @@
-const ALLOWED_TAGS = /<(?!\/?(?:p|br|strong|b|em|i|u|s|h1|h2|h3|h4|h5|h6|ul|ol|li|blockquote|pre|code|figure|figcaption|img|a|hr)\b)[^>]*>/gi;
+const ALLOWED_TAGS = /<(?!\/?(?:p|div|span|br|strong|b|em|i|u|s|h1|h2|h3|h4|h5|h6|ul|ol|li|blockquote|pre|code|figure|figcaption|img|a|hr)\b)[^>]*>/gi;
 
 /** Keep editor HTML useful while removing executable markup and event handlers. */
 export function sanitizeBlogHtml(html: string): string {

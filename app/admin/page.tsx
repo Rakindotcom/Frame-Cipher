@@ -1,19 +1,21 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { RealAnalyticsDashboard } from "@/components/admin/analytics/RealAnalyticsDashboard";
+import { FRAMECIPHER_REGISTRY } from "@/lib/registry/servicesRegistry";
 import {
-  MoreVertical,
   Download,
   CheckCircle2,
   ExternalLink,
-  Layers,
   Activity,
   TrendingUp,
   Zap,
+  Users,
 } from "lucide-react";
+
+const PIAR_COLORS = ["#1D4ED8", "#8B5CF6", "#10B981", "#F59E0B", "#EC4899", "#0D9488"];
 
 interface AgencyServiceRow {
   name: string;
@@ -128,65 +130,105 @@ function DashboardMetric({
 }
 
 export default function AdminDashboardPage() {
-  const [inquiryCount, setInquiryCount] = useState<number>(0);
+  const [inquiryCount, setInquiryCount] = useState<number | null>(null);
+  const [liveVisitors, setLiveVisitors] = useState<number>(0);
+  const [lifetimeVisitors, setLifetimeVisitors] = useState<number>(0);
+  const [gsc, setGsc] = useState<{ clicks: number; impressions: number; ctr: number } | null>(null);
 
   useEffect(() => {
-    try {
-      const history = localStorage.getItem("framecipher_inquiry_history");
-      if (history) {
-        const parsed = JSON.parse(history);
-        if (Array.isArray(parsed)) {
-          setInquiryCount(parsed.length);
-        }
-      }
-    } catch {}
+    const loadLiveStats = () => {
+      fetch("/api/analytics?days=28", { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (data && data.success) {
+            if (typeof data.liveVisitors === "number") setLiveVisitors(data.liveVisitors);
+            if (typeof data.lifetimeVisitors === "number") setLifetimeVisitors(data.lifetimeVisitors);
+            if (typeof data.totalCalculations === "number") setInquiryCount(data.totalCalculations);
+          }
+        })
+        .catch(() => {});
+
+      fetch("/api/search-console", { cache: "no-store" })
+        .then((r) => (r.ok ? r.json() : null))
+        .then((data) => {
+          if (data && data.totals) {
+            setGsc({
+              clicks: data.totals.clicks ?? 0,
+              impressions: data.totals.impressions ?? 0,
+              ctr: data.totals.ctr ?? 0,
+            });
+          } else {
+            setGsc(null);
+          }
+        })
+        .catch(() => setGsc(null));
+    };
+
+    loadLiveStats();
+    const interval = setInterval(loadLiveStats, 30_000);
+    return () => clearInterval(interval);
   }, []);
 
-  const totalInquiries = inquiryCount;
+  const totalInquiries = inquiryCount ?? 0;
+
+  const pillarSegments = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const item of FRAMECIPHER_REGISTRY) {
+      if (item.type !== "Service") continue;
+      counts.set(item.category, (counts.get(item.category) || 0) + 1);
+    }
+    const total = [...counts.values()].reduce((sum, count) => sum + count, 0);
+    return { total, rows: [...counts.entries()].sort((a, b) => b[1] - a[1]) };
+  }, []);
 
   const metrics = [
     {
-      label: "Active Service Hubs",
-      value: "74+",
-      icon: Layers,
-      topBarClass: "bg-[#1D4ED8]",
-      iconClass: "bg-[#EFF6FF] border-[#BFDBFE] text-[#1D4ED8]",
-      pills: [
-        { text: "100% Active", className: pillStyles.green },
-        { text: "7 Growth Pillars", className: pillStyles.slate },
-      ],
-    },
-    {
-      label: "Static Landing Pages",
-      value: "120+",
-      icon: Zap,
-      topBarClass: "bg-[#0284C7]",
-      iconClass: "bg-[#E0F2FE] border-[#BAE6FD] text-[#0284C7]",
-      pills: [
-        { text: "Next.js 16 SSG", className: pillStyles.sky },
-        { text: "Zero TTFB", className: pillStyles.slate },
-      ],
-    },
-    {
-      label: "Client Inquiries & Leads",
-      value: totalInquiries.toLocaleString(),
-      icon: TrendingUp,
+      label: "Live Tracing (Active Now)",
+      value: `${liveVisitors} Active`,
+      icon: Activity,
       topBarClass: "bg-[#16A34A]",
       iconClass: "bg-[#DCFCE7] border-[#BBF7D0] text-[#16A34A]",
       pills: [
-        { text: "Live Inquiries", className: pillStyles.green },
-        { text: "Audit Runs", className: pillStyles.slate },
+        { text: "🟢 Live Tracing", className: pillStyles.green },
+        { text: "Active in last 5m", className: pillStyles.slate },
       ],
     },
     {
-      label: "Platform Performance",
-      value: "99.8%",
-      icon: Activity,
-      topBarClass: "bg-[#8B5CF6]",
-      iconClass: "bg-[#F5F3FF] border-[#DDD6FE] text-[#8B5CF6]",
+      label: "Lifetime Unique Visitors",
+      value: `${lifetimeVisitors.toLocaleString()} Sessions`,
+      icon: Users,
+      topBarClass: "bg-[#1D4ED8]",
+      iconClass: "bg-[#EFF6FF] border-[#BFDBFE] text-[#1D4ED8]",
       pills: [
-        { text: "Kinetic ISR", className: pillStyles.purple },
-        { text: "Enterprise CDN", className: pillStyles.slate },
+        { text: "Firestore Telemetry", className: pillStyles.sky },
+        { text: "Unique session IDs", className: pillStyles.slate },
+      ],
+    },
+    {
+      label: "Google Search Console",
+      value: gsc ? `${gsc.clicks.toLocaleString()} Clicks` : "Not Connected",
+      icon: TrendingUp,
+      topBarClass: "bg-[#7C3AED]",
+      iconClass: "bg-[#F5F3FF] border-[#DDD6FE] text-[#7C3AED]",
+      pills: gsc
+        ? [
+            { text: `${gsc.impressions.toLocaleString()} Imp`, className: pillStyles.purple },
+            { text: `${gsc.ctr}% CTR`, className: pillStyles.green },
+          ]
+        : [
+            { text: "No GSC data", className: pillStyles.slate },
+            { text: "Check service account", className: pillStyles.slate },
+          ],
+    },
+    {
+      label: "Client Inquiries & Leads",
+      value: inquiryCount === null ? "—" : `${totalInquiries} Leads`,
+      icon: Zap,
+      topBarClass: "bg-[#0D9488]",
+      iconClass: "bg-[#CCFBF1] border-[#99F6E4] text-[#0D9488]",
+      pills: [
+        { text: "100% Inbound", className: pillStyles.green },
+        { text: "Lead Velocity", className: pillStyles.slate },
       ],
     },
   ];
@@ -227,7 +269,34 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* REAL FIRESTORE & TELEMETRY SECTION */}
-        <RealAnalyticsDashboard />
+        <RealAnalyticsDashboard liveCount={liveVisitors} lifetimeCount={lifetimeVisitors} />
+
+        {/* SEARCH CONSOLE TELEMETRY BANNER */}
+        <div className="rounded-2xl bg-gradient-to-r from-[#0F172A] via-[#1E1B4B] to-[#064E3B] p-5 sm:p-6 text-white shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 border border-neutral-800">
+          <div className="space-y-1 min-w-0">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-[#22C55E]/20 text-[#4ADE80] border border-[#22C55E]/40 uppercase tracking-wider">
+                Google Search Console
+              </span>
+              <span className="text-xs text-slate-300 font-mono truncate">framecipher.info</span>
+            </div>
+            <h3 className="text-sm sm:text-base font-heading font-bold text-white uppercase tracking-wider truncate">
+              Organic Search Queries &amp; Keyword Velocity
+            </h3>
+            <p className="text-xs text-slate-300 max-w-2xl">
+              {gsc
+                ? `Real organic impressions, clicks (${gsc.clicks.toLocaleString()}), CTR (${gsc.ctr}%), and keyword ranking positions across all FrameCipher service hubs and blog articles.`
+                : "Search Console is not connected. Add GSC_SERVICE_ACCOUNT_EMAIL and GSC_PRIVATE_KEY to the deployment environment to load real organic search data."}
+            </p>
+          </div>
+          <Link
+            href="/admin/search-console"
+            className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white text-[#0F172A] text-xs font-heading font-bold uppercase tracking-wider hover:bg-slate-100 transition-colors shrink-0 shadow-sm"
+          >
+            <span>Inspect Search Console</span>
+            <ExternalLink className="h-3.5 w-3.5 text-[#0F172A]" />
+          </Link>
+        </div>
 
         {/* BOTTOM ROW: Top Agency Services (Left) + Discipline Distribution Donut (Right) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -295,87 +364,51 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          {/* Bottom Right: Pillar Distribution Donut Chart */}
+          {/* Bottom Right: Pillar Distribution — computed from the real service registry */}
           <div className="lg:col-span-4 rounded-2xl bg-white border border-[#E2E8F0] p-6 shadow-xs flex flex-col justify-between min-w-0">
-            {/* Header */}
             <div className="flex items-center justify-between gap-3 pb-3 border-b border-[#F1F5F9]">
               <div className="min-w-0">
                 <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A] truncate">
                   Pillar Distribution
                 </h3>
                 <p className="text-[11px] text-[#64748B] mt-0.5 truncate">
-                  74 services across 5 disciplines
+                  {pillarSegments.total} services across {pillarSegments.rows.length} disciplines
                 </p>
               </div>
-              <button className="text-[#94A3B8] p-1.5 rounded-lg shrink-0" title="Options">
-                <MoreVertical className="h-4 w-4" />
-              </button>
             </div>
 
-            {/* SVG Donut Chart with Center Pill */}
             <div className="my-6 flex items-center justify-center">
               <div className="w-44 sm:w-48 h-44 sm:h-48 relative flex items-center justify-center">
                 <svg className="w-full h-full -rotate-90 transform" viewBox="0 0 100 100">
-                  {/* Segment 1: Webflow & Dev (24/74 = 32.4%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="36"
-                    fill="transparent"
-                    stroke="#1D4ED8"
-                    strokeWidth="16"
-                    strokeDasharray="73.3 153"
-                    strokeDashoffset="0"
-                  />
-                  {/* Segment 2: Growth & Paid Ads (16/74 = 21.6%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="36"
-                    fill="transparent"
-                    stroke="#8B5CF6"
-                    strokeWidth="16"
-                    strokeDasharray="48.9 177"
-                    strokeDashoffset="-73.3"
-                  />
-                  {/* Segment 3: UI/UX & Design Systems (14/74 = 18.9%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="36"
-                    fill="transparent"
-                    stroke="#10B981"
-                    strokeWidth="16"
-                    strokeDasharray="42.8 183"
-                    strokeDashoffset="-122.2"
-                  />
-                  {/* Segment 4: Enterprise SEO (12/74 = 16.2%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="36"
-                    fill="transparent"
-                    stroke="#F59E0B"
-                    strokeWidth="16"
-                    strokeDasharray="36.6 189"
-                    strokeDashoffset="-165"
-                  />
-                  {/* Segment 5: Brand Strategy (8/74 = 10.8%) */}
-                  <circle
-                    cx="50"
-                    cy="50"
-                    r="36"
-                    fill="transparent"
-                    stroke="#EC4899"
-                    strokeWidth="16"
-                    strokeDasharray="24.4 202"
-                    strokeDashoffset="-201.6"
-                  />
+                  {(() => {
+                    const circumference = 2 * Math.PI * 36;
+                    let offset = 0;
+                    return pillarSegments.rows.map(([pillar, count], index) => {
+                      const share = pillarSegments.total > 0 ? count / pillarSegments.total : 0;
+                      const dash = share * circumference;
+                      const circle = (
+                        <circle
+                          key={pillar}
+                          cx="50"
+                          cy="50"
+                          r="36"
+                          fill="transparent"
+                          stroke={PIAR_COLORS[index % PIAR_COLORS.length]}
+                          strokeWidth="16"
+                          strokeDasharray={`${dash} ${circumference - dash}`}
+                          strokeDashoffset={-offset}
+                        />
+                      );
+                      offset += dash;
+                      return circle;
+                    });
+                  })()}
                 </svg>
 
-                {/* Center Badge: 74 Services */}
                 <div className="absolute inset-0 m-auto w-24 h-16 rounded-xl bg-white border border-[#CBD5E1] flex flex-col items-center justify-center shadow-md pointer-events-none">
-                  <span className="text-lg font-heading font-bold text-[#0F172A]">74</span>
+                  <span className="text-lg font-heading font-bold text-[#0F172A]">
+                    {pillarSegments.total}
+                  </span>
                   <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-[#64748B]">
                     Services
                   </span>
@@ -383,28 +416,18 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
-            {/* Bottom Strategic Pillar Breakdown */}
             <div className="grid grid-cols-2 gap-2.5 pt-3 border-t border-[#F1F5F9] text-xs">
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#1D4ED8] shrink-0" />
-                <span className="text-[#334155] font-semibold truncate">Webflow (24)</span>
-              </div>
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#8B5CF6] shrink-0" />
-                <span className="text-[#334155] font-semibold truncate">Growth Ads (16)</span>
-              </div>
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#10B981] shrink-0" />
-                <span className="text-[#334155] font-semibold truncate">UI/UX (14)</span>
-              </div>
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#F59E0B] shrink-0" />
-                <span className="text-[#334155] font-semibold truncate">B2B SEO (12)</span>
-              </div>
-              <div className="flex items-center gap-2 min-w-0">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#EC4899] shrink-0" />
-                <span className="text-[#334155] font-semibold truncate">Brand (8)</span>
-              </div>
+              {pillarSegments.rows.map(([pillar, count], index) => (
+                <div key={pillar} className="flex items-center gap-2 min-w-0">
+                  <span
+                    className="h-2.5 w-2.5 rounded-full shrink-0"
+                    style={{ backgroundColor: PIAR_COLORS[index % PIAR_COLORS.length] }}
+                  />
+                  <span className="text-[#334155] font-semibold truncate">
+                    {pillar} ({count})
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

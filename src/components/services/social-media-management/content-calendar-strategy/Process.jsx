@@ -1,103 +1,152 @@
-import { SectionIntro } from '../../../Kinetic'
+import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Cross-Platform Audit",
-    "description": "Reviewing current content plans (or lack of coordination) across every platform the business uses."
+    number: '01',
+    title: 'Business & Content Audit',
+    body: [
+      'We begin by reviewing your business goals, existing social presence, current content, active platforms, campaigns, audience, brand direction, and existing planning process.',
+      'If you already have a content calendar, we review how it is being used and where coordination can improve.',
+    ],
   },
   {
-    "number": "2",
-    "title": "Master Calendar & Campaign Framework",
-    "description": "Building the consolidated calendar and campaign alignment logic that platform-specific plans will feed into."
+    number: '02',
+    title: 'Strategy & Content Pillars',
+    body: ['We establish the strategic foundation for the calendar.'],
+    listLabel: 'This can include',
+    list: [
+      'Audience priorities',
+      'Content objectives',
+      'Content pillars',
+      'Messaging themes',
+      'Platform roles',
+      'Campaign priorities',
+      'Content formats',
+      'CTA direction',
+    ],
+    note: 'The objective is to make the calendar useful for the business, not simply full.',
   },
   {
-    "number": "3",
-    "title": "Repurposing Roadmap Development",
-    "description": "Mapping out how core content assets translate across platforms before production begins."
+    number: '03',
+    title: 'Calendar & Campaign Planning',
+    body: ['We translate the strategy into a coordinated publishing plan.'],
+    listLabel: 'The calendar can include',
+    list: [
+      'Topics',
+      'Platforms',
+      'Formats',
+      'Dates',
+      'Campaigns',
+      'Content pillars',
+      'CTAs',
+      'Asset requirements',
+      'Production deadlines',
+      'Approval deadlines',
+    ],
   },
   {
-    "number": "4",
-    "title": "Rollout & Team Coordination",
-    "description": "Getting platform-specific teams (ours or the business's own) working from the same coordinated calendar."
+    number: '04',
+    title: 'Review & Approval',
+    body: [
+      'The planned content goes through the agreed review process before production or publishing.',
+      'This gives stakeholders an opportunity to review campaign direction, important messages, dates, and content priorities before execution.',
+    ],
   },
   {
-    "number": "5",
-    "title": "Ongoing Maintenance & Review",
-    "description": "Keeping the calendar current and reviewing coordinated campaign performance on a set cadence."
-  }
+    number: '05',
+    title: 'Production Coordination',
+    body: [
+      'Once the plan is approved, we coordinate the required assets and platform-specific adaptations according to the agreed scope.',
+      'This may involve content writing, design, video, repurposing, platform management, or coordination with your internal team.',
+    ],
+  },
+  {
+    number: '06',
+    title: 'Performance Review & Optimization',
+    body: [
+      'After content is published, relevant performance signals can inform the next planning cycle.',
+      'We review what audiences responded to, which content supported the intended objective, what needs improvement, and which ideas may deserve further development.',
+    ],
+  },
 ]
-  const timeline = service?.timeline || "An initial cross-platform audit and master calendar build typically takes one to two weeks. Ongoing coordination value compounds as more campaigns run through the system the first coordinated campaign shows the concept working, but the real benefit of catching conflicts and finding repurposing opportunities becomes clearer after a few months of the calendar being actively maintained."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Execution framework"
+          title="How Our Content Calendar &amp; Strategy Process Works"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          The calendar is treated as a working system rather than a document that becomes outdated after
+          the first month.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <article key={step.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
+                {step.body.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
               </div>
-              {step.deliverable && (
+
+              {step.list && (
                 <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    {step.listLabel}
                   </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
+                  <ul className="mt-3 flex flex-wrap gap-2">
+                    {step.list.map((entry) => (
+                      <li
+                        key={entry}
+                        className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                      >
+                        {entry}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
-            </div>
+
+              {step.note && (
+                <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  {step.note}
+                </p>
+              )}
+            </article>
           ))}
+
+          <div className="flex min-h-64 flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              A working system, not a document
+            </span>
+            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
+              Each planning cycle builds on the previous one, so the calendar improves as your business,
+              audience, and campaigns change.
+            </p>
+          </div>
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            We translate the strategy into a coordinated publishing plan your team can actually use.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact">Start Your Content Planning Project &rarr;</PosterButton>
           </div>
-        )}
+        </div>
       </div>
     </section>
   )

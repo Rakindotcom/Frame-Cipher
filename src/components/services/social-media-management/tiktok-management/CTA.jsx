@@ -1,17 +1,17 @@
 import { CTASection } from '../../../Kinetic'
 
-export default function CTA({ service }) {
-  const serviceTitle = "TikTok Management"
-  const primaryCta = service?.primaryCta || "Get a Free Quote"
-
+export default function CTA() {
   return (
     <CTASection
       eyebrow="Next move"
-      title={`Ready to scale with ${serviceTitle}?`}
-      primaryText={primaryCta}
-      secondaryText="Talk to Our Team"
+      title="Ready to build a stronger TikTok presence?"
+      primaryText="Get Your Free TikTok Audit →"
+      secondaryText="Request a Custom Quote →"
     >
-      Connect with our in-house team to discuss your requirements, estimated timelines, and a transparent project estimate.
+      Your TikTok account should do more than fill a content calendar. It should give your business
+      a consistent way to get discovered, communicate its value, engage with the right audience,
+      and learn from real content performance. Framecipher can manage the strategy, content,
+      publishing, community, TikTok SEO, testing, and reporting through one in-house team.
     </CTASection>
   )
 }

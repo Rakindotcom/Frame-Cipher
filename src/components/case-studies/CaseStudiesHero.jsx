@@ -1,4 +1,7 @@
+import Link from 'next/link'
 import { PageHero, PosterButton, TypeMarquee } from '../Kinetic'
+
+const inlineLink = "text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors"
 
 export default function CaseStudiesHero() {
   return (
@@ -17,9 +20,11 @@ export default function CaseStudiesHero() {
           </>
         }
       >
-        In-depth breakdowns of how Frame Cipher engineers measurable growth: from high-ROI
-        Meta advertising campaigns and organic search dominance to digital platforms and
-        content systems built to scale.
+        In-depth breakdowns of how Frame Cipher engineers measurable growth: from high-ROI{' '}
+        <Link href="/services/paid-advertising/meta-ads" className={inlineLink}>Meta advertising</Link> campaigns and{' '}
+        <Link href="/services/seo" className={inlineLink}>organic search</Link> dominance to{' '}
+        <Link href="/services/website-design-development" className={inlineLink}>digital platforms</Link> and{' '}
+        <Link href="/services/content-creation" className={inlineLink}>content systems</Link> built to scale.
       </PageHero>
 
       <TypeMarquee

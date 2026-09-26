@@ -5,7 +5,7 @@ export const contact = {
   phone: '+880 1768-146650',
   phoneHref: '+8801768146650',
   whatsapp: 'https://wa.me/8801768146650',
-  location: 'Mirpur 14, Dhaka, Bangladesh',
+  location: 'Ecb Chattar, Matikata, Khan Polli Mosque, Dhaka-1206, Bangladesh',
   responseTime: 'Replies within 1 business day',
 }
 

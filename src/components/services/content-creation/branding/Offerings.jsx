@@ -1,127 +1,159 @@
+import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || []
-  const whyMatters = service?.whyMatters || []
-  const whyChooseUs = service?.whyChooseUs || [
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
+      <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+const offerings = [
   {
-    "title": "A System, Not Just a Style",
-    "text": "Documented rules covering color, typography, imagery, and voice, not a mood board that only makes sense to the people who made it."
+    num: '01',
+    title: 'Brand Strategy & Positioning',
+    bestFor: 'New brands, repositioning projects, and businesses needing strategic clarity before design begins.',
+    desc: 'The strategic layer establishes what the brand should represent and how it should compete in its category. We ensure visual choices are anchored in commercial reality rather than decorative taste.',
+    bullets: [
+      'Target audience definition & demographic mapping',
+      'Market positioning & competitor category review',
+      'Brand differentiation mapping & unique value formulation',
+      'Brand personality attributes & corporate core values',
+      'Strategic brand narrative & positioning direction'
+    ],
+    action: { text: 'Discuss Brand Strategy', href: '/contact' }
   },
   {
-    "title": "Guidelines Built to Actually Get Used",
-    "text": "Usage examples and misuse cases included, so the document genuinely speeds up future decisions instead of sitting unopened."
+    num: '02',
+    title: 'Visual Identity System',
+    bestFor: 'Businesses that need a consistent, distinctive visual language across digital and physical touchpoints.',
+    desc: 'We translate the approved strategic direction into a cohesive design system—engineering color harmonies, typography pairings, imagery art direction, iconography, and graphic motifs that work in harmony.',
+    bullets: [
+      'Comprehensive primary, secondary & accent color palettes',
+      'Typographic hierarchy (heading, body, display & web pairings)',
+      'Imagery & photography art direction (lighting, subject, cropping)',
+      'Custom iconography styles & proprietary graphic elements',
+      'Digital UI layout principles & mechanical print standards'
+    ],
+    action: null
   },
   {
-    "title": "Visual and Verbal Handled Together",
-    "text": "Voice and messaging developed alongside the visual system, coordinated directly with our Content Writing services."
+    num: '03',
+    title: 'Brand Voice & Messaging Framework',
+    bestFor: 'Businesses whose visual identity is set, but whose written communication lacks personality or consistency.',
+    desc: 'Brand identity is equally verbal. We define how your business communicates across channels—establishing tone of voice, terminology standards, audience-specific messaging, and context-specific formality levels.',
+    bullets: [
+      'Tone of voice principles & personality in copywriting',
+      'Core brand messaging pillars & value proposition statements',
+      'Standardized corporate terminology & words to avoid',
+      'Formality calibration (website vs. sales pitch vs. social media)',
+      'Real-world copywriting examples for customer touchpoints'
+    ],
+    action: { text: 'Explore Content Writing Services', href: '/services/content-writing' }
   },
   {
-    "title": "Rebranding Treated as Evolution",
-    "text": "Existing brand equity assessed and preserved where a repositioning, not a full restart, is the right call."
+    num: '04',
+    title: 'Brand Guidelines Documentation',
+    bestFor: 'Businesses managing internal teams, collaborating with external agencies, or scaling marketing output.',
+    desc: 'A brand guidebook is a practical working tool, not an ornamental PDF. We turn the brand system into an actionable manual that removes repeated daily decisions and protects consistency across contributors.',
+    bullets: [
+      'Logo usage parameters, clear space & minimum sizing rules',
+      'Digital HEX/RGB and print CMYK/Pantone color specifications',
+      'Typography specifications, web font pairings & fallbacks',
+      'Imagery guidance, composition rules & graphic element use',
+      'Extensive visual correct usage examples & misuse cases'
+    ],
+    action: null
+  },
+  {
+    num: '05',
+    title: 'Rebranding & Brand Refresh',
+    bestFor: 'Established companies whose current identity no longer reflects their market, scale, or ambition.',
+    desc: 'We help established businesses modernize without automatically throwing away hard-earned market recognition. We audit existing brand equity and formulate a transition roadmap.',
+    bullets: [
+      'Comprehensive existing brand equity & recognition audit',
+      'Competitive category review & repositioning strategy',
+      'Visual identity modernization & typography refinement',
+      'Updated voice, tone & messaging guidelines',
+      'Legacy asset migration & transition rollout planning'
+    ],
+    action: { text: 'Discuss Rebranding Scope', href: '/contact' }
   }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+export default function Offerings({ service }) {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="Comprehensive Architecture"
+          title="What Our Branding Services Include"
+        >
+          A complete brand system integrates strategic positioning, visual identity, verbal voice, and documented governance into one practical framework built for commercial scale.
+        </SectionIntro>
+
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          {offerings.map((item, idx) => (
+            <div
+              key={idx}
+              className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+                idx === 4 ? 'lg:col-span-2' : ''
+              }`}
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+              <div>
+                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
+                  <span className="font-mono text-xs font-black text-frame-accent">
+                    PILLAR 0{item.num}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                    Core Discipline
+                  </span>
                 </div>
-              )}
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.desc}
+                </p>
 
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
+                <div className="mt-4 border-l-2 border-frame-accent/40 pl-3">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-frame-muted-fg">
+                    Best For:
+                  </span>
+                  <p className="text-xs font-semibold text-frame-fg mt-0.5">
+                    {item.bestFor}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                  <ul className="space-y-2">
+                    {item.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90">
+                        <CheckIcon />
+                        <span>{bullet}</span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
+                </div>
+              </div>
+
+              {item.action && (
+                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                  <Link
+                    href={item.action.href}
+                    className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-frame-accent hover:underline"
+                  >
+                    <span>{item.action.text}</span>
+                    <span>&rarr;</span>
+                  </Link>
                 </div>
               )}
             </div>
-          </div>
-        </section>
-      )}
-    </div>
+          ))}
+        </div>
+      </div>
+    </section>
   )
 }

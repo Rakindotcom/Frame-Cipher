@@ -1,123 +1,138 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Offerings({ service }) {
-  const offerings = service?.offerings || []
-  const whyMatters = service?.whyMatters || []
-  const whyChooseUs = service?.whyChooseUs || [
+const phases = [
   {
-    "title": "Production Built for Long-Form, Not Scaled-Up Short-Form",
-    "text": "Audio, lighting, and pacing standards set for a format viewers stay with for minutes, not seconds."
+    phase: 'Phase 01',
+    title: 'Pre-Production & Scripting',
+    description: 'We help turn an idea into a production-ready plan before filming begins. Planning ensures the shoot captures what the final edit actually needs without wasted set time.',
+    bullets: [
+      'Content outline & narrative structural frameworks',
+      'Full scriptwriting & conversational dialogue',
+      'Talking points & teleprompter-friendly copy',
+      'Structured interview questions & presenter preparation',
+      'Shot lists, location planning & production schedules'
+    ]
   },
   {
-    "title": "The Right Approach for the Right Format",
-    "text": "Talking-head, interview, documentary, and tutorial content each produced with the technique that format actually needs. Thumbnails Produced, Not Just Strategized The actual design and photography work behind a channel's click-through strategy, handled as production, not left as a separate unaddressed gap."
+    phase: 'Phase 02',
+    title: 'Filming & Direction',
+    description: 'We handle filming according to the format and production requirements at your business location, an approved external venue, or a suitable studio setup.',
+    bullets: [
+      'Single & multi-camera 4K cinema camera coverage',
+      'Professional broadcast studio lighting design',
+      'Wireless lavalier & overhead boom audio recording',
+      'On-set presenter coaching & interview direction',
+      'Product footage, dynamic b-roll & workplace b-roll'
+    ]
   },
   {
-    "title": "Clearly Scoped Against Channel Management",
-    "text": "Standalone production for businesses that need it without needing full YouTube Management, with no overlap or double-paying for the same work."
+    phase: 'Phase 03',
+    title: 'Editing & Post-Production',
+    description: 'The edit turns raw footage into the finished YouTube experience, structured around viewer retention rather than simply following chronological recording order.',
+    bullets: [
+      'Long-form editing & narrative pacing refinement',
+      'Dialogue editing, pause trimming & audio cleanup',
+      'Contextual B-roll integration & screen recordings',
+      'On-screen text, branded lower-thirds & motion elements',
+      'Color correction, grading & broadcast audio mixing'
+    ]
+  },
+  {
+    phase: 'Phase 04',
+    title: 'Thumbnail & Cover Asset Production',
+    description: 'We produce high-CTR thumbnail assets alongside the video, integrating dedicated shoot photography and conversion-driven graphic design.',
+    bullets: [
+      'Thumbnail creative concepts & visual focal points',
+      'Dedicated high-resolution thumbnail photography on set',
+      'Curated image selection & background separation',
+      'Bold graphic design, text treatments & contrast testing',
+      'Multiple creative directions where required'
+    ]
+  },
+  {
+    phase: 'Phase 05',
+    title: 'Multi-Format Production',
+    description: 'A YouTube production can also create supporting assets where the project requires them, maximizing the output and reach of every shoot day.',
+    bullets: [
+      'Vertical YouTube Shorts cutdowns for channel reach',
+      'Instagram Reels & TikTok social media excerpts',
+      'High-impact promotional clips for paid ads & email',
+      'Alternative duration cuts & teaser versions',
+      'Supporting thumbnail & banner assets across platforms'
+    ]
   }
 ]
 
-  if (!offerings?.length && !whyMatters?.length) return null
-
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {offerings?.length > 0 && (
-        <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <SectionIntro
-              eyebrow="Capabilities & Scope"
-              title="What We Deliver"
+    <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
+      <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
+export default function Offerings() {
+  return (
+    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro
+          eyebrow="End-to-End Workflow"
+          title="What Our YouTube Video Production Service Includes"
+        >
+          From initial concept and content structure through on-set filming, post-production, custom thumbnail design, and multi-format cutdowns—one in-house team handles the entire lifecycle.
+        </SectionIntro>
+
+        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+          {phases.map((item, index) => (
+            <div
+              key={index}
+              className={`bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+                index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+              }`}
             >
-              Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
-            </SectionIntro>
-
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-              {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                        {item.description}
-                      </p>
-                    )}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* WHY IT MATTERS & WHY CHOOSE US */}
-      {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
-            <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
-              {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
+              <div>
+                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
                   <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
+                    {item.phase}
                   </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    Why This Matters for Growth
-                  </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                    {whyMatters.map((point, idx) => (
-                      <p key={idx}>{point}</p>
-                    ))}
-                  </div>
-                  <div className="mt-8">
-                    <PosterButton href="/contact">Book a Strategy Session</PosterButton>
-                  </div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                    Deliverable
+                  </span>
                 </div>
-              )}
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  {item.description}
+                </p>
 
-              {whyChooseUs?.length > 0 && (
-                <div className="space-y-6">
-                  <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                      Why Choose Frame Cipher
-                    </h3>
-                  </div>
-
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
-                    {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                          {item.text || item.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
+                <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-4 text-xs sm:text-sm font-medium text-frame-fg/90">
+                  {item.bullets.map((bullet, bIdx) => (
+                    <li key={bIdx} className="flex items-start gap-2">
+                      <CheckIcon />
+                      <span>{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
+          ))}
+        </div>
+
+        <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center justify-between gap-4 border-2 border-frame-accent/40 bg-frame-accent/5 p-6 sm:flex-row text-center sm:text-left">
+          <div>
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+              Need a Custom Scope?
+            </span>
+            <p className="mt-1 text-xs sm:text-sm font-medium text-frame-fg">
+              Whether you need a single masterclass video or recurring monthly production, we tailor every package to your deliverables.
+            </p>
           </div>
-        </section>
-      )}
-    </div>
+          <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
+            Request a YouTube Video Production Quote &rarr;
+          </PosterButton>
+        </div>
+      </div>
+    </section>
   )
 }

@@ -71,7 +71,13 @@ function MiniBarChart({
   );
 }
 
-export function RealAnalyticsDashboard() {
+export function RealAnalyticsDashboard({
+  liveCount,
+  lifetimeCount,
+}: {
+  liveCount?: number;
+  lifetimeCount?: number;
+} = {}) {
   const [summary, setSummary] = useState<AnalyticsSummary | null>(null);
   const [loading, setLoading] = useState(true);
   const [range, setRange] = useState<Range>("28d");
@@ -80,22 +86,17 @@ export function RealAnalyticsDashboard() {
 
   const fetchData = useCallback(async () => {
     setLoading(true);
-    try {
-      const days = range === "7d" ? 7 : range === "3m" ? 90 : 28;
-      const data = await getFirestoreAnalyticsSummary(days);
-      setSummary(data);
-      setLastUpdated(new Date());
-    } catch (err) {
-      console.error("Analytics fetch error:", err);
-    } finally {
-      setLoading(false);
-    }
+    const days = range === "7d" ? 7 : range === "3m" ? 90 : 28;
+    const data = await getFirestoreAnalyticsSummary(days);
+    setSummary(data);
+    setLastUpdated(new Date());
+    setLoading(false);
   }, [range]);
 
   useEffect(() => {
     fetchData();
-    // Auto-refresh every 30s
-    const interval = setInterval(fetchData, 30_000);
+    // Auto-refresh every 10s for real-time live tracing
+    const interval = setInterval(fetchData, 10_000);
     return () => clearInterval(interval);
   }, [fetchData]);
 
@@ -129,19 +130,23 @@ export function RealAnalyticsDashboard() {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2 min-w-0">
-              <div className="h-2.5 w-2.5 rounded-full bg-[#22C55E] shrink-0" />
+              <div className="h-2.5 w-2.5 rounded-full bg-[#22C55E] animate-pulse shrink-0" />
               <h2 className="text-sm sm:text-base font-heading font-bold uppercase tracking-wider text-[#0F172A] truncate">
-                Real-Time Telemetry &amp; Analytics
+                Live Visitor Tracing &amp; Analytics
               </h2>
-              {summary.source === "cloud" || summary.source === "hybrid" ? (
-                <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0] whitespace-nowrap shrink-0">
-                  Cloud Firestore Active
-                </span>
-              ) : (
-                <span className="text-[11px] font-bold text-[#1D4ED8] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE] whitespace-nowrap shrink-0">
-                  ⚡ Live Telemetry Active
-                </span>
-              )}
+              <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0] whitespace-nowrap shrink-0 flex items-center gap-1">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#16A34A] animate-ping" />
+                <span>{liveCount ?? summary.liveVisitors} Active Now</span>
+              </span>
+              <span
+                className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border whitespace-nowrap shrink-0 ${
+                  summary.source === "firestore"
+                    ? "text-[#1D4ED8] bg-[#EFF6FF] border-[#BFDBFE]"
+                    : "text-[#B45309] bg-[#FFFBEB] border-[#FDE68A]"
+                }`}
+              >
+                {summary.source === "firestore" ? "Firestore Connected" : "Firestore Not Connected"}
+              </span>
             </div>
             <p className="text-xs text-[#64748B] mt-1 truncate">
               Live visitor sessions — browser, device, country, and conversion inquiries
@@ -182,46 +187,94 @@ export function RealAnalyticsDashboard() {
           </div>
         </div>
 
-        {/* Cloud notice banner if Firestore is disabled or pending */}
-        {summary.cloudNotice && (
-          <div className="mt-3 p-3 rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] text-xs text-[#166534] flex items-start gap-2">
-            <span className="text-sm">✓</span>
+        {/* Honest empty / error state instead of a reassuring fake banner */}
+        {(!summary.hasData || summary.source !== "firestore") && (
+          <div className="mt-3 p-3 rounded-xl bg-[#FFFBEB] border border-[#FDE68A] text-xs text-[#92400E] flex items-start gap-2">
+            <span className="text-sm">!</span>
             <div>
-              <span className="font-bold">Real-time local tracker running: </span>
-              {summary.cloudNotice}
+              <span className="font-bold">No analytics data collected yet. </span>
+              {summary.sourceError
+                ? `Reason: ${summary.sourceError} `
+                : "Deploy the Firestore rules and load the public site to start recording visits. "}
+              Every number on this page below is measured from the analytics_hits collection — zeros
+              mean nothing has been recorded, not that traffic is hidden.
             </div>
           </div>
         )}
 
-        {/* Top KPIs */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-4">
+        {summary.source === "firestore" && summary.hasData && (
+          <p className="mt-3 text-[11px] text-[#64748B]">
+            Tracking since {new Date(summary.collectedFrom || Date.now()).toLocaleString()} ·{" "}
+            {summary.totalHits.toLocaleString()} recorded hits
+          </p>
+        )}
+
+        {/* Top KPIs: Live Tracing, Lifetime Visitors, Today, Inquiries, Countries, Pages */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
+          <div className="rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] p-3 min-w-0">
+            <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#16A34A] uppercase tracking-wider min-w-0">
+              <span className="inline-block h-2 w-2 rounded-full bg-[#16A34A] animate-pulse shrink-0" />
+              <span className="truncate">Live Active</span>
+            </div>
+            <div className="text-xl sm:text-2xl font-heading font-bold text-[#15803D] mt-1 truncate">
+              {liveCount ?? summary.liveVisitors}
+            </div>
+            <span className="text-[10px] text-[#16A34A] block truncate font-medium">Right Now</span>
+          </div>
+
+          <div className="rounded-xl bg-[#EFF6FF] border border-[#BFDBFE] p-3 min-w-0">
+            <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#1D4ED8] uppercase tracking-wider min-w-0">
+              <Users className="h-3.5 w-3.5 text-[#1D4ED8] shrink-0" />
+              <span className="truncate">Lifetime Visits</span>
+            </div>
+            <div className="text-xl sm:text-2xl font-heading font-bold text-[#1E40AF] mt-1 truncate">
+              {(lifetimeCount ?? summary.lifetimeVisitors).toLocaleString()}
+            </div>
+            <span className="text-[10px] text-[#1D4ED8] block truncate font-medium">Unique Sessions</span>
+          </div>
+
           <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-3 min-w-0">
             <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#64748B] uppercase tracking-wider min-w-0">
-              <Users className="h-3.5 w-3.5 text-[#1D4ED8] shrink-0" />
-              <span className="truncate">Real Visitors</span>
+              <Activity className="h-3.5 w-3.5 text-[#0284C7] shrink-0" />
+              <span className="truncate">Today Visits</span>
             </div>
-            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">{summary.totalVisitors.toLocaleString()}</div>
+            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">
+              {summary.todayVisitors.toLocaleString()}
+            </div>
+            <span className="text-[10px] text-[#64748B] block truncate font-medium">Unique Today</span>
           </div>
+
           <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-3 min-w-0">
             <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#64748B] uppercase tracking-wider min-w-0">
               <Briefcase className="h-3.5 w-3.5 text-[#16A34A] shrink-0" />
-              <span className="truncate">Client Inquiries</span>
+              <span className="truncate">Client Leads</span>
             </div>
-            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">{summary.totalCalculations.toLocaleString()}</div>
+            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">
+              {summary.totalCalculations.toLocaleString()}
+            </div>
+            <span className="text-[10px] text-[#64748B] block truncate font-medium">Form Inquiries</span>
           </div>
+
           <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-3 min-w-0">
             <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#64748B] uppercase tracking-wider min-w-0">
-              <Globe className="h-3.5 w-3.5 text-[#0284C7] shrink-0" />
+              <Globe className="h-3.5 w-3.5 text-[#8B5CF6] shrink-0" />
               <span className="truncate">Countries</span>
             </div>
-            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">{summary.countries.length}</div>
+            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">
+              {summary.countries.length}
+            </div>
+            <span className="text-[10px] text-[#64748B] block truncate font-medium">Global Reach</span>
           </div>
+
           <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-3 min-w-0">
             <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#64748B] uppercase tracking-wider min-w-0">
-              <TrendingUp className="h-3.5 w-3.5 text-[#8B5CF6] shrink-0" />
+              <TrendingUp className="h-3.5 w-3.5 text-[#D97706] shrink-0" />
               <span className="truncate">Pages Tracked</span>
             </div>
-            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">{summary.topPages.length}</div>
+            <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">
+              {summary.topPages.length}
+            </div>
+            <span className="text-[10px] text-[#64748B] block truncate font-medium">Paths With Hits</span>
           </div>
         </div>
       </div>

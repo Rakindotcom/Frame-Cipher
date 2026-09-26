@@ -1,54 +1,74 @@
 import { SectionIntro } from '../../../Kinetic'
 
-export default function FAQ({ service }) {
-  const faqs = service?.faqs || [
+const faqs = [
   {
-    "question": "What if our client is willing to be a reference but doesn't want to do a formal interview?",
-    "answer": "We can work with shorter conversations, written responses, or existing feedback where a full interview isn't possible, though a genuine conversation typically surfaces more usable, specific detail than a written questionnaire alone."
+    q: 'What is included in your Case Study Writing Service?',
+    a: 'The standard process includes story selection, research, interviews, narrative development, writing, data and quote integration, revisions, and approval coordination. Additional formats can be included depending on the project scope.',
   },
   {
-    "question": "How do you handle client approval before publishing?",
-    "answer": "Approval coordination is part of the process, we build in review time and manage the sign-off conversation, so the finished piece is confirmed as ready to use before it goes live anywhere."
+    q: 'Do you interview our clients directly?',
+    a: 'Yes. Direct client interviews are an important part of our preferred research process because conversations often reveal more useful context and detail than a standard written questionnaire.',
   },
   {
-    "question": "Can you turn one case study into multiple formats?",
-    "answer": "Yes, a single research and interview effort can produce a long-form version, a short summary, and social-ready snippets, which is usually more efficient than researching a new piece for every format."
+    q: 'What if our client cannot share confidential information?',
+    a: 'We can work within agreed confidentiality restrictions. Depending on what can be disclosed, the case study may use an anonymized customer, limited company information, or a narrower description of the engagement.',
   },
   {
-    "question": "How do you decide which client stories are worth turning into case studies?",
-    "answer": "We look at which results best address the objections and use cases that come up most often in your actual sales conversations, rather than just picking the most impressive-sounding number."
+    q: 'Can you write anonymized case studies?',
+    a: 'Yes. An anonymized case study can still communicate the challenge, solution, process, and measurable outcome when the customer cannot be publicly identified. The available evidence and approval requirements will determine how much detail can be included.',
   },
   {
-    "question": "Do you write case studies for businesses outside Bangladesh?",
-    "answer": "Yes, alongside Bangladeshi businesses, we write case studies for clients in the US, UK, Australia, Canada, and UAE.\n\n[Talk to Our Content Team]"
-  }
+    q: 'Can you work with technical or complex products?',
+    a: 'Yes. We can structure technical and implementation-focused case studies around the information relevant to the intended reader. The goal is to preserve important technical detail while keeping the story understandable for the target audience.',
+  },
+  {
+    q: 'Can one case study be repurposed into other content?',
+    a: 'Yes. Depending on the original research and project scope, one customer story can be adapted into a summary, sales one-pager, website proof section, social content, email content, presentation material, or other approved formats.',
+  },
+  {
+    q: 'How long does a case study take?',
+    a: 'A standard case study typically takes around 2–3 weeks. Interview availability, data collection, revisions, and customer approval can affect the final timeline.',
+  },
+  {
+    q: 'Do you handle client approval?',
+    a: 'Yes. Approval coordination can be included in the process when the featured customer needs to review the case study before publication.',
+  },
+  {
+    q: 'Do you write case studies for businesses outside Bangladesh?',
+    a: 'Yes. Framecipher works with businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE.',
+  },
+  {
+    q: 'How much does case study writing cost?',
+    a: 'Pricing depends on research requirements, interview complexity, case study length, number of formats, and whether you need one case study or a larger content program. Our current starting packages are listed above, subject to final scope confirmation.',
+  },
 ]
-  if (!faqs?.length) return null
 
+export default function FAQ() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct Answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about our delivery process, technical standards, and engagement models.
+    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-[95vw]">
+        <SectionIntro eyebrow="Direct answers" title="Frequently Asked Questions">
+          Straight answers about interviews, confidentiality, anonymized work, repurposing, timelines, approval,
+          pricing, and what happens before publication.
         </SectionIntro>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
+        <div className="space-y-4 max-w-4xl">
+          {faqs.map((faq) => (
             <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+              key={faq.q}
+              className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-base font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:text-lg">
+                <span>{faq.q}</span>
+                <span
+                  aria-hidden="true"
+                  className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
+                >
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-                {faq.answer}
+              <div className="border-t-2 border-frame-border p-6">
+                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">{faq.a}</p>
               </div>
             </details>
           ))}

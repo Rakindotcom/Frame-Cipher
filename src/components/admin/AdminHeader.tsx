@@ -20,7 +20,7 @@ import {
   ExternalLink,
   Radio,
 } from "lucide-react";
-import { logoutAdmin } from "@/lib/admin/auth";
+import { destroyAdminSession } from "@/lib/admin/auth";
 
 interface AdminHeaderProps {
   title: string;
@@ -43,7 +43,7 @@ export function AdminHeader({ title, subtitle }: AdminHeaderProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const handleLogout = () => {
-    logoutAdmin();
+    void destroyAdminSession();
     window.location.href = "/admin/login";
   };
 
@@ -64,14 +64,16 @@ export function AdminHeader({ title, subtitle }: AdminHeaderProps) {
 
           {/* FrameCipher Logo */}
           <Link href="/admin" className="shrink-0 flex items-center" title="FrameCipher Admin">
-            <img
-              src="/logo.webp"
-              alt="FrameCipher"
-              className="h-9 w-auto max-w-[92px] object-contain"
-              onError={(e) => {
-                e.currentTarget.src = "/logo.png";
-              }}
-            />
+            <div className="h-10 w-10 rounded-xl bg-black border border-neutral-800 flex items-center justify-center p-1.5 shadow-xs">
+              <img
+                src="/logo.webp"
+                alt="FrameCipher"
+                className="w-full h-full object-contain"
+                onError={(e) => {
+                  e.currentTarget.src = "/logo.png";
+                }}
+              />
+            </div>
           </Link>
 
           <div className="min-w-0">

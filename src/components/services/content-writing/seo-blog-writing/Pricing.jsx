@@ -1,217 +1,111 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Pricing({ service }) {
-  const pricingData = service?.pricing || {
-  "intro": "SEO and blog writing pricing depends on word count, research depth required, and whether it's ordered as individual pieces or an ongoing monthly volume.",
-  "packages": [],
-  "table": {
-    "headers": [
-      "",
-      "Starting Price"
-    ],
-    "rows": [
-      [
-        "",
-        "What's Covered"
-      ],
-      [
-        "",
-        "Best For"
-      ],
-      [
-        "",
-        "Per-Article"
-      ],
-      [
-        "",
-        "৳3,500/article"
-      ],
-      [
-        "",
-        "Single 1,000-1,500 word article, keyword research included"
-      ],
-      [
-        "",
-        "Businesses with occasional content needs"
-      ],
-      [
-        "",
-        "Growth"
-      ],
-      [
-        "",
-        "৳20,000/month"
-      ],
-      [
-        "",
-        "4-5 articles monthly, research and structure included"
-      ],
-      [
-        "",
-        "Businesses building a consistent blog presence"
-      ],
-      [
-        "",
-        "Comprehensive"
-      ],
-      [
-        "",
-        "৳35,000/month"
-      ],
-      [
-        "",
-        "8-10 articles monthly, plus content refresh of older pieces"
-      ],
-      [
-        "",
-        "Businesses running an active content strategy"
-      ],
-      [
-        "",
-        "Enterprise"
-      ],
-      [
-        "",
-        "Custom Quote"
-      ],
-      [
-        "",
-        "High-volume or specialized/technical content needs"
-      ],
-      [
-        "",
-        "Large content operations"
-      ],
-      [
-        "",
-        "Included at every tier:"
-      ]
-    ]
-  }
-}
-  const packages = pricingData?.packages || []
-  const table = pricingData?.table
+const plans = [
+  {
+    name: 'Per-Article',
+    price: 'From ৳3,500/article',
+    covered: 'Individual SEO article within the agreed scope, including keyword/topic research',
+    bestFor: 'Occasional content needs',
+  },
+  {
+    name: 'Growth',
+    price: 'From ৳20,000/month',
+    covered: '4–5 agreed articles per month, with research and SEO structure',
+    bestFor: 'Consistent blog publishing',
+  },
+  {
+    name: 'Comprehensive',
+    price: 'From ৳35,000/month',
+    covered: '8–10 agreed articles per month, plus selected content refresh support',
+    bestFor: 'Active content programs',
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom Quote',
+    covered: 'High-volume, multi-market, specialist, or technically complex content',
+    bestFor: 'Larger content operations',
+  },
+]
 
-  if (!packages.length && !table) return null
+const standard = [
+  'Keyword and topic research',
+  'Search-intent analysis',
+  'SEO-oriented content structure',
+  'Brand voice alignment',
+  'Editing and review',
+  'Publish-ready formatting',
+]
 
+export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+    <section
+      id="pricing"
+      className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28"
+    >
       <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Plans"
-          title="Pricing & Packages"
-        >
-          Clear investment tiers based on project scope, strategic complexity, and technical requirements.
+        <SectionIntro eyebrow="Investment" title="SEO &amp; Blog Writing Pricing">
+          Pricing depends on research depth, topic complexity, article requirements, content volume, revision
+          scope, and whether you need individual articles or ongoing support.
         </SectionIntro>
 
-        {packages.length > 0 ? (
-          <div className="grid gap-8 lg:grid-cols-3">
-            {packages.map((pkg, index) => (
-              <div
-                key={index}
-                className={`border-2 p-7 md:p-9 flex flex-col justify-between ${
-                  index === 1
-                    ? 'border-frame-accent bg-frame-accent/10'
-                    : 'border-frame-border bg-frame-bg'
-                }`}
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                    <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Tier 0{index + 1}
-                    </span>
-                    {index === 1 && (
-                      <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                        Most Popular
-                      </span>
-                    )}
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {pkg.name}
-                  </h3>
-                  <div className="mt-6 border-y-2 border-frame-border/60 py-4">
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Starting Price
-                    </span>
-                    <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
-                      {pkg.price}
-                    </div>
-                  </div>
-                  {pkg.description && (
-                    <p className="mt-3 text-xs font-medium text-frame-muted-fg leading-relaxed">
-                      {pkg.description}
-                    </p>
-                  )}
-                  {pkg.features?.length > 0 && (
-                    <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                      {pkg.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-
-                <div className="mt-8">
-                  <PosterButton
-                    href="/contact"
-                    variant={index === 1 ? 'accent' : 'outline'}
-                    className="w-full"
-                  >
-                    Choose {pkg.name}
-                  </PosterButton>
-                </div>
-              </div>
-            ))}
-          </div>
-        ) : table?.headers ? (
-          <div>
-            <div className="overflow-hidden border-2 border-frame-border bg-frame-bg">
-              <table className="w-full text-left">
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                  {table.rows?.map((row, rIdx) => (
-                    <tr key={rIdx} className="hover:bg-frame-muted/20">
-                      {row.map((cell, cIdx) => (
-                        <td
-                          key={cIdx}
-                          className={`p-4 md:p-6 ${
-                            cIdx === 0
-                              ? 'font-bold text-frame-fg'
-                              : cIdx === 1
-                              ? 'font-bold text-frame-accent'
-                              : 'text-frame-muted-fg'
-                          }`}
-                        >
-                          {cell}
-                        </td>
-                      ))}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
-                * Pricing is indicative rather than fixed. Final pricing is confirmed after scoping requirements.
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-4">
+          {plans.map((plan) => (
+            <article key={plan.name} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                {plan.name}
+              </span>
+              <p className="mt-3 font-heading text-2xl font-bold leading-tight tracking-tight text-frame-fg md:text-3xl">
+                {plan.price}
               </p>
-              <div className="shrink-0">
-                <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>
+
+              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  What&rsquo;s Covered
+                </span>
+                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-fg">{plan.covered}</p>
               </div>
-            </div>
+
+              <div className="mt-auto border-t-2 border-frame-border/60 pt-4">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  Best For
+                </span>
+                <p className="mt-3 text-xs font-semibold leading-relaxed text-frame-muted-fg">
+                  {plan.bestFor}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-8 border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
+          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+            Included With Every Standard Engagement
+          </span>
+          <ul className="mt-4 flex flex-wrap gap-2">
+            {standard.map((entry) => (
+              <li
+                key={entry}
+                className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+              >
+                {entry}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <div>
+            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              Pricing note: These are starting reference prices. Final pricing depends on the actual topic,
+              scope, research requirements, article complexity, volume, revision requirements, and delivery
+              schedule. Specialist subjects, extensive original research, CMS publishing, images, expert
+              interviews, or other additional requirements may require separate scoping.
+            </p>
           </div>
-        ) : null}
+          <div className="shrink-0">
+            <PosterButton href="/contact">Get a Custom SEO Content Quote &rarr;</PosterButton>
+          </div>
+        </div>
       </div>
     </section>
   )

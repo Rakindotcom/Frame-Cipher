@@ -1,103 +1,140 @@
-import { SectionIntro } from '../../../Kinetic'
+import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Initial Discovery & Audit",
-    "description": "We review your business, existing content, and what each page genuinely needs to accomplish."
+    number: '01',
+    title: 'Discovery & Content Audit',
+    body: ['We start by understanding the business and the website. Depending on the project, we review:'],
+    bullets: [
+      'Existing website content',
+      'Business goals',
+      'Products and services',
+      'Target audience',
+      'Competitors',
+      'Brand materials',
+      'Existing messaging',
+      'Page requirements',
+    ],
+    note: 'For an existing website, this can help identify what should be retained, rewritten, removed, or expanded.',
   },
   {
-    "number": "2",
-    "title": "Messaging & Voice Strategy",
-    "description": "Developing a consistent core message and voice guideline that carries across every page."
+    number: '02',
+    title: 'Messaging & Page Strategy',
+    body: ['We establish the core message and determine the purpose of each page. This may include:'],
+    bullets: [
+      'Value proposition',
+      'Positioning',
+      'Voice and tone',
+      'Key differentiators',
+      'Page hierarchy',
+      'Content priorities',
+      'CTA direction',
+    ],
   },
   {
-    "number": "3",
-    "title": "Drafting Page by Page",
-    "description": "Content written for each page's specific job, with your review and feedback built into the process."
+    number: '03',
+    title: 'Page-by-Page Writing',
+    body: [
+      'Each page is written according to its specific role.',
+      'We avoid copying the same structure across every page simply to make production faster.',
+    ],
   },
   {
-    "number": "4",
-    "title": "Cross-Page Review",
-    "description": "Checking that the finished pages read as one coherent, consistent site, not disconnected pieces."
+    number: '04',
+    title: 'Review & Revision',
+    body: [
+      'The draft is reviewed against the agreed scope and your feedback is incorporated within the revision process.',
+    ],
+    note: 'Your business knowledge is important here because internal expertise can help identify details that external research alone may not provide.',
   },
   {
-    "number": "5",
-    "title": "Delivery & Ongoing Support",
-    "description": "Finished copy delivered ready to implement, with revision support and future updates available as needed."
-  }
+    number: '05',
+    title: 'Cross-Page Quality Review',
+    body: ['For multi-page projects, we review the pages together. We check for:'],
+    bullets: [
+      'Repeated messaging',
+      'Conflicting terminology',
+      'Inconsistent tone',
+      'Missing information',
+      'Weak transitions',
+      'Duplicate sections',
+      'Inconsistent CTAs',
+    ],
+  },
+  {
+    number: '06',
+    title: 'Final Delivery & Implementation Support',
+    body: [
+      'Final content is delivered in an agreed format and can be prepared for implementation by your website team.',
+    ],
+    note: 'Where included in the scope, we can also provide implementation notes or CMS publishing support.',
+  },
 ]
-  const timeline = service?.timeline || "A single page typically takes 3 to 5 business days from discovery to final draft. A core site package covering homepage, about, and a few service pages usually takes 1 to 2 weeks, while a full multi-page site can take 2 to 4 weeks depending on scope and revision rounds.\n\nMessaging strategy work happens upfront and shapes everything after it, rushing this step tends to produce inconsistent copy across pages that needs more revision later, not less."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Engagement workflow"
+          title="Our Website Content Writing Process"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          The process adapts by project scope, but the messaging phase comes before any full-page production.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => (
+            <article key={step.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
-                </p>
+                {step.body.map((paragraph) => (
+                  <p
+                    key={paragraph}
+                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+
+                {step.bullets && (
+                  <ul className="mt-4 space-y-2">
+                    {step.bullets.map((item) => (
+                      <li
+                        key={item}
+                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                      >
+                        <span aria-hidden="true" className="mt-1 text-frame-accent">
+                          &bull;
+                        </span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
+
+              {step.note && (
+                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  {step.note}
+                </p>
               )}
-            </div>
+            </article>
           ))}
         </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            Tell us what you want each page to accomplish, and we can help define the right content scope.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact">Start Your Website Content Project &rarr;</PosterButton>
           </div>
-        )}
+        </div>
       </div>
     </section>
   )

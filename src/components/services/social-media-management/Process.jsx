@@ -1,98 +1,79 @@
 import { SectionIntro } from '../../Kinetic'
 
-export default function Process({ service }) {
-  const steps = service?.processSteps || [
+const steps = [
   {
-    "number": "1",
-    "title": "Free Social Audit",
-    "description": "We review your current profiles, content, and engagement to understand what's working and what's been neglected."
+    number: '01',
+    title: 'Social Audit',
+    body: 'We review your existing profiles, content, audience, engagement, platform mix, and overall social presence. The audit identifies strengths, gaps, and opportunities before we build the management plan.',
   },
   {
-    "number": "2",
-    "title": "Content Strategy & Calendar Planning",
-    "description": "A platform-by-platform content plan built around your brand and realistic posting capacity, not a generic template."
+    number: '02',
+    title: 'Strategy & Content Planning',
+    body: 'We develop your platform mix, content pillars, posting approach, campaign priorities, and monthly content calendar around your business goals.',
   },
   {
-    "number": "3",
-    "title": "Content Creation & Community Management",
-    "description": "Ongoing posting and engagement begin with your approval process built in from the start."
+    number: '03',
+    title: 'Creation & Approval',
+    body: 'Our team creates the agreed content and prepares it for your review. Nothing is published under your brand without the approval process defined for your engagement.',
   },
   {
-    "number": "4",
-    "title": "Monthly Reporting & Strategy Adjustment",
-    "description": "Regular performance reviews, with the content strategy refined based on what's actually resonating."
-  }
+    number: '04',
+    title: 'Publishing & Community Management',
+    body: 'Approved content is scheduled and published across the selected platforms. We also monitor comments, messages, mentions, and other relevant interactions according to your plan.',
+  },
+  {
+    number: '05',
+    title: 'Reporting & Optimization',
+    body: 'At the end of each reporting cycle, we review performance and identify what should continue, change, or be tested next. Your strategy evolves based on actual performance rather than assumptions.',
+  },
 ]
-  const timeline = service?.timeline || "An initial social audit is typically delivered within a few business days. Content strategy and the first month's calendar are usually ready within one to two weeks of starting, with regular posting and community management beginning immediately after your approval.\n\nSocial growth builds gradually rather than in a single visible jump, meaningful engagement and follower growth typically become noticeable within two to three months of consistent management, though the exact pace depends on platform, industry, and starting point."
 
-  if (!steps?.length) return null
-
+export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our Structured Process"
+          eyebrow="Execution framework"
+          title="Social Media Management Process"
         >
-          How we collaborate from initial scoping and strategic discovery to deployment and iterative refinement.
+          A structured management process rather than a monthly content drop, so the strategy can
+          improve cycle after cycle.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={step.number} className="group relative flex min-h-64 flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {step.number || String(index + 1).padStart(2, '0')}
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
-                  {step.description}
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+                  {step.body}
                 </p>
               </div>
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
-                    Deliverable
-                  </span>
-                  <span className="text-xs font-semibold text-frame-fg">
-                    {step.deliverable}
-                  </span>
-                </div>
-              )}
+              <span
+                aria-hidden="true"
+                className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-200 group-hover:text-frame-accent-fg"
+              >
+                Phase 0{index + 1}
+              </span>
             </div>
           ))}
-        </div>
 
-        {timeline?.table && (
-          <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-            <table className="w-full text-left">
-              {timeline.table.headers && (
-                <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                  <tr>
-                    {timeline.table.headers.map((h, i) => (
-                      <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                        {h}
-                      </th>
-                    ))}
-                  </tr>
-                </thead>
-              )}
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timeline.table.rows?.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20">
-                    {row.map((cell, cIdx) => (
-                      <td key={cIdx} className="p-4 md:p-6 font-medium text-frame-fg">
-                        {cell}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="flex min-h-64 flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              Transparency by default
+            </span>
+            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
+              Your strategy evolves based on actual performance rather than assumptions, and every
+              reporting cycle explains what should continue, what should change, and what should be
+              tested next.
+            </p>
           </div>
-        )}
+        </div>
       </div>
     </section>
   )

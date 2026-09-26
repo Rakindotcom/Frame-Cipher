@@ -8,6 +8,7 @@ import { BLOG_CATEGORIES, getMergedPostsFromStorage } from "@/lib/blog/getBlogPo
 import { getAuthorBySlug } from "@/lib/authors/getAuthors";
 import { AuthorProfile } from "@/types/author";
 import { WordPressSidebar } from "./WordPressSidebar";
+import { BASE_URL } from "@/lib/seo/site";
 import { sanitizeBlogHtml } from "@/lib/blog/sanitizeHtml";
 import { SOCIAL_LABELS, SocialIcon } from "@/components/icons/SocialIcon";
 import {
@@ -48,6 +49,26 @@ function authorSlugOf(profile: AuthorProfile | undefined, fallbackName: string):
     .replace(/^-+|-+$/g, "");
 }
 
+function blocksToHtml(blocks: any[]): string {
+  if (!Array.isArray(blocks) || blocks.length === 0) return "";
+  return blocks
+    .map((b) => {
+      const text = typeof b === "string" ? b : b?.content || "";
+      const type = b?.type || "paragraph";
+      if (type.startsWith("heading_h") || type.startsWith("h")) {
+        const level = type.slice(-1);
+        return `<h${level}>${text}</h${level}>`;
+      }
+      if (type === "blockquote" || type === "callout") return `<blockquote>${text}</blockquote>`;
+      if (type === "code" || type === "formula") return `<pre><code>${text}</code></pre>`;
+      if (type === "image" && b?.meta?.url) {
+        return `<figure><img src="${b.meta.url}" alt="${b.meta.alt || ""}" /><figcaption>${b.meta.caption || ""}</figcaption></figure>`;
+      }
+      return text ? `<p>${text}</p>` : "";
+    })
+    .join("");
+}
+
 export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, authorProfile }: BlogPostClientViewProps) {
   const [post, setPost] = useState<DetailedBlogPost>(initialPost);
   const [allPosts, setAllPosts] = useState<DetailedBlogPost[]>(initialAllPosts);
@@ -66,26 +87,24 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
       .catch(() => {});
   }, [authorProfile.slug]);
 
-  // Sync client-side with CMS posts in localStorage or Firestore
+  // Sync client-side with CMS posts from unified server API
   useEffect(() => {
-    try {
-      const stored = localStorage.getItem("framecipher_admin_blog_posts");
-      if (stored) {
-        const merged = getMergedPostsFromStorage(stored);
-        setAllPosts(merged);
-        const current = merged.find((p) => p.slug === initialPost.slug);
-        if (current) setPost(current);
-      }
-    } catch {}
-
     fetch("/api/blog")
       .then((res) => (res.ok ? res.json() : []))
       .then((remotePosts) => {
         if (Array.isArray(remotePosts) && remotePosts.length > 0) {
-          const merged = getMergedPostsFromStorage(JSON.stringify(remotePosts));
+          const merged = getMergedPostsFromStorage(remotePosts);
           setAllPosts(merged);
-          const current = merged.find((p) => p.slug === initialPost.slug);
-          if (current) setPost(current);
+          const current = merged.find((p) => p.slug === initialPost.slug || p.id === initialPost.id);
+          if (current) {
+            // Only update if current has content/blocks, never erase server-rendered content
+            setPost((prev) => ({
+              ...prev,
+              ...current,
+              content: current.content?.trim() ? current.content : prev.content,
+              blocks: current.blocks && current.blocks.length > 0 ? current.blocks : prev.blocks,
+            }));
+          }
         }
       })
       .catch(() => {});
@@ -97,7 +116,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
       localStorage.setItem(viewsKey, currentViews.toString());
       setPost((prev) => ({ ...prev, views: currentViews }));
     } catch {}
-  }, [initialPost.slug]);
+  }, [initialPost.slug, initialPost.id]);
 
   // Reading progress scroll tracker
   useEffect(() => {
@@ -129,8 +148,10 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
     }
   };
 
-  // Schema.org Graph injection
-  const articleUrl = post.canonicalUrl || `https://framecipher.com/blog/${post.slug}`;
+  // Schema.org Graph injection adhering to Specification Points 14, 19, 27, 28, 35
+  const articleUrl = (post.canonicalUrl || `${BASE_URL}/blog/${post.slug}`).replace(/\/$/, "");
+  const authorSlug = authorSlugOf(authorProfile, post.author);
+  const authorId = `${BASE_URL}/authors/${authorSlug}#person`;
 
   const schemaJson = {
     "@context": "https://schema.org",
@@ -141,48 +162,70 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
         headline: post.title,
         description: post.metaDescription || post.excerpt,
         image: post.featuredImage?.url
-          ? (post.featuredImage.url.startsWith("http") ? post.featuredImage.url : `https://framecipher.com${post.featuredImage.url}`)
-          : "https://framecipher.com/logo.png",
+          ? (post.featuredImage.url.startsWith("http") ? post.featuredImage.url : `${BASE_URL}${post.featuredImage.url}`)
+          : `${BASE_URL}/logo.png`,
         author: {
-          "@type": "Person",
-          name: post.author,
-          jobTitle: post.authorRole || "Founder & Lead Strategist",
-          alumniOf: {
-            "@type": "CollegeOrUniversity",
-            name: "American International University-Bangladesh (AIUB)",
-            url: "https://aiub.edu",
-          },
+          "@id": authorId,
         },
         publisher: {
-          "@type": "Organization",
-          name: "Frame Cipher",
-          logo: {
-            "@type": "ImageObject",
-            url: "https://framecipher.com/logo.png",
-          },
+          "@id": `${BASE_URL}/#organization`,
+        },
+        mainEntityOfPage: {
+          "@id": `${articleUrl}#webpage`,
         },
         datePublished: post.publishDate ? `${post.publishDate}T00:00:00.000Z` : undefined,
       },
       {
+        "@type": "Person",
+        "@id": authorId,
+        name: post.author,
+        url: `${BASE_URL}/authors/${authorSlug}/`,
+        jobTitle: post.authorRole || "Founder & Lead Strategist",
+        alumniOf: {
+          "@type": "CollegeOrUniversity",
+          name: "American International University-Bangladesh (AIUB)",
+          url: "https://aiub.edu",
+        },
+        worksFor: {
+          "@id": `${BASE_URL}/#organization`,
+        },
+      },
+      {
+        "@type": "WebPage",
+        "@id": `${articleUrl}#webpage`,
+        url: `${articleUrl}/`,
+        name: `${post.title} | Frame Cipher`,
+        isPartOf: {
+          "@id": `${BASE_URL}/#website`,
+        },
+        about: {
+          "@id": `${articleUrl}#article`,
+        },
+        breadcrumb: {
+          "@id": `${articleUrl}#breadcrumb`,
+        },
+      },
+      {
         "@type": "BreadcrumbList",
+        "@id": `${articleUrl}#breadcrumb`,
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://framecipher.com",
+            item: `${BASE_URL}/`,
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Blog",
-            item: "https://framecipher.com/blog",
+            item: `${BASE_URL}/blog/`,
           },
           {
             "@type": "ListItem",
             position: 3,
             name: post.title,
-            item: articleUrl,
+            item: `${articleUrl}/`,
           },
         ],
       },
@@ -190,6 +233,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
         ? [
             {
               "@type": "FAQPage",
+              "@id": `${articleUrl}#faq`,
               mainEntity: post.faqs.map((f) => ({
                 "@type": "Question",
                 name: f.question,
@@ -209,7 +253,9 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
       {/* Schema.org Injection */}
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaJson) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schemaJson).replace(/</g, "\\u003c"),
+        }}
       />
 
       {/* Reading Progress Bar (Fixed Top) */}
@@ -296,7 +342,11 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
               <span>&bull;</span>
               <span className="flex items-center gap-1.5">
                 <Eye className="h-3.5 w-3.5 text-frame-muted-fg/70" />
-                <span>{(post.views || 1).toLocaleString()} {(post.views || 1) === 1 ? "read" : "reads"}</span>
+                <span>
+                  {post.views > 0
+                    ? `${post.views.toLocaleString()} ${post.views === 1 ? "read" : "reads"}`
+                    : "View count not tracked"}
+                </span>
               </span>
               <button
                 onClick={handleShare}
@@ -405,10 +455,12 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
                   </section>
                 ))}
               </div>
-            ) : post.content ? (
+            ) : (post.content || (post.blocks && post.blocks.length > 0)) ? (
               <div
-                className="font-body text-base text-frame-muted-fg leading-relaxed space-y-4 prose prose-invert max-w-none"
-                dangerouslySetInnerHTML={{ __html: sanitizeBlogHtml(post.content) }}
+                className="blog-article-content font-body text-base leading-relaxed space-y-4 prose prose-invert max-w-none"
+                dangerouslySetInnerHTML={{
+                  __html: sanitizeBlogHtml(post.content || blocksToHtml(post.blocks || [])),
+                }}
               />
             ) : null}
 
