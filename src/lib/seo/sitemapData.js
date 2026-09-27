@@ -5,6 +5,7 @@ import { CANONICAL_BLOG_POSTS } from "../blog/canonicalPosts";
 import { BLOG_CATEGORIES, blogCategorySlug, isLegacyDemoPost } from "../blog/getBlogPosts";
 import { CANONICAL_AUTHORS } from "../authors/canonicalAuthors";
 import { getBlogPostsFromFirestore, getAuthorProfilesFromFirestore } from "../firebase";
+import { ALL_ADS_CALCULATORS } from "../../data/calculators/allAdsCalculatorsConfig";
 
 export const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || siteUrl || "https://framecipher.info").replace(/\/$/, "");
 export const SITE_CONTENT_UPDATED = new Date("2026-09-24T00:00:00.000Z");
@@ -39,6 +40,17 @@ export function corePageEntries() {
   return ["/", "/about", "/services", "/projects", "/case-studies", "/blog", "/authors", "/contact", "/privacy", "/terms"].map(
     (path) => ({ path })
   );
+}
+
+export function calculatorPageEntries() {
+  const calcRoutes = ALL_ADS_CALCULATORS.map((calc) => ({
+    path: `/calculators/${calc.slug}`,
+  }));
+  return [
+    { path: "/calculators" },
+    { path: "/tools/ads-calculator" },
+    ...calcRoutes,
+  ];
 }
 
 // Static service, legacy service, and case-study pages (cache-bust safe).

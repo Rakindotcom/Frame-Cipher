@@ -1,0 +1,28 @@
+Auditing 1545 files across repository...
+Found 26 potential duplicate instances:
+[framecipherweb-3959eb37a773.json:11] "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/framecipher-gsc%40framecipherweb.iam.gserviceaccount.com",
+[src/components/admin/authors/AuthorProfileEditor.tsx:179] seoTitle: seoTitle.trim() || `${name.trim() || "Author"} — ${jobTitle || "FrameCipher"} — FrameCipher`,
+[src/components/admin/authors/AuthorProfileEditor.tsx:663] {seoTitle || `${name || "Author"} — ${jobTitle || "FrameCipher"} — FrameCipher`}
+[src/components/services/content-writing/case-study-writing/WhyChoose.jsx:26] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher for Case Study Writing">
+[src/components/services/content-writing/content-strategy/WhyChoose.jsx:30] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher for Content Strategy">
+[src/components/services/content-writing/email-copywriting/WhyChoose.jsx:38] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
+[src/components/services/content-writing/landing-page-copy/WhyChoose.jsx:34] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
+[src/components/services/content-writing/product-descriptions/WhyChoose.jsx:34] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
+[src/components/services/content-writing/sales-copywriting/WhyChoose.jsx:34] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
+[src/components/services/paid-advertising/amazon-ads/WhyChoose.jsx:42] <SectionIntro eyebrow="Why Framecipher" title="Why Businesses Choose Framecipher for Amazon Ads" />
+[src/components/services/paid-advertising/lead-generation-ads/WhyChoose.jsx:46] <SectionIntro eyebrow="Why Framecipher" title="Why Businesses Choose Framecipher for Lead Generation" />
+[src/components/services/paid-advertising/microsoft-ads/WhyChoose.jsx:53] <SectionIntro eyebrow="Why Framecipher" title="Why Businesses Choose Framecipher for Microsoft Ads" />
+[src/components/services/paid-advertising/remarketing/WhyChoose.jsx:38] <SectionIntro eyebrow="Why Framecipher" title="What You Get With Framecipher" />
+[src/components/services/seo/adsense-approval/WhyChoose.jsx:34] <SectionIntro eyebrow="The Framecipher standard" title="Why Choose Framecipher for AdSense Approval">
+[src/components/services/seo/ai-search-optimization/WhyChoose.jsx:50] <SectionIntro eyebrow="The Framecipher standard" title="Why Choose Framecipher for AI Search Optimization">
+[src/components/services/seo/ecommerce-seo/WhyChoose.jsx:30] <SectionIntro eyebrow="The Framecipher standard" title="Why Choose Framecipher for Ecommerce SEO">
+[src/components/services/seo/international-seo/WhyChoose.jsx:50] <SectionIntro eyebrow="The Framecipher difference" title="Why Choose Framecipher for International SEO">
+[src/components/services/seo/keyword-research/WhyChoose.jsx:26] <SectionIntro eyebrow="The Framecipher difference" title="Why Choose Framecipher for Keyword Research">
+[src/components/services/seo/penalty-recovery/WhyChoose.jsx:34] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher for Penalty Recovery">
+[src/components/services/seo/seo-audit/WhyChoose.jsx:26] <SectionIntro eyebrow="The Framecipher difference" title="Why Choose Framecipher for SEO Audits">
+[src/components/services/seo/seo-strategy/WhyChoose.jsx:26] <SectionIntro eyebrow="The Framecipher standard" title="Why Choose Framecipher for SEO Strategy">
+[src/components/services/social-media-management/content-calendar-strategy/WhyChoose.jsx:40] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
+[src/components/services/social-media-management/reporting/WhyChoose.jsx:40] <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
+[src/components/services/website-design-development/custom-development/WhyChoose.jsx:38] <SectionIntro eyebrow="The Framecipher Advantage" title="Why Choose Framecipher for Custom &amp; Next.js Development" align="center">
+[src/components/services/website-design-development/shopify/WhyChoose.jsx:38] <SectionIntro eyebrow="The Framecipher Advantage" title="Why Choose Framecipher for Shopify Development" align="center">
+[src/components/services/website-design-development/webflow/WhyChoose.jsx:42] <SectionIntro eyebrow="The Framecipher Advantage" title="Why Choose Framecipher for Webflow Development" align="center">

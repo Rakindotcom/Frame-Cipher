@@ -176,7 +176,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
       socialLinks,
       status: targetStatus || status,
       publishDate: publishDate || new Date().toISOString().split("T")[0],
-      seoTitle: seoTitle.trim() || `${name.trim() || "Author"} — ${jobTitle || "FrameCipher"} — FrameCipher`,
+      seoTitle: seoTitle.trim() || (jobTitle.trim() && jobTitle.trim() !== "FrameCipher" ? `${name.trim() || "Author"} — ${jobTitle.trim()} | Frame Cipher` : `${name.trim() || "Author"} | Frame Cipher`),
       metaDescription: metaDescription.trim(),
       focusKeyword: focusKeyword.trim(),
       tags,
@@ -660,7 +660,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
                   {SITE_URL}/authors/{finalSlug}
                 </div>
                 <div className="text-sm text-[#1D4ED8] leading-snug line-clamp-2 font-medium">
-                  {seoTitle || `${name || "Author"} — ${jobTitle || "FrameCipher"} — FrameCipher`}
+                  {seoTitle || (jobTitle && jobTitle !== "FrameCipher" ? `${name || "Author"} — ${jobTitle} | Frame Cipher` : `${name || "Author"} | Frame Cipher`)}
                 </div>
                 <div className="text-[11px] text-[#64748B] leading-snug line-clamp-2">
                   {metaDescription || shortBio || "Author profile for FrameCipher contributors."}

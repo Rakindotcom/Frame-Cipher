@@ -1,0 +1,47 @@
+Checking metadata in 32 page/layout files...
+[app/about/page.jsx] title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse'
+[app/about/page.jsx] title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse'
+[app/about/page.jsx] title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse'
+[app/about/page.jsx] title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse'
+[app/admin/seo-health/page.tsx] title: "SEO Link Health & Schema Intelligence — FrameCipher Admin"
+[app/admin/technical-seo/page.tsx] title: "Technical SEO & Redirects — FrameCipher Admin"
+[app/authors/page.tsx] title: "Authors | FrameCipher"
+[app/authors/page.tsx] title: "Authors | FrameCipher"
+[app/authors/page.tsx] title: "Authors | FrameCipher"
+[app/authors/[slug]/page.tsx] title: "Author Not Found | FrameCipher"
+[app/authors/[slug]/page.tsx] title: `${author.name} | Frame Cipher`
+[app/blog/page.tsx] title: "Blog & Growth Playbooks | FrameCipher"
+[app/blog/page.tsx] title: "Blog & Growth Playbooks | FrameCipher"
+[app/blog/page.tsx] title: "Blog & Growth Playbooks | FrameCipher"
+[app/blog/page.tsx] title: "Blog & Growth Playbooks | FrameCipher"
+[app/blog/[slug]/page.tsx] title: "Strategic Blueprint | FrameCipher Blog"
+[app/calculators/page.jsx] title: 'All Advertising Calculators | Free Media Planning Tools | Frame Cipher'
+[app/calculators/page.jsx] title: 'All Advertising Calculators | Frame Cipher Media Science Suite'
+[app/calculators/[service]/page.jsx] title: 'Calculator Not Found | Frame Cipher'
+[app/case-studies/page.jsx] title: 'Case Studies | Frame Cipher'
+[app/case-studies/page.jsx] title: 'Case Studies | Frame Cipher'
+[app/case-studies/page.jsx] title: 'Case Studies | Frame Cipher'
+[app/case-studies/page.jsx] title: 'Case Studies | Frame Cipher'
+[app/contact/page.jsx] title: 'Contact | Frame Cipher'
+[app/contact/page.jsx] title: 'Contact | Frame Cipher'
+[app/contact/page.jsx] title: 'Contact | Frame Cipher'
+[app/contact/page.jsx] title: 'Contact | Frame Cipher'
+[app/layout.jsx] title: { default: 'Frame Cipher | 360 Marketing, Media & Technology Agency', }
+[app/layout.jsx] title: 'Frame Cipher | 360 Marketing, Media & Technology Agency'
+[app/layout.jsx] title: 'Frame Cipher | 360 Marketing, Media & Technology Agency'
+[app/page.jsx] title: 'Frame Cipher | 360 Marketing, Media & Technology Agency'
+[app/page.jsx] title: 'Frame Cipher | 360 Marketing, Media & Technology Agency'
+[app/page.jsx] title: 'Frame Cipher | 360 Marketing, Media & Technology Agency'
+[app/privacy/page.jsx] title: 'Privacy Policy | Frame Cipher'
+[app/projects/page.jsx] title: 'Work | Frame Cipher'
+[app/projects/page.jsx] title: 'Work | Frame Cipher'
+[app/projects/page.jsx] title: 'Work | Frame Cipher'
+[app/services/page.jsx] title: 'Digital Marketing, Web & Software Development Services | FrameCipher'
+[app/services/page.jsx] title: 'Digital Marketing, Web & Software Development Services | FrameCipher'
+[app/services/page.jsx] title: 'Digital Marketing, Web & Software Development Services | FrameCipher'
+[app/services/page.jsx] title: 'Digital Marketing, Web & Software Development Services | FrameCipher'
+[app/terms/page.jsx] title: 'Terms of Service | Frame Cipher'
+[app/tools/ads-calculator/page.jsx] title: 'Ads Budget & ROAS Calculator | Paid Media Planning Suite | Frame Cipher'
+[app/tools/ads-calculator/page.jsx] title: 'Ads Budget & ROAS Calculator | Paid Media Planning Suite | Frame Cipher'
+[app/tools/ads-calculator/page.jsx] title: 'Ads Budget & ROAS Calculator | Frame Cipher'
+[app/tools/ads-calculator/[service]/page.jsx] title: 'Calculator Not Found | Frame Cipher'

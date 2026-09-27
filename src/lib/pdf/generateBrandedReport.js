@@ -58,7 +58,7 @@ export async function generateBrandedPdfReport({
     pdf.setTextColor('#71717A')
     const footerCompany = `FRAME CIPHER | ${contact.email} | ${contact.phone} | ${contact.location}`
     pdf.text(footerCompany, marginX, pageHeight - 28)
-    pdf.text(`https://framecipher.com  |  Page ${pageNum}`, pageWidth - marginX - 130, pageHeight - 28)
+    pdf.text(`${siteUrl}  |  Page ${pageNum}`, pageWidth - marginX - 130, pageHeight - 28)
   }
 
   const drawPageHeader = () => {

@@ -1,0 +1,28 @@
+Fetching live titles for 23 routes...
+
+--- LIVE RENDERED TITLES AUDIT ---
+✅ OK [/] => "Frame Cipher | 360 Marketing, Media &amp; Technology Agency" (Frame Cipher count: 1)
+✅ OK [/about] => "About Frame Cipher | Multinational Tech, Media &amp; Growth Powerhouse" (Frame Cipher count: 1)
+✅ OK [/services] => "Digital Marketing, Web &amp; Software Development Services | FrameCipher" (Frame Cipher count: 1)
+✅ OK [/services/360-marketing] => "360 Marketing Agency in Bangladesh | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/services/paid-advertising] => "Paid Advertising Services in Bangladesh | Framecipher" (Frame Cipher count: 1)
+✅ OK [/services/paid-advertising/meta-ads] => "Meta Ads Management Services | Framecipher" (Frame Cipher count: 1)
+✅ OK [/services/paid-advertising/google-ads] => "Google Ads Management Services | Framecipher" (Frame Cipher count: 1)
+✅ OK [/services/website-design-development] => "Website Design &amp; Development Services in BD | Framecipher" (Frame Cipher count: 1)
+✅ OK [/services/seo] => "Search Engine Optimization Services in Bangladesh | Framecipher" (Frame Cipher count: 1)
+✅ OK [/calculators] => "All Advertising Calculators | Free Media Planning Tools | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/calculators/google-ads] => "Google Ads Budget &amp; ROAS Calculator | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/calculators/meta-ads] => "Meta Ads Budget &amp; ROAS Calculator | Facebook &amp; Instagram | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/calculators/tiktok-ads] => "TikTok Ads Budget &amp; 6s Retention Calculator | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/calculators/linkedin-ads] => "LinkedIn Ads Budget &amp; B2B CAC Calculator | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/calculators/amazon-ads] => "Amazon Ads ACoS &amp; TACoS Calculator | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/tools/ads-calculator] => "Ads Budget &amp; ROAS Calculator | Paid Media Planning Suite | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/projects] => "Work | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/case-studies] => "Case Studies | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/blog] => "Blog &amp; Growth Playbooks | FrameCipher" (Frame Cipher count: 1)
+✅ OK [/authors] => "Authors | FrameCipher" (Frame Cipher count: 1)
+✅ OK [/contact] => "Contact | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/privacy] => "Privacy Policy | Frame Cipher" (Frame Cipher count: 1)
+✅ OK [/terms] => "Terms of Service | Frame Cipher" (Frame Cipher count: 1)
+
+No duplicate Frame Cipher found in live rendered titles of tested routes.

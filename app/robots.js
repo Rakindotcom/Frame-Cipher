@@ -41,5 +41,6 @@ export default function robots() {
   return {
     rules: publicCrawlerRules,
     sitemap: `${BASE_URL}/sitemap.xml`,
+    host: BASE_URL,
   }
 }

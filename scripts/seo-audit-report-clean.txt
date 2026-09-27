@@ -1,0 +1,24 @@
+Starting comprehensive SEO audit on 19 key URLs...
+
+================== SEO AUDIT REPORT ==================
+✅ [/] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Frame Cipher | 360 Marketing, Media &amp; Tec..."
+✅ [/about] HTTP 200 | H1: 1 | Schemas: 4 | Title: "About Frame Cipher | Multinational Tech, Medi..."
+✅ [/services] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Digital Marketing, Web &amp; Software Develop..."
+✅ [/services/360-marketing] HTTP 200 | H1: 1 | Schemas: 2 | Title: "360 Marketing Agency in Bangladesh | Frame Ci..."
+✅ [/services/paid-advertising] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Paid Advertising Services in Bangladesh | Fra..."
+✅ [/services/paid-advertising/meta-ads] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Meta Ads Management Services | Framecipher..."
+✅ [/services/paid-advertising/google-ads] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Google Ads Management Services | Framecipher..."
+✅ [/services/website-design-development] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Website Design &amp; Development Services in ..."
+✅ [/services/seo] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Search Engine Optimization Services in Bangla..."
+✅ [/calculators] HTTP 200 | H1: 1 | Schemas: 1 | Title: "All Advertising Calculators | Free Media Plan..."
+✅ [/calculators/google-ads] HTTP 200 | H1: 1 | Schemas: 3 | Title: "Google Ads Budget &amp; ROAS Calculator | Fra..."
+✅ [/calculators/meta-ads] HTTP 200 | H1: 1 | Schemas: 3 | Title: "Meta Ads ROAS &amp; Budget Calculator | Frame..."
+✅ [/calculators/amazon-ads] HTTP 200 | H1: 1 | Schemas: 3 | Title: "Amazon Ads ACoS &amp; TACoS Calculator | Fram..."
+✅ [/case-studies] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Case Studies | Frame Cipher..."
+✅ [/blog] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Blog &amp; Growth Playbooks | FrameCipher..."
+✅ [/authors] HTTP 200 | H1: 1 | Schemas: 1 | Title: "Authors | FrameCipher..."
+✅ [/contact] HTTP 200 | H1: 1 | Schemas: 2 | Title: "Contact | Frame Cipher..."
+✅ [/privacy] HTTP 200 | H1: 1 | Schemas: 1 | Title: "Privacy Policy | Frame Cipher..."
+✅ [/terms] HTTP 200 | H1: 1 | Schemas: 1 | Title: "Terms of Service | Frame Cipher..."
+======================================================
+Audit complete. Total issues detected: 0

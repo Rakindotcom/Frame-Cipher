@@ -134,7 +134,7 @@ export const ALL_ADS_CALCULATORS = [
     shortTitle: 'Meta Ads',
     serviceSlug: '/services/paid-advertising/meta-ads',
     badge: 'Facebook & Instagram',
-    metaTitle: 'Meta Ads Budget & ROAS Calculator | Facebook & Instagram | Frame Cipher',
+    metaTitle: 'Meta Ads ROAS & Budget Calculator | Frame Cipher',
     metaDescription:
       'Calculate Facebook & Instagram ad spend, Advantage+ ROAS, creative fatigue frequency, and break-even CPA. Free Meta ads media planner.',
     headline: 'Model Meta Auction CPMs, Frequency & Unit Margin ROAS',
