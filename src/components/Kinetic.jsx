@@ -57,7 +57,7 @@ export function SectionIntro({ eyebrow, title, children, className = '', index, 
   const center = align === 'center'
   return (
     <div className={`mb-14 md:mb-20 max-w-4xl ${center ? 'mx-auto text-center md:max-w-5xl' : ''} ${className}`}>
-      <div className={`flex items-center gap-4 ${center ? 'justify-center' : ''}`}>
+      <div className={`flex flex-wrap items-center gap-4 ${center ? 'justify-center' : ''}`}>
         {index && (
           <span
             aria-hidden="true"
@@ -70,7 +70,7 @@ export function SectionIntro({ eyebrow, title, children, className = '', index, 
           aria-hidden="true"
           className={`h-0.5 w-10 flex-none bg-frame-accent md:w-16 ${center ? 'hidden' : ''}`}
         />
-        <SectionLabel>{eyebrow}</SectionLabel>
+        <SectionLabel className="min-w-0 [overflow-wrap:anywhere]">{eyebrow}</SectionLabel>
         {center && <span aria-hidden="true" className="h-0.5 w-10 flex-none bg-frame-accent md:w-16" />}
       </div>
       <h2 className={`mt-4 font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg ${center ? 'mx-auto' : ''}`}>

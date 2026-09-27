@@ -70,7 +70,7 @@ const SERVICE_CARDS = [
 
 export default function CalculatorServiceBridge() {
   return (
-    <section className="border-2 border-frame-border bg-frame-bg p-6 md:p-10" id="related-services">
+    <section className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="related-services">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-8">
         <div>
           <div className="flex items-center gap-2">
@@ -89,9 +89,9 @@ export default function CalculatorServiceBridge() {
 
         <Link
           href="/contact"
-          className="inline-flex items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+          className="inline-flex w-full max-w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg md:w-auto"
         >
-          Book a Free Media Audit <ArrowRight className="ml-2 h-4 w-4" />
+          Book a Free Media Audit <ArrowRight className="h-4 w-4 shrink-0" />
         </Link>
       </div>
 

@@ -159,6 +159,23 @@ function GscChart({
           if (!activeMetrics.has(key)) return null;
           const { min, max } = getScale(key as keyof ChartPoint);
           const invert = key === "position"; // lower position number is higher up
+
+          if (data.length === 1) {
+            const x = getX(0);
+            const y = getY(data[0][key as keyof ChartPoint] as number, min, max, invert);
+            return (
+              <circle
+                key={key}
+                cx={x}
+                cy={y}
+                r="6"
+                fill={cfg.color}
+                stroke="#fff"
+                strokeWidth="2"
+              />
+            );
+          }
+
           const pathD = data
             .map((d, i) => {
               const x = getX(i);
@@ -538,34 +555,48 @@ export function SearchConsoleAnalytics() {
   const [error, setError] = useState<string | null>(null);
   const [rangeDropdownOpen, setRangeDropdownOpen] = useState(false);
 
-  const fetchGSCData = (selectedRange: string) => {
+  const fetchGSCData = (selectedRange: string, isRefresh: boolean = false) => {
     let cancelled = false;
     setLoading(true);
     setError(null);
 
-    fetch(`/api/search-console?range=${selectedRange}`, {
-      cache: "no-store",
-      credentials: "include",
-    })
-      .then(async (r) => {
+    const doFetch = async () => {
+      try {
+        const headers: Record<string, string> = {};
+        try {
+          const { auth } = await import("@/lib/firebase");
+          if (auth?.currentUser) {
+            const token = await auth.currentUser.getIdToken();
+            if (token) headers["Authorization"] = `Bearer ${token}`;
+          }
+        } catch {}
+
+        const url = `/api/search-console?range=${selectedRange}${isRefresh ? "&refresh=true" : ""}`;
+        const r = await fetch(url, {
+          cache: "no-store",
+          credentials: "include",
+          headers,
+        });
+
         const body = await r.json().catch(() => null);
         if (!r.ok || !body || body.error) {
           throw new Error(body?.error || `Request failed (${r.status})`);
         }
-        return body;
-      })
-      .then((d) => {
+
         if (!cancelled) {
-          setData(d);
+          setData(body);
           setLoading(false);
         }
-      })
-      .catch((e: Error) => {
-        if (cancelled) return;
-        setError(e.message);
-        setData(null);
-        setLoading(false);
-      });
+      } catch (e: any) {
+        if (!cancelled) {
+          setError(e?.message || "Failed to load Google Search Console data");
+          setData(null);
+          setLoading(false);
+        }
+      }
+    };
+
+    doFetch();
 
     return () => {
       cancelled = true;
@@ -688,7 +719,7 @@ export function SearchConsoleAnalytics() {
 
         <div className="flex items-center gap-2">
           <button
-            onClick={() => fetchGSCData(range)}
+            onClick={() => fetchGSCData(range, true)}
             disabled={loading}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded border border-[#DADCE0] bg-white text-xs font-medium text-[#3C4043] hover:bg-[#F8F9FA] transition-colors shadow-sm disabled:opacity-50"
           >

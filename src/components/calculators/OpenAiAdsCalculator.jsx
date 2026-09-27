@@ -355,7 +355,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <button
               onClick={() => s.id < step && setStep(s.id)}
               disabled={s.id > step}
-              className={`flex h-8 w-8 items-center justify-center text-xs font-mono font-bold transition-all ${
+              className={`flex h-10 w-10 sm:h-8 sm:w-8 items-center justify-center text-xs font-mono font-bold transition-all ${
                 s.id === step
                   ? 'border-2 border-frame-accent bg-frame-accent text-frame-accent-fg'
                   : s.id < step
@@ -449,7 +449,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-frame-accent">
               {industry.label} Conversational Search Benchmarks
             </div>
-            <div className="mt-3 grid grid-cols-2 gap-4 sm:grid-cols-4 text-center">
+            <div className="mt-3 grid grid-cols-1 gap-4 min-[400px]:grid-cols-2 text-center sm:grid-cols-4">
               <div className="border-r border-frame-border pr-2">
                 <span className="text-[10px] uppercase font-bold text-frame-muted-fg">Base Citation CPC</span>
                 <p className="font-mono text-lg font-bold text-frame-fg">${industry.cpc}</p>
@@ -469,10 +469,10 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             </div>
           </div>
 
-          <div className="flex justify-end pt-4">
+          <div className="flex flex-col gap-3 pt-4 sm:flex-row sm:items-center sm:justify-end">
             <button
               onClick={() => setStep(2)}
-              className="flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg"
+              className="flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
             >
               Continue to AI Placement Selection <ArrowRight className="h-4 w-4" />
             </button>
@@ -599,16 +599,16 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             </div>
           </div>
 
-          <div className="flex justify-between pt-4">
+          <div className="flex flex-col-reverse gap-3 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <button
               onClick={() => setStep(1)}
-              className="border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
+              className="w-full justify-center border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
             >
               Back
             </button>
             <button
               onClick={() => setStep(3)}
-              className="flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg"
+              className="flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
             >
               Continue to Revenue Targets <ArrowRight className="h-4 w-4" />
             </button>
@@ -686,23 +686,23 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             </div>
           </div>
 
-          <div className="flex justify-between pt-4">
+          <div className="flex flex-col-reverse gap-3 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <button
               onClick={() => setStep(2)}
-              className="border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
+              className="w-full justify-center border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
             >
               Back
             </button>
-            <div className="flex gap-3">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
               <button
                 onClick={() => setStep(4)}
-                className="border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
+                className="w-full justify-center border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
               >
                 Relevance Overrides
               </button>
               <button
                 onClick={() => setStep(5)}
-                className="flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg"
+                className="flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
               >
                 Calculate Results <ArrowRight className="h-4 w-4" />
               </button>
@@ -786,16 +786,16 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             </div>
           </div>
 
-          <div className="flex justify-between pt-4">
+          <div className="flex flex-col-reverse gap-3 pt-4 sm:flex-row sm:items-center sm:justify-between">
             <button
               onClick={() => setStep(3)}
-              className="border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
+              className="w-full justify-center border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg hover:border-frame-fg"
             >
               Back
             </button>
             <button
               onClick={() => setStep(5)}
-              className="flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg"
+              className="flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
             >
               View Results Forecast <ArrowRight className="h-4 w-4" />
             </button>
@@ -887,7 +887,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
           </div>
 
           {/* Funnel */}
-          <div className="border border-frame-border bg-frame-bg p-6 md:p-8">
+          <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
               Conversational Citation Funnel
             </h4>
@@ -997,7 +997,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
           </div>
 
           {/* AI-Style Strategic Diagnostics */}
-          <div className="border border-frame-border bg-frame-bg p-6 md:p-8">
+          <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <div className="flex items-center gap-2 text-frame-accent">
               <Sparkles className="h-5 w-5" />
               <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
@@ -1017,7 +1017,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
           </div>
 
           {/* Summary Narrative */}
-          <div className="border-l-2 border-frame-accent bg-frame-muted/20 p-6 text-sm leading-relaxed text-frame-fg">
+          <div className="border-l-2 border-frame-accent bg-frame-muted/20 p-4 text-sm leading-relaxed text-frame-fg sm:p-6">
             <span className="font-bold text-frame-accent uppercase tracking-wider block text-xs mb-2">
               Executive Summary
             </span>
@@ -1025,7 +1025,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
           </div>
 
           {/* Two-Way Service Link: ChatGPT Ads Service */}
-          <div className="border-2 border-frame-accent/40 bg-frame-muted/10 p-6 md:p-8">
+          <div className="border-2 border-frame-accent/40 bg-frame-muted/10 p-4 sm:p-6 md:p-8">
             <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
@@ -1038,16 +1038,16 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
                   Frame Cipher optimizes entity citation graphs, semantic search relevance, and conversational commerce funnels for modern AI platforms.
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3">
+              <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
                 <Link
                   href="/services/paid-advertising/chatgpt-ads"
-                  className="border-2 border-frame-accent bg-frame-accent px-5 py-3 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+                  className="flex w-full items-center justify-center border-2 border-frame-accent bg-frame-accent px-5 py-3 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
                 >
                   Explore ChatGPT Ads Service
                 </Link>
                 <Link
                   href="/services/paid-advertising"
-                  className="border border-frame-border px-5 py-3 text-xs font-bold uppercase tracking-wider text-frame-fg hover:border-frame-fg transition"
+                  className="flex w-full items-center justify-center border border-frame-border px-5 py-3 text-center text-xs font-bold uppercase tracking-wider text-frame-fg transition hover:border-frame-fg sm:w-auto"
                 >
                   All Paid Media Services
                 </Link>

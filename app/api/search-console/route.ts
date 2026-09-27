@@ -10,7 +10,7 @@ const SCOPE = "https://www.googleapis.com/auth/webmasters.readonly";
 const ROW_LIMIT = 25;
 const CHART_MAX_DAYS = 90;
 const TOKEN_TTL_MS = 50 * 60 * 1000;
-const CACHE_TTL_MS = 30 * 60 * 1000;
+const CACHE_TTL_MS = 5 * 60 * 1000;
 
 const RANGE_DAYS: Record<string, number> = {
   "24hours": 1,
@@ -250,11 +250,12 @@ export async function GET(req: NextRequest) {
     );
   }
 
+  const forceRefresh = new URL(req.url).searchParams.get("refresh") === "true";
   const { startDate, endDate, days } = getDateRange(range);
   const cacheKey = `${siteUrl}|${range}|${startDate}|${endDate}`;
 
   const hit = responseCache.get(cacheKey);
-  if (hit && hit.expiresAt > Date.now()) {
+  if (!forceRefresh && hit && hit.expiresAt > Date.now()) {
     return NextResponse.json({ ...(hit.payload as object), cached: true });
   }
 
@@ -264,21 +265,54 @@ export async function GET(req: NextRequest) {
 
     // Totals come from a dimension-less aggregate query. Summing the top-25
     // query rows undercounts, so the two must never be conflated.
+    // dataState: "all" is essential to include fresh data from the last 24-48 hours.
     const [totals, queries, pages, countries, devices, byDate] = await Promise.all([
-      gscQuery(endpoint.token, endpoint.siteUrl, { startDate, endDate }),
-      gscQuery(endpoint.token, endpoint.siteUrl, { startDate, endDate, dimensions: ["query"], rowLimit: ROW_LIMIT }),
-      gscQuery(endpoint.token, endpoint.siteUrl, { startDate, endDate, dimensions: ["page"], rowLimit: ROW_LIMIT }),
-      gscQuery(endpoint.token, endpoint.siteUrl, { startDate, endDate, dimensions: ["country"], rowLimit: ROW_LIMIT }),
-      gscQuery(endpoint.token, endpoint.siteUrl, { startDate, endDate, dimensions: ["device"], rowLimit: ROW_LIMIT }),
+      gscQuery(endpoint.token, endpoint.siteUrl, { startDate, endDate, dataState: "all" }),
       gscQuery(endpoint.token, endpoint.siteUrl, {
         startDate,
         endDate,
+        dataState: "all",
+        dimensions: ["query"],
+        rowLimit: ROW_LIMIT,
+      }),
+      gscQuery(endpoint.token, endpoint.siteUrl, {
+        startDate,
+        endDate,
+        dataState: "all",
+        dimensions: ["page"],
+        rowLimit: ROW_LIMIT,
+      }),
+      gscQuery(endpoint.token, endpoint.siteUrl, {
+        startDate,
+        endDate,
+        dataState: "all",
+        dimensions: ["country"],
+        rowLimit: ROW_LIMIT,
+      }),
+      gscQuery(endpoint.token, endpoint.siteUrl, {
+        startDate,
+        endDate,
+        dataState: "all",
+        dimensions: ["device"],
+        rowLimit: ROW_LIMIT,
+      }),
+      gscQuery(endpoint.token, endpoint.siteUrl, {
+        startDate,
+        endDate,
+        dataState: "all",
         dimensions: ["date"],
         rowLimit: Math.min(days, CHART_MAX_DAYS),
       }),
     ]);
 
-    const total = totals[0];
+    let total = totals[0];
+    if (!total && byDate.length > 0) {
+      const totalClicks = byDate.reduce((s, r) => s + r.clicks, 0);
+      const totalImp = byDate.reduce((s, r) => s + r.impressions, 0);
+      const avgCtr = totalImp > 0 ? totalClicks / totalImp : 0;
+      const avgPos = byDate.length > 0 ? byDate.reduce((s, r) => s + r.position, 0) / byDate.length : 0;
+      total = { keys: [], clicks: totalClicks, impressions: totalImp, ctr: avgCtr, position: avgPos };
+    }
     const payload = {
       connected: true,
       isLive: true,

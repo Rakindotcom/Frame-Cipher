@@ -4,6 +4,7 @@ import React, { useState, useMemo, useRef, useEffect } from "react";
 import Link from "next/link";
 import { BlogPostItem, FAQItem } from "@/types/blog";
 import { FRAMECIPHER_REGISTRY, ServiceItemConfig } from "@/lib/registry/servicesRegistry";
+import { useAutoSlug } from "@/lib/seo/slugify";
 import { MediaLibraryModal, MediaItem } from "@/components/admin/cms/MediaLibraryModal";
 import {
   ArrowLeft,
@@ -158,8 +159,16 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
 
   // Post Details State
   const [title, setTitle] = useState(post.title || "");
-  const [slug, setSlug] = useState(post.slug || "");
-  const [isEditingSlug, setIsEditingSlug] = useState(false);
+  const {
+    slug,
+    finalSlug,
+    isEditing: isEditingSlug,
+    isOverridden: isSlugOverridden,
+    setSlug,
+    startEditing: startEditingSlug,
+    stopEditing: stopEditingSlug,
+    resetToAuto: resetSlugToAuto,
+  } = useAutoSlug({ source: title, initialSlug: post.slug, fallback: "guide" });
   const [category, setCategory] = useState(post.category || "Growth Marketing");
   const [selectedCategories, setSelectedCategories] = useState<string[]>(
     post.categories && post.categories.length > 0
@@ -1347,13 +1356,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
   // Save document
   const handleSaveDocument = (targetStatus?: "published" | "draft") => {
     const finalStatus = targetStatus || status;
-    const targetSlug =
-      slug.trim() ||
-      title
-        .toLowerCase()
-        .replace(/[^a-z0-9]+/g, "-")
-        .replace(/^-+|-+$/g, "") ||
-      "guide";
+    const targetSlug = finalSlug;
 
     const editorHtml = contentEditableRef.current?.innerHTML || htmlContent;
     // Selection UI is temporary and must never be stored in the published article HTML.
@@ -1560,12 +1563,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
               <textarea
                 rows={2}
                 value={title}
-                onChange={(e) => {
-                  setTitle(e.target.value);
-                  if (!slug || isEditingSlug) {
-                    setSlug(e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, ""));
-                  }
-                }}
+                onChange={(e) => setTitle(e.target.value)}
                 placeholder="Add title"
                 className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-xl sm:text-2xl md:text-3xl font-heading font-bold rounded-xl border border-[#CBD5E1] bg-white text-[#0F172A] placeholder-slate-400 focus:outline-none focus:border-[#1D4ED8] shadow-xs resize-none leading-snug"
               />
@@ -1582,25 +1580,44 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                       type="text"
                       value={slug}
                       onChange={(e) => setSlug(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          stopEditingSlug();
+                        }
+                      }}
+                      autoFocus
+                      aria-label="Edit post URL slug"
                       className="px-2 py-0.5 bg-white border border-[#1D4ED8] rounded text-xs text-[#0F172A] font-mono"
                     />
                     <button
-                      onClick={() => setIsEditingSlug(false)}
+                      onClick={stopEditingSlug}
                       className="px-2.5 py-0.5 bg-[#1D4ED8] text-white text-[11px] font-heading font-bold rounded"
                     >
                       OK
                     </button>
                   </div>
                 ) : (
-                  <span className="font-bold text-[#1D4ED8] truncate">{slug || "guide"}</span>
+                  <span className="font-bold text-[#1D4ED8] truncate">{finalSlug}</span>
                 )}
                 {!isEditingSlug && (
-                  <button
-                    onClick={() => setIsEditingSlug(true)}
-                    className="ml-1 text-[11px] font-heading font-bold uppercase text-[#1D4ED8] hover:underline"
-                  >
-                    Edit
-                  </button>
+                  <>
+                    <button
+                      onClick={startEditingSlug}
+                      className="ml-1 text-[11px] font-heading font-bold uppercase text-[#1D4ED8] hover:underline"
+                    >
+                      Edit
+                    </button>
+                    {isSlugOverridden && (
+                      <button
+                        onClick={resetSlugToAuto}
+                        title="Regenerate the URL from the title"
+                        className="text-[11px] font-heading font-bold uppercase text-[#94A3B8] hover:text-[#1D4ED8] hover:underline"
+                      >
+                        Reset
+                      </button>
+                    )}
+                  </>
                 )}
               </div>
             </div>
@@ -2690,8 +2707,22 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
                               type="text"
                               value={slug}
                               onChange={(e) => setSlug(e.target.value)}
+                              aria-label="Post URL slug"
                               className="w-full p-2 bg-white border border-[#CBD5E1] rounded-xl text-xs font-mono text-[#0F172A]"
                             />
+                            <p className="mt-1 text-[10px] text-[#94A3B8]">
+                              {isSlugOverridden ? (
+                                <button
+                                  type="button"
+                                  onClick={resetSlugToAuto}
+                                  className="font-heading font-bold uppercase text-[#1D4ED8] hover:underline"
+                                >
+                                  Reset to auto
+                                </button>
+                              ) : (
+                                "Auto-generated from the title. Type here to override."
+                              )}
+                            </p>
                           </div>
 
                           {/* Meta Description */}

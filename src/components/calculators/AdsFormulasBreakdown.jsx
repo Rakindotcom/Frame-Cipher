@@ -19,7 +19,7 @@ export default function AdsFormulasBreakdown() {
     ADS_FORMULAS_EXPLAINED[0]
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-10" id="mathematical-derivations">
+    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="mathematical-derivations">
       {/* Header */}
       <div className="border-b border-frame-border pb-6">
         <div className="flex items-center gap-2">

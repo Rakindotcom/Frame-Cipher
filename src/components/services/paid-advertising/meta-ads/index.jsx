@@ -26,6 +26,7 @@ const marqueeItems = [
 ]
 
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingMetaAdsService({ service }) {
   return (
@@ -43,6 +44,7 @@ export default function PaidAdvertisingMetaAdsService({ service }) {
       <WhyChoose />
       <Pricing />
       <ServiceCalculatorBanner platform="meta" />
+      <RelatedAdsPlatforms service={service} />
       <PerformanceCommitment />
       <Timeline />
       <FAQ service={service} />

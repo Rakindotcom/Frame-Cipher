@@ -30,7 +30,7 @@ export default function QuickCalculatorBar() {
   const cpaReduction = (100 - (1 / ((1 + ctrLift / 100) * (1 + cvrLift / 100))) * 100).toFixed(1)
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
+    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between border-b border-frame-border pb-6">
         <div>
           <div className="flex items-center gap-2">
@@ -106,21 +106,21 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 border border-frame-border bg-frame-bg p-5 text-center">
+            <div className="grid grid-cols-1 gap-4 border border-frame-border bg-frame-bg p-4 text-center sm:grid-cols-2 sm:p-5">
               <div>
                 <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                   Zero-Profit Hurdle
                 </div>
-                <div className="mt-2 font-mono text-3xl md:text-4xl font-black text-frame-fg">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-frame-fg">
                   {breakEvenROAS}x
                 </div>
                 <div className="mt-1 text-[10px] text-rose-400 uppercase font-bold">Break-Even ROAS</div>
               </div>
-              <div className="border-l border-frame-border pl-4">
+              <div className="border-frame-border sm:border-l sm:pl-4">
                 <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                   Target Safe Scale
                 </div>
-                <div className="mt-2 font-mono text-3xl md:text-4xl font-black text-emerald-400">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-emerald-400">
                   {recommendedROAS}x
                 </div>
                 <div className="mt-1 text-[10px] text-emerald-400 uppercase font-bold">Recommended ROAS</div>
@@ -132,8 +132,8 @@ export default function QuickCalculatorBar() {
         {/* TAB 2: Target CPA */}
         {activeTab === 'targetcpa' && (
           <div className="grid gap-6 md:grid-cols-2 md:items-center">
-            <div className="grid grid-cols-3 gap-3">
-              <div>
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+              <div className="min-w-0">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg block">
                   AOV ($ / ৳)
                 </label>
@@ -145,7 +145,7 @@ export default function QuickCalculatorBar() {
                   className="mt-1 w-full border border-frame-border bg-frame-bg px-3 py-2 font-mono text-sm font-bold text-frame-fg outline-none focus:border-frame-accent"
                 />
               </div>
-              <div>
+              <div className="min-w-0">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg block">
                   COGS (%)
                 </label>
@@ -158,7 +158,7 @@ export default function QuickCalculatorBar() {
                   className="mt-1 w-full border border-frame-border bg-frame-bg px-3 py-2 font-mono text-sm font-bold text-frame-fg outline-none focus:border-frame-accent"
                 />
               </div>
-              <div>
+              <div className="min-w-0">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg block">
                   Desired Net (%)
                 </label>
@@ -173,21 +173,21 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 border border-frame-border bg-frame-bg p-5 text-center">
+            <div className="grid grid-cols-1 gap-4 border border-frame-border bg-frame-bg p-4 text-center sm:grid-cols-2 sm:p-5">
               <div>
                 <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                   Absolute Max CPA
                 </div>
-                <div className="mt-2 font-mono text-2xl md:text-3xl font-black text-frame-fg">
+                <div className="mt-2 font-mono text-xl sm:text-2xl md:text-3xl font-black text-frame-fg">
                   ${maxCpa}
                 </div>
                 <div className="mt-1 text-[10px] text-amber-400 uppercase font-bold">Zero-Profit Cap</div>
               </div>
-              <div className="border-l border-frame-border pl-4">
+              <div className="border-frame-border sm:border-l sm:pl-4">
                 <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                   Target Bidding CPA
                 </div>
-                <div className="mt-2 font-mono text-2xl md:text-3xl font-black text-emerald-400">
+                <div className="mt-2 font-mono text-xl sm:text-2xl md:text-3xl font-black text-emerald-400">
                   ${targetCpa}
                 </div>
                 <div className="mt-1 text-[10px] text-emerald-400 uppercase font-bold">With {targetNetProfitPercent}% Profit</div>
@@ -199,8 +199,8 @@ export default function QuickCalculatorBar() {
         {/* TAB 3: CPM to CPC */}
         {activeTab === 'cpmtocpc' && (
           <div className="grid gap-6 md:grid-cols-2 md:items-center">
-            <div className="grid grid-cols-2 gap-4">
-              <div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div className="min-w-0">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg block">
                   Auction CPM ($ / ৳)
                 </label>
@@ -214,7 +214,7 @@ export default function QuickCalculatorBar() {
                 />
                 <span className="text-[10px] text-frame-muted-fg">Cost per 1,000 views</span>
               </div>
-              <div>
+              <div className="min-w-0">
                 <label className="text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg block">
                   Click-Through Rate (%)
                 </label>
@@ -235,7 +235,7 @@ export default function QuickCalculatorBar() {
               <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                 Resulting Effective Cost Per Click
               </div>
-              <div className="mt-2 font-mono text-3xl md:text-4xl font-black text-frame-accent">
+              <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-frame-accent">
                 ${estCpc}
               </div>
               <div className="mt-1 text-[11px] text-frame-muted-fg">
@@ -281,23 +281,23 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 border border-frame-border bg-frame-bg p-5 text-center">
+            <div className="grid grid-cols-1 gap-4 border border-frame-border bg-frame-bg p-4 text-center sm:grid-cols-2 sm:p-5">
               <div>
                 <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                   Conversion Multiplier
                 </div>
-                <div className="mt-2 font-mono text-3xl md:text-4xl font-black text-emerald-400">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-emerald-400">
                   +{((Number(compoundMultiplier) - 1) * 100).toFixed(0)}%
                 </div>
                 <div className="mt-1 text-[10px] text-emerald-400 uppercase font-bold">
                   {compoundMultiplier}x Total Output
                 </div>
               </div>
-              <div className="border-l border-frame-border pl-4">
+              <div className="border-frame-border sm:border-l sm:pl-4">
                 <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
                   CPA Reduction
                 </div>
-                <div className="mt-2 font-mono text-3xl md:text-4xl font-black text-frame-accent">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-frame-accent">
                   -{cpaReduction}%
                 </div>
                 <div className="mt-1 text-[10px] text-frame-accent uppercase font-bold">

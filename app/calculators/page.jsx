@@ -46,7 +46,7 @@ export default function CalculatorsIndexPage() {
         actions={
           <Link
             href="/tools/ads-calculator"
-            className="inline-flex items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+            className="inline-flex w-full max-w-full items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition sm:w-auto"
           >
             Launch All-in-One Multi-Channel Engine &rarr;
           </Link>

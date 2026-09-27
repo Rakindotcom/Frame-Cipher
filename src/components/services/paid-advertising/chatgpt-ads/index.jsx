@@ -27,6 +27,7 @@ const marqueeItems = [
 ]
 
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingChatgptAdsService({ service }) {
   return (
@@ -43,6 +44,7 @@ export default function PaidAdvertisingChatgptAdsService({ service }) {
       <Process />
       <Pricing />
       <ServiceCalculatorBanner platform="openai" />
+      <RelatedAdsPlatforms service={service} />
       <ServiceAreas />
       <Timeline />
       <Reporting />

@@ -35,7 +35,7 @@ export default function AdsMetricsHandbook() {
   })
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-10" id="metrics-encyclopedia">
+    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="metrics-encyclopedia">
       {/* Section Header */}
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-8">
         <div>
@@ -171,7 +171,7 @@ export default function AdsMetricsHandbook() {
                       <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-frame-accent block mb-3">
                         Healthy Benchmark Ranges by Industry
                       </span>
-                      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                      <div className="grid grid-cols-1 gap-3 min-[400px]:grid-cols-2 sm:grid-cols-4">
                         <div className="border border-frame-border bg-frame-bg p-3">
                           <span className="text-[10px] font-bold uppercase text-frame-muted-fg block">
                             E-Commerce / Retail

@@ -183,7 +183,7 @@ export default function AdsCalculatorSuite() {
           </div>
 
           {/* Render Active Calculator Component */}
-          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-10">
+          <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10">
             {activePlatform === 'meta' && <MetaAdsCalculator />}
             {activePlatform === 'google' && <GoogleAdsCalculator />}
             {activePlatform === 'tiktok' && <TikTokAdsCalculator />}

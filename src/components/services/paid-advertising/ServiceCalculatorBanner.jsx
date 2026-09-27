@@ -126,12 +126,12 @@ export default function ServiceCalculatorBanner({ platform = 'general' }) {
             </p>
           </div>
 
-          <div className="shrink-0 flex flex-wrap gap-4">
+          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:items-start">
             <Link
               href={cfg.href}
-              className="inline-flex items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+              className="inline-flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
             >
-              {cfg.ctaText} <ArrowRight className="ml-2 h-4 w-4" />
+              {cfg.ctaText} <ArrowRight className="h-4 w-4 shrink-0" />
             </Link>
           </div>
         </div>

@@ -43,6 +43,8 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    // Only include keys permitted by Firestore rules:
+    // sessionId, path, device, browser, os, country, referrer, isCalculation, timestamp
     const hit = {
       sessionId,
       path: pathName,
@@ -50,20 +52,21 @@ export async function POST(req: NextRequest) {
       browser,
       os,
       country,
-      countryCode,
-      flag,
       referrer,
       isCalculation,
     };
 
     try {
-      await addDoc(collection(db, "analytics_hits"), { ...hit, timestamp: serverTimestamp() });
-    } catch (error: any) {
-      console.error("Analytics hit write failed:", error?.code || error?.message);
-      return NextResponse.json(
-        { success: false, error: "Could not record the hit." },
-        { status: 503, headers: { "Cache-Control": "no-store" } }
+      const writePromise = addDoc(collection(db, "analytics_hits"), {
+        ...hit,
+        timestamp: serverTimestamp(),
+      });
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error("Analytics write timeout")), 4000)
       );
+      await Promise.race([writePromise, timeoutPromise]);
+    } catch (error: any) {
+      console.warn("Analytics hit write warning:", error?.code || error?.message);
     }
 
     return NextResponse.json(

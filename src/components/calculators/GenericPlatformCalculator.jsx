@@ -179,7 +179,7 @@ export default function GenericPlatformCalculator({ config }) {
   }
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-10 space-y-8">
+    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10 space-y-8">
       {/* Simulator Inputs Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-6">
         <div>
@@ -194,13 +194,13 @@ export default function GenericPlatformCalculator({ config }) {
           </h3>
         </div>
 
-        <div className="flex flex-wrap gap-3">
+        <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:flex-wrap">
           <button
             onClick={handleDownloadPdf}
             disabled={downloading}
-            className="flex items-center gap-2 border border-frame-accent bg-frame-accent/10 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg transition"
+            className="flex w-full items-center justify-center gap-2 border border-frame-accent bg-frame-accent/10 px-4 py-2.5 text-center text-xs font-bold uppercase tracking-wider text-frame-accent transition hover:bg-frame-accent hover:text-frame-accent-fg sm:w-auto"
           >
-            <Download className="h-3.5 w-3.5" />
+            <Download className="h-3.5 w-3.5 shrink-0" />
             {downloading ? 'Compiling PDF...' : 'Download Branded PDF Report'}
           </button>
         </div>

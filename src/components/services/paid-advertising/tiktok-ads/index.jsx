@@ -28,6 +28,7 @@ const marqueeItems = [
 ]
 
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingTiktokAdsService({ service }) {
   return (
@@ -46,6 +47,7 @@ export default function PaidAdvertisingTiktokAdsService({ service }) {
       <Process />
       <Pricing />
       <ServiceCalculatorBanner platform="tiktok" />
+      <RelatedAdsPlatforms service={service} />
       <Markets />
       <Timeline />
       <Guarantee />

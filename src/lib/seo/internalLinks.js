@@ -43,6 +43,24 @@ export const COMPARISON_SETS = PLATFORM_COMPARISON_SLUGS.reduce((sets, slug) => 
 
 export const COMPARISON_ANCHOR_PREFIX = 'compare with'
 
+export const ADS_PLATFORM_SLUGS = [
+  'paid-advertising/google-ads',
+  'paid-advertising/meta-ads',
+  'paid-advertising/linkedin-ads',
+  'paid-advertising/chatgpt-ads',
+  'paid-advertising/pinterest-ads',
+  'paid-advertising/tiktok-ads',
+  'paid-advertising/microsoft-ads',
+  'paid-advertising/amazon-ads',
+  'paid-advertising/remarketing',
+  'paid-advertising/lead-generation-ads',
+]
+
+export const ADS_COMPARISON_SETS = ADS_PLATFORM_SLUGS.reduce((sets, slug) => {
+  sets[slug] = ADS_PLATFORM_SLUGS.filter((candidate) => candidate !== slug)
+  return sets
+}, {})
+
 export const GEO_CONTEXT_LINKS = {
   seo: { href: '/services/seo/local-seo', anchor: 'Local SEO in Dhaka' },
   'website-design-development': {
@@ -224,6 +242,32 @@ export function getGeoContextLink(page) {
   const link = toLink(entry)
   if (!link || link.href === page.fullPath) return null
   return link
+}
+
+/**
+ * Every ads platform page links to the other nine with a "compare with X
+ * management" anchor, so any two platform pages are one click apart in both
+ * directions. Ordered so the first links stay the index-adjacent siblings the
+ * link map already prioritises.
+ */
+export function getAdsComparisonLinks(page, limit) {
+  const set = ADS_COMPARISON_SETS[page?.slug]
+  if (!set) return []
+
+  const siblingFirst = new Set(getIndexAdjacentSiblings(page, 3).map((item) => item.slug))
+
+  const links = [
+    ...set.filter((slug) => siblingFirst.has(slug)),
+    ...set.filter((slug) => !siblingFirst.has(slug)),
+  ]
+    .map((slug) => toLink(slug))
+    .filter(Boolean)
+    .map((link) => ({
+      ...link,
+      anchor: `compare with ${link.anchor.replace(/\s+management$/i, '')}`,
+    }))
+
+  return typeof limit === 'number' ? links.slice(0, limit) : links
 }
 
 export function getServiceLinkPlan(page, options = {}) {

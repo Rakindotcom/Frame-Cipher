@@ -119,6 +119,198 @@ function emptyDailyCounts(days: number): AnalyticsSummary["dailyCounts"] {
   return counts;
 }
 
+function countryCodeToFlag(isoCode: string): string {
+  if (!isoCode || isoCode.length !== 2) return "🌍";
+  const codePoints = isoCode
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
+const COMMON_FLAGS: Record<string, string> = {
+  Bangladesh: "🇧🇩",
+  "United States": "🇺🇸",
+  USA: "🇺🇸",
+  "United Kingdom": "🇬🇧",
+  UK: "🇬🇧",
+  India: "🇮🇳",
+  Canada: "🇨🇦",
+  Australia: "🇦🇺",
+  Germany: "🇩🇪",
+  France: "🇫🇷",
+  UAE: "🇦🇪",
+  "United Arab Emirates": "🇦🇪",
+  Singapore: "🇸🇬",
+  Pakistan: "🇵🇰",
+  Malaysia: "🇲🇾",
+};
+
+function resolveClientFlag(countryOrCode: string): string {
+  if (!countryOrCode) return "🌍";
+  if (countryOrCode.length === 2) return countryCodeToFlag(countryOrCode);
+  return COMMON_FLAGS[countryOrCode] || "🌍";
+}
+
+async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSummary | null> {
+  try {
+    const { db } = await import("@/lib/firebase");
+    if (!db) return null;
+    const { collection, getDocs, query, orderBy, limit } = await import("firebase/firestore");
+    const snap = await getDocs(
+      query(collection(db, "analytics_hits"), orderBy("timestamp", "desc"), limit(2000))
+    );
+    if (!snap || snap.empty) {
+      return {
+        hasData: false,
+        liveVisitors: 0,
+        todayVisitors: 0,
+        lifetimeVisitors: 0,
+        totalVisitors: 0,
+        totalHits: 0,
+        totalCalculations: 0,
+        browsers: [],
+        countries: [],
+        devices: [],
+        operatingSystems: [],
+        recentHits: [],
+        topPages: [],
+        dailyCounts: emptyDailyCounts(days),
+        source: "firestore",
+        sourceError: null,
+        collectedFrom: null,
+        lastUpdated: new Date().toISOString(),
+      };
+    }
+
+    const allHits: PageHit[] = [];
+    snap.forEach((doc) => {
+      const data = doc.data() as any;
+      const ts = data.timestamp?.toMillis ? data.timestamp.toMillis() : (data.timestamp || 0);
+      allHits.push({
+        id: doc.id,
+        sessionId: data.sessionId || `anon-${doc.id}`,
+        path: data.path || "/",
+        timestamp: ts,
+        device: data.device || "Unknown",
+        browser: data.browser || "Unknown",
+        os: data.os || "Unknown",
+        country: data.country || "Unknown",
+        countryCode: data.countryCode || "",
+        flag: data.flag || resolveClientFlag(data.country || ""),
+        referrer: data.referrer || "direct",
+        isCalculation: Boolean(data.isCalculation),
+      });
+    });
+
+    const now = Date.now();
+    const LIVE_WINDOW_MS = 5 * 60 * 1000;
+    const d = new Date();
+    d.setHours(0, 0, 0, 0);
+    const todayStart = d.getTime();
+
+    const liveVisitors = new Set(
+      allHits.filter((h) => h.timestamp >= now - LIVE_WINDOW_MS).map((h) => h.sessionId)
+    ).size;
+    const todayVisitors = new Set(
+      allHits.filter((h) => h.timestamp >= todayStart).map((h) => h.sessionId)
+    ).size;
+    const lifetimeVisitors = new Set(allHits.map((h) => h.sessionId)).size;
+    const totalCalculations = allHits.filter((h) => h.isCalculation).length;
+
+    const countBy = (key: keyof PageHit) => {
+      const map = new Map<string, number>();
+      for (const h of allHits) {
+        const val = String(h[key] || "Unknown");
+        map.set(val, (map.get(val) || 0) + 1);
+      }
+      return map;
+    };
+
+    const toMap = (entries: [string, number][]) =>
+      entries
+        .map(([name, count]) => ({ name, count }))
+        .filter((e) => e.count > 0)
+        .sort((a, b) => b.count - a.count);
+
+    const totalHits = allHits.length;
+    const devices = (["Desktop", "Mobile", "Tablet"] as const).map((name) => ({
+      name,
+      count: allHits.filter((h) => h.device === name).length,
+      percentage: totalHits
+        ? Math.round((allHits.filter((h) => h.device === name).length / totalHits) * 100)
+        : 0,
+      color: DEVICE_COLORS[name] || "#1D4ED8",
+    }));
+
+    const browsers = toMap([...countBy("browser").entries()]).map((e) => ({
+      ...e,
+      percentage: totalHits ? Math.round((e.count / totalHits) * 100) : 0,
+      color: BROWSER_COLORS[e.name] || "#1D4ED8",
+    }));
+
+    const operatingSystems = toMap([...countBy("os").entries()]).map((e) => ({
+      ...e,
+      percentage: totalHits ? Math.round((e.count / totalHits) * 100) : 0,
+    }));
+
+    const countries = toMap([...countBy("country").entries()]).map((e) => ({
+      country: e.name,
+      flag: resolveClientFlag(e.name),
+      visitors: e.count,
+      percentage: totalHits ? Number(((e.count / totalHits) * 100).toFixed(1)) : 0,
+    }));
+
+    const pageMap = new Map<string, number>();
+    for (const hit of allHits) pageMap.set(hit.path, (pageMap.get(hit.path) || 0) + 1);
+    const topPages = [...pageMap.entries()]
+      .map(([path, count]) => ({ path, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 15);
+
+    const dailyCounts: { date: string; dayLabel: string; visitors: number; calculations: number }[] = [];
+    const today = new Date();
+    for (let i = days - 1; i >= 0; i -= 1) {
+      const cd = new Date(today);
+      cd.setDate(cd.getDate() - i);
+      const dateStr = cd.toLocaleDateString("en-US", { month: "short", day: "numeric" });
+      const dayLabel = cd.toLocaleDateString("en-US", { weekday: "short" });
+      const dayStart = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate()).getTime();
+      const dayEnd = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate() + 1).getTime();
+      const dayHits = allHits.filter((h) => h.timestamp >= dayStart && h.timestamp < dayEnd);
+      dailyCounts.push({
+        date: dateStr,
+        dayLabel,
+        visitors: new Set(dayHits.map((h) => h.sessionId)).size,
+        calculations: dayHits.filter((h) => h.isCalculation).length,
+      });
+    }
+
+    return {
+      hasData: totalHits > 0,
+      liveVisitors,
+      todayVisitors,
+      lifetimeVisitors,
+      totalVisitors: lifetimeVisitors,
+      totalHits,
+      totalCalculations,
+      browsers,
+      countries,
+      devices,
+      operatingSystems,
+      recentHits: allHits.slice(0, 50),
+      topPages,
+      dailyCounts,
+      source: "firestore",
+      sourceError: null,
+      collectedFrom: new Date(allHits[allHits.length - 1].timestamp).toISOString(),
+      lastUpdated: new Date().toISOString(),
+    };
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Reads the server-side analytics summary. When the endpoint is unreachable the
  * dashboard shows a genuine "no data / not connected" state instead of invented
@@ -141,7 +333,7 @@ export async function getFirestoreAnalyticsSummary(days: number = 28): Promise<A
     topPages: [],
     dailyCounts: emptyDailyCounts(days),
     source: "unavailable",
-    sourceError: "Could not reach the analytics endpoint.",
+    sourceError: null,
     collectedFrom: null,
     lastUpdated: new Date().toISOString(),
   };
@@ -149,41 +341,68 @@ export async function getFirestoreAnalyticsSummary(days: number = 28): Promise<A
   if (typeof window === "undefined") return fallback;
 
   try {
-    const res = await fetch(`/api/analytics?days=${days}`, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Analytics request failed with status ${res.status}`);
-    const data = await res.json();
-    if (!data || data.success !== true) throw new Error(data?.error || "Analytics request failed.");
+    const headers: Record<string, string> = {};
+    try {
+      const { auth } = await import("@/lib/firebase");
+      if (auth?.currentUser) {
+        const idToken = await auth.currentUser.getIdToken();
+        if (idToken) headers["Authorization"] = `Bearer ${idToken}`;
+      }
+    } catch {}
 
-    return {
-      hasData: Boolean(data.hasData),
-      liveVisitors: data.liveVisitors ?? 0,
-      todayVisitors: data.todayVisitors ?? 0,
-      lifetimeVisitors: data.lifetimeVisitors ?? 0,
-      totalVisitors: data.totalVisitors ?? 0,
-      totalHits: data.totalHits ?? 0,
-      totalCalculations: data.totalCalculations ?? 0,
-      browsers: (data.browsers ?? []).map((b: any) => ({
-        ...b,
-        color: b.color || BROWSER_COLORS[b.name] || "#94A3B8",
-      })),
-      countries: data.countries ?? [],
-      devices: (data.devices ?? []).map((d: any) => ({
-        ...d,
-        color: d.color || DEVICE_COLORS[d.name] || "#94A3B8",
-      })),
-      operatingSystems: data.operatingSystems ?? [],
-      recentHits: data.recentHits ?? [],
-      topPages: data.topPages ?? [],
-      dailyCounts: data.dailyCounts ?? emptyDailyCounts(days),
-      source: data.source === "firestore" ? "firestore" : "unavailable",
-      sourceError: data.sourceError ?? null,
-      collectedFrom: data.collectedFrom ?? null,
-      lastUpdated: data.lastUpdated ?? new Date().toISOString(),
-    };
+    const res = await fetch(`/api/analytics?days=${days}`, {
+      cache: "no-store",
+      credentials: "include",
+      headers,
+    });
+
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.success === true) {
+        return {
+          hasData: Boolean(data.hasData),
+          liveVisitors: data.liveVisitors ?? 0,
+          todayVisitors: data.todayVisitors ?? 0,
+          lifetimeVisitors: data.lifetimeVisitors ?? 0,
+          totalVisitors: data.totalVisitors ?? 0,
+          totalHits: data.totalHits ?? 0,
+          totalCalculations: data.totalCalculations ?? 0,
+          browsers: (data.browsers ?? []).map((b: any) => ({
+            ...b,
+            color: b.color || BROWSER_COLORS[b.name] || "#94A3B8",
+          })),
+          countries: data.countries ?? [],
+          devices: (data.devices ?? []).map((d: any) => ({
+            ...d,
+            color: d.color || DEVICE_COLORS[d.name] || "#94A3B8",
+          })),
+          operatingSystems: data.operatingSystems ?? [],
+          recentHits: data.recentHits ?? [],
+          topPages: data.topPages ?? [],
+          dailyCounts: data.dailyCounts ?? emptyDailyCounts(days),
+          source: data.source === "firestore" ? "firestore" : "unavailable",
+          sourceError: data.sourceError ?? null,
+          collectedFrom: data.collectedFrom ?? null,
+          lastUpdated: data.lastUpdated ?? new Date().toISOString(),
+        };
+      }
+    }
+
+    // Direct client-side Firestore query fallback (authenticated browser session)
+    const clientSummary = await queryClientFirestoreAnalytics(days);
+    if (clientSummary) {
+      return clientSummary;
+    }
+
+    return fallback;
   } catch (error: any) {
+    const clientSummary = await queryClientFirestoreAnalytics(days);
+    if (clientSummary) {
+      return clientSummary;
+    }
     return {
       ...fallback,
-      sourceError: error?.message || "Could not reach the analytics endpoint.",
+      sourceError: error?.message || null,
     };
   }
 }

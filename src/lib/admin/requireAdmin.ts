@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { SESSION_COOKIE, readSessionValue, type AdminIdentity } from "@/lib/admin/token";
+import { SESSION_COOKIE, readSessionValue, verifyFirebaseIdToken, type AdminIdentity } from "@/lib/admin/token";
 
 export interface AdminGuardResult {
   ok: boolean;
@@ -28,7 +28,18 @@ export async function requireAdmin(request: Request): Promise<AdminGuardResult> 
     .map((part) => part.trim())
     .find((part) => part.startsWith(`${SESSION_COOKIE}=`));
 
-  const identity = await readSessionValue(match ? match.slice(SESSION_COOKIE.length + 1) : null);
+  let identity = await readSessionValue(match ? match.slice(SESSION_COOKIE.length + 1) : null);
+
+  if (!identity) {
+    const authHeader = (typeof request.headers?.get === "function" ? request.headers.get("authorization") : "") || "";
+    if (authHeader.startsWith("Bearer ")) {
+      const token = authHeader.slice(7).trim();
+      const verified = await verifyFirebaseIdToken(token);
+      if (verified.success && verified.identity) {
+        identity = verified.identity;
+      }
+    }
+  }
 
   if (!identity) {
     return {

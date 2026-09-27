@@ -11,26 +11,26 @@ export default function MathEquationCard({ equation }) {
   if (!equation) return null
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 space-y-5">
+    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8 space-y-5">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-frame-border/80 pb-3">
-        <h4 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+      <div className="flex items-start justify-between gap-3 border-b border-frame-border/80 pb-3">
+        <h4 className="min-w-0 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg [overflow-wrap:anywhere]">
           {equation.name}
         </h4>
-        <span className="border border-frame-accent/40 bg-frame-accent/10 px-2.5 py-0.5 text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent">
+        <span className="shrink-0 border border-frame-accent/40 bg-frame-accent/10 px-2.5 py-0.5 text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent">
           Formula
         </span>
       </div>
 
       {/* Visual Stacked Textbook Equation Block */}
-      <div className="overflow-x-auto py-3">
-        <div className="inline-flex items-center gap-3 border border-frame-border/80 bg-frame-muted/15 px-6 py-5">
+      <div className="-mx-1 overflow-x-auto px-1 py-3">
+        <div className="inline-flex items-center gap-2 border border-frame-border/80 bg-frame-muted/15 px-3 py-4 sm:gap-3 sm:px-6 sm:py-5">
           {/* Left Hand Side */}
-          <span className="font-mono text-base md:text-xl font-extrabold text-frame-accent whitespace-nowrap">
+          <span className="whitespace-nowrap font-mono text-sm font-extrabold text-frame-accent sm:text-base md:text-xl">
             {equation.leftSide}
           </span>
 
-          <span className="font-mono text-lg md:text-2xl font-bold text-frame-fg">
+          <span className="font-mono text-base font-bold text-frame-fg sm:text-lg md:text-2xl">
             =
           </span>
 
@@ -39,22 +39,22 @@ export default function MathEquationCard({ equation }) {
             <div className="inline-flex items-center gap-2">
               <div className="inline-flex flex-col items-center">
                 {/* Numerator (Top) */}
-                <div className="text-center font-mono text-xs md:text-sm font-bold text-frame-fg px-3 pb-1 border-b-2 border-frame-accent w-full whitespace-nowrap">
+                <div className="w-full whitespace-nowrap border-b-2 border-frame-accent px-2 pb-1 text-center font-mono text-[11px] font-bold text-frame-fg sm:px-3 sm:text-xs md:text-sm">
                   {equation.numerator}
                 </div>
                 {/* Denominator (Bottom) */}
-                <div className="text-center font-mono text-xs md:text-sm font-semibold text-frame-muted-fg px-3 pt-1 w-full whitespace-nowrap">
+                <div className="w-full whitespace-nowrap px-2 pt-1 text-center font-mono text-[11px] font-semibold text-frame-muted-fg sm:px-3 sm:text-xs md:text-sm">
                   {equation.denominator}
                 </div>
               </div>
               {equation.suffix && (
-                <span className="font-mono text-xs md:text-sm font-bold text-frame-fg whitespace-nowrap">
+                <span className="whitespace-nowrap font-mono text-[11px] font-bold text-frame-fg sm:text-xs md:text-sm">
                   {equation.suffix}
                 </span>
               )}
             </div>
           ) : (
-            <span className="font-mono text-xs md:text-sm font-bold text-frame-fg">
+            <span className="font-mono text-[11px] font-bold text-frame-fg sm:text-xs md:text-sm">
               {equation.expression}
             </span>
           )}

@@ -34,6 +34,40 @@ function toCountMap(entries: [string, number][]): { name: string; count: number 
     .sort((a, b) => b.count - a.count);
 }
 
+function countryCodeToFlag(isoCode: string): string {
+  if (!isoCode || isoCode.length !== 2) return "🌍";
+  const codePoints = isoCode
+    .toUpperCase()
+    .split("")
+    .map((char) => 127397 + char.charCodeAt(0));
+  return String.fromCodePoint(...codePoints);
+}
+
+const COMMON_FLAGS: Record<string, string> = {
+  Bangladesh: "🇧🇩",
+  "United States": "🇺🇸",
+  USA: "🇺🇸",
+  "United Kingdom": "🇬🇧",
+  UK: "🇬🇧",
+  India: "🇮🇳",
+  Canada: "🇨🇦",
+  Australia: "🇦🇺",
+  Germany: "🇩🇪",
+  France: "🇫🇷",
+  UAE: "🇦🇪",
+  "United Arab Emirates": "🇦🇪",
+  Singapore: "🇸🇬",
+  Pakistan: "🇵🇰",
+  Malaysia: "🇲🇾",
+};
+
+function resolveFlag(countryOrCode: string, existingFlag?: string): string {
+  if (existingFlag && existingFlag !== "🌍" && existingFlag !== "") return existingFlag;
+  if (!countryOrCode) return "🌍";
+  if (countryOrCode.length === 2) return countryCodeToFlag(countryOrCode);
+  return COMMON_FLAGS[countryOrCode] || "🌍";
+}
+
 export async function GET(req: NextRequest) {
   const guard = await requireAdmin(req);
   if (!guard.ok) return guard.response;
@@ -130,7 +164,7 @@ export async function GET(req: NextRequest) {
     const flagByCountry = new Map(allHits.map((h) => [h.country, h.flag]));
     const countries = toCountMap([...countBy("country").entries()]).map((entry) => ({
       country: entry.name,
-      flag: flagByCountry.get(entry.name) || "🌍",
+      flag: resolveFlag(entry.name, flagByCountry.get(entry.name)),
       visitors: entry.count,
       percentage: countryTotal ? Number(((entry.count / countryTotal) * 100).toFixed(1)) : 0,
     }));

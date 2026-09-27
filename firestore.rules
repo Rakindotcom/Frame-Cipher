@@ -11,7 +11,7 @@ service cloud.firestore {
     // lives in src/lib/admin/token.ts and fails closed when it disagrees.
     // ---------------------------------------------------------------------------
     function adminEmails() {
-      return ['pervesmahedi@gmail.com'];
+      return ['pervesmahedi@gmail.com', 'mahedihasancareerbuilders@gmail.com'];
     }
 
     function isAdmin() {
@@ -181,7 +181,7 @@ service cloud.firestore {
     match /analytics_hits/{hitId} {
       allow create: if request.resource.data.keys().hasOnly([
           'sessionId', 'path', 'referrer', 'timestamp', 'isCalculation',
-          'browser', 'os', 'device', 'country'
+          'browser', 'os', 'device', 'country', 'countryCode', 'flag'
         ])
         && request.resource.data.keys().hasAll(['sessionId', 'path', 'timestamp'])
         && request.resource.data.sessionId is string
@@ -204,7 +204,13 @@ service cloud.firestore {
             && request.resource.data.device.size() <= 32))
         && (!('country' in request.resource.data)
           || (request.resource.data.country is string
-            && request.resource.data.country.size() <= 64));
+            && request.resource.data.country.size() <= 64))
+        && (!('countryCode' in request.resource.data)
+          || (request.resource.data.countryCode is string
+            && request.resource.data.countryCode.size() <= 16))
+        && (!('flag' in request.resource.data)
+          || (request.resource.data.flag is string
+            && request.resource.data.flag.size() <= 16));
       allow read, update, delete: if isAdmin();
     }
 

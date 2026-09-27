@@ -30,6 +30,7 @@ const marqueeItems = [
 ]
 
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingRemarketingService({ service }) {
   return (
@@ -50,6 +51,7 @@ export default function PaidAdvertisingRemarketingService({ service }) {
       <WhenNotRight />
       <Pricing />
       <ServiceCalculatorBanner platform="remarketing" />
+      <RelatedAdsPlatforms service={service} />
       <Markets />
       <Timeline />
       <Guarantee />

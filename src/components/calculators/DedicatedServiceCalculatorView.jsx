@@ -36,13 +36,13 @@ export default function DedicatedServiceCalculatorView({ config }) {
           <>
             <a
               href="#simulator"
-              className="inline-flex items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+              className="inline-flex w-full max-w-full items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition sm:w-auto"
             >
               Launch Simulator &rarr;
             </a>
             <Link
               href={config.serviceSlug}
-              className="inline-flex items-center justify-center border-2 border-frame-border px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg transition"
+              className="inline-flex w-full max-w-full items-center justify-center border-2 border-frame-border px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg transition sm:w-auto"
             >
               View {config.shortTitle} Service
             </Link>
@@ -195,16 +195,16 @@ export default function DedicatedServiceCalculatorView({ config }) {
                 </p>
               </div>
 
-              <div className="shrink-0 flex flex-wrap gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <Link
                   href={config.serviceSlug}
-                  className="inline-flex items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+                  className="inline-flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition sm:w-auto"
                 >
-                  Explore {config.shortTitle} Service <ArrowRight className="ml-2 h-4 w-4" />
+                  Explore {config.shortTitle} Service <ArrowRight className="h-4 w-4 shrink-0" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center justify-center border-2 border-frame-border px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg transition"
+                  className="inline-flex w-full items-center justify-center border-2 border-frame-border px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg transition sm:w-auto"
                 >
                   Book a Free Media Audit
                 </Link>

@@ -25,6 +25,7 @@ const marqueeItems = [
 ]
 
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingPinterestAdsService({ service }) {
   return (
@@ -40,6 +41,7 @@ export default function PaidAdvertisingPinterestAdsService({ service }) {
       <Process />
       <Pricing />
       <ServiceCalculatorBanner platform="pinterest" />
+      <RelatedAdsPlatforms service={service} />
       <Timeline />
       <Reporting />
       <Guarantee />

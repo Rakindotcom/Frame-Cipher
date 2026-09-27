@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import { AuthorProfile } from "@/types/author";
+import { useAutoSlug } from "@/lib/seo/slugify";
 import {
   buildPersonSchema,
 } from "@/lib/schema/personSchema";
@@ -43,8 +44,6 @@ const SOCIAL_FIELDS: { key: string; label: string; placeholder: string }[] = [
 
 export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEditorProps) {
   const [name, setName] = useState(author.name || "");
-  const [slug, setSlug] = useState(author.slug || "");
-  const [isEditingSlug, setIsEditingSlug] = useState(false);
   const [jobTitle, setJobTitle] = useState(author.jobTitle || "Founder & Lead Strategist");
   const [worksFor, setWorksFor] = useState(author.worksFor || "FrameCipher");
   const [shortBio, setShortBio] = useState(author.shortBio || "");
@@ -58,6 +57,17 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
   const [publishDate, setPublishDate] = useState(
     author.publishDate || new Date().toISOString().split("T")[0]
   );
+
+  const {
+    slug,
+    finalSlug,
+    isEditing: isEditingSlug,
+    isOverridden: isSlugOverridden,
+    setSlug,
+    startEditing: startEditingSlug,
+    stopEditing: stopEditingSlug,
+    resetToAuto: resetSlugToAuto,
+  } = useAutoSlug({ source: name, initialSlug: author.slug, fallback: "author" });
 
   // Author Image
   const [imageUrl, setImageUrl] = useState(author.image?.url || "");
@@ -150,12 +160,6 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
       descLen,
     };
   }, [focusKeyword, seoTitle, metaDescription, imageUrl, imageAlt]);
-
-  const slugFromName = name
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  const finalSlug = slug.trim() || slugFromName || "author";
 
   const handleSave = (targetStatus?: "published" | "draft") => {
     const updated: AuthorProfile = {
@@ -312,17 +316,34 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
                       type="text"
                       value={slug}
                       onChange={(e) => setSlug(e.target.value)}
-                      onBlur={() => setIsEditingSlug(false)}
+                      onBlur={stopEditingSlug}
+                      onKeyDown={(e) => {
+                        if (e.key === "Enter") {
+                          e.preventDefault();
+                          stopEditingSlug();
+                        }
+                      }}
                       autoFocus
+                      aria-label="Edit author URL slug"
                       className="flex-1 min-w-0 p-2 bg-[#F8FAFC] border border-[#1D4ED8] rounded-lg text-xs font-mono text-[#0F172A] focus:outline-none"
                     />
                   ) : (
                     <button
-                      onClick={() => setIsEditingSlug(true)}
+                      onClick={startEditingSlug}
                       className="flex-1 min-w-0 text-left p-2 bg-[#F8FAFC] border border-[#CBD5E1] rounded-lg text-xs font-mono text-[#1D4ED8] hover:border-[#1D4ED8] truncate"
                       title="Click to edit slug"
                     >
                       {finalSlug}
+                    </button>
+                  )}
+                  {!isEditingSlug && isSlugOverridden && (
+                    <button
+                      type="button"
+                      onClick={resetSlugToAuto}
+                      title="Regenerate the URL from the name"
+                      className="shrink-0 text-[11px] font-heading font-bold uppercase text-[#94A3B8] hover:text-[#1D4ED8] hover:underline"
+                    >
+                      Reset
                     </button>
                   )}
                   <span className="text-[10px] text-[#94A3B8] hidden sm:block shrink-0">

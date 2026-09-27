@@ -28,6 +28,7 @@ const marqueeItems = [
 ]
 
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingAmazonAdsService({ service }) {
   return (
@@ -46,6 +47,7 @@ export default function PaidAdvertisingAmazonAdsService({ service }) {
       <Process />
       <Pricing />
       <ServiceCalculatorBanner platform="amazon" />
+      <RelatedAdsPlatforms service={service} />
       <Markets />
       <Timeline />
       <Guarantee />
