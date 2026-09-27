@@ -26,7 +26,9 @@ const marqueeItems = [
   "Eligible International Markets"
 ]
 
-export default function PaidAdvertisingChatgptAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingChatgptAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -40,11 +42,12 @@ export default function PaidAdvertisingChatgptAdsService() {
       <WhyChoose />
       <Process />
       <Pricing />
+      <ServiceCalculatorBanner platform="openai" />
       <ServiceAreas />
       <Timeline />
       <Reporting />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

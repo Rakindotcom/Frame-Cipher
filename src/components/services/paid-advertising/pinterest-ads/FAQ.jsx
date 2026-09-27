@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is Pinterest Ads Management Service?',
     answer: 'Pinterest Ads Management Service covers campaign strategy, account setup, targeting, Pin creative, catalog advertising, conversion tracking, optimization, and performance reporting. The final scope depends on the campaign objective and business requirements.',
@@ -79,7 +80,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

@@ -31,7 +31,7 @@ const customKeywords = [
   'Zero Vendor Lock-In',
 ]
 
-export default function WebsiteDesignDevelopmentCustomDevelopmentService() {
+export default function WebsiteDesignDevelopmentCustomDevelopmentService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -59,7 +59,7 @@ export default function WebsiteDesignDevelopmentCustomDevelopmentService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

@@ -28,7 +28,7 @@ const marqueeItems = [
   'Analytics',
 ]
 
-export default function SocialMediaManagementYoutubeManagementService() {
+export default function SocialMediaManagementYoutubeManagementService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -47,7 +47,7 @@ export default function SocialMediaManagementYoutubeManagementService() {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

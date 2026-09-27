@@ -30,7 +30,7 @@ const marqueeItems = [
   'Bulk SKU Workflows',
 ]
 
-export default function ContentWritingProductDescriptionsService() {
+export default function ContentWritingProductDescriptionsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -52,7 +52,7 @@ export default function ContentWritingProductDescriptionsService() {
       <Timeline />
       <QualityControl />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

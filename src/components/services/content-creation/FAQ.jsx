@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../Kinetic'
+import { resolveFaqs } from '../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: "What is included in content creation services?",
     answer: "Content creation can include video production, short-form video, photography, graphic design, motion graphics, branding, social media graphics, and other agreed creative production. The exact deliverables depend on your project scope."
@@ -55,7 +56,8 @@ const faqs = [
   }
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
       <div className="mx-auto max-w-4xl">

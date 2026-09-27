@@ -25,7 +25,9 @@ const marqueeItems = [
   "Retargeting"
 ]
 
-export default function PaidAdvertisingMetaAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingMetaAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -40,9 +42,10 @@ export default function PaidAdvertisingMetaAdsService() {
       <Results />
       <WhyChoose />
       <Pricing />
+      <ServiceCalculatorBanner platform="meta" />
       <PerformanceCommitment />
       <Timeline />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

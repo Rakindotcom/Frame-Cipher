@@ -27,7 +27,7 @@ const marqueeItems = [
   'B2B & Consumer',
 ]
 
-export default function ContentWritingSalesCopywritingService() {
+export default function ContentWritingSalesCopywritingService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -46,7 +46,7 @@ export default function ContentWritingSalesCopywritingService() {
       <Timeline />
       <QualityCommitments />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

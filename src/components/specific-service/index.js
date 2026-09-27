@@ -20,3 +20,4 @@ export { default as ServiceDetailOutputsSection } from './ServiceDetailOutputsSe
 export { default as ServiceDetailLocalRelevanceSection } from './ServiceDetailLocalRelevanceSection'
 export { default as ServiceDetailRelatedWorkSection } from './ServiceDetailRelatedWorkSection'
 export { default as ServiceDetailFAQSection } from './ServiceDetailFAQSection'
+export { default as ServicePillarClusterLinks } from './ServicePillarClusterLinks'

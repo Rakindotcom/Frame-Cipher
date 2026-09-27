@@ -25,7 +25,7 @@ const marqueeItems = [
   'No Invented Results',
 ]
 
-export default function ContentWritingCaseStudyWritingService() {
+export default function ContentWritingCaseStudyWritingService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -42,7 +42,7 @@ export default function ContentWritingCaseStudyWritingService() {
       <Pricing />
       <Timeline />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

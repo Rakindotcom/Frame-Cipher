@@ -11,7 +11,7 @@ export default function CaseStudyDetailNav({ study }) {
           href="/case-studies"
           className="inline-flex items-center gap-2 border-2 border-frame-border bg-frame-bg px-3.5 py-2 text-xs font-black uppercase tracking-wider text-frame-fg transition-all duration-200 hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent"
         >
-          <span aria-hidden="true">←</span>
+          <span aria-hidden="true" className="after:content-['←']" />
           <span>Back to Case Studies</span>
         </Link>
 

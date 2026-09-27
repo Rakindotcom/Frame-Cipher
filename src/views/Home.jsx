@@ -17,6 +17,7 @@ import {
   HomeRecentInsights,
   HomeCaseStudies,
   HomeServicesPulse,
+  HomeCalculatorsGrid,
   HomeProcess,
   HomeEngagement,
   HomeIndustries,
@@ -45,6 +46,7 @@ export default function Home() {
       <HomeRecentInsights />
       <HomeCaseStudies />
       <HomeServicesPulse />
+      <HomeCalculatorsGrid />
       <HomeProcess />
       <HomeEngagement />
       <HomeIndustries />

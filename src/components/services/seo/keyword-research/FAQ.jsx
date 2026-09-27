@@ -1,6 +1,7 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is keyword research?',
     answer: 'Keyword research is the process of identifying, analyzing, and prioritizing the search terms and topics that are relevant to your business and target audience. Effective keyword research goes beyond search volume. It considers search intent, competition, business relevance, ranking potential, and the pages required to target those searches.',
@@ -55,7 +56,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

@@ -25,7 +25,9 @@ const marqueeItems = [
   "Ongoing Optimization"
 ]
 
-export default function PaidAdvertisingGoogleAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingGoogleAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -40,9 +42,10 @@ export default function PaidAdvertisingGoogleAdsService() {
       <Results />
       <WhyChoose />
       <Pricing />
+      <ServiceCalculatorBanner platform="google" />
       <PerformanceCommitment />
       <Timeline />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

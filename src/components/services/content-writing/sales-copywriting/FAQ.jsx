@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What is a Sales Copywriting Service?',
     a: 'A Sales Copywriting Service creates persuasive business copy designed to help a specific audience understand an offer and take a defined next step. Depending on the project, the copy can be used for sales pages, proposals, pitch decks, VSL scripts, sales collateral, and other direct-response materials.',
@@ -77,7 +78,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">

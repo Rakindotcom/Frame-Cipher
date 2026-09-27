@@ -40,7 +40,7 @@ export default function SeoKeywordResearchService({ service }) {
       <Pricing />
       <Guarantee />
       <CaseStudies />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

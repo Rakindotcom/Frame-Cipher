@@ -24,7 +24,7 @@ const shopifyKeywords = [
   'Sub-Second Mobile Speeds',
 ]
 
-export default function WebsiteDesignDevelopmentShopifyService() {
+export default function WebsiteDesignDevelopmentShopifyService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function WebsiteDesignDevelopmentShopifyService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

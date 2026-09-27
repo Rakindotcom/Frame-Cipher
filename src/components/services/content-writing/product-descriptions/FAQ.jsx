@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What is Product Description Writing?',
     a: 'Product Description Writing is the process of creating product-page copy that explains what a product is, highlights relevant benefits and features, answers buyer questions, and supports the purchase decision.',
@@ -67,7 +68,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-y-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">

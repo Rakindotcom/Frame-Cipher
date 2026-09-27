@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is an SEO audit?',
     answer: 'An SEO audit is a structured review of a website\u2019s technical setup, content, on-page optimization, backlinks, search visibility, and competitive environment. A good audit does more than identify issues. It explains which issues matter, why they matter, and what to do next.',
@@ -55,7 +56,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

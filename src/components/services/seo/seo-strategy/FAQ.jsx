@@ -1,6 +1,7 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'Do I need to hire you for execution if I just want a strategy?',
     answer: 'No, strategy and consulting is available as a standalone service. Some clients execute the roadmap with their own team; others move into execution with us afterward. Both are genuinely fine outcomes.',
@@ -23,7 +24,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

@@ -5,7 +5,7 @@ const pillarLinks = {
   Strategy: '/services/content-creation/branding',
   Marketing: '/services/paid-advertising',
   Creative: '/services/content-creation',
-  Media: '/services/content-creation/commercial-video',
+  Media: '/services/content-creation/video-production',
   Technology: '/services/website-design-development',
 }
 
@@ -27,10 +27,9 @@ export default function HomePillars() {
 
         <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {servicePillars.map((pillar, index) => (
-            <Link
+            <article
               key={pillar.title}
-              href={pillarLinks[pillar.title] || '/services'}
-              className="group flex flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent sm:p-7 md:min-h-80"
+              className="group relative flex flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent sm:p-7 md:min-h-80"
             >
               <div>
                 <p
@@ -40,13 +39,18 @@ export default function HomePillars() {
                   0{index + 1}
                 </p>
                 <h3 className="mt-6 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl">
-                  {pillar.title}
+                  <Link
+                    href={pillarLinks[pillar.title] || '/services'}
+                    className="after:absolute after:inset-0 after:content-['']"
+                  >
+                    {pillar.title}
+                  </Link>
                 </h3>
               </div>
               <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
                 {pillar.description}
               </p>
-            </Link>
+            </article>
           ))}
         </div>
       </div>

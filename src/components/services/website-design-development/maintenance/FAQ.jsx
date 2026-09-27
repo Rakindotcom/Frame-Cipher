@@ -1,4 +1,5 @@
-const faqs = [
+import { resolveFaqs } from '../../../../lib/seo/faq'
+const fallbackFaqs = [
   {
     question: 'How often should a website be maintained?',
     answer: 'Maintenance frequency depends on the platform, update cycle, website complexity, traffic, integrations, and business importance. More active or complex websites generally need closer monitoring and more frequent maintenance.',
@@ -53,7 +54,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-16 sm:py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

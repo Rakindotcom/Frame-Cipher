@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is Local SEO?',
     answer: 'Local SEO is the process of improving a business\u2019s visibility when customers search for relevant products or services within a specific geographic area. It can involve Google Business Profile optimization, website SEO, local content, citations, reviews, authority, and performance monitoring.',
@@ -43,7 +44,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

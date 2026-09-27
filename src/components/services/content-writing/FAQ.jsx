@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../Kinetic'
+import { resolveFaqs } from '../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What are content writing services?',
     a: 'Content writing services involve researching, planning, writing, editing, and delivering written content for business and marketing purposes.\n\nDepending on the project, this can include SEO blogs, website pages, landing pages, product descriptions, sales copy, emails, case studies, and content strategy.',
@@ -67,7 +68,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

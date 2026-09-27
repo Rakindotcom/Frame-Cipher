@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is off-page SEO?',
     answer: 'Off-page SEO covers everything outside your own website that can influence how search engines evaluate and understand it: backlinks, brand mentions, publisher relationships, citations, and other external signals. It works alongside on-page and technical SEO to establish authority and trust.',
@@ -51,7 +52,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

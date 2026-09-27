@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'How much should I budget for Google Ads?',
     answer: 'There is no universal Google Ads budget that works for every business. A practical starting budget depends on your market, competition, average customer value, expected conversion rate, and available demand. We recommend establishing a realistic test budget based on your business economics rather than choosing an arbitrary number.',
@@ -39,7 +40,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

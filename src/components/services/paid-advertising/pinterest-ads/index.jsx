@@ -24,7 +24,9 @@ const marqueeItems = [
   "Seasonal Planning"
 ]
 
-export default function PaidAdvertisingPinterestAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingPinterestAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -37,10 +39,11 @@ export default function PaidAdvertisingPinterestAdsService() {
       <Results />
       <Process />
       <Pricing />
+      <ServiceCalculatorBanner platform="pinterest" />
       <Timeline />
       <Reporting />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

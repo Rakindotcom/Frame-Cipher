@@ -23,7 +23,7 @@ const landingKeywords = [
   'High-Speed Performance',
 ]
 
-export default function WebsiteDesignDevelopmentLandingPagesService() {
+export default function WebsiteDesignDevelopmentLandingPagesService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function WebsiteDesignDevelopmentLandingPagesService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

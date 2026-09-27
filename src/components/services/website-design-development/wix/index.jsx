@@ -26,7 +26,7 @@ const wixKeywords = [
   'Managed Hosting',
 ]
 
-export default function WebsiteDesignDevelopmentWixService() {
+export default function WebsiteDesignDevelopmentWixService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -52,7 +52,7 @@ export default function WebsiteDesignDevelopmentWixService() {
       <Pricing />
       <Handover />
       <Maintenance />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

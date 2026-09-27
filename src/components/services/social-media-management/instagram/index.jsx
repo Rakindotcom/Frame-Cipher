@@ -26,7 +26,7 @@ const marqueeItems = [
   'Reporting',
 ]
 
-export default function SocialMediaManagementInstagramService() {
+export default function SocialMediaManagementInstagramService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -41,7 +41,7 @@ export default function SocialMediaManagementInstagramService() {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

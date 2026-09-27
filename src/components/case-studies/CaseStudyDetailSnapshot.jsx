@@ -1,26 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-
-function getServiceLinkForStudy(study) {
-  if (!study) return null
-  const slug = study.slug || ''
-  if (slug.includes('local-seo') || slug.includes('locksmith') || slug.includes('phone')) {
-    return '/services/seo/local-seo'
-  }
-  if (slug.includes('topical-map') || slug.includes('jarixo')) {
-    return '/services/seo/technical-seo'
-  }
-  if (slug.includes('pixc') || slug.includes('global-seo')) {
-    return '/services/seo/international-seo'
-  }
-  if (study.category === 'Paid Ads' || slug.includes('ads') || slug.includes('meta')) {
-    return '/services/paid-advertising/meta-ads'
-  }
-  if (study.category === 'Personal Brand' || slug.includes('saleheen')) {
-    return '/services/content-creation/branding'
-  }
-  return null
-}
+import { getCaseStudyServiceLinks } from '../../lib/seo/internalLinks'
 
 function MetaItem({ label, value, href, wide = false }) {
   return (
@@ -41,6 +21,8 @@ function MetaItem({ label, value, href, wide = false }) {
 }
 
 export default function CaseStudyDetailSnapshot({ study }) {
+  const serviceLinks = getCaseStudyServiceLinks(study)
+
   return (
     <section className="border-b-2 border-frame-border px-4 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-[95vw]">
@@ -74,17 +56,39 @@ export default function CaseStudyDetailSnapshot({ study }) {
               <MetaItem label="Client" value={study.client} />
               <MetaItem label="Industry" value={study.industry} />
               <MetaItem label="Timeline" value={study.timeline} />
-              <MetaItem
-                label="Primary focus"
-                value={study.primaryFocus}
-                href={getServiceLinkForStudy(study)}
-              />
+              {study.primaryFocus ? (
+                <MetaItem
+                  label="Primary focus"
+                  value={study.primaryFocus}
+                  href={serviceLinks[0]?.href}
+                />
+              ) : null}
             </div>
             {study.snapshot?.length > 0 && (
               <div className="grid gap-px bg-frame-border">
                 {study.snapshot.map(([label, value]) => (
                   <MetaItem key={label} label={label} value={value} wide />
                 ))}
+              </div>
+            )}
+            {serviceLinks.length > 0 && (
+              <div className="bg-frame-bg p-6 md:p-8">
+                <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  Services that delivered this
+                </p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {serviceLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link
+                        href={link.href}
+                        className="inline-flex items-center gap-1.5 border-2 border-frame-border bg-frame-muted/15 px-3.5 py-2 text-[11px] font-black uppercase tracking-wider text-frame-fg transition-colors hover:border-frame-accent hover:text-frame-accent"
+                      >
+                        <span>{link.anchor}</span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>

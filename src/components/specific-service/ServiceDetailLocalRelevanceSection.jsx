@@ -1,20 +1,5 @@
 import { PosterButton } from '../Kinetic'
-
-const serviceCanonicalLinks = {
-  '360-marketing': '/services/360-marketing',
-  'brand-strategy': '/services/content-creation/branding',
-  'social-media-marketing': '/services/social-media-management',
-  'paid-ads': '/services/paid-advertising',
-  'seo': '/services/seo',
-  'branding-design': '/services/content-creation/branding',
-  'video-production': '/services/content-creation/commercial-video',
-  'photography': '/services/content-creation/product-photography',
-  'web-development': '/services/website-design-development',
-  'software-solutions': '/services/app-development',
-  'ecommerce': '/services/website-design-development/ecommerce-website',
-  'landing-pages': '/services/website-design-development/landing-pages',
-  'automation-crm': '/services/app-development/saas-apps',
-}
+import { resolveServiceHref } from '../../lib/seo/internalLinks'
 
 export default function ServiceDetailLocalRelevanceSection({ landing }) {
   return (
@@ -37,7 +22,7 @@ export default function ServiceDetailLocalRelevanceSection({ landing }) {
               {landing.relatedServices?.map((relatedService) => (
                 <PosterButton
                   key={relatedService.slug}
-                  href={serviceCanonicalLinks[relatedService.slug] || `/services/${relatedService.slug}`}
+                  href={resolveServiceHref(relatedService.slug) || `/services/${relatedService.slug}`}
                   variant="dark"
                   className="min-h-12 px-5 py-3 text-xs md:min-h-14 md:px-6 md:text-sm"
                 >

@@ -26,7 +26,9 @@ const marqueeItems = [
   "Multi-Platform Strategy"
 ]
 
-export default function PaidAdvertisingLeadGenerationAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingLeadGenerationAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -41,10 +43,11 @@ export default function PaidAdvertisingLeadGenerationAdsService() {
       <WhyChoose />
       <Process />
       <Pricing />
+      <ServiceCalculatorBanner platform="leadgen" />
       <Markets />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

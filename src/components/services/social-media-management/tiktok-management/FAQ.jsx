@@ -1,6 +1,7 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What Does a TikTok Management Service Include?',
     a: 'A TikTok Management Service can include strategy, audience research, content planning, video production, TikTok SEO, publishing, community management, trend research, creator coordination, reporting, testing, and ongoing optimization. The exact scope depends on the selected plan.',
@@ -79,7 +80,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

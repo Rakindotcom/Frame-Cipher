@@ -1,6 +1,7 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What is a Content Calendar & Strategy Service?',
     a: 'A Content Calendar & Strategy Service combines strategic content planning with an organized publishing calendar. It helps determine what your business should communicate, which platforms should carry the content, how content should be adapted, when it should be published, and how different content pieces should support broader business goals.',
@@ -51,7 +52,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

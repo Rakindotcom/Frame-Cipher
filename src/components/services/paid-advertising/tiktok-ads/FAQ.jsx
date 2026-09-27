@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is a TikTok Ads Management Service?',
     answer: 'A TikTok Ads Management Service handles the strategy, setup, creative coordination, targeting, tracking, optimization, and reporting required to run paid advertising campaigns on TikTok. Framecipher manages these activities around business objectives such as sales, leads, website conversions, app growth, and customer acquisition.',
@@ -51,7 +52,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

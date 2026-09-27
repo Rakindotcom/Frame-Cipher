@@ -1,6 +1,7 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What Does a YouTube Management Service Include?',
     a: 'YouTube management can include channel strategy, content planning, scripting, video production, editing, YouTube SEO, thumbnails, publishing, Shorts, community management, analytics, and ongoing optimization. The exact scope depends on the selected package.',
@@ -75,7 +76,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">

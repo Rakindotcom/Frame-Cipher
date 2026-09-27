@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What are Remarketing Services?',
     answer: 'Remarketing Services help businesses re-engage people who previously interacted with their website, products, content, ads, or brand. Framecipher manages audience segmentation, tracking, campaign setup, dynamic remarketing, suppression, creative testing, optimization, and reporting across relevant advertising platforms.',
@@ -63,7 +64,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="max-w-4xl mx-auto">

@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is international SEO?',
     answer: 'International SEO is the practice of optimizing a website so search engines understand which country and language versions should appear for users in different markets. It involves market research, technical signals such as hreflang and canonicals, site architecture, content localization, and authority building across the countries you want to reach.',
@@ -51,7 +52,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

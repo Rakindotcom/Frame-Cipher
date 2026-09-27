@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is an Amazon Ads Management Service?',
     answer: 'An Amazon Ads Management Service handles the management of Amazon advertising on behalf of a brand or seller. This typically includes campaign structure, targeting, keyword and product targeting, bids, budgets, search-term review, negative targeting, reporting, and ongoing optimization.',
@@ -71,7 +72,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="max-w-4xl mx-auto">

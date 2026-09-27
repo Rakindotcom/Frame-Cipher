@@ -6,7 +6,7 @@ const pillarLinks = {
   Strategy: '/services/content-creation/branding',
   Marketing: '/services/paid-advertising',
   Creative: '/services/content-creation',
-  Media: '/services/content-creation/commercial-video',
+  Media: '/services/content-creation/video-production',
   Technology: '/services/website-design-development',
 }
 
@@ -25,10 +25,9 @@ export default function ServicesCoreCapabilities() {
 
         <div className="mt-14 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
           {servicePillars.map((pillar, index) => (
-            <Link
+            <article
               key={pillar.title}
-              href={pillarLinks[pillar.title] || '/services'}
-              className="group flex min-h-64 flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors duration-300 hover:border-frame-accent md:p-9"
+              className="group relative flex min-h-64 flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors duration-300 hover:border-frame-accent md:p-9"
             >
               <div>
                 <div className="flex items-center justify-between gap-5">
@@ -38,13 +37,18 @@ export default function ServicesCoreCapabilities() {
                   <span className="h-2 w-10 bg-frame-accent" aria-hidden="true" />
                 </div>
                 <h3 className="mt-8 font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-4xl">
-                  {pillar.title}
+                  <Link
+                    href={pillarLinks[pillar.title] || '/services'}
+                    className="after:absolute after:inset-0 after:content-['']"
+                  >
+                    {pillar.title}
+                  </Link>
                 </h3>
               </div>
               <p className="mt-8 text-base font-medium leading-snug text-frame-muted-fg md:text-lg">
                 {pillar.description}
               </p>
-            </Link>
+            </article>
           ))}
 
           <a

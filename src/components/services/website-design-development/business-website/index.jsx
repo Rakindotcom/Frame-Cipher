@@ -22,7 +22,7 @@ const businessKeywords = [
   'Conversion Tracking',
 ]
 
-export default function WebsiteDesignDevelopmentBusinessWebsiteService() {
+export default function WebsiteDesignDevelopmentBusinessWebsiteService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -43,7 +43,7 @@ export default function WebsiteDesignDevelopmentBusinessWebsiteService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

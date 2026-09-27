@@ -28,7 +28,7 @@ const uiUxKeywords = [
   'Developer Handoff',
 ]
 
-export default function WebsiteDesignDevelopmentUiUxDesignService() {
+export default function WebsiteDesignDevelopmentUiUxDesignService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -56,7 +56,7 @@ export default function WebsiteDesignDevelopmentUiUxDesignService() {
       <Pricing />
       <Revisions />
       <PostLaunch />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

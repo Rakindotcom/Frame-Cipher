@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is LinkedIn Ads management?',
     answer: 'LinkedIn Ads management is the process of planning, launching, measuring, testing, and optimizing LinkedIn advertising campaigns around defined B2B marketing and sales objectives. It can include ICP research, professional audience targeting, Sponsored Content, Lead Gen Forms, Sponsored Messaging, account-based marketing, retargeting, conversion tracking, CRM measurement, and reporting.',
@@ -43,7 +44,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

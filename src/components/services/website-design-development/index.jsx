@@ -25,7 +25,7 @@ const marqueeItems = [
   'UI/UX Design',
 ]
 
-export default function WebsiteDesignDevelopmentService() {
+export default function WebsiteDesignDevelopmentService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -43,7 +43,7 @@ export default function WebsiteDesignDevelopmentService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

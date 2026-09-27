@@ -17,17 +17,20 @@ export default function HomeAbout() {
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
             <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              About / Frame Cipher
+              Global Vision / Anchored in Bangladesh
             </p>
             <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-              Who is behind the cipher.
+              A Multinational Tech Machine Born in Dhaka.
             </h2>
           </div>
-          <p className="max-w-xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-            Frame Cipher is a <Link href="/services/360-marketing" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">360 marketing</Link>, media, and technology agency headquartered in Ecb Chattar, Matikata,
-            Dhaka. The team works with brands in Bangladesh and worldwide, from B2B and B2C to personal
-            brands and e-commerce, with an entirely in-house team across <Link href="/services/website-design-development" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Website Design &amp; Development</Link>, <Link href="/services/app-development" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">App Development</Link>, <Link href="/services/seo" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">SEO</Link>, <Link href="/services/paid-advertising" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Paid Advertising</Link>, <Link href="/services/social-media-management" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Social Media Management</Link>, <Link href="/services/content-writing" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Content Writing</Link>, and <Link href="/services/content-creation" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Content Creation</Link>.
-          </p>
+          <div className="max-w-xl space-y-4">
+            <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+              Frame Cipher is building a sovereign, multinational technology, media, and growth powerhouse headquartered in Ecb Chattar, Matikata, Dhaka. We combine full-stack custom software engineering, cinematic media production, and mathematical performance marketing under one unified operating system.
+            </p>
+            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              Serving fast-growing startups and global enterprises across 20+ countries worldwide with an entirely in-house team across <Link href="/services/website-design-development" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Web &amp; Software Development</Link>, <Link href="/services/seo" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">SEO</Link>, <Link href="/services/paid-advertising" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Paid Ads</Link>, and <Link href="/services/content-creation" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Cinematic Media</Link>.
+            </p>
+          </div>
         </div>
 
         <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
@@ -94,7 +97,7 @@ export default function HomeAbout() {
         </div>
 
         <div className="mt-10 flex justify-center">
-          <SectionButton href="/about">Meet the full team</SectionButton>
+          <SectionButton href="/about">Explore Global Vision &amp; Team</SectionButton>
         </div>
       </div>
     </section>

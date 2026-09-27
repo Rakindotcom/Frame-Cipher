@@ -48,7 +48,7 @@ export default function SocialMediaManagementService({ service }) {
       <Pricing />
       <ServiceAreas />
       <Expectations />
-      <FAQ />
+      <FAQ service={service} />
       <GettingStarted />
       <CTA />
     </main>

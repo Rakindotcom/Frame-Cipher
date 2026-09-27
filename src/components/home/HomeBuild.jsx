@@ -5,48 +5,56 @@ const buildItems = [
     title: 'Brand & marketing systems',
     description: 'Positioning, messaging, identity, and campaign direction built as one system.',
     href: '/services/content-creation/branding',
+    anchor: 'Explore branding and brand strategy services',
     tag: 'Strategy',
   },
   {
     title: 'High-converting websites',
     description: 'Fast, modern websites and landing pages designed around clear next actions.',
     href: '/services/website-design-development',
+    anchor: 'Explore website design and development services',
     tag: 'Web',
   },
   {
     title: 'E-commerce platforms',
     description: 'Storefronts, product pages, checkout flows, and tracking built for sales.',
     href: '/services/website-design-development/ecommerce-website',
+    anchor: 'Explore e-commerce website development services',
     tag: 'E-commerce',
   },
   {
     title: 'Custom software',
     description: 'Web applications, dashboards, and tools built around how your business operates.',
     href: '/services/app-development',
+    anchor: 'Explore custom software and app development services',
     tag: 'Software',
   },
   {
     title: 'CRM & business systems',
     description: 'Lead capture, pipelines, automations, and reporting that keep teams organized.',
     href: '/services/app-development/saas-apps',
+    anchor: 'Explore CRM and business automation systems',
     tag: 'Automation',
   },
   {
     title: 'Content & media systems',
     description: 'Social content, video, photography, and creative production on a repeatable rhythm.',
     href: '/services/social-media-management',
+    anchor: 'Explore social media management services',
     tag: 'Content',
   },
   {
     title: 'SEO & search visibility',
     description: 'Technical foundations, keyword mapping, local SEO, and content built to be found.',
     href: '/services/seo',
+    anchor: 'Explore search engine optimization services',
     tag: 'SEO',
   },
   {
     title: 'Paid acquisition systems',
     description: 'Campaign strategy, creative, targeting, tracking, and continuous optimization.',
     href: '/services/paid-advertising',
+    anchor: 'Explore paid advertising and PPC services',
     tag: 'Ads',
   },
 ]
@@ -72,17 +80,18 @@ export default function HomeBuild() {
 
         <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
           {buildItems.map((item, index) => (
-            <Link
+            <article
               key={item.title}
-              href={item.href}
-              className="group flex min-h-56 flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent sm:p-7"
+              className="group relative flex min-h-56 flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent sm:p-7"
             >
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.28em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/75 sm:text-xs">
                   {item.tag} / 0{index + 1}
                 </p>
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl">
-                  {item.title}
+                  <Link href={item.href} className="after:absolute after:inset-0 after:content-['']">
+                    {item.title}
+                  </Link>
                 </h3>
               </div>
               <div>
@@ -97,7 +106,7 @@ export default function HomeBuild() {
                   <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                 </span>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
 

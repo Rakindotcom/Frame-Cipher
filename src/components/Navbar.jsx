@@ -182,7 +182,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                                   className="flex items-center justify-between px-3 py-2 text-xs font-bold uppercase tracking-tight text-frame-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
                                 >
                                   <span>{subService.name}</span>
-                                  <span className="text-xs opacity-60">→</span>
+                                  <span className="text-xs opacity-60 after:content-['→']" />
                                 </Link>
                               ))}
                             </div>
@@ -208,23 +208,27 @@ export default function Navbar({ pillarNavServices = [] }) {
                     {workCategories
                       .filter((cat) => cat.pill !== 'All')
                       .map((cat) => (
-                        <Link
+                        <div
                           key={cat.path}
-                          href={cat.path}
-                          className="group/lane grid gap-0.5 border border-transparent px-3 py-2.5 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                          className="group/lane relative grid gap-0.5 border border-transparent px-3 py-2.5 transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                         >
                           <div className="flex items-center justify-between">
-                            <span className="text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
-                              {cat.name}
-                            </span>
-                            <span className="text-xs font-black uppercase tracking-widest text-frame-accent opacity-0 transition-opacity group-hover/lane:opacity-100 group-hover/lane:text-frame-accent-fg">
+                            <Link href={cat.path} className="after:absolute after:inset-0 after:content-['']">
+                              <span className="text-sm font-black uppercase tracking-tighter text-frame-fg transition-colors group-hover/lane:text-frame-accent-fg">
+                                {cat.name}
+                              </span>
+                            </Link>
+                            <span
+                              className="text-xs font-black uppercase tracking-widest text-frame-accent opacity-0 transition-opacity group-hover/lane:opacity-100 group-hover/lane:text-frame-accent-fg"
+                              aria-hidden="true"
+                            >
                               &rarr;
                             </span>
                           </div>
                           <span className="text-xs font-medium leading-snug text-frame-muted-fg transition-colors group-hover/lane:text-frame-accent-fg/80">
                             {cat.description}
                           </span>
-                        </Link>
+                        </div>
                       ))}
                   </div>
                 </div>
@@ -309,7 +313,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                                   className="flex items-center justify-between px-3 py-2.5 text-[11px] font-bold uppercase tracking-tight text-frame-muted-fg transition-colors hover:bg-frame-accent hover:text-frame-accent-fg"
                                 >
                                   <span>{subService.name}</span>
-                                  <span className="font-mono text-[10px]">&rarr;</span>
+                                  <span className="font-mono text-[10px] after:content-['→']" />
                                 </Link>
                               ))}
                             </div>
@@ -338,7 +342,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                           className="flex items-center justify-between border-2 border-frame-border bg-frame-muted px-4 py-3 text-xs font-black uppercase tracking-tighter text-frame-fg hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                         >
                           <span>{cat.name}</span>
-                          <span className="text-[10px] text-frame-accent font-mono">&rarr;</span>
+                          <span className="text-[10px] text-frame-accent font-mono after:content-['→']" />
                         </Link>
                       ))}
                   </div>

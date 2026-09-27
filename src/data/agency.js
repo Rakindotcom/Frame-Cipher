@@ -450,13 +450,110 @@ export const comparisonRows = [
 
 export const serviceLandingOverrides = {
   '360-marketing': {
+    problemIntro:
+      'Growth breaks down when marketing is fragmented across multiple uncoordinated vendors. Without an aligned 360 growth operating system, ad spend leaks from unoptimized landing pages, creative fails to convert, and attribution remains impossible.',
     problems: [
-      ['Marketing feels scattered across too many vendors', 'Strategy, creative, web, ads, and reporting are handled separately, so decisions slow down and campaigns lose focus.'],
-      ['Campaigns launch without a clear offer', 'The audience, message, creative angle, and conversion path need to be defined before production starts.'],
-      ['Content, ads, and websites do not share data', 'A connected growth system makes every channel easier to measure and improve.'],
+      ['The multi-vendor blame loop slows execution', 'Strategy, creative media, landing pages, paid ads, and analytics are handled by separate freelancers or agencies with zero unified accountability.'],
+      ['Organic social content generates vanity likes without sales', 'High-effort posts fail to address core customer objections or guide warm prospects into a high-converting offer.'],
+      ['Paid ad campaigns run blind without server-side tracking', 'Browser pixel drops and lack of Meta CAPI or GA4 custom events waste ad spend on unoptimized audiences.'],
+      ['Websites and landing pages do not support conversion speed', 'Slow load times, weak copy, and friction-filled mobile forms cause high-intent traffic to bounce before buying.'],
+      ['No systematic customer retention or CRM automation', 'Acquisition costs keep rising when there are no automated WhatsApp or email flows to maximize customer lifetime value (LTV).'],
     ],
-    keywords: ['360 marketing agency Bangladesh', 'digital marketing agency Dhaka', 'growth marketing agency Bangladesh', 'brand content and tech agency'],
-    relatedServiceSlugs: ['brand-strategy', 'social-media-marketing', 'paid-ads', 'web-development'],
+    keywords: [
+      '360 marketing agency Bangladesh',
+      'full funnel marketing agency Dhaka',
+      'digital marketing agency Bangladesh',
+      'growth marketing agency Dhaka',
+      'brand strategy and performance marketing',
+      'commercial video production agency Dhaka',
+      'Meta and Google ads agency Bangladesh',
+      'technical SEO agency Bangladesh',
+      'conversion rate optimization agency Dhaka',
+      'omnichannel marketing agency Bangladesh',
+      'B2B marketing agency Dhaka',
+      'e-commerce marketing agency Bangladesh',
+    ],
+    sampleOutputs: [
+      '360 Growth Diagnostic & Ad Account Audit',
+      'Full-Funnel Buyer Journey & Offer Architecture Blueprint',
+      'Short-Form Video Production Sprint (15+ Scripted Reels/Shorts)',
+      'Meta & Google Performance Ads Architecture (CBO/PMax)',
+      'Custom Next.js / Webflow High-Speed Conversion Landing Page',
+      'Server-Side Meta CAPI & GA4 Revenue Tracking Setup',
+      'Automated WhatsApp & Klaviyo Lifecycle Retention Flows',
+      'Live 24/7 Executive Looker Studio Performance Dashboard',
+    ],
+    detailedDeliverables: [
+      {
+        title: 'Strategic Positioning & Offer Architecture',
+        text: 'Comprehensive ICP profiling, competitor moat analysis, unique value proposition formulating, and high-converting offer restructuring.',
+      },
+      {
+        title: 'Creative Media & High-Retention Video Production',
+        text: 'Studio and on-location 4K commercial filming, viral short-form reels/TikTok engine, conversion-engineered ad creatives, and kinetic visual assets.',
+      },
+      {
+        title: 'Precision Paid Media Management',
+        text: 'Full-funnel campaign execution across Meta (Facebook & Instagram), Google Search, Performance Max, YouTube Ads, and LinkedIn ABM with daily bid and budget optimization.',
+      },
+      {
+        title: 'Technical, Programmatic & Local SEO Dominance',
+        text: 'Complete search engine architecture including Core Web Vitals optimization, programmatic keyword clusters, schema markup, and Dhaka Google Maps 3-pack domination.',
+      },
+      {
+        title: 'High-Converting Web Infrastructure & CRO',
+        text: 'Custom Next.js and Webflow landing page development featuring sub-100ms LCP, frictionless checkout flows, and continuous multivariate A/B testing.',
+      },
+      {
+        title: 'Lifecycle CRM Automations & Unified Attribution',
+        text: 'Meta Conversions API (CAPI) server-side tracking, WhatsApp Business API chatbots, automated email sequences, and 24/7 executive reporting dashboards.',
+      },
+    ],
+    faqs: [
+      [
+        'What exactly is a 360 marketing agency and how is it different from a digital agency?',
+        'A typical digital agency usually manages only one or two isolated channels like social posts or basic Facebook ads. A 360 marketing agency takes holistic ownership of your entire growth flywheel: strategic brand positioning, commercial video production, paid performance ads (Meta, Google, YouTube, LinkedIn), technical and local SEO, high-speed landing page architecture, and lifecycle CRM automations. Everything works together so your ad spend doesn’t leak out of a broken website or an unoptimized offer.',
+      ],
+      [
+        'How much ad spend budget do we need to start a 360 marketing partnership?',
+        'Ad spend is paid directly to advertising platforms (Meta, Google) from your own card so you retain full ownership and financial control. For Bangladesh local campaigns, we typically recommend a minimum starting ad spend of BDT 80,000 to BDT 250,000+ per month to allow for meaningful creative and audience testing. For international export campaigns (US, UK, UAE), budgets generally start from $1,500 to $5,000+ monthly.',
+      ],
+      [
+        'How soon can we expect to see tangible return on investment (ROI)?',
+        'Paid media channels (Meta & Google Ads) and direct response landing pages typically begin producing qualified leads and direct sales within the first 14 to 21 days of campaign launch. Compounding channels like organic short-form reels, brand authority, and technical SEO typically ramp up and deliver exponential compound returns within 60 to 90 days as algorithm trust and keyword rankings mature.',
+      ],
+      [
+        'We already have an in-house graphic designer or marketing manager. Can we still work with Frame Cipher?',
+        'Absolutely. Many of our clients have an internal designer or junior marketing coordinator. We collaborate seamlessly by acting as your senior growth leadership: providing high-level strategy, advanced media buying, 4K video filming, complex technical SEO, and conversion web development, while empowering your internal staff with clear creative briefs and workflows.',
+      ],
+      [
+        'Who owns the creative assets, ad accounts, video raw footage, and website code?',
+        'You own 100% of everything, always. All ad campaigns are hosted inside your own Meta and Google Business Managers. All video footage, design source files, landing page code, and customer data belong exclusively to your business. If our partnership ever ends, your assets stay with you.',
+      ],
+      [
+        'How does Frame Cipher handle video filming if our business is located outside Dhaka?',
+        'While our main production studio is located in Dhaka (Ecb Chattar, Matikata), our video crew travels nationwide for scheduled multi-day shoot sprints across Chittagong, Sylhet, Gazipur, and other industrial or corporate hubs. We also produce studio-based commercial shoots where clients ship their physical products directly to our Dhaka studio for macro, lifestyle, and tabletop filming.',
+      ],
+      [
+        'Can we start with specific pillars first (e.g. Paid Ads + Landing Page) and scale to full 360 later?',
+        'Yes. Our Growth Foundation Sprint is specifically structured for brands that want to fix their tracking, launch a high-converting landing page, and test a batch of high-performing ad creatives before expanding into full organic video production and comprehensive SEO.',
+      ],
+      [
+        'How do you measure success and keep us updated on progress?',
+        'We reject vanity metrics like "impressions" and "post likes" as primary indicators of success. We track bottom-line commercial metrics: Cost Per Acquisition (CAC), Return on Ad Spend (ROAS), Qualified Sales Opportunities, and Revenue Generated. You receive a live, 24/7 Looker Studio dashboard, weekly progress summaries via dedicated Slack/WhatsApp, and bi-weekly executive strategy reviews.',
+      ],
+      [
+        'What contract length or commitment is required?',
+        'Our initial engagement is typically structured as a 3-month partnership. Month 1 focuses on audits, asset production, tracking setup, and campaign launch. Months 2 and 3 focus on iterative optimization, audience expansion, and aggressive scaling. Following the initial period, retainers transition to flexible month-to-month arrangements with a standard 30-day notice.',
+      ],
+      [
+        'How do we get started with Frame Cipher?',
+        'The first step is requesting a Free 360 Growth Audit. We will analyze your current digital presence, review your ad account health, audit your website speed and search rankings, and jump on a 30-minute discovery call to share our findings and outline a tailored roadmap.',
+      ],
+    ],
+    localRelevance:
+      'Frame Cipher is based in Dhaka (Ecb Chattar, Matikata) and builds 360 marketing systems tailored to Bangladesh consumer psychology—including cash-on-delivery preferences, high-frequency WhatsApp & Messenger shopping, and regional buying behavior across Gulshan, Banani, Uttara, Dhanmondi, Chittagong, and Sylhet—while helping export-ready businesses scale into the UK, UAE, USA, and Canada.',
+    relatedServiceSlugs: ['brand-strategy', 'social-media-marketing', 'paid-ads', 'web-development', 'seo', 'video-production'],
   },
   'social-media-marketing': {
     problems: [
@@ -839,18 +936,24 @@ export const insightPosts = [
     description:
       'A practical look at why modern brands need connected planning, creative production, digital infrastructure, and optimization.',
     category: 'Growth Systems',
+    serviceLink: { href: '/services/360-marketing', anchor: '360 marketing systems' },
   },
   {
     title: 'What to Prepare Before Hiring a 360 Agency',
     description:
       'The core inputs that help an agency move faster: offer clarity, target audience, proof assets, budget range, and launch goals.',
     category: 'Agency Planning',
+    serviceLink: { href: '/services/seo', anchor: 'SEO and search visibility' },
   },
   {
     title: 'How Campaign-Ready Content Differs From Regular Social Posts',
     description:
       'Campaign content needs an offer, a format plan, visual consistency, and a measurement path, not just isolated designs.',
     category: 'Content Strategy',
+    serviceLink: {
+      href: '/services/content-writing/content-strategy',
+      anchor: 'campaign content strategy',
+    },
   },
 ]
 

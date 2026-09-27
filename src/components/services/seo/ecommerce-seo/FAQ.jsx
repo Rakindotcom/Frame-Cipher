@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is ecommerce SEO?',
     answer: 'Ecommerce SEO is the process of improving an online store\u2019s visibility in search engines like Google. It involves optimizing product pages, category pages, site architecture, technical SEO, content, and other factors so qualified shoppers can find the store through organic search.',
@@ -43,7 +44,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

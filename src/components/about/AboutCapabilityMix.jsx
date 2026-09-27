@@ -5,7 +5,7 @@ const pillarLinks = {
   Strategy: '/services/content-creation/branding',
   Marketing: '/services/paid-advertising',
   Creative: '/services/content-creation',
-  Media: '/services/content-creation/commercial-video',
+  Media: '/services/content-creation/video-production',
   Technology: '/services/website-design-development',
 }
 

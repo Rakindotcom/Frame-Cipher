@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is AI Search Optimization?',
     answer: 'AI Search Optimization is the process of improving how a business, its content, expertise, and supporting information can be discovered, understood, and referenced across AI-powered search and answer experiences. It builds on traditional SEO while adding focused work around answer clarity, entities, topical coverage, source credibility, and AI-search measurement.',
@@ -55,7 +56,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

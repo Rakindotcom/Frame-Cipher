@@ -1,12 +1,15 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'node:fs'
+import path from 'node:path'
 
+// Flags service cards that fill to the accent colour on hover but whose text
+// colour does not flip with group-hover/hover, which makes the label unreadable.
 const dir = path.resolve('src/components/services')
-const files = fs.readdirSync(dir).filter((f) => f.endsWith('.jsx') && !fs.statSync(path.join(dir, f)).isDirectory())
+const files = fs
+  .readdirSync(dir)
+  .filter((f) => f.endsWith('.jsx') && !fs.statSync(path.join(dir, f)).isDirectory())
 
 const pillPattern = /hover:bg-frame-accent\b/
-const textTok =
-  /text-frame-(fg|muted-fg|accent-fg|accent|muted)(\/|\s|')/
+const textTok = /text-frame-(fg|muted-fg|accent-fg|accent|muted)(\/|\s|')/
 
 let risky = 0
 

@@ -13,20 +13,19 @@ export default function CaseStudyPortfolioCard({ study, index }) {
     >
       <div>
         {/* Featured Image Container */}
-        <Link
-          href={`/case-studies/${study.slug}`}
-          className="relative block aspect-[16/10] w-full overflow-hidden border-b-2 border-frame-border bg-black"
-        >
-          <img
-            src={imageSrc}
-            alt={study.image?.alt || `${study.client} case study`}
-            className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
+        <div className="relative block aspect-[16/10] w-full overflow-hidden border-b-2 border-frame-border bg-black">
+          <Link href={`/case-studies/${study.slug}`} className="block h-full w-full">
+            <img
+              src={imageSrc}
+              alt={study.image?.alt || `${study.client} case study`}
+              className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-105"
+              loading="lazy"
+            />
+          </Link>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
 
           {/* Top Overlays */}
-          <div className="absolute inset-x-4 top-4 flex items-center justify-between">
+          <div className="pointer-events-none absolute inset-x-4 top-4 flex items-center justify-between">
             <span className="border border-frame-accent bg-frame-bg/90 backdrop-blur-md px-3 py-1 text-[0.68rem] font-black uppercase tracking-[0.18em] text-frame-accent shadow-lg">
               {study.category}
             </span>
@@ -36,7 +35,7 @@ export default function CaseStudyPortfolioCard({ study, index }) {
           </div>
 
           {/* Bottom Overlay on Image: Client & Industry */}
-          <div className="absolute inset-x-4 bottom-3 flex items-center justify-between">
+          <div className="pointer-events-none absolute inset-x-4 bottom-3 flex items-center justify-between">
             <span className="text-xs font-black uppercase tracking-[0.2em] text-white/95 drop-shadow-md">
               {study.client}
             </span>
@@ -46,7 +45,7 @@ export default function CaseStudyPortfolioCard({ study, index }) {
               </span>
             )}
           </div>
-        </Link>
+        </div>
 
         {/* Card Content */}
         <div className="p-6 md:p-7">

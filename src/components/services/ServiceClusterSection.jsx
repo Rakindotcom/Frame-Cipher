@@ -1,11 +1,10 @@
 import Link from 'next/link'
 import {
-  getRelatedSubServices,
-  getSubServicesForPillar,
   getPillarServices,
   getServiceDisplayName,
   getServiceSummary,
 } from '../../data/servicePages'
+import { getServiceLinkPlan } from '../../lib/seo/internalLinks'
 import { growthCaseStudies } from '../../data/growthWork'
 
 const specificCaseStudyMappings = {
@@ -153,10 +152,15 @@ export default function ServiceClusterSection({ service }) {
   const isPillar = service.pageType === 'Pillar Service'
   const pillarKey = service.pillarSlug || service.slug || ''
 
-  // Sibling or child services (for pillars, link to other core pillars)
+  const linkPlan = getServiceLinkPlan(service) || {}
+
+  // Index-adjacent siblings (sub-services) or sibling pillars, per the link map
   const relatedServices = isPillar
-    ? getPillarServices().filter((p) => p.slug !== service.slug).slice(0, 4)
-    : getRelatedSubServices(service, 4)
+    ? getPillarServices()
+        .filter((p) => p.slug !== service.slug)
+        .slice(0, 4)
+        .map((p) => ({ ...p, href: p.fullPath, anchor: getServiceDisplayName(p) }))
+    : linkPlan.siblings || []
 
   // Matching case studies
   const relevantStudySlugs =
@@ -223,10 +227,9 @@ export default function ServiceClusterSection({ service }) {
             </p>
             <div className="grid w-full grid-cols-1 gap-4 sm:grid-cols-2">
               {relatedServices.map((sub, idx) => (
-                <Link
+                <div
                   key={sub.slug}
-                  href={`/services/${sub.slug}`}
-                  className="group flex flex-col justify-between border-2 border-frame-border bg-frame-muted/15 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:bg-frame-bg hover:shadow-lg w-full min-w-0"
+                  className="group relative flex flex-col justify-between border-2 border-frame-border bg-frame-muted/15 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:bg-frame-bg hover:shadow-lg w-full min-w-0"
                 >
                   <div>
                     <div className="flex items-center justify-between">
@@ -241,32 +244,93 @@ export default function ServiceClusterSection({ service }) {
                       </span>
                     </div>
                     <h3 className="mt-4 font-heading text-lg font-bold uppercase leading-snug text-frame-fg group-hover:text-frame-accent transition-colors">
-                      {getServiceDisplayName(sub)}
+                      <Link
+                        href={sub.href || `/services/${sub.slug}`}
+                        className="after:absolute after:inset-0 after:content-['']"
+                      >
+                        {sub.anchor || getServiceDisplayName(sub)}
+                      </Link>
                     </h3>
                     <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg line-clamp-2">
-                      {getServiceSummary(sub)}
+                      {sub.summary || getServiceSummary(sub)}
                     </p>
                   </div>
                   <span className="mt-5 text-[11px] font-black uppercase tracking-wider text-frame-accent">
                     View Service Specifications
                   </span>
-                </Link>
+                </div>
               ))}
             </div>
 
-            {!isPillar && service.pillarSlug && (
+            {!isPillar && linkPlan.hub && (
               <div className="mt-4 border-2 border-dashed border-frame-border/80 bg-frame-muted/10 p-5 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 w-full">
                 <span className="text-xs font-semibold text-frame-muted-fg">
                   Looking for full-scope strategy across this pillar?
                 </span>
                 <Link
-                  href={`/services/${service.pillarSlug}`}
+                  href={linkPlan.hub.href}
                   className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-frame-accent hover:text-frame-fg transition-colors shrink-0"
                 >
-                  <span>View Complete {pillarTitle} Pillar</span>
+                  <span>{linkPlan.hub.anchor}</span>
                   <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
+            )}
+
+            {(linkPlan.crossCluster?.length > 0 || linkPlan.comparison?.length > 0) && (
+              <div className="space-y-4 pt-2">
+                {linkPlan.crossCluster?.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                      Works Best Alongside
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {linkPlan.crossCluster.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="inline-flex items-center gap-1.5 border-2 border-frame-border px-4 py-2 text-xs font-black uppercase tracking-wider text-frame-fg transition-colors hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                        >
+                          <span>{link.anchor}</span>
+                          <span aria-hidden="true">&rarr;</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {linkPlan.comparison?.length > 0 && (
+                  <div>
+                    <p className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                      Comparing Platforms
+                    </p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {linkPlan.comparison.map((link) => (
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="inline-flex items-center gap-1.5 border border-frame-border/70 px-3 py-1.5 text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg transition-colors hover:border-frame-accent hover:text-frame-accent"
+                        >
+                          <span>{link.anchor}</span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {linkPlan.geoContext && (
+              <p className="pt-1 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                Clients also ask about{' '}
+                <Link
+                  href={linkPlan.geoContext.href}
+                  className="font-bold text-frame-fg underline decoration-frame-accent/40 underline-offset-4 hover:text-frame-accent transition-colors"
+                >
+                  {linkPlan.geoContext.anchor}
+                </Link>{' '}
+                when scoping this engagement.
+              </p>
             )}
           </div>
 
@@ -280,20 +344,24 @@ export default function ServiceClusterSection({ service }) {
             {relevantStudies.length > 0 ? (
               <div className="space-y-4 w-full">
                 {relevantStudies.map((study) => (
-                  <Link
+                  <article
                     key={study.slug}
-                    href={`/case-studies/${study.slug}`}
-                    className="group block w-full min-w-0 border-2 border-frame-border bg-frame-muted/15 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:bg-frame-bg hover:shadow-lg"
+                    className="group relative block w-full min-w-0 border-2 border-frame-border bg-frame-muted/15 p-6 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:bg-frame-bg hover:shadow-lg"
                   >
                     <div className="flex items-center justify-between text-[11px] font-black uppercase tracking-wider text-frame-accent">
                       <span>{study.client}</span>
                       <span className="text-frame-muted-fg">Case Study</span>
                     </div>
                     <h4 className="mt-3 font-heading text-base font-bold uppercase leading-snug text-frame-fg group-hover:text-frame-accent transition-colors">
-                      {study.title}
+                      <Link
+                        href={`/case-studies/${study.slug}`}
+                        className="after:absolute after:inset-0 after:content-['']"
+                      >
+                        {study.title}
+                      </Link>
                     </h4>
                     {study.metrics?.[0] && (
-                      <div className="mt-4 flex items-baseline justify-between border-t border-frame-border/60 pt-3 text-xs">
+                      <div className="mt-4 flex items-baseline justify-between border-t border-frame-border/60 pt-3 text-xs" aria-hidden="true">
                         <span className="font-heading text-xl font-bold text-frame-fg">
                           {study.metrics[0][0]}
                         </span>
@@ -302,7 +370,7 @@ export default function ServiceClusterSection({ service }) {
                         </span>
                       </div>
                     )}
-                  </Link>
+                  </article>
                 ))}
               </div>
             ) : null}

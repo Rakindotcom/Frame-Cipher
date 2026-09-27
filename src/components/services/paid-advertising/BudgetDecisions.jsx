@@ -63,6 +63,34 @@ export default function BudgetDecisions() {
             </div>
           ))}
         </div>
+
+        {/* Interactive Media Planning Tool Callout */}
+        <div className="mt-12 border-2 border-frame-accent bg-frame-bg p-8 md:p-10">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-frame-accent animate-pulse" />
+                <span className="text-xs font-mono font-bold uppercase tracking-[0.24em] text-frame-accent">
+                  Interactive Media Science Tool
+                </span>
+              </div>
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                Simulate Your Ad Spend, Break-Even ROAS & CPA
+              </h3>
+              <p className="mt-2 text-sm text-frame-muted-fg leading-relaxed">
+                Before committing marketing capital, run our full-funnel budget simulator. Model Meta, Google Ads Quality Scores, TikTok video retention (VVR), and conversational AI search economics tailored to your industry and unit margins.
+              </p>
+            </div>
+            <div className="shrink-0 flex flex-wrap gap-4">
+              <a
+                href="/tools/ads-calculator"
+                className="inline-flex items-center justify-center border-2 border-frame-accent bg-frame-accent px-6 py-4 text-xs font-black uppercase tracking-wider text-frame-accent-fg hover:bg-transparent hover:text-frame-fg transition"
+              >
+                Launch Ads Calculator &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

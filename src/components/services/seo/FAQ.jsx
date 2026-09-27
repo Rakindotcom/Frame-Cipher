@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../Kinetic'
+import { resolveFaqs } from '../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'How much do SEO services cost in Bangladesh?',
     answer: 'SEO pricing depends on the website, competition, target market, technical condition, content requirements, and scope. Framecipher\'s current starting reference plans range from ৳25,000 to ৳75,000 per month, with custom pricing for larger or international projects.',
@@ -43,7 +44,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

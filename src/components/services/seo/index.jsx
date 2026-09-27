@@ -51,7 +51,7 @@ export default function SeoService({ service }) {
       <VsPaid />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <GettingStarted />
       <CTA />
     </main>

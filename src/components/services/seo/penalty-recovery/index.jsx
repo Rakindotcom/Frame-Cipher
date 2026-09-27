@@ -43,7 +43,7 @@ export default function SeoPenaltyRecoveryService({ service }) {
       <Pricing />
       <Guarantee />
       <CaseStudies />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

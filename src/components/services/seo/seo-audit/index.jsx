@@ -40,7 +40,7 @@ export default function SeoSeoAuditService({ service }) {
       <Guarantee />
       <CaseStudies />
       <Markets />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

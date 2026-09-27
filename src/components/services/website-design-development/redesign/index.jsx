@@ -29,7 +29,7 @@ const redesignKeywords = [
   'Core Web Vitals Speed',
 ]
 
-export default function WebsiteDesignDevelopmentRedesignService() {
+export default function WebsiteDesignDevelopmentRedesignService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -58,7 +58,7 @@ export default function WebsiteDesignDevelopmentRedesignService() {
       <Pricing />
       <Timeline />
       <ReviewSupport />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

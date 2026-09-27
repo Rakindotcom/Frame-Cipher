@@ -27,7 +27,9 @@ const marqueeItems = [
   "Brand Stores Where Eligible"
 ]
 
-export default function PaidAdvertisingAmazonAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingAmazonAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -43,10 +45,11 @@ export default function PaidAdvertisingAmazonAdsService() {
       <WhyChoose />
       <Process />
       <Pricing />
+      <ServiceCalculatorBanner platform="amazon" />
       <Markets />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

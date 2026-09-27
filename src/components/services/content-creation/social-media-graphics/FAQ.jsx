@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const allFaqs = [
+const fallbackFaqs = [
   {
     category: "Scope",
     question: "What is included in your Social Media Graphics Service?",
@@ -61,13 +62,14 @@ const allFaqs = [
   }
 ]
 
-const categories = ["All", "Scope", "Platforms", "Carousels", "Templates", "Retainers"]
+const categories = ["All", "Scope", "Platforms", "Carousels", "Templates", "Adaptation", "Video Stills", "Copywriting", "Retainers", "Logistics"]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   const [activeCategory, setActiveCategory] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
 
-  const filteredFaqs = allFaqs.filter((faq) => {
+  const filteredFaqs = faqs.filter((faq) => {
     const matchesCategory = activeCategory === "All" || faq.category === activeCategory
     const matchesSearch =
       faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||

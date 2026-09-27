@@ -1,4 +1,5 @@
-const faqs = [
+import { resolveFaqs } from '../../../../lib/seo/faq'
+const fallbackFaqs = [
   {
     question: 'Will a redesign hurt my current Google rankings?',
     answer: 'It can if URLs, content, redirects, indexing, or technical SEO elements are changed without proper planning. We establish an SEO baseline, review valuable pages, plan redirects, preserve important content, and perform pre- and post-launch checks to reduce unnecessary search risk.',
@@ -41,7 +42,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-16 sm:py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

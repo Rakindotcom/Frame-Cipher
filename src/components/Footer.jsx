@@ -12,7 +12,7 @@ export default function Footer() {
           </h2>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.3fr_1fr_1.15fr_0.85fr_1fr]">
           <div>
             <div className="mb-5 flex items-center gap-3">
               <img src="/logo.webp" alt="Frame Cipher" className="h-11 w-11 object-contain" />
@@ -34,9 +34,36 @@ export default function Footer() {
                 { title: 'SEO Services', href: '/services/seo' },
                 { title: 'Brand Identity', href: '/services/content-creation/branding' },
                 { title: 'Social Media Marketing', href: '/services/social-media-management' },
-                { title: 'Video Production', href: '/services/content-creation/commercial-video' },
+                { title: 'Video Production', href: '/services/content-creation/video-production' },
                 { title: 'Photography', href: '/services/content-creation/product-photography' },
                 { title: 'Website Development', href: '/services/website-design-development' },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <div className="mb-4 flex items-center gap-2">
+              <h2 className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Ads Calculators</h2>
+              <span className="rounded bg-frame-accent/15 px-1.5 py-0.5 text-[9px] font-mono font-bold tracking-wider text-frame-accent">FREE</span>
+            </div>
+            <ul className="grid gap-2 text-sm">
+              {[
+                { title: 'All Calculators Hub', href: '/calculators' },
+                { title: 'Google Ads ROI', href: '/calculators/google-ads' },
+                { title: 'Meta Ads ROAS', href: '/calculators/meta-ads' },
+                { title: 'TikTok Ads CPM', href: '/calculators/tiktok-ads' },
+                { title: 'LinkedIn B2B CAC', href: '/calculators/linkedin-ads' },
+                { title: 'Amazon ACoS / TACoS', href: '/calculators/amazon-ads' },
+                { title: 'Remarketing CPA', href: '/calculators/remarketing' },
+                { title: 'Lead Gen Funnel', href: '/calculators/lead-generation-ads' },
+                { title: 'ChatGPT & AI Ads', href: '/calculators/chatgpt-ads' },
+                { title: 'Pinterest Ads', href: '/calculators/pinterest-ads' },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">

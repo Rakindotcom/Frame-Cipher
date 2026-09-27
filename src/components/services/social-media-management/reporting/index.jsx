@@ -28,7 +28,7 @@ const marqueeItems = [
   'Recommendations',
 ]
 
-export default function SocialMediaManagementReportingService() {
+export default function SocialMediaManagementReportingService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function SocialMediaManagementReportingService() {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

@@ -23,7 +23,7 @@ const wordpressKeywords = [
   'Editorial Freedom',
 ]
 
-export default function WebsiteDesignDevelopmentWordpressService() {
+export default function WebsiteDesignDevelopmentWordpressService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function WebsiteDesignDevelopmentWordpressService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

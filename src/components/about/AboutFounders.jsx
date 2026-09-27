@@ -7,8 +7,8 @@ export default function AboutFounders() {
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
       <div className="mx-auto max-w-[95vw]">
         {/* Section Intro */}
-        <SectionIntro eyebrow="Leadership / Founders" title="The operators building the machine.">
-          Frame Cipher is built and run by hands-on operators who design, engineer, shoot, and scale alongside our client partners. No passive layers. Direct accountability.
+        <SectionIntro eyebrow="Leadership / Founders" title="The operators building the multinational machine.">
+          Frame Cipher is founded and led by hands-on technical and creative operators who design, engineer, shoot, and scale directly alongside our global enterprise partners. From our Dhaka headquarters, our leadership ensures zero passive bureaucracy, strict adherence to global engineering standards, and direct executive accountability.
         </SectionIntro>
 
         {/* Founders Grid */}

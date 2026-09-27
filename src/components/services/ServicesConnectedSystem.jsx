@@ -28,7 +28,7 @@ const categories = [
     number: '04',
     title: 'Media',
     description: 'Photo, video, reels, editing, and campaign-ready assets.',
-    href: '/services/content-creation/commercial-video',
+    href: '/services/content-creation/video-production',
   },
   {
     number: '05',
@@ -69,10 +69,9 @@ export default function ServicesConnectedSystem() {
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {categories.map((category) => (
-              <a
+              <div
                 key={category.number}
-                href={category.href}
-                className="group border-2 border-frame-border bg-frame-muted p-6 transition-colors duration-300 hover:border-frame-accent hover:bg-frame-accent"
+                className="group relative border-2 border-frame-border bg-frame-muted p-6 transition-colors duration-300 hover:border-frame-accent hover:bg-frame-accent"
               >
                 <div className="flex items-start justify-between gap-4">
                   <span className="font-heading text-3xl font-bold leading-none tracking-tighter text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/60">
@@ -81,12 +80,14 @@ export default function ServicesConnectedSystem() {
                   <span className="mt-1.5 h-2 w-8 bg-frame-accent transition-colors duration-300 group-hover:bg-frame-accent-fg" aria-hidden="true" />
                 </div>
                 <h3 className="mt-8 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
-                  {category.title}
+                  <a href={category.href} className="after:absolute after:inset-0 after:content-['']">
+                    {category.title}
+                  </a>
                 </h3>
                 <p className="mt-3 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
                   {category.description}
                 </p>
-              </a>
+              </div>
             ))}
           </div>
         </div>

@@ -27,7 +27,7 @@ const marqueeItems = [
   'Lifecycle Messaging',
 ]
 
-export default function ContentWritingEmailCopywritingService() {
+export default function ContentWritingEmailCopywritingService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -46,7 +46,7 @@ export default function ContentWritingEmailCopywritingService() {
       <Timeline />
       <QualityCommitments />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

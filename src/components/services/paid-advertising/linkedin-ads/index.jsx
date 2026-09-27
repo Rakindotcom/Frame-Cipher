@@ -25,7 +25,9 @@ const marqueeItems = [
   "Qualified Lead Optimization"
 ]
 
-export default function PaidAdvertisingLinkedinAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingLinkedinAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -40,9 +42,10 @@ export default function PaidAdvertisingLinkedinAdsService() {
       <Results />
       <WhyChoose />
       <Pricing />
+      <ServiceCalculatorBanner platform="linkedin" />
       <PerformanceCommitment />
       <Timeline />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: "What is a Short-Form Video Production Service?",
     answer: "A Short-Form Video Production Service covers the planning, creation, filming, editing, and delivery of short videos designed for platforms such as Instagram Reels, TikTok, and YouTube Shorts."
@@ -75,7 +76,8 @@ const faqs = [
   }
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
       <div className="mx-auto max-w-4xl">

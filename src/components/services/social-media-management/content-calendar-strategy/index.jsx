@@ -27,7 +27,7 @@ const marqueeItems = [
   'Performance Review',
 ]
 
-export default function SocialMediaManagementContentCalendarStrategyService() {
+export default function SocialMediaManagementContentCalendarStrategyService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function SocialMediaManagementContentCalendarStrategyService() {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

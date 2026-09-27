@@ -30,7 +30,7 @@ const marqueeItems = [
   'Test Variants',
 ]
 
-export default function ContentWritingLandingPageCopyService() {
+export default function ContentWritingLandingPageCopyService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -52,7 +52,7 @@ export default function ContentWritingLandingPageCopyService() {
       <Timeline />
       <QualityStandard />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

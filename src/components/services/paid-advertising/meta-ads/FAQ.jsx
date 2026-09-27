@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is Meta Ads management?',
     answer: 'Meta Ads management is the ongoing process of planning, launching, monitoring, testing, measuring, and optimizing advertising campaigns across Meta\u2019s advertising ecosystem, including Facebook and Instagram. It can include campaign strategy, creative development, audience inputs, Pixel and Conversions API measurement, retargeting, budget management, and performance reporting.',
@@ -43,7 +44,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

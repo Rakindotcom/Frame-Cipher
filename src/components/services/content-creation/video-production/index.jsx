@@ -45,7 +45,7 @@ export default function ContentCreationVideoProductionService({ service }) {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

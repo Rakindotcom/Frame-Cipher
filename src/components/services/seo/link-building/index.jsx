@@ -40,7 +40,7 @@ export default function SeoLinkBuildingService({ service }) {
       <Pricing />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <GettingStarted />
       <CTA />
     </main>

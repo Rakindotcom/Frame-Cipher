@@ -29,7 +29,7 @@ const maintenanceKeywords = [
   'In-House Engineers',
 ]
 
-export default function WebsiteDesignDevelopmentMaintenanceService() {
+export default function WebsiteDesignDevelopmentMaintenanceService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -58,7 +58,7 @@ export default function WebsiteDesignDevelopmentMaintenanceService() {
       <OngoingImprovements />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

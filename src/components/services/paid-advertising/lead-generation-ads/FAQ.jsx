@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What is a Lead Generation Ads Service?',
     answer: 'A Lead Generation Ads Service helps businesses use paid advertising to generate inquiries, consultations, quote requests, demo requests, calls, bookings, or other qualified customer opportunities. Framecipher manages campaign strategy, lead destinations, forms, qualification, tracking, CRM integration, optimization, and reporting.',
@@ -55,7 +56,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="max-w-4xl mx-auto">

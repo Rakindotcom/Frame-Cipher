@@ -24,7 +24,7 @@ const webflowKeywords = [
   'Zero-Bloat Code',
 ]
 
-export default function WebsiteDesignDevelopmentWebflowService() {
+export default function WebsiteDesignDevelopmentWebflowService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function WebsiteDesignDevelopmentWebflowService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

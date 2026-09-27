@@ -23,7 +23,7 @@ const ecommerceKeywords = [
   'Courier Integration',
 ]
 
-export default function WebsiteDesignDevelopmentEcommerceWebsiteService() {
+export default function WebsiteDesignDevelopmentEcommerceWebsiteService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -45,7 +45,7 @@ export default function WebsiteDesignDevelopmentEcommerceWebsiteService() {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

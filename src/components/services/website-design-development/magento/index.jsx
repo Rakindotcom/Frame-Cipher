@@ -25,7 +25,7 @@ const magentoKeywords = [
   'Upgrade-Safe Modules',
 ]
 
-export default function WebsiteDesignDevelopmentMagentoService() {
+export default function WebsiteDesignDevelopmentMagentoService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -47,7 +47,7 @@ export default function WebsiteDesignDevelopmentMagentoService() {
       <Process />
       <Pricing />
       <Support />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

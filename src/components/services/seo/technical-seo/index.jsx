@@ -40,7 +40,7 @@ export default function SeoTechnicalSeoService({ service }) {
       <Pricing />
       <Timeline />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <GettingStarted />
       <CTA />
     </main>

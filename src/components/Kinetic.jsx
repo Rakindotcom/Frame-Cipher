@@ -155,6 +155,14 @@ export function TypeMarquee({ items, reverse = false, slow = false }) {
 }
 
 export function InversionCard({ eyebrow, title, children, number, href }) {
+  const titleClasses = [
+    number ? 'mt-6' : 'mt-4',
+    href ? '' : 'relative z-10',
+    'font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl md:text-3xl',
+  ]
+    .filter(Boolean)
+    .join(' ')
+
   const content = (
     <>
       {number && (
@@ -163,22 +171,20 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
         </p>
       )}
       {eyebrow && <p className="text-xs font-black uppercase tracking-[0.26em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/70">{eyebrow}</p>}
-      <h3 className={`${number ? 'mt-6' : 'mt-4'} relative z-10 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl md:text-3xl`}>
-        {title}
+      <h3 className={titleClasses}>
+        {href ? (
+          <Link href={href} className="after:absolute after:inset-0 after:content-['']">
+            {title}
+          </Link>
+        ) : (
+          title
+        )}
       </h3>
       {children && <div className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">{children}</div>}
     </>
   )
 
-  const classes = 'group min-h-72 bg-frame-bg p-7 transition-colors duration-300 hover:bg-frame-accent'
-
-  if (href) {
-    return (
-      <Link href={href} className={classes}>
-        {content}
-      </Link>
-    )
-  }
+  const classes = `group min-h-72 bg-frame-bg p-7 transition-colors duration-300 hover:bg-frame-accent${href ? ' relative' : ''}`
 
   return <article className={classes}>{content}</article>
 }

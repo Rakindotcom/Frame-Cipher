@@ -48,10 +48,9 @@ export default function Platforms() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {platforms.map((platform, index) => (
-            <Link
+            <article
               key={platform.title}
-              href={platform.href}
-              className="group flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent hover:bg-frame-accent md:p-8"
+              className="group relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent hover:bg-frame-accent md:p-8"
             >
               <div>
                 <div className="flex items-center justify-between gap-3">
@@ -66,7 +65,9 @@ export default function Platforms() {
                   </span>
                 </div>
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors group-hover:text-frame-accent-fg md:text-2xl">
-                  {platform.title}
+                  <Link href={platform.href} className="after:absolute after:inset-0 after:content-['']">
+                    {platform.title}
+                  </Link>
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors group-hover:text-frame-accent-fg/90">
                   {platform.body}
@@ -77,7 +78,7 @@ export default function Platforms() {
                   </p>
                 )}
               </div>
-            </Link>
+            </article>
           ))}
         </div>
 

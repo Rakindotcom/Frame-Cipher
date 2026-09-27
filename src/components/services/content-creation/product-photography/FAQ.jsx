@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const allFaqs = [
+const fallbackFaqs = [
   {
     category: "Capabilities",
     question: "What types of products do you photograph?",
@@ -56,7 +57,7 @@ const allFaqs = [
   },
   {
     category: "Pricing",
-    question: "How much does product photography cost?",
+    question: "How much does product photography cost in Bangladesh?",
     answer: "Pricing depends on the number of products, images per product, photography style, styling, location, and editing requirements. Framecipher product photography starts from approximately ৳1,000–৳1,500 per product for selected studio packages, while lifestyle and more comprehensive shoots are priced separately."
   },
   {
@@ -66,13 +67,14 @@ const allFaqs = [
   }
 ]
 
-const categories = ["All", "Capabilities", "Marketplaces", "Production", "Pricing", "Logistics"]
+const categories = ["All", "Capabilities", "Marketplaces", "Post-Production", "Production", "Pricing", "Logistics", "Timeline"]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   const [activeCategory, setActiveCategory] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
 
-  const filteredFaqs = allFaqs.filter((faq) => {
+  const filteredFaqs = faqs.filter((faq) => {
     const matchesCategory = activeCategory === "All" || faq.category === activeCategory
     const matchesSearch =
       faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||

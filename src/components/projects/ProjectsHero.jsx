@@ -15,7 +15,7 @@ export default function ProjectsHero() {
       <Link href="/services/paid-advertising" className={inlineLink}>paid advertising</Link>,{' '}
       <Link href="/services/seo" className={inlineLink}>SEO growth</Link>,{' '}
       <Link href="/services/website-design-development" className={inlineLink}>websites</Link>,{' '}
-      <Link href="/services/content-creation/commercial-video" className={inlineLink}>video productions</Link>, and{' '}
+      <Link href="/services/content-creation/video-production" className={inlineLink}>video productions</Link>, and{' '}
       <Link href="/services/content-creation/branding" className={inlineLink}>brand visual systems</Link>.
     </PageHero>
   )

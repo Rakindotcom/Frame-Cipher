@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { insightPosts } from '../../data/agency'
 import { InversionCard } from '../Kinetic'
 import SectionButton from './SectionButton'
@@ -25,9 +26,17 @@ export default function HomeRecentInsights() {
               eyebrow={post.category}
               title={post.title}
               number={String(index + 1).padStart(2, '0')}
-              href="/blog"
             >
               <p>{post.description}</p>
+              {post.serviceLink && (
+                <Link
+                  href={post.serviceLink.href}
+                  className="mt-6 inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-frame-accent transition-colors duration-300 hover:text-frame-accent-fg"
+                >
+                  <span>Explore {post.serviceLink.anchor}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              )}
             </InversionCard>
           ))}
         </div>

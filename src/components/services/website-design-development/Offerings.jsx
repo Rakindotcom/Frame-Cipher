@@ -86,26 +86,27 @@ export default function Offerings() {
 
         <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
           {subServices.map((sub) => (
-            <Link
+            <article
               key={sub.slug}
-              href={sub.slug}
-              className="group bg-frame-bg p-7 md:p-8 flex flex-col justify-between transition-colors hover:bg-frame-muted/30"
+              className="group relative bg-frame-bg p-7 md:p-8 flex flex-col justify-between transition-colors hover:bg-frame-muted/30"
             >
               <div>
                 <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                   {sub.tag}
                 </span>
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg group-hover:text-frame-accent transition-colors">
-                  {sub.title}
+                  <Link href={sub.slug} className="after:absolute after:inset-0 after:content-['']">
+                    {sub.title}
+                  </Link>
                 </h3>
                 <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
                   {sub.description}
                 </p>
               </div>
-              <div className="mt-6 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+              <div className="mt-6 flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent" aria-hidden="true">
                 <span>View Details & Pricing &rarr;</span>
               </div>
-            </Link>
+            </article>
           ))}
         </div>
       </div>

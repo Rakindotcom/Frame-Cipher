@@ -50,7 +50,7 @@ export default function PaidAdvertisingService({ service }) {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <GettingStarted />
       <CTA />
     </main>

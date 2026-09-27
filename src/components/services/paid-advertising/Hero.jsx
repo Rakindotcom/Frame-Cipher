@@ -22,8 +22,8 @@ export default function Hero() {
         actions={
           <>
             <PosterButton href="/contact">Get Your Free Ad Account Audit</PosterButton>
-            <PosterButton href="/contact" variant="outline">
-              Talk to the Framecipher Media Team
+            <PosterButton href="/tools/ads-calculator" variant="outline">
+              Calculate Media Spend & ROAS
             </PosterButton>
           </>
         }

@@ -24,7 +24,7 @@ const marqueeItems = [
   'Reporting',
 ]
 
-export default function SocialMediaManagementFacebookService() {
+export default function SocialMediaManagementFacebookService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -40,7 +40,7 @@ export default function SocialMediaManagementFacebookService() {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

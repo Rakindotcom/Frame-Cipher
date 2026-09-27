@@ -29,7 +29,9 @@ const marqueeItems = [
   "First-Party Data"
 ]
 
-export default function PaidAdvertisingRemarketingService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingRemarketingService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -47,10 +49,11 @@ export default function PaidAdvertisingRemarketingService() {
       <WhoFor />
       <WhenNotRight />
       <Pricing />
+      <ServiceCalculatorBanner platform="remarketing" />
       <Markets />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

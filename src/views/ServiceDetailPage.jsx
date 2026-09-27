@@ -1,5 +1,6 @@
 import { getServiceLandingContent, portfolioProjects } from '../data/agency'
 import { CTASection } from '../components/Kinetic'
+import ThreeSixtyMarketingService from '../components/services/360-marketing'
 import {
   ServiceDetailHero,
   ServiceDetailProblemSection,
@@ -8,11 +9,16 @@ import {
   ServiceDetailProcessSection,
   ServiceDetailOutputsSection,
   ServiceDetailLocalRelevanceSection,
+  ServicePillarClusterLinks,
   ServiceDetailRelatedWorkSection,
   ServiceDetailFAQSection,
 } from '../components/specific-service'
 
 export default function ServiceDetailPage({ service }) {
+  if (service?.slug === '360-marketing') {
+    return <ThreeSixtyMarketingService service={service} />
+  }
+
   const landing = getServiceLandingContent(service)
   const relatedProjects = portfolioProjects
     .filter((project) =>
@@ -39,6 +45,8 @@ export default function ServiceDetailPage({ service }) {
       <ServiceDetailOutputsSection landing={landing} />
 
       <ServiceDetailLocalRelevanceSection landing={landing} />
+
+      <ServicePillarClusterLinks service={service} />
 
       <ServiceDetailRelatedWorkSection projects={fallbackProjects} />
 

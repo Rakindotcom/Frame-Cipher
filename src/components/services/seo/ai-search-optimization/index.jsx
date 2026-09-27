@@ -45,7 +45,7 @@ export default function SeoAiSearchOptimizationService({ service }) {
       <Timeline />
       <Guarantee />
       <CaseStudies />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

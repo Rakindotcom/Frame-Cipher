@@ -44,7 +44,7 @@ export default function SeoLocalSeoService({ service }) {
       <Pricing />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

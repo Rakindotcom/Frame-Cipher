@@ -1,21 +1,6 @@
 import Link from 'next/link'
 import { services } from '../../data/agency'
-
-const serviceCanonicalLinks = {
-  '360-marketing': '/services/360-marketing',
-  'brand-strategy': '/services/content-creation/branding',
-  'social-media-marketing': '/services/social-media-management',
-  'paid-ads': '/services/paid-advertising',
-  'seo': '/services/seo',
-  'branding-design': '/services/content-creation/branding',
-  'video-production': '/services/content-creation/commercial-video',
-  'photography': '/services/content-creation/product-photography',
-  'web-development': '/services/website-design-development',
-  'software-solutions': '/services/app-development',
-  'ecommerce': '/services/website-design-development/ecommerce-website',
-  'landing-pages': '/services/website-design-development/landing-pages',
-  'automation-crm': '/services/app-development/saas-apps',
-}
+import { resolveServiceHref } from '../../lib/seo/internalLinks'
 
 export default function HomeServicesPulse() {
   const allServices = services
@@ -35,17 +20,21 @@ export default function HomeServicesPulse() {
 
         <div className="grid bg-frame-accent-fg gap-px sm:grid-cols-2 lg:grid-cols-3">
           {allServices.map((service) => (
-            <Link
+            <div
               key={service.slug}
-              href={serviceCanonicalLinks[service.slug] || `/services/${service.slug}`}
-              className="group flex min-h-72 flex-col justify-between bg-frame-accent p-6 text-frame-accent-fg transition-colors duration-300 hover:bg-frame-bg hover:text-frame-fg md:p-8"
+              className="group relative flex min-h-72 flex-col justify-between bg-frame-accent p-6 text-frame-accent-fg transition-colors duration-300 hover:bg-frame-bg hover:text-frame-fg md:p-8"
             >
               <div>
                 <p className="text-[10px] font-black uppercase tracking-[0.28em] opacity-75">
                   {service.navTitle}
                 </p>
                 <h3 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter sm:text-3xl md:text-4xl">
-                  {service.title}
+                  <Link
+                    href={resolveServiceHref(service.slug) || `/services/${service.slug}`}
+                    className="after:absolute after:inset-0 after:content-['']"
+                  >
+                    {service.title}
+                  </Link>
                 </h3>
                 <p className="mt-4 text-sm font-medium leading-relaxed opacity-85 md:text-base">
                   {service.description}
@@ -59,7 +48,7 @@ export default function HomeServicesPulse() {
                   </span>
                 </span>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

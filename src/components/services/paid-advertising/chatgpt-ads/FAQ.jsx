@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: 'What are ChatGPT Ads and when should I use them?',
     answer: 'ChatGPT Ads are advertising placements that appear within ChatGPT conversational AI responses. They are shown below ChatGPT answers and are clearly identified as advertisements, connecting with users who are actively researching, comparing, or deciding. The channel is most useful when your offer fits conversational research and decision-making, and when the advertiser setup is eligible for the platform.',
@@ -55,7 +56,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

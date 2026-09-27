@@ -44,7 +44,7 @@ export default function SeoInternationalSeoService({ service }) {
       <Pricing />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

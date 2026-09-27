@@ -1,4 +1,5 @@
-const faqs = [
+import { resolveFaqs } from '../../../../lib/seo/faq'
+const fallbackFaqs = [
   {
     question: "What's the difference between UI design and UX design?",
     answer: "UX design focuses on how a product works, how users move through it, and how easily they complete tasks. UI design focuses on the visual interface, including typography, colors, spacing, components, and screen appearance. We handle both as part of one connected design process.",
@@ -57,7 +58,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-16 sm:py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">

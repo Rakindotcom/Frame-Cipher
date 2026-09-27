@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     q: 'What exactly counts as a Google penalty?',
     a: 'In everyday language, \u201Cpenalty\u201D is used loosely. Technically, Google issues formal manual actions when human reviewers determine that a site violates Google\u2019s spam policies, and it separately flags security issues. A traffic drop after a core or spam update is not the same as a manual action. The recovery work only becomes clear once we know which category applies.',
@@ -51,7 +52,8 @@ const faqs = [
   },
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section id="faq" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
       <div className="mx-auto max-w-[95vw]">

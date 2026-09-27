@@ -41,7 +41,7 @@ export default function SeoAdsenseApprovalService({ service }) {
       <Pricing />
       <Guarantee />
       <CaseStudies />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

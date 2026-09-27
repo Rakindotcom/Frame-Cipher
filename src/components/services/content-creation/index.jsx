@@ -43,7 +43,7 @@ export default function ContentCreationService({ service }) {
       <WhyChoose />
       <Process />
       <Pricing />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

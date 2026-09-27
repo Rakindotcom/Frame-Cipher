@@ -29,7 +29,7 @@ const marqueeItems = [
   'Reporting',
 ]
 
-export default function SocialMediaManagementTiktokService() {
+export default function SocialMediaManagementTiktokService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -47,7 +47,7 @@ export default function SocialMediaManagementTiktokService() {
       <Timeline />
       <Guarantee />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

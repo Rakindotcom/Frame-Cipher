@@ -27,7 +27,9 @@ const marqueeItems = [
   "Audience Strategy & Retargeting"
 ]
 
-export default function PaidAdvertisingTiktokAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingTiktokAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -43,10 +45,11 @@ export default function PaidAdvertisingTiktokAdsService() {
       <WhyChoose />
       <Process />
       <Pricing />
+      <ServiceCalculatorBanner platform="tiktok" />
       <Markets />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

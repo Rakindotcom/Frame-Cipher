@@ -42,7 +42,7 @@ export default function SeoSeoStrategyService({ service }) {
       <Timeline />
       <Guarantee />
       <StandardEngagement />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

@@ -1,6 +1,7 @@
 import { SectionIntro } from '../../../Kinetic'
+import { resolveFaqs } from '../../../../lib/seo/faq'
 
-const faqs = [
+const fallbackFaqs = [
   {
     question: "What does app maintenance and support include?",
     answer: "App maintenance can include bug fixes, OS and SDK updates, security maintenance, performance monitoring, backend and API support, integration maintenance, release support, and minor improvements. The exact scope depends on your application and selected maintenance plan."
@@ -51,7 +52,8 @@ const faqs = [
   }
 ]
 
-export default function FAQ() {
+export default function FAQ({ service }) {
+  const faqs = resolveFaqs(service, fallbackFaqs)
   return (
     <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
       <div className="mx-auto max-w-4xl">

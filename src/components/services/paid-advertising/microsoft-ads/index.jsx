@@ -26,7 +26,9 @@ const marqueeItems = [
   "Remarketing & Audience Ads"
 ]
 
-export default function PaidAdvertisingMicrosoftAdsService() {
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+
+export default function PaidAdvertisingMicrosoftAdsService({ service }) {
   return (
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
@@ -41,10 +43,11 @@ export default function PaidAdvertisingMicrosoftAdsService() {
       <WhyChoose />
       <Process />
       <Pricing />
+      <ServiceCalculatorBanner platform="microsoft" />
       <Markets />
       <Timeline />
       <Guarantee />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

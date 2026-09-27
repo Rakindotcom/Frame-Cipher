@@ -48,7 +48,7 @@ export default function ContentWritingService({ service }) {
       <Timeline />
       <QualityStandard />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <CTA />
     </main>
   )

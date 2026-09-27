@@ -38,7 +38,7 @@ export default function SeoOnPageSeoService({ service }) {
       <Pricing />
       <Timeline />
       <ServiceAreas />
-      <FAQ />
+      <FAQ service={service} />
       <GettingStarted />
       <CTA />
     </main>
