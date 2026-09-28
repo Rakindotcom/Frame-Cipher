@@ -15,6 +15,14 @@ dist
 dist-ssr
 *.local
 
+# Real secrets. `.env` and `.env.local` are gitignored; `.env.example` is the
+# only env file that belongs in the repo. A committed `.env` leaks the GSC
+# private key and ADMIN_SESSION_SECRET, and the latter is enough to mint a
+# valid admin session cookie for any account.
+.env
+.env.*
+!.env.example
+
 # Google service account credentials — never commit these
 framecipherweb-*.json
 *service-account*.json

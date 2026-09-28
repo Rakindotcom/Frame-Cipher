@@ -5,7 +5,7 @@ import { getAllCanonicalPosts, getPostBySlug, getMergedPostsFromStorage } from "
 import { BlogPostClientView } from "@/components/blog/BlogPostClientView";
 import { buildBlogMetadata } from "@/lib/seo/metadata";
 import { getServerAuthors } from "@/lib/authors/serverAuthorStorage";
-import { getServerBlogPosts } from "@/lib/blog/serverBlogStorage";
+import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
 
 async function authorProfileFor(authorName: string) {
   if (!authorName) return undefined;
@@ -54,7 +54,7 @@ export async function generateMetadata({
 
   let post: any = null;
   try {
-    const serverPosts = await getServerBlogPosts();
+    const serverPosts = await getPublicBlogPosts();
     const merged = getMergedPostsFromStorage(serverPosts);
     post = merged.find(
       (p) =>
@@ -85,8 +85,10 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const targetSlug = normalizeSlug(slug);
 
-  // 1. Fetch persistent posts from server JSON storage (blog-posts.json / post.json)
-  const remotePosts = await getServerBlogPosts();
+  // 1. Fetch publicly visible posts. Draft, private and password-protected posts
+  //    are excluded here, which is what makes a hidden post 404 rather than
+  //    render — the Admin SDK bypasses Firestore security rules.
+  const remotePosts = await getPublicBlogPosts();
   const merged = getMergedPostsFromStorage(remotePosts);
 
   // 2. Find target post

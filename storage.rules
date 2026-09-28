@@ -5,8 +5,10 @@ service firebase.storage {
 
     // Keep in sync with the ADMIN_EMAILS environment variable and with
     // isAdmin() in firestore.rules. Storage rules cannot read process.env.
+    // Every admin listed in firestore.rules MUST appear here, otherwise that
+    // admin can sign in and save content but every upload is rejected.
     function adminEmails() {
-      return ['pervesmahedi@gmail.com'];
+      return ['pervesmahedi@gmail.com', 'mahedihasancareerbuilders@gmail.com'];
     }
 
     function isAdmin() {

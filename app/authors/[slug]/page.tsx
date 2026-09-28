@@ -2,8 +2,8 @@ import React from "react";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getServerAuthorBySlug } from "@/lib/authors/serverAuthorStorage";
-import { getServerBlogPosts } from "@/lib/blog/serverBlogStorage";
+import { getPublicAuthorBySlug } from "@/lib/authors/serverAuthorStorage";
+import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
 import { buildPersonSchema } from "@/lib/schema/personSchema";
 import { BASE_URL } from "@/lib/seo/site";
 import { getMergedPostsFromStorage, isLegacyDemoPost } from "@/lib/blog/getBlogPosts";
@@ -42,7 +42,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const author = await getServerAuthorBySlug(slug);
+  const author = await getPublicAuthorBySlug(slug);
 
   if (!author) {
     return {
@@ -53,7 +53,7 @@ export async function generateMetadata({
 
   const ogImage = author.image?.url;
   const authorTitle = withBrandSuffix(
-    author.seoTitle || `${author.name} — ${author.jobTitle}`
+    author.seoTitle || `${author.name} â€” ${author.jobTitle}`
   );
   const metadata: Metadata = {
     title: authorTitle,
@@ -102,7 +102,7 @@ export default async function AuthorProfilePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const author = await getServerAuthorBySlug(slug);
+  const author = await getPublicAuthorBySlug(slug);
 
   if (!author || (author.status && author.status !== "published")) {
     notFound();
@@ -125,7 +125,7 @@ export default async function AuthorProfilePage({
     ([, value]) => value && value.trim().length > 0
   );
 
-  const rawPosts = await getServerBlogPosts();
+  const rawPosts = await getPublicBlogPosts();
   const allPosts = getMergedPostsFromStorage(rawPosts);
   const targetAuthorName = (author.name || "").toLowerCase().trim();
   const targetAuthorSlug = (author.slug || "").toLowerCase().trim();

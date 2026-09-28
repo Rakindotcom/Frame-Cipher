@@ -4,7 +4,8 @@ import { growthCaseStudies } from "../../data/growthWork";
 import { CANONICAL_BLOG_POSTS } from "../blog/canonicalPosts";
 import { BLOG_CATEGORIES, blogCategorySlug, isLegacyDemoPost } from "../blog/getBlogPosts";
 import { CANONICAL_AUTHORS } from "../authors/canonicalAuthors";
-import { getBlogPostsFromFirestore, getAuthorProfilesFromFirestore } from "../firebase";
+import { getPublicBlogPosts } from "../blog/serverBlogStorage";
+import { getPublicAuthors } from "../authors/serverAuthorStorage";
 import { ALL_ADS_CALCULATORS } from "../../data/calculators/allAdsCalculatorsConfig";
 
 export const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || siteUrl || "https://framecipher.info").replace(/\/$/, "");
@@ -88,7 +89,7 @@ export async function categoryEntries() {
 
   try {
     const posts = await Promise.race([
-      getBlogPostsFromFirestore(),
+      getPublicBlogPosts(),
       new Promise((_, reject) => setTimeout(() => reject(new Error("CMS category sitemap timeout")), 1500)),
     ]);
     posts.forEach(addFromPost);
@@ -101,8 +102,6 @@ export async function categoryEntries() {
   }));
 }
 
-import { getServerBlogPosts } from "../blog/serverBlogStorage";
-
 // Published blog posts: canonical seeds + any dashboard-created posts from
 // Server storage / Firestore, with a short timeout so a slow CMS never blocks the sitemap.
 export async function publishedBlogEntries() {
@@ -113,7 +112,7 @@ export async function publishedBlogEntries() {
 
   try {
     const posts = await Promise.race([
-      getServerBlogPosts(),
+      getPublicBlogPosts(),
       new Promise((_, reject) => setTimeout(() => reject(new Error("CMS blog sitemap timeout")), 2000)),
     ]);
     posts
@@ -146,7 +145,7 @@ export async function authorEntries() {
 
   try {
     const authors = await Promise.race([
-      getAuthorProfilesFromFirestore(),
+      getPublicAuthors(),
       new Promise((_, reject) => setTimeout(() => reject(new Error("CMS author sitemap timeout")), 1500)),
     ]);
     (authors || [])

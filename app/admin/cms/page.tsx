@@ -132,6 +132,11 @@ export default function BlogCmsPage() {
   // Bulk Selection State for Blog Posts
   const [selectedPostIds, setSelectedPostIds] = useState<Set<string>>(new Set());
 
+  // A Firestore write can fail (missing service account, denied permission,
+  // read-only deploy). The original code ignored the response body, so a lost
+  // save looked identical to a successful one and the post 404'd afterwards.
+  const [saveError, setSaveError] = useState<string | null>(null);
+
   // Load persistent posts from Server API / Firestore / localStorage on mount
   useEffect(() => {
     async function loadPosts() {
@@ -148,7 +153,7 @@ export default function BlogCmsPage() {
 
       // 1. Fetch from unified server API (/api/blog)
       try {
-        const res = await fetch("/api/blog", { cache: "no-store" });
+        const res = await fetch("/api/blog?scope=all", { cache: "no-store" });
         if (res.ok) {
           const apiPosts = await res.json();
           if (Array.isArray(apiPosts) && apiPosts.length > 0) {
@@ -196,13 +201,27 @@ export default function BlogCmsPage() {
 
     // Save all posts atomically via Server API
     try {
-      await fetch("/api/blog", {
+      const res = await fetch("/api/blog", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ posts: cleanList }),
       });
+
+      const payload = await res.json().catch(() => null);
+      if (!res.ok || payload?.success === false) {
+        // Surface the real reason instead of silently losing the save.
+        setSaveError(
+          payload?.error ||
+            `Save failed with status ${res.status}. The post was not stored.`
+        );
+        return;
+      }
+      setSaveError(null);
     } catch (e) {
       console.warn("Server save error:", e);
+      setSaveError(
+        "Could not reach the server. Your change is only in this browser and will not appear on the public site."
+      );
     }
   };
 
@@ -314,6 +333,27 @@ export default function BlogCmsPage() {
       />
 
       <div className="px-4 sm:px-6 lg:px-8 pt-6 space-y-6 relative z-10 max-w-7xl mx-auto">
+        {saveError && (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-300 bg-red-50 p-4 shadow-xs flex items-start justify-between gap-4"
+          >
+            <div>
+              <p className="text-sm font-heading font-bold text-red-800">
+                Changes were not saved to the server
+              </p>
+              <p className="text-sm text-red-700 mt-1 break-words">{saveError}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSaveError(null)}
+              className="shrink-0 text-sm font-bold text-red-700 hover:text-red-900"
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
+
         {/* Top 4 KPI Cards - High Contrast Light Theme */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs flex flex-col justify-between">

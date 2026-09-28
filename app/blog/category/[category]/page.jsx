@@ -10,7 +10,7 @@ import {
 } from "@/lib/blog/getBlogPosts";
 import { buildCategoryMetadata } from "@/lib/seo/metadata";
 import { WordPressSidebar } from "@/components/blog/WordPressSidebar";
-import { getServerBlogPosts } from "@/lib/blog/serverBlogStorage";
+import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = false;
@@ -38,7 +38,7 @@ export default async function CategoryPage({ params }) {
 
   let allPosts = getAllCanonicalPosts();
   try {
-    const remotePosts = await getServerBlogPosts();
+    const remotePosts = await getPublicBlogPosts();
     allPosts = getMergedPostsFromStorage(JSON.stringify(remotePosts));
   } catch (error) {
     console.error("Category page could not load server blog posts:", error);

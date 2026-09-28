@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/admin/requireAdmin";
 import {
   getServerAuthors,
+  getPublicAuthors,
   saveServerAuthor,
   saveAllServerAuthors,
   deleteServerAuthor,
@@ -10,9 +11,24 @@ import {
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+/**
+ * `GET /api/authors` is readable without a session (proxy.ts allows it) and is
+ * consumed by public author pages, so it returns published profiles only. The
+ * CMS asks for `?scope=all`, which requires a valid admin session.
+ */
+export async function GET(req: Request) {
   try {
-    const authors = await getServerAuthors();
+    const { searchParams } = new URL(req.url);
+    if (searchParams.get("scope") === "all") {
+      const guard = await requireAdmin(req);
+      if (!guard.ok) return guard.response;
+      const authors = await getServerAuthors();
+      return NextResponse.json(authors, {
+        headers: { "Cache-Control": "no-store" },
+      });
+    }
+
+    const authors = await getPublicAuthors();
     return NextResponse.json(authors, {
       headers: { "Cache-Control": "no-store" },
     });

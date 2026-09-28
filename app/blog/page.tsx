@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BlogPageClient } from "@/components/blog/BlogPageClient";
-import { getServerBlogPosts } from "@/lib/blog/serverBlogStorage";
+import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
 import { isLegacyDemoPost, getMergedPostsFromStorage } from "@/lib/blog/getBlogPosts";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { generatePageSchema } from "@/lib/seo/schema";
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const rawPosts = await getServerBlogPosts();
+  const rawPosts = await getPublicBlogPosts();
   const detailedPosts = getMergedPostsFromStorage(rawPosts);
   const cleanPosts = detailedPosts.filter((p) => !isLegacyDemoPost(p));
 

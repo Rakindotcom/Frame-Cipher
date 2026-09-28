@@ -77,10 +77,14 @@ export default function AuthorsPage() {
   const [schemaAuthor, setSchemaAuthor] = useState<AuthorProfile | null>(null);
   const [copiedSchemaId, setCopiedSchemaId] = useState<string>("");
 
+  // A rejected write must be visible, otherwise a lost save looks identical to
+  // a successful one and the new author 404s on /authors/[slug].
+  const [saveError, setSaveError] = useState<string | null>(null);
+
   useEffect(() => {
     async function loadAuthors() {
       try {
-        const res = await fetch("/api/authors", { cache: "no-store" });
+        const res = await fetch("/api/authors?scope=all", { cache: "no-store" });
         if (res.ok) {
           const apiAuthors = await res.json();
           if (Array.isArray(apiAuthors) && apiAuthors.length > 0) {
@@ -118,15 +122,30 @@ export default function AuthorsPage() {
     } catch {}
 
     try {
-      await fetch("/api/authors", {
+      const res = await fetch("/api/authors", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ authors: updatedList }),
       });
+
+      const payload = await res.json().catch(() => null);
+      if (!res.ok || payload?.success === false) {
+        // A rejected write must not look like a success, otherwise the new
+        // profile 404s on /authors/[slug] with no explanation.
+        setSaveError(
+          payload?.error ||
+            `Save failed with status ${res.status}. The author was not stored.`
+        );
+        return;
+      }
+      setSaveError(null);
     } catch (err) {
       console.error("Failed to persist authors to server:", err);
+      setSaveError(
+        "Could not reach the server. Your change is only in this browser and will not appear on the public site."
+      );
+      return;
     }
-
 
     // Regenerate the author sitemap so published profile changes land immediately.
     revalidateSitemaps(["author"]).catch(() => {});
@@ -212,6 +231,27 @@ export default function AuthorsPage() {
       />
 
       <div className="px-4 sm:px-6 lg:px-8 pt-6 space-y-6 relative z-10 max-w-7xl mx-auto">
+        {saveError && (
+          <div
+            role="alert"
+            className="rounded-2xl border border-red-300 bg-red-50 p-4 shadow-xs flex items-start justify-between gap-4"
+          >
+            <div>
+              <p className="text-sm font-heading font-bold text-red-800">
+                Changes were not saved to the server
+              </p>
+              <p className="text-sm text-red-700 mt-1 break-words">{saveError}</p>
+            </div>
+            <button
+              type="button"
+              onClick={() => setSaveError(null)}
+              className="shrink-0 text-sm font-bold text-red-700 hover:text-red-900"
+            >
+              Dismiss
+            </button>
+          </div>
+        )}
+
         {/* Top 4 KPI Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs flex flex-col justify-between">

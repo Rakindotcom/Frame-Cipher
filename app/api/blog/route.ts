@@ -3,6 +3,7 @@ import { revalidatePath } from "next/cache";
 import { requireAdmin } from "@/lib/admin/requireAdmin";
 import {
   getServerBlogPosts,
+  getPublicBlogPosts,
   saveServerBlogPost,
   saveAllServerBlogPosts,
   deleteServerBlogPost,
@@ -10,9 +11,25 @@ import {
 
 export const dynamic = "force-dynamic";
 
-export async function GET() {
+/**
+ * `GET /api/blog` is readable without a session (proxy.ts allows it) and is
+ * consumed by the public blog components, so it must never return drafts,
+ * private posts, or a post password. The CMS asks for `?scope=all`, which
+ * requires a valid admin session.
+ */
+export async function GET(req: Request) {
   try {
-    const posts = await getServerBlogPosts();
+    const { searchParams } = new URL(req.url);
+    if (searchParams.get("scope") === "all") {
+      const guard = await requireAdmin(req);
+      if (!guard.ok) return guard.response;
+      const posts = await getServerBlogPosts();
+      return NextResponse.json(posts, {
+        headers: { "Cache-Control": "no-store" },
+      });
+    }
+
+    const posts = await getPublicBlogPosts();
     return NextResponse.json(posts, {
       headers: { "Cache-Control": "no-store" },
     });

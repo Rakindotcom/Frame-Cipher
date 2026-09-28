@@ -187,7 +187,9 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
   ]);
 
   useEffect(() => {
-    fetch("/api/authors")
+    // `scope=all` so a draft author is still selectable; the default public
+    // scope only returns published profiles.
+    fetch("/api/authors?scope=all")
       .then((res) => (res.ok ? res.json() : []))
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {

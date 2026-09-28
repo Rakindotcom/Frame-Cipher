@@ -21,6 +21,14 @@ const admin = () =>
     email: "pervesmahedi@gmail.com",
     email_verified: true,
   }).storage();
+// Every admin in ADMIN_EMAILS / firestore.rules must be able to upload. A
+// mismatch here silently breaks the second admin: they can sign in and save
+// content, but every image upload is rejected with a permission error.
+const secondAdmin = () =>
+  testEnv.authenticatedContext("admin-uid-2", {
+    email: "mahedihasancareerbuilders@gmail.com",
+    email_verified: true,
+  }).storage();
 const attacker = () =>
   testEnv.authenticatedContext("attacker-uid", {
     email: "attacker@example.com",
@@ -98,6 +106,22 @@ test("only admins can upload or delete media", async () => {
   await assertFails(deleteObject(ref(attacker(), "media/seed.png")));
   await assertFails(deleteObject(ref(anon(), "media/seed.png")));
   await assertSucceeds(deleteObject(ref(admin(), "media/seed.png")));
+});
+
+test("every admin in firestore.rules can upload", async () => {
+  // storage.rules and firestore.rules keep separate hardcoded allowlists
+  // because rules cannot read process.env. This test fails if the two drift.
+  await assertSucceeds(
+    uploadBytes(ref(secondAdmin(), "media/second-admin.png"), blobOfSize(4 * KB), {
+      contentType: "image/png",
+    })
+  );
+  await assertSucceeds(
+    uploadBytes(ref(secondAdmin(), "avatars/second-admin.png"), blobOfSize(4 * KB), {
+      contentType: "image/png",
+    })
+  );
+  await assertSucceeds(deleteObject(ref(secondAdmin(), "media/second-admin.png")));
 });
 
 test("admin matching is case-insensitive and requires a verified email", async () => {

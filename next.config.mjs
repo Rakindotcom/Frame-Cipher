@@ -2,6 +2,21 @@
 const nextConfig = {
   poweredByHeader: false,
   reactStrictMode: true,
+  // firebase-admin resolves optional gRPC/metadata internals and node-forge at
+  // runtime with dynamic requires. Bundling those into the server output breaks
+  // the Admin SDK at runtime on Netlify, so it stays an external `require`
+  // resolved from node_modules at runtime. It is a real dependency (not a
+  // devDependency) so it is installed in the Functions bundle.
+  serverExternalPackages: ["firebase-admin"],
+  // `linkAudit.ts` walks the repository with a recursive `readdirSync` to power
+  // the /admin/seo-health source linter. That dynamic walk is impossible for the
+  // Node file tracer to scope, so it reported "the whole project was traced
+  // unintentionally" and pulled the entire source tree into the server bundle.
+  // The linter only ever reads files from a git checkout, so the source tree is
+  // excluded from the trace rather than shipped to the function.
+  outputFileTracingExcludes: {
+    "/admin/seo-health": ["./src/**/*", "./app/**/*", "./*.json", "./*.mjs", "./*.js"],
+  },
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [320, 640, 768, 1024, 1280, 1536, 1920],

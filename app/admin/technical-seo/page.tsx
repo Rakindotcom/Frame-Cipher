@@ -26,12 +26,18 @@ interface RedirectRule {
  * because a redirect change requires a rebuild and redeploy.
  */
 function readRealRedirects(): RedirectRule[] {
-  const configPath = path.join(process.cwd(), "next.config.mjs");
-  if (!fs.existsSync(configPath)) return [];
+  const configPath = path.join(
+    /* turbopackIgnore: true */ process.cwd(),
+    "next.config.mjs"
+  );
+  if (!fs.existsSync(/* turbopackIgnore: true */ configPath)) return [];
 
   let source: string;
   try {
-    source = fs.readFileSync(configPath, "utf-8");
+    source = fs.readFileSync(
+      /* turbopackIgnore: true */ configPath,
+      "utf-8"
+    );
   } catch {
     return [];
   }
@@ -57,10 +63,16 @@ function readRealRedirects(): RedirectRule[] {
 }
 
 function readRobotsSource(): string {
-  const robotsPath = path.join(process.cwd(), "app", "robots.js");
-  if (!fs.existsSync(robotsPath)) return "app/robots.js was not found.";
+  const robotsPath = path.join(
+    /* turbopackIgnore: true */ process.cwd(),
+    "app",
+    "robots.js"
+  );
+  if (!fs.existsSync(/* turbopackIgnore: true */ robotsPath)) {
+    return "app/robots.js was not found.";
+  }
   try {
-    return fs.readFileSync(robotsPath, "utf-8");
+    return fs.readFileSync(/* turbopackIgnore: true */ robotsPath, "utf-8");
   } catch {
     return "app/robots.js could not be read.";
   }
