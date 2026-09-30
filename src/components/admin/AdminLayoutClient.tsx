@@ -4,7 +4,8 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import { AdminSidebar } from "@/components/admin/AdminSidebar";
 import { AdminMobileNav } from "@/components/admin/AdminMobileNav";
-import { isSessionActive } from "@/lib/admin/auth";
+import { exchangeIdTokenForSession } from "@/lib/admin/auth";
+import { isAuthorizedAdmin, subscribeToIdTokenChanges } from "@/lib/firebase";
 
 const ADMIN_LIGHT_THEME = `
   html, body {
@@ -26,14 +27,23 @@ export function AdminLayoutClient({ children }: { children: React.ReactNode }) {
     if (isLoginPage) return;
     let cancelled = false;
 
-    isSessionActive().then((active) => {
+    const unsubscribe = subscribeToIdTokenChanges(async (user) => {
       if (cancelled) return;
-      setIsAuthenticated(active);
-      if (!active) window.location.href = "/admin/login?session=expired";
+      try {
+        if (!await isAuthorizedAdmin(user)) throw new Error("Not authorized");
+        await exchangeIdTokenForSession(await user!.getIdToken());
+        if (!cancelled) setIsAuthenticated(true);
+      } catch {
+        if (!cancelled) {
+          setIsAuthenticated(false);
+          window.location.href = "/admin/login?session=expired";
+        }
+      }
     });
 
     return () => {
       cancelled = true;
+      unsubscribe();
     };
   }, [pathname, isLoginPage]);
 

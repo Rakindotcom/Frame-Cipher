@@ -36,7 +36,7 @@ const videoTypes = [
   {
     tag: 'Type 06',
     title: 'YouTube & Long-Form Videos',
-    description: 'Long-form video needs more than extra footage—it requires pacing, narrative structure, audio excellence, and a compelling reason for viewers to stay engaged across minutes.',
+    description: 'Long-form video needs more than extra footage; it requires pacing, narrative structure, audio excellence, and a compelling reason for viewers to stay engaged across minutes.',
     supports: 'Business YouTube channels, educational deep-dives, podcast formats & company stories',
     link: { href: '/services/content-creation/youtube-videos', text: 'Explore YouTube Production →' }
   },

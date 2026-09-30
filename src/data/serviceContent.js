@@ -14,7 +14,7 @@ export function cleanServiceText(value) {
 }
 
 export function isPlaceholderPrice(value) {
-  return /[৳$€£]\s*X[\dX,.+–—\-\s]*|\b(?:TBD|TBC)\b/i.test(String(value ?? ''))
+  return /[৳$€£]\s*X[\dX,.+–\-\s]*|\b(?:TBD|TBC)\b/i.test(String(value ?? ''))
 }
 
 export function normalizePricingTable(table) {

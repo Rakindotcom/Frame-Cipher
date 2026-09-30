@@ -13,7 +13,7 @@ const reasons = [
   {
     num: '01',
     title: 'Business-Focused Design',
-    desc: 'We design around commercial objectives, target audiences, and information hierarchy—not just decorative aesthetics. Every layout is built to clarify your value proposition.'
+    desc: 'We design around commercial objectives, target audiences, and information hierarchy, not just decorative aesthetics. Every layout is built to clarify your value proposition.'
   },
   {
     num: '02',
@@ -23,7 +23,7 @@ const reasons = [
   {
     num: '03',
     title: 'Production-Ready Delivery',
-    desc: 'Artwork is prepared to uncompromised technical standards—CMYK, bleed, safe margins, and packaging dielines for print; crisp RGB dimensions for digital screens.'
+    desc: 'Artwork is prepared to uncompromised technical standards: CMYK, bleed, safe margins, and packaging dielines for print; crisp RGB dimensions for digital screens.'
   },
   {
     num: '04',

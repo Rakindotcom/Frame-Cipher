@@ -5,16 +5,16 @@
  */
 
 export const CURRENCIES = {
-  BDT: { label: 'BDT — Bangladeshi Taka', symbol: '৳', usdRate: 118 },
-  USD: { label: 'USD — US Dollar', symbol: '$', usdRate: 1 },
-  GBP: { label: 'GBP — British Pound', symbol: '£', usdRate: 0.79 },
-  EUR: { label: 'EUR — Euro', symbol: '€', usdRate: 0.92 },
-  INR: { label: 'INR — Indian Rupee', symbol: '₹', usdRate: 86 },
-  PKR: { label: 'PKR — Pakistani Rupee', symbol: '₨', usdRate: 278 },
-  AED: { label: 'AED — UAE Dirham', symbol: 'د.إ', usdRate: 3.67 },
-  SAR: { label: 'SAR — Saudi Riyal', symbol: '﷼', usdRate: 3.75 },
-  CAD: { label: 'CAD — Canadian Dollar', symbol: 'C$', usdRate: 1.37 },
-  AUD: { label: 'AUD — Australian Dollar', symbol: 'A$', usdRate: 1.52 },
+  BDT: { label: 'BDT (Bangladeshi Taka)', symbol: '৳', usdRate: 118 },
+  USD: { label: 'USD (US Dollar)', symbol: '$', usdRate: 1 },
+  GBP: { label: 'GBP (British Pound)', symbol: '£', usdRate: 0.79 },
+  EUR: { label: 'EUR (Euro)', symbol: '€', usdRate: 0.92 },
+  INR: { label: 'INR (Indian Rupee)', symbol: '₹', usdRate: 86 },
+  PKR: { label: 'PKR (Pakistani Rupee)', symbol: '₨', usdRate: 278 },
+  AED: { label: 'AED (UAE Dirham)', symbol: 'د.إ', usdRate: 3.67 },
+  SAR: { label: 'SAR (Saudi Riyal)', symbol: '﷼', usdRate: 3.75 },
+  CAD: { label: 'CAD (Canadian Dollar)', symbol: 'C$', usdRate: 1.37 },
+  AUD: { label: 'AUD (Australian Dollar)', symbol: 'A$', usdRate: 1.52 },
 };
 
 export const COUNTRIES = [
@@ -63,7 +63,7 @@ export const AD_FORMATS = [
 
 export const PLACEMENTS = [
   { id: 'exact', label: 'Exact Match Keywords [keyword]', note: 'Tight intent control, highest CVR, lowest reach', cpcMult: 1.25, ctrMult: 1.35, cvrMult: 1.30 },
-  { id: 'phrase', label: 'Phrase Match Keywords "keyword"', note: 'Balanced intent and volume — standard agency core', cpcMult: 1.0, ctrMult: 1.0, cvrMult: 1.0 },
+  { id: 'phrase', label: 'Phrase Match Keywords "keyword"', note: 'Balanced intent and volume, standard agency core', cpcMult: 1.0, ctrMult: 1.0, cvrMult: 1.0 },
   { id: 'broad', label: 'Broad Match with Smart Bidding', note: 'Maximum reach with Google AI intent expansion', cpcMult: 0.78, ctrMult: 0.72, cvrMult: 0.85 },
 ];
 

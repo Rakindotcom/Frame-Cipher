@@ -128,7 +128,7 @@ export const ADS_FORMULAS_EXPLAINED = [
       calculations: [
         'Advertiser A (QS 9) receives a ~18% discount: Effective CPC = $2.46.',
         'Advertiser B (QS 4) incurs a ~24% penalty: Effective CPC = $3.72.',
-        'On a 10,000-click monthly campaign, Advertiser A spends $24,600, while Advertiser B spends $37,200 for the exact same clicks—a difference of $12,600/month purely due to ad and landing page relevance.',
+        'On a 10,000-click monthly campaign, Advertiser A spends $24,600, while Advertiser B spends $37,200 for the exact same clicks, a difference of $12,600/month purely due to ad and landing page relevance.',
       ],
     },
   },
@@ -147,7 +147,7 @@ export const ADS_FORMULAS_EXPLAINED = [
       {
         step: 'Lost IS (Rank)',
         formula: '\\text{Lost IS (Rank)} = \\max(0, (7.5 - \\text{Effective QS}) \\times 6)',
-        explanation: 'Occurs when bids are too low or Quality Score is deficient to enter top ad placements. Raising budget will NOT fix this—you must improve Ad Rank and QS.',
+        explanation: 'Occurs when bids are too low or Quality Score is deficient to enter top ad placements. Raising budget will NOT fix this; you must improve Ad Rank and QS.',
       },
     ],
     workedExample: {

@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { getAdminProfile, setAdminProfile, type AdminUser } from "@/lib/admin/auth";
-import { saveAdminProfileToFirestore } from "@/lib/firebase";
+import { auth, saveAdminProfileToFirestore, isAuthorizedAdmin } from "@/lib/firebase";
 import {
   ShieldCheck,
   Flame,
@@ -23,7 +23,6 @@ export default function AdminSettingsPage() {
 
   // Profile State
   const [profileName, setProfileName] = useState("");
-  const [profileRole, setProfileRole] = useState("");
   const [profileStatus, setProfileStatus] = useState<{
     type: "success" | "error" | null;
     message: string;
@@ -35,7 +34,6 @@ export default function AdminSettingsPage() {
     setProfile(current);
     if (current) {
       setProfileName(current.name || "");
-      setProfileRole(current.role || "editor");
     }
   }, []);
 
@@ -45,22 +43,15 @@ export default function AdminSettingsPage() {
     setProfileStatus({ type: null, message: "" });
 
     try {
-      const res = await fetch("/api/settings", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: profileName, role: profileRole }),
-      });
-      const payload = await res.json().catch(() => null);
-
-      if (!res.ok || !payload?.success) {
-        setProfileStatus({
-          type: "error",
-          message: payload?.error || "Could not save the administrator profile.",
-        });
-        return;
-      }
-
-      const persisted = await saveAdminProfileToFirestore(payload.profile);
+      const user = auth?.currentUser;
+      if (!await isAuthorizedAdmin(user || null)) throw new Error("Administrator authentication required.");
+      const updatedProfile: AdminUser = {
+        uid: user!.uid,
+        email: user!.email || "",
+        name: profileName.trim().slice(0, 120) || user!.email || "Admin",
+        role: "admin",
+      };
+      const persisted = await saveAdminProfileToFirestore(updatedProfile);
       if (!persisted.success) {
         setProfileStatus({
           type: "error",
@@ -69,13 +60,13 @@ export default function AdminSettingsPage() {
         return;
       }
 
-      setAdminProfile(payload.profile);
+      setAdminProfile(updatedProfile);
       setProfileStatus({ type: "success", message: "Administrator profile saved." });
-      setProfile(payload.profile);
-    } catch {
+      setProfile(updatedProfile);
+    } catch (error: any) {
       setProfileStatus({
         type: "error",
-        message: "Network error while saving the administrator profile.",
+        message: error?.message || "Could not save the administrator profile.",
       });
     } finally {
       setIsSavingProfile(false);
@@ -100,7 +91,7 @@ export default function AdminSettingsPage() {
               </div>
             </div>
             <span className="text-xs font-heading font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full self-start whitespace-nowrap">
-              HttpOnly Signed Cookie
+              Firebase-signed session
             </span>
           </div>
 
@@ -118,7 +109,7 @@ export default function AdminSettingsPage() {
             <span className="text-xs font-heading font-bold uppercase tracking-wider text-[#64748B]">Admin Role</span>
             <div className="my-1.5">
               <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight capitalize">
-                {profile?.role || "editor"}
+                {profile?.role || "admin"}
               </div>
             </div>
             <span className="text-xs font-heading font-bold text-[#1D4ED8] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full self-start truncate max-w-full">
@@ -193,17 +184,16 @@ export default function AdminSettingsPage() {
                 </label>
                 <input
                   type="text"
-                  value={profileRole}
-                  onChange={(e) => setProfileRole(e.target.value)}
-                  placeholder="owner | editor | author"
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white font-mono"
+                  value="admin"
+                  readOnly
+                  className="w-full px-3.5 py-2.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0F172A] font-mono"
                 />
               </div>
             </div>
 
             <div className="flex flex-col sm:flex-row sm:items-center justify-between pt-2 gap-3">
               <span className="text-[11px] text-[#64748B] font-medium">
-                Roles are enforced on the server from the ADMIN_ROLES environment variable.
+                Dashboard access is restricted to the configured Firebase Authentication UID.
               </span>
               <button
                 type="submit"
@@ -294,8 +284,8 @@ export default function AdminSettingsPage() {
           <div className="p-3.5 rounded-xl bg-[#FFFBEB] border border-[#FDE68A] text-xs text-[#92400E] flex items-start gap-2.5">
             <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
             <span>
-              To change the administrator email or password, use Firebase Authentication (Email/Password or Google).
-              To change who is allowed in, update the ADMIN_EMAILS environment variable and redeploy.
+              Change the email or password in Firebase Authentication. To replace the administrator,
+              update the UID in the app and both Firebase rules files, then redeploy.
             </span>
           </div>
         </div>

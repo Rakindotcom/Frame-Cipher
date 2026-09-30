@@ -7,7 +7,7 @@ const MUTATING_METHODS = new Set(["POST", "PUT", "PATCH", "DELETE"]);
 // GET on these two is deliberately reachable without a session: the public blog
 // and author components read them. Both routes therefore return published
 // content only. A full read (drafts included) requires `?scope=all`, which each
-// route re-checks against the admin session cookie — being public here does not
+// route re-checks against the admin session cookie; being public here does not
 // grant the wider scope.
 const PUBLIC_API_READS = new Set(["/api/blog", "/api/authors"]);
 const PUBLIC_API_ALL_METHODS = new Set(["/api/auth/admin-session", "/api/analytics/track"]);

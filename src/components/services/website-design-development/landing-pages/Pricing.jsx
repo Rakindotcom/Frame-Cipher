@@ -61,10 +61,10 @@ const comparisonMatrix = [
   { feature: 'Conversion-Focused Design', launch: '✓', growth: '✓ Expanded', campaign: '✓ Expanded' },
   { feature: 'Mobile-First Development', launch: '✓', growth: '✓', campaign: '✓' },
   { feature: 'Basic Lead Capture Form', launch: '✓', growth: '✓', campaign: '✓' },
-  { feature: 'CRM / Email Platform Integration', launch: '—', growth: '✓', campaign: '✓' },
-  { feature: 'Conversion Tracking & Pixel Setup', launch: '—', growth: '✓', campaign: '✓ Multi-platform' },
-  { feature: 'A/B Test-Ready Structure', launch: '—', growth: '—', campaign: '✓' },
-  { feature: 'Custom Animations / Interactions', launch: '—', growth: '✓ Limited', campaign: '✓ Full Scope' },
+  { feature: 'CRM / Email Platform Integration', launch: '✗', growth: '✓', campaign: '✓' },
+  { feature: 'Conversion Tracking & Pixel Setup', launch: '✗', growth: '✓', campaign: '✓ Multi-platform' },
+  { feature: 'A/B Test-Ready Structure', launch: '✗', growth: '✗', campaign: '✓' },
+  { feature: 'Custom Animations / Interactions', launch: '✗', growth: '✓ Limited', campaign: '✓ Full Scope' },
   { feature: 'Launch Support', launch: '✓', growth: '✓', campaign: '✓ Extended' },
 ]
 

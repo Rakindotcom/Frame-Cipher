@@ -2,7 +2,7 @@ import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const packages = [
   {
-    name: 'Remarketing — Single Platform',
+    name: 'Remarketing: Single Platform',
     tag: 'Focused Program',
     fee: '\u09F315,000',
     feeNote: 'per month',
@@ -20,7 +20,7 @@ const packages = [
     cta: 'Request This Plan',
   },
   {
-    name: 'Remarketing — Cross-Platform',
+    name: 'Remarketing: Cross-Platform',
     tag: 'Multi-Channel',
     fee: '\u09F325,000',
     feeNote: 'per month',

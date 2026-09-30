@@ -15,7 +15,7 @@ const pillars = [
   {
     num: '03',
     title: 'Engineered for Real-World Business Use',
-    desc: 'We stress-test how the brand system performs across real touchpoints—commercial websites, pitch decks, retail packaging, social feeds, and corporate documents—rather than designing for an isolated, sterile presentation mockup.'
+    desc: 'We stress-test how the brand system performs across real touchpoints (commercial websites, pitch decks, retail packaging, social feeds, and corporate documents) rather than designing for an isolated, sterile presentation mockup).'
   },
   {
     num: '04',
@@ -115,7 +115,7 @@ export default function WhyChoose() {
                 Featured Brand Case Study
               </span>
               <h4 className="font-heading text-sm font-bold uppercase text-frame-fg">
-                Dr. Ferdoush Saleheen — Personal Brand &amp; Authority Architecture
+                Dr. Ferdoush Saleheen | Personal Brand &amp; Authority Architecture
               </h4>
             </div>
             <Link

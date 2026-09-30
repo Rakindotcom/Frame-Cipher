@@ -138,7 +138,7 @@ export const ADS_METRICS = [
     formula: '(Total Ad Spend / Total Impressions) × 1000',
     formulaLatex: '\\text{CPM} = \\frac{\\text{Ad Spend}}{\\text{Impressions}} \\times 1000',
     description: 'The baseline auction cost to display your ad 1,000 times to the target audience.',
-    importance: 'CPM is the pure pricing unit of digital ad auctions (Meta, TikTok, YouTube). Platforms do not actually sell clicks—they auction impressions. A low CPM means cheap attention; high CPM indicates scarce, highly contested inventory.',
+    importance: 'CPM is the pure pricing unit of digital ad auctions (Meta, TikTok, YouTube). Platforms do not actually sell clicks; they auction impressions. A low CPM means cheap attention; high CPM indicates scarce, highly contested inventory.',
     benchmarks: {
       ecommerce: '$8 – $18 (US/EU) | $1.50 – $3.50 (South Asia/BD)',
       b2b: '$25 – $65 (Targeted professional audiences)',

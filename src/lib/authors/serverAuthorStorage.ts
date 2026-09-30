@@ -7,15 +7,13 @@ import {
   stripUndefined,
   describeMissingAdminConfig,
 } from "@/lib/server/firebaseAdmin";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
+import { publicFirestore } from "@/lib/server/publicFirestore";
 
 /**
- * Author profile persistence.
- *
- * Firestore (`author_profiles`) is the source of truth. The JSON files remain a
- * development-only fallback: on Netlify the filesystem is read-only, so the
- * write threw, the error was swallowed, and the API still answered
- * `{ success: true }` — leaving the new author 404ing on /authors/[slug]
- * because the next request read the JSON baked into the deploy.
+ * Public author reads use the anonymous, rule-limited Firebase web SDK. The
+ * Admin SDK methods below remain for legacy server mutation endpoints only;
+ * the dashboard writes directly with Firebase Authentication and Firestore.
  */
 
 // `turbopackIgnore` keeps the Node file tracer from treating these as a
@@ -126,23 +124,15 @@ function mergeAuthor(
 }
 
 export async function getServerAuthors(): Promise<AuthorProfile[]> {
-  const firestore = getAdminFirestore();
-  if (!firestore) {
-    return readLocalAuthors();
-  }
-
   try {
-    const snapshot = await firestore.collection(COLLECTION).get();
-    const authors = snapshot.docs.map((doc) =>
-      normalizeFromFirestore(doc.data(), doc.id)
-    );
-    if (authors.length === 0) {
-      return CANONICAL_AUTHORS;
-    }
-    return authors;
-  } catch (error: any) {
-    console.error("Firestore author read failed:", error?.message || error);
-    if (canUseLocalFiles()) return readLocalAuthors();
+    const snapshot = await getDocs(query(
+      collection(publicFirestore, COLLECTION),
+      where("status", "==", "published")
+    ));
+    const authors = snapshot.docs.map((entry) => normalizeFromFirestore(entry.data(), entry.id));
+    return authors.length > 0 ? authors : CANONICAL_AUTHORS;
+  } catch (error) {
+    console.error("Public Firestore author read failed:", error);
     return CANONICAL_AUTHORS;
   }
 }
@@ -214,9 +204,8 @@ export async function getServerAuthorBySlug(
 }
 
 /**
- * An author profile is publicly readable only once published. The Admin SDK
- * bypasses Firestore security rules, so this check is the only thing keeping a
- * draft profile off the public site.
+ * An author profile is publicly readable only once published. This check is
+ * defense in depth after the rule-limited Firestore query.
  */
 export function isPubliclyVisible(author: AuthorProfile | null | undefined): boolean {
   if (!author) return false;

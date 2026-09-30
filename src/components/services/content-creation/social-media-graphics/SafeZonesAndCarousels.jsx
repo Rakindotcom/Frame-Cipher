@@ -13,7 +13,7 @@ const safeZoneRules = [
     num: "01",
     title: "Safe Zones Protect Important Content",
     subtitle: "UI Overlay Immunity",
-    desc: "Vertical content can include interface elements around the frame—profile icons, audio badges, comment drawers, and bottom bars. Important text, logos, product information, and CTAs are strictly kept clear of areas where native UI controls appear."
+    desc: "Vertical content can include interface elements around the frame, such as profile icons, audio badges, comment drawers, and bottom bars. Important text, logos, product information, and CTAs are strictly kept clear of areas where native UI controls appear."
   },
   {
     num: "02",

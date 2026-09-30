@@ -111,7 +111,7 @@ export default function Hero({ service }) {
               Social Media Graphics Built Around How People Actually See Them
             </h2>
             <p className="mt-6 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl mx-auto text-balance">
-              Social media design is not simply about fitting a graphic into the correct dimensions. The graphic has to communicate quickly while competing with surrounding content, interface elements, and the limited attention available on a mobile screen. The goal is not simply a good-looking export file—it is a graphic that still works when it is actually published.
+              Social media design is not simply about fitting a graphic into the correct dimensions. The graphic has to communicate quickly while competing with surrounding content, interface elements, and the limited attention available on a mobile screen. The goal is not simply a good-looking export file; it is a graphic that still works when it is actually published.
             </p>
           </div>
 

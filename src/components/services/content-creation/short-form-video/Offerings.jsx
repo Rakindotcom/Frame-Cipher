@@ -4,7 +4,7 @@ const offerings = [
   {
     phase: 'Phase 01',
     title: 'Concept & Hook Development',
-    description: 'A short video needs a clear reason to keep watching. We develop concepts and opening approaches around your subject, audience, brand, and intended platform. A hook does not always need to be loud or dramatic—it needs to give the viewer a reason to continue.',
+    description: 'A short video needs a clear reason to keep watching. We develop concepts and opening approaches around your subject, audience, brand, and intended platform. A hook does not always need to be loud or dramatic; it needs to give the viewer a reason to continue.',
     bullets: [
       'Content concepts & opening line variations',
       'High-retention creative angles & themes',

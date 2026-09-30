@@ -145,7 +145,7 @@ export default function Pricing({ service }) {
               Need a Complete Brand Identity or Enterprise Architecture?
             </h4>
             <p className="mt-1 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
-              For businesses that need a comprehensive brand system beyond the logo—including full collateral suites, packaging systems, custom typography licensing, or sub-brand architectures—we build custom project scopes.
+              For businesses that need a comprehensive brand system beyond the logo, including full collateral suites, packaging systems, custom typography licensing, or sub-brand architectures, we build custom project scopes.
             </p>
           </div>
           <div className="shrink-0">

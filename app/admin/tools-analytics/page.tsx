@@ -49,7 +49,7 @@ export default function ServicesAnalyticsPage() {
   const conversionRate =
     visitorsInRange > 0
       ? `${((totalInquiries / visitorsInRange) * 100).toFixed(1)}%`
-      : "—";
+      : "N/A";
 
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-sans relative overflow-x-hidden pb-16">

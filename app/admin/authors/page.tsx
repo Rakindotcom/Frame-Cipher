@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { AuthorProfile } from "@/types/author";
 import {
-  getAuthorProfilesFromFirestore,
+  getAdminAuthorsFromFirestore,
   saveAuthorProfileToFirestore,
   deleteAuthorProfileFromFirestore,
 } from "@/lib/firebase";
@@ -27,8 +27,6 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-
-const STORAGE_KEY = "framecipher_admin_author_profiles";
 
 function initialsOf(name: string): string {
   return name
@@ -84,74 +82,18 @@ export default function AuthorsPage() {
   useEffect(() => {
     async function loadAuthors() {
       try {
-        const res = await fetch("/api/authors?scope=all", { cache: "no-store" });
-        if (res.ok) {
-          const apiAuthors = await res.json();
-          if (Array.isArray(apiAuthors) && apiAuthors.length > 0) {
-            setAuthors(apiAuthors);
-            try {
-              localStorage.setItem(STORAGE_KEY, JSON.stringify(apiAuthors));
-            } catch {}
-            return;
-          }
-        }
-      } catch (err) {
-        console.warn("API authors fetch error:", err);
+        const remote = await getAdminAuthorsFromFirestore();
+        setAuthors(mergeCanonicalWithCustom(remote));
+        setSaveError(null);
+      } catch (error: any) {
+        setSaveError(error?.message || "Could not load authors from Firestore.");
       }
-
-      try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved !== null) {
-          const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed) && parsed.length > 0) {
-            setAuthors(parsed);
-            return;
-          }
-        }
-      } catch {}
-
-      setAuthors(CANONICAL_AUTHORS);
     }
-    loadAuthors();
+    void loadAuthors();
   }, []);
 
-  const persistAuthors = async (updatedList: AuthorProfile[]) => {
-    setAuthors(updatedList);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(updatedList));
-    } catch {}
-
-    try {
-      const res = await fetch("/api/authors", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ authors: updatedList }),
-      });
-
-      const payload = await res.json().catch(() => null);
-      if (!res.ok || payload?.success === false) {
-        // A rejected write must not look like a success, otherwise the new
-        // profile 404s on /authors/[slug] with no explanation.
-        setSaveError(
-          payload?.error ||
-            `Save failed with status ${res.status}. The author was not stored.`
-        );
-        return;
-      }
-      setSaveError(null);
-    } catch (err) {
-      console.error("Failed to persist authors to server:", err);
-      setSaveError(
-        "Could not reach the server. Your change is only in this browser and will not appear on the public site."
-      );
-      return;
-    }
-
-    // Regenerate the author sitemap so published profile changes land immediately.
-    revalidateSitemaps(["author"]).catch(() => {});
-  };
-
   const handleOpenNew = () => {
+    setSaveError(null);
     setEditingAuthor({
       name: "",
       slug: "",
@@ -174,33 +116,39 @@ export default function AuthorsPage() {
   };
 
   const handleEditAuthor = (author: AuthorProfile) => {
+    setSaveError(null);
     setEditingAuthor(author);
     setIsEditorOpen(true);
   };
 
-  const handleDeleteAuthor = (id: string) => {
+  const handleDeleteAuthor = async (id: string) => {
     if (confirm("Are you sure you want to permanently delete this author profile? Person schema will be removed with it.")) {
-      const updated = authors.filter((a) => a.id !== id);
-      setAuthors(updated);
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(updated));
-      } catch {}
-      fetch(`/api/authors?id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => {});
+      const result = await deleteAuthorProfileFromFirestore(id);
+      if (!result.success) {
+        setSaveError(result.error || "Could not delete author from Firestore.");
+        return;
+      }
+      setAuthors((current) => current.filter((author) => author.id !== id));
+      setSaveError(null);
+      void revalidateSitemaps(["author"]).catch(() => {});
       if (schemaAuthor?.id === id) setSchemaAuthor(null);
     }
   };
 
-  const handleSaveFromEditor = (savedAuthor: AuthorProfile) => {
-    const existingIndex = authors.findIndex((a) => a.id === savedAuthor.id);
-    let updated: AuthorProfile[];
-    if (existingIndex >= 0) {
-      updated = [...authors];
-      updated[existingIndex] = savedAuthor;
-    } else {
-      updated = [savedAuthor, ...authors];
+  const handleSaveFromEditor = async (savedAuthor: AuthorProfile) => {
+    const result = await saveAuthorProfileToFirestore(savedAuthor);
+    if (!result.success) {
+      setSaveError(result.error || "Could not save author to Firestore.");
+      return false;
     }
-    persistAuthors(updated);
+    setAuthors((current) => mergeCanonicalWithCustom([
+      savedAuthor,
+      ...current.filter((author) => author.id !== savedAuthor.id && author.slug !== savedAuthor.slug),
+    ]));
+    setSaveError(null);
     setIsEditorOpen(false);
+    void revalidateSitemaps(["author"]).catch(() => {});
+    return true;
   };
 
   const handleCopySchema = (author: AuthorProfile) => {
@@ -378,7 +326,7 @@ export default function AuthorsPage() {
               No author profiles found
             </p>
             <p className="text-xs text-[#94A3B8] mt-1">
-              Create your first author profile — Person schema will be auto-generated.
+              Create your first author profile and Person schema will be auto-generated.
             </p>
           </div>
         ) : (
@@ -434,7 +382,7 @@ export default function AuthorsPage() {
                     <p className="text-xs text-[#475569] leading-relaxed line-clamp-2">
                       {author.shortBio ||
                         author.bio ||
-                        "No bio added yet — Person schema uses the short bio as its description."}
+                        "No bio added yet. Person schema uses the short bio as its description."}
                     </p>
                   </div>
 
@@ -534,7 +482,7 @@ export default function AuthorsPage() {
               structured-data block (with <code className="font-mono">sameAs</code>,{" "}
               <code className="font-mono">worksFor</code>, <code className="font-mono">knowsAbout</code>,
               profile <code className="font-mono">image</code> and{" "}
-              <code className="font-mono">description</code>). No manual markup required — open the
+              <code className="font-mono">description</code>). No manual markup required; open the
               editor and the live schema updates as you type.
             </p>
           </div>
@@ -546,6 +494,7 @@ export default function AuthorsPage() {
         <AuthorProfileEditor
           author={editingAuthor}
           onSave={handleSaveFromEditor}
+          saveError={saveError}
           onClose={() => setIsEditorOpen(false)}
         />
       )}
@@ -557,7 +506,7 @@ export default function AuthorsPage() {
             <div className="h-14 px-6 bg-white border-b border-[#E2E8F0] flex items-center justify-between shrink-0">
               <h2 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A] flex items-center gap-2">
                 <BrainCircuit className="h-4 w-4 text-[#8B5CF6]" />
-                {schemaAuthor.name} — Person Schema
+                {schemaAuthor.name} | Person Schema
               </h2>
               <button
                 onClick={() => setSchemaAuthor(null)}
@@ -591,7 +540,7 @@ export default function AuthorsPage() {
               <div className="mt-4 flex flex-wrap items-center justify-between gap-3">
                 <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-1 rounded-full border border-[#BBF7D0]">
                   <CheckCircle2 className="h-3.5 w-3.5" />
-                  Valid schema.org Person — auto-generated
+                  Valid schema.org Person (auto-generated)
                 </span>
                 <div className="flex items-center gap-2">
                   <a

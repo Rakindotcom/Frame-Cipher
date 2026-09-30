@@ -34,7 +34,7 @@ export default function Hero() {
       >
         Build a WordPress website that gives your business control without sacrificing speed, security, or flexibility. Frame Cipher combines custom WordPress development, SEO-ready architecture, performance optimization, and content management through one in-house team.
         <br /><br />
-        From business websites and WooCommerce stores to custom WordPress functionality, we build around what your website needs to do—not around a pre-built theme.
+        From business websites and WooCommerce stores to custom WordPress functionality, we build around what your website needs to do, not around a pre-built theme.
       </PageHero>
 
       {/* VISUAL DASHBOARD PANEL */}

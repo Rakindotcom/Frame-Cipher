@@ -4,7 +4,7 @@ const differences = [
   {
     num: '01',
     title: 'Hook Before Context',
-    description: 'Short-form content has less time to establish context than longer video. The opening must communicate an immediate reason to continue—via a compelling question, provocative statement, striking visual, product result, or pain point.'
+    description: 'Short-form content has less time to establish context than longer video. The opening must communicate an immediate reason to continue, via a compelling question, provocative statement, striking visual, product result, or pain point.'
   },
   {
     num: '02',

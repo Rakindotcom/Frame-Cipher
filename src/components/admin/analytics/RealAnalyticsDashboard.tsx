@@ -149,7 +149,7 @@ export function RealAnalyticsDashboard({
               </span>
             </div>
             <p className="text-xs text-[#64748B] mt-1 truncate">
-              Live visitor sessions — browser, device, country, and conversion inquiries
+              Live visitor sessions: browser, device, country, and conversion inquiries
               {lastUpdated && (
                 <span className="ml-2 text-[#94A3B8]">
                   · Refreshed {lastUpdated.toLocaleTimeString()}
@@ -196,7 +196,7 @@ export function RealAnalyticsDashboard({
               {summary.sourceError
                 ? `Reason: ${summary.sourceError} `
                 : "Deploy the Firestore rules and load the public site to start recording visits. "}
-              Every number on this page below is measured from the analytics_hits collection — zeros
+              Every number on this page below is measured from the analytics_hits collection; zeros
               mean nothing has been recorded, not that traffic is hidden.
             </div>
           </div>
@@ -334,7 +334,7 @@ export function RealAnalyticsDashboard({
         </div>
 
         <div className="p-5">
-          {/* Overview Tab — Devices + OS */}
+          {/* Overview Tab: Devices + OS */}
           {activeTab === "overview" && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {/* Devices */}

@@ -69,7 +69,7 @@ export default function FAQ({ service }) {
   return (
     <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
       <div className="max-w-4xl mx-auto">
-        <SectionIntro eyebrow="FAQ" title="Remarketing Services — Frequently Asked Questions" />
+        <SectionIntro eyebrow="FAQ" title="Remarketing Services: Frequently Asked Questions" />
 
         <div className="mt-12 space-y-4">
           {faqs.map((faq, index) => (

@@ -70,9 +70,9 @@ const comparisonMatrix = [
   { feature: 'Basic Lead Capture Forms', launch: '✅', growth: '✅', enterprise: '✅' },
   { feature: 'Speed & SEO Optimization', launch: '✅', growth: '✅', enterprise: '✅' },
   { feature: 'Revisions', launch: '3', growth: '5', enterprise: '10' },
-  { feature: 'CRM Integration', launch: '—', growth: '✅', enterprise: '✅ (multi-system)' },
-  { feature: 'Analytics & Conversion Tracking Setup', launch: '—', growth: '✅', enterprise: '✅' },
-  { feature: 'Custom Functionality', launch: '—', growth: '✅ (as scoped)', enterprise: '✅ (full custom)' },
+  { feature: 'CRM Integration', launch: '✗', growth: '✅', enterprise: '✅ (multi-system)' },
+  { feature: 'Analytics & Conversion Tracking Setup', launch: '✗', growth: '✅', enterprise: '✅' },
+  { feature: 'Custom Functionality', launch: '✗', growth: '✅ (as scoped)', enterprise: '✅ (full custom)' },
 ]
 
 const ownershipDeliverables = [

@@ -7,7 +7,7 @@ export default function ServicesProcess() {
       <div className="mx-auto max-w-[95vw]">
         <SectionIntro eyebrow="Process / how it works" title="From idea to execution." index="09">
           Every service follows the same delivery loop: discover, plan, create, build, launch, and
-          optimize—so your system keeps improving, not just getting built.
+          optimize, so your system keeps improving, not just getting built.
         </SectionIntro>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

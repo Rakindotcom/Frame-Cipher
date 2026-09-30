@@ -42,7 +42,7 @@ export default function BuilderVsCustom() {
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
           <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-            We recommend the approach based on your website&apos;s purpose, content workflow, functionality, budget, and long-term maintenance needs—not simply on which option is faster to sell.
+            We recommend the approach based on your website&apos;s purpose, content workflow, functionality, budget, and long-term maintenance needs, not simply on which option is faster to sell.
           </p>
         </div>
       </div>

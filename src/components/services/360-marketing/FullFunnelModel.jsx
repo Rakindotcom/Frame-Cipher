@@ -60,7 +60,7 @@ export default function FullFunnelModel() {
           title="The 360 Full-Funnel Growth Flywheel."
         >
           Single-point tactics only treat symptoms. Our 360 marketing system maps out every single
-          touchpoint in your buyer&apos;s journey—from the moment they first see a video on their social feed
+          touchpoint in your buyer&apos;s journey, from the moment they first see a video on their social feed
           to the moment they sign a contract or make a repeat purchase.
         </SectionIntro>
 

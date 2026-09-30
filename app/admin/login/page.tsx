@@ -4,36 +4,8 @@ import React, { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Lock, Mail, ArrowRight, Eye, EyeOff, AlertTriangle } from "lucide-react";
-import { loginWithEmail, loginWithGoogle } from "@/lib/firebase";
-
-async function exchangeIdTokenForSession(idToken: string) {
-  const res = await fetch("/api/auth/admin-session", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ idToken }),
-  });
-
-  let payload: any = null;
-  try {
-    payload = await res.json();
-  } catch {}
-
-  if (!res.ok || !payload?.success) {
-    throw new Error(payload?.error || "Could not establish an administrator session.");
-  }
-
-  try {
-    const profile = {
-      uid: payload.uid || "",
-      email: payload.email || "",
-      name: payload.email || "",
-      role: payload.role || "editor",
-    };
-    if (typeof window !== "undefined") {
-      localStorage.setItem("framecipher_admin_profile", JSON.stringify(profile));
-    }
-  } catch {}
-}
+import { loginWithEmail, logoutUser, isAuthorizedAdmin } from "@/lib/firebase";
+import { exchangeIdTokenForSession } from "@/lib/admin/auth";
 
 function AdminLoginForm() {
   const searchParams = useSearchParams();
@@ -51,7 +23,10 @@ function AdminLoginForm() {
     }
   }, []);
 
-  const completeLogin = async (user: { getIdToken: () => Promise<string> }) => {
+  const completeLogin = async (user: NonNullable<Awaited<ReturnType<typeof loginWithEmail>>["user"]>) => {
+    if (!await isAuthorizedAdmin(user)) {
+      throw new Error("This Firebase account is not authorized for the dashboard.");
+    }
     const idToken = await user.getIdToken();
     await exchangeIdTokenForSession(idToken);
     window.location.href = nextPath.startsWith("/admin") ? nextPath : "/admin";
@@ -65,9 +40,10 @@ function AdminLoginForm() {
     const res = await loginWithEmail(email, password);
     if (res.success && res.user) {
       try {
-        await completeLogin(res.user as any);
+        await completeLogin(res.user);
         return;
       } catch (sessionError: any) {
+        await logoutUser();
         setError(sessionError?.message || "Could not establish an administrator session.");
         setIsLoading(false);
         return;
@@ -75,24 +51,6 @@ function AdminLoginForm() {
     }
 
     setError(res.error || "Authentication failed. Access denied.");
-    setIsLoading(false);
-  };
-
-  const handleGoogle = async () => {
-    setIsLoading(true);
-    setError(null);
-    const res = await loginWithGoogle();
-    if (res.success && res.user) {
-      try {
-        await completeLogin(res.user as any);
-        return;
-      } catch (sessionError: any) {
-        setError(sessionError?.message || "Could not establish an administrator session.");
-        setIsLoading(false);
-        return;
-      }
-    }
-    setError(res.error || "Google sign-in was not completed.");
     setIsLoading(false);
   };
 
@@ -184,16 +142,6 @@ function AdminLoginForm() {
             </button>
           </form>
 
-          <div className="mt-4 pt-4 border-t border-[#E2E8F0]">
-            <button
-              type="button"
-              onClick={handleGoogle}
-              disabled={isLoading}
-              className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-[#0F172A] font-bold text-sm transition-all flex items-center justify-center gap-2 disabled:opacity-50"
-            >
-              Continue with Google
-            </button>
-          </div>
         </div>
 
         {/* Back to Public Link */}

@@ -1,7 +1,7 @@
-import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
-import { getAuth, Auth, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, User } from "firebase/auth";
-import { getFirestore, Firestore, collection, doc, setDoc, addDoc, getDoc, getDocs, query, where, orderBy, deleteDoc, serverTimestamp, setLogLevel } from "firebase/firestore";
-import { getStorage, FirebaseStorage, ref as storageRef, uploadBytes, getDownloadURL, deleteObject } from "firebase/storage";
+import { initializeApp, getApps, FirebaseApp } from "firebase/app";
+import { getAuth, Auth, signInWithEmailAndPassword, signOut, onAuthStateChanged, onIdTokenChanged, User } from "firebase/auth";
+import { getFirestore, Firestore, collection, doc, setDoc, addDoc, getDoc, getDocs, query, where, deleteDoc, serverTimestamp, setLogLevel } from "firebase/firestore";
+import { ADMIN_FIREBASE_UID } from "@/lib/admin/identity";
 
 try {
   setLogLevel("silent");
@@ -17,7 +17,6 @@ const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyB0X9PQ7vrw8KxBT23rgKOrB4mOzgkD0_4",
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "framecipherweb.firebaseapp.com",
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "framecipherweb",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "framecipherweb.firebasestorage.app",
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "634798847672",
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:634798847672:web:4056e5bf82bca0215fa64d",
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-VCCWEYVH74",
@@ -30,19 +29,16 @@ const isFirebaseConfigured = Boolean(firebaseConfig.apiKey);
 let app: FirebaseApp | null = null;
 let auth: Auth | null = null;
 let db: Firestore | null = null;
-let storage: FirebaseStorage | null = null;
 
 if (isFirebaseConfigured) {
   try {
-    app = getApps().length > 0 ? getApp() : initializeApp(firebaseConfig);
+    app = getApps().find((candidate) => candidate.name === "[DEFAULT]") || initializeApp(firebaseConfig);
     auth = getAuth(app);
     db = getFirestore(app);
-    storage = getStorage(app);
   } catch {
     app = null;
     auth = null;
     db = null;
-    storage = null;
   }
 }
 
@@ -56,26 +52,9 @@ if (typeof window !== "undefined" && app) {
   }).catch(() => {});
 }
 
-// Google Auth Provider
-const googleProvider = new GoogleAuthProvider();
-googleProvider.setCustomParameters({ prompt: "select_account" });
-
 // ============================================================================
 // AUTHENTICATION HELPERS
 // ============================================================================
-
-export async function loginWithGoogle(): Promise<{ success: boolean; user?: User; error?: string }> {
-  if (!auth) {
-    return { success: false, error: "Firebase is not configured." };
-  }
-  try {
-    const result = await signInWithPopup(auth, googleProvider);
-    return { success: true, user: result.user };
-  } catch (error: any) {
-    console.error("Firebase Google Auth Error:", error);
-    return { success: false, error: error?.message || "Google sign-in failed." };
-  }
-}
 
 export async function loginWithEmail(email: string, pass: string): Promise<{ success: boolean; user?: User; error?: string }> {
   if (!auth) {
@@ -87,19 +66,6 @@ export async function loginWithEmail(email: string, pass: string): Promise<{ suc
   } catch (error: any) {
     console.error("Firebase Email Auth Error:", error);
     return { success: false, error: error?.message || "Email authentication failed." };
-  }
-}
-
-export async function registerWithEmail(email: string, pass: string): Promise<{ success: boolean; user?: User; error?: string }> {
-  if (!auth) {
-    return { success: false, error: "Firebase is not configured." };
-  }
-  try {
-    const result = await createUserWithEmailAndPassword(auth, email, pass);
-    return { success: true, user: result.user };
-  } catch (error: any) {
-    console.error("Firebase Registration Error:", error);
-    return { success: false, error: error?.message || "User registration failed." };
   }
 }
 
@@ -121,6 +87,27 @@ export function subscribeToAuthChanges(callback: (user: User | null) => void) {
     return () => {};
   }
   return onAuthStateChanged(auth, callback);
+}
+
+export function subscribeToIdTokenChanges(callback: (user: User | null) => void) {
+  if (!auth) return () => {};
+  return onIdTokenChanged(auth, callback);
+}
+
+export async function isAuthorizedAdmin(user: User | null): Promise<boolean> {
+  if (!user || user.uid !== ADMIN_FIREBASE_UID) return false;
+  const token = await user.getIdTokenResult();
+  return token.signInProvider === "password";
+}
+
+export async function adminFetch(input: string, init: RequestInit = {}): Promise<Response> {
+  const user = auth?.currentUser;
+  if (!await isAuthorizedAdmin(user || null)) {
+    throw new Error("Administrator authentication required.");
+  }
+  const headers = new Headers(init.headers);
+  headers.set("Authorization", `Bearer ${await user!.getIdToken()}`);
+  return fetch(input, { ...init, headers, cache: init.cache || "no-store" });
 }
 
 // ============================================================================
@@ -328,13 +315,21 @@ export async function getBlogPostsFromFirestore(): Promise<any[]> {
   }
 }
 
+export async function getAdminBlogPostsFromFirestore(): Promise<any[]> {
+  if (!db || !await isAuthorizedAdmin(auth?.currentUser || null)) {
+    throw new Error("Administrator authentication required.");
+  }
+  const snapshot = await getDocs(collection(db, "blog_posts"));
+  return snapshot.docs.map((entry) => ({ id: entry.id, ...entry.data() }));
+}
+
 export async function getAuthorProfilesFromFirestore(): Promise<any[]> {
   if (!db || typeof window === "undefined") {
     return [];
   }
   try {
     const colRef = collection(db, "author_profiles");
-    const snapshot = await getDocs(colRef);
+    const snapshot = await getDocs(query(colRef, where("status", "==", "published")));
     const authors: any[] = [];
     snapshot.forEach((d) => {
       authors.push({ id: d.id, ...d.data() });
@@ -343,6 +338,14 @@ export async function getAuthorProfilesFromFirestore(): Promise<any[]> {
   } catch (error) {
     return [];
   }
+}
+
+export async function getAdminAuthorsFromFirestore(): Promise<any[]> {
+  if (!db || !await isAuthorizedAdmin(auth?.currentUser || null)) {
+    throw new Error("Administrator authentication required.");
+  }
+  const snapshot = await getDocs(collection(db, "author_profiles"));
+  return snapshot.docs.map((entry) => ({ id: entry.id, ...entry.data() }));
 }
 
 export async function saveAuthorProfileToFirestore(author: any): Promise<{ success: boolean; error?: string }> {
@@ -390,142 +393,92 @@ export interface MediaRecord {
   type: string;
 }
 
-function formatFileSize(bytes: number): string {
-  if (bytes < 1024) return `${bytes} B`;
-  if (bytes < 1024 * 1024) return `${Math.round(bytes / 1024)} KB`;
-  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
-}
-
-/**
- * Uploads the binary to Cloud Storage for Firebase and keeps only the metadata
- * document in Firestore. Previously images were stored as base64 data URLs in
- * browser localStorage, which meant media existed only on the machine that
- * uploaded it and never reached the published site.
- */
-export async function uploadMediaFile(
-  file: File,
-  dimensions: string,
-  title: string
+/** Store a reference to an already-hosted image; this app never uploads binary files. */
+export async function addMediaByUrl(
+  rawUrl: string,
+  rawTitle: string
 ): Promise<{ success: boolean; item?: MediaRecord; error?: string }> {
-  try {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("dimensions", dimensions);
-    formData.append("title", title);
+  if (!db || !await isAuthorizedAdmin(auth?.currentUser || null)) {
+    return { success: false, error: "Administrator authentication or Firestore is unavailable." };
+  }
 
-    const res = await fetch("/api/media", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await res.json();
-    if (res.ok && data?.success && data?.item) {
-      // Also optionally backup metadata to Firestore if configured
-      if (db) {
-        try {
-          await setDoc(doc(db, "media", data.item.id), {
-            ...sanitizeForFirestore(data.item),
-            createdAt: serverTimestamp(),
-          });
-        } catch {}
+  const value = rawUrl.trim();
+  const isLocalPath = value.startsWith("/") && !value.startsWith("//");
+  let url = value;
+  if (isLocalPath) {
+    if (/\s/.test(value)) return { success: false, error: "Use a valid site-relative image path." };
+  } else {
+    try {
+      const parsed = new URL(value);
+      if (parsed.protocol !== "https:" || parsed.username || parsed.password) {
+        return { success: false, error: "Use an HTTPS image URL or a site-relative path." };
       }
-      return { success: true, item: data.item };
+      url = parsed.href;
+    } catch {
+      return { success: false, error: "Use a valid HTTPS image URL or a site-relative path." };
     }
+  }
 
-    // Fallback to Firebase Storage if /api/media returned error and storage is configured
-    if (storage && db) {
-      const safeName = file.name.replace(/[^a-zA-Z0-9._-]/g, "-").toLowerCase();
-      const path = `media/${Date.now()}-${safeName}`;
-      const objectRef = storageRef(storage, path);
-      await uploadBytes(objectRef, file, { contentType: file.type || "image/jpeg" });
-      const url = await getDownloadURL(objectRef);
-
-      const item: MediaRecord = {
-        id: `media-${Date.now()}`,
-        title,
-        filename: file.name,
-        url,
-        storagePath: path,
-        alt: title,
-        caption: "",
-        description: "",
-        uploadedAt: new Date().toISOString(),
-        fileSize: formatFileSize(file.size),
-        dimensions,
-        type: file.type || "image/jpeg",
-      };
-
-      await setDoc(doc(db, "media", item.id), {
-        ...sanitizeForFirestore(item),
-        createdAt: serverTimestamp(),
-      });
-
-      return { success: true, item };
-    }
-
-    return { success: false, error: data?.error || "Upload failed." };
+  const pathname = isLocalPath ? value.split("?")[0] : new URL(url).pathname;
+  let filename = pathname.split("/").pop() || "image";
+  try {
+    filename = decodeURIComponent(filename);
+  } catch {
+    return { success: false, error: "The image URL has invalid characters." };
+  }
+  const title = rawTitle.trim() || filename.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
+  const item: MediaRecord = {
+    id: `media-${crypto.randomUUID()}`,
+    title,
+    filename,
+    url,
+    storagePath: "",
+    alt: title,
+    caption: "",
+    description: "",
+    uploadedAt: new Date().toISOString(),
+    fileSize: "Externally hosted",
+    dimensions: "Unknown",
+    type: "image/external",
+  };
+  try {
+    await setDoc(doc(db, "media", item.id), {
+      ...sanitizeForFirestore(item),
+      createdAt: serverTimestamp(),
+    });
+    return { success: true, item };
   } catch (error: any) {
-    console.warn("Media upload failed:", error?.message);
-    return { success: false, error: error?.message || "Upload failed." };
+    return { success: false, error: error?.message || "Could not save the image URL." };
   }
 }
 
 export async function listMediaFromFirestore(): Promise<MediaRecord[]> {
-  try {
-    const res = await fetch("/api/media", { cache: "no-store" });
-    if (res.ok) {
-      const items = await res.json();
-      if (Array.isArray(items) && items.length > 0) {
-        return items as MediaRecord[];
-      }
-    }
-  } catch (error) {
-    console.warn("Could not list local media:", error);
-  }
-
-  if (!db) return [];
-  try {
-    const snapshot = await getDocs(query(collection(db, "media"), orderBy("createdAt", "desc")));
-    const items: MediaRecord[] = [];
-    snapshot.forEach((d) => {
-      items.push({ id: d.id, ...d.data() } as MediaRecord);
-    });
-    return items;
-  } catch (error) {
-    console.warn("Could not list media from Firestore:", error);
-    return [];
-  }
+  if (!db) throw new Error("Firebase is not configured.");
+  const snapshot = await getDocs(collection(db, "media"));
+  return snapshot.docs
+    .map((entry) => ({ id: entry.id, ...entry.data() } as MediaRecord))
+    .sort((a, b) => (b.uploadedAt || "").localeCompare(a.uploadedAt || ""));
 }
 
 export async function saveMediaMetadata(item: MediaRecord): Promise<{ success: boolean; error?: string }> {
-  if (db) {
-    try {
-      await setDoc(doc(db, "media", item.id), sanitizeForFirestore(item), { merge: true });
-    } catch {}
+  if (!db) return { success: false, error: "Firebase is not configured." };
+  try {
+    await setDoc(doc(db, "media", item.id), sanitizeForFirestore(item), { merge: true });
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error?.message || "Could not save media metadata." };
   }
-  return { success: true };
 }
 
 export async function deleteMediaItem(item: MediaRecord): Promise<{ success: boolean; error?: string }> {
+  if (!db) return { success: false, error: "Firebase is not configured." };
   try {
-    await fetch("/api/media", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: item.id, filename: item.filename }),
-    });
-  } catch (err) {
-    console.warn("Failed to delete local media file:", err);
+    // The library owns only the Firestore reference, never the hosted image.
+    await deleteDoc(doc(db, "media", item.id));
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error?.message || "Could not delete media." };
   }
-
-  if (db) {
-    try {
-      if (storage && item.storagePath && item.storagePath.startsWith("media/")) {
-        await deleteObject(storageRef(storage, item.storagePath)).catch(() => {});
-      }
-      await deleteDoc(doc(db, "media", item.id));
-    } catch {}
-  }
-  return { success: true };
 }
 
-export { app, auth, db, storage, analytics };
+export { app, auth, db, analytics };

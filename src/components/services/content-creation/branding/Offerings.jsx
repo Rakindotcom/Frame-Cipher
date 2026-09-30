@@ -28,7 +28,7 @@ const offerings = [
     num: '02',
     title: 'Visual Identity System',
     bestFor: 'Businesses that need a consistent, distinctive visual language across digital and physical touchpoints.',
-    desc: 'We translate the approved strategic direction into a cohesive design system—engineering color harmonies, typography pairings, imagery art direction, iconography, and graphic motifs that work in harmony.',
+    desc: 'We translate the approved strategic direction into a cohesive design system, engineering color harmonies, typography pairings, imagery art direction, iconography, and graphic motifs that work in harmony.',
     bullets: [
       'Comprehensive primary, secondary & accent color palettes',
       'Typographic hierarchy (heading, body, display & web pairings)',
@@ -42,7 +42,7 @@ const offerings = [
     num: '03',
     title: 'Brand Voice & Messaging Framework',
     bestFor: 'Businesses whose visual identity is set, but whose written communication lacks personality or consistency.',
-    desc: 'Brand identity is equally verbal. We define how your business communicates across channels—establishing tone of voice, terminology standards, audience-specific messaging, and context-specific formality levels.',
+    desc: 'Brand identity is equally verbal. We define how your business communicates across channels, establishing tone of voice, terminology standards, audience-specific messaging, and context-specific formality levels.',
     bullets: [
       'Tone of voice principles & personality in copywriting',
       'Core brand messaging pillars & value proposition statements',

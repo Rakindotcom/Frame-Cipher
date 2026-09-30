@@ -222,7 +222,7 @@ export default function AdminDashboardPage() {
     },
     {
       label: "Client Inquiries & Leads",
-      value: inquiryCount === null ? "—" : `${totalInquiries} Leads`,
+      value: inquiryCount === null ? "N/A" : `${totalInquiries} Leads`,
       icon: Zap,
       topBarClass: "bg-[#0D9488]",
       iconClass: "bg-[#CCFBF1] border-[#99F6E4] text-[#0D9488]",
@@ -364,7 +364,7 @@ export default function AdminDashboardPage() {
             </div>
           </div>
 
-          {/* Bottom Right: Pillar Distribution — computed from the real service registry */}
+          {/* Bottom Right: Pillar Distribution, computed from the real service registry */}
           <div className="lg:col-span-4 rounded-2xl bg-white border border-[#E2E8F0] p-6 shadow-xs flex flex-col justify-between min-w-0">
             <div className="flex items-center justify-between gap-3 pb-3 border-b border-[#F1F5F9]">
               <div className="min-w-0">

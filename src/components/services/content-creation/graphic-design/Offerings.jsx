@@ -129,7 +129,7 @@ export default function Offerings() {
           eyebrow="Comprehensive Execution"
           title="What Our Graphic Design Services Include"
         >
-          From standalone investor pitch decks and retail packaging to multi-page corporate catalogues and cross-channel digital marketing campaigns—we design production-ready assets built around functional business needs.
+          From standalone investor pitch decks and retail packaging to multi-page corporate catalogues and cross-channel digital marketing campaigns, we design production-ready assets built around functional business needs.
         </SectionIntro>
 
         <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">

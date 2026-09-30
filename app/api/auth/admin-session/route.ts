@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 import {
   SESSION_COOKIE,
-  SESSION_TTL_SECONDS,
-  createSessionValue,
-  getSessionSecret,
   readSessionValue,
   verifyFirebaseIdToken,
 } from "@/lib/admin/token";
@@ -22,17 +19,6 @@ function cookieOptions(maxAge: number) {
 
 export async function POST(req: Request) {
   try {
-    if (!getSessionSecret()) {
-      return NextResponse.json(
-        {
-          success: false,
-          error:
-            "ADMIN_SESSION_SECRET is not configured on the server. Generate one with: openssl rand -hex 32",
-        },
-        { status: 503, headers: { "Cache-Control": "no-store" } }
-      );
-    }
-
     let idToken = "";
     try {
       const body = await req.json();
@@ -54,12 +40,14 @@ export async function POST(req: Request) {
       );
     }
 
-    const sessionValue = await createSessionValue(verified.identity);
     const response = NextResponse.json(
-      { success: true, email: verified.identity.email, role: verified.identity.role },
+      { success: true, uid: verified.identity.uid, email: verified.identity.email, name: verified.identity.name, role: verified.identity.role },
       { headers: { "Cache-Control": "no-store" } }
     );
-    response.cookies.set(SESSION_COOKIE, sessionValue, cookieOptions(SESSION_TTL_SECONDS));
+    // Firebase signs this short-lived token. The proxy verifies it on every
+    // protected request, so no custom session secret or Admin SDK is needed.
+    const secondsLeft = Math.max(0, verified.identity.exp - Math.floor(Date.now() / 1000));
+    response.cookies.set(SESSION_COOKIE, idToken, cookieOptions(secondsLeft));
     return response;
   } catch (error: any) {
     console.error("Admin session POST error:", error);

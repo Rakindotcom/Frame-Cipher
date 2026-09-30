@@ -2,7 +2,6 @@ import "server-only";
 
 import { cert, getApps, initializeApp, applicationDefault, type App } from "firebase-admin/app";
 import { getFirestore, type Firestore } from "firebase-admin/firestore";
-import { getStorage, type Storage } from "firebase-admin/storage";
 
 /**
  * Server-only Firebase Admin SDK access.
@@ -14,9 +13,8 @@ import { getStorage, type Storage } from "firebase-admin/storage";
  * still answers `{ success: true }`. The saved post then 404s because the next
  * request reads the JSON that was baked into the deploy, not the new one.
  *
- * Firestore + Cloud Storage are the durable store. The JSON files survive only
- * as a development fallback for when no service account is configured, so
- * `next dev` keeps working with zero setup.
+ * Legacy server-side Firestore mutations remain for compatibility. The admin
+ * dashboard now writes through Firebase Authentication and client SDK rules.
  *
  * Credentials come from (in order):
  *   1. FIREBASE_SERVICE_ACCOUNT_JSON  - whole service account JSON, newlines allowed
@@ -29,11 +27,8 @@ const PROJECT_ID =
   process.env.FIREBASE_PROJECT_ID ||
   "framecipherweb";
 
-const STORAGE_BUCKET = process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || `${PROJECT_ID}.firebasestorage.app`;
-
 let cachedApp: App | null = null;
 let cachedFirestore: Firestore | null = null;
-let cachedStorage: Storage | null = null;
 
 function parseServiceAccountJson(): Record<string, unknown> | null {
   const raw = process.env.FIREBASE_SERVICE_ACCOUNT_JSON;
@@ -107,13 +102,11 @@ function getAdminApp(): App | null {
       cachedApp = initializeApp({
         credential,
         projectId: PROJECT_ID,
-        storageBucket: STORAGE_BUCKET,
       });
     } else if (isGoogleCloudRuntime()) {
       cachedApp = initializeApp({
         credential: applicationDefault(),
         projectId: PROJECT_ID,
-        storageBucket: STORAGE_BUCKET,
       });
     } else {
       return null;
@@ -143,19 +136,6 @@ export function getAdminFirestore(): Firestore | null {
     return cachedFirestore;
   } catch (error: any) {
     console.warn("Could not initialise Admin Firestore:", error?.message || error);
-    return null;
-  }
-}
-
-export function getAdminStorage(): Storage | null {
-  if (cachedStorage) return cachedStorage;
-  const app = getAdminApp();
-  if (!app) return null;
-  try {
-    cachedStorage = getStorage(app);
-    return cachedStorage;
-  } catch (error: any) {
-    console.warn("Could not initialise Admin Storage:", error?.message || error);
     return null;
   }
 }

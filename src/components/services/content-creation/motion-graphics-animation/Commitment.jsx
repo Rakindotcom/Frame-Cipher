@@ -26,7 +26,7 @@ export default function Commitment() {
           eyebrow="Integrity & Standards"
           title="What We Commit To"
         >
-          We do not promise arbitrary viral numbers or guaranteed conversion percentages from an animation alone—distribution, landing pages, and audience targeting shape those metrics. What we control with absolute discipline is our production process.
+          We do not promise arbitrary viral numbers or guaranteed conversion percentages from an animation alone; distribution, landing pages, and audience targeting shape those metrics. What we control with absolute discipline is our production process.
         </SectionIntro>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-10">

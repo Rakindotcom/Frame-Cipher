@@ -107,7 +107,7 @@ export default function Offerings() {
           eyebrow="Specialized Capabilities"
           title="Our Motion Graphics & Animation Services"
         >
-          We build different animation formats around the message, audience, platform, and production requirements—from swift logo stings to full-length SaaS explainers and 3D product films.
+          We build different animation formats around the message, audience, platform, and production requirements, from swift logo stings to full-length SaaS explainers and 3D product films.
         </SectionIntro>
 
         <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">

@@ -8,7 +8,7 @@ import { Network, ShieldCheck, AlertTriangle, FileWarning } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "SEO Link Health & Schema Intelligence — FrameCipher Admin",
+  title: "SEO Link Health & Schema Intelligence | FrameCipher Admin",
   robots: { index: false, follow: false },
 };
 

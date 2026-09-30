@@ -53,9 +53,3 @@ export async function requireAdmin(request: Request): Promise<AdminGuardResult> 
 
   return { ok: true, identity };
 }
-
-export function hasRole(identity: AdminIdentity | undefined, ...roles: string[]): boolean {
-  if (!identity) return false;
-  if (identity.role === "owner") return true;
-  return roles.includes(identity.role);
-}

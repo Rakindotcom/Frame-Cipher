@@ -13,7 +13,7 @@ export const CANONICAL_AUTHORS: AuthorProfile[] = [
     },
     shortBio:
       "Founder of FrameCipher, SEO expert, digital marketing strategist, content writer and full-stack website developer building data-driven organic growth engines.",
-    bio: "Mahedi Hasan Perves is the Founder of FrameCipher, where he architects modern web platforms, digital systems, and data-driven organic growth engines that convert attention into compounding pipeline and measurable revenue.\n\nA complete SEO expert and digital marketing specialist, he combines technical SEO architecture, programmatic content strategy, and performance-optimised website development — including enterprise-grade Webflow builds — into end-to-end growth systems. As a hands-on content writer, Mahedi shapes the messaging, editorial direction, and on-page optimisation behind every campaign.\n\nBeyond strategy, Mahedi is a website developer who personally engineers high-converting sites and marketing infrastructure. He leads the engineering and growth practice at FrameCipher, helping B2B brands acquire, convert, and retain customers at scale.",
+    bio: "Mahedi Hasan Perves is the Founder of FrameCipher, where he architects modern web platforms, digital systems, and data-driven organic growth engines that convert attention into compounding pipeline and measurable revenue.\n\nA complete SEO expert and digital marketing specialist, he combines technical SEO architecture, programmatic content strategy, and performance-optimised website development, including enterprise-grade Webflow builds - into end-to-end growth systems. As a hands-on content writer, Mahedi shapes the messaging, editorial direction, and on-page optimisation behind every campaign.\n\nBeyond strategy, Mahedi is a website developer who personally engineers high-converting sites and marketing infrastructure. He leads the engineering and growth practice at FrameCipher, helping B2B brands acquire, convert, and retain customers at scale.",
     email: "mahedi@framecipher.com",
     website: "https://mahedi.framecipher.info/",
     worksFor: "FrameCipher",
@@ -24,9 +24,9 @@ export const CANONICAL_AUTHORS: AuthorProfile[] = [
     },
     status: "published",
     publishDate: "2024-01-15",
-    seoTitle: "Mahedi Hasan Perves — Founder, SEO & Digital Marketing Expert",
+    seoTitle: "Mahedi Hasan Perves | Founder, SEO & Digital Marketing Expert",
     metaDescription:
-      "Mahedi Hasan Perves is the Founder of FrameCipher — SEO expert, digital marketing specialist, content writer and website developer building data-driven organic growth engines for B2B brands.",
+      "Mahedi Hasan Perves is the Founder of FrameCipher, SEO expert, digital marketing specialist, content writer and website developer building data-driven organic growth engines for B2B brands.",
     focusKeyword: "seo digital marketing expert founder",
     tags: [
       "SEO Expert",

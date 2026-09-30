@@ -1,5 +1,7 @@
+import { ADMIN_FIREBASE_UID } from "./identity";
+
 export const SESSION_COOKIE = "fc_admin_session";
-export const SESSION_TTL_SECONDS = 60 * 60 * 12;
+export const SESSION_TTL_SECONDS = 60 * 60;
 
 const CERTS_URL =
   "https://www.googleapis.com/robot/v1/metadata/x509/securetoken@system.gserviceaccount.com";
@@ -27,13 +29,6 @@ function base64UrlDecode(value: string): Uint8Array {
   return bytes;
 }
 
-function base64UrlEncode(bytes: ArrayBuffer | Uint8Array): string {
-  const view = bytes instanceof Uint8Array ? bytes : new Uint8Array(bytes);
-  let binary = "";
-  for (let i = 0; i < view.length; i += 1) binary += String.fromCharCode(view[i]);
-  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-}
-
 function decodeSegment(segment: string): any {
   return JSON.parse(new TextDecoder().decode(base64UrlDecode(segment)));
 }
@@ -46,37 +41,8 @@ export function getFirebaseProjectId(): string {
   );
 }
 
-const FALLBACK_SESSION_SECRET =
-  "5e6f548c2b835064c9bdaace472b873faf4b0d72242c75cc14f091c9efba6610";
-
-export function getSessionSecret(): string | null {
-  const secret = process.env.ADMIN_SESSION_SECRET || FALLBACK_SESSION_SECRET;
-  return secret && secret.length >= 32 ? secret : null;
-}
-
-export function isAdminAllowlistConfigured(): boolean {
-  return getAdminAllowlist().length > 0;
-}
-
-export function getAdminAllowlist(): string[] {
-  const raw = process.env.ADMIN_EMAILS ?? "pervesmahedi@gmail.com,mahedihasancareerbuilders@gmail.com";
-  return raw
-    .split(",")
-    .map((entry) => entry.trim().toLowerCase())
-    .filter(Boolean);
-}
-
-export function getRoleForEmail(email: string): string {
-  const raw =
-    process.env.ADMIN_ROLES ||
-    "pervesmahedi@gmail.com=owner,mahedihasancareerbuilders@gmail.com=owner";
-  const map = new Map<string, string>();
-  for (const pair of raw.split(",")) {
-    const [emailPart, rolePart] = pair.split("=");
-    if (!emailPart || !rolePart) continue;
-    map.set(emailPart.trim().toLowerCase(), rolePart.trim());
-  }
-  return map.get(email.toLowerCase()) || "owner";
+export function getAdminFirebaseUid(): string | null {
+  return ADMIN_FIREBASE_UID;
 }
 
 function pemToBytes(pem: string): Uint8Array {
@@ -242,84 +208,34 @@ export async function verifyFirebaseIdToken(idToken: string): Promise<IdTokenRes
   }
   if (!claims.sub) return { success: false, error: "ID token has no subject." };
 
+  const adminUid = getAdminFirebaseUid();
+  if (!adminUid || claims.sub !== adminUid) {
+    return { success: false, error: "This Firebase account is not authorized for the dashboard." };
+  }
+
   const email = typeof claims.email === "string" ? claims.email.toLowerCase() : "";
   if (!email) {
     return { success: false, error: "ID token has no email address." };
   }
-  const isPasswordAuth = claims.firebase?.sign_in_provider === "password";
-  if (claims.email_verified !== true && !isPasswordAuth) {
-    return { success: false, error: "Email address is not verified." };
+  if (claims.firebase?.sign_in_provider !== "password") {
+    return { success: false, error: "Only Firebase email and password sign-in is allowed." };
   }
-
-  const allowlist = getAdminAllowlist();
-  if (allowlist.length > 0 && !allowlist.includes("*") && !allowlist.includes(email)) {
-    return { success: false, error: "This account does not have administrator access." };
-  }
-
   return {
     success: true,
     identity: {
       uid: String(claims.sub),
       email,
       name: typeof claims.name === "string" ? claims.name : email,
-      role: getRoleForEmail(email),
-      exp: nowSeconds + SESSION_TTL_SECONDS,
+      role: "admin",
+      exp: claims.exp,
     },
   };
-}
-
-async function hmacSign(value: string, secret: string): Promise<string> {
-  const key = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(secret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"]
-  );
-  const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(value));
-  return base64UrlEncode(signature);
-}
-
-export async function createSessionValue(identity: AdminIdentity): Promise<string> {
-  const secret = getSessionSecret();
-  if (!secret) throw new Error("ADMIN_SESSION_SECRET is not configured.");
-  const payload = base64UrlEncode(
-    new TextEncoder().encode(
-      JSON.stringify({
-        uid: identity.uid,
-        email: identity.email,
-        name: identity.name,
-        role: identity.role,
-        exp: identity.exp,
-      })
-    )
-  );
-  return `${payload}.${await hmacSign(payload, secret)}`;
 }
 
 export async function readSessionValue(
   value: string | undefined | null
 ): Promise<AdminIdentity | null> {
   if (!value) return null;
-  const secret = getSessionSecret();
-  if (!secret) return null;
-
-  const separator = value.lastIndexOf(".");
-  if (separator <= 0) return null;
-  const payload = value.slice(0, separator);
-  const provided = value.slice(separator + 1);
-
-  const expected = await hmacSign(payload, secret);
-  if (provided.length !== expected.length) return null;
-  let mismatch = 0;
-  for (let i = 0; i < expected.length; i += 1) mismatch |= provided.charCodeAt(i) ^ expected.charCodeAt(i);
-  if (mismatch !== 0) return null;
-
-  try {
-    const claims = JSON.parse(new TextDecoder().decode(base64UrlDecode(payload)));
-    if (typeof claims.exp !== "number" || claims.exp * 1000 <= Date.now()) return null;
-    return claims as AdminIdentity;
-  } catch {
-    return null;
-  }
+  const verified = await verifyFirebaseIdToken(value);
+  return verified.identity || null;
 }

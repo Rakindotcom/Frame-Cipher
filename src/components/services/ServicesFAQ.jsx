@@ -30,7 +30,7 @@ const faqs = [
   {
     question: 'How do I get a quotation or proposal?',
     answer:
-      'Share your goals through the contact form or a quick call. We respond with a clear proposal—scope, package selection, timeline, and exact pricing—with no obligation.',
+      'Share your goals through the contact form or a quick call. We respond with a clear proposal: scope, package selection, timeline, and exact pricing, with no obligation.',
   },
 ]
 

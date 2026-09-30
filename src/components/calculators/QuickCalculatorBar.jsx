@@ -8,8 +8,8 @@ export default function QuickCalculatorBar() {
 
   // Tab 1: Break-Even ROAS
   const [margin, setMargin] = useState(40)
-  const breakEvenROAS = margin > 0 ? (100 / margin).toFixed(2) : '—'
-  const recommendedROAS = margin > 0 ? ((100 / margin) * 1.35).toFixed(2) : '—'
+  const breakEvenROAS = margin > 0 ? (100 / margin).toFixed(2) : 'N/A'
+  const recommendedROAS = margin > 0 ? ((100 / margin) * 1.35).toFixed(2) : 'N/A'
 
   // Tab 2: Target CPA / Allowable CAC
   const [aov, setAov] = useState(85)
@@ -21,7 +21,7 @@ export default function QuickCalculatorBar() {
   // Tab 3: CPM to CPC Estimator
   const [cpmInput, setCpmInput] = useState(12)
   const [ctrInput, setCtrInput] = useState(1.8)
-  const estCpc = ctrInput > 0 ? (cpmInput / (10 * ctrInput)).toFixed(2) : '—'
+  const estCpc = ctrInput > 0 ? (cpmInput / (10 * ctrInput)).toFixed(2) : 'N/A'
 
   // Tab 4: Funnel Multiplier (CTR x CVR)
   const [ctrLift, setCtrLift] = useState(25)

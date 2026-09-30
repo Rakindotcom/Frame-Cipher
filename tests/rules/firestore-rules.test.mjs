@@ -29,15 +29,18 @@ const testEnv = await initializeTestEnvironment({
 });
 
 // Note: the first argument is the uid and the second is the token claims.
+const ADMIN_UID = "Io8C94PyB5QKlENIc08IGiPaLnE3";
 const admin = () =>
-  testEnv.authenticatedContext("admin-uid", {
-    email: "pervesmahedi@gmail.com",
+  testEnv.authenticatedContext(ADMIN_UID, {
+    email: "teamframecipher@example.com",
     email_verified: true,
+    firebase: { sign_in_provider: "password" },
   }).firestore();
 const attacker = () =>
   testEnv.authenticatedContext("attacker-uid", {
-    email: "attacker@example.com",
+    email: "teamframecipher@example.com",
     email_verified: true,
+    firebase: { sign_in_provider: "password" },
   }).firestore();
 const anon = () => testEnv.unauthenticatedContext().firestore();
 
@@ -87,7 +90,7 @@ test("the allowed public query returns only published public posts", async () =>
   assert.deepEqual(ids, ["pub-1"]);
 });
 
-test("only the allowlisted admin can read drafts and write posts", async () => {
+test("only the configured Firebase UID can read drafts and write posts", async () => {
   await assertSucceeds(getDoc(doc(admin(), "blog_posts/draft-1")));
   await assertSucceeds(
     getDocs(query(collection(admin(), "blog_posts"), where("status", "==", "draft")))
@@ -101,22 +104,29 @@ test("only the allowlisted admin can read drafts and write posts", async () => {
   await assertFails(setDoc(doc(anon(), "blog_posts/evil"), { slug: "evil" }));
 });
 
-test("admin matching is case-insensitive and requires a verified email", async () => {
-  const mixedCase = testEnv.authenticatedContext("mixed-uid", {
-    email: "PervesMahedi@Gmail.com",
+test("admin access requires password sign-in and the matching UID", async () => {
+  const google = testEnv.authenticatedContext(ADMIN_UID, {
+    email: "teamframecipher@example.com",
     email_verified: true,
+    firebase: { sign_in_provider: "google.com" },
   }).firestore();
-  await assertSucceeds(getDoc(doc(mixedCase, "blog_posts/draft-1")));
+  await assertFails(getDoc(doc(google, "blog_posts/draft-1")));
 
-  const unverified = testEnv.authenticatedContext("unverified-uid", {
-    email: "pervesmahedi@gmail.com",
-    email_verified: false,
-  }).firestore();
-  await assertFails(getDoc(doc(unverified, "blog_posts/draft-1")));
-  await assertFails(setDoc(doc(unverified, "blog_posts/evil"), { status: "draft" }));
+});
 
-  const noEmail = testEnv.authenticatedContext("no-email-uid", { email_verified: true }).firestore();
-  await assertFails(getDoc(doc(noEmail, "blog_posts/draft-1")));
+test("published authors are public but draft authors stay in the dashboard", async () => {
+  await testEnv.withSecurityRulesDisabled(async (ctx) => {
+    await ctx.firestore().doc("author_profiles/published-author").set({ name: "Published", status: "published" });
+    await ctx.firestore().doc("author_profiles/draft-author").set({ name: "Draft", status: "draft" });
+  });
+
+  await assertSucceeds(getDoc(doc(anon(), "author_profiles/published-author")));
+  await assertFails(getDoc(doc(anon(), "author_profiles/draft-author")));
+  await assertFails(getDocs(collection(anon(), "author_profiles")));
+  const publicAuthors = await getDocs(query(collection(anon(), "author_profiles"), where("status", "==", "published")));
+  assert.deepEqual(publicAuthors.docs.map((entry) => entry.id), ["published-author"]);
+  await assertSucceeds(getDoc(doc(admin(), "author_profiles/draft-author")));
+  await assertSucceeds(getDocs(collection(admin(), "author_profiles")));
 });
 
 test("admin-only collections reject every other caller", async () => {

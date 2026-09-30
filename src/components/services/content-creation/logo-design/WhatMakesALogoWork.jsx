@@ -17,7 +17,7 @@ const pillars = [
     num: '03',
     title: 'Scalability',
     summary: 'Micro to Macro Clarity',
-    desc: 'The mark must hold up across extreme size differentials—from a 16px browser favicon or smartwatch app icon to building signage, vehicle wraps, and conference backdrops without loss of legibility.'
+    desc: 'The mark must hold up across extreme size differentials, from a 16px browser favicon or smartwatch app icon to building signage, vehicle wraps, and conference backdrops without loss of legibility.'
   },
   {
     num: '04',

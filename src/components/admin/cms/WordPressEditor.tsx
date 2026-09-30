@@ -6,6 +6,7 @@ import { BlogPostItem, FAQItem } from "@/types/blog";
 import { FRAMECIPHER_REGISTRY, ServiceItemConfig } from "@/lib/registry/servicesRegistry";
 import { useAutoSlug } from "@/lib/seo/slugify";
 import { MediaLibraryModal, MediaItem } from "@/components/admin/cms/MediaLibraryModal";
+import { getAdminAuthorsFromFirestore } from "@/lib/firebase";
 import {
   ArrowLeft,
   Settings,
@@ -143,11 +144,12 @@ const SPECIAL_CHARACTERS = [
 
 interface WordPressEditorProps {
   post: Partial<BlogPostItem>;
-  onSave: (updatedPost: BlogPostItem) => void;
+  onSave: (updatedPost: BlogPostItem) => Promise<boolean>;
+  saveError?: string | null;
   onClose: () => void;
 }
 
-export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps) {
+export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressEditorProps) {
   // Classic WordPress Toolbar States
   const [isKitchenSinkOpen, setIsKitchenSinkOpen] = useState(true);
   const [selectedFormat, setSelectedFormat] = useState("p");
@@ -189,8 +191,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
   useEffect(() => {
     // `scope=all` so a draft author is still selectable; the default public
     // scope only returns published profiles.
-    fetch("/api/authors?scope=all")
-      .then((res) => (res.ok ? res.json() : []))
+    getAdminAuthorsFromFirestore()
       .then((data) => {
         if (Array.isArray(data) && data.length > 0) {
           const names = data.map((a: any) => a.name).filter(Boolean);
@@ -1356,7 +1357,7 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
   ]);
 
   // Save document
-  const handleSaveDocument = (targetStatus?: "published" | "draft") => {
+  const handleSaveDocument = async (targetStatus?: "published" | "draft") => {
     const finalStatus = targetStatus || status;
     const targetSlug = finalSlug;
 
@@ -1402,8 +1403,9 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
       allowPingbacks,
     };
 
-    setLastSavedTime(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' }));
-    onSave(updatedItem);
+    if (await onSave(updatedItem)) {
+      setLastSavedTime(new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', second: '2-digit' }));
+    }
   };
 
   // Open Media Modal
@@ -1553,6 +1555,12 @@ export function WordPressEditor({ post, onSave, onClose }: WordPressEditorProps)
             </button>
           </div>
         </header>
+      )}
+
+      {saveError && (
+        <div role="alert" className="shrink-0 border-b border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+          Save failed: {saveError}
+        </div>
       )}
 
       {/* 2. UNIFIED WORDPRESS WORKSPACE (Single Natural Page Scroll, Zero Squeezed Double Scrollbars!) */}

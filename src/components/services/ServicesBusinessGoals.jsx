@@ -42,7 +42,7 @@ export default function ServicesBusinessGoals() {
           title="Solutions built around what you want to achieve."
           index="03"
         >
-          Tell us your goal, and we&apos;ll line up the right mix of services—without forcing you to
+          Tell us your goal, and we&apos;ll line up the right mix of services, without forcing you to
           buy everything at once.
         </SectionIntro>
 

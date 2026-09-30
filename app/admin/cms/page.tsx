@@ -7,7 +7,8 @@ import { BlogPostItem } from "@/types/blog";
 import { isLegacyDemoPost } from "@/lib/blog/getBlogPosts";
 import { CANONICAL_BLOG_POSTS } from "@/lib/blog/canonicalPosts";
 import { WordPressEditor } from "@/components/admin/cms/WordPressEditor";
-import { getBlogPostsFromFirestore, saveBlogPostToFirestore, deleteBlogPostFromFirestore } from "@/lib/firebase";
+import { revalidateSitemaps } from "@/lib/actions/revalidateSitemap";
+import { getAdminBlogPostsFromFirestore, saveBlogPostToFirestore, deleteBlogPostFromFirestore } from "@/lib/firebase";
 import {
   FileText,
   Plus,
@@ -28,8 +29,6 @@ import {
   Square,
   Check,
 } from "lucide-react";
-
-const STORAGE_KEY = "framecipher_admin_blog_posts";
 
 function escapeHtml(value: string): string {
   return value
@@ -132,100 +131,25 @@ export default function BlogCmsPage() {
   // Bulk Selection State for Blog Posts
   const [selectedPostIds, setSelectedPostIds] = useState<Set<string>>(new Set());
 
-  // A Firestore write can fail (missing service account, denied permission,
-  // read-only deploy). The original code ignored the response body, so a lost
-  // save looked identical to a successful one and the post 404'd afterwards.
+  // Show rejected Firestore writes before changing the visible list.
   const [saveError, setSaveError] = useState<string | null>(null);
 
-  // Load persistent posts from Server API / Firestore / localStorage on mount
+  // Firestore is the source of truth; local browser data never impersonates it.
   useEffect(() => {
     async function loadPosts() {
-      let localFallback: BlogPostItem[] = [];
       try {
-        const saved = localStorage.getItem(STORAGE_KEY);
-        if (saved !== null) {
-          const parsed = JSON.parse(saved);
-          if (Array.isArray(parsed)) {
-            localFallback = parsed.filter((p) => !isLegacyDemoPost(p));
-          }
-        }
-      } catch {}
-
-      // 1. Fetch from unified server API (/api/blog)
-      try {
-        const res = await fetch("/api/blog?scope=all", { cache: "no-store" });
-        if (res.ok) {
-          const apiPosts = await res.json();
-          if (Array.isArray(apiPosts) && apiPosts.length > 0) {
-            const clean = apiPosts.filter((p: BlogPostItem) => !isLegacyDemoPost(p));
-            if (clean.length > 0) {
-              const merged = mergeCanonicalWithCustom(clean);
-              setPosts(merged);
-              try {
-                localStorage.setItem(STORAGE_KEY, JSON.stringify(merged));
-              } catch {}
-              return;
-            }
-          }
-        }
-      } catch (apiErr) {
-        console.warn("API blog fetch error:", apiErr);
+        const remote = await getAdminBlogPostsFromFirestore();
+        setPosts(mergeCanonicalWithCustom(remote.filter((p) => !isLegacyDemoPost(p))));
+        setSaveError(null);
+      } catch (error: any) {
+        setSaveError(error?.message || "Could not load posts from Firestore.");
       }
-
-      // 2. If API was empty but localStorage had newly created posts, sync them to server
-      if (localFallback.length > 0) {
-        setPosts(localFallback);
-        localFallback.forEach((p) => {
-          fetch("/api/blog", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ post: p }),
-          }).catch(() => {});
-        });
-        return;
-      }
-
-      // 3. If no posts exist anywhere, ensure library state is empty
-      setPosts([]);
     }
-    loadPosts();
+    void loadPosts();
   }, []);
 
-  // Save to localStorage, server API & Firestore whenever posts change
-  const persistPosts = async (updatedList: BlogPostItem[]) => {
-    const cleanList = updatedList.filter((p) => !isLegacyDemoPost(p));
-    setPosts(cleanList);
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(cleanList));
-    } catch {}
-
-    // Save all posts atomically via Server API
-    try {
-      const res = await fetch("/api/blog", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ posts: cleanList }),
-      });
-
-      const payload = await res.json().catch(() => null);
-      if (!res.ok || payload?.success === false) {
-        // Surface the real reason instead of silently losing the save.
-        setSaveError(
-          payload?.error ||
-            `Save failed with status ${res.status}. The post was not stored.`
-        );
-        return;
-      }
-      setSaveError(null);
-    } catch (e) {
-      console.warn("Server save error:", e);
-      setSaveError(
-        "Could not reach the server. Your change is only in this browser and will not appear on the public site."
-      );
-    }
-  };
-
   const handleOpenNew = () => {
+    setSaveError(null);
     setEditingPost({
       title: "",
       slug: "",
@@ -247,16 +171,21 @@ export default function BlogCmsPage() {
   };
 
   const handleEditPost = (post: BlogPostItem) => {
+    setSaveError(null);
     setEditingPost(post);
     setIsEditorOpen(true);
   };
 
-  const handleDeletePost = (id: string) => {
+  const handleDeletePost = async (id: string) => {
     if (confirm("Are you sure you want to delete this dispatch?")) {
-      const updated = posts.filter((p) => p.id !== id);
-      persistPosts(updated);
-      fetch(`/api/blog?id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => {});
-      deleteBlogPostFromFirestore(id).catch(() => {});
+      const result = await deleteBlogPostFromFirestore(id);
+      if (!result.success) {
+        setSaveError(result.error || "Could not delete post from Firestore.");
+        return;
+      }
+      setPosts((current) => current.filter((p) => p.id !== id));
+      setSaveError(null);
+      void revalidateSitemaps(["post", "category"]).catch(() => {});
       setSelectedPostIds((prev) => {
         const next = new Set(prev);
         next.delete(id);
@@ -287,31 +216,35 @@ export default function BlogCmsPage() {
     }
   };
 
-  const handleBulkDelete = () => {
+  const handleBulkDelete = async () => {
     const count = selectedPostIds.size;
     if (count === 0) return;
     if (!confirm(`Are you sure you want to permanently delete ${count} selected articles?`)) return;
 
-    const remaining = posts.filter((p) => !selectedPostIds.has(p.id));
-    persistPosts(remaining);
-    selectedPostIds.forEach((id) => {
-      fetch(`/api/blog?id=${encodeURIComponent(id)}`, { method: "DELETE" }).catch(() => {});
-      deleteBlogPostFromFirestore(id).catch(() => {});
-    });
-    setSelectedPostIds(new Set());
+    const ids = [...selectedPostIds];
+    const results = await Promise.all(ids.map((id) => deleteBlogPostFromFirestore(id)));
+    const deleted = new Set(ids.filter((_, index) => results[index].success));
+    setPosts((current) => current.filter((p) => !deleted.has(p.id)));
+    setSelectedPostIds(new Set(ids.filter((id) => !deleted.has(id))));
+    const failure = results.find((result) => !result.success);
+    setSaveError(failure ? failure.error || "Some posts could not be deleted." : null);
+    if (deleted.size > 0) void revalidateSitemaps(["post", "category"]).catch(() => {});
   };
 
-  const handleSaveFromEditor = (savedPost: BlogPostItem) => {
-    const existingIndex = posts.findIndex((p) => p.id === savedPost.id);
-    let updated: BlogPostItem[];
-    if (existingIndex >= 0) {
-      updated = [...posts];
-      updated[existingIndex] = savedPost;
-    } else {
-      updated = [savedPost, ...posts];
+  const handleSaveFromEditor = async (savedPost: BlogPostItem) => {
+    const result = await saveBlogPostToFirestore(savedPost);
+    if (!result.success) {
+      setSaveError(result.error || "Could not save post to Firestore.");
+      return false;
     }
-    persistPosts(updated);
+    setPosts((current) => mergeCanonicalWithCustom([
+      savedPost,
+      ...current.filter((post) => post.id !== savedPost.id && post.slug !== savedPost.slug),
+    ]));
+    setSaveError(null);
     setIsEditorOpen(false);
+    void revalidateSitemaps(["post", "category"]).catch(() => {});
+    return true;
   };
 
   const filteredPosts = posts.filter((p) => {
@@ -741,6 +674,7 @@ export default function BlogCmsPage() {
         <WordPressEditor
           post={editingPost}
           onSave={handleSaveFromEditor}
+          saveError={saveError}
           onClose={() => setIsEditorOpen(false)}
         />
       )}

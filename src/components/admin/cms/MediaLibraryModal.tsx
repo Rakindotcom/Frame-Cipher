@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import {
   X,
-  UploadCloud,
   Check,
   Search,
   Image as ImageIcon,
@@ -13,7 +12,7 @@ import {
   AlertTriangle,
 } from "lucide-react";
 import {
-  uploadMediaFile,
+  addMediaByUrl,
   listMediaFromFirestore,
   saveMediaMetadata,
   deleteMediaItem,
@@ -24,35 +23,12 @@ export type MediaItem = MediaRecord;
 
 export const INITIAL_MEDIA_ITEMS: MediaItem[] = [];
 
-const ACCEPTED_TYPES = ["image/webp", "image/png", "image/jpeg", "image/avif", "image/gif"];
-const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
-
 interface MediaLibraryModalProps {
   isOpen: boolean;
   onClose: () => void;
   onSelectMedia: (item: MediaItem) => void;
   title?: string;
   buttonLabel?: string;
-}
-
-function readImageDimensions(file: File): Promise<string> {
-  return new Promise((resolve) => {
-    if (typeof window === "undefined" || typeof URL.createObjectURL !== "function") {
-      resolve("unknown");
-      return;
-    }
-    const objectUrl = URL.createObjectURL(file);
-    const image = new Image();
-    image.onload = () => {
-      URL.revokeObjectURL(objectUrl);
-      resolve(`${image.naturalWidth} × ${image.naturalHeight}`);
-    };
-    image.onerror = () => {
-      URL.revokeObjectURL(objectUrl);
-      resolve("unknown");
-    };
-    image.src = objectUrl;
-  });
 }
 
 export function MediaLibraryModal({
@@ -62,24 +38,30 @@ export function MediaLibraryModal({
   title = "Featured Image",
   buttonLabel = "Set featured image",
 }: MediaLibraryModalProps) {
-  const [activeTab, setActiveTab] = useState<"upload" | "library">("library");
+  const [activeTab, setActiveTab] = useState<"add" | "library">("library");
   const [mediaList, setMediaList] = useState<MediaItem[]>([]);
   const [selectedId, setSelectedId] = useState<string>("");
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [isUploading, setIsUploading] = useState(false);
+  const [isSavingUrl, setIsSavingUrl] = useState(false);
+  const [newUrl, setNewUrl] = useState("");
+  const [newTitle, setNewTitle] = useState("");
   const [error, setError] = useState<string | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
-  // Media lives in Cloud Storage + Firestore, so every admin sees the same library.
+  // Firestore stores URL references and metadata, never image files.
   const loadLibrary = useCallback(async () => {
     setIsLoading(true);
     setError(null);
-    const items = await listMediaFromFirestore();
-    setMediaList(items);
-    setSelectedId((prev) => (prev && items.some((item) => item.id === prev) ? prev : items[0]?.id || ""));
-    setIsLoading(false);
+    try {
+      const items = await listMediaFromFirestore();
+      setMediaList(items);
+      setSelectedId((prev) => (prev && items.some((item) => item.id === prev) ? prev : items[0]?.id || ""));
+    } catch (error: any) {
+      setError(error?.message || "Could not load media from Firestore.");
+    } finally {
+      setIsLoading(false);
+    }
   }, []);
 
   React.useEffect(() => {
@@ -106,45 +88,27 @@ export function MediaLibraryModal({
     const updated = mediaList.map((item) =>
       item.id === selectedItem.id ? { ...item, [field]: value } : item
     );
-    await persistMedia(updated);
-    await saveMediaMetadata({ ...selectedItem, [field]: value });
+    const result = await saveMediaMetadata({ ...selectedItem, [field]: value });
+    if (result.success) await persistMedia(updated);
+    else setError(result.error || "Could not save media metadata.");
   };
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
-
-    const file = files[0];
+  const handleAddUrl = async (e: React.FormEvent) => {
+    e.preventDefault();
     setError(null);
-
-    if (!ACCEPTED_TYPES.includes(file.type)) {
-      setError(`${file.type || "This file type"} is not supported. Use WEBP, PNG, JPG, SVG or AVIF.`);
-      e.target.value = "";
-      return;
-    }
-    if (file.size > MAX_UPLOAD_BYTES) {
-      setError(`File is ${(file.size / (1024 * 1024)).toFixed(1)} MB. The limit is 10 MB.`);
-      e.target.value = "";
-      return;
-    }
-
-    setIsUploading(true);
-    const dimensions = await readImageDimensions(file);
-    const result = await uploadMediaFile(
-      file,
-      dimensions,
-      file.name.replace(/\.[^/.]+$/, "").replace(/[-_]+/g, " ")
-    );
-    setIsUploading(false);
-    e.target.value = "";
+    setIsSavingUrl(true);
+    const result = await addMediaByUrl(newUrl, newTitle);
+    setIsSavingUrl(false);
 
     if (!result.success || !result.item) {
-      setError(result.error || "Upload failed. Check the Storage rules are deployed.");
+      setError(result.error || "Could not save image URL.");
       return;
     }
 
     setMediaList((prev) => [result.item as MediaItem, ...prev]);
     setSelectedId(result.item.id);
+    setNewUrl("");
+    setNewTitle("");
     setActiveTab("library");
   };
 
@@ -159,7 +123,7 @@ export function MediaLibraryModal({
   const handleDeleteItem = async (id: string) => {
     const target = mediaList.find((item) => item.id === id);
     if (!target) return;
-    if (!confirm("Are you sure you want to permanently delete this media attachment?")) return;
+    if (!confirm("Remove this image reference from the library? The hosted image itself will not be deleted.")) return;
 
     const result = await deleteMediaItem(target);
     if (!result.success) {
@@ -198,14 +162,14 @@ export function MediaLibraryModal({
         {/* Tab Header */}
         <div className="h-11 px-6 bg-white border-b border-[#E2E8F0] flex items-center gap-2 shrink-0">
           <button
-            onClick={() => setActiveTab("upload")}
+            onClick={() => setActiveTab("add")}
             className={`h-full px-4 text-xs font-heading font-bold uppercase tracking-wider border-b-2 transition-colors ${
-              activeTab === "upload"
+              activeTab === "add"
                 ? "border-[#1D4ED8] text-[#1D4ED8]"
                 : "border-transparent text-slate-500 hover:text-[#0F172A]"
             }`}
           >
-            Upload files
+            Add image URL
           </button>
           <button
             onClick={() => setActiveTab("library")}
@@ -219,54 +183,32 @@ export function MediaLibraryModal({
           </button>
         </div>
 
+        {error && (
+          <div role="alert" className="px-6 py-2 border-b border-red-200 bg-red-50 text-xs font-semibold text-red-700 flex items-center gap-2">
+            <AlertTriangle className="h-3.5 w-3.5" /> {error}
+          </div>
+        )}
+
         {/* Modal Main Area */}
         <div className="flex-1 flex overflow-hidden">
-          {activeTab === "upload" ? (
-            /* Tab 1: Upload Files */
+          {activeTab === "add" ? (
+            /* Add a reference to an already-hosted image. */
             <div className="flex-1 flex flex-col items-center justify-center p-8 bg-[#F8FAFC]">
-              <div
-                onClick={() => fileInputRef.current?.click()}
-                className="w-full max-w-lg p-12 border-2 border-dashed border-[#CBD5E1] rounded-2xl bg-white flex flex-col items-center justify-center text-center cursor-pointer"
-              >
-                <div className="w-16 h-16 rounded-full bg-[#EFF6FF] flex items-center justify-center text-[#1D4ED8] mb-4">
-                  <UploadCloud className="h-8 w-8" />
-                </div>
-                <h3 className="text-base font-heading font-bold uppercase tracking-wider text-[#0F172A] mb-1">
-                  Drop files anywhere to upload
-                </h3>
-                <p className="text-xs text-[#64748B] mb-4">or</p>
-                <button
-                  type="button"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    fileInputRef.current?.click();
-                  }}
-                  className="px-4 py-2 rounded-lg bg-[#EFF6FF] text-[#1D4ED8] border border-[#BFDBFE] text-xs font-bold font-heading uppercase tracking-wider"
-                >
-                  Select Files
+              <form onSubmit={handleAddUrl} className="w-full max-w-lg p-8 border border-[#CBD5E1] rounded-2xl bg-white space-y-4">
+                <h3 className="text-base font-heading font-bold uppercase tracking-wider text-[#0F172A]">Use an existing image</h3>
+                <p className="text-xs text-[#64748B]">Paste an HTTPS image URL or a path to an image already deployed with this site. No file is uploaded.</p>
+                <label className="block text-xs font-semibold text-[#475569]">
+                  Image URL or site path
+                  <input type="text" required value={newUrl} onChange={(e) => setNewUrl(e.target.value)} placeholder="https://example.com/photo.webp or /images/photo.webp" className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
+                </label>
+                <label className="block text-xs font-semibold text-[#475569]">
+                  Title
+                  <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Optional image title" className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
+                </label>
+                <button type="submit" disabled={isSavingUrl} className="px-4 py-2 rounded-lg bg-[#1D4ED8] text-white text-xs font-bold disabled:opacity-50">
+                  {isSavingUrl ? "Saving..." : "Save image URL"}
                 </button>
-                <input
-                  ref={fileInputRef}
-                  type="file"
-                  accept="image/*"
-                  onChange={handleFileUpload}
-                  className="hidden"
-                />
-                <p className="text-[11px] text-[#94A3B8] mt-6">
-                  Maximum upload file size: 10 MB. Accepted formats: WEBP, PNG, JPG, SVG, AVIF.
-                </p>
-                {isUploading && (
-                  <p className="text-[11px] text-[#1D4ED8] mt-2 font-semibold">
-                    Uploading to Cloud Storage…
-                  </p>
-                )}
-                {error && (
-                  <p className="text-[11px] text-[#B91C1C] mt-2 font-semibold flex items-center gap-1">
-                    <AlertTriangle className="h-3.5 w-3.5" />
-                    {error}
-                  </p>
-                )}
-              </div>
+              </form>
             </div>
           ) : (
             /* Tab 2: Media Library (Grid + Details Sidebar) */
@@ -276,7 +218,7 @@ export function MediaLibraryModal({
                 {/* Filter Toolbar */}
                 <div className="p-3 bg-[#F8FAFC] border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-2 shrink-0">
                   <span className="text-[11px] text-[#64748B] font-semibold">
-                    {isLoading ? "Loading library…" : `${mediaList.length} item${mediaList.length === 1 ? "" : "s"} in Cloud Storage`}
+                    {isLoading ? "Loading library…" : `${mediaList.length} image reference${mediaList.length === 1 ? "" : "s"}`}
                   </span>
                   <div className="relative">
                     <Search className="h-3.5 w-3.5 text-[#94A3B8] absolute left-2.5 top-1/2 -translate-y-1/2" />
@@ -295,10 +237,9 @@ export function MediaLibraryModal({
                   {!isLoading && filteredItems.length === 0 ? (
                     <div className="h-full flex flex-col items-center justify-center text-center gap-2 py-12">
                       <ImageIcon className="h-8 w-8 text-[#CBD5E1]" />
-                      <p className="text-sm font-semibold text-[#64748B]">No media uploaded yet</p>
+                      <p className="text-sm font-semibold text-[#64748B]">No image references yet</p>
                       <p className="text-xs text-[#94A3B8] max-w-sm">
-                        Upload a file in the Upload tab. Images are stored in Cloud Storage for
-                        Firebase and are available to every admin on this project.
+                        Add an existing image URL in the Add image URL tab. No Firebase Storage is required.
                       </p>
                     </div>
                   ) : (
@@ -380,7 +321,7 @@ export function MediaLibraryModal({
                           className="text-rose-600 hover:underline font-semibold flex items-center gap-1"
                         >
                           <Trash2 className="h-3 w-3" />
-                          <span>Delete permanently</span>
+                          <span>Remove reference</span>
                         </button>
                       </div>
                     </div>

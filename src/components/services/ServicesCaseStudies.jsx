@@ -16,7 +16,7 @@ export default function ServicesCaseStudies() {
           See how we&apos;ve built, marketed &amp; grown real brands.
         </h2>
         <p className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
-          Every metric below comes from live reporting data—not estimates. Explore a few ways the
+          Every metric below comes from live reporting data, not estimates. Explore a few ways the
           Frame Cipher system shows up in the real world.
         </p>
 

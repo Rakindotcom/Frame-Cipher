@@ -70,12 +70,12 @@ const comparisonMatrix = [
   { feature: 'Product & UI/UX Design', starter: '✓', growth: '✓', enterprise: '✓' },
   { feature: 'Platform Development', starter: 'Shopify / WooCommerce', growth: 'Shopify / WooCommerce', enterprise: 'Shopify / WooCommerce / Magento' },
   { feature: 'bKash / Nagad Integration', starter: '✓', growth: '✓', enterprise: '✓' },
-  { feature: 'International Payment Gateway', starter: '—', growth: '✓', enterprise: '✓' },
+  { feature: 'International Payment Gateway', starter: '✗', growth: '✓', enterprise: '✓' },
   { feature: 'Product Schema & SEO Setup', starter: '✓', growth: '✓', enterprise: '✓' },
-  { feature: 'Inventory & Order Management', starter: '—', growth: '✓', enterprise: '✓ Multi-warehouse' },
-  { feature: 'Shipping & Logistics Integration', starter: '—', growth: '✓', enterprise: '✓' },
-  { feature: 'Custom Functionality', starter: '—', growth: '✓ As scoped', enterprise: '✓ Full custom' },
-  { feature: 'Dedicated Project Management', starter: '—', growth: '—', enterprise: '✓' },
+  { feature: 'Inventory & Order Management', starter: '✗', growth: '✓', enterprise: '✓ Multi-warehouse' },
+  { feature: 'Shipping & Logistics Integration', starter: '✗', growth: '✓', enterprise: '✓' },
+  { feature: 'Custom Functionality', starter: '✗', growth: '✓ As scoped', enterprise: '✓ Full custom' },
+  { feature: 'Dedicated Project Management', starter: '✗', growth: '✗', enterprise: '✓' },
   { feature: 'Launch Support', starter: '✓', growth: '✓ Extended', enterprise: '✓ Extended Post-Launch Support' },
 ]
 

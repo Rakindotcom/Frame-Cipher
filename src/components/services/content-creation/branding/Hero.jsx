@@ -105,7 +105,7 @@ export default function Hero({ service }) {
               Branding Built Around Your Business and Customer Experience
             </h2>
             <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
-              Branding should not exist only inside an idealistic presentation deck. Customers experience your business across dozens of physical and digital touchpoints every day. Each interaction creates another opportunity to reinforce credibility—or create confusion.
+              Branding should not exist only inside an idealistic presentation deck. Customers experience your business across dozens of physical and digital touchpoints every day. Each interaction creates another opportunity to reinforce credibility, or create confusion.
             </p>
           </div>
 
@@ -142,7 +142,7 @@ export default function Hero({ service }) {
                 What Branding Means Beyond a Logo
               </h3>
               <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-3xl">
-                A logo identifies a business; branding gives that identity meaning and context. Consider what happens the moment a logo is approved. A logo cannot answer the 10 operational questions that follow—a complete brand system can:
+                A logo identifies a business; branding gives that identity meaning and context. Consider what happens the moment a logo is approved. A logo cannot answer the 10 operational questions that follow; a complete brand system can:
               </p>
             </div>
 

@@ -20,7 +20,7 @@ const reasons = [
   {
     number: '04',
     title: 'Flexible engagement',
-    description: 'One-off project or full 360 partner—the model changes around the business stage.',
+    description: 'One-off project or full 360 partner; the model changes around the business stage.',
   },
   {
     number: '05',

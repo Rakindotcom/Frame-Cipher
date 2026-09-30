@@ -22,7 +22,7 @@ const pillarManifestos = [
   {
     tag: 'THE SOVEREIGN SYSTEM',
     title: 'No Fragmented Vendors. One Operating System.',
-    text: 'Modern brands suffer from vendor fragmentation—hiring one agency for web development, another for social media, another for SEO, and another for paid ads. Frame Cipher operates as a single growth engine where custom code, conversion architecture, video production, and auction algorithms talk to each other in real time.',
+    text: 'Modern brands suffer from vendor fragmentation, hiring one agency for web development, another for social media, another for SEO, and another for paid ads. Frame Cipher operates as a single growth engine where custom code, conversion architecture, video production, and auction algorithms talk to each other in real time.',
   },
 ]
 

@@ -28,7 +28,8 @@ const SITE_URL = "https://framecipher.info";
 
 interface AuthorProfileEditorProps {
   author: Partial<AuthorProfile>;
-  onSave: (updated: AuthorProfile) => void;
+  onSave: (updated: AuthorProfile) => Promise<boolean>;
+  saveError?: string | null;
   onClose: () => void;
 }
 
@@ -42,7 +43,7 @@ const SOCIAL_FIELDS: { key: string; label: string; placeholder: string }[] = [
   { key: "youtube", label: "YouTube", placeholder: "https://youtube.com/@..." },
 ];
 
-export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEditorProps) {
+export function AuthorProfileEditor({ author, onSave, onClose, saveError }: AuthorProfileEditorProps) {
   const [name, setName] = useState(author.name || "");
   const [jobTitle, setJobTitle] = useState(author.jobTitle || "Founder & Lead Strategist");
   const [worksFor, setWorksFor] = useState(author.worksFor || "FrameCipher");
@@ -75,7 +76,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
   const [isMediaModalOpen, setIsMediaModalOpen] = useState(false);
 
   // SEO & Schema
-  const [seoTitle, setSeoTitle] = useState(author.seoTitle || (author.name ? `${author.name} — Founder & Lead Strategist — FrameCipher` : ""));
+  const [seoTitle, setSeoTitle] = useState(author.seoTitle || (author.name ? `${author.name} | Founder & Lead Strategist | FrameCipher` : ""));
   const [metaDescription, setMetaDescription] = useState(author.metaDescription || "");
   const [focusKeyword, setFocusKeyword] = useState(author.focusKeyword || "");
   const [tags, setTags] = useState<string[]>(author.tags || []);
@@ -161,7 +162,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
     };
   }, [focusKeyword, seoTitle, metaDescription, imageUrl, imageAlt]);
 
-  const handleSave = (targetStatus?: "published" | "draft") => {
+  const handleSave = async (targetStatus?: "published" | "draft") => {
     const updated: AuthorProfile = {
       id: author.id || `author-${Date.now()}`,
       name: name.trim() || "Untitled Author",
@@ -180,14 +181,14 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
       socialLinks,
       status: targetStatus || status,
       publishDate: publishDate || new Date().toISOString().split("T")[0],
-      seoTitle: seoTitle.trim() || (jobTitle.trim() && jobTitle.trim() !== "FrameCipher" ? `${name.trim() || "Author"} — ${jobTitle.trim()} | Frame Cipher` : `${name.trim() || "Author"} | Frame Cipher`),
+      seoTitle: seoTitle.trim() || (jobTitle.trim() && jobTitle.trim() !== "FrameCipher" ? `${name.trim() || "Author"} | ${jobTitle.trim()} | Frame Cipher` : `${name.trim() || "Author"} | Frame Cipher`),
       metaDescription: metaDescription.trim(),
       focusKeyword: focusKeyword.trim(),
       tags,
       postsCount: author.postsCount || 0,
       views: author.views || 0,
     };
-    onSave(updated);
+    await onSave(updated);
   };
 
   const handleSelectMedia = (item: MediaItem) => {
@@ -197,6 +198,11 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col bg-[#F8FAFC] text-[#0F172A] animate-in fade-in duration-150 font-body overflow-hidden">
+      {saveError && (
+        <div role="alert" className="shrink-0 border-b border-red-200 bg-red-50 px-4 py-3 text-sm font-semibold text-red-700">
+          Save failed: {saveError}
+        </div>
+      )}
       {/* Top Bar */}
       <div className="px-3 sm:px-6 bg-white border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-x-3 gap-y-2 py-2 sm:py-0 sm:h-16 shrink-0 shadow-xs">
         <div className="flex items-center gap-3 min-w-0">
@@ -603,7 +609,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
               {seoAnalysis.hasImage && (
                 <p className="text-[11px] font-semibold text-[#16A34A] flex items-center gap-1">
                   <CheckCircle2 className="h-3.5 w-3.5" />
-                  Image {seoAnalysis.hasAlt ? "with alt" : "missing alt"} — mapped to
+                  Image {seoAnalysis.hasAlt ? "with alt" : "missing alt"}, mapped to
                   `Person.image`
                 </p>
               )}
@@ -622,7 +628,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
                   type="text"
                   value={seoTitle}
                   onChange={(e) => setSeoTitle(e.target.value)}
-                  placeholder="Author name — Role — FrameCipher"
+                  placeholder="Author name | Role | FrameCipher"
                   className="w-full p-2.5 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
                 />
                 <p className="text-[10px] text-[#64748B] mt-1">
@@ -681,7 +687,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
                   {SITE_URL}/authors/{finalSlug}
                 </div>
                 <div className="text-sm text-[#1D4ED8] leading-snug line-clamp-2 font-medium">
-                  {seoTitle || (jobTitle && jobTitle !== "FrameCipher" ? `${name || "Author"} — ${jobTitle} | Frame Cipher` : `${name || "Author"} | Frame Cipher`)}
+                  {seoTitle || (jobTitle && jobTitle !== "FrameCipher" ? `${name || "Author"} | ${jobTitle} | Frame Cipher` : `${name || "Author"} | Frame Cipher`)}
                 </div>
                 <div className="text-[11px] text-[#64748B] leading-snug line-clamp-2">
                   {metaDescription || shortBio || "Author profile for FrameCipher contributors."}
@@ -737,7 +743,7 @@ export function AuthorProfileEditor({ author, onSave, onClose }: AuthorProfileEd
                 </button>
               </div>
               <p className="text-[10px] text-[#64748B]">
-                Generated automatically from the fields above — no manual markup needed. Emits
+                Generated automatically from the fields above, no manual markup needed. Emits
                 schema.org <code className="font-mono text-[#8B5CF6] bg-[#F5F3FF] px-1 rounded">Person</code>{" "}
                 with <code className="font-mono">sameAs</code>,{" "}
                 <code className="font-mono">worksFor</code>,{" "}

@@ -7,17 +7,14 @@ import {
   describeMissingAdminConfig,
 } from "@/lib/server/firebaseAdmin";
 import { isLegacyDemoPost } from "./getBlogPosts";
+import { collection, getDocs, query, where } from "firebase/firestore/lite";
+import { publicFirestore } from "@/lib/server/publicFirestore";
 
 /**
- * Blog post persistence.
- *
- * Firestore (`blog_posts`) is the source of truth. The JSON files are a
- * development-only fallback: Netlify Functions have a read-only, per-invocation
- * filesystem, so writing them in production threw an error that a `try/catch`
- * swallowed while the route still replied `{ success: true }`. The post was
- * never stored and its URL 404'd. Production now fails loudly instead; the JSON
- * path is only taken when no service account is configured and we are not on a
- * deployed environment.
+ * Public blog reads use the anonymous, rule-limited Firebase web SDK. The
+ * Admin SDK methods below remain only for legacy server mutation endpoints;
+ * the dashboard writes directly with Firebase Authentication and Firestore.
+ * Local JSON writes are development-only and are never a production store.
  */
 
 // `turbopackIgnore` keeps the Node file tracer from treating these as a
@@ -154,8 +151,7 @@ export async function getServerBlogPosts(): Promise<BlogPostItem[]> {
  * A post is publicly readable only when it is published and not hidden behind a
  * password or marked private.
  *
- * The Admin SDK bypasses Firestore security rules, so this check is the only
- * thing standing between a draft and the public site. `visibility` is required
+ * This is a defense-in-depth check after the public Firestore query. `visibility` is required
  * with no default, matching firestore.rules: a document that predates the field
  * stays private until it is re-saved through the CMS, which always writes it.
  */
@@ -177,8 +173,20 @@ function toPublicPost(post: BlogPostItem): BlogPostItem {
 
 /** Posts safe to render on a public page or return from an unauthenticated API. */
 export async function getPublicBlogPosts(): Promise<BlogPostItem[]> {
-  const posts = await getServerBlogPosts();
-  return posts.filter(isPubliclyVisible).map(toPublicPost);
+  try {
+    const snapshot = await getDocs(query(
+      collection(publicFirestore, COLLECTION),
+      where("status", "==", "published"),
+      where("visibility", "==", "public")
+    ));
+    return snapshot.docs
+      .map((entry) => normalizeFromFirestore(entry.data(), entry.id))
+      .filter(isPubliclyVisible)
+      .map(toPublicPost);
+  } catch (error) {
+    console.error("Public Firestore blog read failed:", error);
+    return [];
+  }
 }
 
 export async function saveAllServerBlogPosts(

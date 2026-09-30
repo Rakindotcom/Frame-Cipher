@@ -3,7 +3,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import {
-  getAllCanonicalPosts,
   getMergedPostsFromStorage,
   BLOG_CATEGORIES,
   isLegacyDemoPost,
@@ -34,23 +33,12 @@ export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("All Articles");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Sync with CMS posts: Unified Server API (/api/blog) + Firestore
+  // Refresh public posts from the rule-limited API; browser-local CMS drafts
+  // are deliberately not a source of published content.
   useEffect(() => {
     let cancelled = false;
     (async () => {
       try {
-        // Keep user CMS posts in local storage if present, purge only legacy demo items
-        try {
-          const saved = localStorage.getItem("framecipher_admin_blog_posts");
-          if (saved) {
-            const parsed = JSON.parse(saved);
-            if (Array.isArray(parsed)) {
-              const nonDemo = parsed.filter((p) => !isLegacyDemoPost(p));
-              localStorage.setItem("framecipher_admin_blog_posts", JSON.stringify(nonDemo));
-            }
-          }
-        } catch {}
-
         let apiPosts: DetailedBlogPost[] = [];
 
         try {

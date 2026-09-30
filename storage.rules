@@ -3,19 +3,11 @@ rules_version = '2';
 service firebase.storage {
   match /b/{bucket}/o {
 
-    // Keep in sync with the ADMIN_EMAILS environment variable and with
-    // isAdmin() in firestore.rules. Storage rules cannot read process.env.
-    // Every admin listed in firestore.rules MUST appear here, otherwise that
-    // admin can sign in and save content but every upload is rejected.
-    function adminEmails() {
-      return ['pervesmahedi@gmail.com', 'mahedihasancareerbuilders@gmail.com'];
-    }
-
+    // Match the UID in firestore.rules and src/lib/admin/identity.ts.
     function isAdmin() {
       return request.auth != null
-        && request.auth.token.email is string
-        && request.auth.token.email_verified == true
-        && request.auth.token.email.lower() in adminEmails();
+        && request.auth.uid == 'Io8C94PyB5QKlENIc08IGiPaLnE3'
+        && request.auth.token.firebase.sign_in_provider == 'password';
     }
 
     // Raster images only. SVG is deliberately excluded: Firebase Storage serves

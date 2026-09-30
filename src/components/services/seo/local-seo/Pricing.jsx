@@ -86,7 +86,7 @@ const comparisonRows = [
   ['Review Strategy', '✓', '✓', '✓'],
   ['Local Schema', '✓', '✓', '✓'],
   ['Google Maps Optimization', '✓', '✓', '✓'],
-  ['Geo-Grid Tracking', '—', '✓', '✓'],
+  ['Geo-Grid Tracking', '✗', '✓', '✓'],
   ['Local Authority / Link Building', 'Basic', '✓', 'Advanced'],
   ['Local Search Monitoring', '✓', '✓', '✓'],
   ['Monthly Reporting', '✓', '✓', '✓'],

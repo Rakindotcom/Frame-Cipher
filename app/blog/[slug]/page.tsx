@@ -87,7 +87,7 @@ export default async function BlogPostPage({
 
   // 1. Fetch publicly visible posts. Draft, private and password-protected posts
   //    are excluded here, which is what makes a hidden post 404 rather than
-  //    render — the Admin SDK bypasses Firestore security rules.
+  //    render; the Admin SDK bypasses Firestore security rules.
   const remotePosts = await getPublicBlogPosts();
   const merged = getMergedPostsFromStorage(remotePosts);
 

@@ -10,7 +10,7 @@ import { GitBranch, ShieldCheck, FileCode, ExternalLink } from "lucide-react";
 export const dynamic = "force-dynamic";
 
 export const metadata = {
-  title: "Technical SEO & Redirects — FrameCipher Admin",
+  title: "Technical SEO & Redirects | FrameCipher Admin",
   robots: { index: false, follow: false },
 };
 
@@ -22,7 +22,7 @@ interface RedirectRule {
 
 /**
  * Reads the redirect rules that Next.js actually serves. These are the only
- * redirects that affect routing — the admin UI cannot add rules at runtime
+ * redirects that affect routing - the admin UI cannot add rules at runtime
  * because a redirect change requires a rebuild and redeploy.
  */
 function readRealRedirects(): RedirectRule[] {
@@ -140,7 +140,7 @@ export default function TechnicalSeoPage() {
             </h3>
             <p className="text-xs text-[#64748B]">
               Read directly from <code className="font-mono">next.config.mjs</code>. This list is
-              read-only because a redirect only takes effect after a rebuild and redeploy — an
+              read-only because a redirect only takes effect after a rebuild and redeploy - an
               in-app editor would not change any routing behaviour.
             </p>
           </div>
@@ -247,7 +247,7 @@ export default function TechnicalSeoPage() {
             </div>
             <p className="text-[11px] text-[#64748B] leading-relaxed">
               Service, case study and category counts come from the live registry. The blog count is
-              resolved at request time from the CMS post source, so it is not hardcoded here — open{" "}
+              resolved at request time from the CMS post source, so it is not hardcoded here - open{" "}
               <code className="font-mono">/sitemap.xml</code> for the exact URL count.
             </p>
           </div>

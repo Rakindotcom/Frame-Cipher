@@ -5,7 +5,7 @@ const pillars = [
   {
     num: '01',
     title: 'Designed for Actual Use',
-    desc: 'We design for the real physical and digital environments where your logo will live—favicons, mobile headers, single-color packaging stamps, and signage—instead of treating a presentation mockup as the end destination.'
+    desc: 'We design for the real physical and digital environments where your logo will live (favicons, mobile headers, single-color packaging stamps, and signage) instead of treating a presentation mockup as the end destination.'
   },
   {
     num: '02',
@@ -15,7 +15,7 @@ const pillars = [
   {
     num: '03',
     title: 'Practical Logo Systems',
-    desc: 'We engineer complete responsive systems—horizontal, stacked, icon-only, full-color, solid black, and reversed white—so your brand has the right lockup for every conceivable space.'
+    desc: 'We engineer complete responsive systems (horizontal, stacked, icon-only, full-color, solid black, and reversed white) so your brand has the right lockup for every conceivable space.'
   },
   {
     num: '04',

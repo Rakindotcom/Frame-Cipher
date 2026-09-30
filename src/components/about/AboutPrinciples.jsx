@@ -24,7 +24,7 @@ const principles = [
   {
     number: '05',
     title: 'Transparent Attribution & Direct Code Ownership.',
-    desc: 'Our clients own 100% of their intellectual property from day one—including Git repositories, cloud deployment accounts, raw video files, and ad managers. No vendor lock-in, no hostage code, and zero hidden markups.',
+    desc: 'Our clients own 100% of their intellectual property from day one, including Git repositories, cloud deployment accounts, raw video files, and ad managers. No vendor lock-in, no hostage code, and zero hidden markups.',
   },
   {
     number: '06',
@@ -46,7 +46,7 @@ export default function AboutPrinciples() {
             No Soft Middle. Zero Mystery Handoffs.
           </h2>
           <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
-            Our operating principles govern every decision we make—from how we structure our React components and database schemas to how we buy media on global ad networks.
+            Our operating principles govern every decision we make, from how we structure our React components and database schemas to how we buy media on global ad networks.
           </p>
         </div>
 

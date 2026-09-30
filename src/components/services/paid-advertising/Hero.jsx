@@ -33,7 +33,7 @@ export default function Hero() {
         campaigns built around leads, sales, bookings, and measurable business outcomes. We do
         not treat clicks, impressions, or reach as the final result. Campaign strategy, creative,
         landing pages, conversion tracking, and optimization are connected so you can see where
-        your budget is going and what it is producing — for businesses in Bangladesh and
+        your budget is going and what it is producing, for businesses in Bangladesh and
         international markets including the US, UK, Australia, Canada, and UAE.
       </PageHero>
     </div>

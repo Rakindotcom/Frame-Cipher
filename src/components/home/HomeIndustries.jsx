@@ -14,7 +14,7 @@ export default function HomeIndustries() {
             </h2>
           </div>
           <p className="max-w-xl text-sm font-medium leading-relaxed text-frame-muted-fg sm:text-base md:text-lg lg:pb-1">
-            Whatever the vertical, the system stays the same — strategy, creative, web, media, and performance
+            Whatever the vertical, the system stays the same: strategy, creative, web, media, and performance
             built as one connected machine. Here is what that looks like for each industry we serve.
           </p>
         </div>

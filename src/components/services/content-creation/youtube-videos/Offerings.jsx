@@ -79,7 +79,7 @@ export default function Offerings() {
           eyebrow="End-to-End Workflow"
           title="What Our YouTube Video Production Service Includes"
         >
-          From initial concept and content structure through on-set filming, post-production, custom thumbnail design, and multi-format cutdowns—one in-house team handles the entire lifecycle.
+          From initial concept and content structure through on-set filming, post-production, custom thumbnail design, and multi-format cutdowns, one in-house team handles the entire lifecycle.
         </SectionIntro>
 
         <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">

@@ -4,7 +4,7 @@ const trustPillars = [
   {
     num: '01',
     title: 'Genuinely Distinct Concepts',
-    desc: 'Three thoughtfully developed, unique creative directions—not minor tweaks.'
+    desc: 'Three thoughtfully developed, unique creative directions, not minor tweaks.'
   },
   {
     num: '02',

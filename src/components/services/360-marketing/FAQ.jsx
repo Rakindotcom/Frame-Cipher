@@ -3,7 +3,7 @@ import { SectionIntro } from '../../Kinetic'
 const faqs = [
   {
     q: 'What exactly is a 360 marketing agency and how is it different from a digital agency?',
-    a: 'A typical digital agency usually manages only one or two isolated channels—such as running Meta ads or posting regular designs on Facebook. A 360 marketing agency takes holistic ownership of your entire growth flywheel: strategic brand positioning, commercial video production, paid performance ads (Meta, Google, YouTube, LinkedIn), technical and local SEO, high-speed landing page architecture, and lifecycle CRM automations. Everything works together so your ad spend doesn’t leak out of a broken website or an unoptimized offer.',
+    a: 'A typical digital agency usually manages only one or two isolated channels, such as running Meta ads or posting regular designs on Facebook. A 360 marketing agency takes holistic ownership of your entire growth flywheel: strategic brand positioning, commercial video production, paid performance ads (Meta, Google, YouTube, LinkedIn), technical and local SEO, high-speed landing page architecture, and lifecycle CRM automations. Everything works together so your ad spend doesn’t leak out of a broken website or an unoptimized offer.',
   },
   {
     q: 'How much ad spend budget do we need to start a 360 marketing partnership?',

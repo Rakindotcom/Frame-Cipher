@@ -25,7 +25,7 @@ const pillars = [
   {
     num: '05',
     title: 'Integrated Creative Coordination',
-    desc: 'Motion graphics works side-by-side with our live-action video, paid media, and copywriting teams—ensuring unified messaging across all digital touchpoints.'
+    desc: 'Motion graphics works side-by-side with our live-action video, paid media, and copywriting teams, ensuring unified messaging across all digital touchpoints.'
   }
 ]
 

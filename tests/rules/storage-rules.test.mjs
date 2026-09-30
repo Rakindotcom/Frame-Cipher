@@ -16,23 +16,24 @@ const testEnv = await initializeTestEnvironment({
   storage: { rules: readFileSync("storage.rules", "utf8") },
 });
 
+const ADMIN_UID = "Io8C94PyB5QKlENIc08IGiPaLnE3";
 const admin = () =>
-  testEnv.authenticatedContext("admin-uid", {
-    email: "pervesmahedi@gmail.com",
+  testEnv.authenticatedContext(ADMIN_UID, {
+    email: "teamframecipher@example.com",
     email_verified: true,
+    firebase: { sign_in_provider: "password" },
   }).storage();
-// Every admin in ADMIN_EMAILS / firestore.rules must be able to upload. A
-// mismatch here silently breaks the second admin: they can sign in and save
-// content, but every image upload is rejected with a permission error.
 const secondAdmin = () =>
   testEnv.authenticatedContext("admin-uid-2", {
-    email: "mahedihasancareerbuilders@gmail.com",
+    email: "teamframecipher@example.com",
     email_verified: true,
+    firebase: { sign_in_provider: "password" },
   }).storage();
 const attacker = () =>
   testEnv.authenticatedContext("attacker-uid", {
-    email: "attacker@example.com",
+    email: "teamframecipher@example.com",
     email_verified: true,
+    firebase: { sign_in_provider: "password" },
   }).storage();
 const anon = () => testEnv.unauthenticatedContext().storage();
 
@@ -108,39 +109,27 @@ test("only admins can upload or delete media", async () => {
   await assertSucceeds(deleteObject(ref(admin(), "media/seed.png")));
 });
 
-test("every admin in firestore.rules can upload", async () => {
-  // storage.rules and firestore.rules keep separate hardcoded allowlists
-  // because rules cannot read process.env. This test fails if the two drift.
-  await assertSucceeds(
+test("another Firebase UID is denied even with the same email", async () => {
+  await assertFails(
     uploadBytes(ref(secondAdmin(), "media/second-admin.png"), blobOfSize(4 * KB), {
       contentType: "image/png",
     })
   );
-  await assertSucceeds(
+  await assertFails(
     uploadBytes(ref(secondAdmin(), "avatars/second-admin.png"), blobOfSize(4 * KB), {
       contentType: "image/png",
     })
   );
-  await assertSucceeds(deleteObject(ref(secondAdmin(), "media/second-admin.png")));
 });
 
-test("admin matching is case-insensitive and requires a verified email", async () => {
-  const mixedCase = testEnv.authenticatedContext("mixed-uid", {
-    email: "PervesMahedi@Gmail.com",
+test("uploads require password sign-in and the matching UID", async () => {
+  const google = testEnv.authenticatedContext(ADMIN_UID, {
+    email: "teamframecipher@example.com",
     email_verified: true,
-  }).storage();
-  await assertSucceeds(
-    uploadBytes(ref(mixedCase, "media/mixed.png"), blobOfSize(4 * KB), { contentType: "image/png" })
-  );
-
-  const unverified = testEnv.authenticatedContext("unverified-uid", {
-    email: "pervesmahedi@gmail.com",
-    email_verified: false,
+    firebase: { sign_in_provider: "google.com" },
   }).storage();
   await assertFails(
-    uploadBytes(ref(unverified, "media/unverified.png"), blobOfSize(4 * KB), {
-      contentType: "image/png",
-    })
+    uploadBytes(ref(google, "media/google.png"), blobOfSize(4 * KB), { contentType: "image/png" })
   );
 });
 

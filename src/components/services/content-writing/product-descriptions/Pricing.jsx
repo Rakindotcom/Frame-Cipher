@@ -18,7 +18,7 @@ const packages = [
     ],
   },
   {
-    name: 'Bulk Catalog Package — 50+ SKUs',
+    name: 'Bulk Catalog Package (50+ SKUs)',
     tag: 'Volume rate',
     price: '৳600/SKU',
     for: 'Larger ecommerce catalogs',
@@ -28,7 +28,7 @@ const packages = [
     features: [
       'Everything in the standard scope',
       'Catalog prioritization',
-      'Volume-based per-SKU pricing for 50+ SKUs',
+      'Volume-based per-SKU pricing for 50+ SKUs)',
       'Batch delivery on an agreed schedule',
       'Product-copy guidelines for larger catalogs',
     ],

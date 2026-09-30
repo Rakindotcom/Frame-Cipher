@@ -18,7 +18,7 @@ export default function AboutHero() {
           </>
         }
       >
-        Frame Cipher was founded on an unapologetic ambition: to build a tier-one multinational technology, media, and growth engineering company anchored in Bangladesh. We combine full-stack software development, brand architecture, cinematic media production, and mathematical performance marketing under one unified operating system—serving high-growth startups and global enterprises across 20+ countries.
+        Frame Cipher was founded on an unapologetic ambition: to build a tier-one multinational technology, media, and growth engineering company anchored in Bangladesh. We combine full-stack software development, brand architecture, cinematic media production, and mathematical performance marketing under one unified operating system, serving high-growth startups and global enterprises across 20+ countries.
       </PageHero>
 
       <TypeMarquee

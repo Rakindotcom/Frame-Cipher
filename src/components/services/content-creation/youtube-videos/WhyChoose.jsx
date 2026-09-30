@@ -14,7 +14,7 @@ const advantages = [
   {
     num: '03',
     title: 'YouTube-Native Long-Form Workflow',
-    desc: 'Engineered specifically for YouTube audience retention, average view duration (AVD), and click-through rates (CTR)—not repurposed television commercials.'
+    desc: 'Engineered specifically for YouTube audience retention, average view duration (AVD), and click-through rates (CTR), not repurposed television commercials.'
   },
   {
     num: '04',

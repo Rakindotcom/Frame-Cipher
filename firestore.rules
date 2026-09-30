@@ -4,21 +4,13 @@ service cloud.firestore {
   match /databases/{database}/documents {
 
     // ---------------------------------------------------------------------------
-    // Admin allowlist
-    //
-    // Firestore rules cannot read process.env, so this list MUST be kept in sync
-    // with the ADMIN_EMAILS environment variable by hand. The app-side check
-    // lives in src/lib/admin/token.ts and fails closed when it disagrees.
+    // Single Firebase Authentication administrator. Keep this UID in sync with
+    // src/lib/admin/identity.ts and storage.rules.
     // ---------------------------------------------------------------------------
-    function adminEmails() {
-      return ['pervesmahedi@gmail.com', 'mahedihasancareerbuilders@gmail.com'];
-    }
-
     function isAdmin() {
       return request.auth != null
-        && request.auth.token.email is string
-        && request.auth.token.email_verified == true
-        && request.auth.token.email.lower() in adminEmails();
+        && request.auth.uid == 'Io8C94PyB5QKlENIc08IGiPaLnE3'
+        && request.auth.token.firebase.sign_in_provider == 'password';
     }
 
     // A post is public only when it is published and not hidden behind a
@@ -68,7 +60,7 @@ service cloud.firestore {
     }
 
     match /author_profiles/{authorId} {
-      allow read: if true;
+      allow read: if isAdmin() || resource.data.status == 'published';
       allow write: if isAdmin();
     }
 

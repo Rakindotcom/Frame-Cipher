@@ -1,16 +1,15 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { type MediaItem } from "@/components/admin/cms/MediaLibraryModal";
 import {
   listMediaFromFirestore,
   saveMediaMetadata,
   deleteMediaItem,
-  uploadMediaFile,
+  addMediaByUrl,
 } from "@/lib/firebase";
 import {
-  UploadCloud,
   Search,
   Grid,
   List,
@@ -28,51 +27,33 @@ import {
   X,
 } from "lucide-react";
 
-const ACCEPTED_TYPES = ["image/webp", "image/png", "image/jpeg", "image/avif", "image/gif"];
-const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
-
-function readImageDimensions(file: File): Promise<string> {
-  return new Promise((resolve) => {
-    if (typeof window === "undefined" || typeof URL.createObjectURL !== "function") {
-      resolve("unknown");
-      return;
-    }
-    const objectUrl = URL.createObjectURL(file);
-    const image = new Image();
-    image.onload = () => {
-      URL.revokeObjectURL(objectUrl);
-      resolve(`${image.naturalWidth} × ${image.naturalHeight}`);
-    };
-    image.onerror = () => {
-      URL.revokeObjectURL(objectUrl);
-      resolve("unknown");
-    };
-    image.src = objectUrl;
-  });
-}
-
 export default function AdminMediaPage() {
   const [items, setItems] = useState<MediaItem[]>([]);
   const [search, setSearch] = useState("");
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [isUploading, setIsUploading] = useState(false);
+  const [isAddingUrl, setIsAddingUrl] = useState(false);
+  const [isSavingUrl, setIsSavingUrl] = useState(false);
+  const [newUrl, setNewUrl] = useState("");
+  const [newTitle, setNewTitle] = useState("");
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
 
   // Bulk Selection State
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
-  const fileInputRef = useRef<HTMLInputElement>(null);
-
-  // Media lives in Cloud Storage + Firestore, shared across every admin.
+  // The library stores image URLs and metadata in Firestore, not image files.
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const stored = await listMediaFromFirestore();
-      if (cancelled) return;
-      setItems(stored);
-      setSelectedItem(stored[0] || null);
+      try {
+        const stored = await listMediaFromFirestore();
+        if (cancelled) return;
+        setItems(stored);
+        setSelectedItem(stored[0] || null);
+      } catch (error: any) {
+        if (!cancelled) setSaveStatus(error?.message || "Could not load media from Firestore.");
+      }
     })();
     return () => {
       cancelled = true;
@@ -83,57 +64,32 @@ export default function AdminMediaPage() {
     setItems(updated);
   };
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = e.target.files;
-    if (!files || files.length === 0) return;
-
-    setIsUploading(true);
+  const handleAddUrl = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSavingUrl(true);
     setSaveStatus(null);
-    const newItems: MediaItem[] = [];
-
-    for (const file of Array.from(files)) {
-      if (!ACCEPTED_TYPES.includes(file.type)) {
-        setSaveStatus(`${file.name}: unsupported type. Use WEBP, PNG, JPG, SVG or AVIF.`);
-        continue;
-      }
-      if (file.size > MAX_UPLOAD_BYTES) {
-        setSaveStatus(`${file.name}: exceeds the 10 MB limit.`);
-        continue;
-      }
-
-      const dimensions = await readImageDimensions(file);
-      const result = await uploadMediaFile(
-        file,
-        dimensions,
-        file.name.replace(/\.[^/.]+$/, "").replace(/[-_]/g, " ")
-      );
-
-      if (!result.success || !result.item) {
-        setSaveStatus(`${file.name}: ${result.error || "upload failed"}`);
-        continue;
-      }
-      newItems.unshift(result.item);
+    const result = await addMediaByUrl(newUrl, newTitle);
+    setIsSavingUrl(false);
+    if (!result.success || !result.item) {
+      setSaveStatus(result.error || "Could not save image URL.");
+      return;
     }
-
-    e.target.value = "";
-    setIsUploading(false);
-
-    if (newItems.length > 0) {
-      setItems((prev) => [...newItems, ...prev]);
-      setSelectedItem(newItems[0]);
-      setSaveStatus(`Uploaded ${newItems.length} file${newItems.length === 1 ? "" : "s"} to Cloud Storage.`);
-    }
+    setItems((current) => [result.item!, ...current]);
+    setSelectedItem(result.item);
+    setNewUrl("");
+    setNewTitle("");
+    setIsAddingUrl(false);
+    setSaveStatus("Image URL saved to Firestore.");
   };
 
   const handleUpdateSelected = async (field: keyof MediaItem, value: string) => {
     if (!selectedItem) return;
     const updated = { ...selectedItem, [field]: value };
-    setSelectedItem(updated);
-    const updatedList = items.map((item) =>
-      item.id === selectedItem.id ? updated : item
-    );
-    persistItems(updatedList);
     const result = await saveMediaMetadata(updated);
+    if (result.success) {
+      setSelectedItem(updated);
+      persistItems(items.map((item) => item.id === selectedItem.id ? updated : item));
+    }
     setSaveStatus(result.success ? "Saved to Firestore" : result.error || "Save failed");
     setTimeout(() => setSaveStatus(null), 2500);
   };
@@ -141,7 +97,7 @@ export default function AdminMediaPage() {
   const handleDelete = async (id: string) => {
     const target = items.find((item) => item.id === id);
     if (!target) return;
-    if (!confirm("Are you sure you want to delete this media asset permanently?")) return;
+    if (!confirm("Remove this image reference from the media library? The hosted image itself will not be deleted.")) return;
 
     const result = await deleteMediaItem(target);
     if (!result.success) {
@@ -186,7 +142,7 @@ export default function AdminMediaPage() {
   const handleBulkDelete = async () => {
     const targets = items.filter((item) => selectedIds.has(item.id));
     if (targets.length === 0) return;
-    if (!confirm(`Are you sure you want to permanently delete ${targets.length} selected media assets?`))
+    if (!confirm(`Remove ${targets.length} image references from the library? The hosted images will not be deleted.`))
       return;
 
     const results = await Promise.all(targets.map((item) => deleteMediaItem(item)));
@@ -195,10 +151,11 @@ export default function AdminMediaPage() {
       setSaveStatus(`${failed.length} of ${targets.length} could not be deleted.`);
     }
 
-    const remaining = items.filter((item) => !selectedIds.has(item.id));
+    const deletedIds = new Set(targets.filter((_, index) => results[index].success).map((item) => item.id));
+    const remaining = items.filter((item) => !deletedIds.has(item.id));
     persistItems(remaining);
-    setSelectedIds(new Set());
-    if (selectedItem && selectedIds.has(selectedItem.id)) {
+    setSelectedIds(new Set(targets.filter((item) => !deletedIds.has(item.id)).map((item) => item.id)));
+    if (selectedItem && deletedIds.has(selectedItem.id)) {
       setSelectedItem(remaining[0] || null);
     }
   };
@@ -223,7 +180,7 @@ export default function AdminMediaPage() {
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-body relative overflow-x-hidden pb-16">
       <AdminHeader
         title="Media Library"
-        subtitle="Manage uploaded diagrams, schematics, and Google Image SEO metadata"
+        subtitle="Manage image URLs and Google Image SEO metadata—no file uploads"
       />
 
       <div className="px-4 sm:px-6 lg:px-8 pt-6 space-y-6 relative z-10 max-w-7xl mx-auto">
@@ -235,7 +192,7 @@ export default function AdminMediaPage() {
               <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">{items.length}</div>
             </div>
             <span className="text-xs font-heading font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full self-start whitespace-nowrap">
-              Verified Local &amp; CDN
+              URL references
             </span>
           </div>
 
@@ -334,25 +291,38 @@ export default function AdminMediaPage() {
               <span>{isAllSelected ? "Deselect All" : "Select All"}</span>
             </button>
 
-            {/* Upload Button */}
-            <input
-              type="file"
-              ref={fileInputRef}
-              onChange={handleFileUpload}
-              multiple
-              accept="image/*"
-              className="hidden"
-            />
+            {/* Add an already-hosted image URL; no binary upload. */}
             <button
-              onClick={() => fileInputRef.current?.click()}
-              disabled={isUploading}
+              onClick={() => setIsAddingUrl((current) => !current)}
               className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[#1D4ED8] text-white text-xs font-heading font-bold uppercase tracking-wider shadow-xs"
             >
-              <UploadCloud className="h-4 w-4" />
-              <span>{isUploading ? "Uploading..." : "Upload New Media"}</span>
+              <ImageIcon className="h-4 w-4" />
+              <span>Add Image URL</span>
             </button>
           </div>
         </div>
+
+        {saveStatus && (
+          <div role="status" className="p-3 rounded-xl border border-[#CBD5E1] bg-white text-sm text-[#334155]">
+            {saveStatus}
+          </div>
+        )}
+
+        {isAddingUrl && (
+          <form onSubmit={handleAddUrl} className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm flex flex-col sm:flex-row gap-3">
+            <label className="flex-1 text-xs font-semibold text-[#475569]">
+              Image URL or site path
+              <input type="text" required value={newUrl} onChange={(e) => setNewUrl(e.target.value)} placeholder="https://example.com/photo.webp or /images/photo.webp" className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
+            </label>
+            <label className="sm:w-64 text-xs font-semibold text-[#475569]">
+              Title
+              <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Optional image title" className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
+            </label>
+            <button type="submit" disabled={isSavingUrl} className="self-end px-4 py-2.5 rounded-lg bg-[#1D4ED8] text-white text-xs font-bold disabled:opacity-50">
+              {isSavingUrl ? "Saving..." : "Save URL"}
+            </button>
+          </form>
+        )}
 
         {/* Floating / Sticky Bulk Actions Bar when items are selected */}
         {selectedIds.size > 0 && (
@@ -386,9 +356,9 @@ export default function AdminMediaPage() {
             {filteredItems.length === 0 ? (
               <div className="py-16 text-center space-y-3">
                 <ImageIcon className="h-12 w-12 text-[#94A3B8] mx-auto" />
-                <h4 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A]">No media files found</h4>
+                <h4 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A]">No image references found</h4>
                 <p className="text-xs text-[#64748B]">
-                  Try adjusting your search query or upload a new engineering diagram.
+                  Try adjusting your search query or add an image URL.
                 </p>
               </div>
             ) : viewMode === "grid" ? (
@@ -427,24 +397,12 @@ export default function AdminMediaPage() {
                       </div>
 
                       <div className="aspect-square bg-white relative flex items-center justify-center p-2">
-                        {item.url.startsWith("/") ||
-                        item.url.startsWith("blob:") ||
-                        item.url.startsWith("data:") ? (
-                          <div className="relative w-full h-full">
-                            <img
-                              src={item.url}
-                              alt={item.alt || item.title}
-                              className="w-full h-full object-contain"
-                            />
-                          </div>
-                        ) : (
-                          <div className="text-center p-3">
-                            <ImageIcon className="h-8 w-8 text-[#1D4ED8] mx-auto mb-1" />
-                            <span className="text-[10px] text-[#64748B] line-clamp-1">
-                              {item.filename}
-                            </span>
-                          </div>
-                        )}
+                        <img
+                          src={item.url}
+                          alt={item.alt || item.title}
+                          loading="lazy"
+                          className="w-full h-full object-contain"
+                        />
                         {isSelected && !isChecked && (
                           <div className="absolute top-2 right-2 h-5 w-5 rounded-full bg-[#1D4ED8] text-white flex items-center justify-center shadow-xs">
                             <Check className="h-3 w-3" />
@@ -513,17 +471,12 @@ export default function AdminMediaPage() {
                           </td>
                           <td className="py-2 px-3">
                             <div className="h-10 w-10 rounded-lg bg-white border border-[#E2E8F0] overflow-hidden relative flex items-center justify-center">
-                              {item.url.startsWith("/") ||
-                              item.url.startsWith("blob:") ||
-                              item.url.startsWith("data:") ? (
-                                <img
-                                  src={item.url}
-                                  alt={item.alt || item.title}
-                                  className="w-full h-full object-cover"
-                                />
-                              ) : (
-                                <ImageIcon className="h-5 w-5 text-[#1D4ED8]" />
-                              )}
+                              <img
+                                src={item.url}
+                                alt={item.alt || item.title}
+                                loading="lazy"
+                                className="w-full h-full object-cover"
+                              />
                             </div>
                           </td>
                           <td className="py-2 px-3">
@@ -606,19 +559,13 @@ export default function AdminMediaPage() {
 
                 {/* Preview Thumbnail */}
                 <div className="rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] overflow-hidden flex items-center justify-center p-4 relative min-h-[160px]">
-                  {selectedItem.url.startsWith("/") ||
-                  selectedItem.url.startsWith("blob:") ||
-                  selectedItem.url.startsWith("data:") ? (
-                    <div className="relative w-full h-40">
-                      <img
-                        src={selectedItem.url}
-                        alt={selectedItem.alt || selectedItem.title}
-                        className="w-full h-full object-contain"
-                      />
-                    </div>
-                  ) : (
-                    <ImageIcon className="h-16 w-16 text-[#CBD5E1]" />
-                  )}
+                  <div className="relative w-full h-40">
+                    <img
+                      src={selectedItem.url}
+                      alt={selectedItem.alt || selectedItem.title}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
                 </div>
 
                 {/* Read-only File Metadata */}
@@ -643,7 +590,7 @@ export default function AdminMediaPage() {
                   </div>
                   <div>
                     <span className="text-[#64748B] block text-[9px] font-heading font-bold uppercase tracking-wider">
-                      Date Uploaded
+                      Date Added
                     </span>
                     <span className="text-[#0F172A] font-bold">{selectedItem.uploadedAt}</span>
                   </div>
@@ -723,7 +670,7 @@ export default function AdminMediaPage() {
                     className="text-xs font-heading font-bold uppercase tracking-wider text-[#DC2626] flex items-center gap-1"
                   >
                     <Trash2 className="h-3.5 w-3.5" />
-                    <span>Delete Permanently</span>
+                    <span>Remove Reference</span>
                   </button>
                   <a
                     href={selectedItem.url}

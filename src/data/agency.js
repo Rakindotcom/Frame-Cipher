@@ -552,7 +552,7 @@ export const serviceLandingOverrides = {
       ],
     ],
     localRelevance:
-      'Frame Cipher is based in Dhaka (Ecb Chattar, Matikata) and builds 360 marketing systems tailored to Bangladesh consumer psychology—including cash-on-delivery preferences, high-frequency WhatsApp & Messenger shopping, and regional buying behavior across Gulshan, Banani, Uttara, Dhanmondi, Chittagong, and Sylhet—while helping export-ready businesses scale into the UK, UAE, USA, and Canada.',
+      'Frame Cipher is based in Dhaka (Ecb Chattar, Matikata) and builds 360 marketing systems tailored to Bangladesh consumer psychology, including cash-on-delivery preferences, high-frequency WhatsApp & Messenger shopping, and regional buying behavior across Gulshan, Banani, Uttara, Dhanmondi, Chittagong, and Sylhet, while helping export-ready businesses scale into the UK, UAE, USA, and Canada.',
     relatedServiceSlugs: ['brand-strategy', 'social-media-marketing', 'paid-ads', 'web-development', 'seo', 'video-production'],
   },
   'social-media-marketing': {

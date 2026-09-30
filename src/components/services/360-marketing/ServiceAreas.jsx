@@ -5,7 +5,7 @@ const areas = [
     region: 'Dhaka City Prime Hubs',
     scope: 'Gulshan, Banani, Uttara, Dhanmondi, Mohakhali, Mirpur, Motijheel, Bashundhara',
     description:
-      'We understand the specific buying psychology, linguistic nuances, and consumer behavior of Dhaka shoppers—including cash-on-delivery preferences, WhatsApp inquiry urgency, and high-frequency Facebook browsing.',
+      'We understand the specific buying psychology, linguistic nuances, and consumer behavior of Dhaka shoppers, including cash-on-delivery preferences, WhatsApp inquiry urgency, and high-frequency Facebook browsing.',
   },
   {
     region: 'Nationwide Bangladesh Expansion',

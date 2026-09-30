@@ -5,16 +5,16 @@
  */
 
 export const CURRENCIES = {
-  USD: { label: 'USD — US Dollar', symbol: '$', usdRate: 1 },
-  BDT: { label: 'BDT — Bangladeshi Taka', symbol: '৳', usdRate: 118 },
-  GBP: { label: 'GBP — British Pound', symbol: '£', usdRate: 0.79 },
-  INR: { label: 'INR — Indian Rupee', symbol: '₹', usdRate: 86 },
-  PKR: { label: 'PKR — Pakistani Rupee', symbol: '₨', usdRate: 278 },
-  AED: { label: 'AED — UAE Dirham', symbol: 'د.إ', usdRate: 3.67 },
-  SAR: { label: 'SAR — Saudi Riyal', symbol: '﷼', usdRate: 3.75 },
-  CAD: { label: 'CAD — Canadian Dollar', symbol: 'C$', usdRate: 1.37 },
-  AUD: { label: 'AUD — Australian Dollar', symbol: 'A$', usdRate: 1.52 },
-  EUR: { label: 'EUR — Euro', symbol: '€', usdRate: 0.92 },
+  USD: { label: 'USD (US Dollar)', symbol: '$', usdRate: 1 },
+  BDT: { label: 'BDT (Bangladeshi Taka)', symbol: '৳', usdRate: 118 },
+  GBP: { label: 'GBP (British Pound)', symbol: '£', usdRate: 0.79 },
+  INR: { label: 'INR (Indian Rupee)', symbol: '₹', usdRate: 86 },
+  PKR: { label: 'PKR (Pakistani Rupee)', symbol: '₨', usdRate: 278 },
+  AED: { label: 'AED (UAE Dirham)', symbol: 'د.إ', usdRate: 3.67 },
+  SAR: { label: 'SAR (Saudi Riyal)', symbol: '﷼', usdRate: 3.75 },
+  CAD: { label: 'CAD (Canadian Dollar)', symbol: 'C$', usdRate: 1.37 },
+  AUD: { label: 'AUD (Australian Dollar)', symbol: 'A$', usdRate: 1.52 },
+  EUR: { label: 'EUR (Euro)', symbol: '€', usdRate: 0.92 },
 };
 
 export const COUNTRIES = [

@@ -200,7 +200,7 @@ export default function Pricing() {
                 International Clients (USA, UK, AU, CA & UAE)
               </span>
               <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
-                We also work with businesses targeting international markets. International projects can be planned around the intended audience, language, visual references, platform requirements, and campaign objectives—delivering world-class animation from a high-efficiency production team.
+                We also work with businesses targeting international markets. International projects can be planned around the intended audience, language, visual references, platform requirements, and campaign objectives, delivering world-class animation from a high-efficiency production team.
               </p>
             </div>
           </div>

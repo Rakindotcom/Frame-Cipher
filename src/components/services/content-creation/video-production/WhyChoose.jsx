@@ -3,7 +3,7 @@ import { SectionIntro, PosterButton } from '../../../Kinetic'
 const advantages = [
   {
     title: 'One In-House Creative Team',
-    desc: 'Your project stays connected across creative development, filming, editing, and delivery under one team—eliminating the communication breakdown common between outsourced vendors.'
+    desc: 'Your project stays connected across creative development, filming, editing, and delivery under one team, eliminating the communication breakdown common between outsourced vendors.'
   },
   {
     title: 'Planned Around the Final Edit',

@@ -93,7 +93,7 @@ export default function ServicesConnectedSystem() {
         </div>
 
         <div className="mt-10 text-center">
-          <SectionLabel>One brief, one team, one system—from strategy to execution.</SectionLabel>
+          <SectionLabel>One brief, one team, one system, from strategy to execution.</SectionLabel>
         </div>
       </div>
     </section>

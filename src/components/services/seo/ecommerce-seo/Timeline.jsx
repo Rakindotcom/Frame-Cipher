@@ -7,10 +7,10 @@ const paragraphs = [
 ]
 
 const drivers = [
-  'Initial audit — Usually within the first week',
-  'Small-store technical improvements — Often 2\u20134 weeks for initial implementation',
-  'Large catalog technical work — Often 6\u201310 weeks or longer',
-  'Ongoing SEO — Continuous optimization based on performance data',
+  'Initial audit: Usually within the first week',
+  'Small-store technical improvements: Often 2\u20134 weeks for initial implementation',
+  'Large catalog technical work: Often 6\u201310 weeks or longer',
+  'Ongoing SEO: Continuous optimization based on performance data',
 ]
 
 export default function Timeline() {

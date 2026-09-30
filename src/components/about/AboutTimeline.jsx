@@ -54,7 +54,7 @@ const milestones = [
     phase: 'PHASE 05: THE MULTINATIONAL HORIZON',
     title: 'A Global Tech Institution Anchored in Bangladesh',
     narrative:
-      'Our ongoing mission: to establish physical representation nodes in global financial hubs including Dubai and London, while keeping our primary research, development, and engineering campus rooted in Dhaka—showcasing the pinnacle of Bangladeshi technical excellence to the world.',
+      'Our ongoing mission: to establish physical representation nodes in global financial hubs including Dubai and London, while keeping our primary research, development, and engineering campus rooted in Dhaka, showcasing the pinnacle of Bangladeshi technical excellence to the world.',
     achievements: [
       'International corporate structuring & regional client hubs',
       'Deepening partnerships with global venture-backed startups',

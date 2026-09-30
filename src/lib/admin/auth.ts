@@ -1,5 +1,7 @@
 "use client";
 
+import { logoutUser } from "@/lib/firebase";
+
 export interface AdminUser {
   uid: string;
   email: string;
@@ -57,10 +59,10 @@ export async function exchangeIdTokenForSession(idToken: string): Promise<AdminU
   }
 
   const profile: AdminUser = {
-    uid: idToken.split(".")[1] ? atob(idToken.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")) : "",
+    uid: payload.uid || "",
     email: payload.email || "",
     name: payload.email || "",
-    role: payload.role || "editor",
+    role: payload.role || "admin",
   };
   try {
     const claims = JSON.parse(atob(idToken.split(".")[1].replace(/-/g, "+").replace(/_/g, "/")));
@@ -76,6 +78,7 @@ export async function destroyAdminSession(): Promise<void> {
   try {
     await fetch(SESSION_ENDPOINT, { method: "DELETE" });
   } catch {}
+  await logoutUser();
   clearAdminProfile();
 }
 
@@ -90,7 +93,7 @@ export async function isSessionActive(): Promise<boolean> {
       uid: payload.uid || "",
       email: payload.email || "",
       name: payload.name || payload.email || "",
-      role: payload.role || "editor",
+      role: payload.role || "admin",
     });
     return true;
   } catch {

@@ -14,7 +14,7 @@ const processStepsData = [
   {
     number: '03',
     title: 'Strategy & Positioning',
-    description: 'We synthesize research into an authoritative strategic framework—defining your market positioning statement, audience personas, core values, brand personality attributes, and central messaging pillars.'
+    description: 'We synthesize research into an authoritative strategic framework, defining your market positioning statement, audience personas, core values, brand personality attributes, and central messaging pillars.'
   },
   {
     number: '04',

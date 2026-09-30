@@ -66,7 +66,7 @@ const recentlyTracked = new Map<string, number>();
 
 /**
  * Sends a single page hit through the server endpoint. Firestore is the only
- * store — there is no localStorage shadow copy, so a hit is never counted twice.
+ * store; there is no localStorage shadow copy, so a hit is never counted twice.
  */
 export async function recordFirestoreHit(isCalculation: boolean = false): Promise<void> {
   if (typeof window === "undefined") return;
