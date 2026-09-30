@@ -85,7 +85,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
         if (latest) setProfile(latest);
       })
       .catch(() => {});
-  }, [authorProfile.slug]);
+  }, [authorProfile?.slug]);
 
   // Sync client-side with CMS posts from unified server API
   useEffect(() => {
