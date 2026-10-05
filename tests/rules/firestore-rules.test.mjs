@@ -170,6 +170,23 @@ test("analytics hits accept bounded payloads and nothing more", async () => {
       timestamp: new Date(),
     })
   );
+  await assertSucceeds(
+    addDoc(collection(a, "analytics_hits"), {
+      sessionId: "s-1",
+      path: "/blog",
+      timestamp: new Date(),
+      isHeartbeat: true,
+      isCalculation: false,
+    })
+  );
+  await assertFails(
+    addDoc(collection(a, "analytics_hits"), {
+      sessionId: "s-1",
+      path: "/blog",
+      timestamp: new Date(),
+      isHeartbeat: "true",
+    })
+  );
   await assertFails(addDoc(collection(a, "analytics_hits"), { path: "/blog" }));
   await assertFails(
     addDoc(collection(a, "analytics_hits"), {

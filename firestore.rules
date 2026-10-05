@@ -172,7 +172,7 @@ service cloud.firestore {
     // ---------------------------------------------------------------------------
     match /analytics_hits/{hitId} {
       allow create: if request.resource.data.keys().hasOnly([
-          'sessionId', 'path', 'referrer', 'timestamp', 'isCalculation',
+          'sessionId', 'path', 'referrer', 'timestamp', 'isCalculation', 'isHeartbeat',
           'browser', 'os', 'device', 'country', 'countryCode', 'flag'
         ])
         && request.resource.data.keys().hasAll(['sessionId', 'path', 'timestamp'])
@@ -182,6 +182,11 @@ service cloud.firestore {
         && request.resource.data.path is string
         && request.resource.data.path.size() > 0
         && request.resource.data.path.size() < 512
+        && request.resource.data.timestamp is timestamp
+        && (!('isCalculation' in request.resource.data)
+          || request.resource.data.isCalculation is bool)
+        && (!('isHeartbeat' in request.resource.data)
+          || request.resource.data.isHeartbeat is bool)
         && (!('referrer' in request.resource.data)
           || (request.resource.data.referrer is string
             && request.resource.data.referrer.size() <= 2048))

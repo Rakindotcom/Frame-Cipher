@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import { AdminHeader } from "@/components/admin/AdminHeader";
 import { RealAnalyticsDashboard } from "@/components/admin/analytics/RealAnalyticsDashboard";
+import { type AnalyticsSummary } from "@/lib/analytics/firestore-analytics";
 import { FRAMECIPHER_REGISTRY } from "@/lib/registry/servicesRegistry";
 import {
   Download,
@@ -130,24 +131,19 @@ function DashboardMetric({
 }
 
 export default function AdminDashboardPage() {
-  const [inquiryCount, setInquiryCount] = useState<number | null>(null);
+  const [pageViews, setPageViews] = useState<number | null>(null);
   const [liveVisitors, setLiveVisitors] = useState<number>(0);
   const [lifetimeVisitors, setLifetimeVisitors] = useState<number>(0);
   const [gsc, setGsc] = useState<{ clicks: number; impressions: number; ctr: number } | null>(null);
 
-  useEffect(() => {
-    const loadLiveStats = () => {
-      fetch("/api/analytics?days=28", { cache: "no-store" })
-        .then((r) => (r.ok ? r.json() : null))
-        .then((data) => {
-          if (data && data.success) {
-            if (typeof data.liveVisitors === "number") setLiveVisitors(data.liveVisitors);
-            if (typeof data.lifetimeVisitors === "number") setLifetimeVisitors(data.lifetimeVisitors);
-            if (typeof data.totalCalculations === "number") setInquiryCount(data.totalCalculations);
-          }
-        })
-        .catch(() => {});
+  const handleAnalyticsSummary = useCallback((data: AnalyticsSummary) => {
+    setLiveVisitors(data.liveVisitors);
+    setLifetimeVisitors(data.lifetimeVisitors);
+    setPageViews(data.totalHits);
+  }, []);
 
+  useEffect(() => {
+    const loadSearchConsole = () => {
       fetch("/api/search-console", { cache: "no-store" })
         .then((r) => (r.ok ? r.json() : null))
         .then((data) => {
@@ -164,12 +160,12 @@ export default function AdminDashboardPage() {
         .catch(() => setGsc(null));
     };
 
-    loadLiveStats();
-    const interval = setInterval(loadLiveStats, 30_000);
+    loadSearchConsole();
+    const interval = setInterval(loadSearchConsole, 30_000);
     return () => clearInterval(interval);
   }, []);
 
-  const totalInquiries = inquiryCount ?? 0;
+  const totalPageViews = pageViews ?? 0;
 
   const pillarSegments = useMemo(() => {
     const counts = new Map<string, number>();
@@ -221,14 +217,14 @@ export default function AdminDashboardPage() {
           ],
     },
     {
-      label: "Client Inquiries & Leads",
-      value: inquiryCount === null ? "N/A" : `${totalInquiries} Leads`,
+      label: "Recorded Page Views",
+      value: pageViews === null ? "N/A" : `${totalPageViews} Views`,
       icon: Zap,
       topBarClass: "bg-[#0D9488]",
       iconClass: "bg-[#CCFBF1] border-[#99F6E4] text-[#0D9488]",
       pills: [
-        { text: "100% Inbound", className: pillStyles.green },
-        { text: "Lead Velocity", className: pillStyles.slate },
+        { text: "Public Pages", className: pillStyles.green },
+        { text: "Tracked Visits", className: pillStyles.slate },
       ],
     },
   ];
@@ -257,7 +253,7 @@ export default function AdminDashboardPage() {
       {/* Header */}
       <AdminHeader
         title="Executive Dashboard"
-        subtitle="FrameCipher growth telemetry, agency services engine, and client conversion analytics"
+        subtitle="FrameCipher visitor analytics and agency services overview"
       />
 
       <div className="px-4 sm:px-6 lg:px-8 pt-6 space-y-6 relative z-10 max-w-7xl mx-auto">
@@ -269,7 +265,7 @@ export default function AdminDashboardPage() {
         </div>
 
         {/* REAL FIRESTORE & TELEMETRY SECTION */}
-        <RealAnalyticsDashboard liveCount={liveVisitors} lifetimeCount={lifetimeVisitors} />
+        <RealAnalyticsDashboard onSummary={handleAnalyticsSummary} />
 
         {/* SEARCH CONSOLE TELEMETRY BANNER */}
         <div className="rounded-2xl bg-gradient-to-r from-[#0F172A] via-[#1E1B4B] to-[#064E3B] p-5 sm:p-6 text-white shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-4 border border-neutral-800">

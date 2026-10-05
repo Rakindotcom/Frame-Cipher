@@ -6,12 +6,16 @@ import { detectBrowser, detectDevice, detectOS, detectCountry } from "@/lib/anal
 
 function getSessionId(): string {
   if (typeof window === "undefined") return "sess-init";
-  let sid = sessionStorage.getItem("framecipher_session_id");
-  if (!sid) {
-    sid = `sess-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
-    sessionStorage.setItem("framecipher_session_id", sid);
+  try {
+    let sid = sessionStorage.getItem("framecipher_session_id");
+    if (!sid) {
+      sid = `sess-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
+      sessionStorage.setItem("framecipher_session_id", sid);
+    }
+    return sid;
+  } catch {
+    return `sess-${Date.now()}-${Math.random().toString(36).substring(2, 8)}`;
   }
-  return sid;
 }
 
 export function AnalyticsTracker() {
@@ -41,17 +45,22 @@ export function AnalyticsTracker() {
       country: countryInfo.country,
       countryCode: countryInfo.code,
       flag: countryInfo.flag,
-      isHeartbeat: false,
     };
 
-    try {
+    const sendHit = (isHeartbeat: boolean) => {
       fetch("/api/analytics/track", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({ ...payload, isHeartbeat }),
         keepalive: true,
-      }).catch(() => {});
-    } catch {}
+      }).then((response) => {
+        if (!response.ok) console.warn("Visitor analytics could not be recorded:", response.status);
+      }).catch((error) => {
+        console.warn("Visitor analytics request failed:", error);
+      });
+    };
+
+    sendHit(false);
 
     // 2. Dispatch Google Analytics pageview if gtag is loaded
     if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
@@ -64,26 +73,21 @@ export function AnalyticsTracker() {
       } catch {}
     }
 
-    // 3. Periodic heartbeat so a long-lived tab stays in the live-visitor window
+    // 3. Keep visible tabs in the live-visitor window without counting another page view.
     if (heartbeatTimer.current) {
       clearInterval(heartbeatTimer.current);
     }
     heartbeatTimer.current = setInterval(() => {
-      try {
-        fetch("/api/analytics/track", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            sessionId,
-            path: pathname,
-            isHeartbeat: true,
-          }),
-          keepalive: true,
-        }).catch(() => {});
-      } catch {}
-    }, 35_000);
+      if (document.visibilityState === "visible") sendHit(true);
+    }, 120_000);
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "visible") sendHit(true);
+    };
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     return () => {
+      document.removeEventListener("visibilitychange", onVisibilityChange);
       if (heartbeatTimer.current) {
         clearInterval(heartbeatTimer.current);
       }

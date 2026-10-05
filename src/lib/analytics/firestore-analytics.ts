@@ -11,6 +11,7 @@ export interface PageHit {
   flag: string;
   referrer: string;
   isCalculation: boolean;
+  isHeartbeat?: boolean;
   sessionId: string;
   timestamp: number;
 }
@@ -29,7 +30,7 @@ export interface AnalyticsSummary {
   operatingSystems: { name: string; count: number; percentage: number }[];
   recentHits: PageHit[];
   topPages: { path: string; count: number }[];
-  dailyCounts: { date: string; dayLabel: string; visitors: number; calculations: number }[];
+  dailyCounts: { date: string; dayLabel: string; visitors: number; pageViews: number; calculations: number }[];
   source: "firestore" | "unavailable";
   sourceError: string | null;
   collectedFrom: string | null;
@@ -113,6 +114,7 @@ function emptyDailyCounts(days: number): AnalyticsSummary["dailyCounts"] {
       date: d.toLocaleDateString("en-US", { month: "short", day: "numeric" }),
       dayLabel: d.toLocaleDateString("en-US", { weekday: "short" }),
       visitors: 0,
+      pageViews: 0,
       calculations: 0,
     });
   }
@@ -154,8 +156,8 @@ function resolveClientFlag(countryOrCode: string): string {
 
 async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSummary | null> {
   try {
-    const { db } = await import("@/lib/firebase");
-    if (!db) return null;
+    const { auth, db } = await import("@/lib/firebase");
+    if (!db || !auth?.currentUser) return null;
     const { collection, getDocs, query, orderBy, limit } = await import("firebase/firestore");
     const snap = await getDocs(
       query(collection(db, "analytics_hits"), orderBy("timestamp", "desc"), limit(2000))
@@ -200,9 +202,11 @@ async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSum
         flag: data.flag || resolveClientFlag(data.country || ""),
         referrer: data.referrer || "direct",
         isCalculation: Boolean(data.isCalculation),
+        isHeartbeat: Boolean(data.isHeartbeat),
       });
     });
 
+    const pageHits = allHits.filter((hit) => !hit.isHeartbeat);
     const now = Date.now();
     const LIVE_WINDOW_MS = 5 * 60 * 1000;
     const d = new Date();
@@ -213,14 +217,14 @@ async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSum
       allHits.filter((h) => h.timestamp >= now - LIVE_WINDOW_MS).map((h) => h.sessionId)
     ).size;
     const todayVisitors = new Set(
-      allHits.filter((h) => h.timestamp >= todayStart).map((h) => h.sessionId)
+      pageHits.filter((h) => h.timestamp >= todayStart).map((h) => h.sessionId)
     ).size;
-    const lifetimeVisitors = new Set(allHits.map((h) => h.sessionId)).size;
-    const totalCalculations = allHits.filter((h) => h.isCalculation).length;
+    const lifetimeVisitors = new Set(pageHits.map((h) => h.sessionId)).size;
+    const totalCalculations = pageHits.filter((h) => h.isCalculation).length;
 
     const countBy = (key: keyof PageHit) => {
       const map = new Map<string, number>();
-      for (const h of allHits) {
+      for (const h of pageHits) {
         const val = String(h[key] || "Unknown");
         map.set(val, (map.get(val) || 0) + 1);
       }
@@ -233,12 +237,12 @@ async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSum
         .filter((e) => e.count > 0)
         .sort((a, b) => b.count - a.count);
 
-    const totalHits = allHits.length;
+    const totalHits = pageHits.length;
     const devices = (["Desktop", "Mobile", "Tablet"] as const).map((name) => ({
       name,
-      count: allHits.filter((h) => h.device === name).length,
+      count: pageHits.filter((h) => h.device === name).length,
       percentage: totalHits
-        ? Math.round((allHits.filter((h) => h.device === name).length / totalHits) * 100)
+        ? Math.round((pageHits.filter((h) => h.device === name).length / totalHits) * 100)
         : 0,
       color: DEVICE_COLORS[name] || "#1D4ED8",
     }));
@@ -262,13 +266,13 @@ async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSum
     }));
 
     const pageMap = new Map<string, number>();
-    for (const hit of allHits) pageMap.set(hit.path, (pageMap.get(hit.path) || 0) + 1);
+    for (const hit of pageHits) pageMap.set(hit.path, (pageMap.get(hit.path) || 0) + 1);
     const topPages = [...pageMap.entries()]
       .map(([path, count]) => ({ path, count }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 15);
 
-    const dailyCounts: { date: string; dayLabel: string; visitors: number; calculations: number }[] = [];
+    const dailyCounts: AnalyticsSummary["dailyCounts"] = [];
     const today = new Date();
     for (let i = days - 1; i >= 0; i -= 1) {
       const cd = new Date(today);
@@ -277,11 +281,12 @@ async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSum
       const dayLabel = cd.toLocaleDateString("en-US", { weekday: "short" });
       const dayStart = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate()).getTime();
       const dayEnd = new Date(cd.getFullYear(), cd.getMonth(), cd.getDate() + 1).getTime();
-      const dayHits = allHits.filter((h) => h.timestamp >= dayStart && h.timestamp < dayEnd);
+      const dayHits = pageHits.filter((h) => h.timestamp >= dayStart && h.timestamp < dayEnd);
       dailyCounts.push({
         date: dateStr,
         dayLabel,
         visitors: new Set(dayHits.map((h) => h.sessionId)).size,
+        pageViews: dayHits.length,
         calculations: dayHits.filter((h) => h.isCalculation).length,
       });
     }
@@ -298,12 +303,12 @@ async function queryClientFirestoreAnalytics(days: number): Promise<AnalyticsSum
       countries,
       devices,
       operatingSystems,
-      recentHits: allHits.slice(0, 50),
+      recentHits: pageHits.slice(0, 50),
       topPages,
       dailyCounts,
       source: "firestore",
       sourceError: null,
-      collectedFrom: new Date(allHits[allHits.length - 1].timestamp).toISOString(),
+      collectedFrom: pageHits.length ? new Date(pageHits[pageHits.length - 1].timestamp).toISOString() : null,
       lastUpdated: new Date().toISOString(),
     };
   } catch {
@@ -341,6 +346,11 @@ export async function getFirestoreAnalyticsSummary(days: number = 28): Promise<A
   if (typeof window === "undefined") return fallback;
 
   try {
+    // The signed-in admin can read analytics even when the server has no
+    // Firebase Admin credentials or anonymous read permission.
+    const authenticatedSummary = await queryClientFirestoreAnalytics(days);
+    if (authenticatedSummary) return authenticatedSummary;
+
     const headers: Record<string, string> = {};
     try {
       const { auth } = await import("@/lib/firebase");

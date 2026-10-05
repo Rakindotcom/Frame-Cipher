@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/firebase";
-import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore/lite";
+import { publicFirestore } from "@/lib/server/publicFirestore";
 
 const MAX_PATH_LENGTH = 512;
 const MAX_REFERRER_LENGTH = 512;
@@ -29,22 +29,9 @@ export async function POST(req: NextRequest) {
     const flag = cleanString(body.flag, 16);
     const referrer = cleanString(body.referrer, MAX_REFERRER_LENGTH);
 
-    if (isHeartbeat) {
-      return NextResponse.json(
-        { success: true, sessionId, lastActive: now },
-        { headers: { "Cache-Control": "no-store" } }
-      );
-    }
-
-    if (!db) {
-      return NextResponse.json(
-        { success: false, error: "Analytics storage is not configured." },
-        { status: 503, headers: { "Cache-Control": "no-store" } }
-      );
-    }
-
     // Only include keys permitted by Firestore rules:
-    // sessionId, path, device, browser, os, country, referrer, isCalculation, timestamp
+    // sessionId, path, device, browser, os, country, referrer,
+    // isCalculation, isHeartbeat, timestamp
     const hit = {
       sessionId,
       path: pathName,
@@ -52,21 +39,29 @@ export async function POST(req: NextRequest) {
       browser,
       os,
       country,
+      countryCode,
+      flag,
       referrer,
       isCalculation,
+      ...(isHeartbeat ? { isHeartbeat: true } : {}),
     };
 
     try {
-      const writePromise = addDoc(collection(db, "analytics_hits"), {
+      await addDoc(collection(publicFirestore, "analytics_hits"), {
         ...hit,
         timestamp: serverTimestamp(),
       });
-      const timeoutPromise = new Promise((_, reject) =>
-        setTimeout(() => reject(new Error("Analytics write timeout")), 4000)
-      );
-      await Promise.race([writePromise, timeoutPromise]);
     } catch (error: any) {
-      console.warn("Analytics hit write warning:", error?.code || error?.message);
+      console.error("Analytics hit write failed:", error?.code || error?.message);
+      return NextResponse.json(
+        {
+          success: false,
+          error: error?.code === "permission-denied"
+            ? "Firestore rules rejected the analytics write."
+            : "Could not save the analytics visit.",
+        },
+        { status: 503, headers: { "Cache-Control": "no-store" } }
+      );
     }
 
     return NextResponse.json(

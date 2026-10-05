@@ -11,7 +11,6 @@ import {
   Smartphone,
   Tablet,
   Users,
-  Briefcase,
   RefreshCw,
   TrendingUp,
   Activity,
@@ -72,11 +71,9 @@ function MiniBarChart({
 }
 
 export function RealAnalyticsDashboard({
-  liveCount,
-  lifetimeCount,
+  onSummary,
 }: {
-  liveCount?: number;
-  lifetimeCount?: number;
+  onSummary?: (summary: AnalyticsSummary) => void;
 } = {}) {
   const [summary, setSummary] = useState<AnalyticsSummary | null>(null);
   const [loading, setLoading] = useState(true);
@@ -89,9 +86,10 @@ export function RealAnalyticsDashboard({
     const days = range === "7d" ? 7 : range === "3m" ? 90 : 28;
     const data = await getFirestoreAnalyticsSummary(days);
     setSummary(data);
+    onSummary?.(data);
     setLastUpdated(new Date());
     setLoading(false);
-  }, [range]);
+  }, [range, onSummary]);
 
   useEffect(() => {
     fetchData();
@@ -121,7 +119,7 @@ export function RealAnalyticsDashboard({
 
   const displayDays = summary.dailyCounts;
   const maxVisitors = Math.max(...displayDays.map((d) => d.visitors), 1);
-  const maxCalcs = Math.max(...displayDays.map((d) => d.calculations), 1);
+  const maxPageViews = Math.max(...displayDays.map((d) => d.pageViews ?? 0), 1);
 
   return (
     <div className="space-y-5">
@@ -136,7 +134,7 @@ export function RealAnalyticsDashboard({
               </h2>
               <span className="text-[11px] font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full border border-[#BBF7D0] whitespace-nowrap shrink-0 flex items-center gap-1">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#16A34A] animate-ping" />
-                <span>{liveCount ?? summary.liveVisitors} Active Now</span>
+                <span>{summary.liveVisitors} Active Now</span>
               </span>
               <span
                 className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full border whitespace-nowrap shrink-0 ${
@@ -145,11 +143,11 @@ export function RealAnalyticsDashboard({
                     : "text-[#B45309] bg-[#FFFBEB] border-[#FDE68A]"
                 }`}
               >
-                {summary.source === "firestore" ? "Firestore Connected" : "Firestore Not Connected"}
+                {summary.source === "firestore" ? "Firestore read OK" : "Firestore read unavailable"}
               </span>
             </div>
             <p className="text-xs text-[#64748B] mt-1 truncate">
-              Live visitor sessions: browser, device, country, and conversion inquiries
+              Recorded page views and visitor sessions by browser, device, and country
               {lastUpdated && (
                 <span className="ml-2 text-[#94A3B8]">
                   · Refreshed {lastUpdated.toLocaleTimeString()}
@@ -192,12 +190,13 @@ export function RealAnalyticsDashboard({
           <div className="mt-3 p-3 rounded-xl bg-[#FFFBEB] border border-[#FDE68A] text-xs text-[#92400E] flex items-start gap-2">
             <span className="text-sm">!</span>
             <div>
-              <span className="font-bold">No analytics data collected yet. </span>
+              <span className="font-bold">{summary.source === "firestore" ? "No visits recorded yet. " : "Analytics data is unavailable. "}</span>
               {summary.sourceError
                 ? `Reason: ${summary.sourceError} `
-                : "Deploy the Firestore rules and load the public site to start recording visits. "}
-              Every number on this page below is measured from the analytics_hits collection; zeros
-              mean nothing has been recorded, not that traffic is hidden.
+                : summary.source === "firestore"
+                  ? "Open a public page, then refresh. If this stays empty, check that analytics writes are allowed by the deployed Firestore rules. "
+                  : "Check administrator sign-in and Firestore read permissions. "}
+              The connection badge confirms reading; it does not confirm that visit writes succeed.
             </div>
           </div>
         )}
@@ -209,7 +208,7 @@ export function RealAnalyticsDashboard({
           </p>
         )}
 
-        {/* Top KPIs: Live Tracing, Lifetime Visitors, Today, Inquiries, Countries, Pages */}
+        {/* Top KPIs: Live visitors, lifetime visitors, today, page views, countries, pages */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mt-4">
           <div className="rounded-xl bg-[#F0FDF4] border border-[#BBF7D0] p-3 min-w-0">
             <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#16A34A] uppercase tracking-wider min-w-0">
@@ -217,7 +216,7 @@ export function RealAnalyticsDashboard({
               <span className="truncate">Live Active</span>
             </div>
             <div className="text-xl sm:text-2xl font-heading font-bold text-[#15803D] mt-1 truncate">
-              {liveCount ?? summary.liveVisitors}
+              {summary.liveVisitors}
             </div>
             <span className="text-[10px] text-[#16A34A] block truncate font-medium">Right Now</span>
           </div>
@@ -228,7 +227,7 @@ export function RealAnalyticsDashboard({
               <span className="truncate">Lifetime Visits</span>
             </div>
             <div className="text-xl sm:text-2xl font-heading font-bold text-[#1E40AF] mt-1 truncate">
-              {(lifetimeCount ?? summary.lifetimeVisitors).toLocaleString()}
+              {summary.lifetimeVisitors.toLocaleString()}
             </div>
             <span className="text-[10px] text-[#1D4ED8] block truncate font-medium">Unique Sessions</span>
           </div>
@@ -246,13 +245,13 @@ export function RealAnalyticsDashboard({
 
           <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-3 min-w-0">
             <div className="flex items-center gap-1.5 text-[11px] font-heading font-bold text-[#64748B] uppercase tracking-wider min-w-0">
-              <Briefcase className="h-3.5 w-3.5 text-[#16A34A] shrink-0" />
-              <span className="truncate">Client Leads</span>
+              <Activity className="h-3.5 w-3.5 text-[#16A34A] shrink-0" />
+              <span className="truncate">Page Views</span>
             </div>
             <div className="text-xl sm:text-2xl font-heading font-bold text-[#0F172A] mt-1 truncate">
-              {summary.totalCalculations.toLocaleString()}
+              {summary.totalHits.toLocaleString()}
             </div>
-            <span className="text-[10px] text-[#64748B] block truncate font-medium">Form Inquiries</span>
+            <span className="text-[10px] text-[#64748B] block truncate font-medium">Recorded Hits</span>
           </div>
 
           <div className="rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] p-3 min-w-0">
@@ -284,7 +283,7 @@ export function RealAnalyticsDashboard({
         {/* Visitors Chart */}
         <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs">
           <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A] mb-1 truncate">Daily Visitors</h3>
-          <p className="text-xs text-[#64748B] mb-3 truncate">Real page hits per day from telemetry engine</p>
+          <p className="text-xs text-[#64748B] mb-3 truncate">Unique visitor sessions each day</p>
           <MiniBarChart
             data={displayDays.map((d) => d.visitors)}
             maxVal={maxVisitors}
@@ -297,13 +296,13 @@ export function RealAnalyticsDashboard({
           </div>
         </div>
 
-        {/* Inquiries Chart */}
+        {/* Page Views Chart */}
         <div className="rounded-2xl bg-white border border-[#E2E8F0] p-5 shadow-xs">
-          <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A] mb-1 truncate">Daily Client Inquiries &amp; Leads</h3>
-          <p className="text-xs text-[#64748B] mb-3 truncate">Real audit submissions and conversion events tracked</p>
+          <h3 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A] mb-1 truncate">Daily Page Views</h3>
+          <p className="text-xs text-[#64748B] mb-3 truncate">Recorded public page visits each day</p>
           <MiniBarChart
-            data={displayDays.map((d) => d.calculations)}
-            maxVal={maxCalcs}
+            data={displayDays.map((d) => d.pageViews ?? 0)}
+            maxVal={maxPageViews}
             color="#10B981"
           />
           <div className="flex justify-between text-[10px] text-[#94A3B8] mt-1 font-semibold">

@@ -19,6 +19,7 @@ export interface AnalyticsHit {
   flag: string;
   referrer: string;
   isCalculation: boolean;
+  isHeartbeat: boolean;
 }
 
 function startOfTodayMs(): number {
@@ -104,6 +105,7 @@ export async function GET(req: NextRequest) {
             flag: data.flag || "🌍",
             referrer: data.referrer || "direct",
             isCalculation: Boolean(data.isCalculation),
+            isHeartbeat: Boolean(data.isHeartbeat),
           });
         });
       } catch (error: any) {
@@ -114,7 +116,8 @@ export async function GET(req: NextRequest) {
     }
 
     const allHits = firestoreHits.sort((a, b) => b.timestamp - a.timestamp);
-    const totalHits = allHits.length;
+    const pageHits = allHits.filter((hit) => !hit.isHeartbeat);
+    const totalHits = pageHits.length;
 
     const liveVisitors = new Set(
       allHits.filter((h) => h.timestamp >= now - LIVE_WINDOW_MS).map((h) => h.sessionId)
@@ -122,16 +125,16 @@ export async function GET(req: NextRequest) {
 
     const todayStart = startOfTodayMs();
     const todayVisitors = new Set(
-      allHits.filter((h) => h.timestamp >= todayStart).map((h) => h.sessionId)
+      pageHits.filter((h) => h.timestamp >= todayStart).map((h) => h.sessionId)
     ).size;
 
-    const lifetimeVisitors = new Set(allHits.map((h) => h.sessionId)).size;
-    const totalCalculations = allHits.filter((h) => h.isCalculation).length;
+    const lifetimeVisitors = new Set(pageHits.map((h) => h.sessionId)).size;
+    const totalCalculations = pageHits.filter((h) => h.isCalculation).length;
 
     const devices = toCountMap(
       (["Desktop", "Mobile", "Tablet"] as const).map((name) => [
         name,
-        allHits.filter((h) => h.device === name).length,
+        pageHits.filter((h) => h.device === name).length,
       ])
     ).map((entry) => ({ ...entry, percentage: 0, color: "#1D4ED8" }));
     const totalDeviceCount = devices.reduce((sum, entry) => sum + entry.count, 0);
@@ -143,25 +146,25 @@ export async function GET(req: NextRequest) {
 
     const countBy = (key: "browser" | "os" | "country") => {
       const map = new Map<string, number>();
-      for (const hit of allHits) map.set(hit[key], (map.get(hit[key]) || 0) + 1);
+      for (const hit of pageHits) map.set(hit[key], (map.get(hit[key]) || 0) + 1);
       return map;
     };
 
-    const browserTotal = allHits.length;
+    const browserTotal = pageHits.length;
     const browsers = toCountMap([...countBy("browser").entries()]).map((entry) => ({
       ...entry,
       percentage: browserTotal ? Math.round((entry.count / browserTotal) * 100) : 0,
       color: "#1D4ED8",
     }));
 
-    const osTotal = allHits.length;
+    const osTotal = pageHits.length;
     const operatingSystems = toCountMap([...countBy("os").entries()]).map((entry) => ({
       ...entry,
       percentage: osTotal ? Math.round((entry.count / osTotal) * 100) : 0,
     }));
 
-    const countryTotal = allHits.length;
-    const flagByCountry = new Map(allHits.map((h) => [h.country, h.flag]));
+    const countryTotal = pageHits.length;
+    const flagByCountry = new Map(pageHits.map((h) => [h.country, h.flag]));
     const countries = toCountMap([...countBy("country").entries()]).map((entry) => ({
       country: entry.name,
       flag: resolveFlag(entry.name, flagByCountry.get(entry.name)),
@@ -170,13 +173,13 @@ export async function GET(req: NextRequest) {
     }));
 
     const pageMap = new Map<string, number>();
-    for (const hit of allHits) pageMap.set(hit.path, (pageMap.get(hit.path) || 0) + 1);
+    for (const hit of pageHits) pageMap.set(hit.path, (pageMap.get(hit.path) || 0) + 1);
     const topPages = [...pageMap.entries()]
       .map(([path, count]) => ({ path, count }))
       .sort((a, b) => b.count - a.count)
       .slice(0, 15);
 
-    const dailyCounts: { date: string; dayLabel: string; visitors: number; calculations: number }[] = [];
+    const dailyCounts: { date: string; dayLabel: string; visitors: number; pageViews: number; calculations: number }[] = [];
     const today = new Date();
     for (let i = days - 1; i >= 0; i -= 1) {
       const d = new Date(today);
@@ -186,12 +189,13 @@ export async function GET(req: NextRequest) {
       const dayStart = new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime();
       const dayEnd = new Date(d.getFullYear(), d.getMonth(), d.getDate() + 1).getTime();
 
-      const dayHits = allHits.filter((h) => h.timestamp >= dayStart && h.timestamp < dayEnd);
+      const dayHits = pageHits.filter((h) => h.timestamp >= dayStart && h.timestamp < dayEnd);
 
       dailyCounts.push({
         date: dateStr,
         dayLabel,
         visitors: new Set(dayHits.map((h) => h.sessionId)).size,
+        pageViews: dayHits.length,
         calculations: dayHits.filter((h) => h.isCalculation).length,
       });
     }
@@ -210,13 +214,13 @@ export async function GET(req: NextRequest) {
         countries,
         devices,
         operatingSystems,
-        recentHits: allHits.slice(0, 50),
+        recentHits: pageHits.slice(0, 50),
         topPages,
         dailyCounts,
         source: firestoreConnected ? "firestore" : "unavailable",
         sourceError: firestoreError,
         collectedFrom: new Date(
-          allHits.length > 0 ? allHits[allHits.length - 1].timestamp : now
+          pageHits.length > 0 ? pageHits[pageHits.length - 1].timestamp : now
         ).toISOString(),
         lastUpdated: new Date().toISOString(),
       },
