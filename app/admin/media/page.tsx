@@ -7,7 +7,8 @@ import {
   listMediaFromFirestore,
   saveMediaMetadata,
   deleteMediaItem,
-  addMediaByUrl,
+  uploadMediaImage,
+  MAX_MEDIA_IMAGE_BYTES,
 } from "@/lib/firebase";
 import {
   Search,
@@ -33,16 +34,16 @@ export default function AdminMediaPage() {
   const [viewMode, setViewMode] = useState<"grid" | "list">("grid");
   const [selectedItem, setSelectedItem] = useState<MediaItem | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
-  const [isAddingUrl, setIsAddingUrl] = useState(false);
-  const [isSavingUrl, setIsSavingUrl] = useState(false);
-  const [newUrl, setNewUrl] = useState("");
+  const [isAddingImage, setIsAddingImage] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
+  const [newFile, setNewFile] = useState<File | null>(null);
   const [newTitle, setNewTitle] = useState("");
   const [saveStatus, setSaveStatus] = useState<string | null>(null);
 
   // Bulk Selection State
   const [selectedIds, setSelectedIds] = useState<Set<string>>(new Set());
 
-  // The library stores image URLs and metadata in Firestore, not image files.
+  // The library stores ImageKit URLs and metadata in Firestore.
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -64,22 +65,22 @@ export default function AdminMediaPage() {
     setItems(updated);
   };
 
-  const handleAddUrl = async (e: React.FormEvent) => {
+  const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSavingUrl(true);
+    setIsUploading(true);
     setSaveStatus(null);
-    const result = await addMediaByUrl(newUrl, newTitle);
-    setIsSavingUrl(false);
+    const result = await uploadMediaImage(newFile, newTitle);
+    setIsUploading(false);
     if (!result.success || !result.item) {
-      setSaveStatus(result.error || "Could not save image URL.");
+      setSaveStatus(result.error || "Could not upload image.");
       return;
     }
     setItems((current) => [result.item!, ...current]);
     setSelectedItem(result.item);
-    setNewUrl("");
+    setNewFile(null);
     setNewTitle("");
-    setIsAddingUrl(false);
-    setSaveStatus("Image URL saved to Firestore.");
+    setIsAddingImage(false);
+    setSaveStatus("Image uploaded to ImageKit and saved to the library.");
   };
 
   const handleUpdateSelected = async (field: keyof MediaItem, value: string) => {
@@ -180,7 +181,7 @@ export default function AdminMediaPage() {
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A] font-body relative overflow-x-hidden pb-16">
       <AdminHeader
         title="Media Library"
-        subtitle="Manage image URLs and Google Image SEO metadata—no file uploads"
+        subtitle="Upload images to ImageKit and manage image SEO metadata"
       />
 
       <div className="px-4 sm:px-6 lg:px-8 pt-6 space-y-6 relative z-10 max-w-7xl mx-auto">
@@ -192,7 +193,7 @@ export default function AdminMediaPage() {
               <div className="text-3xl font-heading font-bold text-[#0F172A] tracking-tight">{items.length}</div>
             </div>
             <span className="text-xs font-heading font-bold text-[#16A34A] bg-[#DCFCE7] px-2.5 py-0.5 rounded-full self-start whitespace-nowrap">
-              URL references
+              Library images
             </span>
           </div>
 
@@ -291,13 +292,13 @@ export default function AdminMediaPage() {
               <span>{isAllSelected ? "Deselect All" : "Select All"}</span>
             </button>
 
-            {/* Add an already-hosted image URL; no binary upload. */}
+            {/* Upload an image to ImageKit. */}
             <button
-              onClick={() => setIsAddingUrl((current) => !current)}
+              onClick={() => setIsAddingImage((current) => !current)}
               className="flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[#1D4ED8] text-white text-xs font-heading font-bold uppercase tracking-wider shadow-xs"
             >
               <ImageIcon className="h-4 w-4" />
-              <span>Add Image URL</span>
+              <span>Upload Image</span>
             </button>
           </div>
         </div>
@@ -308,18 +309,23 @@ export default function AdminMediaPage() {
           </div>
         )}
 
-        {isAddingUrl && (
-          <form onSubmit={handleAddUrl} className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm flex flex-col sm:flex-row gap-3">
+        {isAddingImage && (
+          <form onSubmit={handleUpload} className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm flex flex-col sm:flex-row gap-3">
             <label className="flex-1 text-xs font-semibold text-[#475569]">
-              Image URL or site path
-              <input type="text" required value={newUrl} onChange={(e) => setNewUrl(e.target.value)} placeholder="https://example.com/photo.webp or /images/photo.webp" className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
+              Image file (PNG, JPEG, WebP, GIF, or AVIF; maximum 100 KB)
+              <input type="file" required accept="image/png,image/jpeg,image/webp,image/gif,image/avif" onChange={(e) => {
+                const file = e.target.files?.[0] || null;
+                setNewFile(file);
+                if (file && file.size > MAX_MEDIA_IMAGE_BYTES) setSaveStatus("Images must be 100 KB or smaller.");
+                else setSaveStatus(null);
+              }} className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
             </label>
             <label className="sm:w-64 text-xs font-semibold text-[#475569]">
               Title
               <input type="text" value={newTitle} onChange={(e) => setNewTitle(e.target.value)} placeholder="Optional image title" className="mt-1 w-full p-2.5 rounded-lg border border-[#CBD5E1] text-[#0F172A]" />
             </label>
-            <button type="submit" disabled={isSavingUrl} className="self-end px-4 py-2.5 rounded-lg bg-[#1D4ED8] text-white text-xs font-bold disabled:opacity-50">
-              {isSavingUrl ? "Saving..." : "Save URL"}
+            <button type="submit" disabled={isUploading || !newFile || newFile.size > MAX_MEDIA_IMAGE_BYTES} className="self-end px-4 py-2.5 rounded-lg bg-[#1D4ED8] text-white text-xs font-bold disabled:opacity-50">
+              {isUploading ? "Uploading..." : "Upload image"}
             </button>
           </form>
         )}
@@ -356,9 +362,9 @@ export default function AdminMediaPage() {
             {filteredItems.length === 0 ? (
               <div className="py-16 text-center space-y-3">
                 <ImageIcon className="h-12 w-12 text-[#94A3B8] mx-auto" />
-                <h4 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A]">No image references found</h4>
+                <h4 className="text-sm font-heading font-bold uppercase tracking-wider text-[#0F172A]">No images found</h4>
                 <p className="text-xs text-[#64748B]">
-                  Try adjusting your search query or add an image URL.
+                  Try adjusting your search query or upload an image.
                 </p>
               </div>
             ) : viewMode === "grid" ? (

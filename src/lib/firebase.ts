@@ -393,62 +393,38 @@ export interface MediaRecord {
   type: string;
 }
 
-/** Store a reference to an already-hosted image; this app never uploads binary files. */
-export async function addMediaByUrl(
-  rawUrl: string,
+export const MAX_MEDIA_IMAGE_BYTES = 100 * 1024;
+
+/** Upload to ImageKit through the admin API, then register the result in Firestore. */
+export async function uploadMediaImage(
+  file: File | null,
   rawTitle: string
 ): Promise<{ success: boolean; item?: MediaRecord; error?: string }> {
   if (!db || !await isAuthorizedAdmin(auth?.currentUser || null)) {
     return { success: false, error: "Administrator authentication or Firestore is unavailable." };
   }
+  if (!file) return { success: false, error: "Choose an image to upload." };
+  if (file.size === 0 || file.size > MAX_MEDIA_IMAGE_BYTES) {
+    return { success: false, error: "Images must be 100 KB or smaller." };
+  }
 
-  const value = rawUrl.trim();
-  const isLocalPath = value.startsWith("/") && !value.startsWith("//");
-  let url = value;
-  if (isLocalPath) {
-    if (/\s/.test(value)) return { success: false, error: "Use a valid site-relative image path." };
-  } else {
-    try {
-      const parsed = new URL(value);
-      if (parsed.protocol !== "https:" || parsed.username || parsed.password) {
-        return { success: false, error: "Use an HTTPS image URL or a site-relative path." };
-      }
-      url = parsed.href;
-    } catch {
-      return { success: false, error: "Use a valid HTTPS image URL or a site-relative path." };
+  const body = new FormData();
+  body.set("file", file);
+  body.set("title", rawTitle.trim());
+  try {
+    const response = await adminFetch("/api/media", { method: "POST", body });
+    const result = await response.json();
+    if (!response.ok || !result.success || !result.item) {
+      return { success: false, error: result.error || "Could not upload image." };
     }
-  }
-
-  const pathname = isLocalPath ? value.split("?")[0] : new URL(url).pathname;
-  let filename = pathname.split("/").pop() || "image";
-  try {
-    filename = decodeURIComponent(filename);
-  } catch {
-    return { success: false, error: "The image URL has invalid characters." };
-  }
-  const title = rawTitle.trim() || filename.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ");
-  const item: MediaRecord = {
-    id: `media-${crypto.randomUUID()}`,
-    title,
-    filename,
-    url,
-    storagePath: "",
-    alt: title,
-    caption: "",
-    description: "",
-    uploadedAt: new Date().toISOString(),
-    fileSize: "Externally hosted",
-    dimensions: "Unknown",
-    type: "image/external",
-  };
-  try {
+    const item = result.item as MediaRecord;
     await setDoc(doc(db, "media", item.id), {
       ...sanitizeForFirestore(item),
       createdAt: serverTimestamp(),
     });
     return { success: true, item };
   } catch (error: any) {
-    return { success: false, error: error?.message || "Could not save the image URL." };
+    return { success: false, error: error?.message || "Could not upload image or save it to the media library." };
   }
 }
 
