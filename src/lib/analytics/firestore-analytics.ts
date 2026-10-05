@@ -398,18 +398,8 @@ export async function getFirestoreAnalyticsSummary(days: number = 28): Promise<A
       }
     }
 
-    // Direct client-side Firestore query fallback (authenticated browser session)
-    const clientSummary = await queryClientFirestoreAnalytics(days);
-    if (clientSummary) {
-      return clientSummary;
-    }
-
     return fallback;
   } catch (error: any) {
-    const clientSummary = await queryClientFirestoreAnalytics(days);
-    if (clientSummary) {
-      return clientSummary;
-    }
     return {
       ...fallback,
       sourceError: error?.message || null,

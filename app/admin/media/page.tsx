@@ -396,7 +396,7 @@ export default function AdminMediaPage() {
                         title={isChecked ? "Deselect" : "Select for bulk delete"}
                       >
                         {isChecked ? (
-                          <Check className="h-3.5 w-3.5 stroke-[3]" />
+                          <Check className="h-3.5 w-3.5 stroke-3" />
                         ) : (
                           <Square className="h-3.5 w-3.5 text-[#64748B]" />
                         )}
@@ -430,7 +430,7 @@ export default function AdminMediaPage() {
               </div>
             ) : (
               <div className="overflow-x-auto">
-                <table className="w-full min-w-[700px] text-left text-xs text-[#334155]">
+                <table className="w-full min-w-175 text-left text-xs text-[#334155]">
                   <thead className="bg-[#F8FAFC] text-[11px] font-heading font-bold uppercase tracking-wider text-[#475569] border-b border-[#E2E8F0]">
                     <tr>
                       <th className="py-2.5 px-3 w-8">
@@ -564,7 +564,7 @@ export default function AdminMediaPage() {
                 </div>
 
                 {/* Preview Thumbnail */}
-                <div className="rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] overflow-hidden flex items-center justify-center p-4 relative min-h-[160px]">
+                <div className="rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] overflow-hidden flex items-center justify-center p-4 relative min-h-40">
                   <div className="relative w-full h-40">
                     <img
                       src={selectedItem.url}
@@ -605,7 +605,7 @@ export default function AdminMediaPage() {
                 {/* Editable SEO Metadata Fields */}
                 <div className="space-y-3 pt-1">
                   <div>
-                    <label className="block text-[11px] font-heading font-bold uppercase tracking-wider text-[#475569] mb-1 flex items-center justify-between">
+                    <label className="text-[11px] font-heading font-bold uppercase tracking-wider text-[#475569] mb-1 flex items-center justify-between">
                       <span>Alternative Text (Alt text)</span>
                       <span className="text-[10px] text-[#1D4ED8]">
                         Crucial for Google SEO
