@@ -213,6 +213,8 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   // Editor View Mode: "visual" | "text" (HTML)
   const [editorMode, setEditorMode] = useState<"visual" | "text">("visual");
   const contentEditableRef = useRef<HTMLDivElement>(null);
+  const textEditorRef = useRef<HTMLTextAreaElement>(null);
+  const savedTextSelectionRef = useRef<{ start: number; end: number } | null>(null);
   const isEditorInitializedRef = useRef(false);
   const initialBlocks = Array.isArray(post.blocks) && post.blocks.length > 0
     ? (post.blocks as EditorBlock[])
@@ -1410,6 +1412,37 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
 
   // Open Media Modal
   const handleOpenMedia = (target: "featured" | "inline") => {
+    if (target === "inline") {
+      if (editorMode === "text") {
+        const textarea = textEditorRef.current;
+        savedTextSelectionRef.current = textarea
+          ? { start: textarea.selectionStart, end: textarea.selectionEnd }
+          : null;
+      } else if (contentEditableRef.current) {
+        const editor = contentEditableRef.current;
+        const selection = window.getSelection();
+        const activeRange = selection?.rangeCount ? selection.getRangeAt(0) : null;
+        const range = document.createRange();
+
+        if (activeRange && editor.contains(activeRange.startContainer)) {
+          range.setStart(activeRange.startContainer, activeRange.startOffset);
+          const startElement = activeRange.startContainer.nodeType === Node.TEXT_NODE
+            ? activeRange.startContainer.parentElement
+            : activeRange.startContainer as Element;
+          const block = startElement?.closest("p,h1,h2,h3,h4,h5,h6,blockquote,pre,figure,table,ul,ol");
+          if (block && block.tagName !== "P" && editor.contains(block)) {
+            let topLevel = block;
+            while (topLevel.parentElement && topLevel.parentElement !== editor) topLevel = topLevel.parentElement;
+            range.setStartAfter(topLevel);
+          }
+        } else {
+          range.selectNodeContents(editor);
+          range.collapse(false);
+        }
+        range.collapse(true);
+        setSavedRange(range);
+      }
+    }
     setMediaModalTarget(target);
     setIsMediaModalOpen(true);
   };
@@ -1420,19 +1453,60 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       setFeaturedImageUrl(item.url);
       setFeaturedImageAlt(item.alt || item.title);
     } else {
-      contentEditableRef.current?.focus();
-      const selection = window.getSelection();
-      if (savedRange && selection) {
-        selection.removeAllRanges();
-        selection.addRange(savedRange);
+      const figure = document.createElement("figure");
+      const image = document.createElement("img");
+      image.src = item.url;
+      image.alt = item.alt || item.title;
+      const caption = document.createElement("figcaption");
+      caption.textContent = item.caption || "";
+      figure.append(image, caption);
+
+      if (editorMode === "text") {
+        const { start, end } = savedTextSelectionRef.current || { start: htmlContent.length, end: htmlContent.length };
+        const nextHtml = `${htmlContent.slice(0, start)}${figure.outerHTML}${htmlContent.slice(end)}`;
+        setHtmlContent(nextHtml);
+        setBlocks(summarizeHtmlAsBlocks(nextHtml));
+        savedTextSelectionRef.current = null;
+      } else if (contentEditableRef.current) {
+        const editor = contentEditableRef.current;
+        const range = savedRange || document.createRange();
+        if (!savedRange || !editor.contains(range.startContainer)) {
+          range.selectNodeContents(editor);
+          range.collapse(false);
+        }
+        const startElement = range.startContainer.nodeType === Node.TEXT_NODE
+          ? range.startContainer.parentElement
+          : range.startContainer as Element;
+        const currentParagraph = startElement?.closest("p");
+        let insertionRange = range;
+        let followingParagraph = document.createElement("p");
+
+        if (currentParagraph && editor.contains(currentParagraph)) {
+          const trailingRange = document.createRange();
+          trailingRange.setStart(range.startContainer, range.startOffset);
+          trailingRange.setEnd(currentParagraph, currentParagraph.childNodes.length);
+          const trailingContent = trailingRange.extractContents();
+          followingParagraph = currentParagraph.cloneNode(false) as HTMLParagraphElement;
+          followingParagraph.removeAttribute("id");
+          followingParagraph.append(trailingContent);
+          insertionRange = document.createRange();
+          insertionRange.setStartAfter(currentParagraph);
+          insertionRange.collapse(true);
+        }
+        if (!followingParagraph.hasChildNodes()) followingParagraph.append(document.createElement("br"));
+        const fragment = document.createDocumentFragment();
+        fragment.append(figure, followingParagraph);
+        insertionRange.insertNode(fragment);
+        const nextRange = document.createRange();
+        nextRange.selectNodeContents(followingParagraph);
+        nextRange.collapse(true);
+        editor.focus();
+        const selection = window.getSelection();
+        selection?.removeAllRanges();
+        selection?.addRange(nextRange);
+        syncEditorHtml();
       }
-      document.execCommand(
-        "insertHTML",
-        false,
-        `<figure><img src="${item.url}" alt="${item.alt || item.title}" /><figcaption>${item.caption || ""}</figcaption></figure><p><br></p>`
-      );
       setSavedRange(null);
-      syncEditorHtml();
     }
   };
 
@@ -1636,14 +1710,15 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
             <div className="rounded-2xl border border-[#E2E8F0] bg-white shadow-xs overflow-hidden">
               {/* Editor Action Bar (Add Media + Visual/Text Tabs) */}
               <div className="p-2.5 border-b border-[#E2E8F0] bg-[#F8FAFC] flex items-center justify-between gap-2 flex-wrap">
-                {/* Add Media Button */}
+                {/* Keep the caret location when the media picker takes focus. */}
                 <button
                   type="button"
+                  onMouseDown={(event) => event.preventDefault()}
                   onClick={() => handleOpenMedia("inline")}
                   className="px-3 py-1.5 rounded-lg text-xs font-bold font-heading uppercase tracking-wider border border-[#CBD5E1] bg-white text-[#1D4ED8] flex items-center gap-1.5 shadow-xs"
                 >
                   <ImageIcon className="h-3.5 w-3.5 text-[#1D4ED8]" />
-                  <span>Add Media</span>
+                  <span>Insert Image at Cursor</span>
                 </button>
 
                 {/* Visual / Text (HTML) Tab Switch */}
@@ -2098,7 +2173,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
 
               {editorMode === "visual" && (
                 <div className="border-b border-[#E2E8F0] bg-[#F8FAFC] px-4 py-1.5 text-[11px] text-[#64748B]">
-                  Tip: type <kbd className="rounded border border-[#CBD5E1] bg-white px-1 font-mono text-[10px] text-[#0F172A]">/</kbd> inside the article to insert headings, lists, quotes, or paragraph blocks.
+                  Tip: type <kbd className="rounded border border-[#CBD5E1] bg-white px-1 font-mono text-[10px] text-[#0F172A]">/</kbd> to insert blocks, or place the cursor and choose Insert Image at Cursor to add a picture anywhere in the article.
                 </div>
               )}
 
@@ -2124,6 +2199,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                 /* Raw HTML / Text Editor */
                 <div className="p-4 bg-white">
                   <textarea
+                    ref={textEditorRef}
                     rows={20}
                     value={htmlContent}
                     onChange={(event) => {
@@ -3992,7 +4068,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
         isOpen={isMediaModalOpen}
         onClose={() => setIsMediaModalOpen(false)}
         onSelectMedia={handleSelectMedia}
-        title={mediaModalTarget === "featured" ? "Featured Image" : "Add Media"}
+        title={mediaModalTarget === "featured" ? "Featured Image" : "Insert Image in Article"}
         buttonLabel={mediaModalTarget === "featured" ? "Set featured image" : "Insert into post"}
       />
 

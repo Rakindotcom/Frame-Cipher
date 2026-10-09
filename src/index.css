@@ -344,6 +344,7 @@ main table tbody tr {
   font-size: 1.125rem;
   line-height: 1.85;
   word-break: break-word;
+  overflow-x: auto;
 }
 
 .blog-article-content h1 {
@@ -369,9 +370,12 @@ main table tbody tr {
   text-transform: uppercase !important;
   margin-top: 3rem !important;
   margin-bottom: 1.25rem !important;
-  padding-bottom: 0.75rem !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
   display: block !important;
+}
+
+.blog-article-content :is(h1, h2, h3, h4, h5, h6) {
+  border: 0 !important;
+  padding-bottom: 0 !important;
 }
 
 .blog-article-content h3 {
@@ -425,6 +429,15 @@ main table tbody tr {
 .blog-article-content div {
   margin-bottom: 0.85rem;
   line-height: 1.85;
+}
+
+/* Pasted editor spans must follow the article's dark theme, including headings. */
+.blog-article-content span {
+  color: inherit !important;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  background-color: transparent !important;
 }
 
 .blog-article-content strong,
@@ -517,6 +530,54 @@ main table tbody tr {
   margin: 2.25rem 0 !important;
 }
 
+/* Keep pasted Word/Docs rows, columns and merged cells legible on the dark page. */
+.blog-article-content table {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  margin: 1.5rem 0;
+}
+
+.blog-article-content th,
+.blog-article-content td {
+  border: 1px solid var(--frame-border);
+  border-color: var(--frame-border) !important;
+  padding: 0.65rem 0.85rem !important;
+  vertical-align: top;
+  color: #D4D4D8 !important;
+  background-color: var(--frame-bg) !important;
+  word-break: normal;
+  overflow-wrap: normal;
+  overflow: visible !important;
+}
+
+.blog-article-content th {
+  color: #FAFAFA !important;
+  font-weight: 700;
+  background-color: #18181B !important;
+}
+
+.blog-article-content caption {
+  color: #D4D4D8;
+  margin-bottom: 0.5rem;
+}
+
+/* Word/Docs often paste justified paragraphs and oversized margins into cells. */
+.blog-article-content table tr {
+  height: auto !important;
+}
+
+.blog-article-content table :is(th, td) :is(p, div) {
+  text-align: left !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  font-size: 0.95rem !important;
+}
+
+.blog-article-content table :is(th, td) span {
+  white-space: normal !important;
+}
+
 .blog-article-content img {
   border-radius: 0.75rem !important;
   max-width: 100% !important;
@@ -548,7 +609,27 @@ div[contenteditable="true"] h6 {
   font-family: var(--font-heading), "Space Grotesk", sans-serif !important;
   color: #0F172A !important;
   font-weight: 700 !important;
-  border-bottom: 1px solid #E2E8F0 !important;
+  border: 0 !important;
+}
+
+.admin-editor-canvas {
+  overflow-x: auto;
+}
+
+.admin-editor-canvas table {
+  border-collapse: collapse;
+  width: max-content;
+  min-width: 100%;
+  margin: 1rem 0;
+}
+
+.admin-editor-canvas th,
+.admin-editor-canvas td {
+  border: 1px solid #CBD5E1;
+  padding: 0.5rem 0.75rem;
+  vertical-align: top;
+  word-break: normal;
+  overflow-wrap: normal;
 }
 
 div[contenteditable="true"] p,
@@ -571,4 +652,3 @@ div[contenteditable="true"] blockquote {
   font-style: italic !important;
   padding: 0.75rem 1rem !important;
 }
-
