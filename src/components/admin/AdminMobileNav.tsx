@@ -17,6 +17,7 @@ import {
   ExternalLink,
   Radio,
   UserRound,
+  Inbox,
 } from "lucide-react";
 import { destroyAdminSession } from "@/lib/admin/auth";
 
@@ -35,14 +36,15 @@ export function AdminMobileNav() {
 
   const primaryTabs = [
     { href: "/admin", label: "Overview", icon: LayoutDashboard },
-    { href: "/admin/cms", label: "Blog CMS", icon: FileText },
+    { href: "/admin/leads", label: "Leads", icon: Inbox },
+    { href: "/admin/cms", label: "CMS", icon: FileText },
     { href: "/admin/media", label: "Media", icon: ImageIcon },
     { href: "/admin/tools-analytics", label: "Analytics", icon: BarChart3 },
-    { href: "/admin/search-console", label: "Search", icon: Search },
   ];
 
   const allModules = [
     { href: "/admin", label: "Dashboard", icon: LayoutDashboard, section: "MAIN" },
+    { href: "/admin/leads", label: "Leads & Bookings", icon: Inbox, section: "MAIN" },
     { href: "/admin/cms", label: "Blog CMS", icon: FileText, section: "MAIN" },
     { href: "/admin/authors", label: "Author Profiles", icon: UserRound, section: "MAIN" },
     { href: "/admin/media", label: "Media Library", icon: ImageIcon, section: "MAIN" },

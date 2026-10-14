@@ -5,13 +5,18 @@ export const contact = {
   phone: '+880 1768-146650',
   phoneHref: '+8801768146650',
   whatsapp: 'https://wa.me/8801768146650',
-  location: 'Ecb Chattar, Matikata, Khan Polli Mosque, Dhaka-1206, Bangladesh',
+  location: '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206, Bangladesh',
+  neighborhood: 'Matikata / ECB Chattar',
+  city: 'Dhaka',
+  postalCode: '1206',
+  googleMapsUrl: 'https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6',
   responseTime: 'Replies within 1 business day',
 }
 
 export const navItems = [
   { name: 'Home', path: '/' },
   { name: 'Services', path: '/services' },
+  { name: 'Studio', path: '/studio' },
   { name: 'Work', path: '/projects' },
   { name: 'Case Studies', path: '/case-studies' },
   { name: 'Blog', path: '/blog' },
@@ -808,7 +813,7 @@ export const caseStudyPlaceholders = [
     keyResult: '7.2M+ Facebook views & 350K+ on first YouTube Short',
     secondaryResult: '350K+ views on very first YouTube Short (from 5 subscribers)',
     overview:
-      'Frame Cipher helped Dr. Ferdoush Saleheen begin his content creation journey from the ground up, turning his academic and supply chain expertise into platform-ready short-form content: reaching 350K+ views on his very first YouTube Short and scaling to over 7.2 million views on Facebook alone dated till today.',
+      'Frame Cipher helped Dr. Ferdoush Saleheen launch his personal brand from the ground up. By shaping his academic and supply chain insights into engaging short videos, his very first YouTube Short gained 350K+ views, scaling to over 7.2 million views on Facebook.',
     problem:
       'Dr. Ferdoush Saleheen had strong professional credibility, academic expertise, and industry knowledge, but he had not actively created or published personal brand content before the project.',
     objective:

@@ -247,6 +247,34 @@ export default function BlogCmsPage() {
     return true;
   };
 
+  const handleToggleFeatured = async (post: BlogPostItem) => {
+    const nextStatus = !post.isFeatured;
+    // Immediate optimistic update
+    setPosts((current) =>
+      current.map((p) => {
+        if (p.id === post.id) return { ...p, isFeatured: nextStatus };
+        if (nextStatus) return { ...p, isFeatured: false };
+        return p;
+      })
+    );
+
+    const updatedPost = { ...post, isFeatured: nextStatus };
+    const res = await saveBlogPostToFirestore(updatedPost);
+    if (!res.success) {
+      setSaveError(res.error || "Failed to update featured post.");
+      return;
+    }
+
+    if (nextStatus) {
+      const previouslyFeatured = posts.find((p) => p.isFeatured && p.id !== post.id);
+      if (previouslyFeatured) {
+        await saveBlogPostToFirestore({ ...previouslyFeatured, isFeatured: false });
+      }
+    }
+
+    void revalidateSitemaps(["post", "category"]).catch(() => {});
+  };
+
   const filteredPosts = posts.filter((p) => {
     const matchesTab = activeTab === "all" || p.status === activeTab;
     const matchesSearch =
@@ -503,6 +531,20 @@ export default function BlogCmsPage() {
                   <span className="text-[11px] font-bold text-[#1D4ED8] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
                     {post.category}
                   </span>
+
+                  <button
+                    type="button"
+                    onClick={() => handleToggleFeatured(post)}
+                    className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[11px] font-heading font-bold uppercase transition-all ${
+                      post.isFeatured
+                        ? "bg-amber-100 text-amber-900 border border-amber-300 shadow-xs"
+                        : "bg-[#F8FAFC] text-[#64748B] border border-[#CBD5E1]"
+                    }`}
+                  >
+                    <Sparkles className={`h-3 w-3 ${post.isFeatured ? "text-amber-500 fill-amber-400" : "text-[#94A3B8]"}`} />
+                    <span>{post.isFeatured ? "★ Featured" : "Pin Featured"}</span>
+                  </button>
+
                   {post.seoScore === null ? (
                     <span className="font-mono text-[11px] text-[#94A3B8] font-bold bg-[#F8FAFC] px-2.5 py-0.5 rounded-full border border-[#E2E8F0]">
                       SEO: not analysed
@@ -547,6 +589,7 @@ export default function BlogCmsPage() {
                   <th className="py-3.5 px-4 min-w-[260px]">Title & Permalink</th>
                   <th className="py-3.5 px-4 min-w-[130px]">Author</th>
                   <th className="py-3.5 px-4 min-w-[150px]">Category</th>
+                  <th className="py-3.5 px-4 text-center min-w-[110px]">Featured</th>
                   <th className="py-3.5 px-4 text-center min-w-[120px]">Image Alt SEO</th>
                   <th className="py-3.5 px-4 text-center min-w-[110px]">Length</th>
                   <th className="py-3.5 px-4 text-center min-w-[110px]">SEO Score</th>
@@ -591,6 +634,22 @@ export default function BlogCmsPage() {
                         <span className="text-[11px] font-bold text-[#1D4ED8] bg-[#EFF6FF] px-2.5 py-0.5 rounded-full border border-[#BFDBFE]">
                           {post.category}
                         </span>
+                      </td>
+
+                      <td className="py-3.5 px-4 text-center whitespace-nowrap">
+                        <button
+                          type="button"
+                          onClick={() => handleToggleFeatured(post)}
+                          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-xs font-heading font-bold uppercase transition-all ${
+                            post.isFeatured
+                              ? "bg-amber-100 text-amber-900 border border-amber-300 shadow-xs hover:bg-amber-200"
+                              : "bg-[#F8FAFC] text-[#64748B] border border-[#CBD5E1] hover:bg-white hover:text-[#0F172A]"
+                          }`}
+                          title={post.isFeatured ? "Featured Blueprint (Click to Unpin)" : "Click to Set as Featured Blueprint"}
+                        >
+                          <Sparkles className={`h-3.5 w-3.5 ${post.isFeatured ? "text-amber-500 fill-amber-400" : "text-[#94A3B8]"}`} />
+                          <span>{post.isFeatured ? "Featured" : "Pin"}</span>
+                        </button>
                       </td>
 
                       <td className="py-3.5 px-4 text-center whitespace-nowrap">

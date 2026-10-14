@@ -29,8 +29,13 @@ const publicCrawlerRules = [
   'Perplexity-User',
   'ClaudeBot',
   'Claude-User',
+  'anthropic-ai',
   'Applebot',
   'Applebot-Extended',
+  'Bytespider',
+  'CCBot',
+  'FacebookBot',
+  'Amazonbot',
 ].map((userAgent) => ({
   userAgent,
   allow: '/',

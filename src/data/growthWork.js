@@ -141,7 +141,7 @@ export const growthCaseStudies = [
     title: "Launching Dr. Ferdoush Saleheen's Personal Brand From Zero",
     headline: 'From 5 subscribers to 350K+ views on the very first YouTube Short & 7.2M+ views on Facebook',
     summary:
-      'Frame Cipher helped Dr. Ferdoush Saleheen begin his content creation journey from the ground up, turning his academic and supply chain expertise into platform-ready short-form content: reaching 350K+ views on his very first YouTube Short and scaling to over 7.2 million views on Facebook alone dated till today.',
+      'Frame Cipher helped Dr. Ferdoush Saleheen launch his personal brand from the ground up. By shaping his academic and supply chain insights into engaging short videos, his very first YouTube Short gained 350K+ views, scaling to over 7.2 million views on Facebook.',
     timeline: 'April to May 2026',
     primaryFocus: 'Content Strategy & Video Production',
     image: image('/case-studies/ferdoush-saleheen/proof-1m-views.webp', 'Dr. Ferdoush Saleheen Personal Branding'),

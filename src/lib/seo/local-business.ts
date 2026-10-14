@@ -28,14 +28,20 @@ export function generateLocalBusinessSchema(options?: LocalBusinessOptions) {
     image: `${base}/logo.png`,
     address: options?.address || {
       "@type": "PostalAddress",
-      streetAddress: "Ecb Chattar, Matikata, Khan Polli Mosque",
+      streetAddress: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar",
       addressLocality: "Dhaka",
       postalCode: "1206",
       addressCountry: "BD",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 23.8199359,
+      longitude: 90.3917881,
+    },
+    hasMap: "https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6",
     parentOrganization: {
       "@id": `${base}/#organization`,
     },
-    areaServed: ["Bangladesh", "Worldwide"],
+    areaServed: ["Dhaka", "Bangladesh", "Worldwide"],
   };
 }

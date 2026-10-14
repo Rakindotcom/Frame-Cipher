@@ -19,7 +19,7 @@ export default function AdsFormulasBreakdown() {
     ADS_FORMULAS_EXPLAINED[0]
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="mathematical-derivations">
+    <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="mathematical-derivations">
       {/* Header */}
       <div className="border-b border-frame-border pb-6">
         <div className="flex items-center gap-2">
@@ -37,14 +37,14 @@ export default function AdsFormulasBreakdown() {
       </div>
 
       {/* Formula Selector Tabs */}
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-wrap gap-2 w-full min-w-0 max-w-full">
         {ADS_FORMULAS_EXPLAINED.map((formula, idx) => {
           const isSelected = selectedFormulaId === formula.id
           return (
             <button
               key={formula.id}
               onClick={() => setSelectedFormulaId(formula.id)}
-              className={`border px-4 py-2.5 text-xs font-black uppercase tracking-wider transition ${
+              className={`max-w-full text-left whitespace-normal break-words border px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-black uppercase tracking-wider transition ${
                 isSelected
                   ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
                   : 'border-frame-border bg-frame-muted/20 text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
@@ -57,7 +57,7 @@ export default function AdsFormulasBreakdown() {
       </div>
 
       {/* Active Formula Display Panel */}
-      <div className="mt-8 border border-frame-border bg-frame-muted/10 p-6 md:p-8 space-y-8">
+      <div className="mt-8 border border-frame-border bg-frame-muted/10 p-4 sm:p-6 md:p-8 space-y-8 w-full min-w-0 max-w-full overflow-hidden">
         <div>
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
             {activeFormula.subtitle}
@@ -71,19 +71,19 @@ export default function AdsFormulasBreakdown() {
         </div>
 
         {/* Step-by-Step Breakdown */}
-        <div className="space-y-4">
+        <div className="space-y-4 w-full min-w-0 max-w-full">
           <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-frame-accent block">
             Mathematical Sequence & Step-by-Step Logic
           </span>
 
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 w-full min-w-0 max-w-full">
             {activeFormula.steps.map((step, idx) => (
-              <div key={idx} className="border border-frame-border bg-frame-bg p-5 flex flex-col justify-between">
-                <div>
+              <div key={idx} className="w-full min-w-0 max-w-full overflow-hidden border border-frame-border bg-frame-bg p-4 sm:p-5 flex flex-col justify-between">
+                <div className="w-full min-w-0">
                   <div className="text-xs font-mono font-bold uppercase tracking-wider text-frame-accent">
                     {step.step}
                   </div>
-                  <div className="my-2 border border-frame-border/60 bg-frame-muted/20 px-3 py-2 font-mono text-xs font-bold text-frame-fg">
+                  <div className="my-2 border border-frame-border/60 bg-frame-muted/20 px-3 py-2 font-mono text-xs font-bold text-frame-fg overflow-x-auto break-words [overflow-wrap:anywhere]">
                     {step.formula}
                   </div>
                 </div>

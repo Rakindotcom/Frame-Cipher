@@ -27,7 +27,7 @@ import {
   HomeCTA,
 } from '../components/home'
 
-export default function Home() {
+export default function Home({ latestPosts = [] }) {
   return (
     <main className="relative bg-frame-bg text-frame-fg">
       <HomeHero />
@@ -43,7 +43,7 @@ export default function Home() {
       <HomeTextMarquee />
       <HomeFeaturedWork />
       <HomeResults />
-      <HomeRecentInsights />
+      <HomeRecentInsights initialPosts={latestPosts} />
       <HomeCaseStudies />
       <HomeServicesPulse />
       <HomeCalculatorsGrid />

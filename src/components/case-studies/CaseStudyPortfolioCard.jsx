@@ -14,7 +14,12 @@ export default function CaseStudyPortfolioCard({ study, index }) {
       <div>
         {/* Featured Image Container */}
         <div className="relative block aspect-[16/10] w-full overflow-hidden border-b-2 border-frame-border bg-black">
-          <Link href={`/case-studies/${study.slug}`} className="block h-full w-full">
+          <Link
+            href={`/case-studies/${study.slug}`}
+            className="block h-full w-full"
+            aria-label={`View ${study.client} case study: ${study.title}`}
+          >
+            <span className="sr-only">{study.client} Case Study</span>
             <img
               src={imageSrc}
               alt={study.image?.alt || `${study.client} case study`}

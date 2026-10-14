@@ -7,6 +7,7 @@ import { CANONICAL_AUTHORS } from "../authors/canonicalAuthors";
 import { getPublicBlogPosts } from "../blog/serverBlogStorage";
 import { getPublicAuthors } from "../authors/serverAuthorStorage";
 import { ALL_ADS_CALCULATORS } from "../../data/calculators/allAdsCalculatorsConfig";
+import { getAllStudioServiceSlugs } from "../../data/studioServices";
 
 export const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || siteUrl || "https://framecipher.info").replace(/\/$/, "");
 export const SITE_CONTENT_UPDATED = new Date("2026-09-24T00:00:00.000Z");
@@ -38,7 +39,11 @@ export function buildUrlset(entries) {
 }
 
 export function corePageEntries() {
-  return ["/", "/about", "/services", "/projects", "/case-studies", "/blog", "/authors", "/contact", "/privacy", "/terms"].map(
+  const studioRoutes = [
+    "/studio",
+    ...getAllStudioServiceSlugs().map((slug) => `/studio/${slug}`),
+  ];
+  return ["/", "/about", "/services", ...studioRoutes, "/projects", "/case-studies", "/blog", "/contact", "/privacy", "/terms"].map(
     (path) => ({ path })
   );
 }

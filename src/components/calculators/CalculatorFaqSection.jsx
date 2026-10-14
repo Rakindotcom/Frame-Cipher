@@ -23,7 +23,7 @@ export default function CalculatorFaqSection({ faqs, title = 'Frequently Asked Q
   }
 
   return (
-    <section className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="faqs">
+    <section className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="faqs">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replaceAll('<', '\\u003c') }}

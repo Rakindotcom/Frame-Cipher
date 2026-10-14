@@ -297,9 +297,13 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   const [status, setStatus] = useState<"published" | "draft" | "scheduled">(
     post.status || "published"
   );
+  const [isFeatured, setIsFeatured] = useState<boolean>(Boolean(post.isFeatured));
   const [author, setAuthor] = useState(post.author || "Mahedi Hasan Perves");
   const [availableAuthors, setAvailableAuthors] = useState<string[]>([
     "Mahedi Hasan Perves",
+    "Nahid Bin Zaman",
+    "MD. NAHID BIN ZAMAN JOY",
+    "Rakin Al Shahriar",
     "FrameCipher Growth Team",
     "FrameCipher Design Studio",
     "Admin",
@@ -1691,7 +1695,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
         anchor.removeAttribute("target");
         anchor.removeAttribute("rel");
       }
-      anchor.className = "text-[#1D4ED8] hover:underline font-semibold";
+      anchor.className = "text-[#A855F7] hover:text-[#C084FC] underline underline-offset-4 font-semibold";
     } else {
       const selection = window.getSelection();
       if (savedRange && selection) {
@@ -1700,7 +1704,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       }
       const targetAttr = linkOpenInNewTab ? ' target="_blank" rel="noopener noreferrer"' : '';
       const textToDisplay = linkText.trim() || url;
-      const linkHtml = `<a href="${url}"${targetAttr} class="text-[#1D4ED8] hover:underline font-semibold">${textToDisplay}</a>`;
+      const linkHtml = `<a href="${url}"${targetAttr} class="text-[#A855F7] hover:text-[#C084FC] underline underline-offset-4 font-semibold">${textToDisplay}</a>`;
       document.execCommand("insertHTML", false, linkHtml);
     }
     setIsLinkModalOpen(false);
@@ -2546,6 +2550,8 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       faqs,
       visibility,
       postPassword: visibility === "password" ? postPassword : "",
+      isFeatured,
+      authorImage: (post as any).authorImage || "",
       allowComments,
       allowPingbacks,
     };
@@ -4934,6 +4940,25 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                           </option>
                         ))}
                       </select>
+                    </div>
+
+                    {/* Featured Post Toggle */}
+                    <div className="pt-2 border-t border-[#F1F5F9] flex items-center justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <Sparkles className={`h-3.5 w-3.5 ${isFeatured ? "text-amber-500 fill-amber-400" : "text-[#94A3B8]"}`} />
+                        <span className="text-[#64748B] font-medium">Featured Blueprint:</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setIsFeatured(!isFeatured)}
+                        className={`px-2.5 py-1 rounded-lg text-[11px] font-heading font-bold uppercase tracking-wider transition-colors border ${
+                          isFeatured
+                            ? "bg-amber-100 text-amber-800 border-amber-300"
+                            : "bg-white text-[#64748B] border-[#CBD5E1] hover:text-[#0F172A]"
+                        }`}
+                      >
+                        {isFeatured ? "★ Featured" : "Standard"}
+                      </button>
                     </div>
 
                     {/* Quick Indicators */}

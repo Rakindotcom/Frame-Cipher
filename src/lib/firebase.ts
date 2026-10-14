@@ -502,4 +502,64 @@ export async function deleteMediaItem(item: MediaRecord): Promise<{ success: boo
   }
 }
 
+export async function getAdminInquiriesFromFirestore(): Promise<any[]> {
+  if (!db) return [];
+  const leads: any[] = [];
+  try {
+    const [messagesSnap, bookingsSnap, leadsSnap, contactsSnap] = await Promise.all([
+      getDocs(collection(db, "contact_messages")).catch((e) => {
+        console.warn("contact_messages read note:", e?.message);
+        return { docs: [] };
+      }),
+      getDocs(collection(db, "studio_bookings")).catch(() => ({ docs: [] })),
+      getDocs(collection(db, "contact_leads")).catch(() => ({ docs: [] })),
+      getDocs(collection(db, "contacts")).catch(() => ({ docs: [] })),
+    ]);
+
+    messagesSnap.docs.forEach((docSnap) => {
+      leads.push({ id: docSnap.id, collection: "contact_messages", ...docSnap.data() });
+    });
+    bookingsSnap.docs.forEach((docSnap) => {
+      leads.push({ id: docSnap.id, collection: "studio_bookings", ...docSnap.data() });
+    });
+    leadsSnap.docs.forEach((docSnap) => {
+      leads.push({ id: docSnap.id, collection: "contact_leads", ...docSnap.data() });
+    });
+    contactsSnap.docs.forEach((docSnap) => {
+      leads.push({ id: docSnap.id, collection: "contacts", ...docSnap.data() });
+    });
+  } catch (err) {
+    console.warn("getAdminInquiriesFromFirestore error:", err);
+  }
+  return leads;
+}
+
+export async function updateInquiryStatusInFirestore(
+  id: string,
+  collectionName: string,
+  status: string
+): Promise<{ success: boolean; error?: string }> {
+  if (!db) return { success: false, error: "Firebase is not configured." };
+  try {
+    const docRef = doc(db, collectionName, id);
+    await setDoc(docRef, { status, updatedAt: serverTimestamp() }, { merge: true });
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error?.message || "Failed to update inquiry status." };
+  }
+}
+
+export async function deleteInquiryFromFirestore(
+  id: string,
+  collectionName: string
+): Promise<{ success: boolean; error?: string }> {
+  if (!db) return { success: false, error: "Firebase is not configured." };
+  try {
+    await deleteDoc(doc(db, collectionName, id));
+    return { success: true };
+  } catch (error: any) {
+    return { success: false, error: error?.message || "Failed to delete inquiry." };
+  }
+}
+
 export { app, auth, db, analytics };

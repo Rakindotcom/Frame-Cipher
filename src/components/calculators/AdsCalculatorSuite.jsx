@@ -72,7 +72,7 @@ export default function AdsCalculatorSuite() {
   }, [searchParams])
 
   return (
-    <div className="bg-frame-bg text-frame-fg min-h-screen">
+    <main className="bg-frame-bg text-frame-fg min-h-screen w-full min-w-0 max-w-full overflow-x-hidden">
       {/* Hero Section with Kinetic Styling */}
       <PageHero
         eyebrow="Growth Intelligence & Media Science"
@@ -86,27 +86,27 @@ export default function AdsCalculatorSuite() {
       </PageHero>
 
       {/* Quick Jump Bar */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/20 px-4 py-4 md:px-8">
-        <div className="mx-auto flex max-w-[95vw] flex-wrap items-center justify-between gap-4 text-xs">
+      <section className="border-b-2 border-frame-border bg-frame-muted/20 px-4 py-4 md:px-8 w-full min-w-0 max-w-full overflow-hidden">
+        <div className="mx-auto flex w-full max-w-[95vw] min-w-0 flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-frame-accent" />
             <span className="font-mono font-bold uppercase text-frame-accent">Quick Jumps:</span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 md:gap-6 font-mono font-bold uppercase tracking-wider text-frame-muted-fg">
-            <a href="#platform-calculators" className="hover:text-frame-fg transition">
+          <div className="flex flex-wrap items-center gap-3 md:gap-6 font-mono font-bold uppercase tracking-wider text-frame-muted-fg w-full min-w-0">
+            <a href="#platform-calculators" className="hover:text-frame-fg transition whitespace-nowrap">
               [01] Platform Wizards
             </a>
-            <a href="#quick-math" className="hover:text-frame-fg transition">
+            <a href="#quick-math" className="hover:text-frame-fg transition whitespace-nowrap">
               [02] Rapid Micro-Math
             </a>
-            <a href="#mathematical-derivations" className="hover:text-frame-fg transition">
+            <a href="#mathematical-derivations" className="hover:text-frame-fg transition whitespace-nowrap">
               [03] Formula Math
             </a>
-            <a href="#metrics-encyclopedia" className="hover:text-frame-fg transition">
+            <a href="#metrics-encyclopedia" className="hover:text-frame-fg transition whitespace-nowrap">
               [04] Metrics Encyclopedia
             </a>
-            <a href="#related-services" className="hover:text-frame-fg transition">
+            <a href="#related-services" className="hover:text-frame-fg transition whitespace-nowrap">
               [05] Execution Services
             </a>
           </div>
@@ -114,9 +114,9 @@ export default function AdsCalculatorSuite() {
       </section>
 
       {/* Main Suite Container */}
-      <div className="mx-auto max-w-[95vw] px-4 py-12 md:px-8 md:py-20 space-y-16">
+      <div className="mx-auto w-full max-w-[95vw] min-w-0 px-4 py-12 md:px-8 md:py-20 space-y-16">
         {/* SECTION 1: Platform Switcher & Calculator Wizards */}
-        <section id="platform-calculators" className="space-y-8 scroll-mt-24">
+        <section id="platform-calculators" className="space-y-8 scroll-mt-24 w-full min-w-0 max-w-full overflow-hidden">
           <SectionIntro
             eyebrow="Multi-Channel Media Forecasting"
             title="Select Your Advertising Ecosystem"
@@ -125,7 +125,7 @@ export default function AdsCalculatorSuite() {
           </SectionIntro>
 
           {/* Platform Tab Cards */}
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 w-full min-w-0 max-w-full">
             {PLATFORMS.map((platform) => {
               const Icon = platform.icon
               const isActive = activePlatform === platform.id
@@ -133,7 +133,7 @@ export default function AdsCalculatorSuite() {
                 <button
                   key={platform.id}
                   onClick={() => setActivePlatform(platform.id)}
-                  className={`flex flex-col justify-between border-2 p-6 text-left transition-all ${
+                  className={`w-full min-w-0 max-w-full overflow-hidden flex flex-col justify-between border-2 p-5 sm:p-6 text-left transition-all ${
                     isActive
                       ? 'border-frame-accent bg-frame-accent/10 shadow-lg shadow-frame-accent/10'
                       : 'border-frame-border bg-frame-bg hover:border-frame-fg/40'
@@ -157,7 +157,7 @@ export default function AdsCalculatorSuite() {
                       </span>
                     </div>
 
-                    <h4 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                    <h4 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg break-words">
                       {platform.name}
                     </h4>
                     <span className="text-xs font-semibold text-frame-muted-fg block">
@@ -183,7 +183,7 @@ export default function AdsCalculatorSuite() {
           </div>
 
           {/* Render Active Calculator Component */}
-          <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10">
+          <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10">
             {activePlatform === 'meta' && <MetaAdsCalculator />}
             {activePlatform === 'google' && <GoogleAdsCalculator />}
             {activePlatform === 'tiktok' && <TikTokAdsCalculator />}
@@ -192,25 +192,25 @@ export default function AdsCalculatorSuite() {
         </section>
 
         {/* SECTION 2: Instant Rapid Micro-Calculators */}
-        <section id="quick-math" className="scroll-mt-24">
+        <section id="quick-math" className="scroll-mt-24 w-full min-w-0 max-w-full overflow-hidden">
           <QuickCalculatorBar />
         </section>
 
         {/* SECTION 3: Mathematical Derivations & Explanations */}
-        <section className="scroll-mt-24">
+        <section className="scroll-mt-24 w-full min-w-0 max-w-full overflow-hidden">
           <AdsFormulasBreakdown />
         </section>
 
         {/* SECTION 4: Digital Advertising Metrics Encyclopedia */}
-        <section className="scroll-mt-24">
+        <section className="scroll-mt-24 w-full min-w-0 max-w-full overflow-hidden">
           <AdsMetricsHandbook />
         </section>
 
         {/* SECTION 5: Two-Way Strategic Internal Linking to Services */}
-        <section className="scroll-mt-24">
+        <section className="scroll-mt-24 w-full min-w-0 max-w-full overflow-hidden">
           <CalculatorServiceBridge />
         </section>
       </div>
-    </div>
+    </main>
   )
 }

@@ -11,7 +11,7 @@ export interface AuthorProfile {
   shortBio: string;
   bio: string;
   email: string;
-  website: string;
+  website?: string;
   worksFor: string;
   socialLinks: Record<string, string>;
   status: "published" | "draft";

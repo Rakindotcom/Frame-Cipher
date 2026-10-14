@@ -338,7 +338,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="w-full min-w-0 max-w-full overflow-hidden space-y-10">
       {/* Early-stage Market Disclosure Banner */}
       <div className="flex items-start gap-3 border border-amber-500/40 bg-amber-500/10 p-4 text-xs text-amber-200">
         <AlertTriangle className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
@@ -349,7 +349,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
       </div>
 
       {/* Stepper */}
-      <div className="flex items-center gap-2 overflow-x-auto border-b border-frame-border pb-4">
+      <div className="w-full min-w-0 max-w-full flex items-center gap-2 overflow-x-auto border-b border-frame-border pb-4 no-scrollbar">
         {STEPS.map((s, idx) => (
           <div key={s.id} className="flex items-center gap-2 shrink-0">
             <button

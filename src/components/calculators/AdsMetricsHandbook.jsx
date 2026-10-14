@@ -35,7 +35,7 @@ export default function AdsMetricsHandbook() {
   })
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="metrics-encyclopedia">
+    <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="metrics-encyclopedia">
       {/* Section Header */}
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-8">
         <div>
@@ -76,7 +76,7 @@ export default function AdsMetricsHandbook() {
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
-              className={`border px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition ${
+              className={`border px-3.5 py-2 text-xs font-bold uppercase tracking-wider transition max-w-full text-left whitespace-normal break-words ${
                 isSelected
                   ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
                   : 'border-frame-border bg-frame-muted/20 text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
@@ -89,7 +89,7 @@ export default function AdsMetricsHandbook() {
       </div>
 
       {/* Metrics Accordion List */}
-      <div className="mt-8 space-y-4">
+      <div className="mt-8 space-y-4 w-full min-w-0 max-w-full">
         {filteredMetrics.length === 0 ? (
           <div className="border border-frame-border p-8 text-center text-frame-muted-fg">
             No metrics matched your search &quot;{searchQuery}&quot;. Try searching for ROAS, CPA, CTR, or CPM.
@@ -100,7 +100,7 @@ export default function AdsMetricsHandbook() {
             return (
               <div
                 key={metric.id}
-                className={`border-2 transition-all ${
+                className={`border-2 transition-all w-full min-w-0 max-w-full overflow-hidden ${
                   isExpanded
                     ? 'border-frame-accent bg-frame-muted/10'
                     : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
@@ -109,21 +109,21 @@ export default function AdsMetricsHandbook() {
                 {/* Metric Header Bar */}
                 <button
                   onClick={() => setExpandedMetricId(isExpanded ? null : metric.id)}
-                  className="flex w-full items-center justify-between p-5 text-left"
+                  className="flex w-full items-center justify-between p-4 sm:p-5 text-left gap-2 min-w-0 max-w-full"
                 >
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-mono text-xl md:text-2xl font-black text-frame-fg">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 max-w-full">
+                    <span className="font-mono text-lg sm:text-xl md:text-2xl font-black text-frame-fg break-all">
                       {metric.name}
                     </span>
-                    <span className="text-xs md:text-sm font-semibold text-frame-muted-fg">
+                    <span className="text-xs md:text-sm font-semibold text-frame-muted-fg break-words">
                       // {metric.fullName}
                     </span>
-                    <span className="border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent">
+                    <span className="border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent shrink-0">
                       {metric.badge}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 shrink-0">
                     <div className="hidden sm:block text-right font-mono text-xs text-frame-muted-fg">
                       Formula: {metric.formula}
                     </div>
@@ -137,26 +137,26 @@ export default function AdsMetricsHandbook() {
 
                 {/* Expanded Details */}
                 {isExpanded && (
-                  <div className="border-t border-frame-border/80 p-5 md:p-8 space-y-6">
+                  <div className="border-t border-frame-border/80 p-4 sm:p-5 md:p-8 space-y-6 w-full min-w-0 max-w-full">
                     {/* Definition & Formula Grid */}
                     <div className="grid gap-6 md:grid-cols-2">
-                      <div className="space-y-3">
+                      <div className="space-y-3 min-w-0 max-w-full">
                         <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-frame-accent">
                           Definition & Interpretation
                         </span>
-                        <p className="text-xs md:text-sm leading-relaxed text-frame-fg">
+                        <p className="text-xs md:text-sm leading-relaxed text-frame-fg break-words">
                           {metric.description}
                         </p>
-                        <div className="border-l-2 border-frame-border bg-frame-muted/20 p-3 text-xs text-frame-muted-fg leading-relaxed">
+                        <div className="border-l-2 border-frame-border bg-frame-muted/20 p-3 text-xs text-frame-muted-fg leading-relaxed break-words">
                           <strong className="text-frame-fg">Why it matters:</strong> {metric.importance}
                         </div>
                       </div>
 
-                      <div className="space-y-3">
+                      <div className="space-y-3 min-w-0 max-w-full">
                         <span className="text-[11px] font-mono font-bold uppercase tracking-widest text-frame-accent">
                           Mathematical Equation
                         </span>
-                        <div className="border border-frame-border bg-frame-bg p-4 font-mono text-xs md:text-sm font-bold text-frame-accent">
+                        <div className="border border-frame-border bg-frame-bg p-4 font-mono text-xs md:text-sm font-bold text-frame-accent break-words [overflow-wrap:anywhere] overflow-x-auto">
                           {metric.formula}
                         </div>
                         <div className="text-[11px] text-frame-muted-fg">

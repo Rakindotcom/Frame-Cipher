@@ -108,8 +108,32 @@ export function sanitizeBlogHtml(html: string): string {
       if (/(?:expression|javascript|behavior|@import|url\s*\()/i.test(styleContent)) {
         return "";
       }
-      return match;
+
+      // Remove black / dark inline text colors and external formatting from Google Docs/Word
+      let cleaned = styleContent
+        .replace(/color\s*:\s*(?:rgb\(\s*0\s*,\s*0\s*,\s*0\s*\)|rgba\(\s*0\s*,\s*0\s*,\s*0\s*,\s*[^)]+\)|#000(?:000)?\b|black\b|rgb\(\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*,\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*,\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*\))\s*;?/gi, "")
+        .replace(/background(?:-color)?\s*:\s*(?:transparent|#fff(?:fff)?\b|white\b|rgb\(\s*255\s*,\s*255\s*,\s*255\s*\))\s*;?/gi, "")
+        .replace(/font-family\s*:\s*[^;]+;?/gi, "")
+        .replace(/font-size\s*:\s*(?:[0-9.]+pt|[0-9.]+px)\s*;?/gi, "")
+        .replace(/line-height\s*:\s*[^;]+;?/gi, "")
+        .replace(/text-align\s*:\s*justify\s*;?/gi, "")
+        .replace(/margin-(?:top|bottom|left|right)\s*:\s*[^;]+;?/gi, "")
+        .replace(/white-space\s*:\s*[^;]+;?/gi, "")
+        .replace(/(?:min-|max-)?width\s*:\s*(?:[0-9.]+(?:px|pt|em|rem|vw)|auto|max-content|min-content)\s*;?/gi, "")
+        .replace(/overflow(?:-[xy])?\s*:\s*[^;]+;?/gi, "")
+        .replace(/vertical-align\s*:\s*baseline;?/gi, "")
+        .replace(/font-variant\s*:\s*[^;]+;?/gi, "")
+        .replace(/letter-spacing\s*:\s*[^;]+;?/gi, "")
+        .replace(/word-spacing\s*:\s*[^;]+;?/gi, "")
+        .trim();
+
+      // Clean dangling semicolons
+      cleaned = cleaned.replace(/^;+|;+$/g, "").trim();
+
+      if (!cleaned) return "";
+      return ` style="${cleaned}"`;
     })
     .replace(ALLOWED_TAGS, "")
-    .replace(/javascript:/gi, ""));
+    .replace(/javascript:/gi, "")
+    .replace(/\btext-\[#1D4ED8\]\b/g, "text-[#A855F7]"));
 }

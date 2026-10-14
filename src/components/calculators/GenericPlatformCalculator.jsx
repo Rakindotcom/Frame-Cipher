@@ -179,7 +179,7 @@ export default function GenericPlatformCalculator({ config }) {
   }
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10 space-y-8">
+    <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10 space-y-8">
       {/* Simulator Inputs Header */}
       <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-6">
         <div>

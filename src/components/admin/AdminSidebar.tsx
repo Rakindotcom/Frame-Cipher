@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Briefcase,
   UserRound,
+  Inbox,
 } from "lucide-react";
 import { destroyAdminSession } from "@/lib/admin/auth";
 
@@ -26,6 +27,12 @@ const navGroups = [
         label: "Dashboard",
         icon: LayoutDashboard,
         badge: null,
+      },
+      {
+        href: "/admin/leads",
+        label: "Leads & Bookings",
+        icon: Inbox,
+        badge: "New",
       },
       {
         href: "/admin/cms",

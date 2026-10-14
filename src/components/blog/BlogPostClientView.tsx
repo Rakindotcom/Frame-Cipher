@@ -314,7 +314,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
               </span>
             </div>
 
-            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
+            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] sm:leading-[0.96] tracking-tighter text-frame-fg">
               {post.title}
             </h1>
 
@@ -388,7 +388,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Content (8 Cols) */}
-          <main className="lg:col-span-8 space-y-10 min-w-0">
+          <main className="lg:col-span-8 space-y-10 min-w-0 max-w-full overflow-hidden">
             {/* Prominent Featured Image */}
             {post.featuredImage?.url && (
               <div className="relative w-full aspect-16/9 rounded-3xl overflow-hidden border-2 border-frame-border bg-[#09090B] shadow-2xl group">
@@ -440,7 +440,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
                     </h2>
 
                     {section.paragraphs?.map((p, idx) => (
-                      <p key={idx} className="font-body text-base sm:text-lg text-frame-muted-fg leading-relaxed">
+                      <p key={idx} className="font-body text-base sm:text-lg text-frame-muted-fg leading-relaxed break-words max-w-full">
                         {p}
                       </p>
                     ))}
@@ -450,18 +450,18 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
                         <div className="font-heading text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
                           {section.callout.title}
                         </div>
-                        <p className="font-quote text-base sm:text-lg text-frame-fg italic leading-relaxed">
+                        <p className="font-quote text-base sm:text-lg text-frame-fg italic leading-relaxed break-words max-w-full">
                           "{section.callout.message}"
                         </p>
                       </div>
                     )}
 
                     {section.formula && (
-                      <div className="border-2 border-frame-border bg-[#121214] p-6 space-y-3">
-                        <div className="font-mono text-sm sm:text-base text-frame-accent bg-black/80 p-4 border border-frame-border overflow-x-auto">
+                      <div className="border-2 border-frame-border bg-[#121214] p-6 space-y-3 max-w-full">
+                        <div className="font-mono text-sm sm:text-base text-frame-accent bg-black/80 p-4 border border-frame-border overflow-x-auto max-w-full">
                           {section.formula.latex}
                         </div>
-                        <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+                        <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed break-words">
                           {section.formula.description}
                         </p>
                         {section.formula.variables && (
@@ -469,7 +469,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
                             {section.formula.variables.map((v, i) => (
                               <div key={i} className="flex items-baseline gap-2">
                                 <span className="font-mono font-bold text-frame-accent">{v.symbol}:</span>
-                                <span className="text-frame-muted-fg">{v.label}</span>
+                                <span className="text-frame-muted-fg break-words">{v.label}</span>
                               </div>
                             ))}
                           </div>
@@ -481,7 +481,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
               </div>
             ) : (post.content || (post.blocks && post.blocks.length > 0)) ? (
               <div
-                className="blog-article-content font-body text-base leading-relaxed space-y-4 prose prose-invert max-w-none"
+                className="blog-article-content font-body text-base leading-relaxed space-y-4 prose prose-invert max-w-full break-words text-[#D4D4D8] overflow-hidden"
                 dangerouslySetInnerHTML={{
                   __html: sanitizeBlogHtml(post.content || blocksToHtml(post.blocks || [])),
                 }}

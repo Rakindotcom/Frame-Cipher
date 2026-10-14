@@ -48,6 +48,8 @@ function normalizeBlogPost(post: BlogPostItem): BlogPostItem {
     tags: Array.isArray(post.tags) ? post.tags : [],
     categories: Array.isArray(post.categories) && post.categories.length > 0 ? post.categories : [post.category || "Growth Marketing"],
     status: (post.status as "published" | "draft" | "scheduled") || "published",
+    isFeatured: Boolean(post.isFeatured),
+    authorImage: post.authorImage || "",
     // The security rules require `visibility` with no default, so a legacy
     // document that predates the field stays private until it is re-saved.
     visibility: post.visibility || "public",
@@ -127,22 +129,30 @@ function normalizeFromFirestore(data: Record<string, any>, id: string): BlogPost
   return normalizeBlogPost({ ...rest, id: rest.id || id } as BlogPostItem);
 }
 
+function sortByLatest(a: BlogPostItem, b: BlogPostItem): number {
+  const timeA = new Date(a.publishDate || (a as any).createdAt || 0).getTime();
+  const timeB = new Date(b.publishDate || (b as any).createdAt || 0).getTime();
+  if (timeA !== timeB) return timeB - timeA;
+  return (b.id || "").localeCompare(a.id || "");
+}
+
 export async function getServerBlogPosts(): Promise<BlogPostItem[]> {
   const firestore = getAdminFirestore();
   if (!firestore) {
-    return readLocalFile();
+    return readLocalFile().sort(sortByLatest);
   }
 
   try {
     const snapshot = await firestore.collection(COLLECTION).get();
     return snapshot.docs
       .map((doc) => normalizeFromFirestore(doc.data(), doc.id))
-      .filter((post) => !isLegacyDemoPost(post));
+      .filter((post) => !isLegacyDemoPost(post))
+      .sort(sortByLatest);
   } catch (error: any) {
     // A read failure must not blank the blog, but it also must not hide a
     // broken Firestore setup behind stale local data.
     console.error("Firestore blog read failed:", error?.message || error);
-    if (canUseLocalFiles()) return readLocalFile();
+    if (canUseLocalFiles()) return readLocalFile().sort(sortByLatest);
     return [];
   }
 }
@@ -182,7 +192,8 @@ export async function getPublicBlogPosts(): Promise<BlogPostItem[]> {
     return snapshot.docs
       .map((entry) => normalizeFromFirestore(entry.data(), entry.id))
       .filter(isPubliclyVisible)
-      .map(toPublicPost);
+      .map(toPublicPost)
+      .sort(sortByLatest);
   } catch (error) {
     console.error("Public Firestore blog read failed:", error);
     return [];
@@ -308,4 +319,23 @@ export async function deleteServerBlogPost(
     console.error("Firestore blog delete failed:", error?.message || error);
     return { success: false, error: error?.message || "Failed to delete blog post." };
   }
+}
+
+export async function getPublicCategories(): Promise<string[]> {
+  try {
+    if (publicFirestore) {
+      const snapshot = await getDocs(collection(publicFirestore, "categories"));
+      const list: string[] = [];
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        if (data?.name && typeof data.name === "string") {
+          list.push(data.name);
+        }
+      });
+      if (list.length > 0) return list;
+    }
+  } catch (err) {
+    console.warn("Public categories fetch note:", err);
+  }
+  return [];
 }

@@ -70,7 +70,7 @@ const SERVICE_CARDS = [
 
 export default function CalculatorServiceBridge() {
   return (
-    <section className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="related-services">
+    <section className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="related-services">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-8">
         <div>
           <div className="flex items-center gap-2">

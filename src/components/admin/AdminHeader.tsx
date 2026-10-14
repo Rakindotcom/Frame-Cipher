@@ -19,6 +19,7 @@ import {
   LogOut,
   ExternalLink,
   Radio,
+  Inbox,
 } from "lucide-react";
 import { destroyAdminSession } from "@/lib/admin/auth";
 
@@ -29,6 +30,7 @@ interface AdminHeaderProps {
 
 const navModules = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, section: "MAIN" },
+  { href: "/admin/leads", label: "Leads & Bookings", icon: Inbox, section: "MAIN" },
   { href: "/admin/cms", label: "Blog CMS", icon: FileText, section: "MAIN" },
   { href: "/admin/media", label: "Media Library", icon: ImageIcon, section: "MAIN" },
   { href: "/admin/tools-analytics", label: "Analytics", icon: BarChart3, section: "AGENCY INTELLIGENCE" },

@@ -335,9 +335,9 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
   }
 
   return (
-    <div className="space-y-10">
+    <div className="w-full min-w-0 max-w-full overflow-hidden space-y-10">
       {/* Wizard Step Navigation */}
-      <div className="flex items-center gap-2 overflow-x-auto border-b border-frame-border pb-4">
+      <div className="w-full min-w-0 max-w-full flex items-center gap-2 overflow-x-auto border-b border-frame-border pb-4 no-scrollbar">
         {STEPS.map((s, idx) => (
           <div key={s.id} className="flex items-center gap-2 shrink-0">
             <button

@@ -13,7 +13,7 @@ import { WordPressSidebar } from "@/components/blog/WordPressSidebar";
 import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
 
 export const dynamic = "force-dynamic";
-export const dynamicParams = false;
+export const dynamicParams = true;
 
 
 export async function generateStaticParams() {

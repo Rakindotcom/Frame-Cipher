@@ -163,6 +163,27 @@ service cloud.firestore {
       allow read, update, delete: if isAdmin();
     }
 
+    // Studio bookings submissions
+    match /studio_bookings/{bookingId} {
+      allow create: if request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 120;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Contact leads submissions
+    match /contact_leads/{leadId} {
+      allow create: if request.resource.data.name is string
+        && request.resource.data.name.size() > 0
+        && request.resource.data.name.size() <= 120;
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /contacts/{contactId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
     // ---------------------------------------------------------------------------
     // Analytics
     //

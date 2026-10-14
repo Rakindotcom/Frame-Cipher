@@ -31,18 +31,25 @@ export function generateOrganizationSchema(options?: OrganizationOptions) {
     },
     description:
       "Framecipher is a Dhaka-based 360 marketing, media, branding, website, software, and growth systems agency.",
+    sameAs: [
+      "https://www.linkedin.com/company/framecipher",
+      "https://www.facebook.com/framecipher",
+      "https://www.instagram.com/framecipher",
+      "https://x.com/framecipher",
+      "https://www.youtube.com/@framecipher",
+    ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Ecb Chattar, Matikata, Khan Polli Mosque",
+      streetAddress: contact?.location || "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar",
       addressLocality: "Dhaka",
       postalCode: "1206",
       addressCountry: "BD",
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: contact?.phoneHref || "+8801700000000",
+      telephone: contact?.phoneHref || "+8801768146650",
       contactType: "Customer Service",
-      email: contact?.email || "info@framecipher.info",
+      email: contact?.email || "teamframecipher@gmail.com",
       availableLanguage: ["en", "bn"],
     },
     areaServed: ["Bangladesh", "Worldwide"],

@@ -46,8 +46,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Grid items must be able to shrink below their text's intrinsic width. */
-main .grid > * {
+main .grid > *,
+.grid > * {
   min-width: 0;
+  max-width: 100%;
 }
 
 .service-experience {
@@ -181,16 +183,22 @@ main details summary {
   }
 }
 
-/* Tables across service pages keep a sturdy row hover. */
-main table tbody tr {
+/* Tables across service pages keep a sturdy row hover. Exclude admin. */
+main.service-page table tbody tr,
+main.service-experience table tbody tr,
+.service-page table tbody tr {
   transition: background-color 0.2s ease;
 }
 
 @media (hover: hover) {
-  main table tbody tr:hover {
+  main.service-page table tbody tr:hover,
+  main.service-experience table tbody tr:hover,
+  .service-page table tbody tr:hover {
     background-color: color-mix(in srgb, var(--frame-muted) 55%, transparent);
   }
-  main table tbody tr:hover td:first-child {
+  main.service-page table tbody tr:hover td:first-child,
+  main.service-experience table tbody tr:hover td:first-child,
+  .service-page table tbody tr:hover td:first-child {
     color: var(--frame-fg);
   }
 }
@@ -336,109 +344,124 @@ main table tbody tr {
 }
 
 /* ==========================================================================
-   Blog Article Rich-Text Typography & Headings (Public Dark Theme)
+   Blog Article Rich-Text Typography & Headings (Aligned with Website Design)
    ========================================================================== */
 .blog-article-content {
-  color: #D4D4D8;
-  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.85;
+  color: var(--color-frame-muted-fg, #A1A1AA);
+  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  font-weight: 500;
   word-break: break-word;
-  overflow-x: auto;
 }
 
-.blog-article-content h1 {
+.blog-article-content :is(p, div, span, li, ol, ul) {
+  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  color: var(--color-frame-muted-fg, #A1A1AA);
+  font-weight: 500;
+}
+
+/* Headings: Exactly match FrameCipher website (Space Grotesk, Bold, Uppercase, Tracking-Tight) */
+.blog-article-content h1,
+.blog-article-content h2,
+.blog-article-content h3,
+.blog-article-content h4,
+.blog-article-content h5,
+.blog-article-content h6,
+.blog-article-content :is(h1, h2, h3, h4, h5, h6) * {
   font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA);
-  font-size: clamp(2.4rem, 6vw, 4.5rem);
-  font-weight: 700;
-  line-height: 0.92;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  margin-top: 3.5rem;
-  margin-bottom: 1.5rem;
-  display: block;
-}
-
-.blog-article-content h2 {
-  font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 700;
-  line-height: 0.95;
-  letter-spacing: -0.05em;
-  text-transform: uppercase;
-  margin-top: 3rem;
-  margin-bottom: 1.25rem;
-  display: block;
-}
-
-.blog-article-content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-frame-fg, #FAFAFA) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: -0.03em !important;
+  text-align: left !important;
   border: 0;
   padding-bottom: 0;
 }
 
+.blog-article-content h1 {
+  font-size: clamp(2.25rem, 5vw, 3.25rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.04em !important;
+  margin-top: 3.5rem !important;
+  margin-bottom: 1.25rem !important;
+  display: block;
+}
+
+.blog-article-content h2 {
+  font-size: clamp(1.75rem, 3.8vw, 2.35rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.035em !important;
+  margin-top: 3.25rem !important;
+  margin-bottom: 1.25rem !important;
+  display: block;
+}
+
 .blog-article-content h3 {
-  font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA);
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.045em;
-  text-transform: uppercase;
-  margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem) !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.03em !important;
+  margin-top: 2.5rem !important;
+  margin-bottom: 1rem !important;
   display: block;
 }
 
 .blog-article-content h4 {
-  font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA);
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.25rem !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.02em !important;
+  margin-top: 2rem !important;
+  margin-bottom: 0.75rem !important;
   display: block;
 }
 
 .blog-article-content h5,
 .blog-article-content h6 {
-  font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: #E4E4E7;
-  font-size: 1.15rem;
-  font-weight: 700;
-  line-height: 1.25;
-  letter-spacing: -0.03em;
-  text-transform: uppercase;
-  margin-top: 1.75rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.1rem !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.015em !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 0.5rem !important;
   display: block;
 }
 
+/* Paragraphs & text matching website font-body Montserrat font-medium (500) text-frame-muted-fg */
 .blog-article-content p {
-  color: #D4D4D8;
-  font-size: 1.125rem;
-  line-height: 1.85;
-  margin-top: 0;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-size: 1.0625rem !important;
+  font-weight: 500 !important;
+  line-height: 1.8 !important;
+  letter-spacing: -0.01em !important;
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+  text-align: left !important;
+  color: var(--color-frame-muted-fg, #A1A1AA) !important;
 }
 
 .blog-article-content div {
   margin-bottom: 0.85rem;
-  line-height: 1.85;
+  line-height: 1.8;
+  font-weight: 500;
 }
 
-/* Span typography rules: allow inline custom styles while naturally inheriting defaults */
-.blog-article-content span {
-  line-height: inherit;
+/* Prevent pasted Google Docs/Word inline sizes and fonts from ruining paragraph typography */
+.blog-article-content p :is(span, div, font),
+.blog-article-content div :is(span, font),
+.blog-article-content li :is(span, font) {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-weight: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+  color: inherit !important;
 }
 
 .blog-article-content strong,
-.blog-article-content b {
-  color: #FFFFFF !important;
+.blog-article-content b,
+.blog-article-content strong *,
+.blog-article-content b * {
+  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  color: #FAFAFA !important;
   font-weight: 700 !important;
 }
 
@@ -446,6 +469,19 @@ main table tbody tr {
 .blog-article-content i {
   font-style: italic;
   color: #E4E4E7;
+}
+
+/* Hard override: never allow pasted black/dark text colors from external editors to obscure text */
+.blog-article-content [style*="color: rgb(0, 0, 0)"],
+.blog-article-content [style*="color:rgb(0,0,0)"],
+.blog-article-content [style*="color: #000"],
+.blog-article-content [style*="color:#000"],
+.blog-article-content [style*="color: black"],
+.blog-article-content [style*="color:black"],
+.blog-article-content [style*="color: rgb(17, 24, 39)"],
+.blog-article-content [style*="color: rgb(34, 34, 34)"],
+.blog-article-content [style*="color: rgb(51, 51, 51)"] {
+  color: inherit !important;
 }
 
 .blog-article-content ul {
@@ -463,33 +499,56 @@ main table tbody tr {
 }
 
 .blog-article-content li {
-  margin-bottom: 0.5rem !important;
+  margin-bottom: 0.65rem !important;
   line-height: 1.75 !important;
-  color: #D4D4D8 !important;
+  color: var(--color-frame-muted-fg, #A1A1AA) !important;
+  font-weight: 500 !important;
 }
 
 .blog-article-content blockquote {
-  border-left: 4px solid #A855F7 !important;
-  background: rgba(168, 85, 247, 0.08) !important;
-  padding: 1.25rem 1.75rem !important;
-  margin: 2rem 0 !important;
-  border-radius: 0 0.75rem 0.75rem 0 !important;
-  color: #F4F4F5 !important;
+  font-family: var(--font-quote), "Fraunces", Georgia, serif !important;
   font-style: italic !important;
-  font-size: 1.15rem !important;
-  line-height: 1.75 !important;
+  font-size: 1.25rem !important;
+  line-height: 1.65 !important;
+  color: #FAFAFA !important;
+  border-left: 4px solid var(--color-frame-accent, #A855F7) !important;
+  background: rgba(168, 85, 247, 0.06) !important;
+  padding: 1.25rem 1.75rem !important;
+  margin: 2.25rem 0 !important;
+  border-radius: 0 0.75rem 0.75rem 0 !important;
 }
 
-.blog-article-content a {
-  color: #C084FC !important;
+.blog-article-content blockquote p {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  font-style: inherit !important;
+  color: inherit !important;
+  margin-bottom: 0 !important;
+}
+
+.blog-article-content a,
+.blog-article-content a *,
+div[contenteditable="true"] a,
+div[contenteditable="true"] a *,
+.admin-editor-canvas a,
+.admin-editor-canvas a * {
+  color: #A855F7 !important;
   text-decoration: underline !important;
+  text-decoration-color: #A855F7 !important;
   text-underline-offset: 4px !important;
+  text-decoration-thickness: 1.5px !important;
   font-weight: 600 !important;
-  transition: color 0.2s ease !important;
+  transition: all 0.2s ease !important;
 }
 
-.blog-article-content a:hover {
-  color: #E9D5FF !important;
+.blog-article-content a:hover,
+.blog-article-content a:hover *,
+div[contenteditable="true"] a:hover,
+div[contenteditable="true"] a:hover *,
+.admin-editor-canvas a:hover,
+.admin-editor-canvas a:hover * {
+  color: #C084FC !important;
+  text-decoration-color: #C084FC !important;
 }
 
 .blog-article-content pre {
@@ -963,4 +1022,140 @@ div[contenteditable="true"] .wp-block-embed-youtube iframe {
 div[contenteditable="true"] .wp-block-button-wrapper {
   margin: 1.5rem 0;
 }
+
+/* ==========================================================================
+   BLOG ARTICLE CONTENT & VIEWPORT OVERFLOW SAFEGUARDS
+   ========================================================================== */
+
+.blog-article-content {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  overflow-wrap: break-word !important;
+  word-wrap: break-word !important;
+  word-break: break-word !important;
+}
+
+.blog-article-content * {
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+
+.blog-article-content p,
+.blog-article-content li,
+.blog-article-content span,
+.blog-article-content h1,
+.blog-article-content h2,
+.blog-article-content h3,
+.blog-article-content h4,
+.blog-article-content h5,
+.blog-article-content h6,
+.blog-article-content a,
+.blog-article-content blockquote,
+.blog-article-content strong,
+.blog-article-content em,
+.blog-article-content b,
+.blog-article-content i {
+  white-space: normal !important;
+  word-break: break-word !important;
+  overflow-wrap: break-word !important;
+  max-width: 100% !important;
+}
+
+.blog-article-content p {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+  line-height: 1.8 !important;
+  color: #D4D4D8;
+}
+
+.blog-article-content ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.blog-article-content ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.25rem !important;
+}
+
+.blog-article-content li {
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  line-height: 1.75 !important;
+  color: #D4D4D8;
+}
+
+.blog-article-content li p {
+  display: inline !important;
+  margin: 0 !important;
+}
+
+.blog-article-content pre,
+.blog-article-content code {
+  white-space: pre-wrap !important;
+  word-break: break-all !important;
+  overflow-x: auto !important;
+  max-width: 100% !important;
+}
+
+.blog-article-content pre {
+  padding: 1.25rem !important;
+  background-color: #121214 !important;
+  border: 1px solid var(--frame-border) !important;
+  border-radius: 0.75rem !important;
+  margin: 1.75rem 0 !important;
+}
+
+.blog-article-content table {
+  width: 100% !important;
+  max-width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1.75rem 0 !important;
+}
+
+.blog-article-content .table-responsive {
+  width: 100% !important;
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.75rem 0 !important;
+}
+
+.blog-article-content img {
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 0.75rem !important;
+}
+
+.blog-article-content figure {
+  max-width: 100% !important;
+  margin: 2rem 0 !important;
+}
+
+.blog-article-content iframe {
+  max-width: 100% !important;
+}
+
+.blog-article-content .video-container {
+  position: relative !important;
+  width: 100% !important;
+  padding-bottom: 56.25% !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  border-radius: 0.75rem !important;
+}
+
+.blog-article-content .video-container iframe {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
 

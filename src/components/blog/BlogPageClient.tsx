@@ -22,16 +22,60 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { resolveAuthorImage } from "@/lib/authors/getAuthors";
+import { getAdminCategoriesFromFirestore } from "@/lib/firebase";
+
 interface BlogPageClientProps {
   initialPosts?: DetailedBlogPost[];
+  initialCategories?: string[];
 }
 
-export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
+export function BlogPageClient({ initialPosts = [], initialCategories = [] }: BlogPageClientProps) {
   const [posts, setPosts] = useState<DetailedBlogPost[]>(() =>
     initialPosts.filter((p) => !isLegacyDemoPost(p))
   );
   const [selectedCategory, setSelectedCategory] = useState<string>("All Articles");
   const [searchQuery, setSearchQuery] = useState("");
+
+  // Categories list combining static defaults, Firestore categories, and categories from posts
+  const [categoriesList, setCategoriesList] = useState<string[]>(() => {
+    const base = Array.from(BLOG_CATEGORIES);
+    const fromPosts = initialPosts.flatMap((p) => [p.category, ...(p.categories || [])]).filter(Boolean);
+    return Array.from(new Set([...base, ...initialCategories, ...fromPosts]));
+  });
+
+  // Client-side category cache & Firestore sync
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("fc_blog_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setCategoriesList((prev) => Array.from(new Set([...prev, ...parsed])));
+          }
+        }
+      } catch {}
+    }
+
+    getAdminCategoriesFromFirestore()
+      .then((remoteCats) => {
+        if (Array.isArray(remoteCats) && remoteCats.length > 0) {
+          setCategoriesList((prev) => Array.from(new Set([...prev, ...remoteCats])));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // Update categories whenever posts change
+  useEffect(() => {
+    if (posts.length > 0) {
+      const postCats = posts.flatMap((p) => [p.category, ...(p.categories || [])]).filter(Boolean);
+      if (postCats.length > 0) {
+        setCategoriesList((prev) => Array.from(new Set([...prev, ...postCats])));
+      }
+    }
+  }, [posts]);
 
   // Refresh public posts from the rule-limited API; browser-local CMS drafts
   // are deliberately not a source of published content.
@@ -97,9 +141,9 @@ export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
     });
   }, [posts, selectedCategory, searchQuery]);
 
-  // Featured post: first matching post
-  const featuredPost = filteredPosts[0] || null;
-  const regularPosts = filteredPosts.slice(1);
+  // Featured post: explicitly marked featured post, or fallback to first post
+  const featuredPost = filteredPosts.find((p) => p.isFeatured) || filteredPosts[0] || null;
+  const regularPosts = filteredPosts.filter((p) => p.id !== featuredPost?.id);
 
   return (
     <div className="min-h-screen bg-frame-bg text-frame-fg font-body relative overflow-x-hidden">
@@ -166,7 +210,7 @@ export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
           {/* Category Filter Pills (Horizontal Top Quick Filter) */}
           <div className="pt-3 border-t border-frame-border flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
             <SlidersHorizontal className="h-4 w-4 text-frame-muted-fg shrink-0 mr-1 hidden sm:block" />
-            {BLOG_CATEGORIES.map((cat) => {
+            {categoriesList.map((cat) => {
               const isActive = selectedCategory === cat;
               return (
                 <button
@@ -277,21 +321,36 @@ export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
 
                       {/* Title */}
                       <Link href={`/blog/${featuredPost.slug}`} className="block">
-                        <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold uppercase tracking-tight text-white group-hover:text-frame-accent transition-colors leading-[1.08]">
+                        <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tighter text-frame-fg group-hover:text-frame-accent transition-colors leading-[1.0] sm:leading-[0.94]">
                           {featuredPost.title}
                         </h2>
                       </Link>
 
                       {/* Excerpt */}
-                      <p className="font-body text-sm sm:text-base text-frame-muted-fg leading-relaxed line-clamp-3">
+                      <p className="font-body text-base sm:text-lg font-medium text-frame-muted-fg leading-relaxed line-clamp-3">
                         {featuredPost.excerpt}
                       </p>
 
                       {/* Author & CTA Button */}
                       <div className="pt-6 border-t border-frame-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-frame-accent text-white flex items-center justify-center font-heading font-bold text-sm shadow-sm border border-purple-400">
-                            FC
+                          <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-frame-accent/20 border-2 border-purple-400 shrink-0 shadow-md">
+                            <img
+                              src={resolveAuthorImage(featuredPost.author, featuredPost.authorImage)}
+                              alt={featuredPost.author}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                e.currentTarget.style.display = "none";
+                                const fallback = e.currentTarget.parentElement?.querySelector(".avatar-fallback") as HTMLElement;
+                                if (fallback) fallback.style.display = "flex";
+                              }}
+                            />
+                            <div
+                              style={{ display: "none" }}
+                              className="avatar-fallback w-full h-full bg-frame-accent text-white items-center justify-center font-heading font-bold text-xs"
+                            >
+                              {featuredPost.author.slice(0, 2).toUpperCase()}
+                            </div>
                           </div>
                           <div>
                             <div className="font-heading font-bold text-xs uppercase text-white">
@@ -364,25 +423,35 @@ export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
 
                             {/* Title */}
                             <Link href={`/blog/${post.slug}`}>
-                              <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-white group-hover:text-frame-accent transition-colors line-clamp-2 leading-snug">
+                              <h4 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg group-hover:text-frame-accent transition-colors line-clamp-2">
                                 {post.title}
                               </h4>
                             </Link>
 
                             {/* Excerpt */}
-                            <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed line-clamp-3">
+                            <p className="font-body text-sm font-medium text-frame-muted-fg leading-relaxed line-clamp-3">
                               {post.excerpt}
                             </p>
                           </div>
 
                           {/* Footer */}
                           <div className="pt-3 border-t border-frame-border flex items-center justify-between text-xs">
-                            <span className="text-[11px] text-frame-muted-fg font-body">
-                              By {post.author.split(" ")[0]}
-                            </span>
+                            <div className="flex items-center gap-2 min-w-0">
+                              <img
+                                src={resolveAuthorImage(post.author, post.authorImage)}
+                                alt={post.author}
+                                className="w-5 h-5 rounded-full object-cover border border-purple-400/40 shrink-0"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = "none";
+                                }}
+                              />
+                              <span className="text-[11px] text-frame-muted-fg font-body truncate">
+                                By {post.author.split(" ")[0]}
+                              </span>
+                            </div>
                             <Link
                               href={`/blog/${post.slug}`}
-                              className="font-heading font-bold uppercase tracking-wider text-xs text-frame-accent flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                              className="font-heading font-bold uppercase tracking-wider text-xs text-frame-accent flex items-center gap-1 group-hover:translate-x-1 transition-transform shrink-0"
                             >
                               <span>Read Dispatch</span>
                               <ChevronRight className="h-3.5 w-3.5" />
@@ -400,7 +469,7 @@ export function BlogPageClient({ initialPosts = [] }: BlogPageClientProps) {
           {/* Right Column: WordPress-Style Sidebar with Side Categories & 3 Latest Posts */}
           <div className="lg:col-span-4 sticky top-24">
             <WordPressSidebar
-              categories={BLOG_CATEGORIES as any}
+              categories={categoriesList as any}
               activeCategory={selectedCategory}
               onSelectCategory={(cat) => setSelectedCategory(cat)}
               recentPosts={filteredPosts}

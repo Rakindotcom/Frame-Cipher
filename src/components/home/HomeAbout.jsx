@@ -87,6 +87,7 @@ export default function HomeAbout() {
                         className="flex h-8 w-8 items-center justify-center border border-frame-border bg-frame-bg text-frame-muted-fg transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
                       >
                         {social.icon}
+                        <span className="sr-only">{founder.name} on {social.platform}</span>
                       </a>
                     ))}
                   </div>

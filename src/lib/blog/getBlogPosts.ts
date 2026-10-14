@@ -131,8 +131,10 @@ export function getMergedPostsFromStorage(
         categories: item.categories || [item.category || "Growth Marketing"],
         status: item.status,
         author: item.author || "Mahedi Hasan Perves",
-        authorRole: "Founder & Lead Strategist, FrameCipher",
-        authorDegree: "B.Sc. in Electrical & Electronic Engineering, AIUB",
+        authorImage: item.authorImage,
+        authorRole: item.authorRole || "Founder & Lead Strategist, FrameCipher",
+        authorDegree: item.authorDegree || "B.Sc. in Electrical & Electronic Engineering, AIUB",
+        isFeatured: Boolean(item.isFeatured),
         publishDate: item.publishDate || new Date().toISOString().split("T")[0],
         views: typeof item.views === "number" ? item.views : 0,
         wordCount: words,
@@ -211,7 +213,13 @@ export function getMergedPostsFromStorage(
     const localIds = new Set(convertedLocal.map((p) => p.id));
     const nonOverwrittenCanonical = CANONICAL_BLOG_POSTS.filter((c) => !localIds.has(c.id));
 
-    return [...convertedLocal, ...nonOverwrittenCanonical];
+    const combined = [...convertedLocal, ...nonOverwrittenCanonical];
+    return combined.sort((a, b) => {
+      const timeA = new Date(a.publishDate || (a as any).createdAt || 0).getTime();
+      const timeB = new Date(b.publishDate || (b as any).createdAt || 0).getTime();
+      if (timeA !== timeB) return timeB - timeA;
+      return (b.id || "").localeCompare(a.id || "");
+    });
   } catch {
     return CANONICAL_BLOG_POSTS;
   }

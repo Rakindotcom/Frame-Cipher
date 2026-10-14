@@ -12,6 +12,10 @@ export interface BlogPostItem {
   categories?: string[];
   status: "published" | "draft" | "scheduled";
   author: string;
+  authorImage?: string;
+  authorRole?: string;
+  authorDegree?: string;
+  isFeatured?: boolean;
   publishDate: string;
   views: number;
   wordCount: number;

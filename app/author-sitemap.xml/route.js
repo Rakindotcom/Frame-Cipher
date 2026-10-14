@@ -4,7 +4,7 @@ import { buildUrlset, authorEntries, corePageEntries } from "../../src/lib/seo/s
 export const revalidate = 3600;
 
 export async function GET() {
-  const index = corePageEntries().filter((entry) => entry.path === "/authors");
+  const index = [{ path: "/authors" }];
   const xml = buildUrlset([...index, ...(await authorEntries())]);
   return new NextResponse(xml, {
     headers: {

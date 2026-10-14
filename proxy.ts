@@ -11,6 +11,7 @@ const MUTATING_METHODS = new Set(["POST", "PUT", "PATCH", "DELETE"]);
 // grant the wider scope.
 const PUBLIC_API_READS = new Set(["/api/blog", "/api/authors"]);
 const PUBLIC_API_ALL_METHODS = new Set(["/api/auth/admin-session", "/api/analytics/track"]);
+const PUBLIC_API_POSTS = new Set(["/api/inquiries"]);
 
 function withNoIndex(response: NextResponse): NextResponse {
   response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, nocache");
@@ -31,7 +32,8 @@ export async function proxy(request: NextRequest) {
   if (isApi) {
     const isFullyPublic = PUBLIC_API_ALL_METHODS.has(pathname);
     const isPublicRead = PUBLIC_API_READS.has(pathname) && !MUTATING_METHODS.has(request.method);
-    if (isFullyPublic || isPublicRead) {
+    const isPublicPost = PUBLIC_API_POSTS.has(pathname) && request.method === "POST";
+    if (isFullyPublic || isPublicRead || isPublicPost) {
       return withNoIndex(NextResponse.next());
     }
   }

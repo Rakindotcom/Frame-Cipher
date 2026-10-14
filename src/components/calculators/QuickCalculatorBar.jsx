@@ -30,7 +30,7 @@ export default function QuickCalculatorBar() {
   const cpaReduction = (100 - (1 / ((1 + ctrLift / 100) * (1 + cvrLift / 100))) * 100).toFixed(1)
 
   return (
-    <div className="border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
+    <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
       <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between border-b border-frame-border pb-6">
         <div>
           <div className="flex items-center gap-2">
@@ -49,7 +49,7 @@ export default function QuickCalculatorBar() {
       </div>
 
       {/* Tabs */}
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-wrap gap-2 w-full min-w-0 max-w-full">
         {[
           { id: 'breakeven', label: 'Break-Even ROAS', icon: Percent },
           { id: 'targetcpa', label: 'Max Allowable CPA', icon: Target },
@@ -62,21 +62,21 @@ export default function QuickCalculatorBar() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex items-center gap-2 border px-4 py-2.5 text-xs font-black uppercase tracking-wider transition-all ${
+              className={`max-w-full text-left whitespace-normal break-words flex items-center gap-2 border px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-black uppercase tracking-wider transition-all ${
                 isActive
                   ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
                   : 'border-frame-border bg-frame-muted/20 text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
               }`}
             >
-              <Icon className="h-3.5 w-3.5" />
-              {tab.label}
+              <Icon className="h-3.5 w-3.5 shrink-0" />
+              <span>{tab.label}</span>
             </button>
           )
         })}
       </div>
 
       {/* Tab Panels */}
-      <div className="mt-6 border border-frame-border bg-frame-muted/10 p-5 md:p-6">
+      <div className="mt-6 border border-frame-border bg-frame-muted/10 p-4 sm:p-5 md:p-6 w-full min-w-0 max-w-full overflow-hidden">
         {/* TAB 1: Break-Even ROAS */}
         {activeTab === 'breakeven' && (
           <div className="grid gap-6 md:grid-cols-2 md:items-center">
