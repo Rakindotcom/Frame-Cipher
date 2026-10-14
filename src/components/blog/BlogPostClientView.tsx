@@ -61,9 +61,33 @@ function blocksToHtml(blocks: any[]): string {
       }
       if (type === "blockquote" || type === "callout") return `<blockquote>${text}</blockquote>`;
       if (type === "code" || type === "formula") return `<pre><code>${text}</code></pre>`;
-      if (type === "image" && b?.meta?.url) {
-        return `<figure><img src="${b.meta.url}" alt="${b.meta.alt || ""}" /><figcaption>${b.meta.caption || ""}</figcaption></figure>`;
+      if (type === "image" && (b?.meta?.url || text)) {
+        const url = b?.meta?.url || text;
+        const caption = b?.meta?.caption ? `<figcaption>${b.meta.caption}</figcaption>` : "";
+        return `<figure><img src="${url}" alt="${b?.meta?.alt || ""}" />${caption}</figure>`;
       }
+      if (type === "youtube" && (b?.meta?.youtubeId || b?.meta?.url || text)) {
+        const id = b.meta?.youtubeId || b.meta?.url || text;
+        const caption = b.meta?.caption ? `<figcaption>${b.meta.caption}</figcaption>` : "";
+        return `<figure class="wp-block-embed-youtube" data-block-type="youtube" data-youtube-id="${id}"><div class="video-container"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>${caption}</figure>`;
+      }
+      if (type === "button") {
+        const label = b.content || b.meta?.label || "Learn More";
+        const url = b.meta?.url || "#";
+        const align = b.meta?.align || "center";
+        const style = b.meta?.style || "primary";
+        const size = b.meta?.size || "md";
+        const radius = b.meta?.radius || "rounded-lg";
+        const target = b.meta?.newTab ? ' target="_blank" rel="noopener noreferrer"' : "";
+        const customBg = b.meta?.bgColor ? `background-color: ${b.meta.bgColor};` : "";
+        const customColor = b.meta?.textColor ? `color: ${b.meta.textColor};` : "";
+        const styleAttr = (customBg || customColor) ? ` style="${customBg} ${customColor}"` : "";
+        return `<div class="wp-block-button-wrapper my-6" data-block-type="button" data-align="${align}" style="text-align: ${align};"><a href="${url}"${target} class="wp-block-button wp-block-button--${style} wp-block-button--size-${size} ${radius}" data-style="${style}" data-size="${size}" data-radius="${radius}"${styleAttr}>${label}</a></div>`;
+      }
+      if (type === "divider" || type === "hr") return `<hr />`;
+      if (type === "bulleted_list" || type === "ul") return `<ul>${text}</ul>`;
+      if (type === "numbered_list" || type === "ol") return `<ol>${text}</ol>`;
+      if (type === "table") return text;
       return text ? `<p>${text}</p>` : "";
     })
     .join("");

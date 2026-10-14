@@ -349,81 +349,81 @@ main table tbody tr {
 
 .blog-article-content h1 {
   font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA) !important;
-  font-size: clamp(2.4rem, 6vw, 4.5rem) !important;
-  font-weight: 700 !important;
-  line-height: 0.92 !important;
-  letter-spacing: -0.05em !important;
-  text-transform: uppercase !important;
-  margin-top: 3.5rem !important;
-  margin-bottom: 1.5rem !important;
-  display: block !important;
+  color: var(--color-frame-fg, #FAFAFA);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+  display: block;
 }
 
 .blog-article-content h2 {
   font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA) !important;
-  font-size: clamp(2rem, 5vw, 3.5rem) !important;
-  font-weight: 700 !important;
-  line-height: 0.95 !important;
-  letter-spacing: -0.05em !important;
-  text-transform: uppercase !important;
-  margin-top: 3rem !important;
-  margin-bottom: 1.25rem !important;
-  display: block !important;
+  color: var(--color-frame-fg, #FAFAFA);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+  margin-top: 3rem;
+  margin-bottom: 1.25rem;
+  display: block;
 }
 
 .blog-article-content :is(h1, h2, h3, h4, h5, h6) {
-  border: 0 !important;
-  padding-bottom: 0 !important;
+  border: 0;
+  padding-bottom: 0;
 }
 
 .blog-article-content h3 {
   font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA) !important;
-  font-size: clamp(1.5rem, 3.5vw, 2.25rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.05 !important;
-  letter-spacing: -0.045em !important;
-  text-transform: uppercase !important;
-  margin-top: 2.5rem !important;
-  margin-bottom: 1rem !important;
-  display: block !important;
+  color: var(--color-frame-fg, #FAFAFA);
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.045em;
+  text-transform: uppercase;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .blog-article-content h4 {
   font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: var(--color-frame-fg, #FAFAFA) !important;
-  font-size: clamp(1.25rem, 2.5vw, 1.75rem) !important;
-  font-weight: 700 !important;
-  line-height: 1.15 !important;
-  letter-spacing: -0.04em !important;
-  text-transform: uppercase !important;
-  margin-top: 2rem !important;
-  margin-bottom: 0.75rem !important;
-  display: block !important;
+  color: var(--color-frame-fg, #FAFAFA);
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  display: block;
 }
 
 .blog-article-content h5,
 .blog-article-content h6 {
   font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
-  color: #E4E4E7 !important;
-  font-size: 1.15rem !important;
-  font-weight: 700 !important;
-  line-height: 1.25 !important;
-  letter-spacing: -0.03em !important;
-  text-transform: uppercase !important;
-  margin-top: 1.75rem !important;
-  margin-bottom: 0.5rem !important;
-  display: block !important;
+  color: #E4E4E7;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .blog-article-content p {
-  color: #D4D4D8 !important;
-  font-size: 1.125rem !important;
-  line-height: 1.85 !important;
-  margin-top: 0 !important;
-  margin-bottom: 1.5rem !important;
+  color: #D4D4D8;
+  font-size: 1.125rem;
+  line-height: 1.85;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
 }
 
 .blog-article-content div {
@@ -431,13 +431,9 @@ main table tbody tr {
   line-height: 1.85;
 }
 
-/* Pasted editor spans must follow the article's dark theme, including headings. */
+/* Span typography rules: allow inline custom styles while naturally inheriting defaults */
 .blog-article-content span {
-  color: inherit !important;
-  font-family: inherit !important;
-  font-size: inherit !important;
-  line-height: inherit !important;
-  background-color: transparent !important;
+  line-height: inherit;
 }
 
 .blog-article-content strong,
@@ -530,6 +526,148 @@ main table tbody tr {
   margin: 2.25rem 0 !important;
 }
 
+.blog-article-content figcaption {
+  color: #94A3B8 !important;
+  font-size: 0.875rem !important;
+  line-height: 1.5 !important;
+  text-align: center;
+  margin-top: 0.5rem !important;
+  font-style: italic;
+}
+
+.blog-article-content sub {
+  font-size: 0.75em !important;
+  vertical-align: sub !important;
+  line-height: 0 !important;
+}
+
+.blog-article-content sup {
+  font-size: 0.75em !important;
+  vertical-align: super !important;
+  line-height: 0 !important;
+}
+
+/* YouTube Video Embeds */
+.blog-article-content .wp-block-embed-youtube {
+  position: relative;
+  margin: 2.25rem 0 !important;
+  width: 100%;
+}
+
+.blog-article-content .wp-block-embed-youtube .video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 1px solid #27272A;
+  background-color: #09090B;
+}
+
+.blog-article-content .wp-block-embed-youtube iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Button Block Styles */
+.blog-article-content .wp-block-button-wrapper {
+  margin: 2rem 0 !important;
+  display: block;
+}
+
+.blog-article-content .wp-block-button-wrapper[data-align="center"] {
+  text-align: center !important;
+}
+
+.blog-article-content .wp-block-button-wrapper[data-align="left"] {
+  text-align: left !important;
+}
+
+.blog-article-content .wp-block-button-wrapper[data-align="right"] {
+  text-align: right !important;
+}
+
+.blog-article-content .wp-block-button,
+.admin-editor-canvas .wp-block-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading), "Space Grotesk", sans-serif !important;
+  font-weight: 700 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  transition: all 0.2s ease-in-out !important;
+  cursor: pointer;
+  line-height: 1.2 !important;
+}
+
+.wp-block-button--size-sm {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.8rem !important;
+}
+
+.wp-block-button--size-md {
+  padding: 0.75rem 1.75rem !important;
+  font-size: 0.9rem !important;
+}
+
+.wp-block-button--size-lg {
+  padding: 1rem 2.25rem !important;
+  font-size: 1rem !important;
+}
+
+.wp-block-button--primary {
+  background-color: #9333EA !important;
+  color: #FFFFFF !important;
+  border: 2px solid #9333EA !important;
+  box-shadow: 0 4px 14px rgba(147, 51, 234, 0.35) !important;
+}
+
+.wp-block-button--primary:hover {
+  background-color: #A855F7 !important;
+  border-color: #A855F7 !important;
+  color: #FFFFFF !important;
+  transform: translateY(-1px);
+}
+
+.wp-block-button--secondary {
+  background-color: #18181B !important;
+  color: #FAFAFA !important;
+  border: 2px solid #3F3F46 !important;
+}
+
+.wp-block-button--secondary:hover {
+  background-color: #27272A !important;
+  border-color: #71717A !important;
+  color: #FFFFFF !important;
+}
+
+.wp-block-button--outline {
+  background-color: transparent !important;
+  color: #C084FC !important;
+  border: 2px solid #9333EA !important;
+}
+
+.wp-block-button--outline:hover {
+  background-color: #9333EA !important;
+  color: #FFFFFF !important;
+}
+
+.wp-block-button--text {
+  background-color: transparent !important;
+  color: #C084FC !important;
+  border: none !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  text-decoration: underline !important;
+}
+
 /* Keep pasted Word/Docs rows, columns and merged cells legible on the dark page. */
 .blog-article-content table {
   border-collapse: collapse;
@@ -595,21 +733,77 @@ main table tbody tr {
    Admin WordPress WYSIWYG Editor Canvas (Strictly Black / Dark Slate on White)
    ========================================================================== */
 .admin-editor-canvas,
-div[contenteditable="true"],
-div[contenteditable="true"] * {
-  color: #0F172A !important;
+div[contenteditable="true"] {
+  color: #0F172A;
+  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
-div[contenteditable="true"] h1,
-div[contenteditable="true"] h2,
-div[contenteditable="true"] h3,
-div[contenteditable="true"] h4,
-div[contenteditable="true"] h5,
+div[contenteditable="true"] h1 {
+  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  color: #0F172A;
+  font-size: 2.25rem;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+div[contenteditable="true"] h2 {
+  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  color: #0F172A;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+  margin-top: 1.5rem;
+  margin-bottom: 0.65rem;
+}
+
+div[contenteditable="true"] h3 {
+  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  color: #0F172A;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+div[contenteditable="true"] h4 {
+  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  color: #0F172A;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
+  margin-top: 1.1rem;
+  margin-bottom: 0.45rem;
+}
+
+div[contenteditable="true"] h5 {
+  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  color: #1E293B;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin-top: 1rem;
+  margin-bottom: 0.35rem;
+}
+
 div[contenteditable="true"] h6 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif !important;
-  color: #0F172A !important;
-  font-weight: 700 !important;
-  border: 0 !important;
+  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  color: #334155;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+  margin-top: 0.85rem;
+  margin-bottom: 0.3rem;
 }
 
 .admin-editor-canvas {
@@ -634,9 +828,59 @@ div[contenteditable="true"] h6 {
 
 div[contenteditable="true"] p,
 div[contenteditable="true"] div,
-div[contenteditable="true"] span,
 div[contenteditable="true"] li {
-  color: #334155 !important;
+  color: #334155;
+  line-height: 1.75;
+}
+
+/* Ensure custom font sizes scale line-height proportionally and never overlap lines */
+.admin-editor-canvas span[style*="font-size"],
+div[contenteditable="true"] span[style*="font-size"],
+.blog-article-content span[style*="font-size"] {
+  line-height: 1.3;
+  display: inline;
+}
+
+div[contenteditable="true"] :is(p, h1, h2, h3, h4, h5, h6)[style*="font-size"],
+.blog-article-content :is(p, h1, h2, h3, h4, h5, h6)[style*="font-size"] {
+  line-height: 1.35;
+}
+
+div[contenteditable="true"] ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin: 0.75rem 0 !important;
+}
+
+div[contenteditable="true"] ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin: 0.75rem 0 !important;
+}
+
+div[contenteditable="true"] li {
+  margin-bottom: 0.35rem !important;
+}
+
+div[contenteditable="true"] figcaption {
+  font-size: 0.85rem !important;
+  color: #64748B !important;
+  line-height: 1.5 !important;
+  text-align: center;
+  font-style: italic !important;
+  margin-top: 0.5rem !important;
+}
+
+div[contenteditable="true"] sub {
+  font-size: 0.75em !important;
+  vertical-align: sub !important;
+  line-height: 0 !important;
+}
+
+div[contenteditable="true"] sup {
+  font-size: 0.75em !important;
+  vertical-align: super !important;
+  line-height: 0 !important;
 }
 
 div[contenteditable="true"] strong,
@@ -651,4 +895,72 @@ div[contenteditable="true"] blockquote {
   background-color: #F8FAFC !important;
   font-style: italic !important;
   padding: 0.75rem 1rem !important;
+  margin: 1.25rem 0 !important;
 }
+
+div[contenteditable="true"] pre {
+  background-color: #F8FAFC !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 0.5rem !important;
+  padding: 1rem !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+  color: #0F172A !important;
+  overflow-x: auto;
+  margin: 1.25rem 0 !important;
+}
+
+div[contenteditable="true"] code {
+  background-color: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  padding: 0.15rem 0.35rem;
+  border-radius: 0.25rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.9em;
+  color: #0F172A;
+}
+
+div[contenteditable="true"] pre code {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: inherit !important;
+}
+
+div[contenteditable="true"] hr {
+  border: none !important;
+  border-top: 1px solid #E2E8F0 !important;
+  margin: 1.75rem 0 !important;
+}
+
+div[contenteditable="true"] .wp-block-embed-youtube {
+  position: relative;
+  margin: 1.5rem 0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid #E2E8F0;
+  background-color: #09090B;
+}
+
+div[contenteditable="true"] .wp-block-embed-youtube .video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+}
+
+div[contenteditable="true"] .wp-block-embed-youtube iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none; /* Allows selecting/clicking the block in the editor without triggering iframe capture */
+}
+
+div[contenteditable="true"] .wp-block-button-wrapper {
+  margin: 1.5rem 0;
+}
+

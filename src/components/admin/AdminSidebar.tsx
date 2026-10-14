@@ -8,13 +8,10 @@ import {
   FileText,
   ImageIcon,
   BarChart3,
-  Search,
   Settings,
   LogOut,
   ExternalLink,
   ShieldCheck,
-  Network,
-  GitBranch,
   Briefcase,
   UserRound,
 } from "lucide-react";
@@ -51,31 +48,13 @@ const navGroups = [
     ],
   },
   {
-    label: "AGENCY INTELLIGENCE & SEO",
+    label: "AGENCY INTELLIGENCE",
     items: [
       {
         href: "/admin/tools-analytics",
         label: "Services Analytics",
         icon: BarChart3,
         badge: "74+",
-      },
-      {
-        href: "/admin/search-console",
-        label: "Search Console",
-        icon: Search,
-        badge: null,
-      },
-      {
-        href: "/admin/seo-health",
-        label: "Internal Link Health",
-        icon: Network,
-        badge: null,
-      },
-      {
-        href: "/admin/technical-seo",
-        label: "Technical SEO & 301",
-        icon: GitBranch,
-        badge: null,
       },
     ],
   },

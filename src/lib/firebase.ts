@@ -378,6 +378,51 @@ export async function deleteAuthorProfileFromFirestore(id: string): Promise<{ su
   }
 }
 
+export async function getAdminCategoriesFromFirestore(): Promise<string[]> {
+  if (!db) return [];
+  try {
+    const snapshot = await getDocs(collection(db, "categories"));
+    const list: string[] = [];
+    snapshot.forEach((docSnap) => {
+      const data = docSnap.data();
+      if (data?.name && typeof data.name === "string") {
+        list.push(data.name);
+      }
+    });
+    return list;
+  } catch (error) {
+    console.warn("Firestore getAdminCategories Note:", error);
+    return [];
+  }
+}
+
+export async function saveCategoryToFirestore(name: string): Promise<{ success: boolean; error?: string }> {
+  if (!db) {
+    return { success: false, error: "Firebase is not configured." };
+  }
+  const trimmed = name.trim();
+  if (!trimmed) {
+    return { success: false, error: "Category name is required." };
+  }
+  try {
+    const slug = trimmed
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-|-$/g, "");
+    const docRef = doc(db, "categories", slug);
+    await setDoc(docRef, {
+      name: trimmed,
+      slug,
+      updatedAt: serverTimestamp(),
+      createdAt: serverTimestamp(),
+    }, { merge: true });
+    return { success: true };
+  } catch (error: any) {
+    console.warn("Firestore Save Category Note:", error?.message);
+    return { success: false, error: error?.message || "Failed to save category." };
+  }
+}
+
 export interface MediaRecord {
   id: string;
   title: string;

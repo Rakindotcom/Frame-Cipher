@@ -6,7 +6,12 @@ import { BlogPostItem, FAQItem } from "@/types/blog";
 import { FRAMECIPHER_REGISTRY, ServiceItemConfig } from "@/lib/registry/servicesRegistry";
 import { useAutoSlug } from "@/lib/seo/slugify";
 import { MediaLibraryModal, MediaItem } from "@/components/admin/cms/MediaLibraryModal";
-import { getAdminAuthorsFromFirestore } from "@/lib/firebase";
+import {
+  getAdminAuthorsFromFirestore,
+  getAdminCategoriesFromFirestore,
+  saveCategoryToFirestore,
+  getAdminBlogPostsFromFirestore,
+} from "@/lib/firebase";
 import {
   ArrowLeft,
   Settings,
@@ -76,16 +81,39 @@ import {
   Folder,
   Layers,
   X,
+  Video,
+  Play,
+  MousePointerClick,
+  Subscript,
+  Superscript,
 } from "lucide-react";
+import { extractYouTubeVideoId, isValidLinkUrl, isValidFontSize, normalizeFontSize } from "@/lib/blog/sanitizeHtml";
+
+function YouTubeIcon({ className = "h-4 w-4" }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor">
+      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
 
 export interface EditorBlock {
   id: string;
-  type: "paragraph" | "heading_h1" | "heading_h2" | "heading_h3" | "heading_h4" | "heading_h5" | "heading_h6" | "image" | "formula" | "callout" | "code";
+  type: "paragraph" | "heading_h1" | "heading_h2" | "heading_h3" | "heading_h4" | "heading_h5" | "heading_h6" | "image" | "formula" | "callout" | "code" | "youtube" | "button" | "table" | "divider" | "list";
   content: string;
   meta?: {
     alt?: string;
     caption?: string;
     url?: string;
+    youtubeId?: string;
+    label?: string;
+    align?: "left" | "center" | "right";
+    style?: "primary" | "secondary" | "outline" | "text";
+    size?: "sm" | "md" | "lg";
+    radius?: "rounded-md" | "rounded-xl" | "rounded-full";
+    newTab?: boolean;
+    bgColor?: string;
+    textColor?: string;
   };
 }
 
@@ -101,11 +129,32 @@ function blocksToHtml(blocks: EditorBlock[]): string {
   return blocks
     .map((block) => {
       if (block.type.startsWith("heading_h")) return `<h${block.type.slice(-1)}>${block.content}</h${block.type.slice(-1)}>`;
-      if (block.type === "formula") return `<pre><code>${block.content}</code></pre>`;
+      if (block.type === "formula" || block.type === "code") return `<pre><code>${block.content}</code></pre>`;
       if (block.type === "callout") return `<blockquote>${block.content}</blockquote>`;
       if (block.type === "image") {
-        return `<figure><img src="${block.meta?.url || "/logo.png"}" alt="${block.meta?.alt || ""}" /><figcaption>${block.meta?.caption || ""}</figcaption></figure>`;
+        const caption = block.meta?.caption ? `<figcaption class="text-center text-xs text-slate-500 mt-2 italic">${block.meta.caption}</figcaption>` : "";
+        return `<figure><img src="${block.meta?.url || "/logo.png"}" alt="${block.meta?.alt || ""}" />${caption}</figure>`;
       }
+      if (block.type === "youtube") {
+        const id = block.meta?.youtubeId || block.content;
+        const caption = block.meta?.caption ? `<figcaption class="text-center text-xs text-slate-500 mt-2 italic">${block.meta.caption}</figcaption>` : "";
+        return `<figure class="wp-block-embed-youtube my-6" data-block-type="youtube" data-youtube-id="${id}"><div class="video-container"><iframe src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe></div>${caption}</figure>`;
+      }
+      if (block.type === "button") {
+        const label = block.content || block.meta?.label || "Learn More";
+        const url = block.meta?.url || "#";
+        const align = block.meta?.align || "center";
+        const style = block.meta?.style || "primary";
+        const size = block.meta?.size || "md";
+        const radius = block.meta?.radius || "rounded-xl";
+        const target = block.meta?.newTab ? ' target="_blank" rel="noopener noreferrer"' : "";
+        const customBg = block.meta?.bgColor ? `background-color: ${block.meta.bgColor};` : "";
+        const customColor = block.meta?.textColor ? `color: ${block.meta.textColor};` : "";
+        const styleAttr = (customBg || customColor) ? ` style="${customBg} ${customColor}"` : "";
+        return `<div class="wp-block-button-wrapper my-6" data-block-type="button" data-align="${align}" style="text-align: ${align};"><a href="${url}"${target} class="wp-block-button wp-block-button--${style} wp-block-button--size-${size} ${radius}" data-style="${style}" data-size="${size}" data-radius="${radius}"${styleAttr}>${label}</a></div>`;
+      }
+      if (block.type === "divider") return `<hr class="editor-divider" />`;
+      if (block.type === "table") return block.content;
       return `<p>${block.content}</p>`;
     })
     .join("");
@@ -122,17 +171,57 @@ function summarizeHtmlAsBlocks(html: string): EditorBlock[] {
     if (/^h[1-6]$/.test(tag)) return { id: `b-${index}`, type: `heading_${tag}` as EditorBlock["type"], content: text };
     if (tag === "blockquote") return { id: `b-${index}`, type: "callout", content: text };
     if (tag === "pre") return { id: `b-${index}`, type: "formula", content: text };
-    if (tag === "figure") {
-      const image = node.querySelector("img");
+    if (node.classList?.contains("wp-block-embed-youtube") || node.getAttribute?.("data-block-type") === "youtube") {
+      const iframe = node.querySelector("iframe");
+      const videoId = node.getAttribute("data-youtube-id") || (iframe ? extractYouTubeVideoId(iframe.src) : "");
       return {
         id: `b-${index}`,
-        type: "image",
-        content: image?.alt || "Inserted image",
-        meta: { url: image?.getAttribute("src") || "", alt: image?.getAttribute("alt") || "", caption: node.querySelector("figcaption")?.textContent || "" },
+        type: "youtube",
+        content: videoId || "",
+        meta: {
+          youtubeId: videoId || "",
+          url: iframe?.getAttribute("src") || "",
+          caption: node.querySelector("figcaption")?.textContent || "",
+        },
       };
     }
+    if (node.classList?.contains("wp-block-button-wrapper") || node.getAttribute?.("data-block-type") === "button") {
+      const btn = node.querySelector("a.wp-block-button, a");
+      return {
+        id: `b-${index}`,
+        type: "button",
+        content: btn?.textContent?.trim() || "Button",
+        meta: {
+          label: btn?.textContent?.trim() || "Button",
+          url: btn?.getAttribute("href") || "#",
+          align: (node.getAttribute("data-align") || "center") as any,
+          style: (btn?.getAttribute("data-style") || "primary") as any,
+          size: (btn?.getAttribute("data-size") || "md") as any,
+          radius: (btn?.getAttribute("data-radius") || "rounded-xl") as any,
+          newTab: btn?.getAttribute("target") === "_blank",
+        },
+      };
+    }
+    if (tag === "figure") {
+      const image = node.querySelector("img");
+      if (image) {
+        return {
+          id: `b-${index}`,
+          type: "image",
+          content: image?.alt || "Inserted image",
+          meta: { url: image?.getAttribute("src") || "", alt: image?.getAttribute("alt") || "", caption: node.querySelector("figcaption")?.textContent || "" },
+        };
+      }
+    }
+    if (tag === "hr") return { id: `b-${index}`, type: "divider", content: "" };
+    if (tag === "table" || node.classList?.contains("table-responsive")) {
+      return { id: `b-${index}`, type: "table", content: (node as HTMLElement).outerHTML };
+    }
+    if (tag === "ul" || tag === "ol") {
+      return { id: `b-${index}`, type: "list", content: (node as HTMLElement).outerHTML };
+    }
     return { id: `b-${index}`, type: "paragraph", content: text };
-  }).filter((block) => block.content.trim() || block.type === "image");
+  }).filter((block) => block.content.trim() || block.type === "image" || block.type === "youtube" || block.type === "button" || block.type === "divider");
   return blocks.length > 0 ? blocks : DEFAULT_EDITOR_BLOCKS;
 }
 
@@ -140,6 +229,27 @@ const SPECIAL_CHARACTERS = [
   "Ω", "λ", "μ", "π", "θ", "φ", "°", "±", "×", "÷",
   "≈", "≠", "≤", "≥", "∞", "√", "Δ", "∑", "©", "®",
   "™", "€", "£", "¥", "§", "¶", "←", "↑", "→", "↓"
+];
+
+export const FONT_SIZE_PRESETS = [
+  { label: "12px", value: "12px" },
+  { label: "14px", value: "14px" },
+  { label: "16px (Normal)", value: "16px" },
+  { label: "18px (Medium)", value: "18px" },
+  { label: "20px (Large)", value: "20px" },
+  { label: "24px (XL)", value: "24px" },
+  { label: "28px (2XL)", value: "28px" },
+  { label: "32px (3XL)", value: "32px" },
+  { label: "36px (4XL)", value: "36px" },
+  { label: "42px (5XL)", value: "42px" },
+  { label: "48px (Huge)", value: "48px" },
+];
+
+export const FONT_FAMILY_PRESETS = [
+  { id: "default", label: "Default Font", value: "" },
+  { id: "heading", label: "Space Grotesk (Heading)", value: "'Space Grotesk', sans-serif" },
+  { id: "serif", label: "Merriweather (Serif)", value: "Merriweather, Georgia, serif" },
+  { id: "mono", label: "Monospace (Code)", value: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" },
 ];
 
 interface WordPressEditorProps {
@@ -158,6 +268,13 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   const [isPasteAsText, setIsPasteAsText] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [lastSavedTime, setLastSavedTime] = useState<string>("6:28:15 pm");
+
+  // Typography States
+  const [currentFontSize, setCurrentFontSize] = useState<string>("");
+  const [isFontSizeOpen, setIsFontSizeOpen] = useState(false);
+  const [customFontSizeInput, setCustomFontSizeInput] = useState("");
+  const [currentFontFamily, setCurrentFontFamily] = useState<string>("");
+  const [isFontFamilyOpen, setIsFontFamilyOpen] = useState(false);
 
   // Post Details State
   const [title, setTitle] = useState(post.title || "");
@@ -199,6 +316,47 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
         }
       })
       .catch(() => {});
+
+    // Fetch and merge all categories from Firestore and existing blog posts
+    getAdminCategoriesFromFirestore()
+      .then((cats) => {
+        if (Array.isArray(cats) && cats.length > 0) {
+          setCategoriesList((prev) => {
+            const merged = Array.from(new Set([...prev, ...cats]));
+            if (typeof window !== "undefined") {
+              try {
+                localStorage.setItem("fc_blog_categories", JSON.stringify(merged));
+              } catch {}
+            }
+            return merged;
+          });
+        }
+      })
+      .catch(() => {});
+
+    getAdminBlogPostsFromFirestore()
+      .then((allPosts) => {
+        if (Array.isArray(allPosts)) {
+          const postCats = allPosts
+            .flatMap((p: any) => [
+              p?.category,
+              ...(Array.isArray(p?.categories) ? p.categories : []),
+            ])
+            .filter(Boolean);
+          if (postCats.length > 0) {
+            setCategoriesList((prev) => {
+              const merged = Array.from(new Set([...prev, ...postCats]));
+              if (typeof window !== "undefined") {
+                try {
+                  localStorage.setItem("fc_blog_categories", JSON.stringify(merged));
+                } catch {}
+              }
+              return merged;
+            });
+          }
+        }
+      })
+      .catch(() => {});
   }, []);
   const [excerpt, setExcerpt] = useState(post.excerpt || "");
   const [visibility, setVisibility] = useState<"public" | "password" | "private">(post.visibility || "public");
@@ -231,6 +389,8 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
 
   type SlashMenuState = { query: string; range: Range; top: number; left: number };
   const [slashMenu, setSlashMenu] = useState<SlashMenuState | null>(null);
+  const slashMenuRef = useRef<SlashMenuState | null>(null);
+  slashMenuRef.current = slashMenu;
   const [slashSelection, setSlashSelection] = useState(0);
 
   type SelectionBubbleState = {
@@ -255,24 +415,89 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   const [editingImageCaption, setEditingImageCaption] = useState("");
   const [editingImageAlignment, setEditingImageAlignment] = useState<"none" | "left" | "center" | "right">("none");
   const [editingImageWidth, setEditingImageWidth] = useState("100%");
+  const [editingImageLink, setEditingImageLink] = useState("");
   const [draggedImage, setDraggedImage] = useState<HTMLImageElement | null>(null);
   const draggedImageRef = useRef<HTMLImageElement | null>(null);
+
+  // Link Context Bubble State
+  type LinkBubbleState = {
+    element: HTMLAnchorElement;
+    href: string;
+    text: string;
+    newTab: boolean;
+    top: number;
+    left: number;
+  };
+  const [linkBubble, setLinkBubble] = useState<LinkBubbleState | null>(null);
+  const editingAnchorRef = useRef<HTMLAnchorElement | null>(null);
+
+  // YouTube Embed Block States
+  const [isYouTubeModalOpen, setIsYouTubeModalOpen] = useState(false);
+  const [youtubeInput, setYoutubeInput] = useState("");
+  const [youtubeCaption, setYoutubeCaption] = useState("");
+  const [youtubeError, setYoutubeError] = useState<string | null>(null);
+  const editingYouTubeRef = useRef<HTMLElement | null>(null);
+  const [selectedYouTube, setSelectedYouTube] = useState<{
+    element: HTMLElement;
+    videoId: string;
+    caption: string;
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+  } | null>(null);
+
+  // Button Block States
+  const [isButtonModalOpen, setIsButtonModalOpen] = useState(false);
+  const [buttonLabel, setButtonLabel] = useState("Learn More");
+  const [buttonUrl, setButtonUrl] = useState("https://");
+  const [buttonNewTab, setButtonNewTab] = useState(true);
+  const [buttonAlign, setButtonAlign] = useState<"left" | "center" | "right">("center");
+  const [buttonStyle, setButtonStyle] = useState<"primary" | "secondary" | "outline" | "text">("primary");
+  const [buttonSize, setButtonSize] = useState<"sm" | "md" | "lg">("md");
+  const [buttonRadius, setButtonRadius] = useState<"rounded-md" | "rounded-xl" | "rounded-full">("rounded-xl");
+  const [buttonBgColor, setButtonBgColor] = useState("");
+  const [buttonTextColor, setButtonTextColor] = useState("");
+  const editingButtonRef = useRef<HTMLElement | null>(null);
+  const [selectedButton, setSelectedButton] = useState<{
+    wrapper: HTMLElement;
+    button: HTMLAnchorElement;
+    top: number;
+    left: number;
+    right: number;
+    bottom: number;
+  } | null>(null);
+
+  // Image Inserter Modal (Media Library vs URL)
+  const [isImageModalOpen, setIsImageModalOpen] = useState(false);
+  const [imageInsertTab, setImageInsertTab] = useState<"library" | "url">("library");
+  const [imageUrlInput, setImageUrlInput] = useState("");
+  const [imageAltInput, setImageAltInput] = useState("");
+  const [imageCaptionInput, setImageCaptionInput] = useState("");
+  const [imageAlignInput, setImageAlignInput] = useState<"none" | "left" | "center" | "right">("none");
+
+  // Gutenberg Add Block (+) Inserter Modal
+  const [isBlockInserterOpen, setIsBlockInserterOpen] = useState(false);
+  const [blockSearch, setBlockSearch] = useState("");
+
   const slashCommands = [
-    { label: "Paragraph", hint: "Normal body text", tag: "p" },
-    { label: "Heading 1", hint: "Main section heading", tag: "h1" },
-    { label: "Heading 2", hint: "Section heading", tag: "h2" },
-    { label: "Heading 3", hint: "Subsection heading", tag: "h3" },
-    { label: "Heading 4", hint: "Small subsection", tag: "h4" },
-    { label: "Heading 5", hint: "Minor heading", tag: "h5" },
-    { label: "Heading 6", hint: "Smallest heading", tag: "h6" },
-    { label: "Bulleted list", hint: "Create a list", tag: "ul" },
-    { label: "Numbered list", hint: "Create a numbered list", tag: "ol" },
-    { label: "Quote", hint: "Engineering note", tag: "blockquote" },
-    { label: "Image", hint: "Insert from media library", tag: "img" },
-    { label: "Callout", hint: "Highlight an engineering note", tag: "aside" },
-    { label: "Code block", hint: "Monospace technical code", tag: "pre" },
-    { label: "Divider", hint: "Add a section divider", tag: "hr" },
-    { label: "Table", hint: "Insert a data table", tag: "table" },
+    { label: "Paragraph", hint: "Normal body text", tag: "p", category: "text" },
+    { label: "Heading 1", hint: "Large main heading", tag: "h1", category: "text" },
+    { label: "Heading 2", hint: "Section heading", tag: "h2", category: "text" },
+    { label: "Heading 3", hint: "Subsection heading", tag: "h3", category: "text" },
+    { label: "Heading 4", hint: "Small section heading", tag: "h4", category: "text" },
+    { label: "Heading 5", hint: "Minor heading", tag: "h5", category: "text" },
+    { label: "Heading 6", hint: "Smallest heading", tag: "h6", category: "text" },
+    { label: "Image", hint: "Upload, media library or URL", tag: "img", category: "media" },
+    { label: "YouTube Embed", hint: "Video via URL or embed code", tag: "youtube", category: "media" },
+    { label: "Button", hint: "Call to action link button", tag: "button", category: "design" },
+    { label: "Bulleted list", hint: "Create an unordered list", tag: "ul", category: "text" },
+    { label: "Numbered list", hint: "Create a numbered list", tag: "ol", category: "text" },
+    { label: "Quote", hint: "Blockquote or citation", tag: "blockquote", category: "text" },
+    { label: "Callout", hint: "Important engineering notice", tag: "aside", category: "design" },
+    { label: "Code block", hint: "Monospace technical code", tag: "pre", category: "text" },
+    { label: "Divider", hint: "Horizontal section separator", tag: "hr", category: "design" },
+    { label: "Table", hint: "Data table with rows and columns", tag: "table", category: "design" },
   ] as const;
 
   // Media Library Modal
@@ -401,15 +626,31 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   const [isTextColorOpen, setIsTextColorOpen] = useState(false);
   const [isHighlightColorOpen, setIsHighlightColorOpen] = useState(false);
 
-  // Categories list with Add New category capability
-  const [categoriesList, setCategoriesList] = useState<string[]>([
-    "Growth Marketing",
-    "Webflow Development",
-    "UI/UX & Branding",
-    "Technical SEO",
-    "Conversion Optimization",
-    "Agency Architecture",
-  ]);
+  // Categories list with Add New category capability (hydrated from defaults, post, and cache)
+  const [categoriesList, setCategoriesList] = useState<string[]>(() => {
+    const defaults = [
+      "Growth Marketing",
+      "Webflow Development",
+      "UI/UX & Branding",
+      "Technical SEO",
+      "Conversion Optimization",
+      "Agency Architecture",
+    ];
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("fc_blog_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed)) {
+            defaults.push(...parsed);
+          }
+        }
+      } catch {}
+    }
+    if (post.category) defaults.push(post.category);
+    if (Array.isArray(post.categories)) defaults.push(...post.categories);
+    return Array.from(new Set(defaults));
+  });
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
 
@@ -428,50 +669,90 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   // Content blocks are derived from the same HTML that the rich editor saves.
   const [blocks, setBlocks] = useState<EditorBlock[]>(initialBlocks);
 
+  const closeSlashMenu = () => {
+    setSlashMenu(null);
+    setSlashSelection(0);
+  };
+
+  const computeSlashMenuPosition = (range: Range) => {
+    const rect = range.getBoundingClientRect();
+    const menuHeight = 290;
+    const menuWidth = 288;
+    let top = rect.bottom + 6;
+    if (top + menuHeight > window.innerHeight && rect.top - menuHeight - 6 > 0) {
+      top = rect.top - menuHeight - 6;
+    } else if (top + menuHeight > window.innerHeight) {
+      top = Math.max(10, window.innerHeight - menuHeight - 10);
+    }
+    const left = Math.max(16, Math.min(rect.left, window.innerWidth - menuWidth - 20));
+    return { top, left };
+  };
+
+  const updateSlashMenuFromCaret = () => {
+    if (!slashMenuRef.current) return;
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0 || !selection.isCollapsed) {
+      closeSlashMenu();
+      return;
+    }
+    const range = selection.getRangeAt(0);
+    if (!contentEditableRef.current?.contains(range.startContainer)) {
+      closeSlashMenu();
+      return;
+    }
+    const node = range.startContainer;
+    if (node.nodeType !== Node.TEXT_NODE) {
+      closeSlashMenu();
+      return;
+    }
+    const textBeforeCaret = node.textContent?.slice(0, range.startOffset) || "";
+    const slashIndex = textBeforeCaret.lastIndexOf("/");
+    if (slashIndex < 0) {
+      closeSlashMenu();
+      return;
+    }
+    if (slashIndex > 0 && !/\s/.test(textBeforeCaret[slashIndex - 1])) {
+      closeSlashMenu();
+      return;
+    }
+    const query = textBeforeCaret.slice(slashIndex + 1);
+    if (query.startsWith(" ") || query.length > 30) {
+      closeSlashMenu();
+      return;
+    }
+    const slashRange = range.cloneRange();
+    slashRange.setStart(node, slashIndex);
+    const { top, left } = computeSlashMenuPosition(range);
+    setSlashMenu({ query, range: slashRange, top, left });
+  };
+
   const syncEditorHtml = () => {
     const nextHtml = contentEditableRef.current?.innerHTML || htmlContent;
     setHtmlContent(nextHtml);
     setBlocks(summarizeHtmlAsBlocks(nextHtml));
-
-    const selection = window.getSelection();
-    if (slashMenu && selection?.rangeCount && selection.isCollapsed) {
-      const range = selection.getRangeAt(0);
-      const node = range.startContainer;
-      if (node.nodeType === Node.TEXT_NODE) {
-        const textBeforeCaret = node.textContent?.slice(0, range.startOffset) || "";
-        const slashIndex = textBeforeCaret.lastIndexOf("/");
-        if (slashIndex >= 0 && (slashIndex === 0 || /\s/.test(textBeforeCaret[slashIndex - 1]))) {
-          const nextRange = range.cloneRange();
-          nextRange.setStart(node, slashIndex);
-          const rect = range.getBoundingClientRect();
-          setSlashMenu((current) => current ? { ...current, query: textBeforeCaret.slice(slashIndex + 1), range: nextRange, top: rect.bottom + 6, left: rect.left } : current);
-        }
-      }
-    }
+    updateSlashMenuFromCaret();
   };
 
   const filteredSlashCommands = slashCommands.filter((command) =>
     `${command.label} ${command.hint}`.toLowerCase().includes((slashMenu?.query || "").toLowerCase()),
   );
 
-  const closeSlashMenu = () => {
-    setSlashMenu(null);
-    setSlashSelection(0);
-  };
-
   const openSlashMenuFromCaret = () => {
     const selection = window.getSelection();
     if (!selection || selection.rangeCount === 0 || !selection.isCollapsed) return;
     const range = selection.getRangeAt(0);
+    if (!contentEditableRef.current?.contains(range.startContainer)) return;
     const node = range.startContainer;
     if (node.nodeType !== Node.TEXT_NODE) return;
     const textBeforeCaret = node.textContent?.slice(0, range.startOffset) || "";
     const slashIndex = textBeforeCaret.lastIndexOf("/");
     if (slashIndex < 0 || (slashIndex > 0 && !/\s/.test(textBeforeCaret[slashIndex - 1]))) return;
+    const query = textBeforeCaret.slice(slashIndex + 1);
+    if (query.startsWith(" ") || query.length > 30) return;
     const slashRange = range.cloneRange();
     slashRange.setStart(node, slashIndex);
-    const rect = range.getBoundingClientRect();
-    setSlashMenu({ query: textBeforeCaret.slice(slashIndex + 1), range: slashRange, top: rect.bottom + 6, left: rect.left });
+    const { top, left } = computeSlashMenuPosition(range);
+    setSlashMenu({ query, range: slashRange, top, left });
     setSlashSelection(0);
   };
 
@@ -498,8 +779,35 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     setSavedRange(selectionAfterSlash.cloneRange());
 
     if (command.tag === "img") {
-      setMediaModalTarget("inline");
-      setIsMediaModalOpen(true);
+      setImageInsertTab("library");
+      setImageUrlInput("");
+      setImageAltInput("");
+      setImageCaptionInput("");
+      setIsImageModalOpen(true);
+      closeSlashMenu();
+      return;
+    }
+    if (command.tag === "youtube") {
+      editingYouTubeRef.current = null;
+      setYoutubeInput("");
+      setYoutubeCaption("");
+      setYoutubeError(null);
+      setIsYouTubeModalOpen(true);
+      closeSlashMenu();
+      return;
+    }
+    if (command.tag === "button") {
+      editingButtonRef.current = null;
+      setButtonLabel("Learn More");
+      setButtonUrl("https://");
+      setButtonNewTab(true);
+      setButtonAlign("center");
+      setButtonStyle("primary");
+      setButtonSize("md");
+      setButtonRadius("rounded-xl");
+      setButtonBgColor("");
+      setButtonTextColor("");
+      setIsButtonModalOpen(true);
       closeSlashMenu();
       return;
     }
@@ -513,7 +821,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     if (command.tag === "ul" || command.tag === "ol") {
       element.innerHTML = "<li>Write list item</li>";
     } else if (command.tag === "aside") {
-      element.textContent = "Important Engineering Note: write your note here.";
+      element.textContent = "Important note: write your note here.";
       element.className = "editor-callout";
     } else if (command.tag === "pre") {
       const code = document.createElement("code");
@@ -540,6 +848,122 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     selection?.addRange(nextRange);
     closeSlashMenu();
     syncEditorHtml();
+  };
+
+  const insertBlockAtSavedRange = (html: string) => {
+    if (editorMode === "text") {
+      const { start, end } = savedTextSelectionRef.current || { start: htmlContent.length, end: htmlContent.length };
+      const nextHtml = `${htmlContent.slice(0, start)}\n${html}\n${htmlContent.slice(end)}`;
+      setHtmlContent(nextHtml);
+      setBlocks(summarizeHtmlAsBlocks(nextHtml));
+      savedTextSelectionRef.current = null;
+      return;
+    }
+    if (!contentEditableRef.current) return;
+    const editor = contentEditableRef.current;
+    editor.focus();
+
+    const range = savedRange || (() => {
+      const sel = window.getSelection();
+      if (sel && sel.rangeCount > 0 && editor.contains(sel.getRangeAt(0).startContainer)) {
+        return sel.getRangeAt(0);
+      }
+      const r = document.createRange();
+      r.selectNodeContents(editor);
+      r.collapse(false);
+      return r;
+    })();
+
+    const temp = document.createElement("div");
+    temp.innerHTML = html;
+    const fragment = document.createDocumentFragment();
+    while (temp.firstChild) {
+      fragment.appendChild(temp.firstChild);
+    }
+
+    const startElement = range.startContainer.nodeType === Node.TEXT_NODE
+      ? range.startContainer.parentElement
+      : range.startContainer as Element;
+    const currentBlock = startElement?.closest("p,h1,h2,h3,h4,h5,h6,blockquote,pre,figure,table,ul,ol");
+
+    if (currentBlock && editor.contains(currentBlock) && !currentBlock.textContent?.trim()) {
+      currentBlock.parentNode?.replaceChild(fragment, currentBlock);
+    } else if (currentBlock && editor.contains(currentBlock)) {
+      currentBlock.parentNode?.insertBefore(fragment, currentBlock.nextSibling);
+    } else {
+      range.insertNode(fragment);
+    }
+
+    setSavedRange(null);
+    syncEditorHtml();
+    window.setTimeout(() => {
+      updateSelectionBubble();
+      checkCaretLinkContext();
+    }, 30);
+  };
+
+  const insertBlockFromInserter = (tag: string) => {
+    setIsBlockInserterOpen(false);
+    contentEditableRef.current?.focus();
+    const selection = window.getSelection();
+    if (selection && selection.rangeCount > 0) {
+      setSavedRange(selection.getRangeAt(0).cloneRange());
+    }
+
+    if (tag === "img") {
+      setImageInsertTab("library");
+      setImageUrlInput("");
+      setImageAltInput("");
+      setImageCaptionInput("");
+      setIsImageModalOpen(true);
+      return;
+    }
+    if (tag === "youtube") {
+      editingYouTubeRef.current = null;
+      setYoutubeInput("");
+      setYoutubeCaption("");
+      setYoutubeError(null);
+      setIsYouTubeModalOpen(true);
+      return;
+    }
+    if (tag === "button") {
+      editingButtonRef.current = null;
+      setButtonLabel("Learn More");
+      setButtonUrl("https://");
+      setButtonNewTab(true);
+      setButtonAlign("center");
+      setButtonStyle("primary");
+      setButtonSize("md");
+      setButtonRadius("rounded-xl");
+      setButtonBgColor("");
+      setButtonTextColor("");
+      setIsButtonModalOpen(true);
+      return;
+    }
+    if (tag === "table") {
+      setIsTableModalOpen(true);
+      return;
+    }
+
+    // Direct element insertions
+    const element = document.createElement(tag);
+    if (tag === "ul" || tag === "ol") {
+      element.innerHTML = "<li>List item</li>";
+    } else if (tag === "aside") {
+      element.textContent = "Important note: write your note here.";
+      element.className = "editor-callout";
+    } else if (tag === "pre") {
+      const code = document.createElement("code");
+      code.textContent = "// Technical code block";
+      element.appendChild(code);
+    } else if (tag === "hr") {
+      element.className = "editor-divider";
+    } else if (/^h[1-6]$/.test(tag)) {
+      element.textContent = `Heading ${tag.slice(1)}`;
+    } else {
+      element.textContent = "Write your text here";
+    }
+    insertBlockAtSavedRange(element.outerHTML);
   };
 
   const startResize = (e: React.PointerEvent, handle: "nw" | "ne" | "sw" | "se") => {
@@ -673,13 +1097,104 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     });
   };
 
+  const checkCaretLinkContext = () => {
+    const sel = window.getSelection();
+    if (!sel || !contentEditableRef.current) {
+      setLinkBubble(null);
+      return;
+    }
+    const node = sel.anchorNode;
+    if (!node || !contentEditableRef.current.contains(node)) {
+      setLinkBubble(null);
+      return;
+    }
+    const el = (node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement) as HTMLElement | null;
+    const anchor = el?.closest("a") as HTMLAnchorElement | null;
+    if (anchor && contentEditableRef.current.contains(anchor)) {
+      // Don't treat a button block's anchor as a standard text link bubble
+      if (anchor.classList.contains("wp-block-button") || anchor.closest(".wp-block-button-wrapper")) {
+        setLinkBubble(null);
+        return;
+      }
+      const rect = anchor.getBoundingClientRect();
+      if (rect.width > 0 || rect.height > 0) {
+        setLinkBubble({
+          element: anchor,
+          href: anchor.getAttribute("href") || "",
+          text: anchor.textContent || "",
+          newTab: anchor.getAttribute("target") === "_blank",
+          top: Math.max(48, rect.top - 44),
+          left: Math.max(16, rect.left),
+        });
+        return;
+      }
+    }
+    setLinkBubble(null);
+  };
+
+  const updateActiveTypography = () => {
+    const sel = window.getSelection();
+    if (!sel || !sel.anchorNode || !contentEditableRef.current) return;
+    let node: Node | null = sel.anchorNode;
+    if (node.nodeType === Node.TEXT_NODE) {
+      node = node.parentElement;
+    }
+    let detectedSize = "";
+    let detectedFamily = "";
+    let curr = node as HTMLElement | null;
+    while (curr && curr !== contentEditableRef.current && contentEditableRef.current.contains(curr)) {
+      if (!detectedSize && curr.style.fontSize) {
+        detectedSize = curr.style.fontSize;
+      }
+      if (!detectedFamily && curr.style.fontFamily) {
+        detectedFamily = curr.style.fontFamily;
+      }
+      curr = curr.parentElement;
+    }
+    setCurrentFontSize(detectedSize);
+    setCurrentFontFamily(detectedFamily);
+  };
+
   useEffect(() => {
     const handleSelectionChange = () => {
-      window.setTimeout(updateSelectionBubble, 10);
+      window.setTimeout(() => {
+        updateSelectionBubble();
+        checkCaretLinkContext();
+        updateActiveTypography();
+        if (slashMenuRef.current) {
+          updateSlashMenuFromCaret();
+        }
+      }, 10);
     };
     document.addEventListener("selectionchange", handleSelectionChange);
     return () => document.removeEventListener("selectionchange", handleSelectionChange);
   }, [selectedImage]);
+
+  useEffect(() => {
+    if (!slashMenu) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('[data-slash-menu="true"]')) {
+        return;
+      }
+      closeSlashMenu();
+    };
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => window.removeEventListener("mousedown", handleClickOutside);
+  }, [slashMenu]);
+
+  useEffect(() => {
+    if (!isFontSizeOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target?.closest('[data-font-size-container="true"]')) {
+        return;
+      }
+      setIsFontSizeOpen(false);
+    };
+    window.addEventListener("mousedown", handleClickOutside);
+    return () => window.removeEventListener("mousedown", handleClickOutside);
+  }, [isFontSizeOpen]);
 
   useEffect(() => {
     if (!selectedImage) return;
@@ -695,13 +1210,63 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     return () => window.removeEventListener("scroll", updateImagePos, true);
   }, [selectedImage]);
 
-
-
   const handleEditorClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement;
+
+    // 1. YouTube block click
+    const youtubeBlock = target.closest(".wp-block-embed-youtube") as HTMLElement | null;
+    if (youtubeBlock && contentEditableRef.current?.contains(youtubeBlock)) {
+      if (selectedImage) selectedImage.element.style.outline = "";
+      setSelectedImage(null);
+      setSelectedButton(null);
+      const iframe = youtubeBlock.querySelector("iframe");
+      const src = iframe?.getAttribute("src") || "";
+      const videoId = extractYouTubeVideoId(src) || "";
+      const caption = youtubeBlock.querySelector("figcaption")?.textContent || "";
+      const rect = youtubeBlock.getBoundingClientRect();
+      setSelectedYouTube({
+        element: youtubeBlock,
+        videoId,
+        caption,
+        top: rect.top,
+        left: rect.left,
+        right: rect.right,
+        bottom: rect.bottom,
+      });
+      return;
+    } else if (selectedYouTube && !target.closest(".wp-block-embed-youtube")) {
+      setSelectedYouTube(null);
+    }
+
+    // 2. Button block click
+    const buttonWrapper = target.closest(".wp-block-button-wrapper") as HTMLElement | null;
+    if (buttonWrapper && contentEditableRef.current?.contains(buttonWrapper)) {
+      event.preventDefault();
+      if (selectedImage) selectedImage.element.style.outline = "";
+      setSelectedImage(null);
+      setSelectedYouTube(null);
+      const btn = (buttonWrapper.querySelector(".wp-block-button") || buttonWrapper.querySelector("a")) as HTMLAnchorElement | null;
+      if (btn) {
+        const rect = buttonWrapper.getBoundingClientRect();
+        setSelectedButton({
+          wrapper: buttonWrapper,
+          button: btn,
+          top: rect.top,
+          left: rect.left,
+          right: rect.right,
+          bottom: rect.bottom,
+        });
+      }
+      return;
+    } else if (selectedButton && !target.closest(".wp-block-button-wrapper")) {
+      setSelectedButton(null);
+    }
+
+    // 3. Image click
     if (target.tagName.toLowerCase() !== "img") {
       if (selectedImage) selectedImage.element.style.outline = "";
       setSelectedImage(null);
+      window.setTimeout(checkCaretLinkContext, 10);
       return;
     }
     const image = target as HTMLImageElement;
@@ -719,8 +1284,6 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   const handleEditorMouseDown = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement;
     if (target.tagName.toLowerCase() === "img") {
-      // Keep the native drag gesture available; selection is cleared in the
-      // click handler after the image has been identified.
       event.stopPropagation();
     }
   };
@@ -788,6 +1351,9 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     const figcaption = figure?.querySelector("figcaption");
     setEditingImageAlt(img.alt || "");
     setEditingImageCaption(figcaption?.textContent || "");
+    const parentA = img.parentElement?.tagName.toLowerCase() === "a" ? img.parentElement : null;
+    setEditingImageLink(parentA?.getAttribute("href") || "");
+
     const figureClass = figure?.className || img.className;
     if (figureClass.includes("alignleft")) setEditingImageAlignment("left");
     else if (figureClass.includes("alignright")) setEditingImageAlignment("right");
@@ -817,13 +1383,33 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       let figcaption = figure.querySelector("figcaption");
       if (!figcaption) {
         figcaption = document.createElement("figcaption");
-        figcaption.className = "text-center text-xs text-slate-500 mt-1 italic";
+        figcaption.className = "text-center text-xs text-slate-500 mt-1.5 italic";
         figure.appendChild(figcaption);
       }
       figcaption.textContent = editingImageCaption.trim();
     } else if (figure && !editingImageCaption.trim()) {
       const figcaption = figure.querySelector("figcaption");
       if (figcaption) figcaption.remove();
+    }
+
+    // Image Link Handling
+    const parentA = img.parentElement?.tagName.toLowerCase() === "a" ? (img.parentElement as HTMLAnchorElement) : null;
+    if (editingImageLink.trim() && isValidLinkUrl(editingImageLink.trim())) {
+      if (parentA) {
+        parentA.setAttribute("href", editingImageLink.trim());
+        parentA.setAttribute("target", "_blank");
+        parentA.setAttribute("rel", "noopener noreferrer");
+      } else {
+        const linkWrapper = document.createElement("a");
+        linkWrapper.setAttribute("href", editingImageLink.trim());
+        linkWrapper.setAttribute("target", "_blank");
+        linkWrapper.setAttribute("rel", "noopener noreferrer");
+        img.parentNode?.insertBefore(linkWrapper, img);
+        linkWrapper.appendChild(img);
+      }
+    } else if (parentA && !editingImageLink.trim()) {
+      parentA.parentNode?.insertBefore(img, parentA);
+      parentA.remove();
     }
 
     setSelectedImageAlignment(editingImageAlignment);
@@ -931,13 +1517,49 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       return;
     }
 
+    if (selectedYouTube && (event.key === "Delete" || event.key === "Backspace")) {
+      event.preventDefault();
+      event.stopPropagation();
+      removeSelectedYouTube();
+      return;
+    }
+
+    if (selectedButton && (event.key === "Delete" || event.key === "Backspace")) {
+      event.preventDefault();
+      event.stopPropagation();
+      removeSelectedButton();
+      return;
+    }
+
+    // Ctrl+K / Cmd+K shortcut to open link modal
+    if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault();
+      handleOpenLinkModal();
+      return;
+    }
+
     if (!slashMenu) {
-      if (event.key === "/") window.setTimeout(openSlashMenuFromCaret, 0);
+      if (event.key === "/") window.setTimeout(openSlashMenuFromCaret, 10);
       return;
     }
     if (event.key === "Escape") {
       event.preventDefault();
       closeSlashMenu();
+      return;
+    }
+    if (event.key === " " && slashMenu.query === "") {
+      closeSlashMenu();
+      return;
+    }
+    if (event.key === "Backspace" || event.key === "Delete") {
+      if (slashMenu.query === "") {
+        closeSlashMenu();
+        return;
+      }
+      window.setTimeout(() => {
+        syncEditorHtml();
+        updateSlashMenuFromCaret();
+      }, 0);
       return;
     }
     if (event.key === "ArrowDown" || event.key === "ArrowUp") {
@@ -948,9 +1570,10 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       });
       return;
     }
-    if (event.key === "Enter" && filteredSlashCommands.length > 0) {
+    if ((event.key === "Enter" || event.key === "Tab") && filteredSlashCommands.length > 0) {
       event.preventDefault();
       insertSlashCommand(filteredSlashCommands[slashSelection] || filteredSlashCommands[0]);
+      return;
     }
   };
 
@@ -980,18 +1603,66 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     syncEditorHtml();
   };
 
-  const handleOpenLinkModal = () => {
+  const handleUnlink = (targetAnchor?: HTMLAnchorElement | null) => {
     contentEditableRef.current?.focus();
-    const selection = window.getSelection();
-    if (selection && selection.rangeCount > 0) {
-      setSavedRange(selection.getRangeAt(0).cloneRange());
-      setLinkText(selection.toString());
+    const anchor = targetAnchor || editingAnchorRef.current || (() => {
+      const sel = window.getSelection();
+      if (!sel || !sel.anchorNode) return null;
+      const el = sel.anchorNode.nodeType === Node.ELEMENT_NODE ? sel.anchorNode : sel.anchorNode.parentElement;
+      return (el as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
+    })();
+
+    if (anchor && contentEditableRef.current?.contains(anchor)) {
+      const parent = anchor.parentNode;
+      if (parent) {
+        while (anchor.firstChild) {
+          parent.insertBefore(anchor.firstChild, anchor);
+        }
+        parent.removeChild(anchor);
+      }
     } else {
-      setSavedRange(null);
-      setLinkText("");
+      document.execCommand("unlink", false);
     }
-    setLinkUrl("");
-    setLinkOpenInNewTab(true);
+    setLinkBubble(null);
+    setIsLinkModalOpen(false);
+    editingAnchorRef.current = null;
+    syncEditorHtml();
+    window.setTimeout(() => {
+      updateSelectionBubble();
+      checkCaretLinkContext();
+    }, 20);
+  };
+
+  const handleOpenLinkModal = (targetAnchor?: HTMLAnchorElement | null) => {
+    contentEditableRef.current?.focus();
+    const anchor = targetAnchor || (() => {
+      const sel = window.getSelection();
+      if (!sel || !sel.anchorNode) return null;
+      const el = sel.anchorNode.nodeType === Node.ELEMENT_NODE ? sel.anchorNode : sel.anchorNode.parentElement;
+      return (el as HTMLElement | null)?.closest("a") as HTMLAnchorElement | null;
+    })();
+
+    if (anchor && contentEditableRef.current?.contains(anchor)) {
+      editingAnchorRef.current = anchor;
+      setLinkText(anchor.textContent || "");
+      setLinkUrl(anchor.getAttribute("href") || "");
+      setLinkOpenInNewTab(anchor.getAttribute("target") === "_blank");
+      const r = document.createRange();
+      r.selectNodeContents(anchor);
+      setSavedRange(r);
+    } else {
+      editingAnchorRef.current = null;
+      const selection = window.getSelection();
+      if (selection && selection.rangeCount > 0) {
+        setSavedRange(selection.getRangeAt(0).cloneRange());
+        setLinkText(selection.toString());
+      } else {
+        setSavedRange(null);
+        setLinkText("");
+      }
+      setLinkUrl("");
+      setLinkOpenInNewTab(true);
+    }
     setIsLinkModalOpen(true);
   };
 
@@ -1000,17 +1671,491 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
       setIsLinkModalOpen(false);
       return;
     }
-    contentEditableRef.current?.focus();
-    const selection = window.getSelection();
-    if (savedRange && selection) {
-      selection.removeAllRanges();
-      selection.addRange(savedRange);
+    const url = linkUrl.trim();
+    if (!isValidLinkUrl(url)) {
+      alert("Please enter a valid URL (e.g. https://... or /...)");
+      return;
     }
-    const targetAttr = linkOpenInNewTab ? ' target="_blank" rel="noopener noreferrer"' : '';
-    const textToDisplay = linkText.trim() || linkUrl.trim();
-    const linkHtml = `<a href="${linkUrl.trim()}"${targetAttr} class="text-[#1D4ED8] hover:underline font-semibold">${textToDisplay}</a>`;
-    document.execCommand("insertHTML", false, linkHtml);
+    contentEditableRef.current?.focus();
+
+    if (editingAnchorRef.current && contentEditableRef.current?.contains(editingAnchorRef.current)) {
+      const anchor = editingAnchorRef.current;
+      anchor.setAttribute("href", url);
+      if (linkText.trim()) {
+        anchor.textContent = linkText.trim();
+      }
+      if (linkOpenInNewTab) {
+        anchor.setAttribute("target", "_blank");
+        anchor.setAttribute("rel", "noopener noreferrer");
+      } else {
+        anchor.removeAttribute("target");
+        anchor.removeAttribute("rel");
+      }
+      anchor.className = "text-[#1D4ED8] hover:underline font-semibold";
+    } else {
+      const selection = window.getSelection();
+      if (savedRange && selection) {
+        selection.removeAllRanges();
+        selection.addRange(savedRange);
+      }
+      const targetAttr = linkOpenInNewTab ? ' target="_blank" rel="noopener noreferrer"' : '';
+      const textToDisplay = linkText.trim() || url;
+      const linkHtml = `<a href="${url}"${targetAttr} class="text-[#1D4ED8] hover:underline font-semibold">${textToDisplay}</a>`;
+      document.execCommand("insertHTML", false, linkHtml);
+    }
     setIsLinkModalOpen(false);
+    editingAnchorRef.current = null;
+    syncEditorHtml();
+    window.setTimeout(() => {
+      updateSelectionBubble();
+      checkCaretLinkContext();
+    }, 20);
+  };
+
+  // Typography Handlers: Custom Font Size, Presets, and Font Family
+  const applyFontSize = (sizeInput: string) => {
+    if (!sizeInput) return;
+    if (!isValidFontSize(sizeInput)) {
+      alert("Please enter a valid font size between 8px and 120px (e.g. 15px, 22px, 40px)");
+      return;
+    }
+    const normalized = normalizeFontSize(sizeInput);
+    contentEditableRef.current?.focus();
+
+    const sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0) return;
+    const range = sel.getRangeAt(0);
+
+    if (sel.isCollapsed) {
+      // Caret is collapsed: preserve caret position so cursor does not jump
+      const savedOffset = range.startOffset;
+      const savedContainer = range.startContainer;
+
+      const node = sel.anchorNode;
+      const el = (node?.nodeType === Node.TEXT_NODE ? node.parentElement : node) as HTMLElement | null;
+      const existingSpan = el?.closest('span[style*="font-size"]') as HTMLElement | null;
+      if (existingSpan && contentEditableRef.current?.contains(existingSpan)) {
+        existingSpan.style.fontSize = normalized;
+        existingSpan.style.lineHeight = "1.3";
+      } else {
+        const block = el?.closest("p, h1, h2, h3, h4, h5, h6, blockquote, li, pre") as HTMLElement | null;
+        if (block && contentEditableRef.current?.contains(block)) {
+          block.style.fontSize = normalized;
+          block.style.lineHeight = "1.35";
+        }
+      }
+
+      try {
+        const newRange = document.createRange();
+        newRange.setStart(savedContainer, Math.min(savedOffset, savedContainer.textContent?.length || 0));
+        newRange.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+      } catch {}
+    } else {
+      // Highlighted text selection
+      const node = sel.anchorNode;
+      const el = (node?.nodeType === Node.TEXT_NODE ? node.parentElement : node) as HTMLElement | null;
+      const block = el?.closest("p, h1, h2, h3, h4, h5, h6, blockquote, li, pre") as HTMLElement | null;
+
+      // 1. If selection is already inside an existing font-size span, update in place
+      const existingSpan = el?.closest('span[style*="font-size"]') as HTMLElement | null;
+      if (
+        existingSpan &&
+        contentEditableRef.current?.contains(existingSpan) &&
+        range.toString().trim() === (existingSpan.textContent || "").trim()
+      ) {
+        existingSpan.style.fontSize = normalized;
+        existingSpan.style.lineHeight = "1.3";
+        const newRange = document.createRange();
+        newRange.selectNodeContents(existingSpan);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+      } else if (block && range.toString().trim() === (block.textContent || "").trim() && contentEditableRef.current?.contains(block)) {
+        // 2. Entire block is highlighted
+        block.style.fontSize = normalized;
+        block.style.lineHeight = "1.35";
+        block.querySelectorAll('span[style*="font-size"]').forEach((s) => {
+          const spanEl = s as HTMLElement;
+          spanEl.style.fontSize = "";
+          spanEl.style.lineHeight = "";
+          if (!spanEl.getAttribute("style") || spanEl.getAttribute("style")?.trim() === "") {
+            const p = spanEl.parentNode;
+            if (p) {
+              while (spanEl.firstChild) p.insertBefore(spanEl.firstChild, spanEl);
+              p.removeChild(spanEl);
+            }
+          }
+        });
+        const newRange = document.createRange();
+        newRange.selectNodeContents(block);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+      } else {
+        // 3. Inline text selection: format and preserve highlight so cursor does not move
+        document.execCommand("fontSize", false, "7");
+        if (contentEditableRef.current) {
+          const fontTags = contentEditableRef.current.querySelectorAll(
+            'font[size="7"], font[size="+7"], span[style*="-webkit-xxx-large"]'
+          );
+          let targetSpan: HTMLElement | null = null;
+          fontTags.forEach((fontEl) => {
+            if (fontEl.tagName.toLowerCase() === "span") {
+              (fontEl as HTMLElement).style.fontSize = normalized;
+              (fontEl as HTMLElement).style.lineHeight = "1.3";
+              (fontEl as HTMLElement).style.display = "inline";
+              targetSpan = fontEl as HTMLElement;
+            } else {
+              const span = document.createElement("span");
+              span.style.fontSize = normalized;
+              span.style.lineHeight = "1.3";
+              span.style.display = "inline";
+              while (fontEl.firstChild) {
+                span.appendChild(fontEl.firstChild);
+              }
+              fontEl.parentNode?.replaceChild(span, fontEl);
+              targetSpan = span;
+            }
+          });
+
+          if (targetSpan) {
+            const newRange = document.createRange();
+            newRange.selectNodeContents(targetSpan);
+            sel.removeAllRanges();
+            sel.addRange(newRange);
+          }
+        }
+      }
+    }
+
+    setCurrentFontSize(normalized);
+    setIsFontSizeOpen(false);
+    setCustomFontSizeInput("");
+    syncEditorHtml();
+    window.setTimeout(() => {
+      updateSelectionBubble();
+      updateActiveTypography();
+    }, 20);
+  };
+
+  const clearFontSize = () => {
+    contentEditableRef.current?.focus();
+    const sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0) return;
+    const range = sel.getRangeAt(0);
+
+    const node = sel.anchorNode;
+    const el = (node?.nodeType === Node.TEXT_NODE ? node.parentElement : node) as HTMLElement | null;
+
+    if (sel.isCollapsed) {
+      const span = el?.closest('span[style*="font-size"]') as HTMLElement | null;
+      if (span && contentEditableRef.current?.contains(span)) {
+        span.style.fontSize = "";
+        span.style.lineHeight = "";
+        if (!span.getAttribute("style") || span.getAttribute("style")?.trim() === "") {
+          const p = span.parentNode;
+          if (p) {
+            while (span.firstChild) p.insertBefore(span.firstChild, span);
+            p.removeChild(span);
+          }
+        }
+      }
+      const block = el?.closest("p, h1, h2, h3, h4, h5, h6, blockquote, li, pre") as HTMLElement | null;
+      if (block && contentEditableRef.current?.contains(block)) {
+        block.style.fontSize = "";
+        block.style.lineHeight = "";
+        if (!block.getAttribute("style") || block.getAttribute("style")?.trim() === "") {
+          block.removeAttribute("style");
+        }
+      }
+    } else {
+      const block = el?.closest("p, h1, h2, h3, h4, h5, h6, blockquote, li, pre") as HTMLElement | null;
+      if (block && range.toString().trim() === (block.textContent || "").trim()) {
+        block.style.fontSize = "";
+        block.style.lineHeight = "";
+        if (!block.getAttribute("style") || block.getAttribute("style")?.trim() === "") {
+          block.removeAttribute("style");
+        }
+      }
+      if (contentEditableRef.current) {
+        const spans = contentEditableRef.current.querySelectorAll('span[style*="font-size"]');
+        spans.forEach((s) => {
+          const span = s as HTMLElement;
+          if (sel.containsNode(span, true)) {
+            span.style.fontSize = "";
+            span.style.lineHeight = "";
+            if (!span.getAttribute("style") || span.getAttribute("style")?.trim() === "") {
+              const p = span.parentNode;
+              if (p) {
+                while (span.firstChild) p.insertBefore(span.firstChild, span);
+                p.removeChild(span);
+              }
+            }
+          }
+        });
+      }
+    }
+
+    setCurrentFontSize("");
+    setIsFontSizeOpen(false);
+    setCustomFontSizeInput("");
+    syncEditorHtml();
+    window.setTimeout(() => {
+      updateSelectionBubble();
+      updateActiveTypography();
+    }, 20);
+  };
+
+  const stepFontSize = (direction: "up" | "down") => {
+    const numericSizes = [12, 14, 16, 18, 20, 24, 28, 32, 36, 42, 48];
+    const currentNum = parseInt(currentFontSize, 10) || 16;
+    let nextNum = currentNum;
+    if (direction === "up") {
+      const found = numericSizes.find((s) => s > currentNum);
+      nextNum = found !== undefined ? found : currentNum + 4;
+      if (nextNum > 120) nextNum = 120;
+    } else {
+      const reversed = [...numericSizes].reverse();
+      const found = reversed.find((s) => s < currentNum);
+      nextNum = found !== undefined ? found : currentNum - 2;
+      if (nextNum < 8) nextNum = 8;
+    }
+    applyFontSize(`${nextNum}px`);
+  };
+
+  const applyFontFamily = (familyValue: string) => {
+    contentEditableRef.current?.focus();
+    if (!familyValue) {
+      const sel = window.getSelection();
+      if (!sel || !sel.anchorNode) return;
+      let el = (sel.anchorNode.nodeType === Node.TEXT_NODE ? sel.anchorNode.parentElement : sel.anchorNode) as HTMLElement | null;
+      const block = el?.closest("p, h1, h2, h3, h4, h5, h6, blockquote, li, pre") as HTMLElement | null;
+      if (block && contentEditableRef.current?.contains(block)) {
+        block.style.fontFamily = "";
+        if (!block.getAttribute("style") || block.getAttribute("style")?.trim() === "") {
+          block.removeAttribute("style");
+        }
+      }
+      const span = el?.closest('span[style*="font-family"]') as HTMLElement | null;
+      if (span && contentEditableRef.current?.contains(span)) {
+        span.style.fontFamily = "";
+        if (!span.getAttribute("style") || span.getAttribute("style")?.trim() === "") {
+          const p = span.parentNode;
+          if (p) {
+            while (span.firstChild) p.insertBefore(span.firstChild, span);
+            p.removeChild(span);
+          }
+        }
+      }
+      setCurrentFontFamily("");
+      syncEditorHtml();
+      return;
+    }
+
+    const sel = window.getSelection();
+    if (!sel || sel.rangeCount === 0) return;
+    if (sel.isCollapsed) {
+      const el = (sel.anchorNode?.nodeType === Node.TEXT_NODE ? sel.anchorNode.parentElement : sel.anchorNode) as HTMLElement | null;
+      const block = el?.closest("p, h1, h2, h3, h4, h5, h6, blockquote, li, pre") as HTMLElement | null;
+      if (block && contentEditableRef.current?.contains(block)) {
+        block.style.fontFamily = familyValue;
+      }
+    } else {
+      document.execCommand("fontName", false, "CustomFontMarker");
+      if (contentEditableRef.current) {
+        const fontTags = contentEditableRef.current.querySelectorAll('font[face="CustomFontMarker"]');
+        fontTags.forEach((fontEl) => {
+          const span = document.createElement("span");
+          span.style.fontFamily = familyValue;
+          while (fontEl.firstChild) {
+            span.appendChild(fontEl.firstChild);
+          }
+          fontEl.parentNode?.replaceChild(span, fontEl);
+        });
+      }
+    }
+    setCurrentFontFamily(familyValue);
+    setIsFontFamilyOpen(false);
+    syncEditorHtml();
+    window.setTimeout(updateActiveTypography, 20);
+  };
+
+  // YouTube Insertion & Update Handler
+  const handleOpenYouTubeModal = (targetElement?: HTMLElement | null) => {
+    if (targetElement) {
+      editingYouTubeRef.current = targetElement;
+      const iframe = targetElement.querySelector("iframe");
+      const src = iframe?.getAttribute("src") || "";
+      const id = extractYouTubeVideoId(src) || "";
+      setYoutubeInput(id ? `https://www.youtube.com/watch?v=${id}` : src);
+      setYoutubeCaption(targetElement.querySelector("figcaption")?.textContent || "");
+    } else {
+      editingYouTubeRef.current = null;
+      setYoutubeInput("");
+      setYoutubeCaption("");
+    }
+    setYoutubeError(null);
+    setIsYouTubeModalOpen(true);
+  };
+
+  const handleApplyYouTube = () => {
+    const raw = youtubeInput.trim();
+    if (!raw) {
+      setYoutubeError("Please enter a YouTube video URL or iframe embed snippet.");
+      return;
+    }
+    const videoId = extractYouTubeVideoId(raw);
+    if (!videoId) {
+      setYoutubeError("Invalid YouTube URL or embed code. Please use formats like youtube.com/watch?v=..., youtu.be/..., shorts, or an <iframe> embed.");
+      return;
+    }
+
+    if (editingYouTubeRef.current && contentEditableRef.current?.contains(editingYouTubeRef.current)) {
+      const fig = editingYouTubeRef.current;
+      const iframe = fig.querySelector("iframe");
+      if (iframe) {
+        iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+        iframe.title = youtubeCaption.trim() || "YouTube video";
+      }
+      let figcaption = fig.querySelector("figcaption");
+      if (youtubeCaption.trim()) {
+        if (!figcaption) {
+          figcaption = document.createElement("figcaption");
+          figcaption.className = "text-center text-xs text-slate-500 mt-2 italic";
+          fig.appendChild(figcaption);
+        }
+        figcaption.textContent = youtubeCaption.trim();
+      } else if (figcaption) {
+        figcaption.remove();
+      }
+      setSelectedYouTube(null);
+    } else {
+      const captionHtml = youtubeCaption.trim()
+        ? `<figcaption class="text-center text-xs text-slate-500 mt-2 italic">${youtubeCaption.trim()}</figcaption>`
+        : "";
+      const figureHtml = `<figure class="wp-block-embed-youtube my-6"><div class="video-container relative pb-[56.25%] h-0 overflow-hidden rounded-xl shadow-lg border border-slate-200 bg-black"><iframe src="https://www.youtube-nocookie.com/embed/${videoId}" title="${youtubeCaption.trim() || 'YouTube video'}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="absolute top-0 left-0 w-full h-full"></iframe></div>${captionHtml}</figure><p><br></p>`;
+      insertBlockAtSavedRange(figureHtml);
+    }
+
+    setIsYouTubeModalOpen(false);
+    editingYouTubeRef.current = null;
+    syncEditorHtml();
+  };
+
+  const removeSelectedYouTube = () => {
+    if (!selectedYouTube) return;
+    selectedYouTube.element.remove();
+    setSelectedYouTube(null);
+    syncEditorHtml();
+  };
+
+  // Button Insertion & Update Handler
+  const handleOpenButtonModal = (wrapper?: HTMLElement | null) => {
+    if (wrapper) {
+      editingButtonRef.current = wrapper;
+      const btn = (wrapper.querySelector(".wp-block-button") || wrapper.querySelector("a")) as HTMLAnchorElement | null;
+      setButtonLabel(btn?.textContent?.trim() || "Learn More");
+      setButtonUrl(btn?.getAttribute("href") || "https://");
+      setButtonNewTab(btn?.getAttribute("target") === "_blank");
+      setButtonAlign((btn?.getAttribute("data-button-align") as any) || (wrapper.classList.contains("text-left") ? "left" : wrapper.classList.contains("text-right") ? "right" : "center"));
+      setButtonStyle((btn?.getAttribute("data-button-style") as any) || (btn?.classList.contains("wp-block-button--secondary") ? "secondary" : btn?.classList.contains("wp-block-button--outline") ? "outline" : btn?.classList.contains("wp-block-button--text") ? "text" : "primary"));
+      setButtonSize((btn?.getAttribute("data-button-size") as any) || (btn?.classList.contains("text-xs") ? "sm" : btn?.classList.contains("text-base") ? "lg" : "md"));
+      setButtonRadius((btn?.getAttribute("data-button-radius") as any) || (btn?.classList.contains("rounded-none") ? "rounded-none" : btn?.classList.contains("rounded-full") ? "rounded-full" : "rounded-xl"));
+      setButtonBgColor(btn?.getAttribute("data-button-bg") || "");
+      setButtonTextColor(btn?.getAttribute("data-button-color") || "");
+    } else {
+      editingButtonRef.current = null;
+      setButtonLabel("Learn More");
+      setButtonUrl("https://");
+      setButtonNewTab(true);
+      setButtonAlign("center");
+      setButtonStyle("primary");
+      setButtonSize("md");
+      setButtonRadius("rounded-xl");
+      setButtonBgColor("");
+      setButtonTextColor("");
+    }
+    setIsButtonModalOpen(true);
+  };
+
+  const handleApplyButton = () => {
+    const rawUrl = buttonUrl.trim();
+    if (!rawUrl || !isValidLinkUrl(rawUrl)) {
+      alert("Please enter a valid destination URL (e.g. https://... or /...)");
+      return;
+    }
+    const label = buttonLabel.trim() || "Learn More";
+    const sizeClasses = {
+      sm: "text-xs px-3.5 py-1.5",
+      md: "text-sm px-5 py-2.5",
+      lg: "text-base px-7 py-3.5",
+    }[buttonSize];
+
+    let customInlineStyle = "";
+    if (buttonBgColor) customInlineStyle += `background-color: ${buttonBgColor}; border-color: ${buttonBgColor}; `;
+    if (buttonTextColor) customInlineStyle += `color: ${buttonTextColor}; `;
+
+    if (editingButtonRef.current && contentEditableRef.current?.contains(editingButtonRef.current)) {
+      const wrapper = editingButtonRef.current;
+      wrapper.className = `wp-block-button-wrapper my-6 text-${buttonAlign}`;
+      wrapper.style.textAlign = buttonAlign;
+      const btn = (wrapper.querySelector(".wp-block-button") || wrapper.querySelector("a")) as HTMLAnchorElement | null;
+      if (btn) {
+        btn.setAttribute("href", rawUrl);
+        if (buttonNewTab) {
+          btn.setAttribute("target", "_blank");
+          btn.setAttribute("rel", "noopener noreferrer");
+        } else {
+          btn.removeAttribute("target");
+          btn.removeAttribute("rel");
+        }
+        btn.className = `wp-block-button wp-block-button--${buttonStyle} inline-flex items-center justify-center font-semibold transition-all ${sizeClasses} ${buttonRadius}`;
+        if (customInlineStyle) btn.setAttribute("style", customInlineStyle);
+        else btn.removeAttribute("style");
+        btn.setAttribute("data-button-align", buttonAlign);
+        btn.setAttribute("data-button-style", buttonStyle);
+        btn.setAttribute("data-button-size", buttonSize);
+        btn.setAttribute("data-button-radius", buttonRadius);
+        if (buttonBgColor) btn.setAttribute("data-button-bg", buttonBgColor);
+        else btn.removeAttribute("data-button-bg");
+        if (buttonTextColor) btn.setAttribute("data-button-color", buttonTextColor);
+        else btn.removeAttribute("data-button-color");
+        btn.innerHTML = `<span>${label}</span>`;
+      }
+      setSelectedButton(null);
+    } else {
+      const targetAttr = buttonNewTab ? ' target="_blank" rel="noopener noreferrer"' : '';
+      const styleAttr = customInlineStyle ? ` style="${customInlineStyle}"` : '';
+      const bgAttr = buttonBgColor ? ` data-button-bg="${buttonBgColor}"` : '';
+      const colAttr = buttonTextColor ? ` data-button-color="${buttonTextColor}"` : '';
+      const buttonHtml = `<div class="wp-block-button-wrapper my-6 text-${buttonAlign}" style="text-align: ${buttonAlign};"><a href="${rawUrl}"${targetAttr} class="wp-block-button wp-block-button--${buttonStyle} inline-flex items-center justify-center font-semibold transition-all ${sizeClasses} ${buttonRadius}"${styleAttr} data-button-align="${buttonAlign}" data-button-style="${buttonStyle}" data-button-size="${buttonSize}" data-button-radius="${buttonRadius}"${bgAttr}${colAttr}><span>${label}</span></a></div><p><br></p>`;
+      insertBlockAtSavedRange(buttonHtml);
+    }
+
+    setIsButtonModalOpen(false);
+    editingButtonRef.current = null;
+    syncEditorHtml();
+  };
+
+  const removeSelectedButton = () => {
+    if (!selectedButton) return;
+    selectedButton.wrapper.remove();
+    setSelectedButton(null);
+    syncEditorHtml();
+  };
+
+  const handleApplyImageUrl = () => {
+    if (!imageUrlInput.trim()) return;
+    const alignClass = imageAlignInput !== "none" ? `align${imageAlignInput}` : "";
+    const captionHtml = imageCaptionInput.trim()
+      ? `<figcaption class="text-center text-xs text-slate-500 mt-1.5 italic">${imageCaptionInput.trim()}</figcaption>`
+      : "";
+    const figureHtml = `<figure class="my-6 ${alignClass}"><img src="${imageUrlInput.trim()}" alt="${imageAltInput.trim()}" title="${imageAltInput.trim()}" style="width: 100%; height: auto; max-width: 100%;" />${captionHtml}</figure><p><br></p>`;
+    insertBlockAtSavedRange(figureHtml);
+    setIsImageModalOpen(false);
+    setImageUrlInput("");
+    setImageAltInput("");
+    setImageCaptionInput("");
     syncEditorHtml();
   };
 
@@ -1524,19 +2669,32 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
     setTagInput("");
   };
 
-  // Add Category (Supports multi-category selection)
+  // Add Category (Supports multi-category selection and persistent Firestore storage)
   const handleAddCategory = () => {
     const trimmed = newCategoryName.trim();
     if (trimmed) {
-      if (!categoriesList.includes(trimmed)) {
-        setCategoriesList([...categoriesList, trimmed]);
+      const updatedList = categoriesList.includes(trimmed)
+        ? categoriesList
+        : [...categoriesList, trimmed];
+
+      setCategoriesList(updatedList);
+      if (typeof window !== "undefined") {
+        try {
+          localStorage.setItem("fc_blog_categories", JSON.stringify(updatedList));
+        } catch {}
       }
+
       if (!selectedCategories.includes(trimmed)) {
         setSelectedCategories([...selectedCategories, trimmed]);
       }
       setCategory(trimmed);
       setNewCategoryName("");
       setIsAddingCategory(false);
+
+      // Persist permanently to Firestore so it appears in ALL new posts
+      saveCategoryToFirestore(trimmed).catch((err) => {
+        console.warn("Failed to persist category to Firestore:", err);
+      });
     }
   };
 
@@ -1753,6 +2911,23 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                 <div className="border-b border-[#E2E8F0] divide-y divide-[#E2E8F0]">
                   {/* Row 1 */}
                   <div className="px-2.5 py-1.5 flex items-center gap-1 text-xs bg-[#F8FAFC] overflow-x-auto whitespace-nowrap">
+                    {/* Gutenberg Add Block (+) Button */}
+                    <button
+                      type="button"
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={() => {
+                        setBlockSearch("");
+                        setIsBlockInserterOpen(true);
+                      }}
+                      className="h-6 px-2 rounded-md bg-[#1D4ED8] hover:bg-[#1E40AF] text-white flex items-center gap-1 font-heading font-bold text-xs uppercase tracking-wider shadow-xs transition-colors shrink-0"
+                      title="Add block"
+                    >
+                      <Plus className="h-3.5 w-3.5" />
+                      <span className="hidden sm:inline">Block</span>
+                    </button>
+
+                    <span className="text-slate-300 mx-0.5">|</span>
+
                     {/* Format Dropdown */}
                     <select
                       value={selectedFormat}
@@ -1773,6 +2948,113 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                       <option value="h6">Heading 6</option>
                       <option value="pre">Preformatted</option>
                     </select>
+
+                    <span className="text-slate-300 mx-0.5">|</span>
+
+                    {/* Font Family Dropdown */}
+                    <select
+                      value={
+                        FONT_FAMILY_PRESETS.find((f) => f.value === currentFontFamily)?.id || "default"
+                      }
+                      onChange={(e) => {
+                        const selected = FONT_FAMILY_PRESETS.find((f) => f.id === e.target.value);
+                        applyFontFamily(selected?.value || "");
+                      }}
+                      className="h-6 px-1.5 py-0.5 text-xs font-semibold bg-white border border-[#CBD5E1] rounded text-[#0F172A] cursor-pointer focus:outline-none shadow-xs shrink-0"
+                      title="Font Family"
+                    >
+                      <option value="default">Font: Default</option>
+                      <option value="heading">Font: Space Grotesk</option>
+                      <option value="serif">Font: Merriweather</option>
+                      <option value="mono">Font: Monospace</option>
+                    </select>
+
+                    <span className="text-slate-300 mx-0.5">|</span>
+
+                    {/* Font Size Control Group */}
+                    <div className="inline-flex items-center gap-1 shrink-0">
+                      {/* Stepper Decrease A- */}
+                      <button
+                        type="button"
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={() => stepFontSize("down")}
+                        className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#475569] font-bold text-[11px] bg-white border border-[#CBD5E1] shadow-xs"
+                        title="Decrease Font Size (A-)"
+                      >
+                        A-
+                      </button>
+
+                      {/* Native Font Size Dropdown */}
+                      <select
+                        value={
+                          FONT_SIZE_PRESETS.some((p) => p.value === currentFontSize)
+                            ? currentFontSize
+                            : currentFontSize
+                            ? "custom"
+                            : "16px"
+                        }
+                        onChange={(e) => {
+                          const val = e.target.value;
+                          if (val === "custom") {
+                            const customVal = window.prompt("Enter font size in pixels (e.g. 15px, 22px, 40px):", currentFontSize || "20px");
+                            if (customVal) applyFontSize(customVal);
+                          } else if (val === "clear") {
+                            clearFontSize();
+                          } else {
+                            applyFontSize(val);
+                          }
+                        }}
+                        className="h-6 px-1.5 py-0.5 text-xs font-semibold bg-white border border-[#CBD5E1] rounded text-[#0F172A] cursor-pointer focus:outline-none shadow-xs font-mono"
+                        title="Font Size Presets"
+                      >
+                        <option value="12px">12px</option>
+                        <option value="14px">14px</option>
+                        <option value="16px">16px (Normal)</option>
+                        <option value="18px">18px (Medium)</option>
+                        <option value="20px">20px (Large)</option>
+                        <option value="24px">24px (XL)</option>
+                        <option value="28px">28px (2XL)</option>
+                        <option value="32px">32px (3XL)</option>
+                        <option value="36px">36px (4XL)</option>
+                        <option value="42px">42px (5XL)</option>
+                        <option value="48px">48px (Huge)</option>
+                        {currentFontSize && !FONT_SIZE_PRESETS.some((p) => p.value === currentFontSize) && (
+                          <option value={currentFontSize}>{currentFontSize} (Custom)</option>
+                        )}
+                        <option value="custom">Custom size...</option>
+                        <option value="clear">Clear size</option>
+                      </select>
+
+                      {/* Manual Number Box */}
+                      <div className="flex items-center bg-white border border-[#CBD5E1] rounded px-1 h-6 shadow-xs" title="Type custom font size">
+                        <input
+                          type="number"
+                          min={8}
+                          max={120}
+                          value={currentFontSize ? parseInt(currentFontSize, 10) || "" : ""}
+                          onChange={(e) => {
+                            const val = e.target.value;
+                            if (val) {
+                              applyFontSize(`${val}px`);
+                            }
+                          }}
+                          placeholder="16"
+                          className="w-8 text-[11px] font-mono text-[#0F172A] focus:outline-none bg-transparent text-center"
+                        />
+                        <span className="text-[10px] text-slate-400 font-mono select-none">px</span>
+                      </div>
+
+                      {/* Stepper Increase A+ */}
+                      <button
+                        type="button"
+                        onMouseDown={(e) => e.preventDefault()}
+                        onClick={() => stepFontSize("up")}
+                        className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#475569] font-bold text-[11px] bg-white border border-[#CBD5E1] shadow-xs"
+                        title="Increase Font Size (A+)"
+                      >
+                        A+
+                      </button>
+                    </div>
 
                     <span className="text-slate-300 mx-0.5">|</span>
 
@@ -1831,9 +3113,24 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                       “
                     </button>
 
+                    {/* Inline Code */}
+                    <button
+                      type="button"
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={() => {
+                        const sel = window.getSelection();
+                        const text = sel?.toString() || "code";
+                        insertEditorHtml(`<code>${text}</code>`);
+                      }}
+                      className="h-6 w-6 rounded flex items-center justify-center font-mono text-xs hover:bg-slate-200 text-[#475569] hover:text-[#0F172A]"
+                      title="Inline Code"
+                    >
+                      <Code className="h-3.5 w-3.5" />
+                    </button>
+
                     <span className="text-[#CBD5E1] mx-0.5">|</span>
 
-                    {/* Alignment: Left, Center, Right */}
+                    {/* Alignment: Left, Center, Right, Justify */}
                     <button
                       type="button"
                       onMouseDown={(event) => event.preventDefault()}
@@ -1861,6 +3158,15 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                     >
                       <AlignRight className="h-3.5 w-3.5" />
                     </button>
+                    <button
+                      type="button"
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={() => executeEditorCommand("justifyFull")}
+                      className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#475569] hover:text-[#0F172A]"
+                      title="Justify"
+                    >
+                      <AlignJustify className="h-3.5 w-3.5" />
+                    </button>
 
                     <span className="text-[#CBD5E1] mx-0.5">|</span>
 
@@ -1868,11 +3174,22 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                     <button
                       type="button"
                       onMouseDown={(event) => event.preventDefault()}
-                      onClick={handleOpenLinkModal}
+                      onClick={() => handleOpenLinkModal()}
                       className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#1D4ED8]"
                       title="Insert/edit link (Ctrl+K)"
                     >
                       <Link2 className="h-3.5 w-3.5" />
+                    </button>
+
+                    {/* Unlink */}
+                    <button
+                      type="button"
+                      onMouseDown={(event) => event.preventDefault()}
+                      onClick={() => handleUnlink()}
+                      className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#64748B] hover:text-red-600"
+                      title="Remove link (Unlink)"
+                    >
+                      <Unlink className="h-3.5 w-3.5" />
                     </button>
 
                     {/* Insert Read More tag */}
@@ -1941,6 +3258,28 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                         title="Underline (Ctrl+U)"
                       >
                         U
+                      </button>
+
+                      {/* Subscript */}
+                      <button
+                        type="button"
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => executeEditorCommand("subscript")}
+                        className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#475569]"
+                        title="Subscript"
+                      >
+                        <Subscript className="h-3.5 w-3.5" />
+                      </button>
+
+                      {/* Superscript */}
+                      <button
+                        type="button"
+                        onMouseDown={(event) => event.preventDefault()}
+                        onClick={() => executeEditorCommand("superscript")}
+                        className="h-6 w-6 rounded flex items-center justify-center hover:bg-slate-200 text-[#475569]"
+                        title="Superscript"
+                      >
+                        <Superscript className="h-3.5 w-3.5" />
                       </button>
 
                       {/* Horizontal Rule */}
@@ -2185,10 +3524,19 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                   suppressContentEditableWarning
                   onInput={syncEditorHtml}
                   onKeyDown={handleEditorKeyDown}
-                  onKeyUp={updateSelectionBubble}
-                  onMouseUp={updateSelectionBubble}
+                  onKeyUp={() => {
+                    updateSelectionBubble();
+                    updateActiveTypography();
+                  }}
+                  onMouseUp={() => {
+                    updateSelectionBubble();
+                    updateActiveTypography();
+                  }}
                   onMouseDown={handleEditorMouseDown}
-                  onClick={handleEditorClick}
+                  onClick={(event) => {
+                    handleEditorClick(event);
+                    updateActiveTypography();
+                  }}
                   onDragStart={handleEditorDragStart}
                   onDragEnd={handleEditorDragEnd}
                   onDragOver={(event) => event.preventDefault()}
@@ -2212,26 +3560,47 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                 </div>
               )}
 
-              {slashMenu && filteredSlashCommands.length > 0 && (
+              {slashMenu && (
                 <div
-                  className="fixed z-[100] w-72 overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-1.5 shadow-2xl"
+                  data-slash-menu="true"
+                  className="fixed z-[100] w-72 rounded-xl border border-slate-200 bg-white p-1.5 shadow-2xl flex flex-col max-h-72 select-none animate-in fade-in zoom-in-95 duration-100"
                   style={{ top: slashMenu.top, left: slashMenu.left }}
                   role="listbox"
                   aria-label="Editor block options"
                 >
-                  <div className="px-2.5 py-1 text-[10px] font-heading font-bold uppercase tracking-wider text-slate-400">Insert block</div>
-                  {filteredSlashCommands.map((command, index) => (
-                    <button
-                      key={command.label}
-                      type="button"
-                      onMouseDown={(event) => event.preventDefault()}
-                      onClick={() => insertSlashCommand(command)}
-                      className={`flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-left ${index === slashSelection ? "bg-[#EFF6FF] text-[#1D4ED8]" : "text-[#334155] hover:bg-[#F8FAFC]"}`}
-                    >
-                      <span className="text-sm font-semibold">{command.label}</span>
-                      <span className="text-[11px] text-slate-400">{command.hint}</span>
-                    </button>
-                  ))}
+                  <div className="px-2.5 py-1 text-[10px] font-heading font-bold uppercase tracking-wider text-slate-400 border-b border-slate-100 mb-1 shrink-0 flex items-center justify-between">
+                    <span>Insert block</span>
+                    <span className="text-[9px] text-slate-400 lowercase font-normal">esc to dismiss</span>
+                  </div>
+                  <div className="overflow-y-auto overflow-x-hidden flex-1 space-y-0.5 pr-0.5 scrollbar-thin">
+                    {filteredSlashCommands.length === 0 ? (
+                      <div className="px-3 py-4 text-center text-xs text-slate-400">
+                        No blocks found
+                      </div>
+                    ) : (
+                      filteredSlashCommands.map((command, index) => (
+                        <button
+                          key={command.label}
+                          ref={(el) => {
+                            if (index === slashSelection && el) {
+                              el.scrollIntoView({ block: "nearest" });
+                            }
+                          }}
+                          type="button"
+                          onMouseDown={(event) => event.preventDefault()}
+                          onClick={() => insertSlashCommand(command)}
+                          className={`flex w-full items-center justify-between rounded-lg px-2.5 py-2 text-left transition-colors ${
+                            index === slashSelection
+                              ? "bg-[#EFF6FF] text-[#1D4ED8] font-semibold"
+                              : "text-[#334155] hover:bg-[#F8FAFC]"
+                          }`}
+                        >
+                          <span className="text-sm font-semibold truncate mr-2">{command.label}</span>
+                          <span className={`text-[11px] shrink-0 ${index === slashSelection ? "text-blue-500" : "text-slate-400"}`}>{command.hint}</span>
+                        </button>
+                      ))
+                    )}
+                  </div>
                 </div>
               )}
 
@@ -2322,7 +3691,80 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                     <Quote className="h-3.5 w-3.5" />
                   </button>
 
+                  <button
+                    type="button"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      stepFontSize("down");
+                    }}
+                    className="px-1.5 py-0.5 rounded-md hover:bg-[#F1F5F9] text-[#334155] text-xs font-bold transition-colors"
+                    title="Decrease Font Size (A-)"
+                  >
+                    A-
+                  </button>
+                  <select
+                    value={
+                      FONT_SIZE_PRESETS.some((p) => p.value === currentFontSize)
+                        ? currentFontSize
+                        : currentFontSize
+                        ? "custom"
+                        : "16px"
+                    }
+                    onChange={(e) => {
+                      const val = e.target.value;
+                      if (val === "custom") {
+                        const customVal = window.prompt("Enter font size in pixels (e.g. 15px, 22px, 40px):", currentFontSize || "20px");
+                        if (customVal) applyFontSize(customVal);
+                      } else if (val === "clear") {
+                        clearFontSize();
+                      } else {
+                        applyFontSize(val);
+                      }
+                    }}
+                    className="h-5 px-1 text-[11px] font-semibold bg-white border border-[#CBD5E1] rounded text-[#0F172A] cursor-pointer focus:outline-none"
+                    title="Font Size"
+                  >
+                    <option value="12px">12px</option>
+                    <option value="14px">14px</option>
+                    <option value="16px">16px</option>
+                    <option value="18px">18px</option>
+                    <option value="20px">20px</option>
+                    <option value="24px">24px</option>
+                    <option value="28px">28px</option>
+                    <option value="32px">32px</option>
+                    <option value="36px">36px</option>
+                    <option value="42px">42px</option>
+                    <option value="48px">48px</option>
+                    <option value="custom">Custom...</option>
+                    <option value="clear">Clear</option>
+                  </select>
+                  <button
+                    type="button"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      stepFontSize("up");
+                    }}
+                    className="px-1.5 py-0.5 rounded-md hover:bg-[#F1F5F9] text-[#334155] text-xs font-bold transition-colors"
+                    title="Increase Font Size (A+)"
+                  >
+                    A+
+                  </button>
+
                   <span className="text-[#CBD5E1] mx-0.5">|</span>
+
+                  <button
+                    type="button"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      const sel = window.getSelection();
+                      const text = sel?.toString() || "code";
+                      insertEditorHtml(`<code>${text}</code>`);
+                    }}
+                    className="p-1 rounded-md hover:bg-[#F1F5F9] text-[#334155] transition-colors font-mono"
+                    title="Inline Code"
+                  >
+                    <Code className="h-3.5 w-3.5" />
+                  </button>
 
                   <button
                     type="button"
@@ -2331,9 +3773,134 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                       handleOpenLinkModal();
                     }}
                     className="p-1 rounded-md hover:bg-[#EFF6FF] text-[#1D4ED8] transition-colors"
-                    title="Insert Link"
+                    title="Insert Link (Ctrl+K)"
                   >
                     <Link2 className="h-3.5 w-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      handleUnlink();
+                    }}
+                    className="p-1 rounded-md hover:bg-red-50 text-[#64748B] hover:text-red-600 transition-colors"
+                    title="Remove Link"
+                  >
+                    <Unlink className="h-3.5 w-3.5" />
+                  </button>
+                </div>
+              )}
+
+              {/* Floating Caret Link Bubble Toolbar */}
+              {linkBubble && (
+                <div
+                  className="fixed z-[100] flex items-center gap-1.5 rounded-xl border border-[#E2E8F0] bg-white px-2.5 py-1.5 text-xs text-[#0F172A] shadow-2xl animate-in fade-in select-none"
+                  style={{ top: linkBubble.top, left: linkBubble.left }}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                >
+                  <div className="flex items-center gap-1 max-w-[200px] truncate text-[11px] font-mono text-[#1D4ED8] bg-blue-50 px-2 py-0.5 rounded">
+                    <Link2 className="h-3 w-3 shrink-0" />
+                    <span className="truncate">{linkBubble.href}</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenLinkModal(linkBubble.element)}
+                    className="p-1 rounded-md hover:bg-slate-100 text-[#334155]"
+                    title="Edit link URL"
+                  >
+                    <Edit3 className="h-3.5 w-3.5" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleUnlink(linkBubble.element)}
+                    className="p-1 rounded-md hover:bg-red-50 text-red-600"
+                    title="Remove link (Unlink)"
+                  >
+                    <Unlink className="h-3.5 w-3.5" />
+                  </button>
+                  <a
+                    href={linkBubble.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-1 rounded-md hover:bg-slate-100 text-[#64748B]"
+                    title="Open link in new tab"
+                  >
+                    <ExternalLink className="h-3.5 w-3.5" />
+                  </a>
+                </div>
+              )}
+
+              {/* Floating YouTube Block Toolbar */}
+              {selectedYouTube && (
+                <div
+                  className="fixed z-[100] flex items-center gap-1.5 rounded-xl border border-[#E2E8F0] bg-white px-2.5 py-1.5 text-xs text-[#0F172A] shadow-2xl animate-in fade-in select-none"
+                  style={{
+                    top: Math.max(48, selectedYouTube.top - 42),
+                    left: Math.max(16, selectedYouTube.left + 20),
+                  }}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                >
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-red-50 text-red-600 font-bold text-[11px]">
+                    <YouTubeIcon className="h-3.5 w-3.5" />
+                    <span>YouTube</span>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenYouTubeModal(selectedYouTube.element)}
+                    className="px-2 py-1 rounded-md hover:bg-slate-100 text-[#334155] font-semibold flex items-center gap-1 text-[11px]"
+                  >
+                    <Edit3 className="h-3 w-3" />
+                    <span>Edit</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={removeSelectedYouTube}
+                    className="px-2 py-1 rounded-md hover:bg-red-50 text-red-600 font-semibold flex items-center gap-1 text-[11px]"
+                  >
+                    <Trash2 className="h-3 w-3" />
+                    <span>Remove</span>
+                  </button>
+                </div>
+              )}
+
+              {/* Floating Button Block Toolbar */}
+              {selectedButton && (
+                <div
+                  className="fixed z-[100] flex items-center gap-1.5 rounded-xl border border-[#E2E8F0] bg-white px-2.5 py-1.5 text-xs text-[#0F172A] shadow-2xl animate-in fade-in select-none"
+                  style={{
+                    top: Math.max(48, selectedButton.top - 42),
+                    left: Math.max(16, selectedButton.left + 20),
+                  }}
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                  }}
+                >
+                  <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-blue-50 text-[#1D4ED8] font-bold text-[11px]">
+                    <MousePointerClick className="h-3.5 w-3.5" />
+                    <span>Button</span>
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenButtonModal(selectedButton.wrapper)}
+                    className="px-2 py-1 rounded-md hover:bg-slate-100 text-[#334155] font-semibold flex items-center gap-1 text-[11px]"
+                  >
+                    <Edit3 className="h-3 w-3" />
+                    <span>Edit</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={removeSelectedButton}
+                    className="px-2 py-1 rounded-md hover:bg-red-50 text-red-600 font-semibold flex items-center gap-1 text-[11px]"
+                  >
+                    <Trash2 className="h-3 w-3" />
+                    <span>Remove</span>
                   </button>
                 </div>
               )}
@@ -3979,22 +5546,34 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
               </label>
             </div>
 
-            <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#E2E8F0]">
-              <button
-                type="button"
-                onClick={() => setIsLinkModalOpen(false)}
-                className="px-4 py-2 text-xs font-semibold rounded-lg hover:bg-[#F1F5F9] text-[#64748B]"
-              >
-                Cancel
-              </button>
-              <button
-                type="button"
-                onClick={handleApplyLink}
-                disabled={!linkUrl.trim()}
-                className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] disabled:opacity-40 rounded-lg shadow-xs"
-              >
-                Insert Link
-              </button>
+            <div className="flex items-center justify-between pt-3 border-t border-[#E2E8F0]">
+              {editingAnchorRef.current ? (
+                <button
+                  type="button"
+                  onClick={() => handleUnlink(editingAnchorRef.current)}
+                  className="px-3 py-2 text-xs font-semibold rounded-lg hover:bg-red-50 text-red-600 flex items-center gap-1.5 transition-colors"
+                >
+                  <Unlink className="h-3.5 w-3.5" />
+                  <span>Remove Link</span>
+                </button>
+              ) : <div />}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsLinkModalOpen(false)}
+                  className="px-4 py-2 text-xs font-semibold rounded-lg hover:bg-[#F1F5F9] text-[#64748B]"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleApplyLink}
+                  disabled={!linkUrl.trim()}
+                  className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] disabled:opacity-40 rounded-lg shadow-xs"
+                >
+                  {editingAnchorRef.current ? "Update Link" : "Insert Link"}
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -4296,23 +5875,575 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                   />
                 </div>
               </div>
+
+              {/* Image Hyperlink (Optional) */}
+              <div>
+                <label className="block font-heading font-bold uppercase tracking-wider text-[11px] text-[#0F172A] mb-1">
+                  Link Destination URL (Optional)
+                </label>
+                <input
+                  type="url"
+                  value={editingImageLink}
+                  onChange={(e) => setEditingImageLink(e.target.value)}
+                  placeholder="https://example.com"
+                  className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                />
+                <span className="text-[10px] text-slate-500 mt-1 block">
+                  Clicking this image on the published post will open this destination link.
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between pt-3 border-t border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    removeSelectedImage();
+                    setIsImageDetailsOpen(false);
+                  }}
+                  className="px-3 py-1.5 text-xs font-semibold rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+                >
+                  Remove Image
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsImageDetailsOpen(false);
+                    handleOpenMedia("inline");
+                  }}
+                  className="px-3 py-1.5 text-xs font-semibold rounded-lg text-[#1D4ED8] hover:bg-blue-50 transition-colors"
+                >
+                  Replace Image
+                </button>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setIsImageDetailsOpen(false)}
+                  className="px-4 py-2 text-xs font-semibold rounded-lg hover:bg-[#F1F5F9] text-[#64748B]"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  onClick={handleUpdateImageDetails}
+                  className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] rounded-lg shadow-xs"
+                >
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 7. Image Insertion Modal (Upload/Library vs URL) */}
+      {isImageModalOpen && (
+        <div className="fixed inset-0 z-[120] bg-slate-300/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-[#E2E8F0] max-w-md w-full p-6 space-y-4 text-[#0F172A]">
+            <div className="flex items-center justify-between border-b pb-3 border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <ImageIcon className="h-4 w-4 text-[#1D4ED8]" />
+                <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
+                  Insert Image
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsImageModalOpen(false)}
+                className="p-1 rounded-md text-slate-400 hover:text-slate-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            {/* Tab switch */}
+            <div className="grid grid-cols-2 gap-1 p-1 bg-slate-100 rounded-lg text-xs font-heading font-bold uppercase tracking-wider">
+              <button
+                type="button"
+                onClick={() => setImageInsertTab("library")}
+                className={`py-1.5 rounded-md transition-colors ${
+                  imageInsertTab === "library"
+                    ? "bg-white text-[#1D4ED8] shadow-xs"
+                    : "text-slate-500 hover:text-slate-900"
+                }`}
+              >
+                Media Library
+              </button>
+              <button
+                type="button"
+                onClick={() => setImageInsertTab("url")}
+                className={`py-1.5 rounded-md transition-colors ${
+                  imageInsertTab === "url"
+                    ? "bg-white text-[#1D4ED8] shadow-xs"
+                    : "text-slate-500 hover:text-slate-900"
+                }`}
+              >
+                Insert from URL
+              </button>
+            </div>
+
+            {imageInsertTab === "library" ? (
+              <div className="py-6 text-center space-y-3">
+                <div className="w-12 h-12 rounded-full bg-blue-50 text-[#1D4ED8] flex items-center justify-center mx-auto">
+                  <ImageIcon className="h-6 w-6" />
+                </div>
+                <div className="text-xs text-slate-600 max-w-xs mx-auto">
+                  Select an existing media asset or upload a new file from your device.
+                </div>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsImageModalOpen(false);
+                    handleOpenMedia("inline");
+                  }}
+                  className="px-4 py-2 bg-[#1D4ED8] hover:bg-[#1E40AF] text-white text-xs font-heading font-bold uppercase tracking-wider rounded-lg shadow-xs"
+                >
+                  Open Media Library / Uploader
+                </button>
+              </div>
+            ) : (
+              <div className="space-y-3 text-xs">
+                <div>
+                  <label className="block font-semibold mb-1">Image URL *</label>
+                  <input
+                    type="url"
+                    value={imageUrlInput}
+                    onChange={(e) => setImageUrlInput(e.target.value)}
+                    placeholder="https://example.com/image.jpg"
+                    className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                    autoFocus
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Alternative Text (Alt)</label>
+                  <input
+                    type="text"
+                    value={imageAltInput}
+                    onChange={(e) => setImageAltInput(e.target.value)}
+                    placeholder="Image description for SEO and accessibility"
+                    className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Caption</label>
+                  <input
+                    type="text"
+                    value={imageCaptionInput}
+                    onChange={(e) => setImageCaptionInput(e.target.value)}
+                    placeholder="Caption displayed under the image"
+                    className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Alignment</label>
+                  <select
+                    value={imageAlignInput}
+                    onChange={(e) => setImageAlignInput(e.target.value as any)}
+                    className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                  >
+                    <option value="none">None (Full width / default)</option>
+                    <option value="center">Center</option>
+                    <option value="left">Left (Wrap text right)</option>
+                    <option value="right">Right (Wrap text left)</option>
+                  </select>
+                </div>
+                <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#E2E8F0]">
+                  <button
+                    type="button"
+                    onClick={() => setIsImageModalOpen(false)}
+                    className="px-4 py-2 text-xs font-semibold rounded-lg hover:bg-[#F1F5F9] text-[#64748B]"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleApplyImageUrl}
+                    disabled={!imageUrlInput.trim()}
+                    className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] disabled:opacity-40 rounded-lg shadow-xs"
+                  >
+                    Insert Image
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* 8. YouTube Video Modal */}
+      {isYouTubeModalOpen && (
+        <div className="fixed inset-0 z-[120] bg-slate-300/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-[#E2E8F0] max-w-lg w-full p-6 space-y-4 text-[#0F172A]">
+            <div className="flex items-center justify-between border-b pb-3 border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <YouTubeIcon className="h-5 w-5 text-red-600" />
+                <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
+                  {editingYouTubeRef.current ? "Edit YouTube Video" : "Embed YouTube Video"}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsYouTubeModalOpen(false);
+                  editingYouTubeRef.current = null;
+                }}
+                className="p-1 rounded-md text-slate-400 hover:text-slate-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="space-y-3.5 text-xs">
+              <div>
+                <label className="block font-semibold mb-1">
+                  YouTube Video URL or Embed Snippet:
+                </label>
+                <textarea
+                  rows={3}
+                  value={youtubeInput}
+                  onChange={(e) => {
+                    setYoutubeInput(e.target.value);
+                    setYoutubeError(null);
+                  }}
+                  placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/... or <iframe src='...'></iframe>"
+                  className="w-full p-2.5 font-mono text-xs border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                  autoFocus
+                />
+                <span className="text-[10px] text-slate-500 mt-1 block">
+                  Supports standard watch links, youtu.be, Shorts, or safe YouTube iframe codes.
+                </span>
+              </div>
+
+              {youtubeError && (
+                <div className="p-2.5 rounded-lg bg-red-50 border border-red-200 text-red-700 text-xs font-medium">
+                  {youtubeError}
+                </div>
+              )}
+
+              {/* Live Preview if ID is extractable */}
+              {extractYouTubeVideoId(youtubeInput) && (
+                <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-200 space-y-1.5">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Live Preview</span>
+                  <div className="relative pb-[56.25%] h-0 rounded-lg overflow-hidden bg-black shadow-inner">
+                    <iframe
+                      src={`https://www.youtube-nocookie.com/embed/${extractYouTubeVideoId(youtubeInput)}`}
+                      title="YouTube Preview"
+                      className="absolute top-0 left-0 w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+              )}
+
+              <div>
+                <label className="block font-semibold mb-1">Caption (optional):</label>
+                <input
+                  type="text"
+                  value={youtubeCaption}
+                  onChange={(e) => setYoutubeCaption(e.target.value)}
+                  placeholder="Video caption visible under the player..."
+                  className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                />
+              </div>
             </div>
 
             <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#E2E8F0]">
               <button
                 type="button"
-                onClick={() => setIsImageDetailsOpen(false)}
+                onClick={() => {
+                  setIsYouTubeModalOpen(false);
+                  editingYouTubeRef.current = null;
+                }}
                 className="px-4 py-2 text-xs font-semibold rounded-lg hover:bg-[#F1F5F9] text-[#64748B]"
               >
                 Cancel
               </button>
               <button
                 type="button"
-                onClick={handleUpdateImageDetails}
-                className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] rounded-lg shadow-xs"
+                onClick={handleApplyYouTube}
+                disabled={!youtubeInput.trim()}
+                className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] disabled:opacity-40 rounded-lg shadow-xs"
               >
-                Update
+                {editingYouTubeRef.current ? "Update Video" : "Embed Video"}
               </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 9. Button Block Modal */}
+      {isButtonModalOpen && (
+        <div className="fixed inset-0 z-[120] bg-slate-300/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-[#E2E8F0] max-w-lg w-full p-6 space-y-4 text-[#0F172A]">
+            <div className="flex items-center justify-between border-b pb-3 border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <MousePointerClick className="h-5 w-5 text-[#1D4ED8]" />
+                <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
+                  {editingButtonRef.current ? "Edit Button Block" : "Insert Button Block"}
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setIsButtonModalOpen(false);
+                  editingButtonRef.current = null;
+                }}
+                className="p-1 rounded-md text-slate-400 hover:text-slate-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="space-y-3.5 text-xs">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block font-semibold mb-1">Button Label *</label>
+                  <input
+                    type="text"
+                    value={buttonLabel}
+                    onChange={(e) => setButtonLabel(e.target.value)}
+                    placeholder="e.g. Get Started, Read More"
+                    className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                    autoFocus
+                  />
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Destination URL *</label>
+                  <input
+                    type="text"
+                    value={buttonUrl}
+                    onChange={(e) => setButtonUrl(e.target.value)}
+                    placeholder="https://... or /contact"
+                    className="w-full p-2.5 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                  />
+                </div>
+              </div>
+
+              <label className="flex items-center gap-2 cursor-pointer pt-0.5">
+                <input
+                  type="checkbox"
+                  checked={buttonNewTab}
+                  onChange={(e) => setButtonNewTab(e.target.checked)}
+                  className="rounded text-[#1D4ED8]"
+                />
+                <span className="font-medium text-[#0F172A]">Open in a new tab (target="_blank")</span>
+              </label>
+
+              <div className="grid grid-cols-3 gap-3">
+                <div>
+                  <label className="block font-semibold mb-1">Alignment</label>
+                  <select
+                    value={buttonAlign}
+                    onChange={(e) => setButtonAlign(e.target.value as any)}
+                    className="w-full p-2 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A]"
+                  >
+                    <option value="left">Left</option>
+                    <option value="center">Center</option>
+                    <option value="right">Right</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Style Preset</label>
+                  <select
+                    value={buttonStyle}
+                    onChange={(e) => setButtonStyle(e.target.value as any)}
+                    className="w-full p-2 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A]"
+                  >
+                    <option value="primary">Primary (Blue)</option>
+                    <option value="secondary">Secondary (Dark)</option>
+                    <option value="outline">Outline</option>
+                    <option value="text">Text Link</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Size Preset</label>
+                  <select
+                    value={buttonSize}
+                    onChange={(e) => setButtonSize(e.target.value as any)}
+                    className="w-full p-2 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A]"
+                  >
+                    <option value="sm">Small</option>
+                    <option value="md">Medium</option>
+                    <option value="lg">Large</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="block font-semibold mb-1">Border Radius</label>
+                  <select
+                    value={buttonRadius}
+                    onChange={(e) => setButtonRadius(e.target.value as any)}
+                    className="w-full p-2 border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A]"
+                  >
+                    <option value="rounded-none">Square (None)</option>
+                    <option value="rounded-md">Slight (Medium)</option>
+                    <option value="rounded-xl">Rounded (Standard)</option>
+                    <option value="rounded-full">Pill (Full)</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block font-semibold mb-1">Custom Background (Optional)</label>
+                  <input
+                    type="text"
+                    value={buttonBgColor}
+                    onChange={(e) => setButtonBgColor(e.target.value)}
+                    placeholder="e.g. #059669 or #1D4ED8"
+                    className="w-full p-2 font-mono border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A]"
+                  />
+                </div>
+              </div>
+
+              {/* Live Button Preview */}
+              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                <span className="text-[10px] font-bold uppercase tracking-wider text-slate-500">Live Preview:</span>
+                <div style={{ textAlign: buttonAlign }}>
+                  <span
+                    className={`inline-flex items-center justify-center font-semibold transition-all ${
+                      buttonSize === "sm" ? "text-xs px-3.5 py-1.5" : buttonSize === "lg" ? "text-base px-7 py-3.5" : "text-sm px-5 py-2.5"
+                    } ${buttonRadius} ${
+                      buttonStyle === "primary"
+                        ? "bg-[#1D4ED8] text-white shadow-md shadow-blue-500/20"
+                        : buttonStyle === "secondary"
+                        ? "bg-[#0F172A] text-white"
+                        : buttonStyle === "outline"
+                        ? "border-2 border-[#1D4ED8] text-[#1D4ED8] bg-transparent"
+                        : "text-[#1D4ED8] hover:underline"
+                    }`}
+                    style={{
+                      ...(buttonBgColor ? { backgroundColor: buttonBgColor, borderColor: buttonBgColor } : {}),
+                      ...(buttonTextColor ? { color: buttonTextColor } : {}),
+                    }}
+                  >
+                    {buttonLabel || "Button Preview"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-end gap-2 pt-3 border-t border-[#E2E8F0]">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsButtonModalOpen(false);
+                  editingButtonRef.current = null;
+                }}
+                className="px-4 py-2 text-xs font-semibold rounded-lg hover:bg-[#F1F5F9] text-[#64748B]"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleApplyButton}
+                disabled={!buttonUrl.trim() || !buttonLabel.trim()}
+                className="px-4 py-2 text-xs font-heading font-bold uppercase tracking-wider text-white bg-[#1D4ED8] hover:bg-[#1E40AF] disabled:opacity-40 rounded-lg shadow-xs"
+              >
+                {editingButtonRef.current ? "Update Button" : "Insert Button"}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* 10. Gutenberg Block Inserter (+) Modal */}
+      {isBlockInserterOpen && (
+        <div className="fixed inset-0 z-[120] bg-slate-300/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl shadow-2xl border border-[#E2E8F0] max-w-lg w-full p-6 space-y-4 text-[#0F172A]">
+            <div className="flex items-center justify-between border-b pb-3 border-[#E2E8F0]">
+              <div className="flex items-center gap-2">
+                <Plus className="h-5 w-5 text-[#1D4ED8]" />
+                <h3 className="font-heading font-bold uppercase tracking-wider text-sm">
+                  Add a Block
+                </h3>
+              </div>
+              <button
+                type="button"
+                onClick={() => setIsBlockInserterOpen(false)}
+                className="p-1 rounded-md text-slate-400 hover:text-slate-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
+
+            <div className="relative">
+              <Search className="h-4 w-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+              <input
+                type="text"
+                value={blockSearch}
+                onChange={(e) => setBlockSearch(e.target.value)}
+                placeholder="Search for blocks (e.g. heading, youtube, image, button)..."
+                className="w-full pl-9 pr-3 py-2 text-xs border rounded-lg bg-white border-[#CBD5E1] text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
+                autoFocus
+              />
+            </div>
+
+            <div className="max-h-80 overflow-y-auto space-y-4 pr-1">
+              {(["text", "media", "design"] as const).map((category) => {
+                const categoryBlocks = slashCommands.filter(
+                  (c) =>
+                    c.category === category &&
+                    (c.label.toLowerCase().includes(blockSearch.toLowerCase()) ||
+                      c.hint.toLowerCase().includes(blockSearch.toLowerCase()) ||
+                      c.tag.toLowerCase().includes(blockSearch.toLowerCase()))
+                );
+                if (categoryBlocks.length === 0) return null;
+                return (
+                  <div key={category} className="space-y-1.5">
+                    <span className="text-[10px] font-heading font-bold uppercase tracking-wider text-slate-400">
+                      {category === "text" ? "Typography & Text" : category === "media" ? "Media & Embeds" : "Design & Layout"}
+                    </span>
+                    <div className="grid grid-cols-2 gap-2">
+                      {categoryBlocks.map((cmd) => (
+                        <button
+                          key={cmd.label}
+                          type="button"
+                          onClick={() => insertBlockFromInserter(cmd.tag)}
+                          className="flex items-start gap-2.5 p-2.5 rounded-xl border border-slate-200 hover:border-[#1D4ED8] hover:bg-[#EFF6FF] text-left transition-all group"
+                        >
+                          <div className="p-2 rounded-lg bg-slate-100 group-hover:bg-[#1D4ED8] group-hover:text-white transition-colors shrink-0">
+                            {cmd.tag.startsWith("h") ? (
+                              <span className="font-heading font-black text-xs">{cmd.tag.toUpperCase()}</span>
+                            ) : cmd.tag === "img" ? (
+                              <ImageIcon className="h-4 w-4" />
+                            ) : cmd.tag === "youtube" ? (
+                              <YouTubeIcon className="h-4 w-4" />
+                            ) : cmd.tag === "button" ? (
+                              <MousePointerClick className="h-4 w-4" />
+                            ) : cmd.tag === "table" ? (
+                              <TableIcon className="h-4 w-4" />
+                            ) : cmd.tag === "pre" ? (
+                              <Code className="h-4 w-4" />
+                            ) : cmd.tag === "blockquote" ? (
+                              <Quote className="h-4 w-4" />
+                            ) : cmd.tag === "ul" ? (
+                              <List className="h-4 w-4" />
+                            ) : cmd.tag === "ol" ? (
+                              <ListOrdered className="h-4 w-4" />
+                            ) : cmd.tag === "hr" ? (
+                              <Minus className="h-4 w-4" />
+                            ) : (
+                              <FileText className="h-4 w-4" />
+                            )}
+                          </div>
+                          <div className="min-w-0">
+                            <div className="font-semibold text-xs text-[#0F172A] group-hover:text-[#1D4ED8] truncate">
+                              {cmd.label}
+                            </div>
+                            <div className="text-[10px] text-slate-500 line-clamp-1">
+                              {cmd.hint}
+                            </div>
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

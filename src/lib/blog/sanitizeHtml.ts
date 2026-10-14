@@ -1,4 +1,68 @@
-const ALLOWED_TAGS = /<(?!\/?(?:p|div|span|br|strong|b|em|i|u|s|h1|h2|h3|h4|h5|h6|ul|ol|li|blockquote|pre|code|figure|figcaption|img|a|hr|table|caption|colgroup|col|thead|tbody|tfoot|tr|th|td)\b)[^>]*>/gi;
+export function extractYouTubeVideoId(input: string): string | null {
+  if (!input) return null;
+  const trimmed = input.trim();
+  const iframeMatch = trimmed.match(/<iframe\b[^>]*\bsrc=["']([^"']+)["'][^>]*>/i);
+  const targetUrl = iframeMatch ? iframeMatch[1] : trimmed;
+
+  try {
+    const parsed = new URL(targetUrl.startsWith("http") ? targetUrl : `https://${targetUrl}`);
+    const host = parsed.hostname.toLowerCase().replace(/^www\./, "");
+    if (!["youtube.com", "youtu.be", "youtube-nocookie.com", "m.youtube.com"].includes(host)) {
+      return null;
+    }
+
+    if (parsed.searchParams.has("v")) {
+      const v = parsed.searchParams.get("v");
+      if (v && /^[a-zA-Z0-9_-]{11}$/.test(v)) return v;
+    }
+
+    if (host === "youtu.be") {
+      const pathId = parsed.pathname.slice(1).split("/")[0];
+      if (pathId && /^[a-zA-Z0-9_-]{11}$/.test(pathId)) return pathId;
+    }
+
+    const pathParts = parsed.pathname.split("/").filter(Boolean);
+    if (pathParts.length >= 2 && ["embed", "shorts", "v"].includes(pathParts[0])) {
+      const id = pathParts[1];
+      if (id && /^[a-zA-Z0-9_-]{11}$/.test(id)) return id;
+    }
+  } catch {
+    const match = trimmed.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?|shorts)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+    if (match && match[1]) return match[1];
+  }
+
+  return null;
+}
+
+export function isValidFontSize(value: string): boolean {
+  if (!value) return false;
+  const clean = value.trim().toLowerCase();
+  // Validates px, rem, em, %, pt, or plain integer between 8 and 120
+  return /^(?:[8-9]|[1-9][0-9]|1[0-1][0-9]|120)(?:\.[0-9]+)?(?:px|rem|em|pt|%)?$/i.test(clean);
+}
+
+export function normalizeFontSize(value: string | number): string {
+  const str = String(value).trim().toLowerCase();
+  if (!str) return "";
+  if (/^\d+(?:\.\d+)?$/.test(str)) {
+    return `${str}px`;
+  }
+  return str;
+}
+
+export function isValidLinkUrl(url: string): boolean {
+  if (!url) return false;
+  const trimmed = url.trim();
+  if (!trimmed) return false;
+  // Disallow javascript:, data:, vbscript: schemes
+  if (/^(?:javascript|data|vbscript):/i.test(trimmed)) return false;
+  // Allow relative URLs, fragments, mailto, tel, http, https
+  if (/^(\/|#|\?|mailto:|tel:|https?:\/\/)/i.test(trimmed)) return true;
+  // If it's a domain-like string (e.g. example.com), allow it
+  return !/^[a-z0-9+.-]+:/i.test(trimmed) || /^https?:\/\//i.test(trimmed);
+}
+
+const ALLOWED_TAGS = /<(?!\/?(?:p|div|span|br|strong|b|em|i|u|s|sub|sup|h1|h2|h3|h4|h5|h6|ul|ol|li|blockquote|pre|code|figure|figcaption|img|a|hr|table|caption|colgroup|col|thead|tbody|tfoot|tr|th|td|iframe)\b)[^>]*>/gi;
 
 /** Join a pasted sentence that a document editor split into two paragraphs. */
 export function mergePastedParagraphBreaks(html: string): string {
@@ -23,11 +87,29 @@ export function mergePastedParagraphBreaks(html: string): string {
 
 /** Keep editor HTML useful while removing executable markup and event handlers. */
 export function sanitizeBlogHtml(html: string): string {
-  return mergePastedParagraphBreaks(html
+  if (!html) return "";
+
+  // Sanitize iframes: restrict solely to approved YouTube hosts and normalize attributes
+  let processed = html.replace(/<iframe\b([^>]*)>(?:<\/iframe>)?/gi, (_match, attrs) => {
+    const srcMatch = attrs.match(/\bsrc=["']([^"']+)["']/i);
+    if (!srcMatch) return "";
+    const videoId = extractYouTubeVideoId(srcMatch[1]);
+    if (!videoId) return "";
+    return `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
+  });
+
+  return mergePastedParagraphBreaks(processed
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
     .replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
     .replace(/\s(?:href|src)\s*=\s*(["'])\s*javascript:[\s\S]*?\1/gi, "")
+    .replace(/\sstyle\s*=\s*(["'])([\s\S]*?)\1/gi, (match, _quote, styleContent) => {
+      // Disallow dangerous CSS expressions and URL imports
+      if (/(?:expression|javascript|behavior|@import|url\s*\()/i.test(styleContent)) {
+        return "";
+      }
+      return match;
+    })
     .replace(ALLOWED_TAGS, "")
     .replace(/javascript:/gi, ""));
 }

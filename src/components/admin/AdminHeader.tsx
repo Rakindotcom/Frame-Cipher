@@ -32,7 +32,6 @@ const navModules = [
   { href: "/admin/cms", label: "Blog CMS", icon: FileText, section: "MAIN" },
   { href: "/admin/media", label: "Media Library", icon: ImageIcon, section: "MAIN" },
   { href: "/admin/tools-analytics", label: "Analytics", icon: BarChart3, section: "AGENCY INTELLIGENCE" },
-  { href: "/admin/search-console", label: "Search Console", icon: Search, section: "AGENCY INTELLIGENCE" },
   { href: "/admin/settings", label: "Settings", icon: Settings, section: "SYSTEM" },
 ];
 
