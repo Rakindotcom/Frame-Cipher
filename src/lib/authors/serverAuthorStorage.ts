@@ -125,16 +125,31 @@ function mergeAuthor(
 
 export async function getServerAuthors(): Promise<AuthorProfile[]> {
   try {
+    const adminFs = getAdminFirestore();
+    if (adminFs) {
+      const snapshot = await adminFs.collection(COLLECTION).get();
+      const authors = snapshot.docs.map((entry) => normalizeFromFirestore(entry.data(), entry.id));
+      if (authors.length > 0) return authors;
+    }
+  } catch (err) {
+    console.warn("Admin Firestore author read note:", err);
+  }
+
+  try {
     const snapshot = await getDocs(query(
       collection(publicFirestore, COLLECTION),
       where("status", "==", "published")
     ));
     const authors = snapshot.docs.map((entry) => normalizeFromFirestore(entry.data(), entry.id));
-    return authors.length > 0 ? authors : CANONICAL_AUTHORS;
+    if (authors.length > 0) return authors;
   } catch (error) {
     console.error("Public Firestore author read failed:", error);
-    return CANONICAL_AUTHORS;
   }
+
+  const local = readLocalAuthors();
+  if (local.length > 0) return local;
+
+  return CANONICAL_AUTHORS;
 }
 
 export async function saveServerAuthor(
@@ -231,6 +246,7 @@ export async function deleteServerAuthor(
 ): Promise<{ success: boolean; error?: string }> {
   const firestore = getAdminFirestore();
   const target = idOrSlug.toLowerCase().trim();
+  const slugTarget = target.replace(/^author-/, "");
 
   if (!firestore) {
     if (!canUseLocalFiles()) {
@@ -238,7 +254,11 @@ export async function deleteServerAuthor(
     }
     writeLocalAuthors(
       readLocalAuthors().filter(
-        (a) => a.id !== idOrSlug && a.slug.toLowerCase() !== target
+        (a) =>
+          a.id?.toLowerCase() !== target &&
+          a.slug?.toLowerCase() !== target &&
+          a.slug?.toLowerCase() !== slugTarget &&
+          a.id?.toLowerCase() !== `author-${slugTarget}`
       )
     );
     return { success: true };
@@ -249,20 +269,37 @@ export async function deleteServerAuthor(
     const byId = await collection.doc(idOrSlug).get();
     if (byId.exists) {
       await byId.ref.delete();
-    } else {
-      const snapshot = await collection.get();
-      for (const doc of snapshot.docs) {
-        const data = doc.data();
-        if (data?.slug?.toLowerCase() === target || data?.id?.toLowerCase() === target) {
-          await doc.ref.delete();
-        }
+    }
+    
+    // Also delete any document matching target or slugTarget
+    const snapshot = await collection.get();
+    for (const doc of snapshot.docs) {
+      const data = doc.data();
+      const docId = doc.id.toLowerCase();
+      const docSlug = data?.slug?.toLowerCase();
+      const dataId = data?.id?.toLowerCase();
+      if (
+        docId === target ||
+        docId === slugTarget ||
+        docId === `author-${slugTarget}` ||
+        docSlug === target ||
+        docSlug === slugTarget ||
+        dataId === target ||
+        dataId === slugTarget ||
+        dataId === `author-${slugTarget}`
+      ) {
+        await doc.ref.delete();
       }
     }
 
     if (canUseLocalFiles()) {
       writeLocalAuthors(
         readLocalAuthors().filter(
-          (a) => a.id !== idOrSlug && a.slug.toLowerCase() !== target
+          (a) =>
+            a.id?.toLowerCase() !== target &&
+            a.slug?.toLowerCase() !== target &&
+            a.slug?.toLowerCase() !== slugTarget &&
+            a.id?.toLowerCase() !== `author-${slugTarget}`
         )
       );
     }

@@ -36,6 +36,7 @@ export default function WebsiteDesignDevelopmentUiUxDesignService({ service }) {
 
       {/* PORTFOLIO PREVIEW */}
       <WebsitePortfolioPreview
+        category="ui-ux-design"
         eyebrow="Portfolio & Case Studies"
         title="UI/UX Design Portfolio & Case Studies"
         description="A strong UI/UX portfolio should show more than attractive screens. It should show the problem, the design decisions, and how the final experience was structured."

@@ -10,9 +10,11 @@ function humanizeServiceCopy(value = '') {
     .replace(/View Full Pillar/gi, 'View complete solution')
 }
 
-export function PageHero({ eyebrow, title, children, meta, number = '360', actions = null }) {
+export function PageHero({ eyebrow, title, children, meta, number = '360', actions = null, className = '' }) {
+  const hasCustomPadding = /(^|\s)(p[xty]?|md:p[xty]?)-/.test(className)
+  const padding = hasCustomPadding ? '' : 'pb-20 pt-28 md:pb-28 md:pt-36'
   return (
-    <section className="relative isolate overflow-hidden border-b-2 border-frame-border px-4 pb-20 pt-28 md:px-8 md:pb-28 md:pt-36">
+    <section className={`relative isolate overflow-hidden border-b-2 border-frame-border px-4 md:px-8 ${padding} ${className}`}>
       <div
         aria-hidden="true"
         className="pointer-events-none absolute left-0 top-24 z-0 h-24 w-1.5 bg-gradient-to-b from-frame-accent via-frame-accent/60 to-transparent md:top-16"

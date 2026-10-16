@@ -167,12 +167,46 @@ export default function AdminLeadsPage() {
         console.warn("API inquiries fetch error:", apiErr);
       }
 
-      const allLeads = Array.from(leadsMap.values());
-      allLeads.sort(
-        (a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime()
-      );
+      // Deduplicate leads across collections (e.g. contact_leads vs contact_messages duplicates)
+      const collectionPriority: Record<string, number> = {
+        studio_bookings: 1,
+        contact_leads: 2,
+        contacts: 3,
+        contact_messages: 4,
+      };
 
-      setLeads(allLeads);
+      const sortedRaw = Array.from(leadsMap.values()).sort((a, b) => {
+        const timeA = new Date(a.createdAt || 0).getTime();
+        const timeB = new Date(b.createdAt || 0).getTime();
+        const timeDiff = timeB - timeA;
+        if (Math.abs(timeDiff) > 5 * 60 * 1000) return timeDiff;
+        return (collectionPriority[a.collection] || 99) - (collectionPriority[b.collection] || 99);
+      });
+
+      const deduplicated: InquiryLead[] = [];
+      const seenSignatures = new Set<string>();
+
+      for (const item of sortedRaw) {
+        const cleanName = (item.name || "").trim().toLowerCase();
+        const cleanEmail = (item.email || "").trim().toLowerCase();
+        const cleanPhone = (item.phone || "").replace(/\D/g, "");
+        const timeBucket = Math.floor(new Date(item.createdAt || 0).getTime() / (5 * 60 * 1000));
+
+        const contactIdentifier = cleanEmail && !cleanEmail.includes("framecipher.com")
+          ? cleanEmail
+          : cleanPhone || cleanName;
+
+        const signature = `${cleanName}|${contactIdentifier}|${timeBucket}`;
+        if (contactIdentifier && seenSignatures.has(signature)) {
+          continue; // skip duplicate entry
+        }
+        if (contactIdentifier) {
+          seenSignatures.add(signature);
+        }
+        deduplicated.push(item);
+      }
+
+      setLeads(deduplicated);
     } catch (err) {
       console.error("Error fetching inquiries:", err);
     } finally {

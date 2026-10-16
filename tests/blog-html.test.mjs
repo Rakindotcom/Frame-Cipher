@@ -103,3 +103,18 @@ test("javascript links and event handlers in links are stripped", () => {
   assert.match(result, /Click me/);
 });
 
+test("tables are automatically wrapped in responsive horizontal-scroll containers", () => {
+  const table = '<table><thead><tr><th>Device Testing</th><th>Android</th><th>iOS</th></tr></thead><tbody><tr><td>OS versions</td><td>Many</td><td>Fewer</td></tr></tbody></table>';
+  const result = sanitizeBlogHtml(table);
+
+  assert.match(result, /class="blog-table-wrapper"/);
+  assert.match(result, /class="blog-table-scroll"/);
+  assert.match(result, /class="blog-table-hint"/);
+  assert.match(result, /<th>Device Testing<\/th>/);
+
+  // Calling twice should not create duplicate wrappers
+  const reResult = sanitizeBlogHtml(result);
+  const wrapperMatches = reResult.match(/blog-table-wrapper/g) || [];
+  assert.equal(wrapperMatches.length, 1, "should not double-wrap tables");
+});
+

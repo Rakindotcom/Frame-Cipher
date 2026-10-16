@@ -214,24 +214,30 @@ export default function ContactBriefForm() {
 
     try {
       // 1. Send to server inquiries endpoint
-      await fetch('/api/inquiries', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          type: 'contact',
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          company: formData.company,
-          service: formData.serviceNeeded,
-          budget: formData.budgetRange,
-          timeline: formData.timeline,
-          details: formData.details,
-        }),
-      }).catch((e) => console.warn('API save error, fallback to firestore', e))
+      let savedViaApi = false
+      try {
+        const res = await fetch('/api/inquiries', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'contact',
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone,
+            company: formData.company,
+            service: formData.serviceNeeded,
+            budget: formData.budgetRange,
+            timeline: formData.timeline,
+            details: formData.details,
+          }),
+        })
+        if (res.ok) savedViaApi = true
+      } catch (e) {
+        console.warn('API save error, fallback to firestore', e)
+      }
 
-      // 2. Direct Firestore backups
-      if (db) {
+      // 2. Direct Firestore backup ONLY if server API failed
+      if (!savedViaApi && db) {
         try {
           await addDoc(collection(db, 'contact_messages'), {
             name: formData.name.trim(),
@@ -243,15 +249,6 @@ export default function ContactBriefForm() {
           })
         } catch (err) {
           console.warn('contact_messages write error:', err)
-        }
-
-        try {
-          await addDoc(collection(db, 'contacts'), {
-            ...formData,
-            timestamp: serverTimestamp(),
-          })
-        } catch (err) {
-          console.warn('contacts collection write error:', err)
         }
       }
 

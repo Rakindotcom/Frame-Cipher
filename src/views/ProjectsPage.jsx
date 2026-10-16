@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { growthPortfolio } from '../data/growthWork'
+import { longVideos, shortVideos } from '../data/videoProjects'
 import {
   ProjectsHero,
   ProjectsFilterBar,
@@ -51,92 +52,12 @@ const videoWorkSections = [
   {
     title: 'Long videos',
     description: 'Long-form video work produced for deeper storytelling, campaign context, and platform publishing.',
-    items: [
-      {
-        title: 'Long video 01',
-        videoId: 'j5r_HVWKnAA',
-        thumbnailUrl: '/video-thumbnails/long-01.webp',
-      },
-      {
-        title: 'Long video 02',
-        videoId: 'bqdK_EifW8k',
-        thumbnailUrl: '/video-thumbnails/long-02.webp',
-      },
-      {
-        title: 'Long video 03',
-        videoId: '3MR8SvdrMkU',
-        thumbnailUrl: '/video-thumbnails/long-03.webp',
-      },
-      {
-        title: 'Long video 04',
-        videoId: 'kekOmxPCfNw',
-        thumbnailUrl: '/video-thumbnails/long-04.webp',
-      },
-      {
-        title: 'Long video 05',
-        videoId: 'GiHzlVvUN-E',
-        thumbnailUrl: '/video-thumbnails/long-05.webp',
-      },
-    ],
+    items: longVideos,
   },
   {
     title: 'Short videos',
     description: 'Vertical short-form edits built for retention, rhythm, and fast social distribution.',
-    items: [
-      {
-        title: 'Life & Perspective: "আমি প্রস্তুত না"',
-        videoId: 'KGD6GGqEliA',
-        thumbnailUrl: '/video-thumbnails/short-01.webp',
-        isShort: true,
-        category: 'Inspirational Short',
-      },
-      {
-        title: 'Dr. Ferdoush Saleheen: Mindset & Action',
-        client: 'Dr. Ferdoush Saleheen',
-        videoId: 'Qw1unPMli6k',
-        thumbnailUrl: '/video-thumbnails/short-02.webp',
-        isShort: true,
-        category: 'Personal Brand · 1M+ Views',
-      },
-      {
-        title: 'Dr. Ferdoush Saleheen: Career Reflection & Growth',
-        client: 'Dr. Ferdoush Saleheen',
-        videoId: 'fkiGzxB6qTE',
-        thumbnailUrl: '/video-thumbnails/short-03.webp',
-        isShort: true,
-        category: 'Personal Brand · Viral Short',
-      },
-      {
-        title: 'Dr. Ferdoush Saleheen: Supply Chain Frameworks',
-        client: 'Dr. Ferdoush Saleheen',
-        videoId: 'JjHHwtdk1Lg',
-        thumbnailUrl: '/video-thumbnails/short-04.webp',
-        isShort: true,
-        category: 'Personal Brand · Leadership',
-      },
-      {
-        title: 'Dr. Ferdoush Saleheen: Core Leadership Insights',
-        client: 'Dr. Ferdoush Saleheen',
-        videoId: 'HBFYhnWH2Go',
-        thumbnailUrl: '/video-thumbnails/short-05.webp',
-        isShort: true,
-        category: 'Personal Brand · Authority',
-      },
-      {
-        title: 'Career in Textile & Lifestyle: Conference Short',
-        videoId: '8J5r9BbGGys',
-        thumbnailUrl: '/video-thumbnails/short-06.webp',
-        isShort: true,
-        category: 'Conference Coverage',
-      },
-      {
-        title: 'Brand Media & Campaign Recap Short',
-        videoId: 'ufDXseYbDZA',
-        thumbnailUrl: '/video-thumbnails/short-07.webp',
-        isShort: true,
-        category: 'Campaign Short',
-      },
-    ],
+    items: shortVideos,
   },
 ]
 
@@ -145,6 +66,7 @@ const websiteProjects = [
     name: 'Jarixo',
     url: 'https://jarixo.com/',
     domain: 'jarixo.com',
+    platform: 'Shopify',
     category: 'Wellness E-commerce platform',
     screenshot: '/website-shots/jarixo.com.png',
     summary:
@@ -154,6 +76,7 @@ const websiteProjects = [
     name: 'Dr. Ferdoush Saleheen',
     url: 'https://ferdoushsaleheen.com/',
     domain: 'ferdoushsaleheen.com',
+    platform: 'React / Next.js',
     category: 'Personal brand website',
     caseStudyUrl: '/case-studies',
     screenshot: '/website-shots/ferdoush-saleheen.webp',
@@ -164,6 +87,7 @@ const websiteProjects = [
     name: 'Hotel Ashrafee',
     url: 'https://www.hotelashrafee.com/',
     domain: 'hotelashrafee.com',
+    platform: 'React / Next.js',
     category: 'Hospitality website',
     screenshot: '/website-shots/hotel-ashrafee.webp',
     summary: 'Hotel website presentation for rooms, location, and direct guest trust.',
@@ -172,6 +96,7 @@ const websiteProjects = [
     name: 'ALFIS Limited',
     url: 'https://alfisltd.vercel.app/',
     domain: 'alfisltd.vercel.app',
+    platform: 'React / Next.js',
     category: 'Business website',
     screenshot: '/website-shots/alfis-limited.webp',
     summary: 'Company website structure for a garments accessories business.',
@@ -180,6 +105,7 @@ const websiteProjects = [
     name: 'StitchBD',
     url: 'https://stitchbd.net',
     domain: 'stitchbd.net',
+    platform: 'React / Next.js',
     category: 'Fashion E-commerce platform',
     screenshot: '/website-shots/stitchbd.png',
     summary:
@@ -189,6 +115,7 @@ const websiteProjects = [
     name: 'BD For Palestine',
     url: 'https://bdforpalestine.org/',
     domain: 'bdforpalestine.org',
+    platform: 'React / Next.js',
     category: 'Community platform',
     screenshot: '/website-shots/bd-for-palestine.webp',
     summary: 'Public-facing advocacy and information site for a movement-focused initiative.',
@@ -197,6 +124,7 @@ const websiteProjects = [
     name: 'Riha WebTech',
     url: 'https://rihawebtech.com',
     domain: 'rihawebtech.com',
+    platform: 'React / Next.js',
     category: 'Agency platform',
     screenshot: '/website-shots/rihawebtech.png',
     summary:
@@ -206,6 +134,7 @@ const websiteProjects = [
     name: 'Dont Validate Labels',
     url: 'https://dontvalidatelabels.store/',
     domain: 'dontvalidatelabels.store',
+    platform: 'WordPress',
     category: 'E-commerce Apparel store',
     screenshot: '/website-shots/dontvalidatelabels.png',
     summary:
@@ -215,6 +144,7 @@ const websiteProjects = [
     name: 'Dr. Shafiul Islam Kawsar',
     url: 'https://drshafiulahmedkawsar.vercel.app/',
     domain: 'drshafiulahmedkawsar.vercel.app',
+    platform: 'React / Next.js',
     category: 'Personal brand website',
     screenshot: '/website-shots/dr-shafiul-islam-kawsar.png',
     summary:
@@ -224,6 +154,7 @@ const websiteProjects = [
     name: 'Pharmacity',
     url: 'https://pharmacity.com.bd/',
     domain: 'pharmacity.com.bd',
+    platform: 'WordPress',
     category: 'Healthcare website',
     screenshot: '/website-shots/pharmacity.png',
     summary:
@@ -233,6 +164,7 @@ const websiteProjects = [
     name: 'Plan Abroad',
     url: 'https://planabroad.org/',
     domain: 'planabroad.org',
+    platform: 'WordPress',
     category: 'Education & Study Abroad platform',
     screenshot: '/website-shots/plan-abroad.png',
     summary:
@@ -242,6 +174,7 @@ const websiteProjects = [
     name: 'Nazmulhoq',
     url: 'https://nazmulhoq.com/',
     domain: 'nazmulhoq.com',
+    platform: 'WordPress',
     category: 'Personal brand website',
     screenshot: '/website-shots/Nazmulhoq.png',
     summary:
@@ -251,6 +184,7 @@ const websiteProjects = [
     name: 'Business Club',
     url: 'https://businessclub.com.bd/',
     domain: 'businessclub.com.bd',
+    platform: 'React / Next.js',
     category: 'Corporate community platform',
     screenshot: '/website-shots/businessclub.png',
     summary:
@@ -260,6 +194,7 @@ const websiteProjects = [
     name: 'Muhsin Mashkur',
     url: 'https://www.muhsinmashkur.com/',
     domain: 'muhsinmashkur.com',
+    platform: 'React / Next.js',
     category: 'Personal website',
     screenshot: '/website-shots/muhsin-mashkur.webp',
     summary: 'Personal site for profile, public identity, and digital presence.',
@@ -268,6 +203,7 @@ const websiteProjects = [
     name: 'Real Estate Platform Demo',
     url: 'https://realestate.framecipher.info/',
     domain: 'realestate.framecipher.info',
+    platform: 'React / Next.js',
     category: 'Real estate platform',
     screenshot: '/website-shots/real-estate-demo.png',
     summary:
@@ -277,6 +213,7 @@ const websiteProjects = [
     name: 'E-Commerce Store Demo',
     url: 'https://ecommerce.framecipher.info/',
     domain: 'ecommerce.framecipher.info',
+    platform: 'React / Next.js',
     category: 'E-commerce storefront',
     screenshot: '/website-shots/ecommerce-demo.png',
     summary:
@@ -286,6 +223,7 @@ const websiteProjects = [
     name: 'Mahedi Hasan Portfolio',
     url: 'https://mahedi.framecipher.info/',
     domain: 'mahedi.framecipher.info',
+    platform: 'React / Next.js',
     category: 'Personal portfolio',
     screenshot: '/website-shots/mahedi-hasan-perves-portfolio.png',
     summary:
@@ -295,6 +233,7 @@ const websiteProjects = [
     name: 'Business Byte',
     url: 'https://businessbyte-rakin.vercel.app/',
     domain: 'businessbyte-rakin.vercel.app',
+    platform: 'React / Next.js',
     category: 'Web product',
     screenshot: '/website-shots/business-byte.webp',
     summary: 'Digital business resource presented as a lightweight web experience.',
@@ -320,8 +259,11 @@ export default function ProjectsPage({ initialView = null }) {
     const filterEl = document.getElementById('portfolio-controls')
     if (filterEl) {
       const rect = filterEl.getBoundingClientRect()
-      if (rect.top < 74) {
-        filterEl.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Only adjust scroll if user has scrolled FAR past the filter bar down below
+      // Never scroll when filter controls are visible in viewport
+      if (rect.bottom < 0) {
+        const targetY = window.scrollY + rect.top - 80
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
       }
     }
   }
@@ -442,7 +384,8 @@ export default function ProjectsPage({ initialView = null }) {
       p.name.toLowerCase().includes(q) ||
       p.domain.toLowerCase().includes(q) ||
       p.category.toLowerCase().includes(q) ||
-      p.summary.toLowerCase().includes(q)
+      p.summary.toLowerCase().includes(q) ||
+      (p.platform && p.platform.toLowerCase().includes(q))
     )
   })
 
@@ -459,7 +402,9 @@ export default function ProjectsPage({ initialView = null }) {
       'short video'.includes(q) ||
       'reels'.includes(q) ||
       (v.client && v.client.toLowerCase().includes(q)) ||
-      (v.category && v.category.toLowerCase().includes(q))
+      (v.category && v.category.toLowerCase().includes(q)) ||
+      (v.genre && v.genre.toLowerCase().includes(q)) ||
+      (v.tags && v.tags.some((t) => t.toLowerCase().includes(q)))
     )
   })
 

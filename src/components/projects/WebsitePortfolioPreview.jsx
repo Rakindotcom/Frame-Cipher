@@ -1,39 +1,51 @@
 import Link from 'next/link'
+import { getWebsitesByCategory } from '../../data/websiteProjects'
 
-const featuredWebsites = [
-  {
-    name: 'Jarixo',
-    domain: 'jarixo.com',
-    url: 'https://jarixo.com/',
-    category: 'Wellness e-commerce',
-    screenshot: '/website-shots/jarixo.com.png',
-    summary: 'A calm, premium storefront for everyday recovery products, built around trust, product discovery, and a smoother buying journey.',
-  },
-  {
-    name: 'Dr. Ferdoush Saleheen',
-    domain: 'ferdoushsaleheen.com',
-    url: 'https://ferdoushsaleheen.com/',
-    category: 'Personal brand website',
-    screenshot: '/website-shots/ferdoush-saleheen.webp',
-    summary: 'A bilingual personal platform for books, podcasts, research, and public thought leadership.',
-  },
-  {
-    name: 'Hotel Ashrafee',
-    domain: 'hotelashrafee.com',
-    url: 'https://www.hotelashrafee.com/',
-    category: 'Hospitality website',
-    screenshot: '/website-shots/hotel-ashrafee.webp',
-    summary: 'A clear hospitality experience for rooms, location, enquiries, and direct guest trust.',
-  },
-]
+function getPlatformBadge(platform) {
+  if (platform === 'Shopify') {
+    return {
+      label: 'Shopify Store',
+      className:
+        'border border-emerald-500/50 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+    }
+  }
+  if (platform === 'WordPress') {
+    return {
+      label: 'WordPress CMS',
+      className:
+        'border border-blue-500/50 bg-blue-500/10 text-blue-600 dark:text-blue-400',
+    }
+  }
+  return {
+    label: 'React / Next.js',
+    className:
+      'border border-frame-accent/50 bg-frame-accent/10 text-frame-accent',
+  }
+}
 
 export default function WebsitePortfolioPreview({
+  category = '',
+  items = null,
+  limit = 4,
   eyebrow = 'Selected website work',
   title = 'Websites built to move people forward.',
   description = null,
   buttonText = 'View more websites →',
   buttonHref = '/projects#website-work',
 }) {
+  const displayedWebsites = items || getWebsitesByCategory(category, limit)
+
+  if (!displayedWebsites || displayedWebsites.length === 0) return null
+
+  const gridColsClass =
+    displayedWebsites.length === 4
+      ? 'sm:grid-cols-2 lg:grid-cols-4'
+      : displayedWebsites.length === 2
+      ? 'sm:grid-cols-2'
+      : displayedWebsites.length === 1
+      ? 'max-w-xl mx-auto'
+      : 'md:grid-cols-3'
+
   return (
     <section id="website-portfolio" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
@@ -57,28 +69,77 @@ export default function WebsitePortfolioPreview({
           </Link>
         </div>
 
-        <div className="grid gap-5 md:grid-cols-3">
-          {featuredWebsites.map((site) => (
-            <article key={site.domain} className="group overflow-hidden border-2 border-frame-border bg-frame-bg transition-colors hover:border-frame-accent">
-              <a href={site.url} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${site.name}`}>
-                <div className="flex items-center gap-2 border-b-2 border-frame-border px-4 py-3">
-                  <span className="h-2.5 w-2.5 rounded-full bg-frame-accent" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/50" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/30" />
-                  <span className="ml-2 truncate text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">{site.domain}</span>
+        <div className={`grid gap-5 ${gridColsClass}`}>
+          {displayedWebsites.map((site) => {
+            const badge = getPlatformBadge(site.platform)
+            return (
+              <article
+                key={site.domain || site.name}
+                className="group flex flex-col overflow-hidden border-2 border-frame-border bg-frame-bg transition-colors hover:border-frame-accent"
+              >
+                <a
+                  href={site.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Visit ${site.name}`}
+                  className="block"
+                >
+                  <div className="flex items-center gap-2 border-b-2 border-frame-border px-4 py-3">
+                    <span className="h-2.5 w-2.5 rounded-full bg-frame-accent" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/50" />
+                    <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/30" />
+                    <span className="ml-2 truncate text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
+                      {site.domain}
+                    </span>
+                  </div>
+                  <div className="aspect-video overflow-hidden bg-frame-muted">
+                    <img
+                      src={site.screenshot}
+                      alt={`${site.name} website screenshot`}
+                      className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  </div>
+                </a>
+                <div className="flex flex-1 flex-col p-5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className={`rounded px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider ${badge.className}`}
+                    >
+                      {badge.label}
+                    </span>
+                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                      {site.category}
+                    </span>
+                  </div>
+                  <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg">
+                    {site.name}
+                  </h3>
+                  <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    {site.summary}
+                  </p>
+                  <div className="mt-auto pt-4 flex items-center justify-between">
+                    <a
+                      href={site.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex text-xs md:text-sm font-black uppercase tracking-tighter text-frame-fg transition hover:text-frame-accent"
+                    >
+                      Visit website &rarr;
+                    </a>
+                    {site.caseStudyUrl && (
+                      <Link
+                        href={site.caseStudyUrl}
+                        className="text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg underline underline-offset-4"
+                      >
+                        Case Study
+                      </Link>
+                    )}
+                  </div>
                 </div>
-                <div className="aspect-video overflow-hidden bg-frame-muted">
-                  <img src={site.screenshot} alt={`${site.name} website screenshot`} className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]" loading="lazy" />
-                </div>
-              </a>
-              <div className="p-5">
-                <p className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">{site.category}</p>
-                <h3 className="mt-3 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg">{site.name}</h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{site.summary}</p>
-                <a href={site.url} target="_blank" rel="noopener noreferrer" className="mt-5 inline-flex text-sm font-black uppercase tracking-tighter text-frame-fg transition hover:text-frame-accent">Visit website &rarr;</a>
-              </div>
-            </article>
-          ))}
+              </article>
+            )
+          })}
         </div>
       </div>
     </section>

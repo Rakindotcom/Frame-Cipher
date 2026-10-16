@@ -37,6 +37,7 @@ export default function WebsiteDesignDevelopmentRedesignService({ service }) {
 
       {/* PORTFOLIO PREVIEW */}
       <WebsitePortfolioPreview
+        category="redesign"
         eyebrow="Case Studies & Real Work"
         title="Website Redesign Case Studies"
         description="A redesign is easier to evaluate when you can see what changed, why it changed, and what happened afterward."

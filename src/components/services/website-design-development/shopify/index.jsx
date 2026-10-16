@@ -30,6 +30,7 @@ export default function WebsiteDesignDevelopmentShopifyService({ service }) {
       <Hero />
       <TypeMarquee items={shopifyKeywords} slow />
       <WebsitePortfolioPreview
+        category="shopify"
         eyebrow="Case Studies & Real Work"
         title="Our Shopify Development Portfolio"
         description="Real implementations provide a better picture of Shopify expertise than a technology list alone. Our portfolio should show the ecommerce problem, the Shopify implementation, and the work completed by the development team."

@@ -80,9 +80,7 @@ export default function HomeHero() {
         <div className="grid gap-8 border-t-2 border-frame-border pt-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-12 lg:pt-12">
           <div>
             <p className="max-w-2xl text-base font-semibold leading-snug text-frame-muted-fg md:text-2xl">
-              Frame Cipher brings brand positioning, commercial video, high-converting websites,
-              paid media, and automation into one disciplined growth machine. No fragmented agencies.
-              One accountable partner.
+              Frame Cipher brings brand positioning, <Link href="/studio" className="text-frame-fg hover:text-frame-accent underline decoration-frame-accent/40 transition-colors">commercial video</Link>, <Link href="/services/website-design-development" className="text-frame-fg hover:text-frame-accent underline decoration-frame-accent/40 transition-colors">high-converting websites</Link>, <Link href="/services/paid-advertising" className="text-frame-fg hover:text-frame-accent underline decoration-frame-accent/40 transition-colors">paid media</Link>, and automation into one disciplined growth machine. No fragmented agencies. One accountable partner.
             </p>
             <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:gap-4">
               <PosterButton href="/contact">Book a strategy call</PosterButton>

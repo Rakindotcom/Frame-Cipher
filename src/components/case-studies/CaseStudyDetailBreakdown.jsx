@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
 export default function CaseStudyDetailBreakdown({ study }) {
   return (
@@ -33,7 +34,11 @@ export default function CaseStudyDetailBreakdown({ study }) {
                       key={paragraph}
                       className="mt-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg"
                     >
-                      {paragraph}
+                      {renderContextualParagraph(paragraph, {
+                        currentSlug: `case-studies/${study.slug}`,
+                        maxLinks: 1,
+                        theme: 'frame',
+                      })}
                     </p>
                   ))}
                   {section.items?.length > 0 && (

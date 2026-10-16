@@ -3,9 +3,9 @@ import { JsonLd } from '../../src/components/seo/JsonLd'
 import { siteUrl, contact } from '../../src/data/agency'
 
 export const metadata = {
-  title: 'Podcast & Video Production Studio in Dhaka | FrameCipher',
+  title: 'Podcast & Video Production Studio in Dhaka | FrameCipher Studio',
   description:
-    'Book FrameCipher Studio in Dhaka for podcast recording, video production, product photography and professional editing. Located at ECB Chattar. Request a session.',
+    'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Itemised quote in 48 hours.',
   alternates: {
     canonical: `${siteUrl}/studio/`,
   },
@@ -13,16 +13,16 @@ export const metadata = {
     type: 'website',
     url: `${siteUrl}/studio/`,
     siteName: 'Frame Cipher Studio',
-    title: 'Podcast & Video Production Studio in Dhaka | FrameCipher',
+    title: 'Podcast & Video Production Studio in Dhaka | FrameCipher Studio',
     description:
-      'Book FrameCipher Studio in Dhaka for podcast recording, video production, product photography and professional editing. Located at ECB Chattar. Request a session.',
+      'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Itemised quote in 48 hours.',
     images: ['/logo.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Podcast & Video Production Studio in Dhaka | FrameCipher',
+    title: 'Podcast & Video Production Studio in Dhaka | FrameCipher Studio',
     description:
-      'Book FrameCipher Studio in Dhaka for podcast recording, video production, product photography and professional editing. Located at ECB Chattar. Request a session.',
+      'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Itemised quote in 48 hours.',
     images: ['/logo.png'],
   },
 }
@@ -91,6 +91,36 @@ export default function Page() {
           itemListElement: [
             {
               '@type': 'Offer',
+              price: '2000',
+              priceCurrency: 'BDT',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Studio Session — Room Only Hire',
+                description: 'Sound-isolated studio room hire from ৳2,000 per hour for crews with their own equipment.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              price: '8000',
+              priceCurrency: 'BDT',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Studio + Crew Session',
+                description: 'Studio with sound engineer and camera operator from ৳8,000 per session. Raw 4K and mastered audio within 24 hours.',
+              },
+            },
+            {
+              '@type': 'Offer',
+              price: '35000',
+              priceCurrency: 'BDT',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'Full Production Package',
+                description: 'Concept to publish-ready assets from ৳35,000 per project, including grade, subtitles, shorts pack, 2 revisions and 60-day archive.',
+              },
+            },
+            {
+              '@type': 'Offer',
               itemOffered: {
                 '@type': 'Service',
                 name: 'Podcast Recording & Video Production',
@@ -110,7 +140,7 @@ export default function Page() {
               itemOffered: {
                 '@type': 'Service',
                 name: 'Commercial Product Photography',
-                description: 'Controlled studio lighting and framing for ecommerce, catalogues, Daraz, and Shopify product photos.',
+                description: 'Controlled studio lighting and framing for ecommerce, catalogues, Daraz, and Shopify product photos from ৳1,500 per product.',
               },
             },
             {
@@ -118,7 +148,7 @@ export default function Page() {
               itemOffered: {
                 '@type': 'Service',
                 name: 'Video Editing & Post-Production Suite',
-                description: 'Professional video editing, DaVinci Resolve color grading, audio denoise, subtitles, and vertical social cutdowns.',
+                description: 'Professional video editing, DaVinci Resolve color grading, audio denoise, subtitles, and vertical social cutdowns from ৳9,500.',
               },
             },
             {
@@ -131,6 +161,36 @@ export default function Page() {
             },
           ],
         },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${siteUrl}/studio/#faq`,
+        mainEntity: [
+          {
+            '@type': 'Question',
+            name: 'How much does it cost to rent a podcast studio in Dhaka?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Studio hire at FrameCipher Studio starts from ৳2,000 per hour for the room only. A session with a sound engineer and camera operator starts from ৳8,000 per session. Podcast production with 4K video is ৳18,000 and full production is ৳35,000 on the rate card.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'Does studio hire include a camera operator or editing?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'No. The Studio Session package is the space only. A camera operator and sound engineer come with the Studio + Crew package, and editing is part of Full Production or can be added as a separate scope.',
+            },
+          },
+          {
+            '@type': 'Question',
+            name: 'How do I book the studio and how does payment work?',
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: 'Send your date, setup and goal on WhatsApp to +880 1768-146650, or use the booking form. You receive an itemised quote within 48 hours. A 50% advance locks the dates, and the balance is due on final sign-off. All payments get VAT-compliant invoices.',
+            },
+          },
+        ],
       },
       {
         '@type': 'BreadcrumbList',

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { SectionIntro } from '../Kinetic'
+import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
 const visionMetrics = [
   { value: '20+', label: 'Countries Served', sub: 'USA, UK, Canada, UAE, Germany, Australia, Bangladesh' },
@@ -82,7 +83,7 @@ export default function AboutVision() {
                   {pillar.title}
                 </h3>
                 <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
-                  {pillar.text}
+                  {renderContextualParagraph(pillar.text, { maxLinks: 3, theme: 'frame' })}
                 </p>
               </div>
 

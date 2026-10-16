@@ -29,6 +29,7 @@ export default function WebsiteDesignDevelopmentWordpressService({ service }) {
       <Hero />
       <TypeMarquee items={wordpressKeywords} slow />
       <WebsitePortfolioPreview
+        category="wordpress"
         eyebrow="Proven Deployments"
         title="Our WordPress Development Portfolio"
         description="Explore selected WordPress websites built around different business goals, content workflows, and technical requirements. Our WordPress projects may include business websites, WooCommerce stores, content-driven websites, membership platforms, directories, and custom WordPress solutions. For each project, we focus on the site's purpose, content structure, performance, usability, and maintainability rather than simply changing the visual design."

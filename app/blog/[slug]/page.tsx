@@ -5,7 +5,7 @@ import { getAllCanonicalPosts, getPostBySlug, getMergedPostsFromStorage } from "
 import { BlogPostClientView } from "@/components/blog/BlogPostClientView";
 import { buildBlogMetadata } from "@/lib/seo/metadata";
 import { getServerAuthors } from "@/lib/authors/serverAuthorStorage";
-import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
+import { getPublicBlogPosts, getPublicCategories } from "@/lib/blog/serverBlogStorage";
 
 async function authorProfileFor(authorName: string) {
   if (!authorName) return undefined;
@@ -85,10 +85,11 @@ export default async function BlogPostPage({
   const { slug } = await params;
   const targetSlug = normalizeSlug(slug);
 
-  // 1. Fetch publicly visible posts. Draft, private and password-protected posts
-  //    are excluded here, which is what makes a hidden post 404 rather than
-  //    render; the Admin SDK bypasses Firestore security rules.
-  const remotePosts = await getPublicBlogPosts();
+  // 1. Fetch publicly visible posts and stored categories
+  const [remotePosts, dbCategories] = await Promise.all([
+    getPublicBlogPosts().catch(() => []),
+    getPublicCategories().catch(() => []),
+  ]);
   const merged = getMergedPostsFromStorage(remotePosts);
 
   // 2. Find target post
@@ -108,6 +109,7 @@ export default async function BlogPostPage({
         initialPost={matchedPost}
         allPosts={merged.length > 0 ? merged : getAllCanonicalPosts()}
         authorProfile={authorProfile}
+        initialCategories={dbCategories}
       />
     );
   }

@@ -30,6 +30,7 @@ export default function WebsiteDesignDevelopmentWebflowService({ service }) {
       <Hero />
       <TypeMarquee items={webflowKeywords} slow />
       <WebsitePortfolioPreview
+        category="webflow"
         eyebrow="Case Studies & Real Work"
         title="Our Webflow Development Portfolio"
         description="Real Webflow implementations provide stronger evidence than a list of technologies. Our portfolio should show the business requirement, the Webflow architecture, and the work completed by our team."

@@ -1,44 +1,71 @@
-import StudioServiceLayout from '../../common/StudioServiceLayout'
+import Hero from './Hero'
+import AtGlance from './AtGlance'
+import TypesOfVideo from './TypesOfVideo'
+import Offerings from './Offerings'
+import Process from './Process'
+import Pricing from './Pricing'
+import PlanningGuide from './PlanningGuide'
+import FAQ from './FAQ'
+import RelatedServices from './RelatedServices'
+import StudioExtendedSections from '../../StudioExtendedSections'
+import { getStudioExtended } from '../../../../data/studioExtended'
+import CTA from './CTA'
+import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import StudioBookingForm from '../../StudioBookingForm'
+
+const marqueeItems = [
+  'Product Reveal Videos',
+  'Commercial Launch Films',
+  'Urgent Flash Sale Promos',
+  'Website Landing Page Videos',
+  'Vertical Reels & TikToks',
+  'Kinetic Motion Graphics',
+  'Macro Product Optics',
+  'High-CRI Studio Lighting',
+  'Unicode Bangla & English Subtitles',
+  'Fast Turnaround Delivery'
+]
 
 export default function PromotionalVideoProductionService({ service }) {
-  const customData = {
-    h1: 'Promotional Video Production in Dhaka',
-    lead: 'A promotional video tells people about a product, service, launch or campaign and gives them a reason to respond. FrameCipher Studio plans, shoots and edits promotional videos for businesses that want clear, usable content for their website, social channels and campaigns. Before we shoot, we agree one main goal: awareness, leads, sales or an announcement.',
-    whatIncluded: [
-      'Strategic goal alignment (awareness, lead gen, discount promo, or launch)',
-      'High-tempo scripting with clear call-to-action hooks',
-      'Studio filming with dynamic lighting gels and backdrop options',
-      'Kinetic motion graphics, animated lower-third price/offer badges',
-      'Sound design with licensed commercial tracks and high-energy sound effects',
-      'Platform packages: master landscape plus vertical Reels/TikTok cutdowns'
-    ],
-    serviceTypes: [
-      { title: 'Product Launch Promos', desc: 'Introducing new SKUs or brand lines with maximum visual impact.' },
-      { title: 'Seasonal & Flash Sale Videos', desc: 'Urgent, high-converting offer videos for Eid, Black Friday, and seasonal sales.' },
-      { title: 'Landing Page & Website Promos', desc: 'Engaging website hero videos that explain benefits and boost conversion.' },
-      { title: 'Service Teasers & Announcements', desc: 'Short clips built to generate anticipation before an event or service debut.' }
-    ],
-    whyMatters: 'A commercial is built around a paid ad placement, while a promotional video often serves a wider purpose such as a launch or website. A video with a single clear goal is easier to script, easier to edit and easier to judge afterwards.',
-    howRuns: [
-      'Define the primary promotional objective and target audience.',
-      'Prepare script hooks, offer details, and visual styling.',
-      'Record in our Dhaka studio or on location.',
-      'Fast-paced editing with sound design, color grading, and subtitles.',
-      'Export in 16:9, 1:1, and 9:16 vertical for immediate publishing.'
-    ],
-    costFactors: [
-      'Video length and number of creative variations',
-      'Studio time, lighting complexity, and crew requirements',
-      'Animated graphic complexity and voiceover requirements',
-      'Turnaround urgency (Express 48-hour delivery available)'
-    ],
-    linksOut: [
-      { label: 'Commercial Video Production', href: '/studio/commercial-video-production/' },
-      { label: 'Social Media Video Production', href: '/studio/social-media-video-production/' },
-      { label: 'Video Marketing Strategy', href: '/studio/video-marketing/' },
-      { label: 'Video Editing Services', href: '/studio/video-editing/' },
-    ]
-  }
+  return (
+    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+      <Hero service={service} />
+      <TypeMarquee items={marqueeItems} slow />
+      <VideoPortfolioPreview
+        category="product-promotion"
+        eyebrow="Commercial Deployments"
+        title="Our Promotional Video Portfolio"
+        description="Real promotional videos, product reveals, and high-converting commercial reels produced for leading consumer and retail brands."
+        buttonText="View Promotional Video Work →"
+        buttonHref="/projects#video-work"
+      />
+      <AtGlance />
+      <TypesOfVideo />
+      <Offerings service={service} />
+      <Process service={service} />
+      <Pricing service={service} />
+      <PlanningGuide />
+      <StudioExtendedSections data={getStudioExtended('promotional-video-production')} />
+      <FAQ service={service} />
+      <RelatedServices />
+      <CTA service={service} />
+      <div id="booking">
+        <StudioBookingForm defaultService="Promotional Video & Brand Story Films" />
+      </div>
+    </main>
+  )
+}
 
-  return <StudioServiceLayout service={service} {...customData} />
+export {
+  Hero,
+  AtGlance,
+  TypesOfVideo,
+  Offerings,
+  Process,
+  Pricing,
+  PlanningGuide,
+  FAQ,
+  RelatedServices,
+  CTA
 }

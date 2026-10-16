@@ -29,6 +29,7 @@ interface BlogPostClientViewProps {
   initialPost: DetailedBlogPost;
   allPosts: DetailedBlogPost[];
   authorProfile?: AuthorProfile;
+  initialCategories?: string[];
 }
 
 function initialsOf(name: string): string {
@@ -93,13 +94,60 @@ function blocksToHtml(blocks: any[]): string {
     .join("");
 }
 
-export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, authorProfile }: BlogPostClientViewProps) {
+export function BlogPostClientView({
+  initialPost,
+  allPosts: initialAllPosts,
+  authorProfile,
+  initialCategories = [],
+}: BlogPostClientViewProps) {
   const [post, setPost] = useState<DetailedBlogPost>(initialPost);
   const [allPosts, setAllPosts] = useState<DetailedBlogPost[]>(initialAllPosts);
   const [profile, setProfile] = useState<AuthorProfile | undefined>(authorProfile);
   const [openFaqIds, setOpenFaqIds] = useState<Set<string>>(new Set([initialPost.faqs?.[0]?.id || "faq-1"]));
   const [copiedUrl, setCopiedUrl] = useState(false);
   const [readingProgress, setReadingProgress] = useState(0);
+
+  // Dynamic categories state merging base categories, server categories, and post categories
+  const [categoriesList, setCategoriesList] = useState<string[]>(() => {
+    const base = Array.from(BLOG_CATEGORIES);
+    const fromPosts = initialAllPosts.flatMap((p) => [p.category, ...(p.categories || [])]).filter(Boolean);
+    const fromCurrent = [initialPost.category, ...(initialPost.categories || [])].filter(Boolean);
+    return Array.from(new Set([...base, ...initialCategories, ...fromCurrent, ...fromPosts]));
+  });
+
+  // Client-side category cache & API sync
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      try {
+        const cached = localStorage.getItem("fc_blog_categories");
+        if (cached) {
+          const parsed = JSON.parse(cached);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            setCategoriesList((prev) => Array.from(new Set([...prev, ...parsed])));
+          }
+        }
+      } catch {}
+    }
+
+    fetch("/api/categories", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : []))
+      .then((remoteCats) => {
+        if (Array.isArray(remoteCats) && remoteCats.length > 0) {
+          setCategoriesList((prev) => Array.from(new Set([...prev, ...remoteCats])));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  // Keep categories updated if allPosts updates
+  useEffect(() => {
+    if (allPosts.length > 0) {
+      const postCats = allPosts.flatMap((p) => [p.category, ...(p.categories || [])]).filter(Boolean);
+      if (postCats.length > 0) {
+        setCategoriesList((prev) => Array.from(new Set([...prev, ...postCats])));
+      }
+    }
+  }, [allPosts]);
 
   // Pull the latest matching author profile (canonical seed + admin/Firestore edits)
   useEffect(() => {
@@ -154,6 +202,30 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Ensure all tables in blog content are wrapped in a responsive scroll container
+  useEffect(() => {
+    const contentEl = document.querySelector(".blog-article-content");
+    if (!contentEl) return;
+
+    const tables = contentEl.querySelectorAll("table");
+    tables.forEach((table) => {
+      if (!table.parentElement?.classList.contains("blog-table-scroll")) {
+        const wrapper = document.createElement("div");
+        wrapper.className = "blog-table-wrapper";
+        const scroll = document.createElement("div");
+        scroll.className = "blog-table-scroll";
+        const hint = document.createElement("div");
+        hint.className = "blog-table-hint";
+        hint.innerHTML = "<span>↔ Scroll horizontally to view full table</span>";
+
+        table.parentNode?.insertBefore(wrapper, table);
+        scroll.appendChild(table);
+        wrapper.appendChild(scroll);
+        wrapper.appendChild(hint);
+      }
+    });
+  }, [post.content, post.blocks]);
 
   const toggleFaq = (id: string) => {
     setOpenFaqIds((prev) => {
@@ -617,7 +689,7 @@ export function BlogPostClientView({ initialPost, allPosts: initialAllPosts, aut
           {/* Sticky Sidebar (4 Cols) */}
           <div className="lg:col-span-4 min-w-0 sticky top-24 self-start">
             <WordPressSidebar
-              categories={[...BLOG_CATEGORIES]}
+              categories={categoriesList}
               activeCategory={post.category}
               recentPosts={allPosts}
               currentPostSlug={post.slug}

@@ -1,4 +1,5 @@
 export { default as StudioHero } from './StudioHero'
+export { default as StudioAtGlance } from './StudioAtGlance'
 export { default as StudioOfferings } from './StudioOfferings'
 export { default as StudioComparison } from './StudioComparison'
 export { default as StudioWhyMatters } from './StudioWhyMatters'
@@ -7,8 +8,11 @@ export { default as StudioPricing } from './StudioPricing'
 export { default as StudioLocation } from './StudioLocation'
 export { default as StudioFaq } from './StudioFaq'
 export { default as StudioBookingForm } from './StudioBookingForm'
+export { default as StudioHubExtended } from './StudioHubExtended'
+export { default as StudioClusterNav } from './StudioClusterNav'
+export { default as StudioExtendedSections } from './StudioExtendedSections'
 
-// Sub-Service Page Components
+// Sub-Service Page Components (one flat component per section, imported by each service page)
 export { default as StudioSubHero } from './StudioSubHero'
 export { default as StudioSubOverview } from './StudioSubOverview'
 export { default as StudioSubDeliverables } from './StudioSubDeliverables'

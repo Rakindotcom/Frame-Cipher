@@ -379,48 +379,92 @@ export async function deleteAuthorProfileFromFirestore(id: string): Promise<{ su
 }
 
 export async function getAdminCategoriesFromFirestore(): Promise<string[]> {
-  if (!db) return [];
+  const mergedSet = new Set<string>();
+
+  // 1. Try public API first
   try {
-    const snapshot = await getDocs(collection(db, "categories"));
-    const list: string[] = [];
-    snapshot.forEach((docSnap) => {
-      const data = docSnap.data();
-      if (data?.name && typeof data.name === "string") {
-        list.push(data.name);
+    const res = await fetch("/api/categories", { cache: "no-store" });
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        data.forEach((c) => {
+          if (typeof c === "string" && c.trim()) mergedSet.add(c.trim());
+        });
       }
-    });
-    return list;
-  } catch (error) {
-    console.warn("Firestore getAdminCategories Note:", error);
-    return [];
+    }
+  } catch {}
+
+  // 2. Direct client Firestore query if available
+  if (db) {
+    try {
+      const snapshot = await getDocs(collection(db, "categories"));
+      snapshot.forEach((docSnap) => {
+        const data = docSnap.data();
+        if (data?.name && typeof data.name === "string" && data.name.trim()) {
+          mergedSet.add(data.name.trim());
+        }
+      });
+    } catch (error) {
+      console.warn("Firestore getAdminCategories Note:", error);
+    }
   }
+
+  // 3. Update localStorage cache
+  if (typeof window !== "undefined" && mergedSet.size > 0) {
+    try {
+      localStorage.setItem("fc_blog_categories", JSON.stringify(Array.from(mergedSet)));
+    } catch {}
+  }
+
+  return Array.from(mergedSet);
 }
 
 export async function saveCategoryToFirestore(name: string): Promise<{ success: boolean; error?: string }> {
-  if (!db) {
-    return { success: false, error: "Firebase is not configured." };
-  }
   const trimmed = name.trim();
   if (!trimmed) {
     return { success: false, error: "Category name is required." };
   }
-  try {
-    const slug = trimmed
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-|-$/g, "");
-    const docRef = doc(db, "categories", slug);
-    await setDoc(docRef, {
-      name: trimmed,
-      slug,
-      updatedAt: serverTimestamp(),
-      createdAt: serverTimestamp(),
-    }, { merge: true });
-    return { success: true };
-  } catch (error: any) {
-    console.warn("Firestore Save Category Note:", error?.message);
-    return { success: false, error: error?.message || "Failed to save category." };
+
+  // 1. Update localStorage cache immediately
+  if (typeof window !== "undefined") {
+    try {
+      const existing = JSON.parse(localStorage.getItem("fc_blog_categories") || "[]");
+      if (!existing.includes(trimmed)) {
+        existing.push(trimmed);
+        localStorage.setItem("fc_blog_categories", JSON.stringify(existing));
+      }
+    } catch {}
   }
+
+  // 2. Persist to server API
+  try {
+    fetch("/api/categories", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: trimmed }),
+    }).catch(() => {});
+  } catch {}
+
+  // 3. Persist to client Firestore if configured
+  if (db) {
+    try {
+      const slug = trimmed
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "");
+      const docRef = doc(db, "categories", slug);
+      await setDoc(docRef, {
+        name: trimmed,
+        slug,
+        updatedAt: serverTimestamp(),
+        createdAt: serverTimestamp(),
+      }, { merge: true });
+    } catch (error: any) {
+      console.warn("Firestore Save Category Note:", error?.message);
+    }
+  }
+
+  return { success: true };
 }
 
 export interface MediaRecord {

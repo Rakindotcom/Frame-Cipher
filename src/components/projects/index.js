@@ -5,6 +5,8 @@ export { default as ProjectsVideoSection } from './ProjectsVideoSection'
 export { default as ProjectsSeoSection } from './ProjectsSeoSection'
 export { default as ProjectsPaidAdsSection } from './ProjectsPaidAdsSection'
 export { default as ProjectsDesignSection } from './ProjectsDesignSection'
+export { default as WebsitePortfolioPreview } from './WebsitePortfolioPreview'
+export { default as VideoPortfolioPreview } from './VideoPortfolioPreview'
 export {
   WorkArchiveModal,
   WorkImageModal,

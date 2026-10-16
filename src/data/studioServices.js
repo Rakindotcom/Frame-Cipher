@@ -49,8 +49,8 @@ export const studioServices = [
     shortTitle: 'Video Production',
     seoTitle: 'Video Production Company in Dhaka | FrameCipher Studio',
     metaDescription:
-      'Leading video production company in Dhaka. In-house studio, cinema 4K multi-cam crews, calibrated lighting grids, and post-production at Matikata ECB Chattar.',
-    h1: 'Video Production Company in Dhaka',
+      'Full-service video production in Dhaka: concept, 4K studio shoot, DaVinci grade and platform-ready exports. Studio day from ৳35,000. Itemised quote in 48 hours.',
+    h1: 'Full-Service Video Production in Dhaka',
     eyebrow: 'In-House Studio & Field Production',
     tagline: 'Planned, structured video content designed to convert viewers into paying customers and brand advocates.',
     intro:
@@ -92,20 +92,48 @@ export const studioServices = [
     ],
     faqs: [
       {
-        q: "What is included in a full video production package?",
-        a: "Full production includes pre-production planning, script development, studio or location filming, lighting direction, broadcast audio recording, editing, DaVinci Resolve color grading, sound design, and platform-specific master exports.",
+        q: "How much does video production cost in Dhaka?",
+        a: "At FrameCipher Studio, a single studio setup with a clean edit is ৳35,000. A multi-camera commercial with a grade and two vertical shorts is ৳78,000, and a multi-day brand film starts from ৳1,85,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Where is your video production studio located in Dhaka?",
-        a: "Our physical studio is located on the 6th Floor of Eurasia Building, next to Khan Polli Jame Masjid, at Matikata ECB Chattar, Dhaka 1206. Centrally connected to Mirpur DOHS, Banani, and Airport Road.",
+        q: "Is studio shooting or location shooting cheaper?",
+        a: "A studio day removes venue hire, portable lighting, sound treatment and weather contingency. For a single interview or product spotlight, the studio is usually the simpler and more predictable option. Multi-location stories need field production, which we quote separately.",
       },
       {
-        q: "Can you shoot on-location outside your studio?",
-        a: "Yes. In addition to our in-house studio stage, our production crews conduct multi-camera on-location filming at corporate headquarters, manufacturing plants, hospitals, and event venues across Bangladesh.",
+        q: "What pushes a quote from ৳78,000 toward ৳1,85,000?",
+        a: "More shoot days and locations, a larger crew, casting, scriptwriting, motion graphics, custom sound design, more aspect ratios and a priority delivery lane.",
       },
       {
-        q: "Can we review recorded takes live on a client monitor during the shoot?",
-        a: "Yes. Our studio and field setups feature calibrated wireless director monitors in the client lounge, allowing your marketing team and stakeholders to review takes in real time.",
+        q: "What is included in the studio day package?",
+        a: "Up to 4 hours of studio time, one cinema 4K camera, a wireless lapel audio kit, a teleprompter, a client monitoring screen, a basic edit, one export (16:9 or 9:16) and one revision round.",
+      },
+      {
+        q: "Do you shoot on location as well as in the studio?",
+        a: "Yes. We quote field production separately, itemising crew, equipment and travel days for corporate offices, factories and event venues across Bangladesh.",
+      },
+      {
+        q: "What video formats do I receive?",
+        a: "A 4K 16:9 master, vertical 9:16 cutdowns, clean dialogue audio and subtitle files. The Flagship tier adds 1:1 and 4:5 masters.",
+      },
+      {
+        q: "Do you add Bangla subtitles?",
+        a: "Yes. We produce English and Bangla subtitles and lower-third graphics. They are included in Signature Commercial and available on other tiers.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Studio Day Essential includes 1 structured revision round. Signature Commercial includes 2. Flagship terms are set in the written quote.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Studio Day Essential delivers in 3 to 5 business days. Express 48-hour turnaround adds 30%. Raw files are available within 24 hours.",
+      },
+      {
+        q: "Do I need a script before booking?",
+        a: "For Studio Day Essential, a finished script or talking points works best. Signature Commercial includes concept and script polish, and Flagship includes full scriptwriting.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your date, setup and goal by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -156,10 +184,18 @@ export const studioServices = [
       'Studio shoot vs combination of studio and office b-roll',
       'Turnaround speed (Standard 5-7 days vs 48-hour board meeting rush)',
     ],
-    faqs: [
+        faqs: [
+      {
+        q: "How much does a corporate video cost in Dhaka?",
+        a: "At FrameCipher Studio, an executive interview with teleprompter and a LinkedIn highlight reel is ৳48,000. A complete company profile film with studio interviews plus office and facility b-roll is ৳95,000, and multi-film enterprise AV suites start from ৳2,60,000. Every quote is itemised in writing within 48 hours.",
+      },
+      {
+        q: "What pushes a quote from ৳95,000 toward ৳2,60,000?",
+        a: "More shoot days and locations, multiple executives, casting, scriptwriting depth, motion graphics and data visualisation, bilingual voiceover and subtitle versioning, and a priority delivery lane.",
+      },
       {
         q: "Can non-actors or first-time executives look natural on camera?",
-        a: "Yes. Our professional teleprompter operator controls reading speed naturally, and our director conducts conversational interview techniques to bring out relaxed, authoritative, and authentic performances.",
+        a: "Yes. Our professional teleprompter operator controls reading speed naturally, and our director uses conversational interview techniques to bring out relaxed, authoritative and authentic performances.",
       },
       {
         q: "Do you provide on-site b-roll shooting at our corporate office?",
@@ -167,11 +203,27 @@ export const studioServices = [
       },
       {
         q: "Do you offer bilingual voiceovers and subtitle translations in Bangla and English?",
-        a: "Yes. All corporate video packages can include native Bangla and English voiceovers, as well as synchronized SRT subtitle files formatted for international stakeholder presentations and LinkedIn.",
+        a: "Yes. All corporate video packages can include English and Bangla voiceovers, as well as synchronised SRT subtitle files formatted for stakeholder presentations and LinkedIn.",
       },
       {
-        q: "What is the standard turnaround time for corporate overview films?",
-        a: "Standard delivery is 5 to 7 business days from the final filming date. We also provide express 48-hour turnarounds for urgent board meetings, investor pitches, or annual general meetings (AGMs).",
+        q: "What is included in the company profile film?",
+        a: "Script consultation and B2B message structuring, a studio interview day plus one location b-roll day, logo animation and kinetic data graphics, a 2 to 5 minute master plus 60-second and 30-second cuts, and ProRes and high-bitrate MP4 files with SRT subtitles.",
+      },
+      {
+        q: "What is the standard turnaround time for corporate films?",
+        a: "Standard delivery is 5 to 7 working days from the final filming date. We also provide express 48-hour turnarounds at a 30% priority fee for urgent board meetings, investor pitches or AGMs. Raw captures are available within 24 hours.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "The executive interview tier includes 2 structured revision rounds. Profile and enterprise revision terms are set in the written quote, and review runs through a timestamped cloud link.",
+      },
+      {
+        q: "Do you shoot at our factory or branch offices outside Dhaka?",
+        a: "Yes. We quote field production separately, itemising crew, equipment and travel days for factories, plants and offices across Bangladesh.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your date, setup and goal by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -219,22 +271,46 @@ export const studioServices = [
       'Specialized lighting and high-speed motion rigs',
       'Number of creative cutdown variations required',
     ],
-    faqs: [
+        faqs: [
+      {
+        q: "How much does a commercial video cost in Dhaka?",
+        a: "At FrameCipher Studio, a performance-built digital OVC with 15s, 30s and 60s cutdowns plus verticals is ৳88,000. A broadcast TVC with casting, styling and art direction starts from ৳3,60,000, and national multi-film campaigns start from ৳12,50,000. Every quote is itemised in writing within 48 hours.",
+      },
+      {
+        q: "What pushes a quote from ৳88,000 toward ৳3,60,000?",
+        a: "Casting and talent fees, wardrobe and makeup artistry, art direction and set design, specialty optics, more shoot days and locations, motion graphics, and broadcast compliance mastering.",
+      },
       {
         q: "Do you produce television-compliant commercials (TVC)?",
-        a: "Yes. We deliver commercials formatted and mastered to the exact technical and audio loudness specifications (EBU R128) required by Bangladesh television broadcast networks and cinema screens.",
+        a: "Yes. We deliver commercials formatted and mastered to the technical and audio loudness specifications required by Bangladesh television broadcast networks and cinema screens.",
       },
       {
-        q: "What aspect ratios and video formats do you deliver for digital advertising?",
-        a: "We deliver custom exports in 16:9 widescreen for TV and YouTube, 1:1 square for Facebook feeds, and 9:16 vertical for Instagram Reels and TikTok ads with safe-zone margin calibrations.",
+        q: "What aspect ratios and formats do you deliver for digital advertising?",
+        a: "Custom exports in 16:9 for TV and YouTube, 1:1 square for Facebook feeds, and 9:16 vertical for Reels and TikTok ads, with safe-zone margin calibration on every version.",
       },
       {
-        q: "How does FrameCipher handle casting, actors, and styling for commercial shoots?",
-        a: "We manage complete talent casting, wardrobe coordination, and professional on-set makeup artists tailored to your brand persona and target demographic.",
+        q: "How does FrameCipher handle casting, actors and styling?",
+        a: "We manage complete talent casting, wardrobe coordination and professional on-set makeup artistry tailored to your brand persona and target demographic, each line itemised in the quote.",
       },
       {
-        q: "What is your standard production timeline for a commercial campaign?",
-        a: "Commercial campaigns typically take 10 to 14 business days from storyboard approval to final master exports, encompassing set preparation, filming, visual effects, and color timing.",
+        q: "What is the standard production timeline for a commercial?",
+        a: "Commercial campaigns typically take 7 to 10 working days from storyboard approval to final masters. Express 48 to 72-hour delivery is available at a 30% priority fee, and raw captures are available within 24 hours.",
+      },
+      {
+        q: "Do you add Bangla voiceovers and subtitles?",
+        a: "Yes. The broadcast tier includes a Bangla voiceover recording session in our vocal booth, and subtitled versions in Bangla and English are available on every tier.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Revision rounds are set in your written quote for each tier. Review runs through a timestamped cloud link covering the hero cut and each cutdown before finishing.",
+      },
+      {
+        q: "Can one shoot cover both TV and digital campaigns?",
+        a: "Yes. We produce integrated TVC-plus-OVC packages from a single production, with one art direction across the broadcast master and every digital cutdown.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your offer, placements and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -266,22 +342,46 @@ export const studioServices = [
       'Animated lower-third price and offer tags',
     ],
     pricingFactors: ['Number of promotional hooks tested', 'Voiceover talent in English or Bangla', 'Turnaround urgency'],
-    faqs: [
+        faqs: [
       {
-        q: "How fast can a promotional campaign video be delivered?",
-        a: "For urgent product launches, flash sales, or seasonal holiday campaigns, we offer an express 48-hour delivery timeline upon script sign-off.",
+        q: "How much does a promotional video cost in Dhaka?",
+        a: "At FrameCipher Studio, a single launch promo of 30 to 60 seconds with a story cut is ৳28,000. A coordinated campaign pack with a hero video, two hook variants and teaser cuts is ৳58,000, and seasonal blitz coverage is ৳1,25,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Can you create product launch videos that drive direct conversions for ecommerce?",
-        a: "Yes. Our promotional videos are structured around direct-response frameworks: strong opening visual hooks, clear value demonstrations, kinetic pricing badges, and compelling calls-to-action.",
+        q: "How is a promotional video different from a commercial?",
+        a: "A commercial is built around a paid ad placement with strict time limits, whereas a promotional video often serves broader objectives such as website launches, seasonal sales, product demonstrations or social campaigns.",
       },
       {
-        q: "Do promotional packages include multiple cut-down variations?",
-        a: "Yes. Every promotional package includes the full master video plus shorter cut-down teasers (15s, 30s, and 60s) optimized for Instagram Stories, TikTok, and YouTube Pre-roll ads.",
+        q: "What pushes a quote from ৳28,000 toward ৳58,000?",
+        a: "More hook variants and teaser cuts, presenter or talent direction, animated offer badges in two languages, more aspect ratios, and a showroom field-shoot day add-on.",
       },
       {
-        q: "Can promotional videos be filmed inside our retail outlet or showroom in Dhaka?",
-        a: "Yes. Our mobile production team can bring portable softbox lighting and gimbal stabilizers directly to your retail outlet, flagship store, or showroom anywhere in Dhaka.",
+        q: "Can you shoot product promotional videos in your studio?",
+        a: "Yes. Our Dhaka studio has product staging tables, high-CRI continuous lighting grids, macro lenses and coloured backdrops calibrated for product reveal reels.",
+      },
+      {
+        q: "Do you provide on-screen actors, models or voiceover artists?",
+        a: "Yes. Depending on scope, we coordinate bilingual voiceover artists in Bangla and English and on-screen presenters or models suited to your brand category.",
+      },
+      {
+        q: "How long does a promotional video project take?",
+        a: "Simple social promos take 3 to 5 working days from brief to delivery. Comprehensive launch campaigns with multi-ratio deliverables take 1 to 2 weeks. Express 48-hour delivery is available for flash sales at a 25% priority fee.",
+      },
+      {
+        q: "What video formats will we receive?",
+        a: "High-bitrate masters in 16:9 for YouTube and websites, 1:1 square for social feeds, and 9:16 vertical for Reels, TikTok and Shorts, with burned-in subtitles and SRT files.",
+      },
+      {
+        q: "Do you add Bangla subtitles and offer badges?",
+        a: "Yes. We animate offer badges, prices and deadlines in Bangla and English, with burned-in subtitles for sound-off mobile browsing.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Revision rounds are set in your written quote for each tier. Review runs through a timestamped cloud link covering the hero and each cutdown before finishing.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your offer, launch date and audience by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -313,22 +413,46 @@ export const studioServices = [
       'Campaign distribution guidelines for Meta Ads and YouTube',
     ],
     pricingFactors: ['Scope of marketing strategy', 'Number of videos in the content roadmap', 'Ad management integration'],
-    faqs: [
+        faqs: [
+      {
+        q: "How much does video marketing cost in Dhaka?",
+        a: "At FrameCipher Studio, a funnel starter with 3 videos and a distribution map is ৳55,000. A 30-day growth sprint with 8 assets and hook testing is ৳1,25,000, and the always-on monthly engine is ৳2,40,000. Every quote is itemised in writing within 48 hours.",
+      },
       {
         q: "How does video marketing differ from standard video production?",
-        a: "Standard video production focuses strictly on filming. Video marketing includes in-depth audience research, full-funnel positioning, search query targeting, conversion-focused scriptwriting, and post-launch media distribution.",
+        a: "Standard production focuses on filming. Video marketing adds audience research, funnel positioning, search-query targeting, conversion-focused scripting and a distribution map your media team can run.",
       },
       {
-        q: "How do you optimize videos for YouTube search and Google video ranking?",
-        a: "We optimize video titles, write rich keyword-dense descriptions, research high-volume search tags, structure semantic chapter timestamps, and design high-CTR custom thumbnail artwork.",
-      },
-      {
-        q: "Can you help distribute and run paid video campaigns across Meta and Google Ads?",
-        a: "Yes. FrameCipher is a full-service growth agency. Our paid media specialists can directly deploy, test, and scale your videos across Meta Ads, Google Ads, and TikTok with strict ROAS discipline.",
+        q: "What pushes a quote from ৳55,000 toward ৳1,25,000?",
+        a: "More assets and funnel stages, more hook variants, landing-page embeds with CRO notes, retargeting sequences, and the day-30 metrics review with a scaling playbook.",
       },
       {
         q: "Do you create multiple opening hooks for A/B creative testing?",
-        a: "Yes. We film 3 to 5 alternative opening hooks (first 3 seconds) for the same core video, allowing you to test which visual angle delivers the highest thumb-stop rate and lowest cost per lead.",
+        a: "Yes. We film 3 to 5 alternative opening hooks for the same core video, so you can test which angle delivers the highest thumb-stop rate and lowest cost per lead.",
+      },
+      {
+        q: "How do you optimise videos for YouTube search?",
+        a: "We write keyword-led titles, rich descriptions, search tags and chapter timestamps, and design high-CTR thumbnail artwork for every video.",
+      },
+      {
+        q: "Can you help distribute videos across Meta and Google Ads?",
+        a: "We hand your team a distribution and placement guide for Meta, YouTube and TikTok with specs for every asset. Media buying itself stays with your team, supported by our scaling playbook on sprint tiers.",
+      },
+      {
+        q: "What formats will we receive?",
+        a: "Masters in 16:9 for YouTube and landing pages, plus 1:1 and 9:16 versions for feeds, Reels, Shorts and TikTok, each with captions and safe-zone calibration.",
+      },
+      {
+        q: "Do you add Bangla subtitles?",
+        a: "Yes. We produce English and Bangla captions with SRT files on every asset, plus burned-in versions for sound-off autoplay placements.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Asset batches deliver in 5 to 10 working days from the shoot. Sprints run on a fixed 30-day calendar. Express 48 to 72-hour delivery is available at a 30% priority fee, and raw captures are available within 24 hours.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your funnel goal and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -360,22 +484,46 @@ export const studioServices = [
       'SRT subtitle files and platform-ready MP4 exports',
     ],
     pricingFactors: ['Number of finished vertical clips in the batch', 'Editing complexity (basic captions vs motion graphics)', 'Recurring monthly retainer vs single session'],
-    faqs: [
+        faqs: [
+      {
+        q: "How much does social media video cost in Dhaka?",
+        a: "At FrameCipher Studio, a Batch-10 pack with 10 finished captioned verticals is ৳32,000. A Batch-20 pack with 20 clips and a posting calendar is ৳62,000, and the monthly engine with 30 or more clips is ৳1,15,000. Every quote is itemised in writing within 48 hours.",
+      },
+      {
+        q: "What pushes a quote from ৳32,000 toward ৳62,000?",
+        a: "Doubling the clip count, a mid-session styling and backdrop change, b-roll overlays and product inserts, hook variants on priority topics, and the 30-day posting calendar with caption drafts.",
+      },
       {
         q: "Can we batch-record multiple shorts in one studio visit?",
-        a: "Yes. Our batch-production workflow allows creators, brands, and executives to record 10 to 20 scripted vertical shorts in a single 4-hour studio session at Matikata ECB Chattar.",
+        a: "Yes. Our batch workflow lets creators, brands and executives record 10 scripted verticals in a single 4-hour session, or up to 20 in a full-day session at Matikata ECB Chattar.",
       },
       {
-        q: "How many vertical reels or TikToks can be produced in a single session?",
-        a: "In a half-day session (4 hours), clients typically record 10 to 15 finished short-form clips. For full-day sessions (8 hours), we can capture up to 25 to 30 vertical videos.",
+        q: "How many reels or TikToks fit in a single session?",
+        a: "A half-day session of 4 hours typically yields 10 finished clips. A full-day session of 8 hours captures up to 20 vertical videos of 15 to 60 seconds each.",
       },
       {
-        q: "Are animated kinetic captions and trending background audio included?",
-        a: "Yes. All social clips include modern dynamic subtitles (with highlighted keyword styling in English or Bangla), sound effect cues (whooshes, pops), and commercial-licensed background music.",
+        q: "Are kinetic captions and trending audio included?",
+        a: "Yes. Every clip includes dynamic subtitles with highlighted keyword styling in English or Bangla, sound-effect cues, and licensed background music.",
       },
       {
-        q: "Do you provide hook scripting and trend guidance before recording?",
-        a: "Yes. We provide pre-shoot creative consulting to refine your scripts, ensuring every video hooks viewers in the first 2 seconds and complies with TikTok and Instagram algorithmic retention models.",
+        q: "Do you provide hook scripting and trend guidance?",
+        a: "Yes. We review your scripts before recording so every video hooks viewers in the first 2 seconds, and the monthly engine adds trend-jacking scripts written for your niche.",
+      },
+      {
+        q: "What formats will we receive?",
+        a: "Platform-ready 9:16 MP4s for Reels, Shorts and TikTok, custom cover frames and thumbnail stills, and SRT caption files with every clip.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Revision rounds are set in your written quote for each tier. Review runs through a timestamped cloud link covering every clip before caption finishing.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Batch-10 packs deliver in 3 to 5 working days; Batch-20 packs in 5 to 7 working days. A 48-hour rush edit lane is available at a 25% priority fee, and raw captures are available within 24 hours.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your platforms, clip count and scripts by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -411,22 +559,42 @@ export const studioServices = [
       'Edited highlight recap video of key summit moments',
     ],
     pricingFactors: ['Stream duration (hours)', 'Studio-based stream vs on-location venue setup', 'Number of remote guest feeds integrated'],
-    faqs: [
+        faqs: [
       {
-        q: "How do you prevent internet drops during live streaming?",
-        a: "We deploy dedicated commercial optical fiber internet lines combined with multi-SIM cellular bonding hardware to guarantee failover redundancy and uninterrupted broadcast stability.",
+        q: "How much does live streaming cost in Dhaka?",
+        a: "At FrameCipher Studio, a single-camera stream with pro audio and graphics is ৳18,000 for up to 2 hours. A three-camera switched broadcast with simulcast is ৳45,000, and full-day summit command is ৳95,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Can you live-stream simultaneously to multiple platforms (Simulcast)?",
-        a: "Yes. We can broadcast your live stream concurrently to YouTube Live, Facebook Live, LinkedIn Live, and private corporate web portals (Zoom, Webex, Microsoft Teams) at 1080p 60fps.",
+        q: "How do you prevent internet drops during the stream?",
+        a: "We bond dedicated fibre with multi-SIM cellular backup hardware and test failover before air, so one line failure never stops the broadcast. Venue Wi-Fi is never trusted as the primary line.",
       },
       {
-        q: "What audio and multi-camera setup is provided for studio live broadcasts?",
-        a: "We provide up to 4 broadcast cameras switched live via hardware production switchers, wireless digital lapel microphones, and an on-site audio technician managing dynamic loudness.",
+        q: "Which platforms can you stream to at the same time?",
+        a: "YouTube Live, Facebook Live, LinkedIn Live and private portals such as Zoom, Webex or Teams, at 1080p60. Multi-cam tiers include three-platform simulcast as standard.",
       },
       {
-        q: "Can you incorporate live graphics, lower thirds, and remote guest feeds?",
-        a: "Yes. We integrate animated speaker lower thirds, corporate logos, countdown timers, PowerPoint presentation slides, live audience polls, and remote Zoom/Skype caller feeds in real time.",
+        q: "Is it better to stream from your studio or our venue?",
+        a: "The studio suits webinars, talks and launches with controlled sound, bonded fibre and backup power already in place. Venue streaming suits conferences and events where the gathering is the content — we recce the hall and coordinate with the AV desk beforehand.",
+      },
+      {
+        q: "What audio setup do you bring?",
+        a: "Wireless lapels for speakers, audience mics, and a direct XLR feed from the venue soundboard, all mixed live by an engineer. Audio is monitored continuously because viewers leave over bad sound first.",
+      },
+      {
+        q: "Can you add graphics, slides and remote guests?",
+        a: "Yes. Lower thirds, logo bugs, countdowns, polls, PowerPoint slides and remote Zoom or Meet callers are integrated live, and rehearsed during the tech check.",
+      },
+      {
+        q: "Do we get a recording and a highlight video?",
+        a: "Yes. Every stream includes a full master recording available within 24 hours. Multi-cam tiers add an edited highlight recap within 72 hours, and summit days include a same-day teaser.",
+      },
+      {
+        q: "How far ahead should we book a stream date?",
+        a: "One to two weeks is ideal so the tech check and rehearsal can be scheduled properly. Summit and peak-season dates book earlier; urgent dates are quoted with an express crew lane where possible.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your date, venue and programme rundown by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the date, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -459,22 +627,42 @@ export const studioServices = [
       'Short social media recap teasers delivered within 24 hours of event close',
     ],
     pricingFactors: ['Event duration (single-day vs multi-day conference)', 'Number of videographers and photographers on-site', 'Same-day turnaround requests'],
-    faqs: [
+        faqs: [
       {
-        q: "How quickly can we get a recap video for our social media PR?",
-        a: "We can deliver a 60-second social media highlight teaser within 24 hours of event completion, allowing your PR team to capitalize on immediate post-event media buzz.",
+        q: "How much does event videography cost in Dhaka?",
+        a: "At FrameCipher Studio, half-day single-crew coverage is ৳25,000, full-day two-camera coverage with an aftermovie is ৳48,000, and multi-day summit coverage starts from ৳1,25,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Do you cover multi-day corporate conferences and exhibitions outside Dhaka?",
-        a: "Yes. Our event cinematography crews frequently travel across Bangladesh (Chattogram, Cox’s Bazar, Sylhet) to cover multi-day trade expos, corporate retreats, and industry conferences.",
+        q: "How fast do we get the highlight video after the event?",
+        a: "A 60-second social teaser delivers within 24 hours of event close on full-day tiers — standard, not a surcharge. The full cinematic aftermovie follows in 5 to 10 working days.",
       },
       {
-        q: "How do you ensure clean audio recording in noisy conference halls?",
-        a: "We connect directly to the venue soundboard using balanced XLR lines to record master speaker audio, backed up with dedicated wireless lavaliers and shotgun ambient microphones.",
+        q: "Do you cover multi-day conferences outside Dhaka?",
+        a: "Yes. Travel-ready crews cover expos, retreats and summits in Chattogram, Sylhet and Cox’s Bazar, with travel days itemised in the written quote.",
       },
       {
-        q: "Can we get full unedited recordings of keynote speeches along with the highlights?",
-        a: "Yes. All event coverage packages include both the edited cinematic highlight aftermovie (2 to 4 minutes) and full-length multi-camera recordings of keynote presentations and panel discussions.",
+        q: "How do you record clean speech in noisy halls?",
+        a: "We take a direct balanced XLR feed from the venue soundboard for master speech, backed by wireless lavaliers on VIPs and shotgun mics for ambience — agreed with the AV desk during the recce.",
+      },
+      {
+        q: "Do we get full session recordings as well as highlights?",
+        a: "Yes. Every tier includes full-length recordings of keynotes and panels alongside the teaser and aftermovie, available within 24 hours of wrap.",
+      },
+      {
+        q: "Can you fly a drone at our venue?",
+        a: "Where the venue and permissions allow, a licensed drone slot is ৳25,000 and we liaise the permission. Indoor halls and restricted zones use gimbal coverage instead.",
+      },
+      {
+        q: "What is the same-day edit option?",
+        a: "An evening-delivery cut for closing ceremonies and press deadlines, at +30%. It is scoped in the coverage plan so an editor is reserved for your night shift.",
+      },
+      {
+        q: "How far ahead should we book event dates?",
+        a: "Two to four weeks is ideal for venue recce and AV coordination. Peak conference season and multi-day summits book earlier; tell us the agenda as soon as it firms up.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your date, venue and agenda by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the crew, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -511,22 +699,42 @@ export const studioServices = [
       'Social cutdowns highlighting specific character stories',
     ],
     pricingFactors: ['Fieldwork duration and travel logistics across Bangladesh', 'Archival footage licensing and restoration', 'Original music composition and sound design'],
-    faqs: [
+        faqs: [
       {
-        q: "Do you work with NGOs and international development agencies?",
-        a: "Yes. We have extensive experience producing impact documentaries for international development organizations, NGOs, corporate CSR initiatives, and cultural institutions across Bangladesh.",
+        q: "How much does an NGO documentary cost in Bangladesh?",
+        a: "At FrameCipher Studio, a 10–12 minute impact short is ৳1,85,000 and a 15–25 minute multi-location standard documentary is ৳3,60,000. Feature and series work is scoped from ৳7,80,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "How do you manage field shoots and rural interviews across remote areas?",
-        a: "Our field production crews travel self-sufficiently with portable cinema cameras, drone equipment, battery power banks, and weather-sealed audio gear capable of filming in remote riverine and rural districts.",
+        q: "How long does a short impact documentary take?",
+        a: "A 10–12 minute film typically runs 3 to 5 weeks from research sign-off to graded master. Standard multi-location films run 6 to 10 weeks, plus institutional review rounds.",
       },
       {
-        q: "Do you handle ethical consents, localized dialect translation, and multilingual subtitling?",
-        a: "Yes. We adhere to international ethical filming standards, securing informed consent from interviewees and providing accurate translation and subtitling in both formal Bangla, regional dialects, and English.",
+        q: "Do you handle field shoots in remote districts?",
+        a: "Yes. Self-sufficient crews travel with portable cinema cameras, drones, battery banks and weather-sealed audio to riverine, rural and industrial districts across Bangladesh.",
       },
       {
-        q: "What is the typical production timeline for a short impact documentary?",
-        a: "A 10 to 20-minute documentary typically takes 3 to 5 weeks from initial research and field shooting to final DaVinci Resolve color grading and master sound design.",
+        q: "Do you manage ethical consents and translation?",
+        a: "Yes. We secure informed consent from every interviewee and provide accurate translation and subtitling in Bangla, regional dialects and English for donor and broadcast audiences.",
+      },
+      {
+        q: "Can you license and restore archival footage?",
+        a: "Yes. Archival research, licensing and restoration are handled as quoted line items, with rights cleared before the edit locks — essential for heritage and compliance stories.",
+      },
+      {
+        q: "What masters and versions do we receive?",
+        a: "Festival DCP plus broadcast and web masters, a teaser trailer, social character cutdowns, Bangla and English subtitles and a documented asset register. Additional language versions run ৳25,000–45,000.",
+      },
+      {
+        q: "How do institutional review rounds work?",
+        a: "We build a stakeholder review structure for programme, communications and country-director rounds, with timestamped links and structured revision notes so feedback converges instead of cycling.",
+      },
+      {
+        q: "Can you deliver for a donor deadline or summit premiere?",
+        a: "Yes. Rush delivery with overtime and parallel-post premiums is quoted upfront. Tell us the premiere date at the brief stage so the schedule is built backwards from it.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your story outline, locations and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance confirms dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -558,22 +766,42 @@ export const studioServices = [
       'High-resolution architectural still captures',
     ],
     pricingFactors: ['Property square footage', 'Single residential apartment vs commercial tower', 'Inclusion of host-presented walkthrough'],
-    faqs: [
+        faqs: [
       {
-        q: "Can you include a host or real estate agent presenting the property?",
-        a: "Yes. We can mic up your real estate agent or developer representative with broadcast wireless audio, guide their delivery on camera, and provide an optional portable teleprompter.",
+        q: "How much does property videography cost in Dhaka?",
+        a: "At FrameCipher Studio, an apartment walkthrough with vertical reels is ৳28,000 per property. A luxury villa film with host and drone is ৳65,000, and commercial tower showcases start from ৳1,30,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Do you provide 4K cinematic walkthroughs, drone aerial shots, and vertical reels?",
-        a: "Yes. We deliver complete real estate media packages: smooth motorized gimbal interior walkthroughs, certified drone aerial neighborhood captures, and high-energy 9:16 vertical reels for social ads.",
+        q: "Can our agent present the property on camera?",
+        a: "Yes. We mic your agent or developer representative with broadcast wireless audio, direct their delivery on camera, and provide a portable teleprompter on request.",
       },
       {
-        q: "How should we prepare an apartment, penthouse, or commercial building before the shoot?",
-        a: "The property should be deep-cleaned, all interior lights turned on, personal clutter removed, curtains neatly drawn to maximize natural window light, and staging furniture arranged prior to our crew arrival.",
+        q: "Do you fly drones over the property?",
+        a: "Yes, with licensed operators where permissions allow — a standalone aerial slot is ৳25,000 and we liaise the permission. Restricted zones use elevated gimbal and rooftop coverage instead.",
       },
       {
-        q: "What is the delivery timeframe for property marketing videos?",
-        a: "Edited property walkthrough videos and social media reels are typically delivered within 3 to 4 business days following the on-site shoot.",
+        q: "How should we prepare the property before the shoot?",
+        a: "Deep-clean, switch on all interior lights, remove personal clutter, draw curtains to shape natural window light, and arrange staging furniture before the crew arrives. You receive our staging checklist at booking.",
+      },
+      {
+        q: "How fast do we get the video for our listing?",
+        a: "Tours and reels deliver in 3 to 4 business days after the shoot. An urgent 48-hour listing lane is available at +25% for live portals and campaign launches.",
+      },
+      {
+        q: "Do we get vertical reels and stills as well?",
+        a: "Yes. Every tier includes 9:16 vertical reels for Facebook and Instagram ads plus architectural still captures graded to match the film.",
+      },
+      {
+        q: "What suits a developer tower or commercial project?",
+        a: "The Commercial Tower tier: multi-day coverage of units, amenities and surroundings with scripted narrative, testimonials, day-dusk-night exteriors, sales-gallery loops and a stills library for brochures.",
+      },
+      {
+        q: "Which areas of Dhaka do you cover?",
+        a: "All of Dhaka — Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and beyond — plus projects outside the city quoted with travel days. Parking, access and management permissions are confirmed beforehand.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your property address, listing date and goal by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the shoot date, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -600,22 +828,46 @@ export const studioServices = [
     ],
     deliverables: ['Wedding Cinema Highlight Film (3 to 7 minutes)', 'Full ceremony documentary edit', 'Social media teaser reel (60 seconds)'],
     pricingFactors: ['Number of event functions (Holud, Mehendi, Wedding, Reception)', 'Number of cinematographers on-site'],
-    faqs: [
+        faqs: [
       {
-        q: "How far in advance should we book wedding dates?",
-        a: "We recommend booking 1 to 3 months in advance to secure your dates in our production calendar, especially during peak wedding seasons in Dhaka (November through February).",
+        q: "How much does wedding videography cost in Dhaka?",
+        a: "At FrameCipher Studio, single-event cinema is ৳32,000, a two-event narrative with couple session is ৳68,000, and signature 3–4 event celebrations are ৳1,45,000. Drone adds ৳25,000 and 4K delivery ৳15,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "What is the difference between a cinematic wedding film and traditional coverage?",
-        a: "Traditional coverage is a static, continuous recording of the stage. Our cinematic wedding films use narrative storytelling, emotive music scoring, color grading, and candid b-roll to create an emotional movie of your celebration.",
+        q: "How far in advance should we book our dates?",
+        a: "Book 1 to 3 months ahead, especially for November–February peak weekends. Off-season and weekday dates often confirm faster — message us the moment your venues firm up.",
       },
       {
-        q: "How quickly do we receive the 1-minute Instagram teaser and the full ceremony video?",
-        a: "We deliver your 60-second social media teaser reel within 5 to 7 days after the event. The full cinematic highlight film and ceremony documentary edit are completed within 3 to 4 weeks.",
+        q: "What is the difference between cinematic films and traditional coverage?",
+        a: "Traditional coverage is a static continuous stage recording. Our cinematic films use narrative structure, candid observation, licensed scoring and feature-grade colour to compress hours of celebration into a story the family replays.",
       },
       {
-        q: "Do you travel across Bangladesh or internationally for destination weddings?",
-        a: "Yes. Our wedding cinematography team is available for destination weddings across Bangladesh (Sylhet, Chattogram, Cox’s Bazar) as well as international destination shoots upon request.",
+        q: "When do we receive the teaser and the full film?",
+        a: "The 60-second teaser arrives within 7 days of the event. Highlight and ceremony films premiere in 3 to 4 weeks through a private family screening link before any public release.",
+      },
+      {
+        q: "Do you travel for destination weddings?",
+        a: "Yes — Sylhet, Chattogram, Cox’s Bazar and international assignments, with travel quoted transparently and the same creative team across all functions for narrative consistency.",
+      },
+      {
+        q: "Can you fly a drone at our venue?",
+        a: "Where the venue and permissions allow, drone aerials of the venue and baraat are included on signature tiers or added for ৳25,000. We liaise the permission in advance.",
+      },
+      {
+        q: "Will the crew direct us and our family?",
+        a: "Candid first, guided only for portraits. Our contractual discretion keeps filming unobtrusive — natural interactions, never forced performances — with direction limited to couple sessions and group portraits.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Structured revision rounds are included in every tier and reviewed through timestamped links. Two-event and signature tiers add a priority edit lane so feedback converges before the premiere.",
+      },
+      {
+        q: "Do we get the raw footage?",
+        a: "Yes. Raw captures are available within 24 hours on request, and full ceremony documentary edits are standard deliverables on every tier.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your dates, venues and functions by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance secures your dates, the balance is due on final delivery, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -642,22 +894,42 @@ export const studioServices = [
     ],
     deliverables: ['Generational Legacy Film (15 to 30 minutes)', 'Digital archive of all unedited interview memories'],
     pricingFactors: ['Number of family members interviewed', 'Archival photograph restoration volume'],
-    faqs: [
+        faqs: [
       {
-        q: "Can the interview be conducted in our family residence?",
-        a: "Yes. Our team can bring portable softbox lighting, acoustic sound blankets, and quiet audio gear directly to your family residence in Dhaka to ensure elders feel relaxed in familiar surroundings.",
+        q: "How much does a family legacy film cost in Dhaka?",
+        a: "At FrameCipher Studio, a milestone film is ৳35,000, a multi-session legacy documentary is ৳75,000, and a full heritage archive is ৳1,40,000. Extra restoration batches are ৳8,000 per 50 photographs. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "What themes or milestones do family documentary films usually commemorate?",
-        a: "We produce films for golden wedding anniversaries, 70th/80th milestone birthdays, generational family business biographies, and memorial tribute archives celebrating the life stories of elders.",
+        q: "Can interviews happen at our family home?",
+        a: "Yes. We bring portable softbox lighting, acoustic blankets and quiet audio gear to your residence anywhere in Dhaka, so elders stay relaxed in familiar surroundings. Studio sessions at ECB Chattar are available for controlled quiet.",
       },
       {
-        q: "How do you help camera-shy elders and children feel comfortable during filming?",
-        a: "Our director uses an empathetic, conversational interview format rather than a formal camera interrogation. We chat casually, allowing stories to unfold naturally with patience and respect.",
+        q: "Which milestones do family films usually cover?",
+        a: "Golden anniversaries, 70th and 80th birthdays, generational business biographies, wedding story chapters and memorial tribute archives celebrating elders’ lives.",
       },
       {
-        q: "Can we integrate old analog photographs, VHS tapes, and archival family documents?",
-        a: "Yes. We provide high-resolution digital scanning, dust cleanup, and color restoration for vintage family photos, seamlessly editing them into the video alongside the spoken reflections.",
+        q: "How do you handle camera-shy elders and children?",
+        a: "With conversational interviews, not interrogation. Our director chats casually at the elder’s pace with breaks whenever needed, so stories unfold naturally and with dignity.",
+      },
+      {
+        q: "Can you restore old photos, VHS tapes and documents?",
+        a: "Yes. High-resolution scanning with dust cleanup and colour restoration for vintage photographs, plus VHS and document digitisation — woven into the film alongside the interviews.",
+      },
+      {
+        q: "Do you offer Bangla and English versions?",
+        a: "Yes. Bilingual narration options are standard on heritage tiers, so grandchildren abroad and elders at home each hear the story in their language.",
+      },
+      {
+        q: "How long does a family film take?",
+        a: "Delivery runs 5 to 10 working days after the final session. Legacy and heritage tiers with heavy restoration follow the schedule in your written quote.",
+      },
+      {
+        q: "Can each sibling get a copy?",
+        a: "Yes. Heirloom box sets include copies for the family, and additional engraved USB sets are ৳3,500 each — planned at the brief stage so every household receives one.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your milestone, elders and timeline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance confirms sessions, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -695,22 +967,46 @@ export const studioServices = [
       'SRT / VTT closed caption subtitle files',
     ],
     pricingFactors: ['Total raw footage runtime', 'Complexity of color grading and shot matching', 'Visual effects, rotoscoping, or cleanup requirements'],
-    faqs: [
+        faqs: [
       {
-        q: "Can we send external footage filmed elsewhere for post-production?",
-        a: "Yes. We regularly handle post-production for footage filmed outside our studio across Bangladesh and internationally. You can deliver files via physical SSD or high-speed cloud transfer (Dropbox/Google Drive).",
+        q: "How much does post-production cost in Dhaka?",
+        a: "At FrameCipher Studio, an Essential Finish up to 5 minutes is ৳12,000. A Commercial Grade up to 10 minutes with cinematic colour and sound design is ৳45,000, and feature or series finishing starts from ৳1,25,000 on a scoped quote. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "What file formats and color log profiles (Sony S-Log3, Canon C-Log, ProRes) do you grade?",
-        a: "We grade all major camera profiles in DaVinci Resolve Studio: Sony S-Log3/S-Gamut3.Cine, Canon C-Log2/3, ARRI LogC, Blackmagic RAW, REDCODE RAW, and Apple ProRes on color-calibrated monitors.",
+        q: "Can you finish footage filmed outside your studio?",
+        a: "Yes. Most post-production work starts from external footage. Deliver camera originals on a portable SSD at ECB Chattar or by Google Drive or Dropbox link, and we verify every file with checksums before the first cut.",
       },
       {
-        q: "What tools and audio suites does FrameCipher Studio use for sound mastering?",
-        a: "We utilize iZotope RX Advanced for dialogue cleanup (spectral de-noise, de-reverb, de-click) and professional DAWs for EQ, compression, and loudness compliance conforming to broadcast standards.",
+        q: "What file formats and LOG profiles do you grade?",
+        a: "We grade all major camera profiles in DaVinci Resolve Studio: Sony S-Log3 and S-Gamut3.Cine, Canon C-Log2 and C-Log3, ARRI LogC, Blackmagic RAW, REDCODE RAW and Apple ProRes, on colour-calibrated monitors.",
       },
       {
-        q: "How do clients review cuts and leave frame-accurate timestamped feedback?",
-        a: "We share secure cloud review links where your creative directors and stakeholders can leave frame-accurate comments, visual sketches, and revision notes directly on the video player.",
+        q: "What pushes a quote from ৳12,000 toward ৳45,000?",
+        a: "Longer runtime and more raw footage to conform, multi-camera sync, LOG rescue work, motion graphics and VFX cleanup, more aspect ratios and subtitle languages, extra revision rounds and priority turnaround.",
+      },
+      {
+        q: "How do we review cuts and leave feedback?",
+        a: "We share secure timestamped cloud review links where your team comments frame-accurately on the player. Full scopes include 2 structured revision rounds; Essential Finish includes 1.",
+      },
+      {
+        q: "What sound work is included?",
+        a: "Dialogue cleanup with spectral de-noise, de-reverb and de-click, EQ and compression, plus sound-effect design, music beds and loudness compliance on Commercial Grade and above. Finished stems (dialogue, music, effects) ship with Feature Finish.",
+      },
+      {
+        q: "Do you add Bangla and English subtitles?",
+        a: "Yes. Timed SRT and VTT subtitle files in Bangla or English are included in every tier, synced to the locked cut.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Standard finishing delivers in 5–10 working days from verified intake. Express 48–72 hour finishing adds 30%, and raw or proxy files are available within 24 hours.",
+      },
+      {
+        q: "What happens to our files after delivery?",
+        a: "Finished masters are archived for 60 days with free re-exports to new aspect ratios. Feature Finish adds archive-grade uncompressed preservation copies.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your footage details, goal and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the finishing slot, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -738,22 +1034,46 @@ export const studioServices = [
     ],
     deliverables: ['Finished Master Video (16:9 Landscape)', 'Short Social Media Cutdowns (9:16 Vertical)', 'Clean dialogue audio master'],
     pricingFactors: ['Raw footage length', 'Editing style (Simple cut vs complex YouTube jump-cuts and memes)', 'Turnaround schedule'],
-    faqs: [
+        faqs: [
       {
-        q: "How do you handle revisions on editing projects?",
-        a: "Every editing project includes 2 structured revision rounds via timestamped cloud review links to ensure complete satisfaction without scope confusion.",
+        q: "How much does video editing cost in Dhaka?",
+        a: "At FrameCipher Studio, a Shorts Pack of 5 captioned verticals is ৳9,500. A Creator Edit up to 15 minutes with grade and 2 cutdowns is ৳22,000, and a Studio Suite up to 30 minutes with a motion package is ৳48,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Can you edit long-form videos into high-retention short vertical clips for social media?",
-        a: "Yes. We can ingest 1 to 2-hour podcasts or webinars and extract 5 to 15 viral vertical cutdowns (9:16) with animated subtitles, zoom cuts, and sound effects for Reels, TikTok, and YouTube Shorts.",
+        q: "Can you edit footage we filmed ourselves?",
+        a: "Yes. Most edits start from external footage. Deliver camera originals on a portable SSD at ECB Chattar or by Google Drive or Dropbox link with full-resolution files, and we verify every clip before cutting.",
       },
       {
-        q: "What is the typical delivery timeline for an edited video project?",
-        a: "Standard video edits are delivered within 3 to 5 business days. Express 24-hour and 48-hour turnarounds are available for time-sensitive social media campaigns.",
+        q: "What pushes a quote from ৳9,500 toward ৳48,000?",
+        a: "Longer runtime and more raw footage to ingest, multi-camera sync, LOG rescue and audio repair, motion graphics and caption packaging, more cutdowns and aspect ratios, and priority turnaround.",
       },
       {
-        q: "Do you license royalty-free commercial background music and sound effects?",
-        a: "Yes. All background tracks, risers, whooshes, and sound effects used in our edits are 100% commercially licensed with zero copyright strikes on YouTube, Facebook, or Instagram.",
+        q: "Can you cut long videos into vertical shorts?",
+        a: "Yes. We ingest 1–2 hour podcasts or webinars and extract hook-first 9:16 cutdowns with kinetic subtitles, zoom cuts and sound effects for Reels, TikTok and YouTube Shorts.",
+      },
+      {
+        q: "Is the background music copyright-safe?",
+        a: "Yes. All tracks, risers and sound effects are commercially licensed, so your video carries zero copyright-strike risk on YouTube, Facebook or Instagram.",
+      },
+      {
+        q: "How do revisions work?",
+        a: "Every project includes 2 structured revision rounds through timestamped cloud review links, so stakeholders comment frame-accurately instead of over chat screenshots.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Standard edits deliver in 3–5 working days from verified intake. Express 48-hour delivery is available at a 30% priority fee, and proxy previews are available within 24 hours.",
+      },
+      {
+        q: "Do you add Bangla and English captions?",
+        a: "Yes. Kinetic captions plus SRT caption files in Bangla or English are included in every tier, timed to the locked cut.",
+      },
+      {
+        q: "What happens to our files after delivery?",
+        a: "Finished masters are archived for 60 days with free re-exports to new aspect ratios, so later platform versions do not need a re-edit from scratch.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your footage details, target runtime and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the edit slot, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -781,22 +1101,46 @@ export const studioServices = [
     ],
     deliverables: ['Uncompressed 24-bit 48kHz WAV audio files', 'Fully processed, broadcast-ready voiceover master', 'Raw, unprocessed vocal tracks if requested'],
     pricingFactors: ['Script word count and recording duration', 'Inclusion of voice artist talent vs studio rental with your own artist', 'Commercial usage rights'],
-    faqs: [
+        faqs: [
       {
-        q: "Do you have native Bangla and English voiceover artists?",
-        a: "Yes. We have a roster of verified voice artists across male, female, neutral English, British/American accent, formal standard Bangla (shuddho bhasha), and conversational styles.",
+        q: "How much does voice over recording cost in Dhaka?",
+        a: "At FrameCipher Studio, a Short Read up to 2 minutes is ৳4,500. A Commercial VO with direction, timing to picture and usage rights is ৳9,500, and series or course narration runs ৳28,000 per 60 minutes. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Can clients listen in and direct the voiceover talent live during recording?",
-        a: "Yes. You can participate in the recording session either in person at our studio lounge or remotely via Zoom/Google Meet, providing real-time direction and inflection guidance to the talent.",
+        q: "Do you have native Bangla and English voice artists?",
+        a: "Yes. The roster covers male and female voices in shuddho Bangla, conversational Bangla, neutral English and British or American accent options, matched to your script before the session.",
       },
       {
-        q: "What turnaround time can we expect for commercials and explainer voiceovers?",
-        a: "Standard commercial scripts under 2 minutes are recorded, edited, de-breathed, and delivered within 24 to 48 hours from script confirmation.",
+        q: "Can we direct the talent live during recording?",
+        a: "Yes. Direct in person from our studio lounge or remotely over Zoom or Google Meet, giving inflection and pacing guidance while the talent performs.",
       },
       {
-        q: "Are voice recordings fully mastered and delivered broadcast-ready?",
-        a: "Yes. We deliver 24-bit 48kHz WAV masters that have undergone acoustic vocal processing: noise gate, de-essing, surgical EQ, subtle compression, and loudness matching.",
+        q: "What pushes a quote from ৳4,500 toward ৳9,500?",
+        a: "Longer scripts, higher-profile talent, commercial broadcast usage rights, bilingual delivery, timing and sync to locked picture, and priority turnaround.",
+      },
+      {
+        q: "What should we send before the session?",
+        a: "The final script as editable text with pronunciations for brand names and technical terms marked, tone references, and — for sync work — the locked video with timecodes.",
+      },
+      {
+        q: "Are recordings delivered broadcast-ready?",
+        a: "Yes. Masters are 24-bit 48kHz WAV files with de-breathing, de-essing, EQ, compression and loudness matching. Raw unprocessed tracks are available on request.",
+      },
+      {
+        q: "Can the narration be synced to our video?",
+        a: "Yes. Commercial VO includes timing the performance to your locked picture, and we can deliver a finished synced video track alongside the audio masters.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Short reads deliver in 24–48 hours from script confirmation. Commercial VO follows your picture-lock schedule, and series narration runs on agreed multi-session calendars. Priority lanes add 30%.",
+      },
+      {
+        q: "What if a line needs re-recording?",
+        a: "Pickup and correction windows are included on full scopes, re-recorded in the same booth setup so replacement lines match seamlessly. Masters are archived for 60 days.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your script, language and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the session, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -824,22 +1168,46 @@ export const studioServices = [
     ],
     deliverables: ['High-bitrate green screen raw footage with flat color profile', 'Keyed transparent background video files (ProRes 4444)', 'Finished composite video with chosen digital backgrounds'],
     pricingFactors: ['Studio reservation hours', 'Space-only rental vs in-house keying and compositing', 'Camera operator and audio engineer assistance'],
-    faqs: [
+        faqs: [
       {
-        q: "What should on-camera subjects avoid wearing on green screen?",
-        a: "Subjects must strictly avoid wearing green clothing or accessories, as well as highly reflective jewelry, shiny silk fabrics, or thin translucent green-tinted glasses.",
+        q: "How much does green screen studio time cost in Dhaka?",
+        a: "At FrameCipher Studio, an operated Chroma Session is ৳3,500 per hour with a 2-hour minimum. A Virtual Half-Day with compositing is ৳19,000, and a full VFX Production Day with 3D environments is ৳39,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Do you provide custom virtual backgrounds, newsrooms, and 3D studio sets?",
-        a: "Yes. We can design and composite 3D virtual newsrooms, corporate stages, modern lofts, or branded abstract backgrounds that match your company’s aesthetic.",
+        q: "What should presenters avoid wearing on green screen?",
+        a: "Avoid green clothing and accessories, reflective jewellery, shiny silk fabrics and thin green-tinted glasses. Bring wardrobe options — we check each outfit against spill risk on the live key monitors before recording.",
       },
       {
-        q: "How do your gaffers eliminate green color spill on subjects’ hair and shoulders?",
-        a: "Our studio is pre-lit with balanced overhead softboxes for the green backdrop and dedicated magenta/warm rim backlights on the subject to cancel out and neutralize green reflections.",
+        q: "Do you provide virtual backgrounds and 3D sets?",
+        a: "Yes. We design and composite newsrooms, classrooms, corporate stages and branded abstract environments in your style, plus slide and screen-capture compositing for training content.",
       },
       {
-        q: "Can green screen sessions be monitored in real time with live background keying?",
-        a: "Yes. Our production switcher supports real-time hardware chroma keying, allowing presenters and directors to see the keyed composite on live monitors during recording.",
+        q: "What pushes a quote from ৳19,000 toward ৳39,000?",
+        a: "More stage hours and presenters, custom 3D set design, multi-subject and moving-camera keys, camera tracking, rotoscoping for difficult edges, and priority turnaround.",
+      },
+      {
+        q: "How do you prevent green spill on hair and shoulders?",
+        a: "The wall is lit by a balanced overhead grid while dedicated rim and backlights on the subject cancel green reflections. Correct wall distance is blocked before the first take, and spill suppression finishes the job in post.",
+      },
+      {
+        q: "Can we see the keyed background while recording?",
+        a: "Yes. The hardware keyer shows the live composite on floor monitors, so presenters point, frame and perform against the actual background rather than guessing.",
+      },
+      {
+        q: "Do we get the raw footage or only the finished composite?",
+        a: "Both. You receive flat-profile 4K raw footage for your own editors, transparent-background ProRes 4444 files, and finished composites with your sets and graphics.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Raw keyable footage hands over the same day. Finished composites deliver in 5–7 working days. Express 48–72 hour compositing adds 30%.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Full scopes include 2 structured revision rounds through timestamped cloud review links. Masters are archived for 60 days with free re-exports to new aspect ratios.",
+      },
+      {
+        q: "How do we book and pay?",
+        a: "Send your script, background needs and date by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the stage, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -891,22 +1259,50 @@ export const studioServices = [
       'Video requirements (audio-only vs multi-camera 4K)',
       'Editing scope (raw capture vs full multi-cam edit & social reels)',
     ],
-    faqs: [
+        faqs: [
       {
-        q: "Can we record both audio and multi-camera video podcasts?",
-        a: "Yes. Our studio setup is configured with multi-angle 4K cameras and broadcast dynamic microphones to produce simultaneous high-fidelity audio and video.",
+        q: "How much does podcast recording cost in Dhaka?",
+        a: "At FrameCipher Studio, an audio session with mastering is ৳8,000. A 3-camera 4K video session is ৳18,000, and a full record-to-published episode with edit, grade, subtitles and 3 vertical clips is ৳35,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Do you provide editing and vertical clips from our session?",
-        a: "Yes. In our production packages, we handle full multi-cam switching, speech audio leveling, color grading, and extract high-engagement vertical reels with subtitles.",
+        q: "How many people can record at the same time?",
+        a: "Up to 4 speakers on discrete broadcast microphones, each tracked to an isolated channel. For larger panels or remote guests over Zoom or Riverside, we configure dedicated remote feeds.",
       },
       {
-        q: "Can beginners with no podcasting experience book?",
-        a: "Absolutely. Our in-house sound engineer tests microphone technique and monitors audio levels throughout your entire session.",
+        q: "What pushes a quote from ৳8,000 toward ৳35,000?",
+        a: "More speakers, 4K video instead of audio-only, longer sessions, full editing with grading, subtitle authoring, thumbnail packaging and the number of vertical cutdowns per episode.",
       },
       {
-        q: "How many studio cameras and broadcast microphones are provided for podcast recordings?",
-        a: "We support 1 to 4 in-person speakers simultaneously with individual Shure/Rode broadcast dynamic microphones and up to 3 cinema 4K camera angles (host, guest, and wide table shot).",
+        q: "What is included in the audio session?",
+        a: "Up to 2 hours of studio time, 4 broadcast dynamic microphones, engineer-monitored levels, multi-track 24-bit WAV stems, loudness mastering, raw handover same day and mastered files in 48 hours.",
+      },
+      {
+        q: "Do you edit the episode and cut vertical clips?",
+        a: "Yes. The Full Production Suite includes a complete multicam edit, colour grade, audio sweetening, Bangla and English subtitles, 3 captioned vertical clips and thumbnail plus metadata packaging.",
+      },
+      {
+        q: "Can I get the raw audio and video files immediately?",
+        a: "Yes. At the end of your session we transfer all WAV stems and 4K angles to your drive, or upload them to a secure cloud drive within hours.",
+      },
+      {
+        q: "What audio and video formats do I receive?",
+        a: "Isolated 24-bit WAV stems, a loudness-mastered MP3 for RSS feeds, a 4K 16:9 YouTube master and 1080x1920 vertical cutdowns with captions.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Full Production episodes include 2 structured revision rounds through a timestamped cloud review link. Audio sessions include mastering corrections against the brief.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Raw files go the same day and mastered audio in 48 hours. Full Production episodes deliver in 3 to 5 business days. Express 48-hour turnaround adds 30%.",
+      },
+      {
+        q: "Do you offer retainers for weekly shows?",
+        a: "Yes. Weekly shows can reserve a monthly retainer from ৳1,20,000 for 4 episodes, with standing studio slots and the same crew learning your show format.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your date, speaker count and format by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -953,22 +1349,50 @@ export const studioServices = [
       'Product material (Reflective glass/jewelry vs matte textiles)',
       'Advanced retouching or compositing requirements',
     ],
-    faqs: [
+        faqs: [
+      {
+        q: "How much does product photography cost in Dhaka?",
+        a: "At FrameCipher Studio, catalogue stills are ৳1,500 per product with 3 retouched angles (5-product minimum, ৳7,500 set). A half-day bank of around 10 products is ৳14,000, and a lifestyle plus model campaign day is ৳34,000. Every quote is itemised in writing within 48 hours.",
+      },
       {
         q: "Are your photos compliant with Daraz and Shopify requirements?",
-        a: "Yes. We provide pure white background (RGB 255,255,255) images cropped to exact e-commerce marketplace ratios.",
+        a: "Yes. We deliver pure-white RGB 255 backgrounds cropped to exact marketplace ratios, with square and vertical ad formats included on catalogue tiers.",
       },
       {
         q: "How many photos do we receive per product?",
-        a: "A standard shoot covers 4 to 6 angles per product (front, back, 45-degree angle, detail macro, packaging). Custom shot lists are confirmed in advance.",
+        a: "Three retouched angles per product as standard — front, 45-degree and detail macro — with extra retouched angles at ৳300 each. Custom shot lists are confirmed in writing before the shoot.",
       },
       {
-        q: "Can we ship or drop off products at your ECB Chattar studio?",
-        a: "Yes. You can drop off or courier your inventory samples directly to our 6th-floor studio at Eurasia Building, Matikata ECB Chattar.",
+        q: "What pushes a quote from ৳7,500 toward ৳34,000?",
+        a: "More products and angles, styled lifestyle scenes instead of white backgrounds, hand and face models, props and art direction, macro and jewellery labour, and product reel add-ons.",
       },
       {
-        q: "Can you shoot lifestyle product photos with human models alongside white background shots?",
-        a: "Yes. We offer combined packages featuring pure white e-commerce catalog cutouts alongside styled lifestyle tabletop scenes and hand/face model demonstrations for cosmetics, jewelry, and gadgets.",
+        q: "Can we ship or drop off products at your studio?",
+        a: "Yes. Drop off or courier inventory samples to our 6th-floor studio at Eurasia Building, Matikata ECB Chattar. We confirm the shot list against the physical samples on arrival.",
+      },
+      {
+        q: "Can you shoot lifestyle photos with models alongside catalogue shots?",
+        a: "Yes. The Lifestyle + Model Day combines white-background catalogue coverage with styled tabletop scenes and hand or face model demonstrations for cosmetics, jewellery and gadgets.",
+      },
+      {
+        q: "Do you provide transparent PNG cutouts?",
+        a: "Yes. Transparent-background PNG cuts are included in the Half-Day Bank and available on other tiers, alongside 360-degree multi-angle coverage sets.",
+      },
+      {
+        q: "What is the product reel add-on?",
+        a: "A short motion spotlight cut from the same styled setup at ৳2,500 per product — catalogue stills plus a reel formatted for Reels, Shorts and TikTok.",
+      },
+      {
+        q: "How fast can you deliver?",
+        a: "Raw captures hand over the same day and retouched sets deliver in 3 to 4 business days. Express 48-hour retouching adds 30%.",
+      },
+      {
+        q: "How many revisions are included?",
+        a: "Catalogue tiers include structured revision rounds against the agreed shot list through a cloud gallery, with 60-day archiving and free re-exports to new ratios.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your product count, angles and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -1014,22 +1438,46 @@ export const studioServices = [
       'Studio assistant vs full camera operator / sound engineer add-on',
       'Peak weekend vs weekday booking schedules',
     ],
-    faqs: [
+        faqs: [
       {
-        q: "What is included in the basic studio rental fee?",
-        a: "Rental includes private studio access, baseline continuous overhead lighting, your choice of backdrop, high-speed Wi-Fi, makeup area, and IPS power backup.",
+        q: "How much does studio rental cost in Dhaka?",
+        a: "At FrameCipher Studio, room-only hire with your own gear is ৳2,000/hour and operated sessions with our camera and operator are ৳2,500/hour, both with a 2-hour minimum. Half-day exclusive blocks are ৳12,000 and full-day lockouts are ৳22,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "Can we bring our own lighting and cameras?",
-        a: "Yes. You are welcome to bring your own cameras, audio gear, and lighting fixtures.",
+        q: "What is included in the room-only hire fee?",
+        a: "Private stage access, the overhead softbox grid, your choice of pre-rigged backdrop, generator plus IPS power backup, fibre Wi-Fi, makeup vanity, changing area, client lounge, parking access and an on-site assistant.",
+      },
+      {
+        q: "What pushes a booking from ৳2,000/hour toward a full-day lockout?",
+        a: "Operated camera and crew instead of room-only, more hours, backdrop and green-screen changes, teleprompter and monitoring needs, streaming encoder use and overtime past wrap.",
+      },
+      {
+        q: "Can we bring our own cameras, lighting and crew?",
+        a: "Yes. Room-only hire is built for outside crews — bring cameras, audio and fixtures, and we provide the isolated stage, grid positions, power distribution and assistant support.",
+      },
+      {
+        q: "Does rental include an on-site technician?",
+        a: "Yes. A studio assistant is on-site for every booking to position the grid, change backdrops, manage power outlets and keep the facilities running.",
+      },
+      {
+        q: "Do you offer green screen and live streaming setups?",
+        a: "Yes. The green screen configuration comes with an even wash for clean keys, and the stage has encoder access with fibre internet for live or simulive broadcasts to YouTube and Facebook.",
       },
       {
         q: "Where can our crew park at ECB Chattar?",
-        a: "Dedicated vehicle parking is available adjacent to Eurasia Building and Khan Polli Jame Masjid.",
+        a: "Dedicated vehicle parking is available beside Eurasia Building near Khan Polli Jame Masjid, with elevator access directly to the 6th-floor stage.",
       },
       {
-        q: "Does studio rental include an on-site technician for assistance?",
-        a: "Yes. A studio assistant is always on-site to help position lighting grids, change seamless paper backdrops, manage power outlets, and ensure your team has a seamless shooting experience.",
+        q: "Can we visit the stage before booking?",
+        a: "Yes. Message us on WhatsApp at +880 1768-146650 to schedule a walkthrough — clap-test the acoustics, inspect the grid and power, and confirm the backdrop before you commit.",
+      },
+      {
+        q: "How do half-day and full-day blocks compare to hourly billing?",
+        a: "Four or more hours usually favour the ৳12,000 half-day block, and full shoot days favour the ৳22,000 lockout. We price both against your hour count so you can compare in writing.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your date, hours and backdrop by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -1056,22 +1504,42 @@ export const studioServices = [
     benefits: ['Real production examples across diverse industries', 'Verified client deliverables and case studies', 'Direct links from portfolio pieces to relevant services'],
     deliverables: ['Commercial case studies and high-definition video archives'],
     pricingFactors: ['Custom scopes based on demonstrated project tiers'],
-    faqs: [
+        faqs: [
       {
-        q: "Can we see raw versus color-graded comparisons?",
-        a: "Yes. Contact our team and we will share before-and-after grading reels from DaVinci Resolve demonstrating our dynamic range and color craft.",
+        q: "What did the portfolio pieces actually cost to produce?",
+        a: "Starter productions sit at ৳25,000–80,000, signature work at ৳1,00,000–3,00,000, and flagship campaigns above ৳5,00,000. Ask for the band behind any reel and we attach the scope that produced it.",
       },
       {
-        q: "Which brands, corporate leaders, and creators have produced videos at FrameCipher Studio?",
-        a: "We have produced video campaigns, podcasts, and commercial visual media for leading corporate enterprises, fintech startups, fashion apparel brands, and top YouTube creators in Bangladesh.",
+        q: "Can we see raw versus colour-graded comparisons?",
+        a: "Yes. We share DaVinci Resolve before-and-after reels demonstrating captured dynamic range and the applied grade, so you see both halves of image quality.",
       },
       {
-        q: "Can you share case studies with verified audience retention and conversion metrics?",
-        a: "Yes. Beyond visuals, we can share documented case studies highlighting how our video creative boosted ROAS, click-through rates, and YouTube watch-time for commercial clients.",
+        q: "Can you share full films in our industry, not just trailers?",
+        a: "Yes. Message us on WhatsApp at +880 1768-146650 with your industry and we send a curated private showreel of complete pieces matched to your format.",
       },
       {
-        q: "How do we request a private screening or review relevant industry-specific samples?",
-        a: "Message our team on WhatsApp (+880 1768-146650) with your industry niche, and we will send a curated private showreel link matching your exact aesthetic requirements.",
+        q: "Do you share performance metrics like retention or ROAS?",
+        a: "Where clients permit, we share retention, watch-time and ROAS context alongside the creative. Metrics belong to clients, so we only publish what each brand approves.",
+      },
+      {
+        q: "How do we verify the studio behind the work?",
+        a: "Book a free walkthrough at our 6th-floor ECB Chattar stage: clap-test the acoustics, inspect the lighting grid and power backup, and meet the director and engineers.",
+      },
+      {
+        q: "How fast can you replicate a reference project?",
+        a: "Starter replications deliver in 3 to 7 days. Signature and flagship timelines are set in the written quote. Express 48-hour delivery adds 30%.",
+      },
+      {
+        q: "How many revisions come with a replication?",
+        a: "Two structured revision rounds through a timestamped cloud review link, with 60-day archiving and free re-exports to new aspect ratios.",
+      },
+      {
+        q: "Where is the studio located?",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — reachable from Mirpur DOHS, Banani and Airport Road, with parking beside the building.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your reference, date and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -1094,22 +1562,42 @@ export const studioServices = [
     benefits: ['Predictable delivery timelines', 'Zero miscommunication on deliverables', 'Structured feedback and revision rounds'],
     deliverables: ['Detailed project production schedule and sign-off milestones'],
     pricingFactors: ['Speed of client feedback and asset provision'],
-    faqs: [
+        faqs: [
       {
         q: "How long does a complete project take from briefing to delivery?",
-        a: "Standard projects take between 5 to 10 working days, with express turnarounds available on request.",
+        a: "Standard projects deliver in 5 to 10 working days. Priority lanes compress to 48 to 72 hours at a 30% fee. Retainer clients hold standing capacity with same-week turnaround as routine.",
       },
       {
-        q: "What happens during the initial creative briefing and scriptwriting stage?",
-        a: "We review your target audience, commercial goals, core message, visual moodboard, and deliverable specs. Once the script, storyboard, and shot list are approved, we schedule studio filming.",
+        q: "What happens during the initial briefing and scoping stage?",
+        a: "We review your audience, commercial goals, core message, visual references and deliverable specs. Once the scope, shot list and schedule are approved in writing, we lock the shoot date.",
       },
       {
-        q: "How many rounds of revisions are included in our standard production agreement?",
-        a: "Every project includes 2 comprehensive revision rounds. You receive a secure cloud review link where stakeholders can leave frame-by-frame timestamped comments.",
+        q: "How many revision rounds are included?",
+        a: "Two structured revision rounds through a timestamped cloud review link. Consolidated stakeholder notes per round keep the edit moving; unscoped new concepts are quoted separately.",
       },
       {
-        q: "What file transfer methods and storage archives do you provide for final masters?",
-        a: "Final masters are delivered via private cloud download links (ProRes 422 HQ and high-bitrate MP4). We also maintain a secure 60-day project archive should you require future revisions or re-exports.",
+        q: "What pushes a project into the priority lane?",
+        a: "Immovable dates: board meetings, launches, news cycles and event coverage. The priority lane pulls standby crew, overlaps shoot and edit, and guarantees raw captures within 24 hours.",
+      },
+      {
+        q: "How do retainer lanes work for always-on brands?",
+        a: "Standing monthly studio and edit slots with the same crew learning your brand grammar, quarterly planning workshops and 10 to 20% effective savings versus spot booking — with pause-or-cancel flexibility.",
+      },
+      {
+        q: "What file formats and archives do we receive?",
+        a: "Finished masters with vertical cuts and subtitle files by cloud drive, raw captures within 24 hours, and a 60-day archive with free re-exports to new aspect ratios.",
+      },
+      {
+        q: "What causes delays, and how do you prevent them?",
+        a: "Skipped briefing and unscoped feedback. We prevent both structurally: no shoot is scheduled without written scope, and no revision starts without consolidated timestamped notes.",
+      },
+      {
+        q: "Where does production happen?",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with field production quoted separately for offices, factories and venues.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your date, format and deadline by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -1132,22 +1620,46 @@ export const studioServices = [
     benefits: ['Clear breakdown of space vs crew vs editing costs', 'Predictable budgeting for corporate and agency clients', 'Transparent overtime and revision terms'],
     deliverables: ['Formal written scope of work and itemized commercial quote'],
     pricingFactors: ['Studio duration (Hours/Days)', 'Crew count on-site', 'Post-production deliverable volume'],
-    faqs: [
+        faqs: [
       {
-        q: "Do you require an advance deposit to confirm bookings?",
-        a: "Yes. A standard 50% advance secures your reserved studio calendar date, with the balance due upon final deliverable sign-off.",
+        q: "How much does studio production cost in Dhaka?",
+        a: "Hourly hire runs ৳2,000–4,500, sessions start from ৳7,500, signature productions run ৳45,000–1,85,000, and flagship campaigns are scoped from ৳2,60,000 past ৳12,50,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "What payment methods do you accept in Dhaka?",
-        a: "We accept corporate bank wire transfers, account payee cheques, bKash Merchant, Nagad, and cash payment with formal VAT-compliant invoices for corporate accounting.",
+        q: "Why do you quote from scope instead of fixed packages?",
+        a: "Fixed packages force you to pay for services you do not need or quietly cut crew and editing you do. Scope quoting means you invest only in the personnel, equipment and finishing your asset demands.",
       },
       {
-        q: "Are discounts available for recurring monthly content retainers or bulk podcast shoots?",
-        a: "Yes. We offer retainer packages for brands and creators committing to monthly batch shoots (e.g., weekly podcasts or 20 monthly reels), offering significant savings over single-session bookings.",
+        q: "What is included in every written quote?",
+        a: "Studio hours, crew roles, equipment lines, post-production deliverables, revision rounds, music licensing, subtitle languages, aspect-ratio versions, archiving, timeline and payment terms.",
       },
       {
-        q: "What costs could cause a quote to increase beyond the baseline package?",
-        a: "Additional costs only apply if you request extra shooting hours, specialized cast actors/models, complex 3D visual effects, or expedited same-day/24-hour turnaround rushes.",
+        q: "Do you require an advance to confirm bookings?",
+        a: "Yes. A 50% advance locks your calendar dates with a VAT-compliant invoice, and the balance is due only on final delivery sign-off. Free rescheduling applies with 48-hour notice.",
+      },
+      {
+        q: "What payment methods do you accept?",
+        a: "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash — every payment with a formal VAT-compliant invoice for corporate accounting.",
+      },
+      {
+        q: "Are retainers available for recurring content?",
+        a: "Yes. Weekly shows, monthly reels and quarterly campaigns can reserve standing studio and edit capacity at 10 to 20% effective savings versus spot booking, with pause-or-cancel flexibility.",
+      },
+      {
+        q: "What pushes a quote toward the top of a band?",
+        a: "More shoot days and locations, larger crews, casting, scriptwriting, motion graphics, sound design, more deliverables and ratios, and priority 48-hour delivery at plus 30%.",
+      },
+      {
+        q: "How do your rates compare to other Dhaka studios?",
+        a: "We sit at the equipped middle of every band — never the cheapest quote, always itemised so you can see what the cheaper quote omitted: crew roles, backup power, revisions, licensing and archiving.",
+      },
+      {
+        q: "Where is the studio located?",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with free walkthroughs by appointment before you commit.",
+      },
+      {
+        q: "How do I get a quote?",
+        a: "Send your brief, references and deadline by WhatsApp to +880 1768-146650 or use the form below. Scoping questions arrive the same day and the itemised quote follows within 48 hours.",
       },
     ],
   },
@@ -1170,22 +1682,46 @@ export const studioServices = [
     benefits: ['Clean studio floor without tangled light stands', 'Consistent room color temperature calibrated to 5600K daylight', 'Client lounge area with viewing monitor for creative stakeholders'],
     deliverables: ['Access to all verified studio facilities during reserved booking sessions'],
     pricingFactors: ['Standard facility access included in all rental bookings'],
-    faqs: [
+        faqs: [
       {
-        q: "What is the ceiling height and studio floor dimension?",
-        a: "Our studio comfortably accommodates 4 to 6 on-camera participants with optimal camera-to-subject focal distances, high ceilings, and an overhead lighting grid.",
+        q: "How much does equipped stage hire cost in Dhaka?",
+        a: "At FrameCipher Studio, room-only access is ৳2,000/hour and operated sessions are ৳2,500/hour, both with a 2-hour minimum. Half-day caps are ৳12,000, full-day caps ৳22,000, and a crewed production day is ৳38,000. Every quote is itemised in writing within 48 hours.",
       },
       {
-        q: "What primary camera bodies and cinema lenses are available in-house?",
-        a: "Our in-house inventory includes full-frame 4K cinema cameras, ultra-sharp prime lenses, fast zoom lenses, motorized gimbals, and teleprompter systems.",
+        q: "What is the ceiling height and floor capacity?",
+        a: "The stage comfortably holds 4 to 6 on-camera participants with optimal camera-to-subject distances, high ceilings and an overhead lighting grid that keeps the floor free of stands.",
       },
       {
-        q: "What lighting fixtures, softboxes, and acoustic treatments are installed at the studio?",
-        a: "We feature high-CRI continuous LED softboxes, RGB accent tube lights, hair rims, seamless backdrops, and acoustic wall panels that dampen room echo and exterior street noise.",
+        q: "What cameras, lenses and audio kit are available in-house?",
+        a: "Full-frame 4K cinema cameras, prime and zoom lenses, gimbals, teleprompters, broadcast microphones with discrete monitoring, and live client viewing screens.",
       },
       {
-        q: "Is there a private dressing room, makeup mirror, and client lounge at the ECB Chattar facility?",
-        a: "Yes. Our 6th-floor facility features a dedicated client lounge with viewing monitors, high-speed Wi-Fi, private changing room, and an illuminated makeup vanity mirror.",
+        q: "What lighting and acoustic treatment is installed?",
+        a: "High-CRI continuous LED softboxes, RGB accent tubes, hair rims, seamless backdrops and acoustic wall panels that dampen echo and exterior street noise.",
+      },
+      {
+        q: "Can we visit and test the stage before booking?",
+        a: "Yes. Walkthroughs run same-day or next-day by appointment — clap-test the acoustics, inspect the grid and power, and record test clips on your own media, free of charge.",
+      },
+      {
+        q: "Is there a dressing room, makeup mirror and client lounge?",
+        a: "Yes. The 6th-floor facility has a client lounge with viewing monitors, high-speed Wi-Fi, a private changing room and an illuminated makeup vanity mirror.",
+      },
+      {
+        q: "What power backup runs during load-shedding?",
+        a: "Conditioned power with building generator plus IPS backup keeps lights, cameras and tethering running and protects files through every outage.",
+      },
+      {
+        q: "What pushes hire from ৳2,000/hour toward a crewed day?",
+        a: "Operated cameras and crew instead of room-only, longer hours, green-screen and styling configuration, specialist operators, and after-hours scheduling.",
+      },
+      {
+        q: "Where is the studio and where do crews park?",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with dedicated parking beside the building and elevator access to the stage.",
+      },
+      {
+        q: "How do I book and pay?",
+        a: "Send your date, hours and kit needs by WhatsApp to +880 1768-146650 or use the form below. You get an itemised quote within 48 hours. A 50% advance locks the dates, the balance is due on final sign-off, and every payment gets a VAT-compliant invoice.",
       },
     ],
   },
@@ -1208,22 +1744,50 @@ export const studioServices = [
     benefits: ['Fast answers to purchasing questions', 'Clear cancellation and reschedule terms', 'Preparation guidelines before arriving at the studio'],
     deliverables: ['Complete operational clarity for clients and creators'],
     pricingFactors: ['No fee for consultations and quote requests'],
-    faqs: [
+        faqs: [
       {
-        q: "How do I reach the studio by public transport or car?",
-        a: "The studio is at Matikata ECB Chattar, directly off the Mirpur DOHS - Banani flyover access road. Dedicated car parking is available adjacent to the building.",
+        q: "How do I book a session at FrameCipher Studio?",
+        a: "Send your date, format and deadline by WhatsApp to +880 1768-146650 or use the form below. Scoping questions arrive the same day, an itemised quote follows within 48 hours, and a 50% advance locks the dates.",
       },
       {
-        q: "Can I reschedule my booking if my team is delayed?",
-        a: "Yes. With at least 48 hours notice, sessions can be rescheduled to any available calendar slot without penalty.",
+        q: "Do you charge for quotes, consultations or walkthroughs?",
+        a: "No. Answers, itemised quotes and studio walkthroughs with test recordings are all free. You only pay when cameras roll — sessions from ৳2,000/hour with the balance due on final sign-off.",
       },
       {
-        q: "What power backup (generator/IPS) is in place during load shedding in Dhaka?",
-        a: "Our facility has uninterrupted power systems (UPS/IPS) and building generator backup, ensuring your shoot and recordings never suffer power interruption or data loss.",
+        q: "Can I reschedule if my team is delayed?",
+        a: "Yes. Sessions reschedule free of charge to any available slot with at least 48 hours notice — no penalties, no lost advance.",
       },
       {
-        q: "Can clients bring outside catering, snacks, or coffee into the studio space?",
-        a: "Yes. Clients are welcome to bring refreshments into our client lounge area. Complimentary mineral water, tea, and high-speed Wi-Fi are provided for all booked sessions.",
+        q: "What power backup runs during load-shedding?",
+        a: "Conditioned power with building generator plus IPS backup keeps lights, cameras and tethering running through every outage and protects your files from data loss.",
+      },
+      {
+        q: "How do I reach the studio, and where do we park?",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — off the Mirpur DOHS–Banani access road with dedicated parking beside the building and elevator to the stage.",
+      },
+      {
+        q: "What kit and room specs can we verify on a visit?",
+        a: "Acoustic isolation, the overhead softbox grid, 4K cinema cameras, broadcast microphones, seamless backdrops, green screen, monitoring and power backup — with test recordings on your own media.",
+      },
+      {
+        q: "How long does delivery take, and what revisions are included?",
+        a: "Standard delivery runs 5 to 10 working days with 2 structured revision rounds through a timestamped cloud link. Raw captures arrive within 24 hours and express 48-hour delivery adds 30%.",
+      },
+      {
+        q: "What formats and archives do we receive?",
+        a: "Finished masters with vertical cutdowns and subtitle files by cloud drive, plus a 60-day archive with free re-exports to new aspect ratios.",
+      },
+      {
+        q: "What payment methods and invoices do you provide?",
+        a: "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash — every payment with a formal VAT-compliant invoice for corporate accounting.",
+      },
+      {
+        q: "Can we bring catering, and is Wi-Fi provided?",
+        a: "Yes. Refreshments are welcome in the client lounge, and complimentary mineral water, tea and high-speed Wi-Fi come with every booked session.",
+      },
+      {
+        q: "What are your operating hours?",
+        a: "Open 24 hours — all sessions run by advance reservation, including overnight edits, early call times and international client time zones.",
       },
     ],
   },
@@ -1246,22 +1810,46 @@ export const studioServices = [
     benefits: ['Immediate response via WhatsApp hotline (+880 1768-146650)', 'Clear driving directions and landmark guidance', 'Elevator access directly to the 6th floor'],
     deliverables: ['Confirmed studio reservation and calendar appointment'],
     pricingFactors: ['Zero cost for initial project consultation'],
-    faqs: [
+        faqs: [
       {
-        q: "What is the exact studio phone number?",
-        a: "You can call or WhatsApp our studio team directly at +880 1768-146650.",
+        q: "What is the studio phone number and fastest contact channel?",
+        a: "Call or WhatsApp +880 1768-146650 for same-day replies. Email teamframecipher@gmail.com for briefs and vendor documentation. The booking form below routes into the same queue.",
       },
       {
-        q: "What are your operational hours?",
-        a: "We operate 24 hours a day, 7 days a week, with all shoots scheduled by advance appointment.",
+        q: "What are your operating hours?",
+        a: "Open 24 hours — every session runs by advance reservation, covering overnight edits, early call times and international client time zones.",
       },
       {
-        q: "How quickly can we schedule a walkthrough visit to inspect the studio facilities?",
-        a: "You can schedule a studio walkthrough same-day or next-day by messaging us on WhatsApp (+880 1768-146650) to verify acoustic isolation and lighting before booking.",
+        q: "How quickly can we schedule a walkthrough visit?",
+        a: "Same day or next day by WhatsApp appointment. Test the acoustics, inspect the lighting grid and power backup, meet the director and engineers, and record test clips on your media.",
       },
       {
-        q: "Can we send project reference reels or storyboards via WhatsApp before booking?",
-        a: "Yes. You can share your reference videos, moodboards, or script outlines directly with our directors on WhatsApp for an immediate technical assessment and itemized quote.",
+        q: "Can we send reference reels or storyboards before booking?",
+        a: "Yes. Share references, moodboards or script outlines over WhatsApp for an immediate technical assessment, budget-band guidance and an itemised quote within 48 hours.",
+      },
+      {
+        q: "What should our first message include?",
+        a: "The content type, publishing destination, preferred date and hard deadline. Those four lines let us reply with scoping questions the same day instead of a week of back-and-forth.",
+      },
+      {
+        q: "How do quotes, advances and invoices work?",
+        a: "Itemised written quotes within 48 hours, a 50% advance to lock dates, balance only on final sign-off, and VAT-compliant invoices on every payment — bKash, Nagad, bank, cheque or cash.",
+      },
+      {
+        q: "Can we reschedule after confirming?",
+        a: "Yes. Rescheduling is free with at least 48 hours notice to any available slot — no penalties and no lost advance.",
+      },
+      {
+        q: "Where is the studio and where do we park?",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — off the Mirpur DOHS–Banani access road with dedicated parking beside the building and elevator to the stage.",
+      },
+      {
+        q: "How fast is standard delivery once we book?",
+        a: "Standard projects deliver in 5 to 10 working days with 2 structured revision rounds. Raw captures arrive within 24 hours and express 48-hour delivery adds 30%.",
+      },
+      {
+        q: "Do you work with agencies and corporate procurement?",
+        a: "Yes. Corporate vendor documentation, formal scopes of work and VAT-compliant invoicing are standard, with white-label and co-production options for agencies.",
       },
     ],
   },

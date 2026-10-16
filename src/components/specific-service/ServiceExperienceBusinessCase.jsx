@@ -1,4 +1,5 @@
 import { cleanServiceText as cleanText } from '../../data/serviceContent'
+import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
 const surface = 'border border-white/10 bg-white/[0.035]'
 
@@ -26,7 +27,7 @@ export default function ServiceExperienceBusinessCase({ impactCards, advantages 
                 <article key={`${reason.text}-${index}`} className="border-l-2 border-violet-400/50 pl-5">
                   {reason.title && <h3 className="font-heading text-lg font-semibold text-white">{reason.title}</h3>}
                   <p className={`${reason.title ? 'mt-2' : ''} text-[15px] leading-7 text-zinc-400`}>
-                    {reason.text}
+                    {renderContextualParagraph(reason.text, { maxLinks: 1, theme: 'violet' })}
                   </p>
                 </article>
               ))}
@@ -46,7 +47,10 @@ export default function ServiceExperienceBusinessCase({ impactCards, advantages 
                       {longTitle ? `Advantage ${String(index + 1).padStart(2, '0')}` : cleanText(item.title)}
                     </h3>
                     <p className="mt-3 text-[15px] leading-7 text-zinc-400">
-                      {longTitle ? `${cleanText(item.title)} ${cleanText(item.text)}` : cleanText(item.text)}
+                      {renderContextualParagraph(
+                        longTitle ? `${cleanText(item.title)} ${cleanText(item.text)}` : cleanText(item.text),
+                        { maxLinks: 1, theme: 'violet' }
+                      )}
                     </p>
                   </article>
                 )

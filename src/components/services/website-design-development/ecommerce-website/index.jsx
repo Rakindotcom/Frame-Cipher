@@ -29,11 +29,12 @@ export default function WebsiteDesignDevelopmentEcommerceWebsiteService({ servic
       <Hero />
       <TypeMarquee items={ecommerceKeywords} slow />
       <WebsitePortfolioPreview
+        category="ecommerce-website"
         eyebrow="Case Studies / Verified Commerce"
         title="Our E-commerce Website Development Portfolio"
         description="Explore selected ecommerce projects built around real products, customer journeys, and business requirements. Our ecommerce work may include Shopify stores, WooCommerce websites, custom storefronts, product catalogs, payment integrations, and conversion-focused shopping experiences. For each project, we focus on product discovery, mobile usability, checkout flow, performance, and the operational requirements that support the business behind the store."
         buttonText="View Project →"
-        buttonHref="/projects?view=website"
+        buttonHref="/projects#website-work"
       />
       <Offerings />
       <Features />

@@ -9,6 +9,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 const marqueeItems = [
   "Instagram Reels",
@@ -28,6 +29,14 @@ export default function ContentCreationShortFormVideoService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <VideoPortfolioPreview
+        category="short"
+        eyebrow="Our Short-Form Portfolio"
+        title="Vertical Reels & Product Promos"
+        description="Explore vertical short-form video edits, dynamic product promotional reels, and viral creator cuts built for maximum retention on Instagram Reels, TikTok, and YouTube Shorts."
+        buttonText="Explore Video Work →"
+        buttonHref="/projects#short-video-work"
+      />
       <Offerings service={service} />
       <VideoTypes service={service} />
       <ProductionMultiplier service={service} />

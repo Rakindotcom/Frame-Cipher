@@ -31,6 +31,7 @@ export default function WebsiteDesignDevelopmentMagentoService({ service }) {
       <Hero />
       <TypeMarquee items={magentoKeywords} slow />
       <WebsitePortfolioPreview
+        category="magento"
         eyebrow="Case Studies & Real Work"
         title="Our Magento Development Portfolio"
         description="Real implementations provide a better picture of Magento expertise than a technology list alone. Our portfolio should show the ecommerce problem, architecture, functionality, and work completed for each project."

@@ -34,6 +34,7 @@ export default function WebsiteDesignDevelopmentWixService({ service }) {
 
       {/* PORTFOLIO PREVIEW */}
       <WebsitePortfolioPreview
+        category="wix"
         eyebrow="Case Studies & Real Work"
         title="Our Wix Development Portfolio"
         description="See how we apply Wix development to real business requirements. Each project should show more than a homepage screenshot. We highlight the business type, project scope, Wix technology used, key functionality, and the work completed by our team."

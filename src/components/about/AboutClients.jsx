@@ -120,6 +120,95 @@ export default function AboutClients() {
             </Link>
           </div>
         </div>
+
+        {/* Global Directory Listings & Badges */}
+        <div className="mt-12 border-2 border-frame-border bg-frame-card p-6 md:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-frame-border/80 pb-4">
+            <div>
+              <span className="font-mono text-xs font-bold uppercase tracking-widest text-frame-accent">
+                DIRECTORY ACCREDITATIONS
+              </span>
+              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg sm:text-xl">
+                Recognized &amp; Listed On
+              </h3>
+            </div>
+            <span className="font-mono text-xs font-semibold text-frame-muted-fg">
+              Verified Agency &amp; Review Profiles
+            </span>
+          </div>
+
+          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
+            {/* SelectedFirms */}
+            <div className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md">
+              <a
+                href="https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Top Digital Marketing Company - SelectedFirms"
+                className="flex items-center"
+              >
+                <img
+                  src="https://selectedfirms.co/public/assets/frontend/img/services/round/digital-marketing-agencies.webp"
+                  alt="Top Digital Marketing Company"
+                  className="h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </a>
+            </div>
+
+            {/* Clutch */}
+            <div
+              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
+              title="Clutch Verified Agency"
+            >
+              <img
+                src="/Listed%20In/Cutch.png"
+                alt="Clutch"
+                className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            {/* GoodFirms */}
+            <div
+              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
+              title="GoodFirms Top Agency"
+            >
+              <img
+                src="/Listed%20In/GoodFirms.png"
+                alt="GoodFirms"
+                className="max-h-9 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Trustpilot */}
+            <div
+              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
+              title="Trustpilot Reviews"
+            >
+              <img
+                src="/Listed%20In/Trustpilot.png"
+                alt="Trustpilot"
+                className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+
+            {/* ShortList */}
+            <div
+              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
+              title="ShortList Featured Agency"
+            >
+              <img
+                src="/Listed%20In/ShortList-logo.webp"
+                alt="ShortList"
+                className="max-h-9 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )

@@ -29,11 +29,12 @@ export default function WebsiteDesignDevelopmentLandingPagesService({ service })
       <Hero />
       <TypeMarquee items={landingKeywords} slow />
       <WebsitePortfolioPreview
+        category="landing-pages"
         eyebrow="Case Studies / Verified Campaigns"
         title="Our Landing Page Development Portfolio"
         description="Explore selected landing pages developed for campaigns, lead generation, product offers, and other conversion-focused goals. Each project is structured around the campaign objective, target audience, traffic source, offer, and primary conversion action. Where relevant, we show the strategy behind the page, the platform used, the integrations implemented, and the specific work Frame Cipher handled."
         buttonText="View Project →"
-        buttonHref="/projects?view=website"
+        buttonHref="/projects#website-work"
       />
       <Offerings />
       <Solutions />

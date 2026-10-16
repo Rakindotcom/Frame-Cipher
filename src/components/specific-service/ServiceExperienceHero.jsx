@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
 const surface = 'border border-white/10 bg-white/[0.035]'
 
@@ -63,7 +64,11 @@ export default function ServiceExperienceHero({
               {service.h1 || serviceName}
             </h1>
             <p className="mt-8 max-w-3xl text-base font-semibold leading-snug text-zinc-300 sm:text-lg md:text-2xl md:leading-relaxed">
-              {heroCopy}
+              {renderContextualParagraph(heroCopy, {
+                currentSlug: service.slug,
+                maxLinks: 1,
+                theme: 'violet',
+              })}
             </p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <PrimaryLink href="/contact">{service.primaryCta || 'Get a free consultation'}</PrimaryLink>

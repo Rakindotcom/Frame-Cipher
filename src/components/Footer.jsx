@@ -37,6 +37,9 @@ export default function Footer() {
                 { title: 'Video Production', href: '/services/content-creation/video-production' },
                 { title: 'Photography', href: '/services/content-creation/product-photography' },
                 { title: 'Website Development', href: '/services/website-design-development' },
+                { title: 'Production Studio Hub', href: '/studio' },
+                { title: 'Podcast Studio Dhaka', href: '/studio/podcast' },
+                { title: 'Studio Space Rental', href: '/studio/rental' },
               ].map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
@@ -120,7 +123,93 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-4 border-t-2 border-frame-border pt-6 text-xs font-black uppercase tracking-[0.18em] text-frame-muted-fg md:flex-row md:items-center md:justify-between">
+        {/* Listed & Recognized On / Accreditations Strip */}
+        <div className="mt-12 border-t-2 border-frame-border pt-8">
+          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div className="max-w-md">
+              <p className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent">
+                Listed &amp; Recognized On
+              </p>
+              <p className="mt-1 text-xs font-medium text-frame-muted-fg">
+                Accredited across verified global agency directories &amp; client review platforms.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+              {/* SelectedFirms (Exact Badge Code from Provider) */}
+              <div className="group flex h-14 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm">
+                <a
+                  href="https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                  title="Top Digital Marketing Company - SelectedFirms"
+                >
+                  <img
+                    alt="Top Digital Marketing Company"
+                    src="https://selectedfirms.co/public/assets/frontend/img/services/round/digital-marketing-agencies.webp"
+                    className="h-10 w-10 object-contain transition-transform duration-200 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                </a>
+              </div>
+
+              {/* Clutch */}
+              <div
+                className="group flex h-14 w-28 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
+                title="Clutch Verified Agency"
+              >
+                <img
+                  src="/Listed%20In/Cutch.png"
+                  alt="Clutch"
+                  className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* GoodFirms */}
+              <div
+                className="group flex h-14 w-32 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
+                title="GoodFirms Top Agency"
+              >
+                <img
+                  src="/Listed%20In/GoodFirms.png"
+                  alt="GoodFirms"
+                  className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* Trustpilot */}
+              <div
+                className="group flex h-14 w-32 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
+                title="Trustpilot Reviews"
+              >
+                <img
+                  src="/Listed%20In/Trustpilot.png"
+                  alt="Trustpilot"
+                  className="max-h-8 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+
+              {/* ShortList */}
+              <div
+                className="group flex h-14 w-28 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
+                title="ShortList Featured Agency"
+              >
+                <img
+                  src="/Listed%20In/ShortList-logo.webp"
+                  alt="ShortList"
+                  className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-8 flex flex-col gap-4 border-t-2 border-frame-border pt-6 text-xs font-black uppercase tracking-[0.18em] text-frame-muted-fg md:flex-row md:items-center md:justify-between">
           <p>© 2026 Frame Cipher. All rights reserved.</p>
           <p>One Team for Brand, Content, Tech, and Growth.</p>
         </div>

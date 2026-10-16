@@ -658,6 +658,18 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
   const [isAddingCategory, setIsAddingCategory] = useState(false);
   const [newCategoryName, setNewCategoryName] = useState("");
 
+  useEffect(() => {
+    fetch("/api/categories")
+      .then((res) => (res.ok ? res.json() : []))
+      .then((cats) => {
+        if (Array.isArray(cats) && cats.length > 0) {
+          const withoutAll = cats.filter((c: string) => c !== "All Articles");
+          setCategoriesList((prev) => Array.from(new Set([...prev, ...withoutAll])));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   // Tags State
   const [tagInput, setTagInput] = useState("");
 

@@ -9,6 +9,7 @@ import {
   StudioSubClusterNav,
   StudioBookingForm,
 } from '../index'
+import VideoPortfolioPreview from '../../projects/VideoPortfolioPreview'
 import { studioServices } from '../../../data/studioServices'
 import { ArrowRight, CheckCircle2, MapPin, Sparkles, Phone, MessageSquare } from 'lucide-react'
 
@@ -25,6 +26,9 @@ export default function StudioServiceLayout({
   faqs = [],
   linksOut = [],
   extraSections,
+  videoCategory = null,
+  videoPortfolioTitle = null,
+  videoPortfolioDescription = null,
 }) {
   const currentService = service || {}
 
@@ -42,18 +46,18 @@ export default function StudioServiceLayout({
               <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-10">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="h-2 w-2 bg-frame-accent rounded-full animate-pulse" />
-                  <span className="text-xs font-black uppercase tracking-widest text-frame-accent">
+                  <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
                     {currentService.shortTitle || 'Studio Service'} • In-House Dhaka Execution
                   </span>
                 </div>
-                <h2 className="font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg leading-tight">
+                <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
                   {h1 || currentService.h1}
                 </h2>
-                <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-fg/90">
+                <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
                   {lead || currentService.intro}
                 </p>
                 {currentService.detailedDescription && (
-                  <p className="mt-4 text-sm md:text-base font-normal leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                     {currentService.detailedDescription}
                   </p>
                 )}
@@ -333,6 +337,26 @@ export default function StudioServiceLayout({
           </div>
         </div>
       </section>
+
+      {/* Extra Custom Injected Content / Groupings */}
+      {extraSections && (
+        <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-12 md:px-8">
+          <div className="mx-auto max-w-[95vw]">{extraSections}</div>
+        </section>
+      )}
+
+      {/* Category-Tailored Video Portfolio Showcase */}
+      {videoCategory && (
+        <VideoPortfolioPreview
+          category={videoCategory}
+          title={videoPortfolioTitle || 'Selected Video Work & Commercial Reels'}
+          eyebrow="Studio Deployments"
+          description={
+            videoPortfolioDescription ||
+            'Explore commercial productions, promotional video reels, and studio podcast sessions filmed and edited by Frame Cipher.'
+          }
+        />
+      )}
 
       {/* 3. In-Depth Capabilities & Technical Inclusions */}
       <StudioSubOverview service={currentService} />

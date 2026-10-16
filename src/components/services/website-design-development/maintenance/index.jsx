@@ -37,6 +37,7 @@ export default function WebsiteDesignDevelopmentMaintenanceService({ service }) 
 
       {/* PORTFOLIO PREVIEW */}
       <WebsitePortfolioPreview
+        category="maintenance"
         eyebrow="Case Studies & Real Work"
         title="Website Maintenance Case Studies"
         description="Website maintenance is easier to evaluate when you can see what was actually improved. Our maintenance case studies should show the problem, the work performed, and the verified outcome rather than simply displaying a website screenshot."

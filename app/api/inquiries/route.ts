@@ -46,22 +46,7 @@ export async function POST(req: Request) {
 
     let savedId: string | null = null;
 
-    // 1. Direct write to Firebase Cloud Firestore contact_messages (strictly compliant with Firestore Security Rules)
-    try {
-      const docRef = await addDoc(collection(publicFirestore, "contact_messages"), {
-        name: cleanName,
-        email: cleanEmail,
-        message: formattedMessage,
-        createdAt: now.toISOString(),
-        status: "new",
-        read: false,
-      });
-      savedId = docRef.id;
-    } catch (fsErr) {
-      console.warn("Firestore public write error:", fsErr);
-    }
-
-    // 2. Also write to Admin Firestore if Admin SDK credentials exist in environment
+    // 1. Primary write: Admin Firestore (writes to structured collection: studio_bookings or contact_leads)
     const adminFs = getAdminFirestore();
     if (adminFs) {
       try {
@@ -82,9 +67,26 @@ export async function POST(req: Request) {
           createdAt: now.toISOString(),
           timestamp: now.getTime(),
         });
-        if (!savedId) savedId = adminDoc.id;
+        savedId = adminDoc.id;
       } catch (adminErr) {
         console.warn("Admin Firestore write error:", adminErr);
+      }
+    }
+
+    // 2. Fallback write: Only if Admin Firestore was unavailable or failed to prevent double-writing
+    if (!savedId) {
+      try {
+        const docRef = await addDoc(collection(publicFirestore, "contact_messages"), {
+          name: cleanName,
+          email: cleanEmail,
+          message: formattedMessage,
+          createdAt: now.toISOString(),
+          status: "new",
+          read: false,
+        });
+        savedId = docRef.id;
+      } catch (fsErr) {
+        console.warn("Firestore public write error:", fsErr);
       }
     }
 
@@ -193,8 +195,44 @@ export async function GET(req: Request) {
       });
     });
 
-    const leads = Array.from(leadsMap.values());
-    leads.sort((a, b) => new Date(b.createdAt || 0).getTime() - new Date(a.createdAt || 0).getTime());
+    // Deduplicate leads across collections (e.g. contact_leads vs contact_messages duplicates)
+    const collectionPriority: Record<string, number> = {
+      studio_bookings: 1,
+      contact_leads: 2,
+      contacts: 3,
+      contact_messages: 4,
+    };
+
+    const sortedRaw = Array.from(leadsMap.values()).sort((a, b) => {
+      const timeA = new Date(a.createdAt || 0).getTime();
+      const timeB = new Date(b.createdAt || 0).getTime();
+      const timeDiff = timeB - timeA;
+      if (Math.abs(timeDiff) > 5 * 60 * 1000) return timeDiff;
+      return (collectionPriority[a.collection] || 99) - (collectionPriority[b.collection] || 99);
+    });
+
+    const leads: any[] = [];
+    const seenSignatures = new Set<string>();
+
+    for (const item of sortedRaw) {
+      const cleanName = (item.name || "").trim().toLowerCase();
+      const cleanEmail = (item.email || "").trim().toLowerCase();
+      const cleanPhone = (item.phone || "").replace(/\D/g, "");
+      const timeBucket = Math.floor(new Date(item.createdAt || 0).getTime() / (5 * 60 * 1000));
+
+      const contactIdentifier = cleanEmail && !cleanEmail.includes("framecipher.com")
+        ? cleanEmail
+        : cleanPhone || cleanName;
+
+      const signature = `${cleanName}|${contactIdentifier}|${timeBucket}`;
+      if (contactIdentifier && seenSignatures.has(signature)) {
+        continue;
+      }
+      if (contactIdentifier) {
+        seenSignatures.add(signature);
+      }
+      leads.push(item);
+    }
 
     return NextResponse.json({ leads }, { headers: { "Cache-Control": "no-store" } });
   } catch (error: any) {

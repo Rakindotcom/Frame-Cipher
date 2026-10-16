@@ -82,8 +82,31 @@ export default function AuthorsPage() {
   useEffect(() => {
     async function loadAuthors() {
       try {
-        const remote = await getAdminAuthorsFromFirestore();
-        setAuthors(mergeCanonicalWithCustom(remote));
+        let loaded: AuthorProfile[] = [];
+        try {
+          const res = await fetch("/api/authors?scope=all");
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data) && data.length > 0) {
+              loaded = data;
+            }
+          }
+        } catch {}
+
+        if (loaded.length === 0) {
+          try {
+            const remote = await getAdminAuthorsFromFirestore();
+            if (Array.isArray(remote) && remote.length > 0) {
+              loaded = remote;
+            }
+          } catch {}
+        }
+
+        if (loaded.length > 0) {
+          setAuthors(mergeCanonicalWithCustom(loaded));
+        } else {
+          setAuthors(CANONICAL_AUTHORS);
+        }
         setSaveError(null);
       } catch (error: any) {
         setSaveError(error?.message || "Could not load authors from Firestore.");
@@ -122,29 +145,69 @@ export default function AuthorsPage() {
   };
 
   const handleDeleteAuthor = async (id: string) => {
+    const targetAuthor = authors.find((a) => a.id === id || a.slug === id);
+    const identifier = targetAuthor?.id || id;
+    const slug = targetAuthor?.slug || id;
+
     if (confirm("Are you sure you want to permanently delete this author profile? Person schema will be removed with it.")) {
-      const result = await deleteAuthorProfileFromFirestore(id);
-      if (!result.success) {
-        setSaveError(result.error || "Could not delete author from Firestore.");
-        return;
-      }
-      setAuthors((current) => current.filter((author) => author.id !== id));
+      // 1. Delete from Server API / local files
+      try {
+        await fetch(`/api/authors?id=${encodeURIComponent(identifier)}`, {
+          method: "DELETE",
+        });
+        if (slug !== identifier) {
+          await fetch(`/api/authors?id=${encodeURIComponent(slug)}`, {
+            method: "DELETE",
+          });
+        }
+      } catch {}
+
+      // 2. Delete from Firestore
+      try {
+        await deleteAuthorProfileFromFirestore(identifier);
+        if (slug !== identifier) {
+          await deleteAuthorProfileFromFirestore(slug).catch(() => {});
+        }
+      } catch {}
+
+      setAuthors((current) =>
+        current.filter(
+          (author) =>
+            author.id !== id &&
+            author.slug !== id &&
+            author.id !== identifier &&
+            author.slug !== slug
+        )
+      );
       setSaveError(null);
       void revalidateSitemaps(["author"]).catch(() => {});
-      if (schemaAuthor?.id === id) setSchemaAuthor(null);
+      if (schemaAuthor?.id === id || schemaAuthor?.slug === id) setSchemaAuthor(null);
     }
   };
 
   const handleSaveFromEditor = async (savedAuthor: AuthorProfile) => {
+    // 1. Save to Server API / local storage
+    try {
+      await fetch("/api/authors", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(savedAuthor),
+      });
+    } catch {}
+
+    // 2. Save to Firestore
     const result = await saveAuthorProfileToFirestore(savedAuthor);
     if (!result.success) {
       setSaveError(result.error || "Could not save author to Firestore.");
       return false;
     }
-    setAuthors((current) => mergeCanonicalWithCustom([
-      savedAuthor,
-      ...current.filter((author) => author.id !== savedAuthor.id && author.slug !== savedAuthor.slug),
-    ]));
+
+    setAuthors((current) => {
+      const remaining = current.filter(
+        (author) => author.id !== savedAuthor.id && author.slug !== savedAuthor.slug
+      );
+      return [savedAuthor, ...remaining];
+    });
     setSaveError(null);
     setIsEditorOpen(false);
     void revalidateSitemaps(["author"]).catch(() => {});

@@ -23,10 +23,7 @@ export async function getAuthorBySlug(slug: string): Promise<AuthorProfile | und
     (a) =>
       a.slug?.toLowerCase() === target ||
       a.id?.toLowerCase() === target ||
-      a.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-") === target ||
-      (target.includes("nahid") && a.slug?.includes("nahid")) ||
-      (target.includes("rakin") && a.slug?.includes("rakin")) ||
-      (target.includes("mahedi") && a.slug?.includes("mahedi"))
+      a.name?.toLowerCase().replace(/[^a-z0-9]+/g, "-") === target
   );
 }
 
@@ -34,17 +31,17 @@ export function resolveAuthorImage(authorName?: string, customImage?: string): s
   if (customImage && typeof customImage === "string" && customImage.trim() && customImage !== "/logo.png") {
     return customImage;
   }
-  if (!authorName) return "/Founders/Nahid Bin Zaman.jpeg";
+  if (!authorName) return "/Founders/Mahedi Hasan Perves.png";
 
   const lower = authorName.toLowerCase();
-  if (lower.includes("nahid") || lower.includes("zaman") || lower.includes("joy")) {
-    return "/Founders/Nahid Bin Zaman.jpeg";
-  }
   if (lower.includes("mahedi") || lower.includes("perves") || lower.includes("hasan")) {
     return "/Founders/Mahedi Hasan Perves.png";
+  }
+  if (lower.includes("nahid") || lower.includes("zaman") || lower.includes("joy")) {
+    return "/Founders/Nahid Bin Zaman.jpeg";
   }
   if (lower.includes("rakin") || lower.includes("shahriar")) {
     return "/Founders/Rakin Al Shahriar.png";
   }
-  return "/Founders/Nahid Bin Zaman.jpeg";
+  return "/Founders/Mahedi Hasan Perves.png";
 }

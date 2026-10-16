@@ -58,6 +58,15 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
       } catch {}
     }
 
+    fetch("/api/categories", { cache: "no-store" })
+      .then((res) => (res.ok ? res.json() : []))
+      .then((remoteCats) => {
+        if (Array.isArray(remoteCats) && remoteCats.length > 0) {
+          setCategoriesList((prev) => Array.from(new Set([...prev, ...remoteCats])));
+        }
+      })
+      .catch(() => {});
+
     getAdminCategoriesFromFirestore()
       .then((remoteCats) => {
         if (Array.isArray(remoteCats) && remoteCats.length > 0) {

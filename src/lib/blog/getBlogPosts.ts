@@ -80,8 +80,16 @@ export function blogCategorySlug(category: string): string {
     .replace(/^-|-$/g, "");
 }
 
-export function blogCategoryFromSlug(slug: string): string | undefined {
-  return BLOG_CATEGORIES.find((category) => blogCategorySlug(category) === slug && category !== "All Articles");
+export function blogCategoryFromSlug(slug: string, extraCategories?: string[]): string | undefined {
+  if (extraCategories && extraCategories.length > 0) {
+    const match = extraCategories.find(
+      (category) => blogCategorySlug(category) === slug && category !== "All Articles"
+    );
+    if (match) return match;
+  }
+  return BLOG_CATEGORIES.find(
+    (category) => blogCategorySlug(category) === slug && category !== "All Articles"
+  );
 }
 
 export function getAllCanonicalPosts(): DetailedBlogPost[] {

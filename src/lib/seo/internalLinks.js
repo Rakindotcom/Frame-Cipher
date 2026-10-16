@@ -1,4 +1,4 @@
-import { getServiceBySlug } from '../../data/agency'
+import { getServiceBySlug } from '../../data/agency.js'
 import {
   getAllServicePages,
   getPillarServices,
@@ -6,7 +6,7 @@ import {
   getServicePageBySlug,
   getServiceSummary,
   getSubServicesForPillar,
-} from '../../data/servicePages'
+} from '../../data/servicePages.js'
 
 export const HUB_ANCHORS = {
   'website-design-development': 'our Website Design & Development services',
@@ -71,6 +71,29 @@ export const GEO_CONTEXT_LINKS = {
     href: '/services/facebook-ads-bangladesh',
     anchor: 'Facebook Ads management for Bangladesh brands',
   },
+}
+
+export const ADS_CALCULATOR_MAP = {
+  'paid-advertising/meta-ads': { href: '/calculators/meta-ads', anchor: 'Calculate Meta Ad ROI & Projected ROAS' },
+  'paid-advertising/google-ads': { href: '/calculators/google-ads', anchor: 'Estimate Google Ads Search & Shopping ROI' },
+  'paid-advertising/lead-generation-ads': { href: '/calculators/lead-generation-ads', anchor: 'Model B2B Cost Per Lead (CPL) & Pipeline' },
+  'paid-advertising/linkedin-ads': { href: '/calculators/linkedin-ads', anchor: 'Project B2B LinkedIn Ad Campaign ROI' },
+  'paid-advertising/tiktok-ads': { href: '/calculators/tiktok-ads', anchor: 'Estimate TikTok Ad CPM, Views & Conversions' },
+  'paid-advertising/amazon-ads': { href: '/calculators/amazon-ads', anchor: 'Calculate Amazon ACOS & Profit Margins' },
+  'paid-advertising/remarketing': { href: '/calculators/remarketing', anchor: 'Model Audience Recapture & Remarketing ROAS' },
+  'paid-advertising/chatgpt-ads': { href: '/calculators/chatgpt-ads', anchor: 'Project AI Search Advertising Budget & Returns' },
+  'paid-advertising/pinterest-ads': { href: '/calculators/pinterest-ads', anchor: 'Model Visual Commerce & Pinterest Shopping ROI' },
+  'paid-advertising/microsoft-ads': { href: '/calculators/microsoft-ads', anchor: 'Estimate Microsoft & Bing Search Ad Returns' },
+}
+
+export const STUDIO_SERVICE_BRIDGES = {
+  'content-creation/video-production': { href: '/studio/video-production', anchor: 'Film at our Dhaka 4K Cinema Studio' },
+  'content-creation/product-photography': { href: '/studio/product-photography', anchor: 'Book Commercial Product Photography in Dhaka' },
+  'content-creation/short-form-video': { href: '/studio/social-media-video-production', anchor: 'Produce Vertical Reels & TikToks in Our Studio' },
+  'content-creation/youtube-videos': { href: '/studio/podcast', anchor: 'Record Video Podcasts & Masterclasses in Dhaka' },
+  'content-creation/motion-graphics-animation': { href: '/studio/post-production', anchor: 'DaVinci Color Grading & Post-Production Suite' },
+  'website-design-development/ecommerce-website': { href: '/studio/product-photography', anchor: 'Commercial Catalog Product Shoots for E-Commerce' },
+  'paid-advertising/meta-ads': { href: '/studio/social-media-video-production', anchor: 'High-Converting Video Creative Production in Dhaka' },
 }
 
 const REDIRECTED_LEGACY_SLUGS = new Set([
@@ -291,6 +314,8 @@ export function getServiceLinkPlan(page, options = {}) {
     crossCluster: withoutSelf((CROSS_CLUSTER_LINKS[pillarSlug] || []).map(toLink).filter(Boolean), page),
     comparison: getComparisonLinks(page),
     geoContext: getGeoContextLink(page),
+    calculator: ADS_CALCULATOR_MAP[page.slug] || null,
+    studioBridge: STUDIO_SERVICE_BRIDGES[page.slug] || null,
   }
 }
 
@@ -306,8 +331,34 @@ export function getHubOfHubsLinks() {
     }))
 }
 
+export const CASE_STUDY_CALCULATOR_LINKS = {
+  'facebook-instagram-ads-portfolio': { href: '/calculators/meta-ads', anchor: 'Calculate Meta Ad ROAS & Profit Margins' },
+  'sumons-aroma-messenger-commerce': { href: '/calculators/meta-ads', anchor: 'Model Messenger Ad ROI & Customer Acquisition' },
+  'rihawebtech-meta-ads': { href: '/calculators/lead-generation-ads', anchor: 'Model B2B Cost Per Lead (CPL)' },
+  'ipb-edu-happy-tours-meta-ads': { href: '/calculators/lead-generation-ads', anchor: 'Estimate Student Lead Generation ROI' },
+  'ruposhi-mart-meta-ads': { href: '/calculators/meta-ads', anchor: 'Calculate E-Commerce Meta Ad ROAS' },
+  'luxury-beauty-rwt-meta-ads': { href: '/calculators/meta-ads', anchor: 'Estimate Beauty Brand Advertising ROAS' },
+  'rpl-consultancy-meta-ads': { href: '/calculators/lead-generation-ads', anchor: 'Calculate B2B Client Acquisition Cost' },
+  'travel-lifestyle-meta-ads': { href: '/calculators/remarketing', anchor: 'Model Tour Remarketing & Recapture ROAS' },
+}
+
+export const CASE_STUDY_STUDIO_LINKS = {
+  'dr-ferdoush-saleheen': { href: '/studio/podcast', anchor: 'Record in Our 4K Podcast Studio in Dhaka' },
+  'luxury-beauty-rwt-meta-ads': { href: '/studio/product-photography', anchor: 'Book Commercial Product Photography at FrameCipher Studio' },
+  'sumons-aroma-messenger-commerce': { href: '/studio/social-media-video-production', anchor: 'Produce High-Converting Reels & TikToks in Our Studio' },
+}
+
 export function getCaseStudyServiceLinks(study) {
   const slugs = CASE_STUDY_SERVICE_LINKS[study?.slug]
   if (!slugs) return []
   return slugs.map(toLink).filter(Boolean)
 }
+
+export function getCaseStudyCalculatorLink(study) {
+  return CASE_STUDY_CALCULATOR_LINKS[study?.slug] || null
+}
+
+export function getCaseStudyStudioLink(study) {
+  return CASE_STUDY_STUDIO_LINKS[study?.slug] || null
+}
+

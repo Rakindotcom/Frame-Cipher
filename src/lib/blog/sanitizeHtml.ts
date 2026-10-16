@@ -85,6 +85,22 @@ export function mergePastedParagraphBreaks(html: string): string {
   return result;
 }
 
+/** Ensures all tables are wrapped in a horizontally scrollable responsive container on mobile. */
+export function wrapTablesWithResponsiveContainer(html: string): string {
+  if (!html || !html.includes("<table")) return html;
+
+  // Unwrap any previous wrapper structure to avoid nested duplicates
+  const unwrapped = html.replace(
+    /<div[^>]*class=["'][^"']*blog-table-wrapper[^"']*["'][^>]*>\s*<div[^>]*class=["'][^"']*blog-table-scroll[^"']*["'][^>]*>([\s\S]*?<\/table>)\s*<\/div>(?:\s*<div[^>]*class=["'][^"']*blog-table-hint[^"']*["'][\s\S]*?<\/div>)?\s*<\/div>/gi,
+    "$1"
+  );
+
+  return unwrapped.replace(
+    /(<table\b[\s\S]*?<\/table>)/gi,
+    '<div class="blog-table-wrapper"><div class="blog-table-scroll">$1</div><div class="blog-table-hint"><span>↔ Scroll horizontally to view full table</span></div></div>'
+  );
+}
+
 /** Keep editor HTML useful while removing executable markup and event handlers. */
 export function sanitizeBlogHtml(html: string): string {
   if (!html) return "";
@@ -98,7 +114,7 @@ export function sanitizeBlogHtml(html: string): string {
     return `<iframe src="https://www.youtube-nocookie.com/embed/${videoId}" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>`;
   });
 
-  return mergePastedParagraphBreaks(processed
+  const cleaned = mergePastedParagraphBreaks(processed
     .replace(/<script[\s\S]*?<\/script>/gi, "")
     .replace(/<style[\s\S]*?<\/style>/gi, "")
     .replace(/\son\w+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, "")
@@ -110,7 +126,7 @@ export function sanitizeBlogHtml(html: string): string {
       }
 
       // Remove black / dark inline text colors and external formatting from Google Docs/Word
-      let cleaned = styleContent
+      let cleanedStyle = styleContent
         .replace(/color\s*:\s*(?:rgb\(\s*0\s*,\s*0\s*,\s*0\s*\)|rgba\(\s*0\s*,\s*0\s*,\s*0\s*,\s*[^)]+\)|#000(?:000)?\b|black\b|rgb\(\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*,\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*,\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*\))\s*;?/gi, "")
         .replace(/background(?:-color)?\s*:\s*(?:transparent|#fff(?:fff)?\b|white\b|rgb\(\s*255\s*,\s*255\s*,\s*255\s*\))\s*;?/gi, "")
         .replace(/font-family\s*:\s*[^;]+;?/gi, "")
@@ -128,12 +144,14 @@ export function sanitizeBlogHtml(html: string): string {
         .trim();
 
       // Clean dangling semicolons
-      cleaned = cleaned.replace(/^;+|;+$/g, "").trim();
+      cleanedStyle = cleanedStyle.replace(/^;+|;+$/g, "").trim();
 
-      if (!cleaned) return "";
-      return ` style="${cleaned}"`;
+      if (!cleanedStyle) return "";
+      return ` style="${cleanedStyle}"`;
     })
     .replace(ALLOWED_TAGS, "")
     .replace(/javascript:/gi, "")
     .replace(/\btext-\[#1D4ED8\]\b/g, "text-[#A855F7]"));
+
+  return wrapTablesWithResponsiveContainer(cleaned);
 }

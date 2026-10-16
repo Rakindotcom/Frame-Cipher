@@ -91,6 +91,19 @@ export default async function Page({ params }) {
           name: 'Dhaka, Bangladesh',
         },
         url: `${siteUrl}/studio/${service.slug}/`,
+        ...(service.slug === 'video-production'
+          ? {
+              offers: [
+                { '@type': 'Offer', name: 'Studio Day Essential', price: '35000', priceCurrency: 'BDT' },
+                { '@type': 'Offer', name: 'Signature Commercial', price: '78000', priceCurrency: 'BDT' },
+                {
+                  '@type': 'Offer',
+                  name: 'Flagship Brand Film',
+                  priceSpecification: { '@type': 'PriceSpecification', minPrice: '185000', priceCurrency: 'BDT' },
+                },
+              ],
+            }
+          : {}),
       },
       {
         '@type': 'BreadcrumbList',

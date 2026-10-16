@@ -42,29 +42,61 @@ export function WordPressSidebar({
 
         <div className="space-y-1">
           {categories.map((cat) => {
-            const isSelected = activeCategory === cat;
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => onSelectCategory && onSelectCategory(cat)}
-                className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold font-body transition-all text-left ${
-                  isSelected
-                    ? "bg-frame-accent text-white shadow-xs font-bold"
-                    : "text-frame-muted-fg hover:bg-[#1C1C1F] hover:text-white"
-                }`}
-              >
+            const isSelected = activeCategory?.toLowerCase().trim() === cat.toLowerCase().trim();
+            const count =
+              cat === "All Articles"
+                ? recentPosts.length
+                : recentPosts.filter((p) => {
+                    const catNorm = cat.toLowerCase().trim();
+                    const pNorm = (p.category || "").toLowerCase().trim();
+                    if (pNorm === catNorm) return true;
+                    if (Array.isArray(p.categories)) {
+                      return p.categories.some((c) => (c || "").toLowerCase().trim() === catNorm);
+                    }
+                    return false;
+                  }).length;
+
+            const content = (
+              <>
                 <span className="truncate pr-2">{cat}</span>
                 <span
                   className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 font-mono ${
                     isSelected ? "bg-white/20 text-white" : "bg-frame-muted text-frame-muted-fg"
                   }`}
                 >
-                  {cat === "All Articles"
-                    ? recentPosts.length
-                    : recentPosts.filter((p) => p.category === cat || (p.categories && p.categories.includes(cat))).length}
+                  {count}
                 </span>
-              </button>
+              </>
+            );
+
+            const className = `w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold font-body transition-all text-left ${
+              isSelected
+                ? "bg-frame-accent text-white shadow-xs font-bold"
+                : "text-frame-muted-fg hover:bg-[#1C1C1F] hover:text-white"
+            }`;
+
+            if (onSelectCategory) {
+              return (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => onSelectCategory(cat)}
+                  className={className}
+                >
+                  {content}
+                </button>
+              );
+            }
+
+            const href = cat === "All Articles" ? "/blog" : `/blog/category/${blogCategorySlug(cat)}`;
+            return (
+              <Link
+                key={cat}
+                href={href}
+                className={className}
+              >
+                {content}
+              </Link>
             );
           })}
         </div>

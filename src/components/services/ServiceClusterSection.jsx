@@ -332,6 +332,38 @@ export default function ServiceClusterSection({ service }) {
                 when scoping this engagement.
               </p>
             )}
+
+            {linkPlan.calculator && (
+              <div className="mt-3 border border-frame-border/80 bg-emerald-500/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Interactive Planning Tool</span>
+                </div>
+                <Link
+                  href={linkPlan.calculator.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400 hover:text-frame-fg transition-colors shrink-0"
+                >
+                  <span>{linkPlan.calculator.anchor}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
+            )}
+
+            {linkPlan.studioBridge && (
+              <div className="mt-3 border border-frame-border/80 bg-purple-500/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                  <span className="h-2 w-2 rounded-full bg-purple-500" />
+                  <span>In-House Studio Facility</span>
+                </div>
+                <Link
+                  href={linkPlan.studioBridge.href}
+                  className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-purple-600 dark:text-purple-400 hover:text-frame-fg transition-colors shrink-0"
+                >
+                  <span>{linkPlan.studioBridge.anchor}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Right Column: Case Studies & Portfolio */}

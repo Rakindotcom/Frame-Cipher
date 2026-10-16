@@ -323,6 +323,23 @@ export async function deleteServerBlogPost(
 
 export async function getPublicCategories(): Promise<string[]> {
   try {
+    const adminFs = getAdminFirestore();
+    if (adminFs) {
+      const snap = await adminFs.collection("categories").get();
+      const list: string[] = [];
+      snap.forEach((doc) => {
+        const data = doc.data();
+        if (data?.name && typeof data.name === "string") {
+          list.push(data.name);
+        }
+      });
+      if (list.length > 0) return list;
+    }
+  } catch (err) {
+    console.warn("Admin categories fetch note:", err);
+  }
+
+  try {
     if (publicFirestore) {
       const snapshot = await getDocs(collection(publicFirestore, "categories"));
       const list: string[] = [];
@@ -338,4 +355,36 @@ export async function getPublicCategories(): Promise<string[]> {
     console.warn("Public categories fetch note:", err);
   }
   return [];
+}
+
+export async function saveCategoryToServer(
+  name: string
+): Promise<{ success: boolean; error?: string }> {
+  const trimmed = name.trim();
+  if (!trimmed) {
+    return { success: false, error: "Category name is required." };
+  }
+  const slug = trimmed
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+
+  try {
+    const adminFs = getAdminFirestore();
+    if (adminFs) {
+      await adminFs.collection("categories").doc(slug).set(
+        {
+          name: trimmed,
+          slug,
+          createdAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+        },
+        { merge: true }
+      );
+      return { success: true };
+    }
+  } catch (err: any) {
+    console.warn("Admin Firestore category save error:", err?.message || err);
+  }
+  return { success: true };
 }

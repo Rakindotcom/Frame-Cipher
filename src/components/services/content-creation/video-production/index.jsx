@@ -10,6 +10,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 const marqueeItems = [
   'Commercial Videos',
@@ -37,6 +38,14 @@ export default function ContentCreationVideoProductionService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={currentService} />
       <TypeMarquee items={marqueeItems} slow />
+      <VideoPortfolioPreview
+        category="commercial"
+        eyebrow="Our Video Portfolio"
+        title="Commercial Films & Promotional Reels"
+        description="Cinema-grade brand commercials, dynamic product promotional reels, and corporate films engineered for high visual impact."
+        buttonText="Explore Video Projects →"
+        buttonHref="/projects#long-video-work"
+      />
       <Offerings />
       <VideoTypes />
       <ConnectedWorkflow />

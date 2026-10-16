@@ -10,21 +10,27 @@ import {
 } from "@/lib/blog/getBlogPosts";
 import { buildCategoryMetadata } from "@/lib/seo/metadata";
 import { WordPressSidebar } from "@/components/blog/WordPressSidebar";
-import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
+import { getPublicBlogPosts, getPublicCategories } from "@/lib/blog/serverBlogStorage";
 
 export const dynamic = "force-dynamic";
 export const dynamicParams = true;
 
-
 export async function generateStaticParams() {
-  return BLOG_CATEGORIES.filter((c) => c !== "All Articles").map((cat) => ({
-    category: blogCategorySlug(cat),
-  }));
+  const dbCategories = await getPublicCategories().catch(() => []);
+  const combined = Array.from(new Set([...BLOG_CATEGORIES, ...dbCategories]));
+  return combined
+    .filter((c) => c !== "All Articles")
+    .map((cat) => ({
+      category: blogCategorySlug(cat),
+    }));
 }
 
 export async function generateMetadata({ params }) {
   const { category: catSlug } = await params;
-  const categoryName = blogCategoryFromSlug(catSlug) || catSlug.replace(/-/g, " ");
+  const dbCategories = await getPublicCategories().catch(() => []);
+  const categoryName =
+    blogCategoryFromSlug(catSlug, dbCategories) ||
+    catSlug.replace(/-/g, " ");
   return buildCategoryMetadata(
     categoryName,
     `Articles, playbooks, and strategic analysis for ${categoryName}.`,
@@ -34,15 +40,37 @@ export async function generateMetadata({ params }) {
 
 export default async function CategoryPage({ params }) {
   const { category: catSlug } = await params;
-  const categoryName = blogCategoryFromSlug(catSlug) || catSlug.replace(/-/g, " ");
 
   let allPosts = getAllCanonicalPosts();
+  let dbCategories = [];
   try {
-    const remotePosts = await getPublicBlogPosts();
+    const [remotePosts, categories] = await Promise.all([
+      getPublicBlogPosts().catch(() => []),
+      getPublicCategories().catch(() => []),
+    ]);
     allPosts = getMergedPostsFromStorage(JSON.stringify(remotePosts));
+    dbCategories = categories || [];
   } catch (error) {
     console.error("Category page could not load server blog posts:", error);
   }
+
+  const postCategories = allPosts
+    .flatMap((p) => [p.category, ...(p.categories || [])])
+    .filter(Boolean);
+
+  const dynamicCategories = Array.from(
+    new Set([
+      "All Articles",
+      ...BLOG_CATEGORIES.filter((c) => c !== "All Articles"),
+      ...dbCategories,
+      ...postCategories,
+    ])
+  );
+
+  const categoryName =
+    dynamicCategories.find((c) => blogCategorySlug(c) === catSlug && c !== "All Articles") ||
+    blogCategoryFromSlug(catSlug, dynamicCategories) ||
+    catSlug.replace(/-/g, " ");
 
   const categoryPosts = allPosts.filter(
     (p) =>
@@ -165,7 +193,7 @@ export default async function CategoryPage({ params }) {
 
           <div className="lg:col-span-4 sticky top-24">
             <WordPressSidebar
-              categories={BLOG_CATEGORIES}
+              categories={dynamicCategories}
               activeCategory={categoryName}
               recentPosts={allPosts}
             />

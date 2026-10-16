@@ -10,6 +10,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 const marqueeItems = [
   "Long-Form YouTube 4K",
@@ -29,6 +30,14 @@ export default function ContentCreationYoutubeVideosService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <VideoPortfolioPreview
+        category="podcast"
+        eyebrow="Our YouTube Portfolio"
+        title="YouTube & Podcast Video Portfolio"
+        description="Explore multi-camera interviews, masterclasses, and episodic content produced for high-retention YouTube channels."
+        buttonText="Explore Video Archive →"
+        buttonHref="/projects#long-video-work"
+      />
       <ManagementComparison service={service} />
       <VideoTypes service={service} />
       <Offerings service={service} />

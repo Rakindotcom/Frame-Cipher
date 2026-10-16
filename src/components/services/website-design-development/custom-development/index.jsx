@@ -37,6 +37,7 @@ export default function WebsiteDesignDevelopmentCustomDevelopmentService({ servi
       <Hero />
       <TypeMarquee items={customKeywords} slow />
       <WebsitePortfolioPreview
+        category="custom-development"
         eyebrow="Case Studies & Real Work"
         title="Our Custom & Next.js Development Portfolio"
         description="Our portfolio should show how custom development solved a real business requirement rather than simply displaying attractive interfaces."
