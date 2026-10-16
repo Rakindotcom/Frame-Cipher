@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const services = [
@@ -179,7 +181,7 @@ export default function Includes() {
                 </h3>
                 <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
                   {item.body.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
+                    <p key={pIdx}><AutoLinks currentPath="/services/paid-advertising/google-ads" allowed={["/services/seo/keyword-research"]}>{paragraph}</AutoLinks></p>
                   ))}
                 </div>
                 {item.bullets?.length > 0 && (

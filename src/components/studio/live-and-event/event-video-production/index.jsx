@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +31,15 @@ export default function EventVideoProductionService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="event"
+        eyebrow="Studio Deployments"
+        title="Event Video Portfolio"
+        description="Event recaps, highlight reels, and speaker coverage filmed and edited for corporate and brand moments."
+        buttonText="Explore Event Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfCoverage />

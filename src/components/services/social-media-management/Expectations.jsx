@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const included = [
@@ -60,10 +62,10 @@ export default function Expectations() {
             </div>
 
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/social-media-management/community-management"]}>
                 Content volume, platform mix, and community management scope are confirmed during
                 the free initial audit, so the plan reflects what your business actually needs.
-              </p>
+              </AutoLinks></p>
             </div>
 
             <PosterButton href="/contact">Get Your Free Social Audit &rarr;</PosterButton>

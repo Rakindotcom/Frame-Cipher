@@ -1,4 +1,4 @@
-import { contact } from '@/data/agency'
+import { contact, siteUrl } from '@/data/agency'
 
 /**
  * generateBrandedPdfReport

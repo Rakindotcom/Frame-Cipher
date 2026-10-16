@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const pillars = [
@@ -55,7 +57,7 @@ export default function AeoGeo() {
               </h3>
               <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
                 {item.body.map((paragraph, pIdx) => (
-                  <p key={pIdx}>{paragraph}</p>
+                  <p key={pIdx}><AutoLinks currentPath="/services/paid-advertising/chatgpt-ads" allowed={["/services/website-design-development/landing-pages"]}>{paragraph}</AutoLinks></p>
                 ))}
               </div>
             </div>

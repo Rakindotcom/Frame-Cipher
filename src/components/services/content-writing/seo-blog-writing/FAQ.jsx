@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 import { resolveFaqs } from '../../../../lib/seo/faq'
 
@@ -85,9 +87,9 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t-2 border-frame-border p-6">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/seo-blog-writing" allowed={["/services/website-design-development/business-website"]}>
                   {faq.a}
-                </p>
+                </AutoLinks></p>
               </div>
             </details>
           ))}

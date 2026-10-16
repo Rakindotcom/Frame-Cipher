@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const steps = [
@@ -103,9 +105,9 @@ export default function Process() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/ecommerce-seo" allowed={["/services/website-design-development/landing-pages"]}>
                   {step.body}
-                </p>
+                </AutoLinks></p>
                 {step.points.length > 0 && (
                   <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
                     {step.points.map((point, pIdx) => (

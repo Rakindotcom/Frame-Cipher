@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton } from '../../../Kinetic'
 
 const packages = [
@@ -143,9 +145,9 @@ export default function Pricing() {
               <p>
                 Website maintenance pricing depends on your platform, website size, update frequency, security requirements, support needs, and how important the website is to your daily business operations.
               </p>
-              <p>
+              <p><AutoLinks currentPath="/services/website-design-development/maintenance" allowed={["/services/website-design-development/business-website"]}>
                 A simple business website may only need routine updates, backups, security checks, and minor fixes. An ecommerce store or custom application needs closer monitoring, more technical support, and faster response when critical functions fail.
-              </p>
+              </AutoLinks></p>
               <p className="font-bold text-frame-fg">
                 Our maintenance plans are structured around the actual needs and risk level of your website.
               </p>

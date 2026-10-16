@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 export default function Offerings({ service }) {
@@ -205,9 +207,9 @@ export default function Offerings({ service }) {
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/google-ads" allowed={["/services/website-design-development/landing-pages"]}>
                         {item.description}
-                      </p>
+                      </AutoLinks></p>
                     )}
                   </div>
                   {item.bullets?.length > 0 && (

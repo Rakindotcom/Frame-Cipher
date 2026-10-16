@@ -1,5 +1,7 @@
 'use client'
 
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 // Unique BDT pricing for voice-over — researched Dhaka market bands, July 2026.
@@ -128,9 +130,9 @@ export default function Pricing() {
                 <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed"><AutoLinks currentPath="/studio/voice-over" allowed={["/studio/rental"]}>
                   {pkg.description}
-                </p>
+                </AutoLinks></p>
 
                 <div className="mt-6 border-b-2 border-frame-border/60 pb-6">
                   <span className="font-heading text-3xl md:text-4xl font-bold text-frame-fg">

@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const marketBlocks = [
@@ -34,9 +36,9 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/penalty-recovery" allowed={["/services/website-design-development/ecommerce-website"]}>
                 {item.body}
-              </p>
+              </AutoLinks></p>
               <p className="mt-5 border-l-2 border-frame-accent p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
                 {item.closing}
               </p>

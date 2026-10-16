@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const formats = [
@@ -54,7 +56,7 @@ export default function MultiFormat() {
               <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {format.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{format.text}</p>
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/case-study-writing" allowed={["/services/website-design-development/landing-pages"]}>{format.text}</AutoLinks></p>
             </article>
           ))}
         </div>

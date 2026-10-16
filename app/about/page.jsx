@@ -4,9 +4,9 @@ import { generatePageSchema } from '../../src/lib/seo/schema'
 import { contact, siteUrl } from '../../src/data/agency'
 
 export const metadata = {
-  title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse',
+  title: 'About Frame Cipher | Multinational Tech & Growth Company',
   description:
-    'Frame Cipher is a multinational technology, media, and performance growth company headquartered in Dhaka, Bangladesh. We build enterprise software, headless eCommerce, brand systems, and algorithmic ad campaigns for global brands across 20+ countries.',
+    'Frame Cipher is a multinational technology, media, and growth company based in Dhaka, Bangladesh, building software and acquisition systems for 20+ countries.',
   alternates: {
     canonical: '/about',
   },
@@ -28,12 +28,12 @@ export const metadata = {
     type: 'website',
     url: '/about',
     siteName: 'Frame Cipher',
-    title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse',
+    title: 'About Frame Cipher | Multinational Tech & Growth Company',
     description:
-      'Discover Frame Cipher: A global technology, media, and growth engineering institution born in Bangladesh, serving enterprise and high-growth brands across 20+ countries.',
+      'Discover Frame Cipher: A global technology, media, and growth engineering institution born in Bangladesh, serving brands across 20+ countries.',
     images: [
       {
-        url: '/logo.png',
+        url: '/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Frame Cipher - Multinational Tech & Growth Company',
@@ -42,10 +42,10 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Frame Cipher | Multinational Tech, Media & Growth Powerhouse',
+    title: 'About Frame Cipher | Multinational Tech & Growth Company',
     description:
-      'Frame Cipher is a multinational technology, media, and growth company based in Dhaka, Bangladesh, building custom software and high-ROI acquisition systems for 20+ countries.',
-    images: ['/logo.png'],
+      'Frame Cipher is a multinational technology, media, and growth company based in Dhaka, Bangladesh, building software and acquisition systems for 20+ countries.',
+    images: ['/og-image.png'],
   },
 }
 
@@ -126,7 +126,7 @@ export default function Page() {
         jobTitle: 'Co-Founder & Head of Operations',
         sameAs: [
           'https://www.linkedin.com/in/nahid-bin-zaman-680386339/',
-          'https://www.facebook.com/nahid.bin.zaman.2025',
+          'https://www.facebook.com/nahid.bin.zaman11',
         ],
       },
     ],
@@ -146,6 +146,8 @@ export default function Page() {
       'https://www.facebook.com/framecipher',
       'https://www.linkedin.com/company/framecipher',
       'https://www.instagram.com/framecipher',
+      'https://x.com/framecipher',
+      'https://www.youtube.com/@teamFrameCipher',
     ],
   }
 

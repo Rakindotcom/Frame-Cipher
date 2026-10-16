@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
@@ -85,9 +87,9 @@ export default function VideoTypes() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {type.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/services/website-design-development/landing-pages"]}>
                   {type.description}
-                </p>
+                </AutoLinks></p>
 
                 <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
                   <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">

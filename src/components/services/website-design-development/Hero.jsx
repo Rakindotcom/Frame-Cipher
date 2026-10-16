@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../Kinetic'
 
@@ -63,9 +65,9 @@ export default function Hero() {
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development" allowed={["/services/website-design-development/landing-pages"]}>
                 Business websites, eCommerce stores, landing pages, and custom web applications.
-              </p>
+              </AutoLinks></p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>

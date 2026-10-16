@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { buildUrlset, authorEntries, corePageEntries } from "../../src/lib/seo/sitemapData";
+import { buildUrlset, authorEntries, contentUpdatedAt } from "../../src/lib/seo/sitemapData";
 
 export const revalidate = 3600;
 
 export async function GET() {
-  const index = [{ path: "/authors" }];
+  const index = [{ path: "/authors", lastModified: contentUpdatedAt("/authors") }];
   const xml = buildUrlset([...index, ...(await authorEntries())]);
   return new NextResponse(xml, {
     headers: {

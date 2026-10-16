@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro } from '../../Kinetic'
 
 const seoServices = [
@@ -125,9 +127,9 @@ export default function Offerings() {
                   <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90"><AutoLinks currentPath="/services/seo" allowed={["/services/website-design-development/landing-pages"]}>
                     {item.summary}
-                  </p>
+                  </AutoLinks></p>
                   <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
                     {item.body.map((paragraph, pIdx) => (
                       <p key={pIdx}>{paragraph}</p>

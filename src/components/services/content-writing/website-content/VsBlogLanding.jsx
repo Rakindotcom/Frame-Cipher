@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro } from '../../../Kinetic'
 
@@ -74,10 +76,10 @@ export default function VsBlogLanding() {
           </table>
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/website-content" allowed={["/services/website-design-development/business-website"]}>
           Website content is generally more evergreen than blog content and is closely connected to the core
           structure of the business website.
-        </p>
+        </AutoLinks></p>
 
         <div className="mt-4 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
           <p className="bg-frame-bg p-6 text-sm font-medium leading-relaxed text-frame-fg md:text-base">

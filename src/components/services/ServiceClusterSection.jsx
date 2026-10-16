@@ -5,6 +5,7 @@ import {
   getServiceSummary,
 } from '../../data/servicePages'
 import { getServiceLinkPlan } from '../../lib/seo/internalLinks'
+import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 import { growthCaseStudies } from '../../data/growthWork'
 
 const specificCaseStudyMappings = {
@@ -181,6 +182,15 @@ export default function ServiceClusterSection({ service }) {
     .replace(/ Services? in Bangladesh$/i, '')
     .trim()
 
+  const contextualTargets = relatedServices
+    .slice(0, 3)
+    .map((item) => item.anchor || getServiceDisplayName(item))
+    .filter(Boolean)
+  const contextualCopy = contextualTargets.length
+    ? `A complete ${currentDisplayName} plan often connects with ${contextualTargets.join(', ')} so strategy, execution, and measurement stay aligned.`
+    : ''
+
+
   return (
     <section className="w-full border-t-2 border-frame-border bg-frame-bg px-4 py-16 sm:px-6 md:px-8 md:py-24">
       <div className="mx-auto w-full max-w-[95vw]">
@@ -217,6 +227,16 @@ export default function ServiceClusterSection({ service }) {
             </Link>
           </div>
         </div>
+
+        {contextualCopy && (
+          <p className="mt-8 max-w-4xl text-sm font-medium leading-7 text-frame-muted-fg">
+            {renderContextualParagraph(contextualCopy, {
+              currentPath: service.fullPath,
+              maxLinks: contextualTargets.length,
+              theme: 'frame',
+            })}
+          </p>
+        )}
 
         {/* 2-Column Grid: Left Sibling Services (50%), Right Case Studies & Portfolio (50%) */}
         <div className="mt-12 grid w-full grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-14 items-start">

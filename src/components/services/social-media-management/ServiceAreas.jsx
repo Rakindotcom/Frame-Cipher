@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const areas = [
@@ -79,9 +81,9 @@ export default function ServiceAreas() {
                   <h3 className="mt-3 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-3xl">
                     {area.title}
                   </h3>
-                  <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/content-writing/content-strategy"]}>
                     {area.body}
-                  </p>
+                  </AutoLinks></p>
                   <ul className="mt-5 space-y-2.5">
                     {area.points.map((point, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90 md:text-sm">

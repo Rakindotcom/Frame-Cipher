@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const goals = [
@@ -60,9 +62,9 @@ export default function BusinessGoals() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/studio/promotional-video-production"]}>
                   {item.description}
-                </p>
+                </AutoLinks></p>
               </div>
             </div>
           ))}

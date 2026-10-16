@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
+import { findIndexMatches, isSamePage } from './internalLinkIndex'
 
 /**
  * Enterprise Agentic SEO Contextual In-Paragraph Link Dictionary.
@@ -478,12 +479,21 @@ function isCurrentPage(targetHref, currentSlug = '') {
 /**
  * Injects contextual internal links into plain paragraph text.
  *
+ * Two sources of anchors are merged, longest phrase wins:
+ *   1. Index anchors derived from the destination pages themselves
+ *      (`internalLinkIndex.js`, tiers 1-2) — the anchor is guaranteed to
+ *      describe the page it points at.
+ *   2. The curated dictionary below (tier 3) — calculators, studio bridges,
+ *      case-study proof and direct conversion links.
+ *
  * @param {string} text - The raw paragraph string.
  * @param {object} options
- * @param {string} options.currentSlug - Current page slug to prevent self-linking.
- * @param {number} options.maxLinks - Maximum links to inject into this paragraph (default: 1).
+ * @param {string} options.currentSlug - Current page slug (legacy, optional).
+ * @param {string} options.currentPath - Current page path, e.g. `/services/seo`.
+ * @param {string[]} options.allowed - Optional allow-list of hrefs for this paragraph.
+ * @param {number} options.maxLinks - Maximum links to inject (default: 1).
  * @param {'frame'|'violet'|'accent'} options.theme - Styling theme for anchor text.
- * @param {Set<string>} options.usedUrls - Optional Set to track and prevent duplicate destinations across sections.
+ * @param {Set<string>} options.usedUrls - Tracks destinations already used on the page.
  * @returns {React.ReactNode} - The rendered paragraph with interactive Next.js <Link> elements.
  */
 export function renderContextualParagraph(text, options = {}) {
@@ -491,32 +501,55 @@ export function renderContextualParagraph(text, options = {}) {
 
   const {
     currentSlug = '',
+    currentPath = '',
+    allowed = null,
     maxLinks = 1,
     theme = 'frame',
     usedUrls = null,
   } = options
 
+  const selfPath = currentPath || currentSlug
+  const allowedSet = Array.isArray(allowed) ? new Set(allowed) : null
+  const isSelf = (href) =>
+    isSamePage(href, selfPath) || isCurrentPage(href, currentSlug)
+  const isBlocked = (href) =>
+    (usedUrls && usedUrls.has(href)) || (allowedSet && !allowedSet.has(href))
+
   // Class names based on theme
   let linkClassName =
-    'underline decoration-frame-accent/50 hover:decoration-frame-accent hover:text-frame-accent font-semibold transition-colors duration-200'
+    'text-violet-400 underline decoration-violet-400/70 underline-offset-2 hover:text-violet-300 hover:decoration-violet-300 font-semibold transition-colors duration-200'
   if (theme === 'violet') {
     linkClassName =
-      'underline decoration-violet-400/50 hover:decoration-violet-300 hover:text-violet-200 font-semibold transition-colors duration-200'
+      'text-violet-400 underline decoration-violet-400/70 underline-offset-2 hover:text-violet-300 hover:decoration-violet-300 font-semibold transition-colors duration-200'
   } else if (theme === 'emerald') {
     linkClassName =
-      'underline decoration-emerald-400/50 hover:decoration-emerald-300 hover:text-emerald-200 font-semibold transition-colors duration-200'
+      'text-violet-400 underline decoration-violet-400/70 underline-offset-2 hover:text-violet-300 hover:decoration-violet-300 font-semibold transition-colors duration-200'
   }
 
   // Filter available rules: exclude current page and optionally already used URLs
   const activeRules = SORTED_RULES.filter((rule) => {
-    if (isCurrentPage(rule.href, currentSlug)) return false
-    if (usedUrls && usedUrls.has(rule.href)) return false
+    if (isSelf(rule.href)) return false
+    if (isBlocked(rule.href)) return false
     return true
   })
 
   // Find all matches in the text
   const candidateMatches = []
 
+  // Tier 1-2: anchors derived from the destination pages themselves.
+  for (const match of findIndexMatches(text)) {
+    if (isSelf(match.href) || isBlocked(match.href)) continue
+    candidateMatches.push({
+      start: match.start,
+      end: match.end,
+      matchedText: match.matchedText,
+      href: match.href,
+      phraseLength: match.length,
+      role: 'index',
+    })
+  }
+
+  // Tier 3: curated functional links.
   for (const rule of activeRules) {
     for (const phrase of rule.sortedPhrases) {
       const regex = new RegExp(`\\b${escapeRegExp(phrase)}\\b`, 'gi')
@@ -528,6 +561,7 @@ export function renderContextualParagraph(text, options = {}) {
           matchedText: match[0],
           href: rule.href,
           phraseLength: phrase.length,
+          role: 'curated',
         })
       }
     }
@@ -537,10 +571,13 @@ export function renderContextualParagraph(text, options = {}) {
     return text
   }
 
-  // Sort matches: longest phrase first, then earliest in text
+  // Sort matches: longest phrase first, curated before index on a tie, then earliest.
   candidateMatches.sort((a, b) => {
     if (b.phraseLength !== a.phraseLength) {
       return b.phraseLength - a.phraseLength
+    }
+    if (a.role !== b.role) {
+      return a.role === 'curated' ? -1 : 1
     }
     return a.start - b.start
   })

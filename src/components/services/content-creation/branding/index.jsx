@@ -11,6 +11,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import DesignPortfolioPreview from '../../../projects/DesignPortfolioPreview'
 
 const marqueeItems = [
   "Strategic Market Positioning",
@@ -27,6 +28,14 @@ export default function ContentCreationBrandingService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <DesignPortfolioPreview
+        startIndex={0}
+        eyebrow="Selected brand work"
+        title="Brand identity portfolio."
+        description="Identity systems, logotypes, and usage guidelines built to keep a brand consistent across every touchpoint."
+        buttonText="View Creative Archive →"
+        buttonHref="/projects#branding-work"
+      />
       <ServiceEcosystem />
       <WhoNeedsBranding />
       <Offerings service={service} />

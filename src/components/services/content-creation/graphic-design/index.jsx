@@ -10,6 +10,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import DesignPortfolioPreview from '../../../projects/DesignPortfolioPreview'
 
 const marqueeItems = [
   "Pitch Decks & Presentations",
@@ -26,6 +27,14 @@ export default function ContentCreationGraphicDesignService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <DesignPortfolioPreview
+        startIndex={4}
+        eyebrow="Selected design work"
+        title="Graphic design portfolio."
+        description="Campaign graphics, packaging, print collateral, and design systems produced with production-ready precision."
+        buttonText="View Creative Archive →"
+        buttonHref="/projects#branding-work"
+      />
       <ServiceEcosystem />
       <Offerings service={service} />
       <SystemVsOneOff />

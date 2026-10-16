@@ -59,6 +59,12 @@ const workCategories = [
     pill: 'Branding',
     description: 'Visual identity systems, art direction, and design archive',
   },
+  {
+    name: 'Content Writing',
+    path: '/projects?view=writing',
+    pill: 'Writing',
+    description: 'Blogs, website copy, product copy, ads, and video scripts',
+  },
 ]
 
 export default function Navbar({ pillarNavServices = [] }) {

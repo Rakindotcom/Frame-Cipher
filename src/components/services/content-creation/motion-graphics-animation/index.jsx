@@ -10,6 +10,8 @@ import Commitment from './Commitment'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 const marqueeItems = [
   "Explainer Animation",
@@ -29,6 +31,23 @@ export default function ContentCreationMotionGraphicsAnimationService({ service 
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <VideoPortfolioPreview
+        category="commercial"
+        eyebrow="Selected motion work"
+        title="Motion Graphics & Video Portfolio"
+        description="Kinetic typography, animated brand assets, and motion-led commercial edits produced in-house."
+        buttonText="Explore Video Work →"
+        buttonHref="/projects#video-work"
+      />
+      <WritingPortfolioPreview
+        type="video"
+        category="Motion & Ads"
+        eyebrow="Script writing samples"
+        title="Motion & ad script portfolio."
+        description="Explainer, motion graphic, and paid-ad scripts written to pair tightly with animation and edit pacing."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
+      />
       <FormatComparison service={service} />
       <Offerings service={service} />
       <ApproachComparison service={service} />

@@ -10,6 +10,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import DesignPortfolioPreview from '../../../projects/DesignPortfolioPreview'
 
 const marqueeItems = [
   "Distinctive Visual Marks",
@@ -26,6 +27,14 @@ export default function ContentCreationLogoDesignService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <DesignPortfolioPreview
+        startIndex={8}
+        eyebrow="Selected logo work"
+        title="Logo design portfolio."
+        description="Distinctive marks, wordmarks, and scalable master vectors that hold up across print, screen, and favicon sizes."
+        buttonText="View Creative Archive →"
+        buttonHref="/projects#branding-work"
+      />
       <ServiceEcosystem />
       <WhatMakesALogoWork />
       <Offerings service={service} />

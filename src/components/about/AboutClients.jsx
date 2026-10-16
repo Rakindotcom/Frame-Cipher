@@ -1,18 +1,20 @@
 import Link from 'next/link'
 
 const clientLogos = [
-  { name: 'Sonali Bioplastics', logo: '/client01.webp', industry: 'Sustainable Tech' },
-  { name: 'Client 02', logo: '/client02.webp', industry: 'E-Commerce' },
-  { name: 'Client 03', logo: '/client03.webp', industry: 'Healthcare' },
-  { name: 'Client 04', logo: '/client04.webp', industry: 'Retail & Consumer' },
-  { name: 'Client 05', logo: '/client05.webp', industry: 'B2B Services' },
-  { name: 'Client 06', logo: '/client06.webp', industry: 'SaaS Platform' },
-  { name: 'Client 07', logo: '/client07.webp', industry: 'Technology' },
-  { name: 'Client 08', logo: '/client08.webp', industry: 'Fashion & Lifestyle' },
-  { name: 'Client 09', logo: '/client09.webp', industry: 'Direct-to-Consumer' },
-  { name: 'Client 10', logo: '/client10.webp', industry: 'Logistics & Supply' },
-  { name: 'Client 11', logo: '/client11.webp', industry: 'Fintech & Solutions' },
-  { name: 'Client 12', logo: '/Client 12.png', industry: 'Enterprise Partner' },
+  { name: 'Sonali Bioplastics', logo: '/client01.webp', industry: 'Bioplastics' },
+  { name: 'Spenta', logo: '/client02.webp', industry: 'Immersive Tech' },
+  { name: 'Hotel Ashrafee', logo: '/client03.webp', industry: 'Hospitality' },
+  { name: 'ALFIS Limited', logo: '/client04.webp', industry: 'Garments Accessories' },
+  { name: 'UDRIK', logo: '/client05.webp', industry: 'Product Design' },
+  { name: 'Freedom Flotilla Coalition', logo: '/client06.webp', industry: 'Humanitarian Coalition' },
+  { name: 'Bangladesh Flotilla', logo: '/client07.webp', industry: 'Humanitarian Advocacy' },
+  { name: 'ERL', logo: '/client08.webp', industry: 'Real Estate' },
+  { name: 'Coach Kamrul Hasan Network', logo: '/client09.webp', industry: 'Coaching & Leadership' },
+  { name: 'UB', logo: '/client10.webp', industry: 'E-Commerce' },
+  { name: 'Muhsin Mashkur', logo: '/client11.webp', industry: 'Arabic & Islamic Education' },
+  { name: 'SABCCI', logo: '/Client 12.webp', industry: 'Chamber of Commerce' },
+  { name: 'Thrive Clothing', logo: '/thrive-clothing.webp', industry: 'Fashion E-Commerce' },
+  { name: 'Derma Ghor', logo: '/dg-logo.webp', industry: 'Skincare & Wellness' },
 ]
 
 // Duplicate for continuous seamless marquee loop
@@ -78,7 +80,7 @@ export default function AboutClients() {
               </h3>
             </div>
             <span className="font-mono text-xs font-semibold text-frame-muted-fg">
-              12 Client Showcases Displayed
+              {clientLogos.length} Client Showcases Displayed
             </span>
           </div>
 
@@ -89,7 +91,7 @@ export default function AboutClients() {
                 className="group relative flex flex-col items-center justify-between border border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-[0_10px_25px_rgba(168,85,247,0.2)]"
               >
                 <span className="self-start font-mono text-[9px] font-bold text-zinc-400 group-hover:text-frame-accent transition-colors">
-                  0{idx + 1}
+                  {String(idx + 1).padStart(2, '0')}
                 </span>
                 <div className="flex h-16 w-full items-center justify-center py-2">
                   <img
@@ -100,7 +102,7 @@ export default function AboutClients() {
                   />
                 </div>
                 <span className="mt-1 text-center font-mono text-[9px] font-bold uppercase tracking-wider text-zinc-500 truncate w-full">
-                  {client.industry}
+                  {client.industry || '\u00A0'}
                 </span>
               </div>
             ))}
@@ -162,7 +164,7 @@ export default function AboutClients() {
               title="Clutch Verified Agency"
             >
               <img
-                src="/Listed%20In/Cutch.png"
+                src="/Listed%20In/Cutch.webp"
                 alt="Clutch"
                 className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
@@ -188,7 +190,7 @@ export default function AboutClients() {
               title="Trustpilot Reviews"
             >
               <img
-                src="/Listed%20In/Trustpilot.png"
+                src="/Listed%20In/Trustpilot.webp"
                 alt="Trustpilot"
                 className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"

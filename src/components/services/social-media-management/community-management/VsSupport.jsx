@@ -1,3 +1,6 @@
+
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const columns = [
@@ -38,18 +41,18 @@ export default function VsSupport() {
               <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {column.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/community-management" allowed={["/services/content-creation"]}>
                 {column.body}
-              </p>
+              </AutoLinks></p>
             </article>
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management/community-management" allowed={["/services/content-writing/content-strategy"]}>
           In practice, a business may need more than one of these. Framecipher can manage community
           management on its own, or coordinate it alongside broader social media management, platform
           management, content strategy, and content production, depending on the selected scope.
-        </p>
+        </AutoLinks></p>
       </div>
     </section>
   )

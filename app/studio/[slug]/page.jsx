@@ -37,13 +37,13 @@ export async function generateMetadata({ params }) {
       siteName: 'Frame Cipher Studio',
       title: service.seoTitle,
       description: service.metaDescription,
-      images: ['/logo.png'],
+      images: ['/og-image.png'],
     },
     twitter: {
       card: 'summary_large_image',
       title: service.seoTitle,
       description: service.metaDescription,
-      images: ['/logo.png'],
+      images: ['/og-image.png'],
     },
   }
 }

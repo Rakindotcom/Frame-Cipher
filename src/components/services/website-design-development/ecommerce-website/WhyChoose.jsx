@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const whyChooseUs = [
@@ -43,9 +45,9 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {adv.title}
                 </h3>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/ecommerce-website" allowed={["/services/website-design-development/custom-development"]}>
                   {adv.desc}
-                </p>
+                </AutoLinks></p>
               </div>
             </div>
           ))}

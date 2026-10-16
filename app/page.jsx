@@ -21,7 +21,7 @@ export const metadata = {
     url: siteUrl,
     images: [
       {
-        url: `${siteUrl}/logo.png`,
+        url: `${siteUrl}/og-image.png`,
         width: 1200,
         height: 630,
         alt: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
@@ -35,7 +35,7 @@ export const metadata = {
     title: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
     description:
       'Frame Cipher is a Dhaka-based marketing, media, branding, website, software, and growth agency helping brands plan, build, launch, and optimize campaigns.',
-    images: [`${siteUrl}/logo.png`],
+    images: [`${siteUrl}/og-image.png`],
   },
 }
 

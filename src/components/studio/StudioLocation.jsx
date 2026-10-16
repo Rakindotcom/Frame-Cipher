@@ -3,6 +3,7 @@
 import { MapPin, Phone, MessageSquare, Mail, Clock, Navigation, CheckCircle2, ArrowUpRight } from 'lucide-react'
 import { SectionIntro } from '../Kinetic'
 import GoogleMapEmbed from '../common/GoogleMapEmbed'
+import { contact } from '../../data/agency'
 
 const audienceTypes = [
   'Businesses producing marketing, corporate and brand films',
@@ -69,7 +70,7 @@ export default function StudioLocation() {
               </div>
             </div>
             <div className="mt-8 border-t border-frame-border pt-6">
-              <a href="https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-all duration-300 hover:bg-frame-accent/90">
+              <a href={contact.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-all duration-300 hover:bg-frame-accent/90">
                 <span>Get Driving Directions on Google Maps</span>
                 <ArrowUpRight className="h-4 w-4" />
               </a>
@@ -93,7 +94,7 @@ export default function StudioLocation() {
           </div>
         </div>
         <div className="mt-12">
-          <GoogleMapEmbed title="FrameCipher Studio Dhaka (ECB Chattar)" description="6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata Road, ECB Chattar, Dhaka 1206" height="460px" />
+          <GoogleMapEmbed title="FrameCipher Studio Dhaka (ECB Chattar)" description="6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata Road, ECB Chattar, Dhaka 1206" height="460px" mapQuery={contact.studioCoords} directionsUrl={contact.googleMapsUrl} />
         </div>
       </div>
     </section>

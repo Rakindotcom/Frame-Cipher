@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro } from '../../Kinetic'
 
@@ -51,9 +53,9 @@ export default function Outcomes() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                   {outcome.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/website-design-development/landing-pages"]}>
                   {outcome.body}
-                </p>
+                </AutoLinks></p>
               </div>
 
               {outcome.note && (

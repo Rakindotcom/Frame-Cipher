@@ -1,3 +1,6 @@
+
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro } from '../../Kinetic'
 
@@ -87,22 +90,22 @@ export default function VsPaid() {
               <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
                 Organic Social
               </span>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/content-creation"]}>
                 Covers your unpaid presence: content strategy, content creation, publishing,
                 community engagement, profile management, and reporting. The goal is a consistent
                 presence and stronger relationships with your audience over time.
-              </p>
+              </AutoLinks></p>
             </div>
             <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
               <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
                 Paid Social
               </span>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/paid-advertising"]}>
                 Uses advertising budgets to reach selected audiences and support specific
                 campaign objectives such as lead generation, ecommerce sales, traffic, remarketing,
                 or campaign promotion. Framecipher provides paid advertising separately through
                 our broader paid advertising services.
-              </p>
+              </AutoLinks></p>
               <Link
                 href="/services/paid-advertising"
                 className="group mt-4 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition hover:text-frame-fg md:text-sm"

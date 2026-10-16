@@ -4,7 +4,7 @@ export const founders = [
     role: 'Co-Founder & CEO',
     focus: 'Product Architecture · Strategy · Operating Systems',
     bio: 'Directs agency vision, full-stack product building, and systems engineering. Specializing in turning complex business workflows into high-velocity digital assets and compounding growth engines.',
-    image: '/Founders/Rakin Al Shahriar.png',
+    image: '/Founders/Rakin Al Shahriar.webp',
     portfolio: 'https://rakin.framecipher.info/',
     socials: [
       {
@@ -54,7 +54,7 @@ export const founders = [
     role: 'Co-Founder & COO',
     focus: 'Full-Stack Web · SEO Architecture · Performance',
     bio: 'Architects modern web platforms, digital systems, and data-driven organic growth engines that convert attention into compounding pipeline and measurable revenue.',
-    image: '/Founders/Mahedi Hasan Perves.png',
+    image: '/Founders/Mahedi Hasan Perves.webp',
     portfolio: 'https://mahedi.framecipher.info/',
     socials: [
       {
@@ -104,7 +104,7 @@ export const founders = [
     role: 'Co-Founder & Head of Operations',
     focus: 'Media Production · Campaign Delivery · Client Ops',
     bio: 'Spearheads media strategy, creative execution, and cross-functional operations ensuring every campaign ships with velocity, pristine creative fidelity, and rigorous operational control.',
-    image: '/Founders/Nahid Bin Zaman.jpeg',
+    image: '/Founders/Nahid Bin Zaman.webp',
     portfolio: null,
     socials: [
       {
@@ -119,7 +119,7 @@ export const founders = [
       },
       {
         platform: 'Facebook',
-        url: 'https://www.facebook.com/nahid.bin.zaman.2025',
+        url: 'https://www.facebook.com/nahid.bin.zaman11',
         label: 'Facebook Profile',
         icon: (
           <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">

@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +31,15 @@ export default function ProductPhotographyService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="product-promotion"
+        eyebrow="Studio Deployments"
+        title="Product Film & Content Portfolio"
+        description="Product reveals, catalogue motion, and e-commerce content shot in our studio for brands and online stores."
+        buttonText="Explore Product Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfService />

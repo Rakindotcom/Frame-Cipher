@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const comparisonData = [
@@ -114,9 +116,9 @@ export default function Comparison() {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 When We Recommend Custom Development
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/business-website"]}>
                 Custom development becomes more appropriate when the website is really a software product, application, or highly specialized digital system rather than a conventional business website.
-              </p>
+              </AutoLinks></p>
             </div>
           </div>
         </div>

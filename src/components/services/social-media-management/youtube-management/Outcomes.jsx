@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const outcomes = [
@@ -53,9 +55,9 @@ export default function Outcomes() {
                 <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/website-design-development/landing-pages"]}>
                   {item.body}
-                </p>
+                </AutoLinks></p>
               </div>
             </article>
           ))}

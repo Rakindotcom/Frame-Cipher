@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +31,15 @@ export default function PropertyVideographyService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="commercial"
+        eyebrow="Studio Deployments"
+        title="Property & Real Estate Video Portfolio"
+        description="Property tours, project showcases, and cinematic listing films built to present space and value clearly."
+        buttonText="Explore Video Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfTours />

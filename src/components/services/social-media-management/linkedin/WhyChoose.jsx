@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const standards = [
@@ -63,9 +65,9 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
                   {standard.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/studio/video-editing"]}>
                   {standard.body}
-                </p>
+                </AutoLinks></p>
               </div>
 
               {standard.points?.length > 0 && (
@@ -89,10 +91,10 @@ export default function WhyChoose() {
             <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
               Organic vs paid
             </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90 md:text-base">
+            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90 md:text-base"><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/paid-advertising"]}>
               LinkedIn Ads management is a separate paid advertising service from organic LinkedIn
               management, so both can be scoped independently.
-            </p>
+            </AutoLinks></p>
             <div className="mt-6">
               <PosterButton href="/contact">Request a Custom Quote &rarr;</PosterButton>
             </div>

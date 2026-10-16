@@ -10,6 +10,7 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 const marqueeItems = [
   "Instagram Reels",
@@ -36,6 +37,15 @@ export default function ContentCreationShortFormVideoService({ service }) {
         description="Explore vertical short-form video edits, dynamic product promotional reels, and viral creator cuts built for maximum retention on Instagram Reels, TikTok, and YouTube Shorts."
         buttonText="Explore Video Work →"
         buttonHref="/projects#short-video-work"
+      />
+      <WritingPortfolioPreview
+        type="video"
+        category={['Shorts', 'Motion & Ads']}
+        eyebrow="Script writing samples"
+        title="Short-form script portfolio."
+        description="Hook-led scripts for reels, shorts, and paid social cut-downs, written for the first three seconds."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
       />
       <Offerings service={service} />
       <VideoTypes service={service} />

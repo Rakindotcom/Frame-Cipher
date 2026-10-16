@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const services = [
@@ -361,9 +363,9 @@ export default function Offerings() {
                 <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90"><AutoLinks currentPath="/services/social-media-management/tiktok-management" allowed={["/services/content-writing/content-strategy"]}>
                   {service.lead}
-                </p>
+                </AutoLinks></p>
               </div>
 
               {(service.notes || service.groups || service.chips || service.flow || service.flowLead) && (

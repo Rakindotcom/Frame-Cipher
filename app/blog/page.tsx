@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/logo.png",
+        url: "/og-image.png",
         width: 512,
         height: 512,
         alt: "FrameCipher",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog & Growth Playbooks | FrameCipher",
     description,
-    images: ["/logo.png"],
+    images: ["/og-image.png"],
   },
 };
 

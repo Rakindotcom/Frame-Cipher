@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const marketingStages = [
@@ -64,9 +66,9 @@ export default function MarketingStages() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {stage.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/website-design-development/landing-pages"]}>
                   {stage.description}
-                </p>
+                </AutoLinks></p>
               </div>
 
               <div className="mt-6 border-t-2 border-frame-border/60 pt-4">

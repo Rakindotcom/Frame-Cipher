@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const packages = [
@@ -253,9 +255,9 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
                 Clients in USA, UK, Australia, Canada & UAE
               </span>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/youtube-videos" allowed={["/studio/video-editing"]}>
                 We also support international clients needing professional YouTube content from a Bangladesh-based creative team. Support includes remote content planning, script development, high-end video editing, motion graphics, custom thumbnail production, supplied-footage editing, and content repurposing.
-              </p>
+              </AutoLinks></p>
             </div>
           </div>
 

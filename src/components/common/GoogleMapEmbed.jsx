@@ -9,10 +9,11 @@ export default function GoogleMapEmbed({
   className = '',
   height = '450px',
   showDetails = true,
+  mapQuery = contact.studioCoords,
+  zoom = 16,
+  directionsUrl = contact.googleMapsUrl || 'https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6',
 }) {
-  const mapSrc =
-    'https://maps.google.com/maps?q=23.8199359,90.3917881&t=&z=16&ie=UTF8&iwloc=&output=embed'
-  const directionsUrl = contact.googleMapsUrl || 'https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6'
+  const mapSrc = `https://maps.google.com/maps?q=${mapQuery}&t=&z=${zoom}&ie=UTF8&output=embed`
 
   return (
     <div className={`border-2 border-frame-border bg-frame-bg overflow-hidden ${className}`}>
@@ -39,7 +40,10 @@ export default function GoogleMapEmbed({
         </a>
       </div>
 
-      {/* Map Iframe */}
+      {/* Map surface — intentionally non-interactive.
+          Google's keyless `output=embed` map renders tiles + pin but cannot fetch
+          Place Details, which is why clicking the pin showed "Place info couldn't
+          load". So the iframe is inert and the whole surface opens the real map. */}
       <div className="relative w-full bg-frame-muted/40" style={{ height }}>
         <iframe
           src={mapSrc}
@@ -47,11 +51,25 @@ export default function GoogleMapEmbed({
           width="100%"
           height="100%"
           style={{ border: 0, filter: 'contrast(1.05)' }}
-          allowFullScreen=""
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="w-full h-full"
+          className="pointer-events-none h-full w-full"
+          tabIndex={-1}
+          aria-hidden="true"
         />
+        <a
+          href={directionsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open ${title} in Google Maps`}
+          className="group absolute inset-0 flex items-end justify-end p-3"
+        >
+          <span className="inline-flex items-center gap-1.5 border-2 border-frame-border bg-frame-bg/95 px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-frame-fg shadow-md backdrop-blur transition-colors group-hover:border-frame-accent group-hover:bg-frame-accent group-hover:text-frame-accent-fg">
+            <MapPin className="h-3.5 w-3.5" />
+            <span>Open in Google Maps</span>
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </span>
+        </a>
       </div>
 
       {/* Optional Details Bar */}

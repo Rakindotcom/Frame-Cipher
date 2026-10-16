@@ -4,6 +4,8 @@ import {
   getCalculatorBySlug,
 } from '@/data/calculators/allAdsCalculatorsConfig'
 import DedicatedServiceCalculatorView from '@/components/calculators/DedicatedServiceCalculatorView'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
+import { withBrandSuffix, clampMetaDescription } from '@/lib/seo/metadata'
 import { siteUrl } from '@/data/agency'
 
 export function generateStaticParams() {
@@ -22,25 +24,28 @@ export async function generateMetadata({ params }) {
     }
   }
 
+  const title = withBrandSuffix(config.metaTitle)
+  const description = clampMetaDescription(config.metaDescription)
+
   return {
-    title: config.metaTitle,
-    description: config.metaDescription,
+    title,
+    description,
     alternates: {
       canonical: `/calculators/${config.slug}`,
     },
     openGraph: {
-      title: config.metaTitle,
-      description: config.metaDescription,
+      title,
+      description,
       url: `${siteUrl}/tools/ads-calculator/${config.slug}`,
       siteName: 'Frame Cipher',
       type: 'website',
-      images: ['/logo.png'],
+      images: ['/og-image.png'],
     },
     twitter: {
       card: 'summary_large_image',
-      title: config.metaTitle,
-      description: config.metaDescription,
-      images: ['/logo.png'],
+      title,
+      description,
+      images: ['/og-image.png'],
     },
   }
 }
@@ -74,6 +79,13 @@ export default async function ToolCalculatorPage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Ads Budget & ROAS Calculator', url: '/tools/ads-calculator' },
+          { name: config.title, url: `/tools/ads-calculator/${config.slug}` },
+        ]}
       />
       <DedicatedServiceCalculatorView config={config} />
     </>

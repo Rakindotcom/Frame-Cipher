@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { growthPortfolio } from '../data/growthWork'
 import { longVideos, shortVideos } from '../data/videoProjects'
+import { videoScriptSamples, contentWritingSamples } from '../data/writingWork'
 import {
   ProjectsHero,
   ProjectsFilterBar,
@@ -11,6 +12,7 @@ import {
   ProjectsSeoSection,
   ProjectsPaidAdsSection,
   ProjectsDesignSection,
+  ProjectsWritingSection,
   WorkArchiveModal,
   WorkImageModal,
   VideoPlayerModal,
@@ -28,6 +30,7 @@ const filterTabs = [
   { id: 'SEO', label: 'SEO' },
   { id: 'Paid ads', label: 'Paid ads' },
   { id: 'Branding', label: 'Branding' },
+  { id: 'Writing', label: 'Writing' },
 ]
 
 function resolveInitialFilter(initialView) {
@@ -40,6 +43,8 @@ function resolveInitialFilter(initialView) {
   if (normalized === 'seo') return 'SEO'
   if (normalized === 'paid ads' || normalized === 'performance' || normalized === 'paid') return 'Paid ads'
   if (normalized === 'branding' || normalized === 'design') return 'Branding'
+  if (normalized === 'writing' || normalized === 'copy' || normalized === 'content' || normalized === 'scripts')
+    return 'Writing'
   return 'All'
 }
 
@@ -61,6 +66,8 @@ const videoWorkSections = [
   },
 ]
 
+const allWritingSamples = [...contentWritingSamples, ...videoScriptSamples]
+
 const websiteProjects = [
   {
     name: 'Jarixo',
@@ -68,7 +75,7 @@ const websiteProjects = [
     domain: 'jarixo.com',
     platform: 'Shopify',
     category: 'Wellness E-commerce platform',
-    screenshot: '/website-shots/jarixo.com.png',
+    screenshot: '/website-shots/jarixo.com.webp',
     summary:
       'A premium wellness storefront built around calm visual storytelling, product discovery, and a smoother path to purchase.',
   },
@@ -102,16 +109,6 @@ const websiteProjects = [
     summary: 'Company website structure for a garments accessories business.',
   },
   {
-    name: 'StitchBD',
-    url: 'https://stitchbd.net',
-    domain: 'stitchbd.net',
-    platform: 'React / Next.js',
-    category: 'Fashion E-commerce platform',
-    screenshot: '/website-shots/stitchbd.png',
-    summary:
-      'A modern fashion e-commerce storefront designed to present traditional Punjabi and Burka collections through a clean, conversion-focused shopping journey.',
-  },
-  {
     name: 'BD For Palestine',
     url: 'https://bdforpalestine.org/',
     domain: 'bdforpalestine.org',
@@ -126,19 +123,9 @@ const websiteProjects = [
     domain: 'rihawebtech.com',
     platform: 'React / Next.js',
     category: 'Agency platform',
-    screenshot: '/website-shots/rihawebtech.png',
+    screenshot: '/website-shots/rihawebtech.webp',
     summary:
       'A modern digital agency website showcasing enterprise software development, digital solutions, and client capabilities with responsive architecture.',
-  },
-  {
-    name: 'Dont Validate Labels',
-    url: 'https://dontvalidatelabels.store/',
-    domain: 'dontvalidatelabels.store',
-    platform: 'WordPress',
-    category: 'E-commerce Apparel store',
-    screenshot: '/website-shots/dontvalidatelabels.png',
-    summary:
-      'An urban apparel store experience built with bold aesthetic identity, streamlined product discovery, and friction-free mobile checkout.',
   },
   {
     name: 'Dr. Shafiul Islam Kawsar',
@@ -146,7 +133,7 @@ const websiteProjects = [
     domain: 'drshafiulahmedkawsar.vercel.app',
     platform: 'React / Next.js',
     category: 'Personal brand website',
-    screenshot: '/website-shots/dr-shafiul-islam-kawsar.png',
+    screenshot: '/website-shots/dr-shafiul-islam-kawsar.webp',
     summary:
       'A professional personal website presenting academic credentials, medical insight, and digital thought leadership in an accessible structure.',
   },
@@ -156,7 +143,7 @@ const websiteProjects = [
     domain: 'pharmacity.com.bd',
     platform: 'WordPress',
     category: 'Healthcare website',
-    screenshot: '/website-shots/pharmacity.png',
+    screenshot: '/website-shots/pharmacity.webp',
     summary:
       'A responsive healthcare and pharmacy platform structured for accessible service discovery, patient trust, and mobile browsing.',
   },
@@ -166,7 +153,7 @@ const websiteProjects = [
     domain: 'planabroad.org',
     platform: 'WordPress',
     category: 'Education & Study Abroad platform',
-    screenshot: '/website-shots/plan-abroad.png',
+    screenshot: '/website-shots/plan-abroad.webp',
     summary:
       'An international study-abroad advisory platform engineered to guide students through global university planning, visa prep, and consultations.',
   },
@@ -176,7 +163,7 @@ const websiteProjects = [
     domain: 'nazmulhoq.com',
     platform: 'WordPress',
     category: 'Personal brand website',
-    screenshot: '/website-shots/Nazmulhoq.png',
+    screenshot: '/website-shots/Nazmulhoq.webp',
     summary:
       'A polished personal brand platform communicating professional consulting services, public profile, and strategic business leadership.',
   },
@@ -186,7 +173,7 @@ const websiteProjects = [
     domain: 'businessclub.com.bd',
     platform: 'React / Next.js',
     category: 'Corporate community platform',
-    screenshot: '/website-shots/businessclub.png',
+    screenshot: '/website-shots/businessclub.webp',
     summary:
       'A business community platform built to present corporate initiatives, professional networking events, and member resources.',
   },
@@ -205,7 +192,7 @@ const websiteProjects = [
     domain: 'realestate.framecipher.info',
     platform: 'React / Next.js',
     category: 'Real estate platform',
-    screenshot: '/website-shots/real-estate-demo.png',
+    screenshot: '/website-shots/real-estate-demo.webp',
     summary:
       'A premium real estate platform demo designed for high-value property showcases, virtual walkthroughs, neighborhood insights, and direct buyer inquiry capture.',
   },
@@ -215,7 +202,7 @@ const websiteProjects = [
     domain: 'ecommerce.framecipher.info',
     platform: 'React / Next.js',
     category: 'E-commerce storefront',
-    screenshot: '/website-shots/ecommerce-demo.png',
+    screenshot: '/website-shots/ecommerce-demo.webp',
     summary:
       'A modern lifestyle and beauty e-commerce storefront engineered for seamless mobile browsing, dynamic product catalogs, and high-conversion checkouts.',
   },
@@ -225,7 +212,7 @@ const websiteProjects = [
     domain: 'mahedi.framecipher.info',
     platform: 'React / Next.js',
     category: 'Personal portfolio',
-    screenshot: '/website-shots/mahedi-hasan-perves-portfolio.png',
+    screenshot: '/website-shots/mahedi-hasan-perves-portfolio.webp',
     summary:
       'Personal portfolio showcasing technical SEO campaigns, full-stack web platforms, performance marketing systems, and agency growth engineering.',
   },
@@ -237,6 +224,26 @@ const websiteProjects = [
     category: 'Web product',
     screenshot: '/website-shots/business-byte.webp',
     summary: 'Digital business resource presented as a lightweight web experience.',
+  },
+  {
+    name: 'Thrive Clothing',
+    url: 'https://thriveclothing.online/',
+    domain: 'thriveclothing.online',
+    platform: 'WordPress',
+    category: 'Fashion E-commerce store',
+    screenshot: '/website-shots/thriveclothing.online.webp',
+    summary:
+      'A WordPress fashion storefront for apparel collections, built around clean product browsing, category discovery, and a straightforward path to checkout.',
+  },
+  {
+    name: 'Derma Ghor',
+    url: 'https://dermaghor.com/',
+    domain: 'dermaghor.com',
+    platform: 'React / Next.js',
+    category: 'Skincare E-commerce platform',
+    screenshot: '/website-shots/dermaghor.com.webp',
+    summary:
+      'A Next.js skincare e-commerce platform for authentic imported products from France, Korea, USA, UK, and Japan, with guided product discovery and nationwide delivery.',
   },
 ]
 
@@ -281,6 +288,7 @@ export default function ProjectsPage({ initialView = null }) {
       else if (hash.includes('seo')) setActiveFilter('SEO')
       else if (hash.includes('paid-ads')) setActiveFilter('Paid ads')
       else if (hash.includes('branding')) setActiveFilter('Branding')
+      else if (hash.includes('writing')) setActiveFilter('Writing')
     }
     window.addEventListener('hashchange', handleHashChange)
     return () => window.removeEventListener('hashchange', handleHashChange)
@@ -408,6 +416,15 @@ export default function ProjectsPage({ initialView = null }) {
     )
   })
 
+  const filteredWriting = allWritingSamples.filter((sample) => {
+    if (!q) return true
+    return (
+      sample.title.toLowerCase().includes(q) ||
+      (sample.client && sample.client.toLowerCase().includes(q)) ||
+      sample.category.toLowerCase().includes(q)
+    )
+  })
+
   const matchesBranding =
     !q ||
     'branding'.includes(q) ||
@@ -431,6 +448,8 @@ export default function ProjectsPage({ initialView = null }) {
     filteredPaidAds.length > 0
   const isBrandingVisible =
     (activeFilter === 'All' || activeFilter === 'Branding') && matchesBranding
+  const isWritingVisible =
+    (activeFilter === 'All' || activeFilter === 'Writing') && filteredWriting.length > 0
 
   const hasZeroMatches =
     q !== '' &&
@@ -439,7 +458,8 @@ export default function ProjectsPage({ initialView = null }) {
     !isShortVideosVisible &&
     !isSeoVisible &&
     !isPaidAdsVisible &&
-    !isBrandingVisible
+    !isBrandingVisible &&
+    !isWritingVisible
 
   return (
     <main className="bg-frame-bg text-frame-fg">
@@ -479,8 +499,10 @@ export default function ProjectsPage({ initialView = null }) {
         />
       )}
 
+      {isWritingVisible && <ProjectsWritingSection samples={filteredWriting} />}
+
       {hasZeroMatches && (
-        <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-12 text-center">
+        <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-6 text-center sm:p-12">
           <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">No matches</p>
           <h3 className="mt-4 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-5xl">
             No projects found matching &ldquo;{searchQuery}&rdquo;

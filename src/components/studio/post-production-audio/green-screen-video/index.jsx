@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +31,15 @@ export default function GreenScreenVideoService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="commercial"
+        eyebrow="Studio Deployments"
+        title="Green Screen & Virtual Set Portfolio"
+        description="Keyed studio presenters, virtual backdrops, and explainer content produced on our green screen stage."
+        buttonText="Explore Studio Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfService />

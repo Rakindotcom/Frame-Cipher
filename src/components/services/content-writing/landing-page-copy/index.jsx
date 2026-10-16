@@ -1,4 +1,5 @@
 import { TypeMarquee } from '../../../Kinetic'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import Hero from './Hero'
 import Overview from './Overview'
@@ -35,6 +36,13 @@ export default function ContentWritingLandingPageCopyService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        category="Landing Page Copy"
+        eyebrow="Published writing samples"
+        title="Landing page copy portfolio."
+        description="Conversion-focused landing and product page copy built around one goal, clear structure, and message match."
+      />
       <Overview />
       <Offerings />
       <PagesWeWrite />

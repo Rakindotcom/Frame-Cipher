@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import CaseStudyDetailPage from '../../../src/views/CaseStudyDetailPage'
 import { getGrowthCaseStudyBySlug, getGrowthCaseStudySlugs } from '../../../src/data/growthWork'
 import { buildCaseStudySchema } from '../../../src/lib/seo/schema'
+import { withBrandSuffix, clampMetaDescription } from '../../../src/lib/seo/metadata'
 
 export function generateStaticParams() {
   return getGrowthCaseStudySlugs().map((slug) => ({ slug }))
@@ -15,8 +16,11 @@ export async function generateMetadata({ params }) {
     return {}
   }
 
-  const title = `${study.title} | Frame Cipher Case Study`
-  const description = study.summary
+  // "| Frame Cipher Case Study" is dropped whenever it would push the title
+  // past the ~60 character SERP limit, and the summary is clamped so Google
+  // never truncates the description mid-word.
+  const title = withBrandSuffix(study.title, ' | Frame Cipher Case Study')
+  const description = clampMetaDescription(study.summary)
 
   return {
     title,
@@ -28,7 +32,7 @@ export async function generateMetadata({ params }) {
       title,
       description,
       url: `/case-studies/${study.slug}`,
-      images: [study.image?.src || '/logo.png'],
+      images: [study.image?.src || '/og-image.png'],
     },
   }
 }

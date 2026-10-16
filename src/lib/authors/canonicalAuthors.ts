@@ -7,7 +7,7 @@ export const CANONICAL_AUTHORS: AuthorProfile[] = [
     slug: "mahedi-hasan-perves",
     jobTitle: "Founder · SEO & Digital Marketing Expert",
     image: {
-      url: "/Founders/Mahedi Hasan Perves.png",
+      url: "/Founders/Mahedi Hasan Perves.webp",
       alt: "Mahedi Hasan Perves, Founder, SEO & Digital Marketing Expert at FrameCipher",
       hasAlt: true,
     },

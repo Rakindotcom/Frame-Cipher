@@ -31,17 +31,17 @@ export function resolveAuthorImage(authorName?: string, customImage?: string): s
   if (customImage && typeof customImage === "string" && customImage.trim() && customImage !== "/logo.png") {
     return customImage;
   }
-  if (!authorName) return "/Founders/Mahedi Hasan Perves.png";
+  if (!authorName) return "/Founders/Mahedi Hasan Perves.webp";
 
   const lower = authorName.toLowerCase();
   if (lower.includes("mahedi") || lower.includes("perves") || lower.includes("hasan")) {
-    return "/Founders/Mahedi Hasan Perves.png";
+    return "/Founders/Mahedi Hasan Perves.webp";
   }
   if (lower.includes("nahid") || lower.includes("zaman") || lower.includes("joy")) {
-    return "/Founders/Nahid Bin Zaman.jpeg";
+    return "/Founders/Nahid Bin Zaman.webp";
   }
   if (lower.includes("rakin") || lower.includes("shahriar")) {
-    return "/Founders/Rakin Al Shahriar.png";
+    return "/Founders/Rakin Al Shahriar.webp";
   }
-  return "/Founders/Mahedi Hasan Perves.png";
+  return "/Founders/Mahedi Hasan Perves.webp";
 }

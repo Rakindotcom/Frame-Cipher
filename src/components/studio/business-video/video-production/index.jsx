@@ -11,6 +11,8 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +32,24 @@ export default function VideoProductionService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="commercial"
+        eyebrow="Studio Deployments"
+        title="Our Video Production Portfolio"
+        description="Commercials, brand films, and social video produced end-to-end at FrameCipher Studio in Dhaka."
+        buttonText="Explore Video Work →"
+        buttonHref="/projects#video-work"
+      />
+
+      <WritingPortfolioPreview
+        type="video"
+        eyebrow="Script writing samples"
+        title="Video script writing portfolio."
+        description="A sample of scripts written for our studio productions — product videos, brand films, motion ads, and documentaries."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
+      />
 
       <AtGlance />
       <TypesOfVideo />

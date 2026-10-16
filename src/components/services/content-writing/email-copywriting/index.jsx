@@ -1,4 +1,5 @@
 import { TypeMarquee } from '../../../Kinetic'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import Hero from './Hero'
 import AttentionClarityAction from './AttentionClarityAction'
@@ -32,6 +33,12 @@ export default function ContentWritingEmailCopywritingService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        eyebrow="Published writing samples"
+        title="Writing samples archive."
+        description="A cross-section of delivered writing — guides, service pages, product copy, and campaign copy."
+      />
       <AttentionClarityAction />
       <Offerings />
       <HowWeBuild />

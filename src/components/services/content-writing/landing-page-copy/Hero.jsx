@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
@@ -53,12 +55,12 @@ export default function Hero() {
             For Paid Campaigns, Lead Generation, Launches &amp; Registrations
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/landing-page-copy" allowed={["/services/website-design-development/landing-pages"]}>
             Framecipher provides Landing Page Copywriting Service in Bangladesh for businesses that need
             focused, persuasive copy built around one primary conversion goal. We write landing pages for paid
             campaigns, lead generation, product launches, consultations, registrations, SaaS trials, and other
             campaign-specific offers.
-          </p>
+          </AutoLinks></p>
           <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We start with the offer, audience, traffic source, and desired action. Then we build the message,
             structure, proof, objections, and calls to action around that goal.

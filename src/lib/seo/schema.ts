@@ -106,8 +106,6 @@ export function buildServiceSchema(page: any) {
   });
 
   const graph: Array<Record<string, unknown>> = [
-    buildOrganizationSchema(),
-    buildWebSiteSchema(),
     webPageEntity,
     serviceEntity,
     buildBreadcrumbSchema(crumbs, pageUrl),
@@ -151,8 +149,6 @@ export function buildLegacyServiceSchema(service: any) {
   });
 
   const graph: Array<Record<string, unknown>> = [
-    buildOrganizationSchema(),
-    buildWebSiteSchema(),
     webPageEntity,
     serviceEntity,
     buildBreadcrumbSchema(crumbs, pageUrl),
@@ -186,7 +182,7 @@ export function generateCaseStudySchema(study: CaseStudySchemaOptions | any) {
 
   const imageUrl = study.image?.src
     ? (study.image.src.startsWith("http") ? study.image.src : `${base}${study.image.src.startsWith("/") ? study.image.src : `/${study.image.src}`}`)
-    : `${base}/logo.png`;
+    : `${base}/og-image.png`;
 
   const articleEntity: Record<string, unknown> = {
     "@type": "Article",
@@ -241,8 +237,6 @@ export function buildCaseStudySchema(study: any) {
   ];
 
   const graph: Array<Record<string, unknown>> = [
-    buildOrganizationSchema(),
-    buildWebSiteSchema(),
     webPageEntity,
     articleEntity,
     buildBreadcrumbSchema(crumbs, pageUrl),
@@ -294,8 +288,6 @@ export function buildBlogPostingSchema(post: any) {
   ];
 
   const graph: Array<Record<string, unknown>> = [
-    buildOrganizationSchema(),
-    buildWebSiteSchema(),
     personEntity,
     webPageEntity,
     articleEntity,
@@ -332,13 +324,8 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
   const canonicalClean = canonical.replace(/\/$/, "");
   const graph: Array<Record<string, unknown>> = [];
 
-  const org = generateOrganizationSchema();
-  const website = generateWebsiteSchema();
-
   switch (pageType) {
     case "homepage": {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           url: `${base}/`,
@@ -350,8 +337,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     case "services": {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           type: "CollectionPage",
@@ -377,9 +362,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
       const serviceDesc = s.metaDescription || s.shortDesc || s.description || data.description || "";
       const serviceUrl = s.fullPath || canonical;
       const cleanServiceUrl = (serviceUrl.startsWith("http") ? serviceUrl : `${base}${serviceUrl.startsWith("/") ? serviceUrl : `/${serviceUrl}`}`).replace(/\/$/, "");
-
-      graph.push(org);
-      graph.push(website);
 
       const serviceEntity = generateServiceSchema({
         url: cleanServiceUrl,
@@ -415,8 +397,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     case "blog": {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           type: "CollectionPage",
@@ -438,9 +418,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     case "article": {
       const art = data.article || {};
       const artUrl = (art.canonicalUrl || canonical).replace(/\/$/, "");
-
-      graph.push(org);
-      graph.push(website);
 
       const authorName = art.author || "Mahedi Hasan Perves";
       const authorSlug = authorName.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -491,8 +468,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     case "case-studies": {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           type: "CollectionPage",
@@ -514,9 +489,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     case "case-study": {
       const cs = data.caseStudy || {};
       const csUrl = (cs.canonicalUrl || canonical).replace(/\/$/, "");
-
-      graph.push(org);
-      graph.push(website);
 
       const csEntity = generateCaseStudySchema({
         slug: cs.slug,
@@ -549,8 +521,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     case "about": {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           type: "AboutPage",
@@ -570,8 +540,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     case "contact": {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           type: "ContactPage",
@@ -595,7 +563,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
       const autSlug = aut.slug || (aut.name ? aut.name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") : "author");
       const autUrl = `${base}/authors/${autSlug}/`;
 
-      graph.push(org);
       graph.push(
         generatePersonSchema({
           name: aut.name || "Author",
@@ -630,8 +597,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     case "local-service": {
-      graph.push(org);
-      graph.push(website);
       graph.push(generateLocalBusinessSchema());
       const s = data.service || {};
       const serviceName = s.name || s.title || data.title || "Local Service";
@@ -671,8 +636,6 @@ export function generatePageSchema({ pageType, data }: PageSchemaPayload): Schem
     }
 
     default: {
-      graph.push(org);
-      graph.push(website);
       graph.push(
         generateWebPageSchema({
           url: canonical,

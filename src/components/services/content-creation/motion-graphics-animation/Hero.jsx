@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
@@ -76,9 +78,9 @@ export default function Hero({ service }) {
             <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Motion Graphics Built to Explain, Demonstrate & Move Ideas
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/motion-graphics-animation" allowed={["/services/content-creation/graphic-design"]}>
               Motion graphics combines graphic design, typography, illustration, visual elements, timing, movement, and sound to communicate something through motion. The goal is not simply to make a graphic move. The goal is to help the audience understand, remember, or act on a message.
-            </p>
+            </AutoLinks></p>
           </div>
 
           {/* 4 PILLARS GRID */}

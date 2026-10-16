@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const serviceRoles = [
@@ -67,9 +69,9 @@ export default function ContentVsStrategy() {
                 <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-accent">
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-accent"><AutoLinks currentPath="/services/content-creation" allowed={["/services/social-media-management/community-management"]}>
                   {item.lead}
-                </p>
+                </AutoLinks></p>
                 <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
@@ -123,9 +125,9 @@ export default function ContentVsStrategy() {
           </div>
 
           <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-fg max-w-xl">
+            <p className="text-xs sm:text-sm font-medium text-frame-fg max-w-xl"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-writing/content-strategy"]}>
               Already have a content strategy in place? We produce against your established brief. Need strategy first? Our strategy team can map your plan before production starts.
-            </p>
+            </AutoLinks></p>
             <PosterButton href="/contact" className="shrink-0">
               Build Your Content Production Plan &rarr;
             </PosterButton>

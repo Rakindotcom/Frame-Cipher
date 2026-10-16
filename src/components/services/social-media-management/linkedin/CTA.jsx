@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton, SectionIntro } from '../../../Kinetic'
 
 const included = [
@@ -28,14 +30,14 @@ export default function CTA() {
               people understand your business, recognize your expertise, trust your leadership, and
               see why your company is worth a conversation.
             </p>
-            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/content-creation"]}>
               Framecipher brings LinkedIn strategy, Company Page management, executive profiles, thought
               leadership, content creation, profile optimization, engagement, employee advocacy,
               publishing, and reporting together under one in-house team. Whether you are building a
               stronger LinkedIn presence in Bangladesh or targeting professional audiences
               internationally, we can build the management scope around your business, audience,
               industry, executives, and goals.
-            </p>
+            </AutoLinks></p>
 
             <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
               {included.map((item) => (

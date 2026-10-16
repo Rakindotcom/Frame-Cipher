@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton } from '../../../Kinetic'
 
 const costDrivers = [
@@ -127,9 +129,9 @@ export default function Pricing() {
           <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
             Webflow Development Pricing &amp; Timeline
           </h2>
-          <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/webflow" allowed={["/services/website-design-development/custom-development"]}>
             Webflow development pricing depends on design complexity, CMS architecture, page count, interactions, integrations, and the amount of custom development required.
-          </p>
+          </AutoLinks></p>
         </div>
 
         {/* COST DRIVERS */}

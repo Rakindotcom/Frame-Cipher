@@ -13,6 +13,7 @@ import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 const marqueeItems = [
   'Content Audits',
@@ -30,6 +31,13 @@ export default function ContentWritingContentStrategyService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        category="Content Strategy"
+        eyebrow="Published writing samples"
+        title="Content strategy portfolio."
+        description="Pillar plans, editorial calendars, and content briefs built before a single word is written."
+      />
       <StrategyFirst />
       <Offerings service={service} />
       <WhyItMatters />

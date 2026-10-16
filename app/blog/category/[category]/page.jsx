@@ -10,6 +10,7 @@ import {
 } from "@/lib/blog/getBlogPosts";
 import { buildCategoryMetadata } from "@/lib/seo/metadata";
 import { WordPressSidebar } from "@/components/blog/WordPressSidebar";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { getPublicBlogPosts, getPublicCategories } from "@/lib/blog/serverBlogStorage";
 
 export const dynamic = "force-dynamic";
@@ -25,22 +26,10 @@ export async function generateStaticParams() {
     }));
 }
 
-export async function generateMetadata({ params }) {
-  const { category: catSlug } = await params;
-  const dbCategories = await getPublicCategories().catch(() => []);
-  const categoryName =
-    blogCategoryFromSlug(catSlug, dbCategories) ||
-    catSlug.replace(/-/g, " ");
-  return buildCategoryMetadata(
-    categoryName,
-    `Articles, playbooks, and strategic analysis for ${categoryName}.`,
-    `/blog/category/${catSlug}`
-  );
-}
-
-export default async function CategoryPage({ params }) {
-  const { category: catSlug } = await params;
-
+// Resolves everything both generateMetadata and the page body need, so the
+// <title> and the on-page <h1> can never disagree about a category's casing
+// (previously the metadata fell back to the raw slug: "app development").
+async function resolveCategoryContext(catSlug) {
   let allPosts = getAllCanonicalPosts();
   let dbCategories = [];
   try {
@@ -72,6 +61,24 @@ export default async function CategoryPage({ params }) {
     blogCategoryFromSlug(catSlug, dynamicCategories) ||
     catSlug.replace(/-/g, " ");
 
+  return { allPosts, dynamicCategories, categoryName };
+}
+
+export async function generateMetadata({ params }) {
+  const { category: catSlug } = await params;
+  const { categoryName } = await resolveCategoryContext(catSlug);
+  return buildCategoryMetadata(
+    categoryName,
+    `Strategic articles, operational playbooks, and technical breakdowns for ${categoryName}, published by the Frame Cipher growth team in Dhaka.`,
+    `/blog/category/${catSlug}`
+  );
+}
+
+export default async function CategoryPage({ params }) {
+  const { category: catSlug } = await params;
+
+  const { allPosts, dynamicCategories, categoryName } = await resolveCategoryContext(catSlug);
+
   const categoryPosts = allPosts.filter(
     (p) =>
       p.status === "published" &&
@@ -82,6 +89,13 @@ export default async function CategoryPage({ params }) {
 
   return (
     <div className="min-h-screen bg-[#09090B] text-[#FAFAFA] font-sans">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: categoryName, url: `/blog/category/${catSlug}` },
+        ]}
+      />
       <div className="pt-24 pb-14 px-4 sm:px-6 lg:px-8 border-b border-[#27272A] bg-linear-to-b from-[#130E1C] to-[#09090B]">
         <div className="max-w-7xl mx-auto space-y-4">
           <nav className="flex items-center gap-2 text-xs font-heading uppercase tracking-[0.2em] text-[#A1A1AA]">
@@ -175,7 +189,7 @@ export default async function CategoryPage({ params }) {
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl bg-[#121216] border-2 border-frame-border p-12 text-center space-y-4">
+              <div className="rounded-2xl bg-[#121216] border-2 border-frame-border p-6 text-center space-y-4 sm:p-12">
                 <BookOpen className="h-10 w-10 text-frame-muted-fg mx-auto opacity-50" />
                 <h3 className="font-heading text-xl font-bold uppercase text-white">No articles published yet</h3>
                 <p className="text-sm text-frame-muted-fg max-w-md mx-auto">

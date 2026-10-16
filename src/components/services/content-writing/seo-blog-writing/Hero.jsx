@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
@@ -59,10 +61,10 @@ export default function Hero() {
             in Bangladesh for SMEs, startups, ecommerce businesses, and established brands, with content
             support for international markets including the US, UK, Australia, Canada, and UAE.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/seo-blog-writing" allowed={["/services/seo/keyword-research"]}>
             Our in-house team combines keyword research, search-intent analysis, content planning, SEO
             writing, editing, internal linking, and content refresh support into one workflow.
-          </p>
+          </AutoLinks></p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-frame-fg md:gap-3 md:text-sm">
             <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Dhaka &amp; Bangladesh</span>

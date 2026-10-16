@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import {
   BASE_URL,
-  SITE_CONTENT_UPDATED,
+  latestContentDate,
   xmlEscape,
 } from "../../src/lib/seo/sitemapData";
 
 export const revalidate = 3600;
 
 export function GET() {
+  const indexLastModified = latestContentDate().toISOString();
   const children = [
     "post-sitemap.xml",
     "page-sitemap.xml",
@@ -17,7 +18,7 @@ export function GET() {
     .map(
       (name) => `  <sitemap>
     <loc>${xmlEscape(`${BASE_URL}/${name}`)}</loc>
-    <lastmod>${SITE_CONTENT_UPDATED.toISOString()}</lastmod>
+    <lastmod>${indexLastModified}</lastmod>
   </sitemap>`
     )
     .join("\n");

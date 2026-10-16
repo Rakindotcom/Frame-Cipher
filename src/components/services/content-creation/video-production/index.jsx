@@ -11,6 +11,7 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 const marqueeItems = [
   'Commercial Videos',
@@ -45,6 +46,14 @@ export default function ContentCreationVideoProductionService({ service }) {
         description="Cinema-grade brand commercials, dynamic product promotional reels, and corporate films engineered for high visual impact."
         buttonText="Explore Video Projects →"
         buttonHref="/projects#long-video-work"
+      />
+      <WritingPortfolioPreview
+        type="video"
+        eyebrow="Script writing samples"
+        title="Video script writing portfolio."
+        description="Commercial, corporate, product, and documentary scripts written before a single frame is shot."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
       />
       <Offerings />
       <VideoTypes />

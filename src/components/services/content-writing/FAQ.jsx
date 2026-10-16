@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro } from '../../Kinetic'
 import { resolveFaqs } from '../../../lib/seo/faq'
 
@@ -103,9 +105,9 @@ export default function FAQ({ service }) {
                     className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
                       pIdx > 0 ? 'mt-4' : ''
                     }`}
-                  >
+                  ><AutoLinks currentPath="/services/content-writing" allowed={["/services/content-writing/product-descriptions"]}>
                     {paragraph}
-                  </p>
+                  </AutoLinks></p>
                 ))}
               </div>
             </details>

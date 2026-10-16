@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton } from '../../../Kinetic'
 
 const packages = [
@@ -134,9 +136,9 @@ export default function Pricing() {
                   <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {pkg.name}
                   </h3>
-                  <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                  <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent"><AutoLinks currentPath="/services/website-design-development/wordpress" allowed={["/services/website-design-development/custom-development"]}>
                     {pkg.price}
-                  </p>
+                  </AutoLinks></p>
                   {pkg.timeline && (
                     <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
                       Typical Delivery: {pkg.timeline}

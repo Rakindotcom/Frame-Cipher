@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 import { resolveFaqs } from '../../../../lib/seo/faq'
 
@@ -100,9 +102,9 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t border-frame-border p-6 pt-5 md:p-7 md:pt-5">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/paid-advertising/amazon-ads" allowed={["/services/website-design-development/landing-pages"]}>
                   {faq.answer}
-                </p>
+                </AutoLinks></p>
               </div>
             </details>
           ))}

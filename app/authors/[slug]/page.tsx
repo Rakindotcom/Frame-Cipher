@@ -6,6 +6,7 @@ import { getPublicAuthorBySlug } from "@/lib/authors/serverAuthorStorage";
 import { getPublicBlogPosts } from "@/lib/blog/serverBlogStorage";
 import { buildPersonSchema } from "@/lib/schema/personSchema";
 import { BASE_URL } from "@/lib/seo/site";
+import { withBrandSuffix, clampMetaDescription } from "@/lib/seo/metadata";
 import { getMergedPostsFromStorage, isLegacyDemoPost } from "@/lib/blog/getBlogPosts";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { generatePageSchema } from "@/lib/seo/schema";
@@ -32,10 +33,6 @@ function initialsOf(name: string): string {
     .toUpperCase();
 }
 
-function withBrandSuffix(value: string): string {
-  return /\|\s*Frame\s*Cipher/i.test(value) ? value : `${value} | Frame Cipher`;
-}
-
 export async function generateMetadata({
   params,
 }: {
@@ -53,20 +50,22 @@ export async function generateMetadata({
 
   const ogImage = author.image?.url;
   const authorTitle = withBrandSuffix(
-    author.seoTitle || `${author.name} â€” ${author.jobTitle}`
+    author.seoTitle || `${author.name} — ${author.jobTitle}`
+  );
+  const authorDescription = clampMetaDescription(
+    author.metaDescription ||
+      author.shortBio ||
+      `Author profile for ${author.name} at FrameCipher.`
   );
   const metadata: Metadata = {
     title: authorTitle,
-    description:
-      author.metaDescription ||
-      author.shortBio ||
-      `Author profile for ${author.name} at FrameCipher.`,
+    description: authorDescription,
     alternates: {
       canonical: `${BASE_URL}/authors/${author.slug}`,
     },
     openGraph: {
       title: authorTitle,
-      description: author.metaDescription || author.shortBio,
+      description: authorDescription,
       url: `${BASE_URL}/authors/${author.slug}`,
       type: "profile",
       images: ogImage
@@ -81,7 +80,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary",
       title: authorTitle,
-      description: author.metaDescription || author.shortBio,
+      description: authorDescription,
     },
     robots: {
       index: true,

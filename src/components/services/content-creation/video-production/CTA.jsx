@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton } from '../../../Kinetic'
 
 export default function CTA() {
@@ -12,9 +14,9 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-[clamp(2.4rem,6vw,5.5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
               Start Your Video Production Project
             </h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-6 max-w-2xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/studio/corporate-video-production"]}>
               Have an idea for a corporate video, brand film, product video, commercial, or social campaign? Let&apos;s turn the idea into a clear production plan. Tell us what you want to create, where the video will be used, who it needs to reach, and what you want it to achieve.
-            </p>
+            </AutoLinks></p>
 
             <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
               <PosterButton href="/contact">

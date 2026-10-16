@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const searchSignals = [
@@ -160,12 +162,12 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Views alone do not tell the whole story
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/content-writing/content-strategy"]}>
                 A successful content strategy should consider whether viewers found the video useful,
                 enjoyable, relevant, or worth returning to. YouTube&rsquo;s recommendation guidance
                 describes content performance through three broad areas: appeal, engagement, and
                 satisfaction.
-              </p>
+              </AutoLinks></p>
             </div>
 
             <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">

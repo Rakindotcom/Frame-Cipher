@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const plans = [
@@ -147,9 +149,9 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/seo-audit" allowed={["/services/website-design-development/business-website"]}>
                 {plan.note}
-              </p>
+              </AutoLinks></p>
 
               <div className="mt-auto pt-8">
                 <PosterButton

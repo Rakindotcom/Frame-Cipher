@@ -18,7 +18,7 @@ export const websiteProjects = [
       'maintenance',
       'webflow',
     ],
-    screenshot: '/website-shots/jarixo.com.png',
+    screenshot: '/website-shots/jarixo.com.webp',
     summary:
       'A premium wellness storefront built around calm visual storytelling, product discovery, and a smoother path to purchase.',
   },
@@ -61,23 +61,6 @@ export const websiteProjects = [
     summary: 'Company website structure for a garments accessories business.',
   },
   {
-    name: 'StitchBD',
-    url: 'https://stitchbd.net',
-    domain: 'stitchbd.net',
-    platform: 'React / Next.js',
-    category: 'Fashion E-commerce platform',
-    tags: [
-      'ecommerce',
-      'ecommerce-website',
-      'custom-development',
-      'magento',
-      'ui-ux-design',
-    ],
-    screenshot: '/website-shots/stitchbd.png',
-    summary:
-      'A modern fashion e-commerce storefront designed to present traditional Punjabi and Burka collections through a clean, conversion-focused shopping journey.',
-  },
-  {
     name: 'BD For Palestine',
     url: 'https://bdforpalestine.org/',
     domain: 'bdforpalestine.org',
@@ -94,26 +77,9 @@ export const websiteProjects = [
     platform: 'React / Next.js',
     category: 'Agency platform',
     tags: ['business-website', 'custom-development', 'redesign', 'webflow'],
-    screenshot: '/website-shots/rihawebtech.png',
+    screenshot: '/website-shots/rihawebtech.webp',
     summary:
       'A modern digital agency website showcasing enterprise software development, digital solutions, and client capabilities with responsive architecture.',
-  },
-  {
-    name: 'Dont Validate Labels',
-    url: 'https://dontvalidatelabels.store/',
-    domain: 'dontvalidatelabels.store',
-    platform: 'WordPress',
-    category: 'E-commerce Apparel store',
-    tags: [
-      'wordpress',
-      'ecommerce',
-      'ecommerce-website',
-      'magento',
-      'landing-pages',
-    ],
-    screenshot: '/website-shots/dontvalidatelabels.png',
-    summary:
-      'An urban apparel store experience built with bold aesthetic identity, streamlined product discovery, and friction-free mobile checkout.',
   },
   {
     name: 'Dr. Shafiul Islam Kawsar',
@@ -122,7 +88,7 @@ export const websiteProjects = [
     platform: 'React / Next.js',
     category: 'Personal brand website',
     tags: ['business-website', 'landing-pages'],
-    screenshot: '/website-shots/dr-shafiul-islam-kawsar.png',
+    screenshot: '/website-shots/dr-shafiul-islam-kawsar.webp',
     summary:
       'A professional personal website presenting academic credentials, medical insight, and digital thought leadership in an accessible structure.',
   },
@@ -133,7 +99,7 @@ export const websiteProjects = [
     platform: 'WordPress',
     category: 'Healthcare website',
     tags: ['wordpress', 'business-website', 'redesign', 'maintenance'],
-    screenshot: '/website-shots/pharmacity.png',
+    screenshot: '/website-shots/pharmacity.webp',
     summary:
       'A responsive healthcare and pharmacy platform structured for accessible service discovery, patient trust, and mobile browsing.',
   },
@@ -144,7 +110,7 @@ export const websiteProjects = [
     platform: 'WordPress',
     category: 'Education & Study Abroad platform',
     tags: ['wordpress', 'business-website', 'maintenance'],
-    screenshot: '/website-shots/plan-abroad.png',
+    screenshot: '/website-shots/plan-abroad.webp',
     summary:
       'An international study-abroad advisory platform engineered to guide students through global university planning, visa prep, and consultations.',
   },
@@ -155,7 +121,7 @@ export const websiteProjects = [
     platform: 'WordPress',
     category: 'Personal brand website',
     tags: ['wordpress', 'business-website', 'wix'],
-    screenshot: '/website-shots/Nazmulhoq.png',
+    screenshot: '/website-shots/Nazmulhoq.webp',
     summary:
       'A polished personal brand platform communicating professional consulting services, public profile, and strategic business leadership.',
   },
@@ -166,7 +132,7 @@ export const websiteProjects = [
     platform: 'React / Next.js',
     category: 'Corporate community platform',
     tags: ['business-website', 'wix', 'custom-development'],
-    screenshot: '/website-shots/businessclub.png',
+    screenshot: '/website-shots/businessclub.webp',
     summary:
       'A business community platform built to present corporate initiatives, professional networking events, and member resources.',
   },
@@ -187,7 +153,7 @@ export const websiteProjects = [
     platform: 'React / Next.js',
     category: 'Real estate platform',
     tags: ['custom-development', 'landing-pages', 'ui-ux-design'],
-    screenshot: '/website-shots/real-estate-demo.png',
+    screenshot: '/website-shots/real-estate-demo.webp',
     summary:
       'A premium real estate platform demo designed for high-value property showcases, virtual walkthroughs, neighborhood insights, and direct buyer inquiry capture.',
   },
@@ -198,7 +164,7 @@ export const websiteProjects = [
     platform: 'React / Next.js',
     category: 'E-commerce storefront',
     tags: ['ecommerce', 'ecommerce-website', 'shopify', 'magento'],
-    screenshot: '/website-shots/ecommerce-demo.png',
+    screenshot: '/website-shots/ecommerce-demo.webp',
     summary:
       'A modern lifestyle and beauty e-commerce storefront engineered for seamless mobile browsing, dynamic product catalogs, and high-conversion checkouts.',
   },
@@ -209,7 +175,7 @@ export const websiteProjects = [
     platform: 'React / Next.js',
     category: 'Personal portfolio',
     tags: ['custom-development'],
-    screenshot: '/website-shots/mahedi-hasan-perves-portfolio.png',
+    screenshot: '/website-shots/mahedi-hasan-perves-portfolio.webp',
     summary:
       'Personal portfolio showcasing technical SEO campaigns, full-stack web platforms, performance marketing systems, and agency growth engineering.',
   },
@@ -222,6 +188,28 @@ export const websiteProjects = [
     tags: ['custom-development'],
     screenshot: '/website-shots/business-byte.webp',
     summary: 'Digital business resource presented as a lightweight web experience.',
+  },
+  {
+    name: 'Thrive Clothing',
+    url: 'https://thriveclothing.online/',
+    domain: 'thriveclothing.online',
+    platform: 'WordPress',
+    category: 'Fashion E-commerce store',
+    tags: ['wordpress', 'ecommerce', 'ecommerce-website', 'landing-pages'],
+    screenshot: '/website-shots/thriveclothing.online.webp',
+    summary:
+      'A WordPress fashion storefront for apparel collections, built around clean product browsing, category discovery, and a straightforward path to checkout.',
+  },
+  {
+    name: 'Derma Ghor',
+    url: 'https://dermaghor.com/',
+    domain: 'dermaghor.com',
+    platform: 'React / Next.js',
+    category: 'Skincare E-commerce platform',
+    tags: ['ecommerce', 'ecommerce-website', 'custom-development', 'ui-ux-design'],
+    screenshot: '/website-shots/dermaghor.com.webp',
+    summary:
+      'A Next.js skincare e-commerce platform for authentic imported products from France, Korea, USA, UK, and Japan, with guided product discovery and nationwide delivery.',
   },
 ]
 
@@ -236,7 +224,7 @@ export function getWebsitesByCategory(category = '', limit = 4) {
   if (!category || category === 'pillar' || category === 'all') {
     return [
       websiteProjects.find((p) => p.name === 'Jarixo'),
-      websiteProjects.find((p) => p.name === 'Dont Validate Labels'),
+      websiteProjects.find((p) => p.name === 'Riha WebTech'),
       websiteProjects.find((p) => p.name === 'Dr. Ferdoush Saleheen'),
     ].filter(Boolean).slice(0, limit)
   }
@@ -318,7 +306,7 @@ export function getWebsitesByCategory(category = '', limit = 4) {
   // Master pillar default showcase: diverse platform mix
   return [
     websiteProjects.find((p) => p.name === 'Jarixo'),
-    websiteProjects.find((p) => p.name === 'Dont Validate Labels'),
+    websiteProjects.find((p) => p.name === 'Riha WebTech'),
     websiteProjects.find((p) => p.name === 'Dr. Ferdoush Saleheen'),
   ].filter(Boolean).slice(0, limit)
 }

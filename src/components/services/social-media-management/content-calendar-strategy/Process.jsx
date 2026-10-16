@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const steps = [
@@ -96,9 +98,9 @@ export default function Process() {
                   <p
                     key={paragraph}
                     className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
-                  >
+                  ><AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-writing"]}>
                     {paragraph}
-                  </p>
+                  </AutoLinks></p>
                 ))}
               </div>
 

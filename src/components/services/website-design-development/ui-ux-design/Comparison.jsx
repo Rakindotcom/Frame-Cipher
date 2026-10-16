@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const comparisonRows = [
@@ -51,9 +53,9 @@ export default function Comparison() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8 space-y-3">
-          <p className="text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/ui-ux-design" allowed={["/services/website-design-development/business-website"]}>
             A business website may need both. A SaaS product, dashboard, ecommerce experience, or mobile app often requires deeper UX planning because users perform repeated or more complex tasks.
-          </p>
+          </AutoLinks></p>
           <p className="text-sm sm:text-base md:text-lg font-bold text-frame-fg leading-relaxed">
             We recommend the appropriate design approach based on what your website or product needs.
           </p>

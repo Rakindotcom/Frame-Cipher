@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 import { resolveFaqs } from '../../../../lib/seo/faq'
 
@@ -140,9 +142,9 @@ export default function FAQ({ service }) {
                       className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
                         pIdx > 0 ? 'mt-4' : ''
                       }`}
-                    >
+                    ><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/social-media-management/community-management"]}>
                       {paragraph}
-                    </p>
+                    </AutoLinks></p>
                   ))}
                 </div>
               </details>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Metadata } from "next";
 import { getServerAuthors } from "@/lib/authors/serverAuthorStorage";
+import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
@@ -21,9 +22,9 @@ export const metadata: Metadata = {
       "Meet the strategists and contributors behind FrameCipher's Webflow builds, B2B growth systems and technical SEO insights.",
     images: [
       {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "FrameCipher authors",
       },
     ],
@@ -54,6 +55,12 @@ export default async function AuthorsIndexPage() {
 
   return (
     <main className="author-page">
+      <BreadcrumbJsonLd
+        items={[
+          { name: "Home", url: "/" },
+          { name: "Authors", url: "/authors" },
+        ]}
+      />
       {/* Hero */}
       <section className="pt-24 pb-16 px-6 sm:px-10 lg:px-16 border-b border-frame-border">
         <div className="max-w-6xl mx-auto">

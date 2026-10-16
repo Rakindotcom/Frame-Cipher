@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { PageHero, SectionIntro, SectionLabel } from '@/components/Kinetic'
 import { ALL_ADS_CALCULATORS } from '@/data/calculators/allAdsCalculatorsConfig'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
 import QuickCalculatorBar from '@/components/calculators/QuickCalculatorBar'
 import CalculatorServiceBridge from '@/components/calculators/CalculatorServiceBridge'
 import { siteUrl } from '@/data/agency'
@@ -17,26 +18,34 @@ import {
 } from 'lucide-react'
 
 export const metadata = {
-  title: 'All Advertising Calculators | Free Media Planning Tools | Frame Cipher',
+  // Kept under the ~60 character SERP limit — the brand is already shown by
+  // Google next to the URL, so the suffix only wasted title space here.
+  title: 'All Advertising Calculators | Free Media Planning Tools',
   description:
-    'Dedicated advertising budget and ROAS calculators for Google Ads, Meta (Facebook & Instagram), TikTok, LinkedIn B2B, Amazon ACoS/TACoS, ChatGPT, Microsoft Ads, Pinterest, and Remarketing.',
+    'Advertising budget and ROAS calculators for Google Ads, Meta, TikTok, LinkedIn B2B, Amazon ACoS/TACoS, ChatGPT, Microsoft Ads, Pinterest, and Remarketing.',
   alternates: {
     canonical: '/calculators',
   },
   openGraph: {
-    title: 'All Advertising Calculators | Frame Cipher Media Science Suite',
+    title: 'All Advertising Calculators | Media Science Suite',
     description:
-      'Free suite of specialized advertising calculators with divided math equations, Quality Score forecasting, video view retention rates, and break-even unit economics.',
+      'Specialized advertising calculators with divided math equations, Quality Score forecasting, video retention rates, and break-even unit economics.',
     url: `${siteUrl}/calculators`,
     siteName: 'Frame Cipher',
     type: 'website',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
 }
 
 export default function CalculatorsIndexPage() {
   return (
     <main className="bg-frame-bg text-frame-fg min-h-screen w-full min-w-0 max-w-full overflow-x-hidden">
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Calculators', url: '/calculators' },
+        ]}
+      />
       {/* Hero */}
       <PageHero
         eyebrow="Media Econometrics Directory"

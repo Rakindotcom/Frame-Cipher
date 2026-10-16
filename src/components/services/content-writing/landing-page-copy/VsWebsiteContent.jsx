@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const rows = [
@@ -105,11 +107,11 @@ export default function VsWebsiteContent() {
         </div>
 
         <div className="mt-10 space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-          <p>
+          <p><AutoLinks currentPath="/services/content-writing/landing-page-copy" allowed={["/services/content-writing/website-content"]}>
             Landing page copy is usually more focused, more campaign-specific, and more direct than general
             website content. A landing page may be shorter, but it still needs to answer questions, build enough
             trust, and handle objections before asking for the conversion.
-          </p>
+          </AutoLinks></p>
           <p>
             Understanding the difference helps avoid the most common problem we see: landing pages that were
             copied from general website content and never adjusted for the campaign.

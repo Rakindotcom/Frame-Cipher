@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const bangladeshItems = [
@@ -80,9 +82,9 @@ export default function Markets() {
                 <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                   {country.name}
                 </h4>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/microsoft-ads" allowed={["/services/website-design-development/landing-pages"]}>
                   {country.body}
-                </p>
+                </AutoLinks></p>
               </div>
             ))}
           </div>

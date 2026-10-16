@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const areas = [
@@ -71,9 +73,9 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.market}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/tiktok-ads" allowed={["/services/website-design-development/landing-pages"]}>
                 {item.body}
-              </p>
+              </AutoLinks></p>
               {item.bullets?.length > 0 && (
                 <div className="mt-5">
                   <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">

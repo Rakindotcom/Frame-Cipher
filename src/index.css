@@ -29,6 +29,22 @@ body {
   overflow-x: clip;
 }
 
+/* Prevent replaced elements and form controls from forcing a wider mobile viewport. */
+img,
+video,
+iframe,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea,
+button {
+  max-width: 100%;
+}
+
 body {
   background: var(--frame-bg);
   color: var(--frame-fg);
@@ -99,6 +115,25 @@ main a {
 }
 .scrollbar-none::-webkit-scrollbar {
   display: none;
+}
+
+/* Visible thin horizontal scrollbar for filter/tab strips that overflow */
+.scrollbar-x {
+  scrollbar-width: thin;
+  scrollbar-color: var(--frame-border) transparent;
+}
+.scrollbar-x::-webkit-scrollbar {
+  height: 6px;
+}
+.scrollbar-x::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scrollbar-x::-webkit-scrollbar-thumb {
+  background: var(--frame-border);
+  border-radius: 9999px;
+}
+.scrollbar-x::-webkit-scrollbar-thumb:hover {
+  background: var(--frame-accent);
 }
 
 /* Keep large navigation menus usable on shorter desktop viewports. */
@@ -1289,6 +1324,19 @@ div[contenteditable="true"] .wp-block-button-wrapper {
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
+}
+
+@media (max-width: 640px) {
+  .blog-article-content blockquote {
+    margin: 1.5rem 0 !important;
+    padding: 1rem !important;
+  }
+
+  .blog-article-content pre {
+    margin: 1.25rem 0 !important;
+    padding: 0.875rem 1rem !important;
+    font-size: 0.8125rem !important;
+  }
 }
 
 

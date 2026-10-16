@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton } from '../../../Kinetic'
 
 const trustPillars = [
@@ -56,9 +58,9 @@ export default function CTA({ service }) {
                 <h4 className="mt-2 font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h4>
-                <p className="mt-1 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-1 text-xs font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/branding" allowed={["/services/content-creation/graphic-design"]}>
                   {item.desc}
-                </p>
+                </AutoLinks></p>
               </div>
             ))}
           </div>

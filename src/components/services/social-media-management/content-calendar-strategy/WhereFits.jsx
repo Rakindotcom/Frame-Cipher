@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro } from '../../../Kinetic'
 
@@ -98,9 +100,9 @@ export default function WhereFits() {
                 <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
                   {platform.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-base">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-base"><AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-writing/website-content"]}>
                   {platform.body}
-                </p>
+                </AutoLinks></p>
               </div>
 
               <div className="mt-6 border-t-2 border-frame-border/60 pt-4">

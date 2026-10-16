@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { PosterButton, SectionIntro } from '../../../Kinetic'
 
 const included = [
@@ -26,13 +28,13 @@ export default function CTA() {
               Your Instagram account should do more than look active. It should have a clear role in how
               people discover, understand, trust, and contact your business.
             </p>
-            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/instagram" allowed={["/services/social-media-management/community-management"]}>
               Framecipher brings Instagram strategy, content creation, Reels, Stories, profile
               optimization, community management, DMs, publishing, and reporting together under one
               in-house team. Whether you are building an Instagram presence in Bangladesh or
               targeting customers internationally, we can build the management scope around your
               audience, market, content requirements, and business goals.
-            </p>
+            </AutoLinks></p>
 
             <ul className="mt-8 grid gap-2.5 sm:grid-cols-2">
               {included.map((item) => (

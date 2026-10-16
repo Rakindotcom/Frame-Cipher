@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const steps = [
@@ -147,9 +149,9 @@ export default function Approach() {
                   <p
                     key={paragraph}
                     className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
-                  >
+                  ><AutoLinks currentPath="/services/content-writing/website-content" allowed={["/services/website-design-development/redesign"]}>
                     {paragraph}
-                  </p>
+                  </AutoLinks></p>
                 ))}
 
                 {step.bullets && (

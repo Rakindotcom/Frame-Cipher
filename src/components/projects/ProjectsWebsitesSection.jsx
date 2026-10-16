@@ -58,40 +58,38 @@ export default function ProjectsWebsitesSection({ websites }) {
       className="scroll-mt-28 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20"
     >
       <div className="mx-auto max-w-[95vw] overflow-hidden">
-        <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-          <SectionHeading
-            number="01"
-            title="Websites in action"
-            count={`${websites.length} project${websites.length === 1 ? '' : 's'}`}
-          />
+        <SectionHeading
+          number="01"
+          title="Websites in action"
+          count={`${websites.length} project${websites.length === 1 ? '' : 's'}`}
+        />
 
-          {/* Platform Identity Tabs - Scrollable on a single line */}
-          <div className="flex w-full lg:w-auto items-center gap-2 overflow-x-auto scrollbar-none py-1 flex-nowrap max-w-full">
-            <span className="shrink-0 text-[11px] font-black uppercase tracking-wider text-frame-muted-fg mr-1 hidden sm:inline">
-              Architecture:
-            </span>
-            {PLATFORM_TABS.map((tab) => {
-              const count = counts[tab.id] || 0
-              if (count === 0 && tab.id !== 'All') return null
-              const isSelected = selectedPlatform === tab.id
+        {/* Platform Identity Tabs - Scrollable on a single line */}
+        <div className="mt-5 flex w-full items-center gap-2 overflow-x-auto scrollbar-x py-1.5 flex-nowrap max-w-full">
+          <span className="shrink-0 text-[11px] font-black uppercase tracking-wider text-frame-muted-fg mr-1 hidden sm:inline">
+            Architecture:
+          </span>
+          {PLATFORM_TABS.map((tab) => {
+            const count = counts[tab.id] || 0
+            if (count === 0 && tab.id !== 'All') return null
+            const isSelected = selectedPlatform === tab.id
 
-              return (
-                <button
-                  key={tab.id}
-                  type="button"
-                  onClick={() => setSelectedPlatform(tab.id)}
-                  className={`shrink-0 whitespace-nowrap cursor-pointer px-3.5 py-1.5 text-xs font-black uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent ${
-                    isSelected
-                      ? 'border-2 border-frame-accent bg-frame-accent text-frame-accent-fg shadow-sm'
-                      : 'border-2 border-frame-border bg-frame-bg text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg hover:bg-frame-muted'
-                  }`}
-                >
-                  <span>{tab.label}</span>
-                  <span className="ml-1.5 opacity-75 font-mono text-[10px]">({count})</span>
-                </button>
-              )
-            })}
-          </div>
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                onClick={() => setSelectedPlatform(tab.id)}
+                className={`shrink-0 whitespace-nowrap cursor-pointer px-3.5 py-1.5 text-xs font-black uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent ${
+                  isSelected
+                    ? 'border-2 border-frame-accent bg-frame-accent text-frame-accent-fg shadow-sm'
+                    : 'border-2 border-frame-border bg-frame-bg text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg hover:bg-frame-muted'
+                }`}
+              >
+                <span>{tab.label}</span>
+                <span className="ml-1.5 opacity-75 font-mono text-[10px]">({count})</span>
+              </button>
+            )
+          })}
         </div>
 
         {displayedWebsites.length === 0 ? (

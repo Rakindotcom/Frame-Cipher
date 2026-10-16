@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const reasons = [
@@ -40,9 +42,9 @@ export default function WhyStrategyWork() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {reason.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/seo/seo-strategy" allowed={["/services/seo/link-building"]}>
                   {reason.body}
-                </p>
+                </AutoLinks></p>
               </div>
             </div>
           ))}

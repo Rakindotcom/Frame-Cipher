@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
@@ -187,9 +189,9 @@ export default function Offerings() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/social-media-graphics" allowed={["/services/content-creation/graphic-design"]}>
                   {item.description}
-                </p>
+                </AutoLinks></p>
 
                 <div className="mt-5 border-t border-frame-border/60 pt-4">
                   <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-2">

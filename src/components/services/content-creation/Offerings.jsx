@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
@@ -179,9 +181,9 @@ export default function Offerings() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg group-hover:text-frame-accent transition-colors">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/motion-graphics-animation"]}>
                   {item.description}
-                </p>
+                </AutoLinks></p>
 
                 {item.bullets?.length > 0 && (
                   <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">

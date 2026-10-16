@@ -260,6 +260,14 @@ export function getVideosByCategory(category = '', limit = 6) {
     return shortVideos.filter((v) => v.tags?.includes('commercial') || v.genre === 'product-promotion').slice(0, limit)
   }
 
+  if (clean === 'corporate' || clean === 'corporate-video' || clean === 'company-profile') {
+    // Corporate work is long-form (16:9). Keep vertical shorts out of this
+    // showcase so the row stays visually consistent.
+    return longVideos
+      .filter((v) => v.tags?.includes('corporate') || v.genre === 'corporate')
+      .slice(0, limit)
+  }
+
   if (clean === 'short' || clean === 'short-form') {
     return shortVideos.slice(0, limit)
   }

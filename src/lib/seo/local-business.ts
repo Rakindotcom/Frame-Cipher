@@ -17,6 +17,12 @@ export interface LocalBusinessOptions {
 export function generateLocalBusinessSchema(options?: LocalBusinessOptions) {
   const base = (SITE_URL || "https://framecipher.info").replace(/\/$/, "");
   const name = options?.name || SITE_NAME || "Framecipher";
+  // Kept in sync with the verified Google Business Profile place for Frame
+  // Cipher (see src/data/agency.js `officeCoords` / `officeMapsUrl`) so the
+  // LocalBusiness entity does not conflict with the Contact page map.
+  const [officeLat, officeLng] = String(contact?.officeCoords || "23.8201454,90.3920304")
+    .split(",")
+    .map((value) => Number(value.trim()));
 
   return {
     "@type": "LocalBusiness",
@@ -35,10 +41,10 @@ export function generateLocalBusinessSchema(options?: LocalBusinessOptions) {
     },
     geo: {
       "@type": "GeoCoordinates",
-      latitude: 23.8199359,
-      longitude: 90.3917881,
+      latitude: Number.isFinite(officeLat) ? officeLat : 23.8201454,
+      longitude: Number.isFinite(officeLng) ? officeLng : 90.3920304,
     },
-    hasMap: "https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6",
+    hasMap: contact?.officeMapsUrl || "https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6",
     parentOrganization: {
       "@id": `${base}/#organization`,
     },

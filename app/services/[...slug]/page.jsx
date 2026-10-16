@@ -6,6 +6,7 @@ import { getServiceComponent } from '../../../src/components/services/registry'
 import { getServicePageBySlug, getAllServicePages } from '../../../src/data/servicePages'
 import { siteUrl, getServiceBySlug } from '../../../src/data/agency'
 import { buildLegacyServiceSchema, buildServiceSchema } from '../../../src/lib/seo/schema'
+import { withBrandSuffix, clampMetaDescription } from '../../../src/lib/seo/metadata'
 import ServiceClusterSection from '../../../src/components/services/ServiceClusterSection'
 
 function schemaScript(schema) {
@@ -47,46 +48,53 @@ export async function generateMetadata({ params }) {
   const docPage = getServicePageBySlug(slugArray)
   if (docPage) {
     const canonicalUrl = `${siteUrl}${docPage.fullPath}`
+    // Service meta descriptions came from the service data set and several ran
+    // past the ~160 character SERP limit, so they are clamped here (the visible
+    // on-page copy is untouched).
+    const title = withBrandSuffix(docPage.seoTitle)
+    const description = clampMetaDescription(docPage.metaDescription)
     return {
-      title: docPage.seoTitle,
-      description: docPage.metaDescription,
+      title,
+      description,
       alternates: {
         canonical: docPage.fullPath,
       },
       openGraph: {
-        title: docPage.seoTitle,
-        description: docPage.metaDescription,
+        title,
+        description,
         url: canonicalUrl,
-        images: ['/logo.png'],
+        images: ['/og-image.png'],
       },
       twitter: {
         card: 'summary_large_image',
-        title: docPage.seoTitle,
-        description: docPage.metaDescription,
-        images: ['/logo.png'],
+        title,
+        description,
+        images: ['/og-image.png'],
       },
     }
   }
 
   const legacyService = slugArray.length === 1 ? getServiceBySlug(slugArray[0]) : null
   if (legacyService) {
+    const title = withBrandSuffix(legacyService.metadataTitle)
+    const description = clampMetaDescription(legacyService.metadataDescription)
     return {
-      title: legacyService.metadataTitle,
-      description: legacyService.metadataDescription,
+      title,
+      description,
       alternates: {
         canonical: `/services/${legacyService.slug}`,
       },
       openGraph: {
-        title: legacyService.metadataTitle,
-        description: legacyService.metadataDescription,
+        title,
+        description,
         url: `/services/${legacyService.slug}`,
-        images: ['/logo.png'],
+        images: ['/og-image.png'],
       },
       twitter: {
         card: 'summary_large_image',
-        title: legacyService.metadataTitle,
-        description: legacyService.metadataDescription,
-        images: ['/logo.png'],
+        title,
+        description,
+        images: ['/og-image.png'],
       },
     }
   }

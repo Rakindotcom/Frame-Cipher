@@ -34,9 +34,15 @@ export function PageHero({ eyebrow, title, children, meta, number = '360', actio
         </div>
         
         <div className="flex w-full flex-col items-center text-center">
-          <h1 className="w-full max-w-6xl [overflow-wrap:anywhere] font-heading text-[clamp(2.45rem,7.8vw,7.8rem)] font-bold uppercase leading-[0.84] tracking-tighter text-frame-fg">
-            {title}
-          </h1>
+          {/* Only render the heading when a title is supplied. Pages that pass
+              their own <h1> further down the section (several paid-advertising
+              service pages) would otherwise emit an empty H1 above the real
+              one, producing two H1s per document. */}
+          {title && (
+            <h1 className="w-full max-w-6xl [overflow-wrap:anywhere] font-heading text-[clamp(2.45rem,7.8vw,7.8rem)] font-bold uppercase leading-[0.84] tracking-tighter text-frame-fg">
+              {title}
+            </h1>
+          )}
           <div className="mt-8 flex max-w-4xl flex-col items-center gap-8">
             {children && <p className="text-lg font-medium leading-snug text-frame-muted-fg md:text-2xl">{children}</p>}
             {actions && <div className="flex flex-wrap justify-center gap-4">{actions}</div>}

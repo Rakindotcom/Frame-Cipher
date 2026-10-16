@@ -42,13 +42,13 @@ export const metadata = {
     title: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
     description: siteDescription,
     siteName: 'Frame Cipher',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Frame Cipher | 360 Marketing, Media & Technology Agency',
     description: siteDescription,
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
 }
 

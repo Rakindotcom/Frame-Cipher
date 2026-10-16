@@ -4,6 +4,8 @@ import {
   getCalculatorBySlug,
 } from '@/data/calculators/allAdsCalculatorsConfig'
 import DedicatedServiceCalculatorView from '@/components/calculators/DedicatedServiceCalculatorView'
+import { BreadcrumbJsonLd } from '@/components/seo/JsonLd'
+import { withBrandSuffix, clampMetaDescription } from '@/lib/seo/metadata'
 import { siteUrl } from '@/data/agency'
 
 export function generateStaticParams() {
@@ -23,26 +25,30 @@ export async function generateMetadata({ params }) {
   }
 
   const canonicalUrl = `${siteUrl}/calculators/${config.slug}`
+  // Calculator titles/descriptions come from the shared calculator config; the
+  // brand suffix is dropped when it would overflow the SERP title limit.
+  const title = withBrandSuffix(config.metaTitle)
+  const description = clampMetaDescription(config.metaDescription)
 
   return {
-    title: config.metaTitle,
-    description: config.metaDescription,
+    title,
+    description,
     alternates: {
       canonical: `/calculators/${config.slug}`,
     },
     openGraph: {
-      title: config.metaTitle,
-      description: config.metaDescription,
+      title,
+      description,
       url: canonicalUrl,
       siteName: 'Frame Cipher',
       type: 'website',
-      images: ['/logo.png'],
+      images: ['/og-image.png'],
     },
     twitter: {
       card: 'summary_large_image',
-      title: config.metaTitle,
-      description: config.metaDescription,
-      images: ['/logo.png'],
+      title,
+      description,
+      images: ['/og-image.png'],
     },
   }
 }
@@ -76,6 +82,13 @@ export default async function DedicatedCalculatorPage({ params }) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', url: '/' },
+          { name: 'Calculators', url: '/calculators' },
+          { name: config.title, url: `/calculators/${config.slug}` },
+        ]}
       />
       <DedicatedServiceCalculatorView config={config} />
     </>

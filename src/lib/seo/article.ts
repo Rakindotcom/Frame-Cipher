@@ -30,7 +30,7 @@ export function generateArticleSchema(options: ArticleSchemaOptions) {
   } else if (typeof options.image === "string") {
     images = [options.image.startsWith("http") ? options.image : `${base}${options.image.startsWith("/") ? options.image : `/${options.image}`}`];
   } else {
-    images = [`${base}/logo.png`];
+    images = [`${base}/og-image.png`];
   }
 
   const author = options.authorId

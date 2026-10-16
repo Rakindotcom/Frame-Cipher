@@ -11,6 +11,8 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +32,25 @@ export default function VideoEditingService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="commercial"
+        eyebrow="Studio Deployments"
+        title="Video Editing Portfolio"
+        description="Short-form pacing, multi-format cut-downs, and platform-ready edits produced for campaigns and social channels."
+        buttonText="Explore Edited Work →"
+        buttonHref="/projects#video-work"
+      />
+
+      <WritingPortfolioPreview
+        type="video"
+        category={['Motion & Ads', 'Real Estate']}
+        eyebrow="Script writing samples"
+        title="Editing & motion script portfolio."
+        description="Scripts that guide edit pacing, motion graphics, and cut-downs so the story survives every format."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
+      />
 
       <AtGlance />
       <TypesOfService />

@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const campaigns = [
@@ -141,7 +143,7 @@ export default function Campaigns() {
                   </h3>
                   <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
                     {campaign.body.map((paragraph, pIdx) => (
-                      <p key={pIdx}>{paragraph}</p>
+                      <p key={pIdx}><AutoLinks currentPath="/services/paid-advertising/linkedin-ads" allowed={["/services/website-design-development/landing-pages"]}>{paragraph}</AutoLinks></p>
                     ))}
                   </div>
                 </div>

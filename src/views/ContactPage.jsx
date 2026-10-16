@@ -2,6 +2,7 @@
 
 import { ContactHero, ContactDirectLines, ContactBriefForm } from '../components/contact'
 import GoogleMapEmbed from '../components/common/GoogleMapEmbed'
+import { contact } from '../data/agency'
 
 export default function ContactPage() {
   return (
@@ -34,6 +35,9 @@ export default function ContactPage() {
             title="FrameCipher Studio & Headquarters"
             description="6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206"
             height="480px"
+            mapQuery={contact.officeCoords}
+            zoom={17}
+            directionsUrl={contact.officeMapsUrl}
           />
         </div>
       </section>

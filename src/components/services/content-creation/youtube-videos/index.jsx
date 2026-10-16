@@ -11,6 +11,7 @@ import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 const marqueeItems = [
   "Long-Form YouTube 4K",
@@ -37,6 +38,15 @@ export default function ContentCreationYoutubeVideosService({ service }) {
         description="Explore multi-camera interviews, masterclasses, and episodic content produced for high-retention YouTube channels."
         buttonText="Explore Video Archive →"
         buttonHref="/projects#long-video-work"
+      />
+      <WritingPortfolioPreview
+        type="video"
+        category={['Documentary & YouTube', 'Brand Film']}
+        eyebrow="Script writing samples"
+        title="YouTube & documentary script portfolio."
+        description="Episode frameworks, documentary narration, and long-form YouTube scripts with retention built in."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
       />
       <ManagementComparison service={service} />
       <VideoTypes service={service} />

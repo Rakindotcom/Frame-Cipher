@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -32,6 +33,15 @@ export default function PodcastService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="podcast"
+        eyebrow="Studio Deployments"
+        title="Podcast Production Portfolio"
+        description="Multi-camera podcast sessions, studio interviews, and vertical clips produced in our acoustically isolated room."
+        buttonText="Explore Podcast Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfService />

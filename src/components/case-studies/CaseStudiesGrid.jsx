@@ -8,7 +8,7 @@ export default function CaseStudiesGrid({
 }) {
   if (caseStudies.length === 0) {
     return (
-      <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-12 text-center">
+      <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-6 text-center sm:p-12">
         <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">No matches</p>
         <h3 className="mt-4 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-5xl">
           No case studies found matching &ldquo;{searchQuery}&rdquo;

@@ -3,9 +3,11 @@ import { JsonLd } from '../../src/components/seo/JsonLd'
 import { siteUrl, contact } from '../../src/data/agency'
 
 export const metadata = {
-  title: 'Podcast & Video Production Studio in Dhaka | FrameCipher Studio',
+  // Google prints the site name next to the URL, so the brand inside <title>
+  // was pushing this past the ~60 character SERP limit for no gain.
+  title: 'Podcast & Video Production Studio in Dhaka',
   description:
-    'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Itemised quote in 48 hours.',
+    'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Quote in 48 hours.',
   alternates: {
     canonical: `${siteUrl}/studio/`,
   },
@@ -15,15 +17,15 @@ export const metadata = {
     siteName: 'Frame Cipher Studio',
     title: 'Podcast & Video Production Studio in Dhaka | FrameCipher Studio',
     description:
-      'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Itemised quote in 48 hours.',
-    images: ['/logo.png'],
+      'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Quote in 48 hours.',
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Podcast & Video Production Studio in Dhaka | FrameCipher Studio',
     description:
-      'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Itemised quote in 48 hours.',
-    images: ['/logo.png'],
+      'Book an acoustic podcast and 4K video studio at Matikata ECB Chattar, Dhaka. Studio hire from ৳2,000/hour, crew sessions from ৳8,000. Quote in 48 hours.',
+    images: ['/og-image.png'],
   },
 }
 

@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const solutions = [
@@ -51,9 +53,9 @@ export default function Solutions() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {solution.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/paid-advertising/amazon-ads" allowed={["/services/website-design-development/landing-pages"]}>
                 {solution.body}
-              </p>
+              </AutoLinks></p>
             </div>
           ))}
         </div>

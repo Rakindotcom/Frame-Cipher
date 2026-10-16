@@ -10,6 +10,10 @@ export const contact = {
   city: 'Dhaka',
   postalCode: '1206',
   googleMapsUrl: 'https://maps.app.goo.gl/Ht7yUXyMw6V1fAcF6',
+  officeMapsUrl:
+    'https://www.google.com/maps/place/Frame+Cipher/@23.8201503,90.3894555,17z/data=!3m1!4b1!4m6!3m5!1s0x3755c74e592b3683:0x3ca484528577d4b7!8m2!3d23.8201454!4d90.3920304!16s%2Fg%2F11p1hvxg6k?entry=ttu',
+  officeCoords: '23.8201454,90.3920304',
+  studioCoords: '23.8199359,90.3917881',
   responseTime: 'Replies within 1 business day',
 }
 

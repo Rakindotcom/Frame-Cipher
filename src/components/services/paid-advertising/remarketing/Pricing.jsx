@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const packages = [
@@ -133,11 +135,11 @@ export default function Pricing() {
               Ad spend is separate from management fees. Your advertising spend is paid through the
               advertising account and remains under your control.
             </p>
-            <p className="text-frame-muted-fg">
+            <p className="text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/remarketing" allowed={["/studio/video-editing"]}>
               New creative production, video editing, advanced catalog production, CRM development,
               custom tracking development, and third-party tools can be scoped separately where
               required. Final pricing is confirmed in a written proposal.
-            </p>
+            </AutoLinks></p>
           </div>
           <div className="shrink-0">
             <PosterButton href="/contact">Get a Custom Remarketing Quote &rarr;</PosterButton>

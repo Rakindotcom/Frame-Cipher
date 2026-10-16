@@ -8,9 +8,37 @@ import { getPublicBlogPosts } from "../blog/serverBlogStorage";
 import { getPublicAuthors } from "../authors/serverAuthorStorage";
 import { ALL_ADS_CALCULATORS } from "../../data/calculators/allAdsCalculatorsConfig";
 import { getAllStudioServiceSlugs } from "../../data/studioServices";
+import { redirectSourcePaths } from "./redirects";
+import contentDates from "./contentDates.json";
 
 export const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL || siteUrl || "https://framecipher.info").replace(/\/$/, "");
-export const SITE_CONTENT_UPDATED = new Date("2026-09-24T00:00:00.000Z");
+export const SITE_CONTENT_UPDATED = new Date(contentDates?.fallback || "2026-09-24T00:00:00.000Z");
+
+// Sitemap <lastmod> per route. Blog posts and CMS authors use their own real
+// dates; everything code-driven resolves through contentDates.json, which is
+// regenerated from git history by scripts/generate-content-dates.mjs on build.
+// Exact routes win, then the longest matching route prefix.
+export function contentUpdatedAt(routePath) {
+  const dates = contentDates?.dates || {};
+  const exact = dates[routePath];
+  if (exact) return new Date(exact);
+
+  const prefix = Object.keys(dates)
+    .filter((key) => key.endsWith("/") && routePath.startsWith(key))
+    .sort((a, b) => b.length - a.length)[0];
+  if (prefix) return new Date(dates[prefix]);
+
+  return SITE_CONTENT_UPDATED;
+}
+
+// Newest content date in the map — used as the <lastmod> of the sitemap index,
+// which should reflect when any listed page last changed.
+export function latestContentDate() {
+  const times = Object.values(contentDates?.dates || {})
+    .map((value) => new Date(value).getTime())
+    .filter((value) => Number.isFinite(value));
+  return times.length ? new Date(Math.max(...times)) : SITE_CONTENT_UPDATED;
+}
 
 export function absoluteUrl(path) {
   return `${BASE_URL}${path}`;
@@ -44,17 +72,18 @@ export function corePageEntries() {
     ...getAllStudioServiceSlugs().map((slug) => `/studio/${slug}`),
   ];
   return ["/", "/about", "/services", ...studioRoutes, "/projects", "/case-studies", "/blog", "/contact", "/privacy", "/terms"].map(
-    (path) => ({ path })
+    (path) => ({ path, lastModified: contentUpdatedAt(path) })
   );
 }
 
 export function calculatorPageEntries() {
   const calcRoutes = ALL_ADS_CALCULATORS.map((calc) => ({
     path: `/calculators/${calc.slug}`,
+    lastModified: contentUpdatedAt(`/calculators/${calc.slug}`),
   }));
   return [
-    { path: "/calculators" },
-    { path: "/tools/ads-calculator" },
+    { path: "/calculators", lastModified: contentUpdatedAt("/calculators") },
+    { path: "/tools/ads-calculator", lastModified: contentUpdatedAt("/tools/ads-calculator") },
     ...calcRoutes,
   ];
 }
@@ -64,16 +93,25 @@ export function servicePageEntries() {
   const docServicePages = getAllServicePages();
   const docServiceRoutes = docServicePages.map((page) => ({
     path: page.fullPath,
+    lastModified: contentUpdatedAt(page.fullPath),
   }));
 
   const coveredPaths = new Set(docServiceRoutes.map((r) => r.path));
 
   const legacyServiceRoutes = services
-    .map((service) => ({ path: `/services/${service.slug}` }))
-    .filter((route) => !coveredPaths.has(route.path));
+    .map((service) => ({
+      path: `/services/${service.slug}`,
+      lastModified: contentUpdatedAt(`/services/${service.slug}`),
+    }))
+    // A sitemap must list canonical, 200-status URLs. Some legacy service
+    // aliases are 301/308 redirect sources (see src/lib/seo/redirects.js), and
+    // listing them made Search Console report "Page with redirect" for the
+    // sitemap, so they are excluded here.
+    .filter((route) => !coveredPaths.has(route.path) && !redirectSourcePaths.has(route.path));
 
   const caseStudyRoutes = growthCaseStudies.map((study) => ({
     path: `/case-studies/${study.slug}`,
+    lastModified: contentUpdatedAt(`/case-studies/${study.slug}`),
   }));
 
   return [...docServiceRoutes, ...legacyServiceRoutes, ...caseStudyRoutes];
@@ -102,9 +140,10 @@ export async function categoryEntries() {
     // Fixed categories + canonical post categories remain if Firestore is unavailable.
   }
 
-  return [...categoryNames].map((category) => ({
-    path: `/blog/category/${blogCategorySlug(category)}`,
-  }));
+  return [...categoryNames].map((category) => {
+    const path = `/blog/category/${blogCategorySlug(category)}`;
+    return { path, lastModified: contentUpdatedAt(path) };
+  });
 }
 
 // Published blog posts: canonical seeds + any dashboard-created posts from
@@ -145,7 +184,7 @@ export async function authorEntries() {
   const canonical = CANONICAL_AUTHORS.filter((a) => a.status === "published" && a.name && a.slug);
   const entries = canonical.map((a) => ({
     path: `/authors/${a.slug}`,
-    lastModified: SITE_CONTENT_UPDATED,
+    lastModified: contentUpdatedAt(`/authors/${a.slug}`),
   }));
 
   try {

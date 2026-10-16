@@ -4,7 +4,7 @@ import { generatePageSchema } from '../../src/lib/seo/schema'
 import { siteUrl } from '../../src/data/agency'
 
 export const metadata = {
-  title: 'Digital Marketing, Web & Software Development Services | FrameCipher',
+  title: 'Digital Marketing, Web & Software Development Services',
   description:
     'Explore FrameCipher\u2019s marketing, creative, web development and custom software services built to help businesses build, market and grow.',
   alternates: {
@@ -14,17 +14,17 @@ export const metadata = {
     type: 'website',
     url: '/services',
     siteName: 'Frame Cipher',
-    title: 'Digital Marketing, Web & Software Development Services | FrameCipher',
+    title: 'Digital Marketing, Web & Software Development Services',
     description:
       'Explore FrameCipher\u2019s marketing, creative, web development and custom software services built to help businesses build, market and grow.',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Digital Marketing, Web & Software Development Services | FrameCipher',
+    title: 'Digital Marketing, Web & Software Development Services',
     description:
       'Explore FrameCipher\u2019s marketing, creative, web development and custom software services built to help businesses build, market and grow.',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
 }
 
@@ -33,7 +33,7 @@ export default function Page() {
     pageType: 'services',
     data: {
       canonicalUrl: `${siteUrl}/services`,
-      title: 'Digital Marketing, Web & Software Development Services | FrameCipher',
+      title: 'Digital Marketing, Web & Software Development Services',
       description:
         'Explore FrameCipher\u2019s marketing, creative, web development and custom software services built to help businesses build, market and grow.',
     },

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { contact, navItems, services, siteUrl } from '../data/agency'
+import { contact, navItems, siteUrl } from '../data/agency'
 
 export default function Footer() {
   return (
@@ -88,6 +88,11 @@ export default function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/authors" className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
+                  Authors
+                </Link>
+              </li>
+              <li>
                 <Link href="/privacy" className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
                   Privacy
                 </Link>
@@ -160,7 +165,7 @@ export default function Footer() {
                 title="Clutch Verified Agency"
               >
                 <img
-                  src="/Listed%20In/Cutch.png"
+                  src="/Listed%20In/Cutch.webp"
                   alt="Clutch"
                   className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
                   loading="lazy"
@@ -186,7 +191,7 @@ export default function Footer() {
                 title="Trustpilot Reviews"
               >
                 <img
-                  src="/Listed%20In/Trustpilot.png"
+                  src="/Listed%20In/Trustpilot.webp"
                   alt="Trustpilot"
                   className="max-h-8 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
                   loading="lazy"

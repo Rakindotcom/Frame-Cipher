@@ -127,43 +127,41 @@ export default function ProjectsVideoSection({
           className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20"
         >
           <div className="mx-auto max-w-[95vw]">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-              <SectionHeading
-                number="03"
-                title="Short videos"
-                count={`${shortVideos.length} pieces`}
-              />
+            <SectionHeading
+              number="03"
+              title="Short videos"
+              count={`${shortVideos.length} pieces`}
+            />
 
-              {/* Sub-filter tabs for short video formats - Scrollable on a single line */}
-              <div className="flex w-full lg:w-auto items-center gap-2 overflow-x-auto scrollbar-none py-1 lg:py-0 flex-nowrap max-w-full border-b border-frame-border pb-3 lg:border-b-0">
-                {SHORT_GENRE_TABS.map((tab) => {
-                  const isActive = selectedGenre === tab.id
-                  const count = counts[tab.id] || 0
-                  return (
-                    <button
-                      key={tab.id}
-                      type="button"
-                      onClick={() => setSelectedGenre(tab.id)}
-                      className={`shrink-0 whitespace-nowrap flex items-center gap-2 border-2 px-3 py-1.5 text-xs font-black uppercase tracking-wider transition-colors ${
+            {/* Sub-filter tabs for short video formats - Scrollable on a single line */}
+            <div className="mt-5 flex w-full items-center gap-2 overflow-x-auto scrollbar-x py-1.5 flex-nowrap max-w-full">
+              {SHORT_GENRE_TABS.map((tab) => {
+                const isActive = selectedGenre === tab.id
+                const count = counts[tab.id] || 0
+                return (
+                  <button
+                    key={tab.id}
+                    type="button"
+                    onClick={() => setSelectedGenre(tab.id)}
+                    className={`shrink-0 whitespace-nowrap flex items-center gap-2 border-2 px-3 py-1.5 text-xs font-black uppercase tracking-wider transition-colors ${
+                      isActive
+                        ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
+                        : 'border-frame-border bg-frame-bg text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
+                    }`}
+                  >
+                    <span>{tab.label}</span>
+                    <span
+                      className={`rounded-full px-1.5 py-0.2 text-[10px] font-mono ${
                         isActive
-                          ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
-                          : 'border-frame-border bg-frame-bg text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
+                          ? 'bg-frame-accent-fg/20 text-frame-accent-fg'
+                          : 'bg-frame-muted text-frame-muted-fg'
                       }`}
                     >
-                      <span>{tab.label}</span>
-                      <span
-                        className={`rounded-full px-1.5 py-0.2 text-[10px] font-mono ${
-                          isActive
-                            ? 'bg-frame-accent-fg/20 text-frame-accent-fg'
-                            : 'bg-frame-muted text-frame-muted-fg'
-                        }`}
-                      >
-                        {count}
-                      </span>
-                    </button>
-                  )
-                })}
-              </div>
+                      {count}
+                    </span>
+                  </button>
+                )
+              })}
             </div>
 
             <div className="mt-7 grid border-l border-t border-frame-border bg-frame-bg grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">

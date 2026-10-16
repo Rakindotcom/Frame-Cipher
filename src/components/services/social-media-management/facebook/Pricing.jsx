@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const packages = [
@@ -268,10 +270,10 @@ export default function Pricing() {
 
         {/* PRICING NOTES */}
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/paid-advertising"]}>
             Ad spend is separate from Facebook management fees. Facebook Ads Management can be added
             through a separate paid advertising engagement when required.
-          </p>
+          </AutoLinks></p>
           <p className="mt-3 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
             These are starting reference prices rather than fixed quotes. Final scope is confirmed
             after the free Page audit.

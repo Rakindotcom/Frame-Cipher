@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +31,15 @@ export default function DocumentaryProductionService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="documentary"
+        eyebrow="Studio Deployments"
+        title="Documentary Film Portfolio"
+        description="Brand documentaries and story-led films that capture heritage, operations, and human perspective."
+        buttonText="Explore Film Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfFilms />

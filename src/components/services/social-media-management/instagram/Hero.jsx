@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
@@ -60,10 +62,10 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">We Handle</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm"><AutoLinks currentPath="/services/social-media-management/instagram" allowed={["/services/content-writing/content-strategy"]}>
                 Profile optimization, Instagram SEO, content strategy, creative content, Reels,
                 Feed, Carousels, Stories, Highlights, publishing, comments, DMs, and reporting.
-              </p>
+              </AutoLinks></p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">We Build For</span>

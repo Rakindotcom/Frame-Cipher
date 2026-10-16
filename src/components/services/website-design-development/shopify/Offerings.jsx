@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const coreServices = [
@@ -239,12 +241,12 @@ export default function Offerings() {
                 <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-frame-accent">
+                <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-frame-accent"><AutoLinks currentPath="/services/website-design-development/shopify" allowed={["/services/content-writing/product-descriptions"]}>
                   {service.subtitle}
-                </p>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                </AutoLinks></p>
+                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/shopify" allowed={["/services/website-design-development/custom-development"]}>
                   {service.description}
-                </p>
+                </AutoLinks></p>
 
                 {service.supportedSources && (
                   <p className="mt-3 text-xs font-semibold text-frame-fg/80 border-l-2 border-frame-accent pl-3 py-1">

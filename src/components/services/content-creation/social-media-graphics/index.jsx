@@ -10,6 +10,7 @@ import Pricing from './Pricing'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import DesignPortfolioPreview from '../../../projects/DesignPortfolioPreview'
 
 const marqueeItems = [
   "Platform Safe-Zone Compliance",
@@ -26,6 +27,14 @@ export default function ContentCreationSocialMediaGraphicsService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+      <DesignPortfolioPreview
+        startIndex={12}
+        eyebrow="Selected social work"
+        title="Social media graphics portfolio."
+        description="Feed posts, carousels, and story sets designed with safe-zone discipline for every major platform."
+        buttonText="View Creative Archive →"
+        buttonHref="/projects#branding-work"
+      />
       <ServiceComparison />
       <Offerings service={service} />
       <SafeZonesAndCarousels />

@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const phases = [
@@ -102,9 +104,9 @@ export default function Offerings() {
                 <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/youtube-videos" allowed={["/services/content-creation/graphic-design"]}>
                   {item.description}
-                </p>
+                </AutoLinks></p>
 
                 <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-4 text-xs sm:text-sm font-medium text-frame-fg/90">
                   {item.bullets.map((bullet, bIdx) => (

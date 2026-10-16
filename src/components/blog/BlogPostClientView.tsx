@@ -248,6 +248,10 @@ export function BlogPostClientView({
   const articleUrl = (post.canonicalUrl || `${BASE_URL}/blog/${post.slug}`).replace(/\/$/, "");
   const authorSlug = authorSlugOf(authorProfile, post.author);
   const authorId = `${BASE_URL}/authors/${authorSlug}#person`;
+  // CMS titles can arrive with a trailing newline or doubled spaces; the same
+  // string feeds <title>, the BlogPosting headline and the breadcrumb, so
+  // normalise it once here instead of leaking "\n" into structured data.
+  const cleanTitle = String(post.title ?? "").replace(/\s+/g, " ").trim();
 
   const schemaJson = {
     "@context": "https://schema.org",
@@ -255,11 +259,11 @@ export function BlogPostClientView({
       {
         "@type": post.schemaType || "BlogPosting",
         "@id": `${articleUrl}#article`,
-        headline: post.title,
+        headline: cleanTitle,
         description: post.metaDescription || post.excerpt,
         image: post.featuredImage?.url
           ? (post.featuredImage.url.startsWith("http") ? post.featuredImage.url : `${BASE_URL}${post.featuredImage.url}`)
-          : `${BASE_URL}/logo.png`,
+          : `${BASE_URL}/og-image.png`,
         author: {
           "@id": authorId,
         },
@@ -290,7 +294,7 @@ export function BlogPostClientView({
         "@type": "WebPage",
         "@id": `${articleUrl}#webpage`,
         url: `${articleUrl}/`,
-        name: `${post.title} | Frame Cipher`,
+        name: `${cleanTitle} | Frame Cipher`,
         isPartOf: {
           "@id": `${BASE_URL}/#website`,
         },
@@ -320,7 +324,7 @@ export function BlogPostClientView({
           {
             "@type": "ListItem",
             position: 3,
-            name: post.title,
+            name: cleanTitle,
             item: `${articleUrl}/`,
           },
         ],

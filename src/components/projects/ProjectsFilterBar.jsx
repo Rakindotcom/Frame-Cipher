@@ -13,7 +13,7 @@ export default function ProjectsFilterBar({
     >
       <div className="mx-auto flex max-w-[95vw] flex-col gap-3 md:flex-row md:items-center md:justify-between">
         {/* Filter Pills */}
-        <div className="flex flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto pb-1.5 md:pb-0 scrollbar-none [mask-image:linear-gradient(to_right,black_90%,transparent)] sm:[mask-image:none]">
+        <div className="flex min-w-0 flex-nowrap items-center gap-2 overflow-x-auto pb-1.5 md:pb-0 scrollbar-x">
           {filterTabs.map((tab) => {
             const isActive = activeFilter === tab.id
             return (

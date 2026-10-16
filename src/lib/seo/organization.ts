@@ -36,7 +36,7 @@ export function generateOrganizationSchema(options?: OrganizationOptions) {
       "https://www.facebook.com/framecipher",
       "https://www.instagram.com/framecipher",
       "https://x.com/framecipher",
-      "https://www.youtube.com/@framecipher",
+      "https://www.youtube.com/@teamFrameCipher",
     ],
     address: {
       "@type": "PostalAddress",

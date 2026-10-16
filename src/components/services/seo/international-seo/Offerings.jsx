@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const services = [
@@ -246,9 +248,9 @@ export default function Offerings() {
                   {item.title}
                 </h3>
                 {item.description && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/seo/keyword-research"]}>
                     {item.description}
-                  </p>
+                  </AutoLinks></p>
                 )}
                 {item.points ? (
                   <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">

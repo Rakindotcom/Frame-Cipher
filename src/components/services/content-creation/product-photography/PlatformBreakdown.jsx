@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
@@ -108,9 +110,9 @@ export default function PlatformBreakdown() {
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/product-photography" allowed={["/services/paid-advertising"]}>
                   {platform.overview}
-                </p>
+                </AutoLinks></p>
 
                 <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-fg border-l-2 border-frame-accent pl-3">
                   {platform.approach}

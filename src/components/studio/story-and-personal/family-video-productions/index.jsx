@@ -11,6 +11,7 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +31,15 @@ export default function FamilyVideoProductionsService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="personal-brand"
+        eyebrow="Studio Deployments"
+        title="Family & Personal Film Portfolio"
+        description="Family films, legacy stories, and personal milestones handled with the same craft as our commercial work."
+        buttonText="Explore Story Work →"
+        buttonHref="/projects#video-work"
+      />
 
       <AtGlance />
       <TypesOfFilms />

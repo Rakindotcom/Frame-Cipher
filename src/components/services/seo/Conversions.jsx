@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const conversionJourney = [
@@ -133,9 +135,9 @@ export default function Conversions() {
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo" allowed={["/services/seo/keyword-research"]}>
                     {item.body}
-                  </p>
+                  </AutoLinks></p>
                 </div>
               </div>
             ))}

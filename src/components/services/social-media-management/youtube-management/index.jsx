@@ -16,6 +16,7 @@ import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
 
 const marqueeItems = [
   'Channel Strategy',
@@ -33,6 +34,14 @@ export default function SocialMediaManagementYoutubeManagementService({ service 
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <VideoPortfolioPreview
+        category="short"
+        eyebrow="Social Content Work"
+        title="Social Media Content Portfolio"
+        description="Vertical reels, shorts, and platform-native edits produced consistently for brands, creators, and campaigns."
+        buttonText="Explore Social Content →"
+        buttonHref="/projects#short-video-work"
+      />
       <Overview />
       <Offerings />
       <Discoverability />

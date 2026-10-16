@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { ArrowRight, ArrowUpRight, FolderTree } from 'lucide-react'
 import { getClusterForService } from '../../data/studioServices'
+import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
 const STUDIO_AGENCY_BRIDGES = {
   podcast: { href: '/services/content-creation/youtube-videos', anchor: 'YouTube Strategy & Video Podcasting' },
@@ -76,6 +77,14 @@ export default function StudioSubClusterNav({ currentService, allServices }) {
     )
     .slice(0, 4)
 
+  const contextualTargets = [...siblings, ...complementary]
+    .slice(0, 3)
+    .map((service) => service.shortTitle || service.name)
+    .filter(Boolean)
+  const contextualCopy = contextualTargets.length
+    ? `A ${currentService.shortTitle || currentService.name} production can also benefit from ${contextualTargets.join(', ')} when the project needs a complete studio workflow.`
+    : ''
+
   return (
     <section className="border-b-2 border-frame-border bg-frame-muted/15 px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-[95vw]">
@@ -92,6 +101,15 @@ export default function StudioSubClusterNav({ currentService, allServices }) {
             <ArrowUpRight className="h-4 w-4" />
           </Link>
         </div>
+        {contextualCopy && (
+          <p className="mb-12 max-w-4xl text-sm font-medium leading-7 text-frame-muted-fg">
+            {renderContextualParagraph(contextualCopy, {
+              currentPath: `/studio/${currentService.slug}`,
+              maxLinks: contextualTargets.length,
+              theme: 'frame',
+            })}
+          </p>
+        )}
         <SiblingGrid siblings={siblings} cluster={currentCluster} />
         <ComplementaryGrid complementary={complementary} />
         {agencyBridge && (

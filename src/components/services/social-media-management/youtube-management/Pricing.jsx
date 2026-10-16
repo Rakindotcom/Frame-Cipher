@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const packages = [
@@ -152,7 +154,7 @@ export default function Pricing() {
                   <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
                     Best For
                   </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">{pkg.bestFor}</p>
+                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/studio/rental"]}>{pkg.bestFor}</AutoLinks></p>
                 </div>
 
                 <div className="mt-5 border-t-2 border-frame-border/60 pt-4">

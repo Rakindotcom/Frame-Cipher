@@ -15,6 +15,7 @@ import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../Kinetic'
+import WritingPortfolioPreview from '../../projects/WritingPortfolioPreview'
 import ServiceSubServices from '../ServiceSubServices'
 
 const marqueeItems = [
@@ -34,6 +35,14 @@ export default function ContentWritingService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        eyebrow="Selected writing work"
+        title="Content writing portfolio."
+        description="Real blogs, website copy, product content, ad copy, and campaigns written for clients across e-commerce, SaaS, and service businesses."
+        archiveHref="https://drive.google.com/drive/folders/16GbMEgPjttm-DMNeI55fINNl-kYjIdDP"
+        archiveLabel="Browse Writing Archive →"
+      />
       <Overview />
       <ServiceSubServices service={service} />
       <Offerings />

@@ -11,6 +11,8 @@ import StudioExtendedSections from '../../StudioExtendedSections'
 import { getStudioExtended } from '../../../../data/studioExtended'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
+import VideoPortfolioPreview from '../../../projects/VideoPortfolioPreview'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import StudioBookingForm from '../../StudioBookingForm'
 
@@ -30,6 +32,25 @@ export default function VoiceOverService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
+
+      <VideoPortfolioPreview
+        category="podcast"
+        eyebrow="Studio Deployments"
+        title="Voice-Over & Audio Portfolio"
+        description="Narration, podcast audio, and broadcast-ready voice work captured in our acoustically treated studio."
+        buttonText="Explore Audio Work →"
+        buttonHref="/projects#video-work"
+      />
+
+      <WritingPortfolioPreview
+        type="video"
+        category="Voiceover"
+        eyebrow="Script writing samples"
+        title="Voice-over script portfolio."
+        description="Voice-over scripts written for brand promos and graphics, timed to the read and the on-screen beat."
+        archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
+        archiveLabel="Browse Script Archive →"
+      />
 
       <AtGlance />
       <TypesOfService />

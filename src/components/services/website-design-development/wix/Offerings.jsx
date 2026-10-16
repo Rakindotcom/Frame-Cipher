@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const coreServices = [
@@ -215,9 +217,9 @@ export default function Offerings() {
                 <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/custom-development"]}>
                   {service.description}
-                </p>
+                </AutoLinks></p>
                 <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-5 text-xs sm:text-sm font-medium text-frame-fg/90">
                   {service.items.map((item, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-2">
@@ -228,9 +230,9 @@ export default function Offerings() {
                 </ul>
               </div>
               <div className="mt-6 border-t border-frame-border/40 pt-4">
-                <p className="text-xs italic text-frame-muted-fg">
+                <p className="text-xs italic text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/ecommerce-website"]}>
                   {service.note}
-                </p>
+                </AutoLinks></p>
               </div>
             </div>
           ))}

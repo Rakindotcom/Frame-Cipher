@@ -1,4 +1,5 @@
 import { TypeMarquee } from '../../../Kinetic'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import Hero from './Hero'
 import ProvesResults from './ProvesResults'
@@ -30,6 +31,12 @@ export default function ContentWritingCaseStudyWritingService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        eyebrow="Published writing samples"
+        title="Writing samples archive."
+        description="Real delivered documents — long-form guides, service content, product copy, and content strategy work."
+      />
       <ProvesResults />
       <Offerings />
       <TypesOfCaseStudies />

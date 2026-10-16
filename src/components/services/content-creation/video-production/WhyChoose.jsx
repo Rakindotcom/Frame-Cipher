@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const advantages = [
@@ -82,9 +84,9 @@ export default function WhyChoose() {
             <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Video Production vs. Video Editing
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/studio/video-editing"]}>
               Video production and video editing are distinct services that solve different client needs:
-            </p>
+            </AutoLinks></p>
 
             <div className="mt-6 space-y-4">
               <div className="border border-frame-border bg-frame-muted/30 p-5">

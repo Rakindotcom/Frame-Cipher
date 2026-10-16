@@ -1,4 +1,5 @@
 import { TypeMarquee } from '../../../Kinetic'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import Hero from './Hero'
 import Overview from './Overview'
@@ -31,6 +32,13 @@ export default function ContentWritingWebsiteContentService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        category="Service & Website Content"
+        eyebrow="Published writing samples"
+        title="Website content portfolio."
+        description="Service pages, homepages, and company content written to explain the offer clearly and stay consistent across a site."
+      />
       <Overview />
       <Offerings />
       <Deliverables />

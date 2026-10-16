@@ -17,14 +17,14 @@ export const metadata = {
     title: 'Case Studies | Frame Cipher',
     description:
       'Explore Frame Cipher case studies across personal branding, Meta Ads, local SEO, technical SEO, content architecture, and global organic growth.',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Case Studies | Frame Cipher',
     description:
       'Explore Frame Cipher case studies across personal branding, Meta Ads, local SEO, technical SEO, content architecture, and global organic growth.',
-    images: ['/logo.png'],
+    images: ['/og-image.png'],
   },
 }
 

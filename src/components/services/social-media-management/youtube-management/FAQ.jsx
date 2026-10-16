@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 import { resolveFaqs } from '../../../../lib/seo/faq'
 
@@ -109,9 +111,9 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t border-frame-border/60 px-5 py-5 md:px-6">
-                <p className="pl-7 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="pl-7 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/social-media-management/community-management"]}>
                   {faq.a}
-                </p>
+                </AutoLinks></p>
               </div>
             </details>
           ))}

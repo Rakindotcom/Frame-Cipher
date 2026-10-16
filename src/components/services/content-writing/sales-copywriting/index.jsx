@@ -1,4 +1,5 @@
 import { TypeMarquee } from '../../../Kinetic'
+import WritingPortfolioPreview from '../../../projects/WritingPortfolioPreview'
 
 import Hero from './Hero'
 import CaseForBuying from './CaseForBuying'
@@ -32,6 +33,13 @@ export default function ContentWritingSalesCopywritingService({ service }) {
     <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <WritingPortfolioPreview
+        type="content"
+        category="Ad & Social Copy"
+        eyebrow="Published writing samples"
+        title="Sales & ad copy portfolio."
+        description="Facebook, TikTok, and campaign copy written to argue a case for buying rather than manufacture hype."
+      />
       <CaseForBuying />
       <Offerings />
       <HowWeBuild />

@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const blocks = [
@@ -235,9 +237,9 @@ export default function Offerings() {
                   <p
                     key={paragraph}
                     className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
-                  >
+                  ><AutoLinks currentPath="/services/social-media-management/reporting" allowed={["/services/social-media-management/community-management"]}>
                     {paragraph}
-                  </p>
+                  </AutoLinks></p>
                 ))}
                 {block.extra &&
                   block.extra.map((paragraph) => (

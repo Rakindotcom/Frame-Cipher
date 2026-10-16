@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const plans = [
@@ -60,11 +62,11 @@ export default function Pricing() {
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing" allowed={["/services/website-design-development/landing-pages"]}>
               Pricing note: These are starting reference prices. Final pricing depends on the actual content
               type, scope, research requirements, volume, industry, and delivery schedule. Website projects,
               landing pages, specialist subjects, and large product catalogs may require separate scoping.
-            </p>
+            </AutoLinks></p>
             <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-fg md:text-base">
               A free content sample can be requested before a larger engagement so you can evaluate the
               writing approach and fit.

@@ -1,3 +1,5 @@
+
+import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro } from '../../../Kinetic'
 
 const whyFramecipherPillars = [
@@ -49,9 +51,9 @@ export default function WhyChoose() {
                 <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/maintenance" allowed={["/services/website-design-development/custom-development"]}>
                   {pillar.description}
-                </p>
+                </AutoLinks></p>
               </div>
             </div>
           ))}
