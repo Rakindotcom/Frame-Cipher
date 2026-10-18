@@ -26,19 +26,19 @@ export default function SeoEquity() {
             <div className="mt-6 space-y-6">
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Existing URL Inventory</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   We identify the important URLs on the existing website and determine which should remain, change, consolidate, or be removed.
                 </p>
               </div>
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Ranking &amp; Traffic Baseline</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   We document important organic pages, search visibility, traffic patterns, and other available SEO data before major structural changes begin.
                 </p>
               </div>
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Content Review</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   We identify valuable ranking and conversion content that should be preserved, improved, consolidated, or intentionally retired.
                 </p>
               </div>
@@ -56,25 +56,25 @@ export default function SeoEquity() {
             <div className="mt-6 space-y-6">
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Page-Level Redirect Mapping</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   When URLs change, old URLs are mapped to the most relevant new destinations instead of leaving valuable pages to return errors or sending unrelated pages to the homepage.
                 </p>
               </div>
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Metadata &amp; Content Preservation</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   Important titles, descriptions, headings, content, images, and other search-relevant elements are reviewed during migration.
                 </p>
               </div>
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Internal Linking Review</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   New navigation and page structures are checked so important pages remain discoverable and connected.
                 </p>
               </div>
               <div>
                 <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Canonical &amp; Structured Data Review</h4>
-                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   Canonical URLs, schema, and other technical SEO elements are reviewed as templates and page structures change.
                 </p>
               </div>
@@ -91,7 +91,7 @@ export default function SeoEquity() {
             </h3>
             <div className="mt-4">
               <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Pre-Launch SEO QA</h4>
-              <p className="mt-2 text-sm font-medium text-frame-muted-fg mb-4">We check:</p>
+              <p className="mt-2 text-sm font-medium text-frame-muted-fg mb-4 wide:text-lg">We check:</p>
               <div className="grid grid-cols-2 gap-2 text-xs sm:text-sm font-medium text-frame-fg">
                 {[
                   'Redirects',
@@ -124,7 +124,7 @@ export default function SeoEquity() {
             </h3>
             <div className="mt-4">
               <h4 className="font-heading text-lg font-bold text-frame-fg uppercase">Post-Launch Monitoring</h4>
-              <p className="mt-2 text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed">
+              <p className="mt-2 text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                 We monitor important search and technical signals after launch to identify issues that may appear during the transition.
               </p>
             </div>

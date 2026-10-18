@@ -189,7 +189,7 @@ export default function Offerings() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/social-media-graphics" allowed={["/services/content-creation/graphic-design"]}>
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/social-media-graphics" allowed={["/services/content-creation/graphic-design"]}>
                   {item.description}
                 </AutoLinks></p>
 
@@ -235,7 +235,7 @@ export default function Offerings() {
             <h4 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
               Need Multi-Format Assets For An Upcoming Campaign?
             </h4>
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               We package feed posts, Stories, carousels, and ad banners into unified multi-platform deliveries.
             </p>
           </div>

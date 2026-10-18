@@ -112,7 +112,7 @@ export default function ServiceEcosystem() {
                 <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.role}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
 

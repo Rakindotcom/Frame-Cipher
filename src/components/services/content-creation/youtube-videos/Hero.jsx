@@ -81,7 +81,7 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
           Framecipher provides YouTube video production services for businesses in Bangladesh and international clients across the USA, UK, Australia, Canada, and UAE. We handle the production from content structure and scripting through filming, editing, thumbnail production, and final delivery. Whether you need a founder video, educational series, interview, product demonstration, corporate video, or recurring YouTube content, we build the production around your format, audience, and business goal.
         </span>
       </PageHero>
@@ -96,7 +96,7 @@ export default function Hero({ service }) {
             <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               YouTube Video Production Built for Long-Form Viewing
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               A ten-minute or thirty-minute video gives production problems more time to become noticeable. Audio issues, repetitive visuals, weak pacing, and unnecessary sections can affect the viewing experience far more than they would in a short clip. That is why we plan long-form production around the complete viewing experience.
             </p>
           </div>
@@ -117,7 +117,7 @@ export default function Hero({ service }) {
                   <h3 className="mt-4 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>

@@ -46,7 +46,7 @@ export default function CaseStudies() {
                   <h3 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
                     {label}
                   </h3>
-                  <p className="mt-1 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-1 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {body}
                   </p>
                   <span className="mt-2 block text-[0.65rem] font-mono font-bold uppercase tracking-wider text-frame-muted-fg">
@@ -62,14 +62,14 @@ export default function CaseStudies() {
               <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Measurable data only
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We publish only results that can be supported by actual project data, tracked
                 through verified reporting such as Google Business Profile insights, search
                 consoles, and analytics platforms.
               </p>
             </div>
             <div className="border-l-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Verified Framecipher local SEO projects are featured above wherever suitable
                 case studies with measurable data are available.
               </p>

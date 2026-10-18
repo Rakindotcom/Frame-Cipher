@@ -50,7 +50,7 @@ export default function Solutions() {
                 <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {solution.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {solution.description}
                 </p>
               </div>
@@ -59,7 +59,7 @@ export default function Solutions() {
         </div>
 
         <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl wide:text-lg">
             We recommend theme structure, plugin stack, and functionality based on which of these your site actually is, not a one-size-fits-all business template applied regardless of purpose.
           </p>
           <Link

@@ -65,7 +65,7 @@ export default function Process() {
                   {p.name}
                 </h3>
 
-                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {p.desc}
                 </p>
               </div>

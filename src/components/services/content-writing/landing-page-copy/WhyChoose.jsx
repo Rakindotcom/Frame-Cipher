@@ -44,7 +44,7 @@ export default function WhyChoose() {
                 dangerouslySetInnerHTML={{ __html: reason.title }}
               />
               <p
-                className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"
+                className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"
                 dangerouslySetInnerHTML={{ __html: reason.text }}
               />
             </article>

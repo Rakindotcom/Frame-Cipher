@@ -46,7 +46,7 @@ export default function Guarantee() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 What We Control
               </span>
-              <span className="mt-2 block text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <span className="mt-2 block text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We can control and improve:
               </span>
             </div>
@@ -69,7 +69,7 @@ export default function Guarantee() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
                 What We Don&rsquo;t Guarantee
               </span>
-              <span className="mt-2 block text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <span className="mt-2 block text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We do not guarantee:
               </span>
             </div>
@@ -89,7 +89,7 @@ export default function Guarantee() {
         </div>
 
         <div className="mt-10 grid gap-6 border-t-2 border-frame-border pt-8 lg:grid-cols-[1.3fr_0.7fr] lg:items-center">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Instagram recommendations and audience behavior are outside an agency&rsquo;s direct
             control. Our responsibility is to build and manage a structured strategy, execute the
             agreed work professionally, review performance data, and use those insights to improve

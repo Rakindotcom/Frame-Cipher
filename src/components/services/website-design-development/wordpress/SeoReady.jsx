@@ -54,7 +54,7 @@ export default function SeoReady() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {seo.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {seo.description}
                 </p>
               </div>
@@ -63,7 +63,7 @@ export default function SeoReady() {
         </div>
 
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             A WordPress website built with SEO-ready foundations does not guarantee rankings. Search visibility still depends on content, competition, authority, technical quality, and ongoing SEO work.
           </p>
         </div>

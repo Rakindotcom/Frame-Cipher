@@ -49,13 +49,13 @@ export default function Results() {
               <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 How each case study is documented
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Each case study explains the starting problem, the on-page work performed, the
                 implementation period, and the measurable result.
               </p>
             </div>
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Only verified Framecipher results are published here, documented with available
                 search and business evidence rather than unverified performance claims.
               </p>

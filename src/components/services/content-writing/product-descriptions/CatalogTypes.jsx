@@ -91,7 +91,7 @@ export default function CatalogTypes() {
                 <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                   {type.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{type.lead}</p>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{type.lead}</p>
                 <ul className="mt-4 space-y-2">
                   {type.bullets.map((item) => (
                     <li

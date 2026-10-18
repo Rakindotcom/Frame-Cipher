@@ -79,7 +79,7 @@ export default function Guarantee() {
         </div>
 
         <div className="mt-10 border-l-2 border-frame-accent bg-frame-bg p-7 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Instead, we focus on work that can be planned, implemented, measured, and improved.
           </p>
         </div>

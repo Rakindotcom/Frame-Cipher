@@ -86,7 +86,7 @@ export default function DesignPortfolioPreview({
                 <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-frame-accent">
                   {work.label || 'Creative archive'}
                 </span>
-                <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {work.summary ||
                     'Visual identity, campaign graphics, packaging, and social-ready design produced in-house.'}
                 </p>

@@ -30,6 +30,56 @@ interface BlogPageClientProps {
   initialCategories?: string[];
 }
 
+/** Strip markdown / HTML noise down to plain readable text. */
+function stripMarkup(raw: string): string {
+  return raw
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]*)\]\([^)]*\)/g, "$1")
+    .replace(/^#{1,6}\s+/gm, " ")
+    .replace(/[*_~`>]+/g, " ")
+    .replace(/&[a-z#0-9]+;/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+/**
+ * Grid card excerpt: prefer the post's real first paragraph (~`wordLimit` words)
+ * instead of a title/summary echo. Falls back to excerpt, then a generic line.
+ */
+function getCardExcerpt(post: DetailedBlogPost, wordLimit = 20): string {
+  let firstParagraph = "";
+
+  const raw = (post.content || "").trim();
+  if (raw) {
+    const paragraphs = raw
+      .split(/\n{2,}/)
+      .map((p) => stripMarkup(p))
+      .filter((p) => p.split(/\s+/).length >= 6); // skip headings / one-liners
+    firstParagraph = paragraphs[0] || stripMarkup(raw);
+  } else if (Array.isArray(post.blocks) && post.blocks.length > 0) {
+    for (const block of post.blocks) {
+      const text = typeof block === "string" ? block : typeof block?.content === "string" ? block.content : "";
+      const type = typeof block === "object" ? block?.type : undefined;
+      if (!text || /^https?:\/\//i.test(text.trim())) continue;
+      if (type && type !== "paragraph" && type !== "text") continue;
+      firstParagraph = stripMarkup(text);
+      break;
+    }
+  }
+
+  const words = firstParagraph.split(/\s+/).filter(Boolean);
+  if (words.length > 0) {
+    return words.slice(0, wordLimit).join(" ") + (words.length > wordLimit ? "…" : "");
+  }
+
+  const fallback = (post.excerpt || "").trim();
+  return fallback || "Strategic playbooks and dispatches authored by the FrameCipher growth team.";
+}
+
 export function BlogPageClient({ initialPosts = [], initialCategories = [] }: BlogPageClientProps) {
   const [posts, setPosts] = useState<DetailedBlogPost[]>(() =>
     initialPosts.filter((p) => !isLegacyDemoPost(p))
@@ -196,7 +246,7 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                 placeholder="Search blog articles, playbooks, Webflow..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#18181B] border border-frame-border text-sm text-frame-fg placeholder:text-frame-muted-fg focus:outline-hidden focus:border-frame-accent focus:ring-1 focus:ring-frame-accent transition-all font-body"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#18181B] border border-frame-border text-sm text-frame-fg placeholder:text-frame-muted-fg focus:outline-hidden focus:border-frame-accent focus:ring-1 focus:ring-frame-accent transition-all font-body wide:text-lg"
               />
               {searchQuery && (
                 <button
@@ -249,7 +299,7 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                 <h3 className="font-heading text-xl font-bold uppercase text-white">
                   {searchQuery ? "No Articles Found" : "No Articles Published Yet"}
                 </h3>
-                <p className="text-sm text-frame-muted-fg max-w-md mx-auto">
+                <p className="text-sm text-frame-muted-fg max-w-md mx-auto wide:text-lg">
                   {searchQuery
                     ? `No published articles match "${searchQuery}". Try selecting another strategic category or clearing your search.`
                     : "Strategic playbooks and dispatches created in the FrameCipher Admin Portal will be published here automatically."}
@@ -335,9 +385,9 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                         </h2>
                       </Link>
 
-                      {/* Excerpt */}
+                      {/* Excerpt — first paragraph of the post, capped for the spotlight card */}
                       <p className="font-body text-base sm:text-lg font-medium text-frame-muted-fg leading-relaxed line-clamp-3">
-                        {featuredPost.excerpt}
+                        {getCardExcerpt(featuredPost, 28)}
                       </p>
 
                       {/* Author & CTA Button */}
@@ -375,7 +425,7 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                           href={`/blog/${featuredPost.slug}`}
                           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-frame-accent hover:bg-purple-600 text-white font-heading text-xs font-bold uppercase tracking-wider shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-all self-start sm:self-auto"
                         >
-                          <span>Read Strategic Blueprint</span>
+                          <span>Read More</span>
                           <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                       </div>
@@ -437,9 +487,9 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                               </h4>
                             </Link>
 
-                            {/* Excerpt */}
-                            <p className="font-body text-sm font-medium text-frame-muted-fg leading-relaxed line-clamp-3">
-                              {post.excerpt}
+                            {/* Excerpt — first paragraph of the post, capped at ~20 words */}
+                            <p className="font-body text-sm font-medium text-frame-muted-fg leading-relaxed line-clamp-3 wide:text-lg">
+                              {getCardExcerpt(post)}
                             </p>
                           </div>
 
@@ -462,7 +512,7 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                               href={`/blog/${post.slug}`}
                               className="font-heading font-bold uppercase tracking-wider text-xs text-frame-accent flex items-center gap-1 group-hover:translate-x-1 transition-transform shrink-0"
                             >
-                              <span>Read Dispatch</span>
+                              <span>Read More</span>
                               <ChevronRight className="h-3.5 w-3.5" />
                             </Link>
                           </div>

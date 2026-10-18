@@ -191,7 +191,7 @@ export default function Pricing() {
           </div>
 
           <div className="flex flex-col items-stretch justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Not sure which plan fits your business? Tell us about your target markets, current
               website, and goals, and we will recommend the right starting point.
             </p>
@@ -201,7 +201,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="mt-8 space-y-3.5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <div className="mt-8 space-y-3.5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           <p className="flex items-start gap-3">
             <span className="mt-0.5 text-frame-accent font-bold">*</span>
             <span>

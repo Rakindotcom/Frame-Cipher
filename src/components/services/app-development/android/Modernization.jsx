@@ -22,7 +22,7 @@ export default function Modernization() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Android App Modernization &amp; Migration
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           An existing Android application may not need to be completely rebuilt. Sometimes the better approach is to modernize the current codebase and improve the areas causing problems. We can support:
         </p>
       </div>
@@ -46,7 +46,7 @@ export default function Modernization() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Before major changes begin, we assess the existing codebase, architecture, dependencies, integrations, and current issues. The recommendation may be modernization, migration, partial redevelopment, or a full rebuild depending on the condition of the application.
         </p>
       </div>

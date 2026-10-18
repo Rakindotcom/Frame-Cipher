@@ -56,7 +56,7 @@ export default function MultiFormat() {
               <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {format.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/case-study-writing" allowed={["/services/website-design-development/landing-pages"]}>{format.text}</AutoLinks></p>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/case-study-writing" allowed={["/services/website-design-development/landing-pages"]}>{format.text}</AutoLinks></p>
             </article>
           ))}
         </div>
@@ -66,7 +66,7 @@ export default function MultiFormat() {
         </p>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             One interview can support the page, the deck, and the follow-up email.
           </p>
           <div className="flex shrink-0 flex-col gap-4 sm:flex-row">

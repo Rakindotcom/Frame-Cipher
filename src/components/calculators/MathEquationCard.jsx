@@ -62,7 +62,7 @@ export default function MathEquationCard({ equation }) {
       </div>
 
       {/* Theoretical Explanation */}
-      <p className="text-xs md:text-sm leading-relaxed text-frame-muted-fg break-words [overflow-wrap:anywhere]">
+      <p className="text-xs md:text-sm leading-relaxed text-frame-muted-fg break-words [overflow-wrap:anywhere] wide:text-lg">
         {equation.explanation}
       </p>
 

@@ -61,7 +61,7 @@ export default function Overview() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t border-frame-border/60 pt-5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-t border-frame-border/60 pt-5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Bidding and creative options vary by objective. We match the objective to the
               business outcome before structuring the campaign around it.
             </p>

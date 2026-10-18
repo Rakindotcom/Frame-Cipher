@@ -84,7 +84,7 @@ export default function ServicesConnectedSystem() {
                     {category.title}
                   </a>
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
+                <p className="mt-3 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">
                   {category.description}
                 </p>
               </div>

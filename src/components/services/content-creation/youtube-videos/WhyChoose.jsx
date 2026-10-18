@@ -65,7 +65,7 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -88,7 +88,7 @@ export default function WhyChoose() {
             <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               YouTube Video Production vs. Video Editing
             </h3>
-            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               YouTube Video Production and YouTube Video Editing are two different scopes of work depending on your existing assets.
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function WhyChoose() {
               <span className="text-xs font-black uppercase tracking-wider text-frame-muted-fg">
                 Video Editing Only
               </span>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 Starts with footage you already recorded and focuses purely on post-production: pacing cuts, dialogue sweetening, B-roll overlay, color grading, animations, and thumbnail packaging.
               </p>
               <span className="mt-4 inline-block text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg">
@@ -139,7 +139,7 @@ export default function WhyChoose() {
               <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Selected YouTube Video Production Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 Explore our catalog of verified long-form productions, founder interviews, and high-retention educational videos.
               </p>
             </div>

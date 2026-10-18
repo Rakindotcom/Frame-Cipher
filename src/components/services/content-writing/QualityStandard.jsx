@@ -53,7 +53,7 @@ export default function QualityStandard() {
               {controls.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
                   {item}
@@ -80,14 +80,14 @@ export default function QualityStandard() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               What We Don&rsquo;t Guarantee
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We do not guarantee:
             </p>
             <ul className="mt-4 space-y-3">
               {nonGuarantees.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-muted" />
                   {item}
@@ -95,7 +95,7 @@ export default function QualityStandard() {
               ))}
             </ul>
 
-            <p className="mt-7 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-7 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Those outcomes can also depend on website quality, technical SEO, competition, authority,
               backlinks, offer strength, design, distribution, advertising, tracking, market conditions, and
               many other factors.

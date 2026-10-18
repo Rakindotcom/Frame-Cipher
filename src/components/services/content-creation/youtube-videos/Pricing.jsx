@@ -246,7 +246,7 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
                 Services in Bangladesh
               </span>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Framecipher provides YouTube production for businesses across Dhaka and Bangladesh. Content can be produced in Bangla, English, or bilingual formats. Filming can be planned around offices, commercial locations, studios, products, teams, founders, and other suitable environments.
               </p>
             </div>
@@ -255,7 +255,7 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
                 Clients in USA, UK, Australia, Canada & UAE
               </span>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/youtube-videos" allowed={["/studio/video-editing"]}>
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/youtube-videos" allowed={["/studio/video-editing"]}>
                 We also support international clients needing professional YouTube content from a Bangladesh-based creative team. Support includes remote content planning, script development, high-end video editing, motion graphics, custom thumbnail production, supplied-footage editing, and content repurposing.
               </AutoLinks></p>
             </div>

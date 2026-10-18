@@ -49,7 +49,7 @@ export default function Hero({ service }) {
           <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
             Short-Form Video Built for the Vertical Format
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Short-form video is not simply a long video made shorter. The opening needs to communicate quickly. The composition needs to work in a vertical frame. The edit needs to maintain momentum without making every video feel identical. Captions, sound, graphics, and visual changes need to support the content rather than distract from it.
           </p>
 
@@ -71,7 +71,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 First-Second Impact
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A product video demonstrates a feature immediately. A founder video opens with a compelling premise that stops the scroll.
               </p>
             </div>
@@ -80,7 +80,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Mobile-Paced Flow
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Pacing removes dead air, utilizing dynamic cuts, b-roll inserts, and on-screen text to maintain viewer retention throughout.
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Native Conventions
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Tailored for Instagram Reels feed aesthetics, TikTok community engagement, and YouTube Shorts discovery algorithms.
               </p>
             </div>

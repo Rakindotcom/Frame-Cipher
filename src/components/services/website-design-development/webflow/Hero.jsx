@@ -99,19 +99,19 @@ export default function Hero() {
             <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Design-forward brands, agencies, and marketing teams that want creative control without the overhead of a fully custom framework.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Marketing websites, dynamic CMS sites, portfolios, and content platforms structured around your design, SEO, and publishing needs.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   We plan CMS, components, responsive behavior, integrations, and publishing workflow before build&mdash;then launch a site your team can manage.
                 </p>
               </div>

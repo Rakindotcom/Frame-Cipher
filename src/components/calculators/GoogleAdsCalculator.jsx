@@ -443,7 +443,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Target Geography & Industry Vertical
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Sets baseline Search CPC, click-through rates, and average Quality Score benchmarks.
             </p>
           </div>
@@ -546,7 +546,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Select Ad Format & Bidding Strategy
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Search text ads, Performance Max (PMax), Shopping, or Display.
             </p>
           </div>
@@ -684,7 +684,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Revenue Goal & Profit Margin
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               We reverse-engineer the required click volume and ad budget needed to hit this target.
             </p>
           </div>
@@ -779,7 +779,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Quality Score (1-10) & Auction Discount
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Google rewards higher Quality Scores with lower CPCs. Test how boosting QS from 5 to 9 drops click costs.
             </p>
           </div>
@@ -1115,7 +1115,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
                 <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   Want Frame Cipher to Engineer Your Google Ads Campaigns?
                 </h4>
-                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg">
+                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">
                   We build high-intent Search architectures, single-theme ad groups, negative keyword shields, Performance Max asset groups, and server-side enhanced conversion tracking.
                 </p>
               </div>

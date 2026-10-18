@@ -92,7 +92,7 @@ export default function ConnectedWorkflow() {
                 <h4 className="mt-1 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                   {item.solution}
                 </h4>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -109,7 +109,7 @@ export default function ConnectedWorkflow() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Pre-Production Planning for a Smoother Shoot
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               What happens before filming has a direct impact on what happens during editing. We eliminate surprises on set through thorough pre-production planning.
             </p>
           </div>

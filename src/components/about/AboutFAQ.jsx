@@ -118,7 +118,7 @@ export default function AboutFAQ() {
 
                 {isOpen && (
                   <div className="border-t border-frame-border/80 px-6 pb-6 pt-4 sm:px-8 sm:pb-8">
-                    <p className="max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg sm:text-base">
+                    <p className="max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base">
                       {faq.answer}
                     </p>
                   </div>

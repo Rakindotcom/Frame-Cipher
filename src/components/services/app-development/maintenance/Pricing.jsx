@@ -119,7 +119,7 @@ export default function Pricing() {
                     {pkg.period}
                   </span>
                 </div>
-                <p className="mt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pkg.description}
                 </p>
 
@@ -129,7 +129,7 @@ export default function Pricing() {
                   </p>
                   <ul className="space-y-2">
                     {pkg.includes.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                      <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                         <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                           <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />

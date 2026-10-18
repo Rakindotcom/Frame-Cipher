@@ -49,7 +49,7 @@ export default function StudioWhyMatters() {
                   <Icon className="h-6 w-6" />
                 </div>
                 <h3 className="mt-6 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">{item.title}</h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">{item.description}</p>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">{item.description}</p>
               </div>
             )
           })}
@@ -57,7 +57,7 @@ export default function StudioWhyMatters() {
         <div className="mt-12 border-2 border-frame-border bg-frame-muted/20 p-8 md:p-12">
           <span className="text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent">A studio day versus a location shoot</span>
           <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">Compare both options in writing</h3>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-frame-muted-fg wide:text-lg">
             A studio day often costs less than a location shoot once venue hire, portable lighting, sound treatment,
             travel and weather contingency are added up. We itemise both options so you can compare them.
           </p>

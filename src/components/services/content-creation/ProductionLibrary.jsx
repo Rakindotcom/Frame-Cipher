@@ -69,7 +69,7 @@ export default function ProductionLibrary() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {phase.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {phase.description}
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function ProductionLibrary() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               What You Receive
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Your final deliverables depend on the agreed project scope, delivered as an organized package ready for immediate marketing deployment.
             </p>
           </div>
@@ -101,7 +101,7 @@ export default function ProductionLibrary() {
                   <h4 className="mt-4 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h4>
-                  <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.description}
                   </p>
                 </div>
@@ -115,7 +115,7 @@ export default function ProductionLibrary() {
                 <h4 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                   Raw Files & Licensing
                 </h4>
-                <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Source files, editable project files, commercial licensing, and raw 4K footage can be included when agreed during initial project scoping.
                 </p>
               </div>

@@ -470,7 +470,7 @@ export default function Offerings() {
                   <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {service.desc}
                   </p>
 
@@ -480,7 +480,7 @@ export default function Offerings() {
                     </p>
                     <ul className="mt-2.5 space-y-2">
                       {service.bullets.map((b, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                        <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                           <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                             <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -512,7 +512,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               MVP vs Prototype vs PoC vs Full Product
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               These terms are often used interchangeably, but they serve different purposes.
             </p>
           </div>
@@ -547,7 +547,7 @@ export default function Offerings() {
               <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
                 Proof of Concept (PoC)
               </h4>
-              <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A PoC can be useful when technical feasibility is the biggest uncertainty.
               </p>
             </div>
@@ -555,7 +555,7 @@ export default function Offerings() {
               <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
                 Prototype
               </h4>
-              <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A prototype can be appropriate when you need to test an idea or user experience before building working software.
               </p>
             </div>
@@ -563,7 +563,7 @@ export default function Offerings() {
               <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
                 MVP &amp; Full Product
               </h4>
-              <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 An MVP goes further. It contains enough working functionality for real users to interact with the product and generate meaningful evidence. A full product normally expands beyond the initial validation scope with additional features, deeper infrastructure, broader integrations, and greater operational requirements.
               </p>
             </div>
@@ -578,7 +578,7 @@ export default function Offerings() {
           <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
             When Should You Build an MVP?
           </h2>
-          <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             An MVP is useful when you have enough clarity about the problem to build a focused solution, but important uncertainty still remains.
           </p>
 
@@ -587,7 +587,7 @@ export default function Offerings() {
               <h3 className="font-heading text-lg md:text-xl font-bold uppercase text-frame-fg">
                 When an MVP Makes Sense
               </h3>
-              <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 An MVP can be appropriate when:
               </p>
               <ul className="mt-4 space-y-2.5">
@@ -601,7 +601,7 @@ export default function Offerings() {
                   "You need to test a core product workflow",
                   "You want to validate demand before expanding development"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                  <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                       <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -620,7 +620,7 @@ export default function Offerings() {
               <h3 className="font-heading text-lg md:text-xl font-bold uppercase text-frame-fg">
                 When You May Need a Prototype or PoC First
               </h3>
-              <div className="mt-4 space-y-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 <p>An MVP is not always the first step.</p>
                 <p>A prototype may be more appropriate when the main uncertainty is the user experience or product concept.</p>
                 <p>A PoC may be more appropriate when the main uncertainty is whether a technical approach can work.</p>
@@ -647,7 +647,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Types of MVPs We Build
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               The right MVP structure depends on the product model, users, and core workflow.
             </p>
           </div>
@@ -665,7 +665,7 @@ export default function Offerings() {
                   <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                     {type.title}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {type.desc}
                   </p>
 
@@ -694,7 +694,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               How We Measure MVP Validation
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               There is no single metric that proves every MVP succeeded. The right measurement depends on the hypothesis, target users, product model, and business objective.
             </p>
           </div>
@@ -711,7 +711,7 @@ export default function Offerings() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
 
@@ -739,7 +739,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Common MVP Mistakes That Distort Validation
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               A technically functional MVP can still produce poor evidence if the product is scoped incorrectly.
             </p>
           </div>
@@ -773,7 +773,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               MVP Development Technology Stack
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               The technology stack should support the MVP&apos;s actual requirements rather than follow a fixed technology list. Framecipher selects technologies based on the product type, platform, integrations, expected workload, development requirements, and future product direction. Our MVP projects may involve:
             </p>
           </div>
@@ -821,7 +821,7 @@ export default function Offerings() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -838,7 +838,7 @@ export default function Offerings() {
           <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
             MVP Development Services Across Bangladesh &amp; Worldwide
           </h2>
-          <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             <p>
               Framecipher is based in Dhaka, Bangladesh, and provides MVP development services for businesses and product teams in Bangladesh and international markets.
             </p>

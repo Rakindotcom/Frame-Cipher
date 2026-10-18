@@ -21,7 +21,7 @@ export default function StartRequirements() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           What We Need to Start Your App Project
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           You do not need to have the complete technical architecture figured out before contacting us. We can help define the right approach during discovery. We may need:
         </p>
       </div>
@@ -43,7 +43,7 @@ export default function StartRequirements() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           The clearer the initial requirements, the easier it is to recommend the right scope and technology.
         </p>
       </div>

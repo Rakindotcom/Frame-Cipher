@@ -113,7 +113,7 @@ export default function Challenges() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body}
                 </p>
                 <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -125,7 +125,7 @@ export default function Challenges() {
                   ))}
                 </ul>
                 {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.note}
                   </p>
                 )}

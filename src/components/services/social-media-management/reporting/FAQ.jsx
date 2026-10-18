@@ -85,7 +85,7 @@ export default function FAQ({ service }) {
                 {faq.a.split('\n\n').map((paragraph, pIdx) => (
                   <p
                     key={pIdx}
-                    className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
+                    className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
                       pIdx > 0 ? 'mt-4' : ''
                     }`}
                   >

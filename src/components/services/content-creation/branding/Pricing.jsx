@@ -189,7 +189,7 @@ export default function Pricing({ service }) {
               <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Branding in Bangladesh
               </h4>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We support startups, SMEs, ecommerce platforms, product lines, lifestyle brands, and established enterprises across Dhaka and Bangladesh. For domestic operations, our brand systems specifically account for bilingual Bangla-English copywriting voice, custom Bangla typography pairings, and local consumer trust signals.
               </p>
             </div>
@@ -201,7 +201,7 @@ export default function Pricing({ service }) {
               <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Branding for International Businesses
               </h4>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We work remotely with businesses in the US, UK, Australia, Canada, and UAE. Brand strategy and visual direction are adapted to international market expectations, digital accessibility standards, and category conventions rather than applying one region’s conventions everywhere.
               </p>
             </div>

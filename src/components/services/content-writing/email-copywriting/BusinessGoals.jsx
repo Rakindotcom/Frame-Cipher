@@ -107,7 +107,7 @@ export default function BusinessGoals() {
               <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {block.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{block.lead}</p>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{block.lead}</p>
 
               <ul className="mt-4 space-y-2">
                 {block.items.map((item) => (

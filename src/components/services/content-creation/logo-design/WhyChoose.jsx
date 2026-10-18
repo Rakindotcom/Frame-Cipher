@@ -66,7 +66,7 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pillar.desc}
                 </p>
               </div>
@@ -84,7 +84,7 @@ export default function WhyChoose() {
               <h3 className="mt-1 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
                 Selected Logo Design Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl wide:text-lg">
                 Explore selected logo design projects covering new venture identities, corporate logo redesigns, product brand emblems, and multi-format visual marks.
               </p>
             </div>

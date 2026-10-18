@@ -54,7 +54,7 @@ export default function ServicesWhy() {
                 <h3 className="font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-3xl">
                   {reason.title}
                 </h3>
-                <p className="mt-4 text-base font-medium leading-snug text-frame-muted-fg">
+                <p className="mt-4 text-base font-medium leading-snug text-frame-muted-fg wide:text-lg">
                   {reason.description}
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function ServicesWhy() {
                   <td className="bg-frame-accent/[0.18] p-6 text-base font-bold text-frame-accent">
                     {row.us}
                   </td>
-                  <td className="p-6 text-base font-medium text-frame-muted-fg">{row.them}</td>
+                  <td className="p-6 text-base font-medium text-frame-muted-fg wide:text-lg">{row.them}</td>
                 </tr>
               ))}
             </tbody>

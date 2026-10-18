@@ -15,7 +15,7 @@ export default function CTA() {
             <p className="mx-auto mt-6 max-w-2xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
               Have an idea that is difficult to explain with a static image or live-action video? Send us the concept, script, reference, or even a rough description.
             </p>
-            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               We will review what needs to be communicated and recommend the appropriate motion graphics or animation approach.
             </p>
 
@@ -31,19 +31,19 @@ export default function CTA() {
             <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">In-House Animation Lab</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Illustrators, 2D/3D motion designers, and audio engineers collaborating directly under one roof.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Milestone Approvals</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Sign-off checkpoints on scripts, storyboards, and style frames before full animation begins to eliminate costly rework.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Multi-Ratio Exports</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Turnkey platform deliveries formatted natively for 16:9 widescreen, 9:16 vertical, and 1:1 square feeds.
                 </p>
               </div>

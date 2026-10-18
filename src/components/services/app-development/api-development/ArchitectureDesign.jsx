@@ -21,7 +21,7 @@ export default function ArchitectureDesign() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API Architecture &amp; Contract Design
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Once the project requirements are clear, we define the technical structure of the API. This creates a predictable contract between your application, users, and connected systems.
         </p>
       </div>

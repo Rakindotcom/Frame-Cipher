@@ -30,7 +30,7 @@ export default function Privacy() {
         <SectionIntro eyebrow="Privacy" title="Privacy, Consent & Modern Remarketing">
           Remarketing now operates within a more privacy-conscious advertising environment.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Browser restrictions, app privacy controls, consent requirements, platform policies, and
           changing measurement technologies can affect how audiences are created and measured. That
           makes proper consent and data handling part of the remarketing strategy, not an optional
@@ -47,7 +47,7 @@ export default function Privacy() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {block.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {block.body}
               </p>
             </div>

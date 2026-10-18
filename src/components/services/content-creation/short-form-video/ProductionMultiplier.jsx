@@ -82,7 +82,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               1 Half-Day Shoot → 6–10 Short Videos
             </h3>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               We batch-film talking points, quick advice, and brand moments to create weeks of social publishing from a single session:
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-2">
@@ -107,7 +107,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               1 Product Session → 5+ Conversion Assets
             </h3>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Capture demos, macro details, unboxings, and multiple hook variations in one session to feed organic social and paid ad tests:
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-2">
@@ -134,7 +134,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               What You Receive
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Your exact deliverables depend on the selected production package, organized into a clean, platform-ready digital delivery folder:
             </p>
           </div>

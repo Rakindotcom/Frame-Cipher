@@ -68,7 +68,7 @@ export default function WhatMakesALogoWork() {
                 <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pillar.desc}
                 </p>
               </div>

@@ -24,7 +24,7 @@ export default function TechnologyStack() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           SaaS Technology Stack
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           We choose technologies based on the application&apos;s requirements rather than forcing every SaaS product into one fixed stack.
         </p>
       </div>

@@ -35,7 +35,7 @@ export default function WebMobileDevelopment() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           SaaS Web &amp; Mobile App Development
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Your SaaS product may need to serve customers across more than one interface.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function WebMobileDevelopment() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {item.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {item.desc}
             </p>
           </div>

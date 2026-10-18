@@ -54,7 +54,7 @@ export default function ServiceAreas() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Our Bangladesh-focused strategies can account for local audiences, customer behavior,
               language, market conditions, and business objectives.
             </p>
@@ -100,7 +100,7 @@ export default function ServiceAreas() {
           </ul>
 
           <div className="mt-8 flex flex-col gap-6 border-t-2 border-frame-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               If your market is not listed, ask. International channel strategies can be adapted around
               the target audience rather than reusing a Bangladesh-focused approach.
             </p>

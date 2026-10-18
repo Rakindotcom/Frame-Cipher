@@ -62,7 +62,7 @@ export default function Problems() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {problem.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {problem.body}
                 </p>
                 {problem.bullets?.length > 0 && (
@@ -92,7 +92,7 @@ export default function Problems() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               A technical SEO audit finds the answers
             </h3>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We investigate the actual condition of your website, prioritize the issues that
               matter, and recommend fixes based on evidence.
             </p>

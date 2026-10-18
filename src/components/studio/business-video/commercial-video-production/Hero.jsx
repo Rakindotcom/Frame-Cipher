@@ -54,7 +54,7 @@ export default function Hero({ service }) {
             We plan the hooks, lengths and aspect ratios before shooting, so the same footage serves every placement
             without compromising the frame.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before production starts, we agree the offer, audience, placements and cutdown set in writing. The concept
             and the edit are then engineered around the response you need.
           </p>

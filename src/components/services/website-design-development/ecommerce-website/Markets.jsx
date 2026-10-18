@@ -48,7 +48,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Serving Global Merchants
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 For merchants targeting customers outside Bangladesh, we can also consider:
               </p>
               <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
@@ -59,7 +59,7 @@ export default function Markets() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
                 Your store should be built around the market you actually sell into, not around a generic ecommerce template.
               </p>
             </div>

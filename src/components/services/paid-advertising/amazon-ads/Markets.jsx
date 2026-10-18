@@ -55,7 +55,7 @@ export default function Markets() {
           Framecipher is based in Dhaka and works with businesses in Bangladesh as well as brands
           selling through international Amazon marketplaces.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Amazon advertising availability, features, and eligibility can vary by marketplace and
           advertiser type.
         </p>
@@ -80,7 +80,7 @@ export default function Markets() {
                   </span>
                 )}
               </div>
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">{area.body}</p>
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{area.body}</p>
               {area.accent && (
                 <p className="mt-4 text-xs font-bold uppercase tracking-widest text-frame-accent">
                   {area.accent}
@@ -88,7 +88,7 @@ export default function Markets() {
               )}
               <ul className="mt-6 space-y-2.5 border-t border-frame-border pt-4">
                 {area.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg">
+                  <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                     <span>{item}</span>
                   </li>
@@ -99,7 +99,7 @@ export default function Markets() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-10">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Amazon advertising features and eligibility can vary by marketplace, advertiser type,
             product category, and account status. We verify the relevant setup before recommending a
             campaign structure.

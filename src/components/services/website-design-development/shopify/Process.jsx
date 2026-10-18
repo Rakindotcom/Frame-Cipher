@@ -73,7 +73,7 @@ export default function Process() {
                   {step.title}
                 </h3>
               </div>
-              <p className="relative z-10 mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+              <p className="relative z-10 mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
                 {step.description}
               </p>
             </article>

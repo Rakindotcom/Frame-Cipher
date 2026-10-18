@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             Quoting strictly from scope means you invest only in the personnel, equipment and finishing your
             asset demands, with every line visible before you commit.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Hourly hire starts at ৳2,000, sessions from ৳7,500, signature productions run ৳45,000 to ৳1,85,000,
             and flagship campaigns are scoped past ৳5,00,000. A 50% advance confirms dates; the balance is due on
             final sign-off with VAT-compliant invoices.

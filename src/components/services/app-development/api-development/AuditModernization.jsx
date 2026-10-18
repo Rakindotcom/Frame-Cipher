@@ -43,7 +43,7 @@ export default function AuditModernization() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API Audit, Optimization &amp; Modernization
         </h2>
-        <div className="mt-3 max-w-3xl space-y-1 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <div className="mt-3 max-w-3xl space-y-1 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           <p>You do not always need a new API. Sometimes the existing API is the problem.</p>
           <p>We can review an existing API and identify areas that need improvement.</p>
         </div>
@@ -61,7 +61,7 @@ export default function AuditModernization() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {item.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {item.desc}
             </p>
           </div>

@@ -55,7 +55,7 @@ export default function AeoGeo() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.body.map((paragraph, pIdx) => (
                   <p key={pIdx}><AutoLinks currentPath="/services/paid-advertising/chatgpt-ads" allowed={["/services/website-design-development/landing-pages"]}>{paragraph}</AutoLinks></p>
                 ))}
@@ -65,7 +65,7 @@ export default function AeoGeo() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             This is why Framecipher manages ChatGPT Ads and AI visibility (AEO/GEO) as one team.
             The advertising conversation and the organic representation of your brand should be
             telling the same truthful story.

@@ -32,13 +32,13 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto mt-6 max-w-7xl border-t-2 border-frame-border px-4 pb-16 md:px-8">
-        <p className="mt-8 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-8 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Framecipher provides Amazon Ads Management Service for businesses in Bangladesh and
           international marketplaces. We manage Sponsored Products, Sponsored Brands, Display Ads,
           DSP, targeting, and performance optimization around your products, margins, and growth
           goals.
         </p>
-        <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           We look beyond clicks and ACOS, considering listing quality, pricing, inventory,
           conversion rate, and marketplace competition to build campaigns that are designed to
           perform.

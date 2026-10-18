@@ -31,7 +31,7 @@ export default function MvpStartups() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           MVP App Development for Startups
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Not every product needs its complete feature set on the first release. An MVP focuses on the smallest practical version needed to test the core idea with real users.
         </p>
       </div>
@@ -48,7 +48,7 @@ export default function MvpStartups() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {stage.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {stage.desc}
             </p>
           </div>

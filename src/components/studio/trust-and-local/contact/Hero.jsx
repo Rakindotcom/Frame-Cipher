@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             outlines, wardrobe, backdrops and lighting setups in advance, so your shoot day runs at maximum
             efficiency from the first minute.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             WhatsApp quotes and walkthrough visits are free. Studio hire starts from ৳2,000/hour with a 50%
             advance confirming dates — and the balance due only on final sign-off.
           </p>

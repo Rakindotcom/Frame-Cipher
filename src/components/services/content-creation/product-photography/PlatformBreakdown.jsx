@@ -110,7 +110,7 @@ export default function PlatformBreakdown() {
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/product-photography" allowed={["/services/paid-advertising"]}>
+                <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/product-photography" allowed={["/services/paid-advertising"]}>
                   {platform.overview}
                 </AutoLinks></p>
 
@@ -146,7 +146,7 @@ export default function PlatformBreakdown() {
             <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
               Selling Across Multiple Marketplaces Simultaneously?
             </h4>
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               We deliver organized multi-platform export folders so your listings go live instantly on Amazon, Daraz, and Shopify.
             </p>
           </div>

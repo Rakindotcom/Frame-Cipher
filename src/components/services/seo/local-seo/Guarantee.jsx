@@ -76,7 +76,7 @@ export default function Guarantee() {
         </div>
 
         <div className="mt-10 flex flex-col gap-8 border-t-2 border-frame-border pt-8 lg:flex-row lg:items-center lg:justify-between">
-          <p className="max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             The focus should remain on improving the factors we can control and measuring the
             business results that follow.
           </p>

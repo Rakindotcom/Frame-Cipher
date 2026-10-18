@@ -23,7 +23,7 @@ export default function TechTooling() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API Technology &amp; Tooling
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           We select API technologies and supporting tools based on your application&apos;s requirements, existing infrastructure, integration needs, and long-term maintenance. Our API projects can involve:
         </p>
       </div>

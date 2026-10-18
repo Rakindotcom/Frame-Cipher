@@ -101,19 +101,19 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Business websites, content publishers, WooCommerce sellers, and companies that want a site their team can manage in-house.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Custom WordPress themes, content platforms, WooCommerce stores, and custom functionality built around your workflows and goals.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Theme architecture, plugin selection, performance, security, and SEO through one in-house team with full editorial handover.
               </p>
             </div>

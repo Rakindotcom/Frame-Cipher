@@ -67,7 +67,7 @@ export default function PagesWeWrite() {
                 dangerouslySetInnerHTML={{ __html: page.title }}
               />
               {page.body.map((paragraph) => (
-                <p key={paragraph} className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p key={paragraph} className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {paragraph}
                 </p>
               ))}

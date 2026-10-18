@@ -21,7 +21,7 @@ export default function Modernization() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           App Modernization &amp; Existing Application Development
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           You may already have an application that works but needs technical, usability, or product improvements. We can support existing applications that require:
         </p>
       </div>
@@ -41,7 +41,7 @@ export default function Modernization() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Before major changes begin, we review the existing technology stack, dependencies, architecture, integrations, and current problems so the modernization approach reflects the actual condition of the product.
         </p>
       </div>

@@ -139,7 +139,7 @@ export default function Pricing() {
                     </p>
                     <ul className="mt-3 space-y-2">
                       {tier.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                           <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                             <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -163,10 +163,10 @@ export default function Pricing() {
 
           {/* PRICING NOTES */}
           <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-6">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               These are starting references rather than fixed quotes. Final pricing is based on the actual product scope and technical requirements.
             </p>
-            <p className="mt-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               A consultation is provided before a paid commitment so the recommended approach, scope, timeline, and estimated cost are clear.
             </p>
           </div>
@@ -183,7 +183,7 @@ export default function Pricing() {
                 Approvals, Scope &amp; Release Support
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Clear approvals and scope boundaries help keep application development predictable.
             </p>
           </div>
@@ -200,7 +200,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -225,7 +225,7 @@ export default function Pricing() {
                 Post-Launch App Support &amp; Maintenance
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               An application needs attention after launch as operating systems, devices, dependencies, integrations, and user requirements change. Post-launch support can include:
             </p>
           </div>
@@ -245,7 +245,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Routine maintenance and larger development work can be handled under separate scopes depending on the application and support plan.
             </p>
           </div>

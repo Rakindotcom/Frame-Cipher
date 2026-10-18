@@ -275,7 +275,7 @@ export default function Offerings() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
               </div>
@@ -348,7 +348,7 @@ export default function Offerings() {
               )}
 
               {item.note && (
-                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {item.note}
                 </p>
               )}
@@ -364,7 +364,7 @@ export default function Offerings() {
             <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               Start with a free LinkedIn presence audit
             </h3>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We review the actual pages, profiles, and content performance before any management work
               begins.
             </p>

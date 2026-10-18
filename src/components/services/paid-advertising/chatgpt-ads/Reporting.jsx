@@ -41,7 +41,7 @@ export default function Reporting() {
         </SectionIntro>
 
         <div className="border-l-2 border-frame-accent bg-frame-bg p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             You receive a monthly report covering campaign-level metrics including impressions,
             clicks, CTR, CPM, CPC, spend, conversions, and cost per conversion, plus ad-group
             analysis, creative testing results, and optimization notes. If you need more frequent
@@ -70,7 +70,7 @@ export default function Reporting() {
               <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.body}
               </p>
             </div>

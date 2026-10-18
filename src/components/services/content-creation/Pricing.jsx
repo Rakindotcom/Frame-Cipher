@@ -157,7 +157,7 @@ export default function Pricing() {
                     {pkg.price}
                   </div>
                 </div>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pkg.description}
                 </p>
                 <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-frame-accent">
@@ -221,7 +221,7 @@ export default function Pricing() {
           <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
             Factors That Influence Final Pricing
           </h3>
-          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
             Final pricing adapts dynamically to the physical, technical, and creative demands of your shoot:
           </p>
 
@@ -235,7 +235,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               * Confirm all pricing and package inclusions before publishing. We provide custom quotations after detailed scoping.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
@@ -253,7 +253,7 @@ export default function Pricing() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Timeline, Revisions & Production Support
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Production timelines depend on the format and scope. These are planning ranges, not fixed guarantees. Your proposal confirms the actual production schedule after the scope is defined.
             </p>
           </div>
@@ -289,10 +289,10 @@ export default function Pricing() {
                 <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   Review & Revisions Policy
                 </h4>
-                <p className="mt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Every project includes a defined review process. The number of revision rounds depends on the selected package or project scope and is confirmed before production begins.
                 </p>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   We don&apos;t just send a final link and walk away. You inspect creative drafts at designated milestones so any necessary refinements are incorporated seamlessly before final delivery.
                 </p>
               </div>
@@ -311,10 +311,10 @@ export default function Pricing() {
                 <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   Ongoing Production Support
                 </h4>
-                <p className="mt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Businesses that need regular content can work with Framecipher on a recurring production cadence. Depending on the engagement, ongoing support can include scheduled production, recurring graphics, short-form video, photography, campaign assets, and content repurposing.
                 </p>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   This eliminates the scramble to create new assets each week and gives your team a reliable, predictable content pipeline.
                 </p>
               </div>
@@ -337,7 +337,7 @@ export default function Pricing() {
               <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Content Creation Service Areas
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Framecipher provides content creation services for businesses in Bangladesh, including Dhaka and other locations where production requirements can be supported. We also work with international clients across the:
               </p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-frame-fg">
@@ -348,7 +348,7 @@ export default function Pricing() {
                 <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Canada</span>
                 <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United Arab Emirates</span>
               </div>
-              <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg">
+              <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 For international projects, delivery and production arrangements depend on the required format, location, and scope.
               </p>
             </div>

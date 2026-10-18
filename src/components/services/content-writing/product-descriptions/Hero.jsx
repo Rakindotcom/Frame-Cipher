@@ -54,13 +54,13 @@ export default function Hero() {
             For Ecommerce Brands, Shopify Stores, Amazon Sellers &amp; Marketplaces
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides Product Description Writing Service for ecommerce businesses that need original,
             buyer-focused product copy for individual products or large catalogs. We turn product features into
             clear benefits, address common purchase questions, structure copy for easy scanning, and adapt the
             content to the platform where it will be published.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We work with businesses in Bangladesh and international markets, including the US, UK, Australia,
             Canada, and UAE.
           </p>

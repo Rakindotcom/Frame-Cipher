@@ -116,7 +116,7 @@ export default function Pricing() {
                     Typical Delivery: {pkg.timeline}
                   </p>
                 )}
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.description}
                 </p>
                 {pkg.features && (
@@ -142,7 +142,7 @@ export default function Pricing() {
 
         {/* TABLE FOOTER / NOTE */}
         <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-b-2 border-frame-border pb-8">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
             These are indicative ranges, not fixed packages. We provide a custom quotation after reviewing your project requirements.
           </p>
           <div className="shrink-0">
@@ -159,7 +159,7 @@ export default function Pricing() {
             <h2 className="font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Website Development Timeline
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Typical project timelines depend on scope, content readiness, revisions, and client approvals. Complex integrations, custom applications, and large product catalogs may require additional time.
             </p>
           </div>
@@ -230,7 +230,7 @@ export default function Pricing() {
                   </ul>
                 </div>
               </div>
-              <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Frame Cipher works with businesses in Dhaka and across Bangladesh, as well as clients worldwide. We build websites for startups, small businesses, eCommerce brands, and established companies.
               </p>
             </div>
@@ -249,13 +249,13 @@ export default function Pricing() {
               <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Warranty and Ongoing Support
               </h2>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 We review design and development milestones with you before moving to the next stage. This helps keep the project aligned with your expectations and reduces surprises at launch.
               </p>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 After launch, we can provide guidance on maintenance, updates, and future improvements. Ongoing maintenance may include technical updates, security monitoring, backups, and fixes based on the agreed scope.
               </p>
-              <p className="mt-3 text-xs md:text-sm font-semibold text-frame-muted-fg italic border-t border-frame-border/40 pt-3">
+              <p className="mt-3 text-xs md:text-sm font-semibold text-frame-muted-fg italic border-t border-frame-border/40 pt-3 wide:text-lg">
                 * Website performance and business results depend on content, marketing, technical implementation, and market conditions. We do not promise specific traffic or conversion outcomes from development alone.
               </p>
             </div>

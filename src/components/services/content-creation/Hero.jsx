@@ -55,7 +55,7 @@ export default function Hero({ service }) {
           <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
             Content Creation Built for Your Brand, Platforms & Business Goals
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Content creation is the production of the visual and creative assets your business uses across digital channels, campaigns, websites, ecommerce, advertising, and social media. That can mean a product photoshoot, a brand video, a series of Reels, motion graphics, social media designs, or a complete set of campaign assets.
           </p>
 
@@ -79,7 +79,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Video & Photography
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Your video should feel like the same brand as your photography, sharing color grading, art direction, and tone.
               </p>
             </div>
@@ -88,7 +88,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Social & Website Harmony
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Your social graphics match your website. Your campaign visuals follow the exact visual system of your broader identity.
               </p>
             </div>
@@ -97,7 +97,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 One In-House Creative Team
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Framecipher handles production needs under one team instead of sending every format to a different freelancer.
               </p>
             </div>

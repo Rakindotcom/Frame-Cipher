@@ -166,7 +166,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <p className="mt-6 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-6 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Every quote is itemised in writing within 48 hours, covering sessions, restoration volume, deliverables and timeline. A 50%
           advance confirms dates, and the balance is due on final sign-off. All payments get VAT-compliant invoices.
         </p>
@@ -189,7 +189,7 @@ export default function Pricing() {
           <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
             What Family and Legacy Films Cost in Dhaka
           </h4>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             {DATA.marketNote}
           </p>
           {DATA.costRows && DATA.costRows.length > 0 && (

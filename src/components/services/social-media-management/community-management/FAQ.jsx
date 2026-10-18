@@ -83,7 +83,7 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t-2 border-frame-border p-6">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/community-management" allowed={["/services/content-writing/content-strategy"]}>{faq.a}</AutoLinks></p>
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/community-management" allowed={["/services/content-writing/content-strategy"]}>{faq.a}</AutoLinks></p>
               </div>
             </details>
           ))}

@@ -53,7 +53,7 @@ export default function PerformanceCommitment() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t border-frame-border/60 pt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-t border-frame-border/60 pt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We therefore do not promise a fixed cost per lead, ROAS, revenue figure, or number
               of purchases before understanding the account and market.
             </p>

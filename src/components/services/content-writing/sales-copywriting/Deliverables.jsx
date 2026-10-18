@@ -39,13 +39,13 @@ export default function Deliverables() {
           ))}
         </ul>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           For larger projects, we can define the deliverables, research depth, number of pages or assets,
           revision scope, and timeline before writing begins.
         </p>
 
         <div className="mt-8 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The scope is agreed before drafting, so the argument is built for the format you actually need.
           </p>
           <div className="shrink-0">

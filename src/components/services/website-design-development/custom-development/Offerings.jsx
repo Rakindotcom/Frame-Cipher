@@ -191,7 +191,7 @@ export default function Offerings() {
                 <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-frame-accent">
                   {service.subtitle}
                 </p>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {service.description}
                 </p>
 

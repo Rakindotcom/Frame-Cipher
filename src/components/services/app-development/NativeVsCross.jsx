@@ -31,7 +31,7 @@ export default function NativeVsCross() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Native vs Cross-Platform App Development
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Choosing between native and cross-platform development depends on your product requirements rather than a fixed rule.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default function NativeVsCross() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           We consider the target users, required features, performance needs, timeline, budget, integrations, and long-term roadmap before recommending a technology.
         </p>
       </div>

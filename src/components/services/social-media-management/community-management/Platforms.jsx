@@ -45,14 +45,14 @@ export default function Platforms() {
               <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {platform.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {platform.body}
               </p>
             </article>
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Platform coverage can be combined or handled separately depending on your business, the volume of
           interaction on each platform, and the level of response required.
         </p>

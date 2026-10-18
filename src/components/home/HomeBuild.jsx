@@ -95,7 +95,7 @@ export default function HomeBuild() {
                 </h3>
               </div>
               <div>
-                <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85">
+                <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85">
                   {item.description}
                 </p>
                 <span

@@ -43,7 +43,7 @@ export default function Security() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API Security &amp; Access Control
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Security needs to be considered before an API reaches production. We design security controls around the application&apos;s users, integrations, data, and access requirements.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default function Security() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {item.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {item.desc}
             </p>
           </div>

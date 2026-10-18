@@ -54,7 +54,7 @@ export default function Timeline() {
                       <td className="py-3 pr-4 text-xs md:text-sm font-semibold text-frame-fg">
                         {row.project}
                       </td>
-                      <td className="py-3 text-xs md:text-sm font-medium text-frame-muted-fg">
+                      <td className="py-3 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                         {row.duration}
                       </td>
                     </tr>

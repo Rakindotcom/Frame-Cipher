@@ -53,7 +53,7 @@ export default function WhyChoose() {
                   {pillar.title}
                 </h3>
               </div>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {pillar.desc}
               </p>
             </article>

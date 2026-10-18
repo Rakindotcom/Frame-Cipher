@@ -11,7 +11,7 @@ export default function CTA() {
         <h2 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-4xl">
           Ready to Understand What Your Social Media Is Actually Doing?
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Your social media report should do more than show whether numbers went up or down. Framecipher
           turns social performance data into clear context, useful insights, and practical recommendations
           for the next planning cycle.

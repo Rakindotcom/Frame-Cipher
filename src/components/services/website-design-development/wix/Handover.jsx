@@ -36,7 +36,7 @@ export default function Handover() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Ownership &amp; Access
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 At project handover, we provide the agreed access and credentials required to manage your website, subject to the ownership and account structure established for the project. This can include:
               </p>
               <ul className="mt-4 space-y-2 text-sm md:text-base font-medium text-frame-fg/90">
@@ -59,7 +59,7 @@ export default function Handover() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Wix Editor Handover
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 We walk you through the parts of the Wix editor your team will need for routine website management. Depending on the project, this can include:
               </p>
               <ul className="mt-4 space-y-2 text-sm md:text-base font-medium text-frame-fg/90">
@@ -83,7 +83,7 @@ export default function Handover() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Basic Training &amp; Guidance
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               We provide basic guidance so you understand how to manage the website after launch. The training focuses on the actual features included in your project rather than overwhelming you with unnecessary technical details.
             </p>
           </div>
@@ -96,7 +96,7 @@ export default function Handover() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Handover Documentation
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Where included in the project scope, we provide basic instructions or documentation covering important website management tasks, access details, and agreed post-launch procedures.
             </p>
             <p className="mt-4 text-xs italic text-frame-muted-fg">

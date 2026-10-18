@@ -112,7 +112,7 @@ export function ProjectCard({ project, number, showSummary = false, className = 
           </Link>
         </h4>
         {showSummary && (
-          <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             {project.summary}
           </p>
         )}

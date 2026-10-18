@@ -67,7 +67,7 @@ export default function Timeline() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               A larger website, multiple markets, or a complex content operation may require additional time.
             </p>
           </div>
@@ -81,7 +81,7 @@ export default function Timeline() {
                 <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {card.text}
                 </p>
               </article>
@@ -90,7 +90,7 @@ export default function Timeline() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Tell us the size of your library and how many markets you cover, and we will give you a realistic range
             rather than a generic estimate.
           </p>

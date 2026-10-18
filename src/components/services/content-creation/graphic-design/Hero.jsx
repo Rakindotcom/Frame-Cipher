@@ -61,7 +61,7 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
           We design individual assets, multi-page business documents, packaging, marketing materials, and coordinated design sets around your brand, audience, message, and intended use.
         </span>
       </PageHero>
@@ -76,7 +76,7 @@ export default function Hero({ service }) {
             <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Graphic Design Built Around Your Brand & Business Needs
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Effective graphic design does more than make a business look professional. It helps people understand information, recognize your brand, and navigate your message. That is why we consider the purpose of each asset before developing its visual direction.
             </p>
           </div>
@@ -95,7 +95,7 @@ export default function Hero({ service }) {
                   <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
                     {item.focus}
                   </p>
-                  <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export default function Hero({ service }) {
             <h4 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
               One Brand Across Every Business Material
             </h4>
-            <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Businesses often commission presentations, brochures, packaging, sales materials, advertisements, and corporate documents at different times from different vendors. Without a consistent design system, these assets quickly diverge. We apply unified principles across typography, color, imagery, layouts, icons, and spacing so every collateral piece visibly belongs to one authoritative brand.
             </p>
           </div>

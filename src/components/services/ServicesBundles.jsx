@@ -77,10 +77,10 @@ export default function ServicesBundles() {
                 <p className="mt-4 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                   Best for
                 </p>
-                <p className="mt-2 text-base font-medium leading-tight text-frame-muted-fg">
+                <p className="mt-2 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">
                   {bundle.bestFor}
                 </p>
-                <p className="mt-6 text-base font-medium leading-tight text-frame-muted-fg">
+                <p className="mt-6 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">
                   {bundle.includes}
                 </p>
               </div>

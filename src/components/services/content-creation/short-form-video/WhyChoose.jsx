@@ -66,7 +66,7 @@ export default function WhyChoose() {
                       {item.title}
                     </h4>
                   </div>
-                  <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>
@@ -82,7 +82,7 @@ export default function WhyChoose() {
             <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Short-Form Production vs. Video Editing
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Short-form video production and editing solve different operational needs:
             </p>
 
@@ -103,7 +103,7 @@ export default function WhyChoose() {
                 <span className="text-xs font-black uppercase tracking-wider text-frame-fg">
                   Short-Form Video Editing Only
                 </span>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   Starts with footage you already have. Focuses on turning raw clips, zoom recordings, or podcasts into fast-paced Reels, Shorts, and TikTok cuts.
                 </p>
                 <span className="mt-3 block text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg">

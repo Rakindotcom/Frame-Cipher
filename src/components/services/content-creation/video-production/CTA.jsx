@@ -30,19 +30,19 @@ export default function CTA() {
             <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Director Collaboration</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Direct consultation with our creative directors to shape your video structure before filming.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Cinema-Grade Equipment</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   4K cinema cameras, prime optics, professional gaffer lighting, and wireless audio setups.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Transparent Milestones</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Fixed quotes, structured review checkpoints, and clear turnaround schedules from day one.
                 </p>
               </div>

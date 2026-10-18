@@ -104,7 +104,7 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t-2 border-frame-border p-6">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">{faq.a}</p>
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">{faq.a}</p>
 
                 {faq.list && (
                   <ul className="mt-4 space-y-2">
@@ -121,7 +121,7 @@ export default function FAQ({ service }) {
                 )}
 
                 {faq.tail && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {faq.tail}
                   </p>
                 )}

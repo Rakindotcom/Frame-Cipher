@@ -79,7 +79,7 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">We Handle</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Company Page strategy and publishing, executive profile positioning, voice development,
                 thought leadership, carousels, document posts, employee advocacy, engagement, and
                 reporting.
@@ -87,14 +87,14 @@ export default function Hero() {
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">We Build For</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 B2B companies, SaaS and technology businesses, professional services firms,
                 manufacturers and exporters, consultants and agencies, and leadership teams.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Where We Work</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Bangladesh, the US, UK, Australia, Canada, and UAE, with content and communication
                 adapted to the market, audience, and industry.
               </p>

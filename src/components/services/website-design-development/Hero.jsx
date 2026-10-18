@@ -59,19 +59,19 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 SMEs, startups, and established brands across Bangladesh and international markets.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development" allowed={["/services/website-design-development/landing-pages"]}>
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development" allowed={["/services/website-design-development/landing-pages"]}>
                 Business websites, eCommerce stores, landing pages, and custom web applications.
               </AutoLinks></p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 One in-house team across design, development, and launch followed by ongoing maintenance.
               </p>
             </div>

@@ -25,12 +25,12 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-4xl">
               Ready to Build a Stronger LinkedIn Presence?
             </h2>
-            <p className="mt-5 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Your LinkedIn presence should do more than keep your Company Page active. It should help
               people understand your business, recognize your expertise, trust your leadership, and
               see why your company is worth a conversation.
             </p>
-            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/content-creation"]}>
+            <p className="mt-4 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/content-creation"]}>
               Framecipher brings LinkedIn strategy, Company Page management, executive profiles, thought
               leadership, content creation, profile optimization, engagement, employee advocacy,
               publishing, and reporting together under one in-house team. Whether you are building a

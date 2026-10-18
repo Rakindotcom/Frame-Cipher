@@ -43,7 +43,7 @@ export default function Tracking() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {track.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {track.desc}
                 </p>
               </div>
@@ -51,7 +51,7 @@ export default function Tracking() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4">
+        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
           Tracking availability depends on the advertising platform, analytics system, CRM, APIs, and project scope. We confirm compatibility before implementation.
         </p>
       </div>

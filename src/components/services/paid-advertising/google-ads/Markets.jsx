@@ -63,7 +63,7 @@ export default function Markets() {
                 <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {area.title}
                 </h3>
-                <div className="mt-5 space-y-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-5 space-y-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {area.body.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}
@@ -79,7 +79,7 @@ export default function Markets() {
                   </ul>
                 )}
                 {area.tail && (
-                  <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {area.tail}
                   </p>
                 )}

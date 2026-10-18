@@ -107,11 +107,11 @@ export default function Pillars() {
                 <h3 className="mt-6 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 text-sm font-semibold leading-normal text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm font-semibold leading-normal text-frame-muted-fg md:text-base wide:text-lg">
                   {pillar.summary}
                 </p>
 
-                <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-5 text-xs font-medium leading-relaxed text-frame-muted-fg/90 md:text-sm">
+                <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-5 text-xs font-medium leading-relaxed text-frame-muted-fg/90 md:text-sm wide:text-lg">
                   {pillar.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2.5">
                       <span className="mt-1 h-1.5 w-1.5 flex-none bg-frame-accent" />

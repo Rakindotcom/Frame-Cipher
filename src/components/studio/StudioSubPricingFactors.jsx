@@ -61,7 +61,7 @@ function SubPricingFactors({ service }) {
             {typeof factor === 'string' ? factor : factor.title}
           </h3>
           {typeof factor === 'object' && factor.desc && (
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{factor.desc}</p>
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{factor.desc}</p>
           )}
         </div>
       ))}
@@ -76,7 +76,7 @@ function SubPricingTerms() {
         <Clock className="mt-1 h-6 w-6 shrink-0 text-frame-accent" />
         <div>
           <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg md:text-lg">Turnaround & Production Timelines</h4>
-          <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Raw studio captures are available within 24 hours. Full post-production edits are typically completed within
             3 to 7 business days, with express same-day turnaround available on request.
           </p>
@@ -86,7 +86,7 @@ function SubPricingTerms() {
         <RefreshCw className="mt-1 h-6 w-6 shrink-0 text-frame-accent" />
         <div>
           <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg md:text-lg">Structured Revision Policy</h4>
-          <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Every editing quote includes 2 structured revision rounds covering cuts, pacing, subtitles, color, and
             audio balance. Substantial brief changes or reshoots are quoted transparently.
           </p>
@@ -110,7 +110,7 @@ export default function StudioSubPricingFactors({ service }) {
         <div className="mt-8 flex flex-col items-center justify-between gap-6 border-2 border-frame-border bg-frame-bg p-6 sm:flex-row md:p-8">
           <div className="flex items-center gap-3">
             <AlertCircle className="h-6 w-6 shrink-0 text-frame-accent" />
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Review our <Link href="/studio/pricing" className="font-bold text-frame-fg underline decoration-frame-accent/40 transition-colors hover:text-frame-accent">standard studio packages &amp; hourly rates</Link> or contact our studio director for an exact project estimate.
             </p>
           </div>

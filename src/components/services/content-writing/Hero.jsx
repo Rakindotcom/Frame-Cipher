@@ -52,14 +52,14 @@ export default function Hero() {
             For SMEs, Startups, Ecommerce Businesses &amp; Established Brands
           </p>
 
-          <p className="mx-auto mt-2 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-2 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Writing built to do something specific: rank, explain, persuade, sell, or build trust.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides content writing services for SMEs, startups, ecommerce businesses, and
             established brands in Bangladesh and international markets.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Our in-house team handles research, writing, editing, SEO integration, and revisions around the
             purpose of each piece.
           </p>
@@ -86,21 +86,21 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Write For</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 SMEs, startups, ecommerce businesses, service businesses, B2B and professional firms,
                 in-house marketing teams, and international brands.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Where We Work</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Bangladesh, including Dhaka, plus the US, UK, Australia, Canada, and UAE, with content
                 adapted to the intended audience and market.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Research, content briefs, drafting, editing, SEO integration, client review, and revisions
                 around the purpose of each piece.
               </p>

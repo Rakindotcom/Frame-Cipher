@@ -49,10 +49,10 @@ export default function FormatComparison() {
               <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Static Graphic Design
               </h3>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Best when the message can be instantly understood in a single, unmoving frame without requiring temporal sequence.
               </p>
-              <ul className="mt-6 space-y-2 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <ul className="mt-6 space-y-2 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <li>&bull; Social media feed graphics & posters</li>
                 <li>&bull; Brochures, one-sheeters & PDF guides</li>
                 <li>&bull; Digital billboards & static web banners</li>
@@ -83,10 +83,10 @@ export default function FormatComparison() {
               <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Live-Action Video
               </h3>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Best when the subject exists physically in the real world and depends on human emotion, tangible locations, or physical handling.
               </p>
-              <ul className="mt-6 space-y-2 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <ul className="mt-6 space-y-2 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <li>&bull; Founder, executive & customer interviews</li>
                 <li>&bull; Physical workplace culture & office tours</li>
                 <li>&bull; Real-world product handling & unboxings</li>

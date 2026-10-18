@@ -86,7 +86,7 @@ export default function Measurement() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.intro}
                 </p>
                 <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -98,7 +98,7 @@ export default function Measurement() {
                   ))}
                 </ul>
                 {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.note}
                   </p>
                 )}
@@ -114,7 +114,7 @@ export default function Measurement() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Market-level reporting supports decisions
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Reporting focuses on the markets that matter to the business rather than a single
                 combined traffic number. This makes it easier to identify where international SEO
                 is gaining traction and where further work is needed.

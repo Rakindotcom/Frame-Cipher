@@ -20,7 +20,7 @@ export default function Overview() {
         <SectionIntro eyebrow="The model" title="Amazon Ads Management Built Around Products, Profitability, and Marketplace Performance">
           Amazon advertising is not simply about generating clicks.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           A campaign can attract relevant shoppers and still struggle when the product page is weak,
           the price is uncompetitive, inventory is limited, or the product does not convert against
           competing offers.
@@ -46,7 +46,7 @@ export default function Overview() {
           <p className="mb-3 text-xs font-bold uppercase tracking-widest text-frame-accent">
             What Amazon itself points to
           </p>
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Amazon highlights factors such as product detail page quality, inventory, pricing, and
             Featured Offer eligibility when preparing products for advertising. We use those signals
             to make better advertising decisions instead of managing ACOS in isolation.

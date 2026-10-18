@@ -121,7 +121,7 @@ export default function Process() {
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {step.desc}
                 </p>
               </div>
@@ -148,7 +148,7 @@ export default function Process() {
             <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Typical Social Media Graphics Timelines
             </h3>
-            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Timelines may vary when a project requires new creative direction from scratch, extensive revisions, multiple platform adaptations, or delayed client-supplied copywriting.
             </p>
           </div>

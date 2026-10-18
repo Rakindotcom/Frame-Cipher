@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { SectionHeading } from '../GrowthPortfolioSection'
 
 export default function ProjectsDesignSection({
@@ -79,11 +80,13 @@ export default function ProjectsDesignSection({
                       }`}
                       aria-label={`View full image ${work.number}`}
                     >
-                      <img
+                      <Image
                         src={work.src}
                         alt={`Frame Cipher selected work ${work.number}`}
-                        className="h-full w-full object-contain transition duration-300 group-hover:scale-95"
-                        loading="lazy"
+                        fill
+                        sizes="(max-width: 639px) 78vw, (max-width: 1023px) 44vw, 31vw"
+                        quality={80}
+                        className="object-contain transition duration-300 group-hover:scale-95"
                       />
                       {isActive && (
                         <span className="absolute left-4 top-4 bg-frame-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-accent-fg">

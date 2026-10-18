@@ -22,7 +22,7 @@ export default function BackendDevelopment() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           App Architecture &amp; Backend Development
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           The mobile interface is only one part of a working application. Backend systems, databases, APIs, authentication, business logic, and infrastructure determine how the product operates behind the interface. Depending on the project, we can handle:
         </p>
       </div>
@@ -44,7 +44,7 @@ export default function BackendDevelopment() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           We treat the application as one connected system rather than separating the mobile interface from the backend architecture.
         </p>
       </div>

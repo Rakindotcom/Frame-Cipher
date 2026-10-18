@@ -28,7 +28,7 @@ export default function ServiceAreas() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">International Markets</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">Global Projects</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               We adapt the process around:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -47,7 +47,7 @@ export default function ServiceAreas() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Domestic Engineering</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">Bangladesh Businesses</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               For Bangladesh-based businesses, we also consider:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">

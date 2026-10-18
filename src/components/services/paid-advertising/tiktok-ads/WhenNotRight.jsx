@@ -38,7 +38,7 @@ export default function WhenNotRight() {
             ))}
           </ul>
           <div className="mt-6 border-l-2 border-frame-accent bg-frame-bg p-5">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               In these situations, another channel may deserve priority, or TikTok may work
               better as part of a broader paid media strategy.
             </p>

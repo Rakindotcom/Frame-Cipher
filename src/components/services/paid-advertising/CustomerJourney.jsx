@@ -104,7 +104,7 @@ export default function CustomerJourney() {
                   <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {stage.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {stage.body}
                   </p>
                   {stage.bullets?.length > 0 && (
@@ -146,7 +146,7 @@ export default function CustomerJourney() {
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.body}
                   </p>
                 </div>
@@ -189,13 +189,13 @@ export default function CustomerJourney() {
                 <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                   How each case study is documented
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Each case study should explain the starting situation, the campaign structure,
                   the major optimization decisions, and the measurable outcome.
                 </p>
               </div>
               <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   We do not publish invented ROAS figures or generic claims that every business
                   can achieve the same result.
                 </p>

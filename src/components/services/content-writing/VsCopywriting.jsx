@@ -57,7 +57,7 @@ export default function VsCopywriting() {
               <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {column.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {column.body}
               </p>
 
@@ -82,7 +82,7 @@ export default function VsCopywriting() {
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Framecipher can coordinate those writing requirements within one broader content engagement, so
           the informational and conversion-focused work stay consistent with each other.
         </p>

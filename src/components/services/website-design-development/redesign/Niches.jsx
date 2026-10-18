@@ -45,7 +45,7 @@ export default function Niches() {
                 <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {niche.title}
                 </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {niche.description}
                 </p>
               </div>
@@ -53,7 +53,7 @@ export default function Niches() {
           ))}
         </div>
 
-        <p className="mt-8 text-sm sm:text-base font-medium text-frame-muted-fg italic">
+        <p className="mt-8 text-sm sm:text-base font-medium text-frame-muted-fg italic wide:text-lg">
           We scope the redesign around what your specific website needs rather than applying the same business-site checklist to every project.
         </p>
       </div>

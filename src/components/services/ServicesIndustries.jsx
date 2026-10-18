@@ -29,7 +29,7 @@ export default function ServicesIndustries() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg sm:text-2xl">
                   {item.industry}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{item.line}</p>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.line}</p>
             </article>
           ))}
         </div>

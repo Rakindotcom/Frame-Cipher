@@ -65,7 +65,7 @@ export default function Platforms() {
                 {platform.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
                   >
                     {paragraph}
                   </p>

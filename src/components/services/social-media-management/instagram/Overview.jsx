@@ -63,7 +63,7 @@ export default function Overview() {
             </ul>
 
             <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 That means using the right format for the right objective instead of forcing every
                 idea into the same type of post. Our team connects strategy, content, Reels, profile
                 optimization, publishing, community management, and performance analysis, which gives

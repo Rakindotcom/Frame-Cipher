@@ -129,7 +129,7 @@ function OfferingCard({ service }) {
           <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">{service.tag}</span>
         </div>
         <h3 className="mt-6 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">{service.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-frame-muted-fg">{service.description}</p>
+        <p className="mt-3 text-sm leading-relaxed text-frame-muted-fg wide:text-lg">{service.description}</p>
         <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-6">
           {service.features.map((feat, i) => (
             <li key={i} className="flex items-start gap-2.5 text-xs font-medium text-frame-muted-fg">
@@ -153,7 +153,7 @@ function MoreServicesStrip() {
   return (
     <div className="mt-8 border-2 border-frame-border bg-frame-muted/15 p-6 md:p-8">
       <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">More services on request</h3>
-      <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+      <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
         We also quote{' '}
         {moreServices.map((s, i) => (
           <span key={s.href}>

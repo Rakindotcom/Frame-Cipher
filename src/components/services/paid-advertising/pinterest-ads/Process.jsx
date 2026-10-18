@@ -94,7 +94,7 @@ export default function Process() {
                 </h3>
               </div>
               <div className="border-t-2 border-frame-border/60 pt-5 lg:border-l-2 lg:border-t-0 lg:pl-10 lg:pt-0">
-                <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {step.body}
                 </p>
                 <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">

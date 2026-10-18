@@ -97,7 +97,7 @@ export default function SafeZonesAndCarousels() {
                     {rule.title}
                   </h3>
 
-                  <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {rule.desc}
                   </p>
                 </div>
@@ -141,7 +141,7 @@ export default function SafeZonesAndCarousels() {
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>
@@ -159,7 +159,7 @@ export default function SafeZonesAndCarousels() {
               <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Have Complex Insights That Need Carousel Sequencing?
               </h4>
-              <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 We transform company research, case studies, and tutorials into high-retention multi-slide narratives.
               </p>
             </div>

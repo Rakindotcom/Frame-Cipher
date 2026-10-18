@@ -48,7 +48,7 @@ export default function Included() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-5 md:p-6">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We define the final scope after reviewing the website so you pay for work that aligns
             with your actual SEO needs.
           </p>

@@ -69,14 +69,14 @@ export default function Reporting() {
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start">
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Where appropriate, we use Google Search Console, Google Analytics 4, Google
                 Business Profile, and relevant SEO platforms to connect search performance with
                 website activity.
               </p>
             </div>
             <div className="border-l-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 The purpose of reporting is not to create a longer spreadsheet. It is to make
                 the next SEO decision clearer.
               </p>
@@ -105,7 +105,7 @@ export default function Reporting() {
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {tool.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {tool.body}
                   </p>
                 </div>
@@ -114,7 +114,7 @@ export default function Reporting() {
           </div>
 
           <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               The exact tools depend on the website and objectives. We use the data to support
               decisions rather than treating any single tool&apos;s score as the SEO strategy.
             </p>

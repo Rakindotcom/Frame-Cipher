@@ -63,7 +63,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 YouTube Search helps viewers find videos related to their queries
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We consider the signals that shape how a video matches a search.
               </p>
             </div>
@@ -93,7 +93,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Your title and thumbnail form the first impression of a video
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We work to make the packaging meet five standards.
               </p>
             </div>
@@ -127,7 +127,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Getting someone to click is only the beginning
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 The video must then deliver enough value to keep viewers engaged. We analyze:
               </p>
             </div>
@@ -162,7 +162,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Views alone do not tell the whole story
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/content-writing/content-strategy"]}>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/content-writing/content-strategy"]}>
                 A successful content strategy should consider whether viewers found the video useful,
                 enjoyable, relevant, or worth returning to. YouTube&rsquo;s recommendation guidance
                 describes content performance through three broad areas: appeal, engagement, and
@@ -206,7 +206,7 @@ export default function Discoverability() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               YouTube specifically identifies topic interest, competition, and seasonality as external
               factors that can affect content reach. We use these factors when planning content rather
               than treating every performance change as an SEO issue.

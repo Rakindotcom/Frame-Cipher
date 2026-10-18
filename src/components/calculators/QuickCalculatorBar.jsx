@@ -43,7 +43,7 @@ export default function QuickCalculatorBar() {
             Rapid Advertising Math
           </h3>
         </div>
-        <p className="text-xs md:text-sm font-medium text-frame-muted-fg max-w-md">
+        <p className="text-xs md:text-sm font-medium text-frame-muted-fg max-w-md wide:text-lg">
           Calculate your unit economics safeguards in 5 seconds before running full multi-channel simulations.
         </p>
       </div>

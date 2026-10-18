@@ -17,7 +17,7 @@ export default function ServicePillarClusterLinks({ service }) {
           <h2 className="mt-4 font-heading text-3xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-4xl">
             Everything this offer runs on, cluster by cluster
           </h2>
-          <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Each pillar below is a full service line with its own deliverables, process, and proof.
             Start with the cluster that matches the constraint you are solving first.
           </p>
@@ -35,7 +35,7 @@ export default function ServicePillarClusterLinks({ service }) {
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span
-                    className="text-sm text-frame-muted-fg transition-all group-hover:translate-x-1 group-hover:text-frame-accent"
+                    className="text-sm text-frame-muted-fg transition-all group-hover:translate-x-1 group-hover:text-frame-accent wide:text-lg"
                     aria-hidden="true"
                   >
                     &rarr;

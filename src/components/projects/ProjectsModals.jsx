@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import Image from 'next/image'
 
 export function WorkArchiveModal({
   isOpen,
@@ -50,11 +51,13 @@ export function WorkArchiveModal({
                   className="relative block aspect-square w-full overflow-hidden bg-white text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
                   aria-label={`View full image ${work.number}`}
                 >
-                  <img
+                  <Image
                     src={work.src}
                     alt={`Frame Cipher selected work ${work.number}`}
-                    className="h-full w-full object-contain transition duration-300 group-hover:scale-95"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 639px) 92vw, (max-width: 1023px) 46vw, 24vw"
+                    quality={80}
+                    className="object-contain transition duration-300 group-hover:scale-95"
                   />
                   <span className="absolute inset-x-4 bottom-4 border-2 border-frame-border bg-frame-bg px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-frame-fg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     Open preview
@@ -91,11 +94,14 @@ export function WorkImageModal({ work, onClose }) {
             Close
           </button>
         </div>
-        <div className="min-h-0 flex-1 border-2 border-frame-border bg-white p-3 md:p-5">
-          <img
+        <div className="relative min-h-0 flex-1 border-2 border-frame-border bg-white p-3 md:p-5">
+          <Image
             src={work.src}
             alt={`Frame Cipher selected work ${work.number}`}
-            className="h-full w-full object-contain"
+            fill
+            sizes="(max-width: 767px) 92vw, 1200px"
+            quality={85}
+            className="object-contain"
           />
         </div>
       </div>

@@ -167,7 +167,7 @@ export default function Pricing() {
                   </p>
                 )}
                 {pkg.description && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
                 )}
@@ -205,7 +205,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
             Final pricing is confirmed after the scope and architecture are reviewed.
           </p>
         </div>
@@ -243,7 +243,7 @@ export default function Pricing() {
             </table>
           </div>
 
-          <p className="mt-6 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+          <p className="mt-6 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
             Timeline depends on feature scope, content readiness, integrations, approvals, technical dependencies, and changes introduced during development. Projects generally move more efficiently when requirements, existing system access, content, and integration details are confirmed before development begins.
           </p>
         </div>
@@ -257,7 +257,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Source Code Ownership, Documentation &amp; Handover
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               A custom application should remain understandable and manageable after development is complete. Depending on the project agreement, handover can include:
             </p>
           </div>
@@ -271,7 +271,7 @@ export default function Pricing() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border/60 pt-6 space-y-2 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+          <div className="mt-8 border-t border-frame-border/60 pt-6 space-y-2 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
             <p>
               Ownership of source code, intellectual property, licenses, and third-party accounts is defined in the project agreement.
             </p>
@@ -290,7 +290,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Post-Launch Support &amp; Ongoing Development
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               A custom application continues to evolve after launch as users, products, dependencies, and business requirements change. Ongoing support can include:
             </p>
           </div>
@@ -304,7 +304,7 @@ export default function Pricing() {
             ))}
           </div>
 
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
             Ongoing development is scoped around your product roadmap and technical priorities.
           </p>
         </div>

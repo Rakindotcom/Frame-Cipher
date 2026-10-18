@@ -50,7 +50,7 @@ export default function WhyWebflow() {
                   {item.title}
                 </h3>
               </div>
-              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 {item.desc}
               </p>
             </article>

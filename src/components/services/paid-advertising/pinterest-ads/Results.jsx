@@ -69,13 +69,13 @@ export default function Results() {
                 <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body}
                 </p>
               </div>
             ))}
             <div className="border-l-2 border-frame-accent bg-frame-bg p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Case-study metrics should only be published when supported by real account or
                 client data.
               </p>

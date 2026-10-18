@@ -32,12 +32,12 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto mt-6 max-w-7xl border-t-2 border-frame-border px-4 pb-16 md:px-8">
-        <p className="mt-8 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-8 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Framecipher provides Lead Generation Ads Service for businesses in Bangladesh and
           international markets. We build campaigns across Google, Meta, LinkedIn, and other
           relevant channels around qualified inquiries, CRM tracking, and measurable sales outcomes.
         </p>
-        <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           We look beyond clicks and form submissions. We consider the offer, lead destination,
           qualification process, CRM routing, follow-up, and downstream sales data so your campaigns
           are built around the entire path from ad to customer.

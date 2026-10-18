@@ -36,14 +36,14 @@ export default function Timeline() {
               <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {phase.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {phase.body}
               </p>
             </article>
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Response times depend on your selected plan, platform coverage, message volume, operating hours, and
           escalation requirements. We recommend defining a realistic response standard before the engagement
           begins rather than making an undefined promise of “instant” replies.

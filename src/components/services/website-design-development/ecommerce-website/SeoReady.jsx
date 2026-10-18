@@ -51,7 +51,7 @@ export default function SeoReady() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pillar.desc}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export default function SeoReady() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6">
-          <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             <strong className="text-frame-fg uppercase tracking-wider">Please Note:</strong> A technically strong ecommerce website does not guarantee rankings or sales. Search visibility depends on content quality, competition, authority, user experience, and ongoing SEO work.
           </p>
         </div>

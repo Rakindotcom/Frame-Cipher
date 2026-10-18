@@ -64,13 +64,13 @@ export default function VsPaid() {
 
         <div className="mt-8 grid gap-8 lg:grid-cols-2">
           <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               The appropriate mix depends on your goals, timeline, budget, competition, and
               customer journey.
             </p>
           </div>
           <div className="border-l-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Some businesses use SEO as a long-term search foundation while paid search supports
               launches, promotions, or specific commercial campaigns.
             </p>

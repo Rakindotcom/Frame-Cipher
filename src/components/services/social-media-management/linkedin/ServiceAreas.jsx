@@ -48,7 +48,7 @@ export default function ServiceAreas() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 LinkedIn Management In Bangladesh
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 For Bangladeshi businesses, we can adapt LinkedIn strategy to local professional
                 audiences, industries, business culture, recruitment needs, and B2B buying behavior.
               </p>
@@ -77,7 +77,7 @@ export default function ServiceAreas() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 International LinkedIn Management
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We also support businesses targeting professional audiences outside Bangladesh.
                 International LinkedIn management can include:
               </p>
@@ -97,7 +97,7 @@ export default function ServiceAreas() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The strategy is adapted to the target market rather than treating every professional
             audience as one global group.
           </p>

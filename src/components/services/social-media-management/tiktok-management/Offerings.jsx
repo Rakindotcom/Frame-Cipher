@@ -363,7 +363,7 @@ export default function Offerings() {
                 <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90"><AutoLinks currentPath="/services/social-media-management/tiktok-management" allowed={["/services/content-writing/content-strategy"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90"><AutoLinks currentPath="/services/social-media-management/tiktok-management" allowed={["/services/content-writing/content-strategy"]}>
                   {service.lead}
                 </AutoLinks></p>
               </div>
@@ -374,7 +374,7 @@ export default function Offerings() {
                     service.notes.map((note) => (
                       <p
                         key={note}
-                        className="text-xs font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-sm"
+                        className="text-xs font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-sm wide:text-lg"
                       >
                         {note}
                       </p>
@@ -460,7 +460,7 @@ export default function Offerings() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The result is a TikTok strategy connected to your business rather than a generic monthly content
             calendar.
           </p>

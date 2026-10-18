@@ -27,7 +27,7 @@ export default function WhenNotRight() {
           </p>
           <ul className="grid gap-4 md:grid-cols-2">
             {signals.map((signal) => (
-              <li key={signal} className="flex items-start gap-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <li key={signal} className="flex items-start gap-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center text-frame-accent">
                   &#10005;
                 </span>
@@ -35,7 +35,7 @@ export default function WhenNotRight() {
               </li>
             ))}
           </ul>
-          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             In some cases, improving the offer, website, sales process, or demand-generation
             strategy should come before increasing lead-generation spend.
           </p>

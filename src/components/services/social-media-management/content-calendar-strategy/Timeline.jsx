@@ -11,12 +11,12 @@ export default function Timeline() {
 
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div>
-            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               An initial cross-platform audit and content calendar framework typically takes one to two
               weeks, depending on the number of platforms, complexity of the business, available
               information, and agreed scope.
             </p>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Ongoing planning follows an agreed cycle, commonly monthly for active social media
               management.
             </p>
@@ -33,7 +33,7 @@ export default function Timeline() {
             <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
               When more time is needed
             </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Larger campaigns, multiple markets, complex approval processes, or extensive content
               requirements may require additional planning time.
             </p>
@@ -44,7 +44,7 @@ export default function Timeline() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Ongoing planning follows an agreed cycle, commonly monthly for active social media management.
           </p>
           <div className="shrink-0">

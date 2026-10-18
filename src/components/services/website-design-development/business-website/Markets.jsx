@@ -47,7 +47,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Serving Global Clients
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 In those projects, we consider:
               </p>
               <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
@@ -58,7 +58,7 @@ export default function Markets() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
                 The goal is not to build a &ldquo;Bangladesh version&rdquo; or an &ldquo;international version&rdquo; by default. The website structure should match the market your business actually serves.
               </p>
             </div>

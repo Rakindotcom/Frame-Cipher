@@ -51,7 +51,7 @@ export default function Features() {
                 <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {feat.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {feat.desc}
                 </p>
               </div>
@@ -59,7 +59,7 @@ export default function Features() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4">
+        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
           The exact functionality depends on your platform, catalog, integrations, and business workflow. We define the required features before development begins.
         </p>
       </div>

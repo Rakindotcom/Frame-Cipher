@@ -152,7 +152,7 @@ export default function Pricing({ service }) {
             <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
               Need a Custom Enterprise Scope?
             </h4>
-            <p className="mt-1 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-1 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
               Larger company profiles, multi-page catalogues, annual reports, comprehensive packaging systems, multi-format campaigns, and complex projects receive custom pricing tailored to exact specifications.
             </p>
           </div>
@@ -182,7 +182,7 @@ export default function Pricing({ service }) {
               <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Graphic Design in Bangladesh
               </h4>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We support businesses across Dhaka and Bangladesh with graphic design for sales, marketing, corporate communication, presentations, packaging, print production, and digital campaigns. Projects can be prepared for local audiences and bilingual communication (Bangla and English) with precise typography and direct coordination with local commercial print vendors.
               </p>
             </div>
@@ -194,7 +194,7 @@ export default function Pricing({ service }) {
               <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Graphic Design for International Businesses
               </h4>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We also support businesses serving international audiences across the US, UK, Australia, Canada, and UAE. Projects strictly adhere to supplied brand guidelines, international visual systems, digital specifications, and commercial print-production parameters. The complete workflow is managed seamlessly remotely, from briefing to final delivery.
               </p>
             </div>

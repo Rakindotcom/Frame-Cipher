@@ -42,7 +42,7 @@ export default function Tracking() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {method.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {method.body}
               </p>
             </div>
@@ -50,7 +50,7 @@ export default function Tracking() {
         </div>
 
         <div className="mt-6 border-2 border-frame-border bg-frame-bg p-8 md:p-12">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Microsoft Ads and Google Ads can complement each other, but they are not identical. The
             right approach depends on the market, audience, search demand, budget, offer, and
             existing acquisition strategy. For many businesses, the two platforms can work together

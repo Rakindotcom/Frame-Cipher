@@ -47,7 +47,7 @@ export default function WhyChoose() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {reason.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {reason.body}
               </p>
             </div>

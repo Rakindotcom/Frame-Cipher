@@ -81,7 +81,7 @@ export default function Pricing() {
                 <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {pkg.for}
                 </p>
 
@@ -137,7 +137,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Testing setup, email platform management, automation implementation, design, deliverability
               management, list management, and other operational services are scoped separately unless specifically
               included in the project. Final pricing is confirmed after the scope and required deliverables are

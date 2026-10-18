@@ -37,7 +37,7 @@ export default function Revisions() {
                 <h3 className="mt-4 font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {chk.title}
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {chk.description}
                 </p>
               </div>
@@ -46,7 +46,7 @@ export default function Revisions() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <p className="text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg italic">
+          <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg italic">
             We do not guarantee a specific conversion rate or business outcome from design alone. Results can also depend on content, implementation, traffic, pricing, marketing, product quality, and other factors outside the design process.
           </p>
         </div>

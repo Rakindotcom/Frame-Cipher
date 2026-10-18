@@ -114,7 +114,7 @@ DETAILED TIERS CARDS
                 <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
                   Typical Delivery: {tier.timeline}
                 </p>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {tier.bestFor}
                 </p>
 

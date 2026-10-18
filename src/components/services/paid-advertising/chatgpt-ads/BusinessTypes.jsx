@@ -76,7 +76,7 @@ export default function BusinessTypes() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}
@@ -97,7 +97,7 @@ export default function BusinessTypes() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             These are starting frameworks. Where a business operates in more than one category,
             we adjust the structure to reflect its actual product mix, customer segments, and the
             markets where ChatGPT Ads are eligible.

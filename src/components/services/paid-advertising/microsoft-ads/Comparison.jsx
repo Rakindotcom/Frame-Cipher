@@ -77,15 +77,15 @@ export default function Comparison() {
                   }
                 >
                   <td className="p-5 text-sm font-bold text-frame-fg">{row.factor}</td>
-                  <td className="p-5 text-sm font-medium text-frame-muted-fg">{row.ms}</td>
-                  <td className="p-5 text-sm font-medium text-frame-muted-fg">{row.g}</td>
+                  <td className="p-5 text-sm font-medium text-frame-muted-fg wide:text-lg">{row.ms}</td>
+                  <td className="p-5 text-sm font-medium text-frame-muted-fg wide:text-lg">{row.g}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <p className="mt-8 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-8 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           The right approach depends on the market, audience, search demand, budget, offer, and
           existing acquisition strategy. For many businesses, the platforms can work together rather
           than being treated as mutually exclusive.

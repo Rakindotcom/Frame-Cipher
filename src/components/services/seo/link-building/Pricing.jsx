@@ -147,7 +147,7 @@ export default function Pricing() {
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="max-w-2xl space-y-2">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               These are starting reference prices rather than fixed quotes for every campaign.
             </p>
             <p className="text-sm md:text-base font-semibold leading-relaxed text-frame-fg">

@@ -41,7 +41,7 @@ export default function EngagementModels() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {model.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {model.body}
                 </p>
               </div>
@@ -50,7 +50,7 @@ export default function EngagementModels() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-7 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             None of these is the &ldquo;right&rdquo; way to work with a consulting partner, the
             right one depends entirely on what your team already has and what it&apos;s actually
             missing.

@@ -16,9 +16,9 @@ export default function ServicesEngagementModels() {
                 {model.title}
               </h3>
               <p className="mt-8 text-xs font-black uppercase tracking-[0.26em] text-frame-accent">Best for</p>
-              <p className="mt-3 text-base font-medium leading-tight text-frame-muted-fg">{model.bestFor}</p>
+              <p className="mt-3 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">{model.bestFor}</p>
               <p className="mt-8 text-xs font-black uppercase tracking-[0.26em] text-frame-accent">Includes</p>
-              <p className="mt-3 text-base font-medium leading-tight text-frame-muted-fg">{model.includes}</p>
+              <p className="mt-3 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">{model.includes}</p>
             </article>
           ))}
         </div>

@@ -32,13 +32,13 @@ export default function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto mt-6 max-w-7xl border-t-2 border-frame-border px-4 pb-16 md:px-8">
-        <p className="mt-8 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-8 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Framecipher provides Remarketing Services for businesses in Bangladesh and international
           markets. We build segmented audiences, tracking systems, suppression rules, dynamic
           campaigns, and remarketing strategies across Google, Meta, TikTok, Pinterest, LinkedIn,
           and Amazon where relevant.
         </p>
-        <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Instead of showing one ad to everyone who visited your site, we match the message, timing,
           and offer to where each audience is in the buying journey.
         </p>

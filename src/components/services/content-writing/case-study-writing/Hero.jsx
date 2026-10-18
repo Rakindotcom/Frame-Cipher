@@ -53,13 +53,13 @@ export default function Hero() {
             Real Story. Real Evidence. Clear Business Impact.
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides Case Study Writing Service for businesses in Bangladesh and clients across the
             US, UK, Australia, Canada, UAE, and other international markets. We turn real customer experiences
             into detailed case studies built around the problem, process, solution, measurable results, and
             customer perspective.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Instead of writing generic praise, we research the story behind the result. We interview the people
             involved, gather the relevant data, develop the narrative, verify the details, and coordinate
             approval before delivery.

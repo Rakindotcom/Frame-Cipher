@@ -55,18 +55,18 @@ export default function Hero() {
             For Businesses In Bangladesh And International Markets
           </p>
 
-          <p className="mx-auto mt-2 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-2 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Your social media should not go quiet after you publish. When customers ask questions, send
             messages, leave reviews, or raise concerns, your response becomes part of their experience with
             your brand. Framecipher provides Community Management Service in Bangladesh to help businesses
             manage comments, DMs, reviews, moderation, and audience interactions across their active
             platforms.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We combine timely response, brand voice, escalation workflows, moderation, and community
             engagement into one coordinated system.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Based in Dhaka, we work with businesses across Bangladesh and international markets including
             the US, UK, Australia, Canada, and UAE.
           </p>
@@ -93,7 +93,7 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Manage For</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Ecommerce and product brands, service businesses, B2B and professional businesses, local
                 and multi-location businesses, startups and growing businesses, and international
                 businesses.
@@ -101,14 +101,14 @@ export default function Hero() {
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Where We Work</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Bangladesh, including Dhaka, plus the US, UK, Australia, Canada, and UAE with response
                 workflows adapted to time zones, language, and audience expectations.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Comment and message response, review monitoring, escalation workflows, moderation, social
                 listening, proactive engagement, and community reporting.
               </p>

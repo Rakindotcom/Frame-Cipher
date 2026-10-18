@@ -10,14 +10,14 @@ export default function BangladeshWorldwide() {
         Enterprise App Development Services Across Bangladesh &amp; Worldwide
       </h2>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        <p className="flex items-start gap-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg md:col-span-2 border-2 border-frame-border bg-frame-bg p-6 sm:p-8">
+        <p className="flex items-start gap-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg md:col-span-2 border-2 border-frame-border bg-frame-bg p-6 sm:p-8 wide:text-lg">
           Framecipher provides enterprise app development services from Dhaka, Bangladesh for organizations across the country and international markets.
         </p>
         <div className="border-2 border-frame-border bg-frame-bg p-6 sm:p-8">
           <h3 className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-frame-accent">
             Bangladesh Coverage
           </h3>
-          <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We work with businesses in Dhaka, Chattogram, Sylhet, Rajshahi, Khulna, Gazipur, Narayanganj, and other locations across Bangladesh.
           </p>
         </div>
@@ -25,7 +25,7 @@ export default function BangladeshWorldwide() {
           <h3 className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-frame-accent">
             International Clients
           </h3>
-          <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Our remote development workflow also supports clients in the USA, UK, Australia, Canada, UAE, and other international markets.
           </p>
         </div>

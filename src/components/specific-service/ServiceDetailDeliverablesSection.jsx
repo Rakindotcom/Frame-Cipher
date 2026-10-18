@@ -7,7 +7,7 @@ function DetailCard({ title, number, children }) {
       <h3 className="mt-8 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg">
         {title}
       </h3>
-      <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg">{children}</p>
+      <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">{children}</p>
     </article>
   )
 }

@@ -150,7 +150,7 @@ export default function Pricing() {
                     </p>
                     <ul className="mt-3 space-y-2">
                       {tier.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                           <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                             <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -187,7 +187,7 @@ export default function Pricing() {
                   "Release preparation",
                   "Launch support"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                       <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -202,7 +202,7 @@ export default function Pricing() {
               <h4 className="font-heading text-sm font-bold uppercase text-frame-fg">
                 Custom Requirements
               </h4>
-              <p className="mt-1 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-1 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Advanced backend systems, multiple user roles, complex third-party integrations, extensive native functionality, and larger device scopes can change the final project cost.
               </p>
               <p className="mt-2 text-sm font-semibold italic text-frame-fg">
@@ -223,7 +223,7 @@ export default function Pricing() {
                 Approvals, Scope &amp; Release Support
               </h2>
             </div>
-            <div className="mt-3 max-w-3xl space-y-2 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <div className="mt-3 max-w-3xl space-y-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               <p>
                 Apple and Google control their respective app review processes, so no development agency can guarantee store approval.
               </p>
@@ -245,7 +245,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -264,7 +264,7 @@ export default function Pricing() {
                 Post-Launch Cross-Platform App Support
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Launching on both platforms is the beginning of the application&apos;s maintenance cycle.
             </p>
           </div>
@@ -281,7 +281,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>

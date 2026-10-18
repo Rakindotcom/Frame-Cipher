@@ -63,7 +63,7 @@ export default function WhoFor() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {audience.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {audience.body}
               </p>
               {audience.items.length > 0 && (

@@ -20,7 +20,7 @@ export default function Reliability() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API Reliability &amp; Failure Handling
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Connected systems can fail for many reasons. An API may time out, receive duplicate requests, lose a third-party connection, or return an unexpected response. We design failure handling around these scenarios:
         </p>
       </div>

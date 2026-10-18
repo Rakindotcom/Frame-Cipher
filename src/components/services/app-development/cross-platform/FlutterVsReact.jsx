@@ -17,7 +17,7 @@ export default function FlutterVsReact() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Flutter vs React Native: Which Should You Choose?
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Flutter and React Native can both support serious Android and iOS applications. The right choice depends on your product and technical context.
         </p>
       </div>
@@ -27,7 +27,7 @@ export default function FlutterVsReact() {
           <h3 className="font-heading text-lg font-bold uppercase text-frame-fg">
             Flutter App Development
           </h3>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Flutter can be a strong fit for products that need a highly controlled interface, reusable components, and a consistent cross-platform visual system. It can work particularly well when the application has substantial custom UI requirements and the project is being designed around a fresh cross-platform architecture.
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function FlutterVsReact() {
           <h3 className="font-heading text-lg font-bold uppercase text-frame-fg">
             React Native App Development
           </h3>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             React Native can be a strong fit for products that benefit from the JavaScript or TypeScript ecosystem, existing React knowledge, or an established React-based technology environment. It can also be practical when a product or internal team already works heavily with the broader React ecosystem.
           </p>
         </div>
@@ -73,7 +73,7 @@ export default function FlutterVsReact() {
         <p className="text-sm font-semibold italic text-frame-fg">
           Which Framework Fits Your Product? The decision depends on your UI requirements, existing systems, development team, integrations, performance needs, and future product direction.
         </p>
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           What We Recommend Based on Your Requirements: We do not force every client into the same framework. We recommend Flutter, React Native, native development, or a hybrid model based on what your application actually needs.
         </p>
       </div>

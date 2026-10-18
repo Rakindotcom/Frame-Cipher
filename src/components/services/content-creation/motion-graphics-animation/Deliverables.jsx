@@ -115,7 +115,7 @@ export default function Deliverables() {
             </span>
           </div>
 
-          <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
             A well-planned animation does not need to become a single file for a single platform. We plan aspect ratios, text safe-zones, and cut points upfront so one master creative concept generates an entire cross-channel content library.
           </p>
 

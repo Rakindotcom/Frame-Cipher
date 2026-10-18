@@ -76,13 +76,13 @@ export default function AttentionClarityAction() {
               <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{item.text}</p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.text}</p>
             </article>
           ))}
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             A sequence should feel like a series rather than a pile of unrelated emails.
           </p>
           <div className="shrink-0">

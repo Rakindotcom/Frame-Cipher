@@ -19,7 +19,7 @@ function DeliverablesGrid({ deliverables }) {
               {typeof item === 'string' ? item : item.title}
             </h3>
             {typeof item === 'object' && item.desc && (
-              <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">{item.desc}</p>
+              <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.desc}</p>
             )}
           </div>
           <div className="mt-6 flex items-center gap-2 border-t border-frame-border/60 pt-4 text-xs font-bold uppercase tracking-wider text-frame-accent">

@@ -18,7 +18,7 @@ export default function VsRetargeting() {
         <SectionIntro eyebrow="Clarity" title="Remarketing vs Retargeting">
           The terms remarketing and retargeting are often used interchangeably in paid advertising.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           In practical terms, retargeting usually refers to advertising to people based on previous
           interactions such as website visits, product views, or engagement. Remarketing is often
           used more broadly for re-engaging previous visitors, customers, leads, or other known
@@ -35,7 +35,7 @@ export default function VsRetargeting() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {term.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {term.body}
               </p>
             </div>
@@ -43,7 +43,7 @@ export default function VsRetargeting() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher uses Remarketing Services as the broader service term while applying the
             audience strategy that fits each platform and funnel.
           </p>

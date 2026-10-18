@@ -44,7 +44,7 @@ export default function WhyChoose() {
               <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/product-descriptions" allowed={["/services/paid-advertising"]}>{reason.text}</AutoLinks></p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/product-descriptions" allowed={["/services/paid-advertising"]}>{reason.text}</AutoLinks></p>
             </article>
           ))}
         </div>

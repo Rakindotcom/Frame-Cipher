@@ -29,7 +29,7 @@ export default function StudioLocation() {
                 <span className="text-xs font-black uppercase tracking-[0.22em]">Address & Getting Here</span>
               </div>
               <h3 className="font-heading text-2xl font-extrabold uppercase text-frame-fg md:text-3xl">Eurasia Building, 6th Floor</h3>
-              <div className="mt-6 space-y-4 text-sm font-medium text-frame-muted-fg">
+              <div className="mt-6 space-y-4 text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <div className="flex items-start gap-3 border-b border-frame-border/60 pb-3">
                   <Navigation className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                   <div>

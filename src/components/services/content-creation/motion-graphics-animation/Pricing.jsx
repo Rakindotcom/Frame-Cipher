@@ -190,7 +190,7 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
                 Services in Bangladesh
               </span>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Framecipher produces motion graphics and animation for businesses across Bangladesh, including brands that need explainers, product visuals, social content, animated advertising, data visualization, and branded motion assets. For local audiences, projects can incorporate Bangla, English, or bilingual communication where required.
               </p>
             </div>
@@ -199,7 +199,7 @@ export default function Pricing() {
               <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
                 International Clients (USA, UK, AU, CA & UAE)
               </span>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We also work with businesses targeting international markets. International projects can be planned around the intended audience, language, visual references, platform requirements, and campaign objectives, delivering world-class animation from a high-efficiency production team.
               </p>
             </div>

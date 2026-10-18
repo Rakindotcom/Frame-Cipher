@@ -84,7 +84,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/seo/keyword-research"]}>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/seo/keyword-research"]}>
                 {item.body}
               </AutoLinks></p>
               {item.points && (
@@ -110,7 +110,7 @@ export default function Markets() {
                 </div>
               )}
               {item.note && (
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/website-design-development/landing-pages"]}>
                   {item.note}
                 </AutoLinks></p>
               )}

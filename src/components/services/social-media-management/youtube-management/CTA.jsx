@@ -23,12 +23,12 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-4xl">
               Ready to Build a Stronger YouTube Channel?
             </h2>
-            <p className="mt-5 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Your YouTube channel can become more than a collection of videos. With the right strategy,
               content system, production workflow, SEO, packaging, and ongoing analysis, it can become a
               valuable part of your broader digital marketing strategy.
             </p>
-            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Whether you are launching a new channel, rebuilding an existing one, or looking for a team
               to manage your ongoing content, Framecipher can build a YouTube management plan around your
               business goals.

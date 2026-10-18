@@ -25,7 +25,7 @@ export default function ServiceAreas() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               For Bangladesh Ecommerce Businesses
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We can support:
             </p>
             <ul className="mt-4 space-y-2.5">
@@ -49,7 +49,7 @@ export default function ServiceAreas() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               For International Markets
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We also work with businesses targeting markets such as:
             </p>
             <ul className="mt-4 flex flex-wrap gap-2">
@@ -62,7 +62,7 @@ export default function ServiceAreas() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               International product copy can be adapted around the intended market, audience, terminology, and
               buying context.
             </p>

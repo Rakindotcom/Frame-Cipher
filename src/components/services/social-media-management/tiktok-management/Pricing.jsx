@@ -218,7 +218,7 @@ export default function Pricing() {
                 {row.values.map((value, vIdx) => (
                   <div
                     key={`${row.label}-${columns[vIdx]}`}
-                    className="flex items-center justify-center gap-2 bg-frame-bg px-5 py-3.5 text-center text-xs font-medium text-frame-muted-fg md:text-sm"
+                    className="flex items-center justify-center gap-2 bg-frame-bg px-5 py-3.5 text-center text-xs font-medium text-frame-muted-fg md:text-sm wide:text-lg"
                   >
                     <span className="font-black uppercase tracking-[0.18em] text-frame-accent sm:hidden">
                       {columns[vIdx]}:
@@ -244,7 +244,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher&rsquo;s TikTok management plans start at ৳25,000 per month. Growth is ৳40,000
             per month, while larger or combined organic and paid programs are customized according to
             scope.

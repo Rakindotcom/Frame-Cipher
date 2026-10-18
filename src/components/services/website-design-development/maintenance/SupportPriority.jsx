@@ -33,7 +33,7 @@ export default function SupportPriority() {
                 <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {tier.tier}
                 </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {tier.description}
                 </p>
               </div>
@@ -42,7 +42,7 @@ export default function SupportPriority() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <p className="text-xs sm:text-sm font-medium text-frame-muted-fg italic">
+          <p className="text-xs sm:text-sm font-medium text-frame-muted-fg italic wide:text-lg">
             Your maintenance agreement should state the actual response targets, support hours, emergency availability, and escalation process before the service begins.
           </p>
         </div>

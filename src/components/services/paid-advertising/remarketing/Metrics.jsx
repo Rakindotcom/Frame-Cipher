@@ -63,7 +63,7 @@ export default function Metrics() {
         <SectionIntro eyebrow="Measurement" title="Measuring Remarketing Performance">
           Remarketing should not be judged by one platform-reported number.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           We evaluate performance using campaign, audience, funnel, and business metrics together.
         </p>
 
@@ -84,7 +84,7 @@ export default function Metrics() {
                   <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
                     {block.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {block.body}
                   </p>
                 </div>
@@ -96,7 +96,7 @@ export default function Metrics() {
                     </p>
                     <ul className="grid gap-3 sm:grid-cols-2">
                       {block.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                           <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                           <span>{item}</span>
                         </li>
@@ -110,7 +110,7 @@ export default function Metrics() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The goal is to understand whether remarketing is creating additional business value, not
             simply collecting attributed conversions.
           </p>

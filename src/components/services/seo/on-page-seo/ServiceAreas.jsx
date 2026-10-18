@@ -35,7 +35,7 @@ export default function ServiceAreas() {
                 <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {area.title}
                 </h3>
-                <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {area.body}
                 </p>
               </div>
@@ -44,7 +44,7 @@ export default function ServiceAreas() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <p className="max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Our approach is based on the search behavior of the market being targeted rather than
             applying one region&apos;s search patterns to every page.
           </p>

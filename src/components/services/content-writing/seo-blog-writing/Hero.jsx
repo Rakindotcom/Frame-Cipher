@@ -55,13 +55,13 @@ export default function Hero() {
             For SMEs, Startups, Ecommerce Businesses &amp; Established Brands
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             It should answer the right search, provide useful information, demonstrate appropriate expertise,
             and give readers a clear reason to keep reading. Framecipher provides SEO &amp; Blog Writing Service
             in Bangladesh for SMEs, startups, ecommerce businesses, and established brands, with content
             support for international markets including the US, UK, Australia, Canada, and UAE.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/seo-blog-writing" allowed={["/services/seo/keyword-research"]}>
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/seo-blog-writing" allowed={["/services/seo/keyword-research"]}>
             Our in-house team combines keyword research, search-intent analysis, content planning, SEO
             writing, editing, internal linking, and content refresh support into one workflow.
           </AutoLinks></p>

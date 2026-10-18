@@ -126,7 +126,7 @@ export default function Pricing() {
                 <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   {pkg.for}
                 </p>
 
@@ -173,7 +173,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Technical Architecture & Platform Comparison
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
               Compare package deliverables, capabilities, and tracking integrations to find the right scope for your campaign.
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-frame-border bg-frame-muted/20 p-5">
-            <p className="text-xs md:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
               These packages provide a starting framework rather than fixed limits. Final pricing depends on the campaign objective, design complexity, integrations, functionality, and project scope.
             </p>
             <PosterButton href="/contact" className="shrink-0">
@@ -233,7 +233,7 @@ export default function Pricing() {
           <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             Landing Page Development Timeline
           </h2>
-          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
             Landing page projects can move quickly when the campaign objective, copy, brand assets, and required integrations are ready before development begins.
           </p>
 
@@ -258,7 +258,7 @@ export default function Pricing() {
             </table>
           </div>
 
-          <p className="mt-6 text-xs md:text-sm font-medium text-frame-muted-fg">
+          <p className="mt-6 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
             More complex tracking setups, custom animations, multiple variants, third-party integrations, or delayed content and approvals may require additional time. We confirm the estimated delivery schedule after reviewing the campaign requirements and final project scope.
           </p>
         </div>
@@ -269,7 +269,7 @@ export default function Pricing() {
           <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             Landing Page Development for Local & International Campaigns
           </h2>
-          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
             We build landing pages for businesses targeting customers in Bangladesh and international markets. The page structure, messaging, conversion path, and integrations are adapted to the audience and campaign rather than based on a single-market template.
           </p>
 
@@ -351,7 +351,7 @@ export default function Pricing() {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 What&apos;s Included / What&apos;s Separate
               </h3>
-              <div className="mt-4 space-y-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 <div className="border-l-2 border-frame-accent pl-3">
                   <span className="font-bold text-frame-fg">Included:</span> the launch support and handover defined in the project agreement.
                 </div>
@@ -368,7 +368,7 @@ export default function Pricing() {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 What We Don&apos;t Guarantee
               </h3>
-              <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We do not guarantee a specific conversion rate or campaign result. Performance depends on traffic quality, offer strength, targeting, pricing, and competition outside the build itself.
               </p>
             </div>

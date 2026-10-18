@@ -81,7 +81,7 @@ export default function FAQ({ service }) {
             placeholder="Search motion graphics questions..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border-2 border-frame-border bg-frame-muted/20 px-4 py-3 text-sm font-medium text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none"
+            className="w-full border-2 border-frame-border bg-frame-muted/20 px-4 py-3 text-sm font-medium text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none wide:text-lg"
           />
         </div>
 
@@ -98,14 +98,14 @@ export default function FAQ({ service }) {
                   +
                 </span>
               </summary>
-              <div className="border-t border-frame-border/60 p-5 md:p-6 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t border-frame-border/60 p-5 md:p-6 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {faq.answer}
               </div>
             </details>
           ))}
 
           {filteredFaqs.length === 0 && (
-            <p className="py-8 text-center text-sm font-medium text-frame-muted-fg">
+            <p className="py-8 text-center text-sm font-medium text-frame-muted-fg wide:text-lg">
               No matching questions found. Contact our creative team directly.
             </p>
           )}

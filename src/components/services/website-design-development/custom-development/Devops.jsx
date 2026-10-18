@@ -31,7 +31,7 @@ export default function Devops() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg wide:text-lg">
           The deployment approach is selected around the application&apos;s architecture, traffic, integrations, operational requirements, and future growth.
         </p>
       </div>

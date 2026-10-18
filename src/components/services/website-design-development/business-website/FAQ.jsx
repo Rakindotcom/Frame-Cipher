@@ -66,7 +66,7 @@ export default function FAQ({ service }) {
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line">
+              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line wide:text-lg">
                 {faq.answer}
               </div>
             </details>
@@ -74,7 +74,7 @@ export default function FAQ({ service }) {
         </div>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-muted/20 p-6 text-center">
-          <p className="text-sm font-medium text-frame-muted-fg">
+          <p className="text-sm font-medium text-frame-muted-fg wide:text-lg">
             Have a question about your tech stack or custom integration?{' '}
             <Link href="/contact" className="font-bold text-frame-accent underline hover:text-frame-fg">
               Talk directly with our engineering team &rarr;

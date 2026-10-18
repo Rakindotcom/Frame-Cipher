@@ -48,7 +48,7 @@ export default function Formats() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Useful when your audience needs more depth
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 It can support:
               </p>
             </div>
@@ -77,7 +77,7 @@ export default function Formats() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 A faster format for reaching viewers with concise ideas
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 They can be used for:
               </p>
             </div>
@@ -128,7 +128,7 @@ export default function Formats() {
             ))}
           </ul>
 
-          <p className="mt-6 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-6 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             This creates multiple opportunities for viewers to discover your content while allowing
             interested viewers to explore deeper topics. YouTube also notes that viewer interests can
             connect across Shorts and long-form, although viewers do not automatically engage with every

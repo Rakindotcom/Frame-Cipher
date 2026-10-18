@@ -28,7 +28,7 @@ export default function Accessibility() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg wide:text-lg">
           Accessibility requirements depend on the audience, project scope, and applicable standards. We address them as part of the design and development process rather than leaving them as a final check.
         </p>
       </div>

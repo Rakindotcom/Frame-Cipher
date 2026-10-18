@@ -72,7 +72,7 @@ export default function ContentVsStrategy() {
                 <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-accent"><AutoLinks currentPath="/services/content-creation" allowed={["/services/social-media-management/community-management"]}>
                   {item.lead}
                 </AutoLinks></p>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function ContentVsStrategy() {
             <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               How The Services Work Together
             </h3>
-            <p className="mt-2 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               You can utilize only the production stage you need, or combine multiple services when you want one seamlessly coordinated workflow from strategy through execution.
             </p>
           </div>

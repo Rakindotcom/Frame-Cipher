@@ -59,7 +59,7 @@ export default function ContentStrategy() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pillar.body}
                 </p>
               </div>
@@ -94,7 +94,7 @@ export default function ContentStrategy() {
         </div>
 
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Your monthly calendar is built from these pillars, so every published post has a
             defined job. You receive it in advance and can request changes before anything goes
             live.

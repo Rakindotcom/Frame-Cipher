@@ -53,7 +53,7 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
                   {standard.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/social-media-management/community-management"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/social-media-management/community-management"]}>
                   {standard.body}
                 </AutoLinks></p>
               </div>
@@ -83,7 +83,7 @@ export default function WhyChoose() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Ad spend is separate from Facebook management fees, which keeps organic content,
             community management, and paid advertising strategically distinct.
           </p>

@@ -43,7 +43,7 @@ export default function RolloutChange() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Enterprise Rollout &amp; Change Management
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Introducing an enterprise application involves more than putting software into production. Employees, managers, administrators, and other stakeholders need a practical path to adopt the new system.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default function RolloutChange() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {item.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {item.desc}
             </p>
           </div>

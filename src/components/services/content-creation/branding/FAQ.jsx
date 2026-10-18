@@ -108,7 +108,7 @@ export default function FAQ({ service }) {
             placeholder="Search FAQs (e.g. guidelines, rebrand, voice, strategy, timeline, Bangla, logo)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border-2 border-frame-border bg-frame-bg p-4 text-xs sm:text-sm font-medium text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none"
+            className="w-full border-2 border-frame-border bg-frame-bg p-4 text-xs sm:text-sm font-medium text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none wide:text-lg"
           />
         </div>
 
@@ -125,13 +125,13 @@ export default function FAQ({ service }) {
                     +
                   </span>
                 </summary>
-                <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {faq.answer}
                 </div>
               </details>
             ))
           ) : (
-            <div className="border-2 border-dashed border-frame-border p-8 text-center text-sm font-medium text-frame-muted-fg">
+            <div className="border-2 border-dashed border-frame-border p-8 text-center text-sm font-medium text-frame-muted-fg wide:text-lg">
               No matching questions found for &ldquo;{searchQuery}&rdquo;. Try another search term or contact our branding team directly.
             </div>
           )}

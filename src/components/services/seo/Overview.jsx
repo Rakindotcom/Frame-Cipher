@@ -36,7 +36,7 @@ export default function Overview() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               See where your website actually stands
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We review the factors limiting your organic visibility and identify the search
               opportunities that matter to your business before any work begins.
             </p>

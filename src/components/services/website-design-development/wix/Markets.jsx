@@ -35,7 +35,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For Bangladesh-Based Businesses
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 We can account for:
               </p>
               <ul className="mt-3 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
@@ -60,7 +60,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For International Businesses
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 We adapt:
               </p>
               <ul className="mt-3 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
@@ -76,7 +76,7 @@ export default function Markets() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             The goal is not to apply one local template everywhere. We build the website around the audience, market, and business requirements of each project.
           </p>
         </div>

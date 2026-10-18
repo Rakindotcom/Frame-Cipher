@@ -21,7 +21,7 @@ export default function TechStack() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Enterprise Technology Stack
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           We choose technologies around the organization&apos;s requirements, existing systems, security needs, and long-term maintenance plan.
         </p>
       </div>
@@ -50,7 +50,7 @@ export default function TechStack() {
       </div>
 
       <div className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-xs md:text-sm font-semibold text-frame-muted-fg">
+        <p className="text-xs md:text-sm font-semibold text-frame-muted-fg wide:text-lg">
           The final technology stack is selected around the project rather than using the same tools for every enterprise system.
         </p>
         <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">

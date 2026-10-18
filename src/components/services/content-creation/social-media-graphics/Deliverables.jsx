@@ -124,7 +124,7 @@ export default function Deliverables() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Defined Scope Before Production
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                 Before design commences, we document every variable so deliverables, revision expectations, and timelines remain crystal clear:
               </p>
 
@@ -153,11 +153,11 @@ export default function Deliverables() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Reusable Templates & Source Files
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                 When included in your project tier, editable source files are delivered with clean modular structures:
               </p>
 
-              <div className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <div className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <div className="p-2.5 border border-frame-border bg-frame-bg flex items-start gap-2">
                   <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
                   <span><strong className="text-frame-fg">Figma Component Systems:</strong> Auto-layout frames, text styles, color variables, and swappable brand assets.</span>

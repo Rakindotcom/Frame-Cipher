@@ -78,7 +78,7 @@ export default function VideoTypes() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/short-form-video" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/short-form-video" allowed={["/services/website-design-development/landing-pages"]}>
                   {item.description}
                 </AutoLinks></p>
 

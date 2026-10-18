@@ -280,7 +280,7 @@ export default function Offerings() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
                 <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -292,7 +292,7 @@ export default function Offerings() {
                   ))}
                 </ul>
                 {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.note}
                   </p>
                 )}
@@ -308,7 +308,7 @@ export default function Offerings() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Platform-Specific Ecommerce SEO
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We optimize across the platforms we build on: Shopify, WooCommerce, and custom
                 ecommerce builds.
               </p>
@@ -332,7 +332,7 @@ export default function Offerings() {
             <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Platform-Specific Ecommerce SEO
             </h3>
-            <p className="mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Different ecommerce platforms create different technical structures and SEO
               challenges. We adapt the strategy to your platform instead of applying the same
               checklist to every store.
@@ -348,7 +348,7 @@ export default function Offerings() {
                   <h4 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {platform.title}
                   </h4>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {platform.description}
                   </p>
                   <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -360,7 +360,7 @@ export default function Offerings() {
                     ))}
                   </ul>
                   {platform.note && (
-                    <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                       {platform.note}
                     </p>
                   )}
@@ -378,7 +378,7 @@ export default function Offerings() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Start with a free consultation
             </h3>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We review your store and recommend which ecommerce SEO services will have the most
               impact first.
             </p>

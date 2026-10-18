@@ -35,7 +35,7 @@ export default function TechStack() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Android Technology Stack
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           We choose the technology stack based on the application&apos;s requirements, supported devices, maintainability, and long-term roadmap.
         </p>
       </div>
@@ -64,7 +64,7 @@ export default function TechStack() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           The final stack is selected for the application rather than added simply to make the technology list longer.
         </p>
       </div>

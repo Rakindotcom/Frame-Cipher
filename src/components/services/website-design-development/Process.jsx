@@ -74,7 +74,7 @@ export default function Process() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {step.description}
                 </p>
               </div>
@@ -99,7 +99,7 @@ export default function Process() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Typical Delivery Timelines
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
               Timelines commence once initial content, creative assets, and technical access are confirmed.
             </p>
           </div>

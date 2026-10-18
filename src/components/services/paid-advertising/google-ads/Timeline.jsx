@@ -64,7 +64,7 @@ export default function Timeline() {
                       {stage.period}
                     </h3>
                     {stage.body.map((paragraph, pIdx) => (
-                      <p key={pIdx} className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <p key={pIdx} className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                         {paragraph}
                       </p>
                     ))}

@@ -53,13 +53,13 @@ export default function Outcomes() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                   {outcome.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/website-design-development/landing-pages"]}>
                   {outcome.body}
                 </AutoLinks></p>
               </div>
 
               {outcome.note && (
-                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {outcome.note}
                 </p>
               )}
@@ -68,7 +68,7 @@ export default function Outcomes() {
         </div>
 
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We measure the metrics that support these outcomes rather than reporting follower
             counts in isolation.
           </p>

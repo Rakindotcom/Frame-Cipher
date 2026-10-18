@@ -26,7 +26,7 @@ export default function ServiceAreas() {
           <div className="border-2 border-frame-border bg-frame-bg p-6">
             <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Target Markets</span>
             <h3 className="mt-2 font-heading text-xl font-bold text-frame-fg uppercase">Markets We Serve</h3>
-            <ul className="mt-4 space-y-2 text-sm font-medium text-frame-muted-fg">
+            <ul className="mt-4 space-y-2 text-sm font-medium text-frame-muted-fg wide:text-lg">
               {['Bangladesh', 'United States', 'United Kingdom', 'Australia', 'Canada', 'United Arab Emirates'].map((m, mIdx) => (
                 <li key={mIdx} className="flex items-center gap-2">
                   <span className="text-frame-accent font-bold">✓</span>
@@ -39,7 +39,7 @@ export default function ServiceAreas() {
           <div className="border-2 border-frame-border bg-frame-bg p-6">
             <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Domestic Focus</span>
             <h3 className="mt-2 font-heading text-xl font-bold text-frame-fg uppercase">Bangladesh Businesses</h3>
-            <p className="mt-4 text-sm font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm font-medium text-frame-muted-fg wide:text-lg">
               Our redesign process can account for:
             </p>
             <ul className="mt-3 space-y-2 text-sm font-medium text-frame-fg/90">
@@ -55,7 +55,7 @@ export default function ServiceAreas() {
           <div className="border-2 border-frame-border bg-frame-bg p-6">
             <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">International Standards</span>
             <h3 className="mt-2 font-heading text-xl font-bold text-frame-fg uppercase">Global Projects</h3>
-            <p className="mt-4 text-sm font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm font-medium text-frame-muted-fg wide:text-lg">
               For international projects, we adapt the redesign around:
             </p>
             <ul className="mt-3 space-y-2 text-sm font-medium text-frame-fg/90">

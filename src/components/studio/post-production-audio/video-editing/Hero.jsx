@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             cameras and audio, place B-roll and build a tight narrative that holds retention from the first frame —
             without you re-shooting a second.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Hand off drives in person at ECB Chattar or upload to Drive or Dropbox. We verify every clip on intake,
             cut proxies for fast review, and return platform-ready masters with captions and cutdowns included.
           </p>

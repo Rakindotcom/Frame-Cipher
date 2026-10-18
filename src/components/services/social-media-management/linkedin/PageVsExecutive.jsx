@@ -73,7 +73,7 @@ export default function PageVsExecutive() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
                   {block.headline}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {block.body}
                 </p>
               </div>
@@ -105,7 +105,7 @@ export default function PageVsExecutive() {
           <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
             Coordinate them around shared business themes
           </h3>
-          <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Your company page and executive profiles should not publish identical content all the
             time. For example:
           </p>

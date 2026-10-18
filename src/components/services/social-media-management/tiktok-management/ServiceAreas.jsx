@@ -45,7 +45,7 @@ export default function ServiceAreas() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 TikTok Management in Bangladesh
               </span>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Framecipher provides TikTok management for businesses in Bangladesh, including businesses
                 targeting Dhaka and other markets across the country.
               </p>
@@ -65,7 +65,7 @@ export default function ServiceAreas() {
               ))}
             </ul>
 
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               The objective is to create content that feels natural to the intended Bangladeshi audience.
             </p>
           </div>
@@ -75,7 +75,7 @@ export default function ServiceAreas() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 International TikTok Management
               </span>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We also support businesses targeting international audiences.
               </p>
               <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg/90 md:text-base">
@@ -113,7 +113,7 @@ export default function ServiceAreas() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The strategy is adapted market by market rather than simply publishing the same
             Bangladesh-focused content everywhere.
           </p>

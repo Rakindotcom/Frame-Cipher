@@ -537,7 +537,7 @@ export function BlogPostClientView({
                         <div className="font-mono text-sm sm:text-base text-frame-accent bg-black/80 p-4 border border-frame-border overflow-x-auto max-w-full">
                           {section.formula.latex}
                         </div>
-                        <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed break-words">
+                        <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed break-words wide:text-lg">
                           {section.formula.description}
                         </p>
                         {section.formula.variables && (
@@ -597,7 +597,7 @@ export function BlogPostClientView({
                           )}
                         </button>
                         {isOpen && (
-                          <div className="px-5 sm:px-6 pb-6 pt-2 font-body text-sm sm:text-base text-frame-muted-fg leading-relaxed border-t border-frame-border">
+                          <div className="px-5 sm:px-6 pb-6 pt-2 font-body text-sm sm:text-base text-frame-muted-fg leading-relaxed border-t border-frame-border wide:text-lg">
                             {faq.answer}
                           </div>
                         )}

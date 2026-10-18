@@ -126,7 +126,7 @@ export default function Pricing() {
                 <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   {pkg.for}
                 </p>
 
@@ -173,7 +173,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Technical Architecture & Platform Comparison
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
               Compare package deliverables, capabilities, and system integrations to find the right scope for your sales workflow.
             </p>
           </div>
@@ -224,7 +224,7 @@ export default function Pricing() {
           <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             Timeline / Duration
           </h2>
-          <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
             <p>
               Business website development typically takes 4 to 8 weeks, depending on the complexity of the tech stack, custom animations, and CRM integrations required. A simpler, single-integration build moves toward the shorter end; a build involving multiple CRM connections or extensive custom functionality will run longer.
             </p>
@@ -243,7 +243,7 @@ export default function Pricing() {
               <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Ownership, Handover & Content Management
               </h2>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Your website should remain a practical business asset after development is complete. The project agreement defines the ownership, access, deliverables, and handover terms for your website. Based on the platform and project scope, this may include:
               </p>
               <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -267,7 +267,7 @@ export default function Pricing() {
               <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Post-Launch Support & Maintenance
               </h2>
-              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 <p>
                   Every stage of the build architecture, design, development, and integration &mdash; goes through your review and approval before we proceed, so nothing reaches launch without your sign-off.
                 </p>

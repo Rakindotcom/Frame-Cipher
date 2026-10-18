@@ -226,7 +226,7 @@ export default function Pricing() {
                 {row.values.map((value, vIdx) => (
                   <div
                     key={`${row.label}-${columns[vIdx]}`}
-                    className="flex items-center justify-center gap-2 bg-frame-bg px-5 py-3.5 text-center text-xs font-medium text-frame-muted-fg md:text-sm"
+                    className="flex items-center justify-center gap-2 bg-frame-bg px-5 py-3.5 text-center text-xs font-medium text-frame-muted-fg md:text-sm wide:text-lg"
                   >
                     <span className="font-black uppercase tracking-[0.18em] text-frame-accent sm:hidden">
                       {columns[vIdx]}:

@@ -111,7 +111,7 @@ export default function Pricing() {
                 <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
                   Delivery: {pkg.timeline}
                 </p>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.scope}
                 </p>
                 {pkg.features && (
@@ -153,7 +153,7 @@ export default function Pricing() {
             ))}
           </div>
           <div className="mt-6 flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-frame-border">
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg italic">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg italic wide:text-lg">
               Pricing is finalized after reviewing your actual project requirements.
             </p>
             <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>

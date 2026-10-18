@@ -32,10 +32,10 @@ export default function CTA({ service }) {
             <h2 className="mt-4 font-heading text-[clamp(2.4rem,5.5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Start Your Branding Project
             </h2>
-            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl wide:text-lg">
               Your brand should give your business a clear direction for how it looks, how it sounds, and how it stays consistent as it grows.
             </p>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
               Whether you need a new brand identity, a system around an existing logo, or a strategic rebrand, we can scope the work around what your business actually needs.
             </p>
 

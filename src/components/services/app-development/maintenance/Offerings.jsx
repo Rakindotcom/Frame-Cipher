@@ -423,13 +423,13 @@ export default function Offerings() {
                   <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {service.title}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {service.desc}
                   </p>
 
                   <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4">
                     {service.bullets.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                      <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                         <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                           <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -460,7 +460,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Types of App Maintenance We Provide
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Different applications require different types of maintenance. We organize maintenance work around the reason the application needs an update.
             </p>
           </div>
@@ -478,7 +478,7 @@ export default function Offerings() {
                   <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                     {type.title}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {type.desc}
                   </p>
 
@@ -515,7 +515,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Apps We Maintain
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               We adapt the maintenance approach to the application&apos;s platform, architecture, integrations, and business requirements.
             </p>
           </div>
@@ -532,7 +532,7 @@ export default function Offerings() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {app.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {app.desc}
                 </p>
               </div>
@@ -548,7 +548,7 @@ export default function Offerings() {
           <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
             Why Your Business Needs Ongoing App Maintenance
           </h2>
-          <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Launching an application is only the beginning of its technical lifecycle. Your application operates within an environment that continues to change. Operating systems update. Dependencies become outdated. APIs change. Security requirements evolve. User expectations also change.
           </p>
 
@@ -564,7 +564,7 @@ export default function Offerings() {
                 <h3 className="mt-2 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">
                   {reason.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {reason.desc}
                 </p>
               </div>
@@ -581,7 +581,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Taking Over an Existing App
             </h2>
-            <div className="mt-3 max-w-3xl space-y-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <div className="mt-3 max-w-3xl space-y-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               <p>You do not have to return to the original development company for ongoing maintenance.</p>
               <p>Framecipher can assess an application built by another developer or agency and establish a practical maintenance baseline. Before taking responsibility for ongoing support, we review the application and its surrounding systems.</p>
             </div>
@@ -600,7 +600,7 @@ export default function Offerings() {
                   <h3 className="mt-2 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">
                     {stage.title}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {stage.desc}
                   </p>
 
@@ -634,7 +634,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               What’s Included in Every Maintenance Plan
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               The exact level of support changes by plan, but every engagement starts with a clear understanding of the application and its maintenance requirements.
             </p>
           </div>
@@ -651,7 +651,7 @@ export default function Offerings() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -668,7 +668,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Support Levels &amp; Response Times
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Not every application issue has the same business impact. We categorize support requests by severity so critical problems can receive the appropriate level of attention. Specific response times should be defined in the service agreement based on the selected maintenance plan.
             </p>
           </div>
@@ -686,7 +686,7 @@ export default function Offerings() {
                   <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                     {lvl.level}
                   </h3>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {lvl.desc}
                   </p>
 
@@ -719,7 +719,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               App Maintenance vs. New Development
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Not every application problem requires a new app. Sometimes maintenance is enough. Other situations require modernization or redevelopment.
             </p>
           </div>
@@ -755,7 +755,7 @@ export default function Offerings() {
                 <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
                   {app.title}
                 </h4>
-                <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {app.desc}
                 </p>
               </div>
@@ -775,7 +775,7 @@ export default function Offerings() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Why Choose Framecipher for App Maintenance &amp; Support
             </h2>
-            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Maintenance requires more than reacting to support tickets. Your team needs a partner that understands the application, its business purpose, and the technical environment around it.
             </p>
           </div>
@@ -792,7 +792,7 @@ export default function Offerings() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -809,7 +809,7 @@ export default function Offerings() {
           <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
             App Maintenance Services Across Bangladesh &amp; Worldwide
           </h2>
-          <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             <p>
               Framecipher provides ongoing application maintenance from Bangladesh for businesses that need a reliable technical partner after launch.
             </p>

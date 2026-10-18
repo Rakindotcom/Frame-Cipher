@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             untested setups. Our 5-stage workflow structurally prevents both, so camera operators, sound
             engineers and editors stay aligned with your business objectives from day one.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Standard projects deliver in 5 to 10 working days with 2 revision rounds. Priority 48 to 72 hour
             lanes run at plus 30 percent for launches and board meetings.
           </p>

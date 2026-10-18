@@ -27,7 +27,7 @@ function SubProcessGrid({ steps }) {
                 <Icon className="h-4 w-4 text-frame-muted-fg" />
               </div>
               <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">{st.title}</h3>
-              <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">{st.desc}</p>
+              <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">{st.desc}</p>
             </div>
             <div className="relative z-10 mt-6 border-t border-frame-border/50 pt-3 font-mono text-[11px] font-bold uppercase text-frame-accent">
               Stage Verified &rarr;

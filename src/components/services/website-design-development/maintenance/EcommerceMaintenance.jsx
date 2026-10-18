@@ -39,7 +39,7 @@ export default function EcommerceMaintenance() {
               </div>
             ))}
           </div>
-          <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border pt-4">
+          <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border pt-4 wide:text-lg">
             For WooCommerce, Shopify, Magento, or another ecommerce platform, the exact maintenance scope depends on the store architecture and connected systems.
           </p>
         </div>

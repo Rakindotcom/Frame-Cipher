@@ -27,7 +27,7 @@ export default function HomeAbout() {
             <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
               Frame Cipher is building a sovereign, multinational technology, media, and growth powerhouse headquartered in Ecb Chattar, Matikata, Dhaka. We combine full-stack custom software engineering, cinematic media production, and mathematical performance marketing under one unified operating system.
             </p>
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Serving fast-growing startups and global enterprises across 20+ countries worldwide with an entirely in-house team across <Link href="/services/website-design-development" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Web &amp; Software Development</Link>, <Link href="/services/seo" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">SEO</Link>, <Link href="/services/paid-advertising" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Paid Ads</Link>, <Link href="/services/content-creation" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">Cinematic Media</Link>, and our dedicated <Link href="/studio" className="text-frame-fg underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors">creative video &amp; podcast studio in Dhaka</Link>.
             </p>
           </div>
@@ -72,7 +72,7 @@ export default function HomeAbout() {
                   {founder.name}
                 </h3>
                 <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-frame-muted-fg">{founder.focus}</p>
-                <p className="mt-4 flex-1 text-sm font-medium leading-relaxed text-frame-muted-fg">{founder.bio}</p>
+                <p className="mt-4 flex-1 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{founder.bio}</p>
 
                 <div className="mt-6 flex items-center justify-between border-t border-frame-border/80 pt-5">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">Connect</span>

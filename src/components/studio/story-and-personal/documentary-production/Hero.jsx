@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             archives. Roughly 40% of the budget goes in before filming — issue research, character scouting, access
             negotiation and permissions.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We scope shoot days, buffer allowances and dedicated post time so the authentic story has room to emerge,
             with ethical consents and dialect translation handled for donor and broadcast audiences.
           </p>

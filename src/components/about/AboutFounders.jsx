@@ -69,7 +69,7 @@ export default function AboutFounders() {
                   <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-frame-muted-fg">
                     {founder.focus}
                   </p>
-                  <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+                  <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                     {founder.bio}
                   </p>
                 </div>

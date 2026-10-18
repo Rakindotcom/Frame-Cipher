@@ -83,7 +83,7 @@ export default function FullFunnelModel() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
                   {stage.name}
                 </h3>
-                <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {stage.purpose}
                 </p>
 

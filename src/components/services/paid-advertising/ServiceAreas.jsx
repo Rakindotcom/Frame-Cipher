@@ -45,7 +45,7 @@ export default function ServiceAreas() {
                 <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {area.title}
                 </h3>
-                <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {area.body}
                 </p>
                 {area.bullets?.length > 0 && (
@@ -59,7 +59,7 @@ export default function ServiceAreas() {
                   </ul>
                 )}
                 {area.tail && (
-                  <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {area.tail}
                   </p>
                 )}

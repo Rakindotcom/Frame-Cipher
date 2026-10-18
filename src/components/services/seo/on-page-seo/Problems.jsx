@@ -48,7 +48,7 @@ export default function Problems() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {problem.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {problem.body}
                 </p>
               </div>
@@ -64,7 +64,7 @@ export default function Problems() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               An on-page review finds the reason
             </h3>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We compare what your page offers against what the query actually needs, then
               recommend the content and structural changes that matter most.
             </p>

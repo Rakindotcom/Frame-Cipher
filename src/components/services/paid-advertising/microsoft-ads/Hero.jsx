@@ -30,12 +30,12 @@ export default function Hero() {
         </div>
       </div>
       <div className="relative z-10 border-t-2 border-frame-border px-4 pb-16 md:px-8 max-w-7xl mx-auto">
-        <p className="mt-8 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-8 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Framecipher provides Microsoft Ads Management Service for businesses in Bangladesh and
           international markets. We build and manage Search, Shopping, audience, LinkedIn Profile
           Targeting, remarketing, and conversion tracking around your actual business goals.
         </p>
-        <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Instead of simply importing a Google Ads account and leaving it unchanged, we adapt
           keywords, campaign structure, bidding, audiences, network settings, and measurement to
           Microsoft Advertising. The result is a more deliberate approach to generating qualified

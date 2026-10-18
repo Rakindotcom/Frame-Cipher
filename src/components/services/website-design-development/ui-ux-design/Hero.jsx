@@ -128,19 +128,19 @@ export default function Hero() {
             <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Design For</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Business websites, ecommerce stores, mobile apps, SaaS products, and web applications that depend on clear user journeys.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Design</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   User flows, information architecture, wireframes, interactive prototypes, UI design, and reusable design systems in Figma.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Work</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   We start with flows, structure, and usability before visual design&mdash;so problems surface before development, not after launch.
                 </p>
               </div>
@@ -166,7 +166,7 @@ export default function Hero() {
                   <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {item.description}
                   </p>
                 </div>

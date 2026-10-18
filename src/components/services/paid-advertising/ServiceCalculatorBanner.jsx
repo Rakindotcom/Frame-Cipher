@@ -121,7 +121,7 @@ export default function ServiceCalculatorBanner({ platform = 'general' }) {
             <h3 className="font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               {cfg.title}
             </h3>
-            <p className="text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+            <p className="text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
               {cfg.description}
             </p>
           </div>

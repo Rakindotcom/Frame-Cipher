@@ -30,7 +30,7 @@ export default function Support() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Post-Launch Support
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 Support can include:
               </p>
               <ul className="mt-4 space-y-2 text-sm md:text-base font-medium text-frame-fg/90">
@@ -53,7 +53,7 @@ export default function Support() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Warranty &amp; Workmanship
               </h3>
-              <div className="mt-4 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 <p>
                   Any post-launch warranty or workmanship coverage should follow the exact terms agreed in the project contract.
                 </p>

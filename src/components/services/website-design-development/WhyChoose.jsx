@@ -41,7 +41,7 @@ export default function WhyChoose() {
                     <h4 className="font-heading text-sm md:text-base font-bold uppercase tracking-tight text-frame-fg">
                       {item.title}
                     </h4>
-                    <p className="mt-1 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    <p className="mt-1 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                       {item.desc}
                     </p>
                   </div>
@@ -74,7 +74,7 @@ export default function WhyChoose() {
                       {item.title}
                     </h4>
                   </div>
-                  <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>

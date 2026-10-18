@@ -29,7 +29,7 @@ export default function Proof() {
         </ul>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We do not publish invented conversion statistics or unverified results. Examples on this page are
             limited to work that has been completed and approved for publication.
           </p>

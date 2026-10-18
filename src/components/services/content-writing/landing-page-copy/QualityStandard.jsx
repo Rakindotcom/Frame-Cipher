@@ -75,7 +75,7 @@ export default function QualityStandard() {
               {nonGuarantees.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-muted-fg"
+                  className="flex items-start gap-2.5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"
                 >
                   <span aria-hidden="true" className="mt-1 text-frame-accent">
                     &times;
@@ -87,7 +87,7 @@ export default function QualityStandard() {
           </div>
         </div>
 
-        <p className="mt-10 max-w-5xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-10 max-w-5xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Landing page performance depends on the offer, pricing, traffic quality, targeting, campaign creative,
           page experience, technical performance, competition, brand trust, and market conditions. Copy is one
           part of that, and an important one, but it is not the only part.

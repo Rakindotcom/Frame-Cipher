@@ -166,7 +166,7 @@ export default function Pricing() {
                     </p>
                     <ul className="mt-3 space-y-2">
                       {tier.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                           <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                             <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -190,7 +190,7 @@ export default function Pricing() {
 
           {/* PRICE GUIDANCE NOTE */}
           <div className="mt-8 border-2 border-frame-border bg-frame-muted/10 p-6">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               These are starting references rather than fixed quotes. Enterprise pricing depends on workflows, user volume, integrations, existing systems, data migration, security, infrastructure, and rollout needs.
             </p>
             <p className="mt-2 text-sm md:text-base font-semibold text-frame-fg">
@@ -210,7 +210,7 @@ export default function Pricing() {
                 Enterprise Project Scope, Warranty &amp; Support
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Enterprise projects require clear expectations around requirements, approvals, responsibilities, revisions, third-party dependencies, and post-launch services.
             </p>
           </div>
@@ -227,7 +227,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -246,7 +246,7 @@ export default function Pricing() {
                 Enterprise Support, Maintenance &amp; SLA
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Enterprise applications can support daily business operations, so post-launch services should match the organization&apos;s technical and operational requirements.
             </p>
           </div>
@@ -263,7 +263,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>

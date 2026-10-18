@@ -14,7 +14,7 @@ function OverviewBenefits({ service }) {
       </h3>
       <ul className="grid gap-4 sm:grid-cols-2">
         {service.benefits.map((benefit, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <li key={i} className="flex items-start gap-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-frame-accent" />
             <span>{benefit}</span>
           </li>
@@ -42,14 +42,14 @@ function OverviewAudience({ service }) {
         <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">Target Project Types</h3>
         <ul className="mt-6 space-y-4">
           {list.map((aud, i) => (
-            <li key={i} className="flex items-start gap-3 border-b border-frame-border/50 pb-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <li key={i} className="flex items-start gap-3 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               <span className="mt-0.5 font-mono text-xs font-bold text-frame-accent">0{i + 1}</span>
               <span className="font-medium text-frame-fg">{aud}</span>
             </li>
           ))}
         </ul>
       </div>
-      <div className="mt-8 flex items-start gap-3 border-2 border-frame-border bg-frame-bg p-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+      <div className="mt-8 flex items-start gap-3 border-2 border-frame-border bg-frame-bg p-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
         <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-frame-accent" />
         <p>
           <strong className="font-bold text-frame-fg">Studio Standard:</strong> Every session includes pre-shoot environment checks, sound level calibration, and structured deliverable sign-offs before project completion.

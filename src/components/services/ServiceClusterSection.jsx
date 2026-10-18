@@ -229,7 +229,7 @@ export default function ServiceClusterSection({ service }) {
         </div>
 
         {contextualCopy && (
-          <p className="mt-8 max-w-4xl text-sm font-medium leading-7 text-frame-muted-fg">
+          <p className="mt-8 max-w-4xl text-sm font-medium leading-7 text-frame-muted-fg wide:text-lg">
             {renderContextualParagraph(contextualCopy, {
               currentPath: service.fullPath,
               maxLinks: contextualTargets.length,
@@ -257,7 +257,7 @@ export default function ServiceClusterSection({ service }) {
                         0{idx + 1}
                       </span>
                       <span
-                        className="text-sm text-frame-muted-fg group-hover:translate-x-1 group-hover:text-frame-accent transition-all"
+                        className="text-sm text-frame-muted-fg group-hover:translate-x-1 group-hover:text-frame-accent transition-all wide:text-lg"
                         aria-hidden="true"
                       >
                         &rarr;
@@ -341,7 +341,7 @@ export default function ServiceClusterSection({ service }) {
             )}
 
             {linkPlan.geoContext && (
-              <p className="pt-1 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="pt-1 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Clients also ask about{' '}
                 <Link
                   href={linkPlan.geoContext.href}

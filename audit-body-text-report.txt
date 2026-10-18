@@ -1,0 +1,164 @@
+FILES SCANNED: 1755
+
+### 780x  [text-xs]
+   src/components/about/AboutClients.jsx :: <span className="font-mono text-xs font-semibold text-frame-muted-fg">
+   src/components/about/AboutClients.jsx :: <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-frame-border
+   src/components/about/AboutFounders.jsx :: <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-frame-muted-fg">
+   src/components/about/AboutGlobalDelivery.jsx :: <p className="text-xs font-semibold uppercase tracking-wider text-frame-muted-fg">
+   src/components/about/AboutTechStack.jsx :: <p className="mt-2 text-xs font-medium text-frame-muted-fg">
+
+### 712x  [text-sm | xl:text-lg]
+   src/components/blog/BlogPageClient.tsx :: className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#18181B] border border-frame-border text-sm text-frame-fg p
+   src/components/blog/BlogPageClient.tsx :: <p className="text-sm text-frame-muted-fg max-w-md mx-auto 3xl:text-lg">
+   src/components/blog/BlogPageClient.tsx :: <p className="font-body text-sm font-medium text-frame-muted-fg leading-relaxed line-clamp-3 3xl:text-lg">
+   src/components/calculators/GoogleAdsCalculator.jsx :: <p className="mt-1 text-sm text-frame-muted-fg 3xl:text-lg">
+   src/components/calculators/MetaAdsCalculator.jsx :: <p className="mt-1 text-sm text-frame-muted-fg 3xl:text-lg">
+
+### 515x  [text-xs | md:text-sm | xl:text-lg]
+   src/components/about/AboutGlobalDelivery.jsx :: <p className="text-xs md:text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg">
+   src/components/calculators/AdsFormulasBreakdown.jsx :: <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed 3xl:text-lg">
+   src/components/calculators/AdsFormulasBreakdown.jsx :: <p className="mt-2 text-xs md:text-sm text-frame-muted-fg leading-relaxed 3xl:text-lg">
+   src/components/calculators/AdsMetricsHandbook.jsx :: <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed 3xl:text-lg">
+   src/components/calculators/AdsMetricsHandbook.jsx :: <span className="text-xs md:text-sm font-semibold text-frame-muted-fg break-words 3xl:text-lg">
+
+### 449x  [text-sm | xl:text-lg | md:text-base]
+   src/components/about/AboutTimeline.jsx :: <p className="mt-4 text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+   src/components/projects/ProjectsWebsitesSection.jsx :: <p className="max-w-2xl text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+   src/components/services/app-development/android/Pricing.jsx :: <p className="mt-3 max-w-3xl text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base 
+   src/components/services/app-development/cross-platform/Pricing.jsx :: <div className="mt-3 max-w-3xl space-y-2 text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg m
+   src/components/services/app-development/cross-platform/Pricing.jsx :: <p className="mt-3 max-w-3xl text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base 
+
+### 430x  [text-sm | md:text-base | xl:text-lg]
+   src/components/case-studies/CaseStudyDetailBreakdown.jsx :: className="grid grid-cols-[auto_1fr] gap-3 text-sm font-semibold leading-relaxed text-frame-muted-fg md:text-b
+   src/components/GrowthOS.jsx :: <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base 3xl:text-lg">Strategy to execution map
+   src/components/GrowthOS.jsx :: <p className="mt-4 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-
+   src/components/GrowthOS.jsx :: <p className="border border-dashed border-frame-border p-5 text-sm font-medium leading-tight text-frame-muted-
+   src/components/GrowthOS.jsx :: <p className="mt-4 text-sm font-medium leading-tight text-frame-muted-fg md:text-base 3xl:text-lg">
+
+### 252x  [text-xs | sm:text-sm | xl:text-lg]
+   src/components/about/AboutFounders.jsx :: <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm 3xl:text-lg">
+   src/components/blog/BlogPostClientView.tsx :: <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed break-words 3xl:text-lg">
+   src/components/services/content-creation/branding/Deliverables.jsx :: <p className="mt-3 text-xs sm:text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+   src/components/services/content-creation/branding/FAQ.jsx :: className="w-full border-2 border-frame-border bg-frame-bg p-4 text-xs sm:text-sm font-medium text-frame-fg pl
+   src/components/services/content-creation/branding/Hero.jsx :: <p className="mt-4 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-4xl 3xl:text-lg">
+
+### 106x  [text-base | md:text-lg]
+   src/components/about/AboutClients.jsx :: <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+   src/components/about/AboutGlobalDelivery.jsx :: <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+   src/components/case-studies/CaseStudiesFeatured.jsx :: <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg md:text-lg">{children}</p>
+   src/components/case-studies/CaseStudiesFeaturedSpotlight.jsx :: <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg md:text-lg">{children}</p>
+   src/components/case-studies/CaseStudyDetailBreakdown.jsx :: className="mt-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg"
+
+### 100x  [text-base | md:text-xl]
+   src/components/about/AboutFAQ.jsx :: <p className="mt-6 text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+   src/components/about/AboutPrinciples.jsx :: <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+   src/components/about/AboutTechStack.jsx :: <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+   src/components/about/AboutTimeline.jsx :: <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+   src/components/about/AboutVision.jsx :: <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+
+### 75x  [text-sm | sm:text-base | xl:text-lg]
+   src/components/blog/BlogPostClientView.tsx :: <div className="px-5 sm:px-6 pb-6 pt-2 font-body text-sm sm:text-base text-frame-muted-fg leading-relaxed bord
+   src/components/home/HomeEngagement.jsx :: <p className="mt-2 text-sm font-medium leading-snug text-frame-muted-fg sm:text-base 3xl:text-lg">
+   src/components/services/app-development/cross-platform/BangladeshWorldwide.jsx :: <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg 3xl:text-lg">
+   src/components/services/app-development/cross-platform/BangladeshWorldwide.jsx :: <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg 3xl:text-lg">
+   src/components/services/app-development/ios/BangladeshWorldwide.jsx :: <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg 3xl:text-lg">
+
+### 28x  [text-base | xl:text-lg]
+   src/components/case-studies/CaseStudiesFeatured.jsx :: <p className="mt-4 text-base font-medium leading-tight text-frame-muted-fg 3xl:text-lg">
+   src/components/case-studies/CaseStudiesFeaturedSpotlight.jsx :: <p className="mt-4 text-base font-medium leading-tight text-frame-muted-fg 3xl:text-lg">
+   src/components/case-studies/CaseStudiesGrid.jsx :: <p className="mt-4 text-base font-medium text-frame-muted-fg 3xl:text-lg">
+   src/components/FAQList.jsx :: <p key={paragraph} className="mb-4 text-base font-medium leading-relaxed text-frame-muted-fg last:mb-0 3xl:tex
+   src/components/Kinetic.jsx :: {children && <div className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors du
+
+### 15x  [text-sm | sm:text-base | md:text-lg]
+   src/components/home/HomeIndustries.jsx :: <p className="max-w-xl text-sm font-medium leading-relaxed text-frame-muted-fg sm:text-base md:text-lg lg:pb-1
+   src/components/home/HomeManifesto.jsx :: <p className="mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg sm:text-base md:text-lg">
+   src/components/services/content-creation/product-photography/Hero.jsx :: <span className="mt-4 block text-sm sm:text-base md:text-lg font-normal text-frame-muted-fg leading-relaxed ma
+   src/components/services/content-creation/product-photography/Hero.jsx :: <p className="mt-6 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl m
+   src/components/services/content-creation/social-media-graphics/Hero.jsx :: <span className="mt-4 block text-sm sm:text-base md:text-lg font-normal text-frame-muted-fg leading-relaxed ma
+
+### 11x  [text-sm | xl:text-lg | sm:text-base]
+   src/components/about/AboutFAQ.jsx :: <p className="max-w-4xl text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base">
+   src/components/about/AboutPrinciples.jsx :: <p className="mt-4 text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors durat
+   src/components/about/AboutTechStack.jsx :: <p className="text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-3
+   src/components/about/AboutVision.jsx :: <p className="mt-5 text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors durat
+   src/components/home/HomeFeaturedWork.jsx :: <p className="mt-4 text-sm 3xl:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base">
+
+### 11x  [text-base | sm:text-lg | md:text-xl]
+   src/components/services/website-design-development/maintenance/FAQ.jsx :: <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+   src/components/services/website-design-development/maintenance/Pricing.jsx :: <div className="mt-6 space-y-3 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg
+   src/components/services/website-design-development/maintenance/Pricing.jsx :: <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+   src/components/services/website-design-development/maintenance/Process.jsx :: <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+   src/components/services/website-design-development/redesign/FAQ.jsx :: <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+
+### 7x  [text-xs | md:text-sm]
+   src/components/services/app-development/saas-apps/Pricing.jsx :: <p className="mt-1 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-muted-fg">
+   src/components/services/content-creation/product-photography/FAQ.jsx :: className="w-full border-2 border-frame-border bg-frame-bg px-4 py-3 text-xs md:text-sm font-mono placeholder:
+   src/components/services/content-creation/social-media-graphics/FAQ.jsx :: className="w-full border-2 border-frame-border bg-frame-bg px-4 py-3 text-xs md:text-sm font-mono placeholder:
+   src/components/services/content-writing/seo-blog-writing/VsGeneric.jsx :: className="w-1/5 border-b-2 border-frame-border bg-frame-muted/30 p-4 font-heading text-xs font-bold uppercase
+   src/components/services/content-writing/seo-blog-writing/VsGeneric.jsx :: className="w-2/5 border-b-2 border-l-2 border-frame-border bg-frame-muted/30 p-4 font-heading text-xs font-bol
+
+### 6x  [text-lg | md:text-2xl]
+   src/components/case-studies/CaseStudiesFeatured.jsx :: <p className="mt-7 max-w-4xl text-lg font-medium leading-snug text-frame-muted-fg md:text-2xl">
+   src/components/case-studies/CaseStudiesFeaturedSpotlight.jsx :: <p className="mt-7 max-w-4xl text-lg font-medium leading-snug text-frame-muted-fg md:text-2xl">
+   src/components/GrowthCaseStudyLibrary.jsx :: <p className="max-w-4xl text-lg font-medium leading-tight text-frame-muted-fg md:text-2xl">
+   src/components/GrowthOS.jsx :: <p className="mt-8 max-w-2xl text-lg font-medium leading-tight text-frame-muted-fg md:text-2xl">
+   src/components/GrowthOS.jsx :: <p className="max-w-3xl text-lg font-medium leading-tight text-frame-muted-fg md:text-2xl">
+
+### 6x  [md:text-xs]
+   src/components/home/HomeHero.jsx :: <p className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg md:text-xs">
+   src/components/home/HomeHero.jsx :: <div className="mt-5 flex items-center justify-between gap-3 text-[10px] font-black uppercase tracking-[0.18em
+   src/components/services/paid-advertising/amazon-ads/Hero.jsx :: <nav className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-fr
+   src/components/services/paid-advertising/lead-generation-ads/Hero.jsx :: <nav className="mb-8 flex flex-wrap items-center gap-2 text-[11px] font-bold uppercase tracking-widest text-fr
+   src/components/services/paid-advertising/microsoft-ads/Hero.jsx :: <nav className="mb-8 flex flex-wrap items-center gap-2 text-[11px] md:text-xs font-bold uppercase tracking-wid
+
+### 6x  [text-sm]
+   src/components/privacy/PrivacyContent.jsx :: <ol className="mt-6 grid gap-3 text-sm font-black uppercase tracking-tighter text-frame-muted-fg">
+   src/components/projects/ProjectsDesignSection.jsx :: <p className="mt-2 text-sm font-bold uppercase leading-tight text-frame-muted-fg">
+   src/components/services/360-marketing/VsFragmented.jsx :: <th className="p-5 font-heading text-sm font-bold uppercase tracking-wider text-frame-muted-fg w-1/4">
+   src/components/services/360-marketing/VsFragmented.jsx :: <th className="p-5 font-heading text-sm font-bold uppercase tracking-wider text-frame-muted-fg w-1/5">
+   src/components/terms/TermsContent.jsx :: <ol className="mt-6 grid gap-3 text-sm font-black uppercase tracking-tighter text-frame-muted-fg">
+
+### 4x  [text-base | sm:text-lg]
+   src/components/blog/BlogPageClient.tsx :: <p className="font-body text-base sm:text-lg font-medium text-frame-muted-fg leading-relaxed line-clamp-3">
+   src/components/blog/BlogPostClientView.tsx :: <p key={idx} className="font-body text-base sm:text-lg text-frame-muted-fg leading-relaxed break-words max-w-f
+   src/components/home/HomeRecentInsights.jsx :: <p className="mt-4 max-w-2xl text-base sm:text-lg font-medium text-frame-muted-fg leading-relaxed">
+   app/authors/[slug]/page.tsx :: <span className="font-heading font-semibold text-frame-muted-fg text-base sm:text-lg">
+
+### 2x  [text-base | md:text-2xl]
+   src/components/home/HomeHero.jsx :: <p className="max-w-2xl text-base font-semibold leading-snug text-frame-muted-fg md:text-2xl">
+   src/components/Testimonials.jsx :: <p className="max-w-3xl text-base font-medium leading-snug text-frame-muted-fg md:text-2xl">
+
+### 2x  [text-2xl | text-base]
+   src/components/privacy/PrivacyContent.jsx :: <section className="bg-frame-bg p-7 md:p-10 [&_a]:border-b-2 [&_a]:border-frame-accent [&_a]:font-bold [&_a]:t
+   src/components/terms/TermsContent.jsx :: <section className="bg-frame-bg p-7 md:p-10 [&_a]:border-b-2 [&_a]:border-frame-accent [&_a]:font-bold [&_a]:t
+
+### 2x  [text-lg | md:text-xl]
+   src/components/specific-service/ServiceDetailOutputsSection.jsx :: <li key={item} className="bg-frame-bg p-5 text-lg font-medium leading-tight text-frame-muted-fg md:text-xl">
+   src/components/specific-service/ServiceDetailScopeSection.jsx :: <li key={item} className="bg-frame-bg p-5 text-lg font-medium leading-tight text-frame-muted-fg md:text-xl">
+
+### 1x  [text-base | sm:text-xl]
+   src/components/blog/BlogPostClientView.tsx :: <p className="font-body text-base sm:text-xl font-medium text-frame-muted-fg leading-relaxed">
+
+### 1x  [text-xs | sm:text-sm]
+   src/components/blog/BlogPostClientView.tsx :: className="block text-xs sm:text-sm font-heading uppercase text-frame-muted-fg hover:text-frame-accent transit
+
+### 1x  [sm:text-xs | md:text-sm]
+   src/components/calculators/MathEquationCard.jsx :: <div className="w-full whitespace-nowrap px-2 pt-1 text-center font-mono text-[11px] font-semibold text-frame-
+
+### 1x  [text-base | sm:text-lg | md:text-2xl]
+   src/components/home/HomeCTA.jsx :: <p className="max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg sm:text-lg md:text-2xl">
+
+### 1x  [text-sm | md:text-lg]
+   src/components/home/HomeLoop.jsx :: <p className="mt-5 max-w-lg text-sm font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+
+### 1x  [text-lg]
+   src/components/home/HomeRecentInsights.jsx :: <span className="font-heading text-lg font-bold uppercase tracking-wider text-frame-muted-fg/40">
+
+### 1x  [sm:text-xs]
+   src/components/home/HomeRecentInsights.jsx :: <span className="absolute right-3 top-3 z-10 rounded-xs border border-white/10 bg-black/80 px-2.5 py-1 text-[1
+
+### 1x  [text-xs | md:text-base]
+   src/components/Kinetic.jsx :: {meta && <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-muted-fg md:text-base">{human
+
+TOTAL patterns: 29

@@ -434,7 +434,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Where Are You Advertising & In What Industry?
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               This initializes baseline CPM, CTR, and Conversion Rate benchmarks based on verified regional and vertical medians.
             </p>
           </div>
@@ -538,7 +538,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Campaign Objective & Placement Surface
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Placement choice and seasonal market demand shift auction CPMs significantly.
             </p>
           </div>
@@ -640,7 +640,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Revenue Goal & Margin Assumptions
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Your profit margin directly dictates your Break-Even ROAS and maximum allowable acquisition cost.
             </p>
           </div>
@@ -739,7 +739,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Have Historical Account Data?
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Leave blank to use our empirical industry benchmarks, or enter your verified historical figures.
             </p>
           </div>
@@ -1061,7 +1061,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
                 <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   Ready to Turn This Model into Real Revenue?
                 </h4>
-                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg">
+                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">
                   Frame Cipher runs full-funnel Meta advertising sprints: creative direction, video editing, pixel & CAPI integration, Advantage+ scaling, and weekly profit reconciliation.
                 </p>
               </div>

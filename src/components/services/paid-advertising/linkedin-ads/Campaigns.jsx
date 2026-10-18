@@ -141,7 +141,7 @@ export default function Campaigns() {
                   <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                     {campaign.title}
                   </h3>
-                  <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {campaign.body.map((paragraph, pIdx) => (
                       <p key={pIdx}><AutoLinks currentPath="/services/paid-advertising/linkedin-ads" allowed={["/services/website-design-development/landing-pages"]}>{paragraph}</AutoLinks></p>
                     ))}

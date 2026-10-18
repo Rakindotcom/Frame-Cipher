@@ -165,7 +165,7 @@ export default function Offerings({ service }) {
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                         {item.description}
                       </p>
                     )}
@@ -200,7 +200,7 @@ export default function Offerings({ service }) {
                   <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                     Why This Matters for Growth
                   </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {whyMatters.map((point, idx) => (
                       <p key={idx}>{point}</p>
                     ))}
@@ -228,7 +228,7 @@ export default function Offerings({ service }) {
                         <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
                           {item.title}
                         </h4>
-                        <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                        <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                           {item.text || item.desc}
                         </p>
                       </div>

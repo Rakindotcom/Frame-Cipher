@@ -104,7 +104,7 @@ export default function Offerings() {
                 <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/youtube-videos" allowed={["/services/content-creation/graphic-design"]}>
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/youtube-videos" allowed={["/services/content-creation/graphic-design"]}>
                   {item.description}
                 </AutoLinks></p>
 

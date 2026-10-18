@@ -48,7 +48,7 @@ export default function Guarantee() {
                     <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                       {item.title}
                     </h3>
-                    <p className="mt-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                       {item.body}
                     </p>
                   </div>
@@ -76,7 +76,7 @@ export default function Guarantee() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t border-frame-accent/40 pt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-t border-frame-accent/40 pt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               You should understand what we can and cannot control, and we will be clear about
               the difference.
             </p>

@@ -74,7 +74,7 @@ export default function Deliverables() {
               </h3>
               <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4">
                 {del.items.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+                  <li key={idx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="text-frame-accent font-bold">&bull;</span>
                     <span>{item}</span>
                   </li>
@@ -86,7 +86,7 @@ export default function Deliverables() {
       </div>
 
       <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
-        <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           The exact deliverables, source-code ownership, documentation, and support terms are defined in the project agreement.
         </p>
       </div>

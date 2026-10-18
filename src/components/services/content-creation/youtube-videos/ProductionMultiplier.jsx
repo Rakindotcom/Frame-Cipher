@@ -148,7 +148,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               What You Receive
             </h3>
-            <p className="mt-3 text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="mt-3 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               Your exact deliverable scope is customized and confirmed before production begins, ensuring zero surprises upon project completion.
             </p>
           </div>

@@ -28,7 +28,7 @@ export default function Groups() {
         </SectionIntro>
 
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             <p>
               Groups remain one of the platform&rsquo;s genuinely active spaces, but only where there
               is a real reason for one. A dormant Group does less for a business than no Group at
@@ -78,7 +78,7 @@ export default function Groups() {
             </ul>
 
             <div className="mt-6 border-l-2 border-frame-accent bg-frame-bg p-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We do not recommend creating a Group simply to add another channel to your
                 workload. If a Group does not make strategic sense, we will say so.
               </p>

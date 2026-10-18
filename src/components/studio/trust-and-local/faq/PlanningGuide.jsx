@@ -61,14 +61,14 @@ export default function PlanningGuide() {
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (
-                <p key={j} className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p key={j} className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {para}
                 </p>
               ))}
               {block.list && (
                 <ul className="mt-4 space-y-2.5">
                   {block.list.map((item, j) => (
-                    <li key={j} className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    <li key={j} className="flex items-start gap-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                       <span className="text-frame-accent font-bold">✓</span>
                       <span>{item}</span>
                     </li>

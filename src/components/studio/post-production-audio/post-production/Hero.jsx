@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             camera shot it. Our finishing suite conforms your material, balances every shot against the next, and
             restores dialogue recorded in noisy rooms, so the final export looks deliberate on YouTube, Meta and broadcast.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Send drives or cloud links with your brief and deadline. We verify every file on intake, cut proxies for
             fast review, and return broadcast-safe masters with subtitles and aspect-ratio versions included.
           </p>

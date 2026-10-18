@@ -48,7 +48,7 @@ export default function AdsMetricsHandbook() {
           <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
             The Digital Advertising Metrics Encyclopedia
           </h3>
-          <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+          <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
             Every critical performance advertising metric mathematically decoded. Includes healthy cross-industry benchmarks and tactical diagnostic playbooks for when performance drops.
           </p>
         </div>
@@ -115,7 +115,7 @@ export default function AdsMetricsHandbook() {
                     <span className="font-mono text-lg sm:text-xl md:text-2xl font-black text-frame-fg break-all">
                       {metric.name}
                     </span>
-                    <span className="text-xs md:text-sm font-semibold text-frame-muted-fg break-words">
+                    <span className="text-xs md:text-sm font-semibold text-frame-muted-fg break-words wide:text-lg">
                       // {metric.fullName}
                     </span>
                     <span className="border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent shrink-0">

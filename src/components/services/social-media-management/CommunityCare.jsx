@@ -26,7 +26,7 @@ export default function CommunityCare() {
         </SectionIntro>
 
         <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             <p>
               Depending on your plan, we can manage the day-to-day conversation around your brand
               so an unanswered question does not sit publicly for days. That kind of silence

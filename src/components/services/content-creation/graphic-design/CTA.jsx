@@ -30,10 +30,10 @@ export default function CTA({ service }) {
             <h2 className="mt-4 font-heading text-[clamp(2.4rem,5.5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Start Your Graphic Design Project
             </h2>
-            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl wide:text-lg">
               Whether you need a single brochure, a professional pitch deck, company profile, product packaging, campaign creative, or ongoing design support, we can help define the right scope.
             </p>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
               Share your requirements, existing brand materials, approved content, required formats, and preferred timeline. We will review the project and recommend the appropriate design approach, deliverables, timeline, and pricing.
             </p>
 

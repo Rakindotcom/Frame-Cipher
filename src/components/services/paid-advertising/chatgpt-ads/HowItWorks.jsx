@@ -81,7 +81,7 @@ export default function HowItWorks() {
                   <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                     {step.title}
                   </h3>
-                  <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {step.body.map((paragraph, pIdx) => (
                       <p key={pIdx}>{paragraph}</p>
                     ))}

@@ -56,7 +56,7 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}

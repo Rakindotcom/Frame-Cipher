@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             messaging and footage that cannot be cut into the formats you need. A planned shoot in a controlled
             studio reduces these risks and makes the edit easier to review.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before production starts, we agree the purpose, audience, format and deliverables in writing. The shoot
             and the edit are then planned around how the video will actually be used.
           </p>

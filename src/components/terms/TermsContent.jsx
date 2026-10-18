@@ -13,7 +13,7 @@ function List({ items }) {
   return (
     <ul className="grid gap-2">
       {items.map((item) => (
-        <li key={item} className="border-l-4 border-frame-accent pl-4 text-base font-medium leading-tight text-frame-muted-fg">
+        <li key={item} className="border-l-4 border-frame-accent pl-4 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">
           {item}
         </li>
       ))}

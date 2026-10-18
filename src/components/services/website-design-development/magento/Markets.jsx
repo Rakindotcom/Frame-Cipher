@@ -35,7 +35,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For Bangladesh-Based Businesses
               </h3>
-              <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
                 Magento projects can account for:
               </p>
               <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -60,7 +60,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For International Businesses
               </h3>
-              <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
                 We can structure ecommerce experiences around:
               </p>
               <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -76,7 +76,7 @@ export default function Markets() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Our approach is not based on applying one Bangladesh or international template to every project. We structure the store around the audience, market, and operating model of the business.
           </p>
         </div>

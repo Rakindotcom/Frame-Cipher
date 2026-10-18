@@ -50,7 +50,7 @@ export default function Deliverables() {
               <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                 {del.category}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                 {del.desc}
               </p>
             </div>

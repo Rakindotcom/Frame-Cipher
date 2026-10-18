@@ -31,7 +31,7 @@ export default function Performance() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
           Next.js supports different rendering approaches for different use cases, such as static and dynamic rendering. The right choice depends on whether content is shared, personalized, frequently changing, or data-driven. We focus on measured improvements rather than promising an arbitrary performance score for every project.
         </p>
       </div>

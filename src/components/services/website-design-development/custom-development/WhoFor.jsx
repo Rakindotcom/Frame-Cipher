@@ -42,7 +42,7 @@ export default function WhoFor() {
             <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
               A Platform May Be Better When:
             </h3>
-            <ul className="mt-4 space-y-2 text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <ul className="mt-4 space-y-2 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               {[
                 'The project is a straightforward business website',
                 'Standard ecommerce functionality is enough',
@@ -59,7 +59,7 @@ export default function WhoFor() {
           </div>
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
           Our role is not to sell custom development simply because it is technically advanced. We assess whether it creates enough business value to justify the investment.
         </p>
       </div>

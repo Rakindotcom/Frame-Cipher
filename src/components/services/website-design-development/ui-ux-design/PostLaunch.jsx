@@ -33,7 +33,7 @@ export default function PostLaunch() {
           </div>
 
           <div className="mt-8 border-t border-frame-border pt-6">
-            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               This service is useful for businesses that want to keep their product experience consistent as the product grows.
             </p>
           </div>

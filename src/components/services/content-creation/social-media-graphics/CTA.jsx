@@ -30,10 +30,10 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-[clamp(2.4rem,5.5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Start Your Social Media Graphics Project
             </h2>
-            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl wide:text-lg">
               Tell us which platforms you use, what types of graphics you need, your expected project or monthly volume, and whether you already have an established brand system.
             </p>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl border-l-2 border-frame-accent pl-3">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl border-l-2 border-frame-accent pl-3">
               We will scope the appropriate design workflow, deliverables, timeline, and pricing around your exact requirements.
             </p>
 

@@ -143,7 +143,7 @@ export default function Pricing() {
         {/* PRICING NOTES */}
         <div className="mt-6 flex flex-col gap-6 border-t-2 border-frame-border pb-8 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="max-w-2xl space-y-2">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               These are starting reference prices rather than fixed quotes for every business. The
               exact scope can be adjusted based on your platform mix, content requirements, video
               production needs, community volume, and business goals.

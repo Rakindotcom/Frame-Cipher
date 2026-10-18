@@ -100,7 +100,7 @@ export default function Offerings() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
 
@@ -127,7 +127,7 @@ export default function Offerings() {
             <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
               Ready to produce a batch of high-retention vertical videos?
             </h4>
-            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg">
+            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
               We plan, film, and edit multiple Reels, TikToks, and Shorts in coordinated monthly sessions.
             </p>
           </div>

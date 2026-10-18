@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             hardships overcome. In our quiet studio or your living room, we conduct respectful unhurried interviews
             that let memories surface naturally.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Vintage photographs, VHS tapes and documents are scanned and restored, then woven with the interviews
             into chaptered films with an engraved USB box and a private cloud archive.
           </p>

@@ -11,6 +11,52 @@
   --font-heading: "Space Grotesk", "Inter", sans-serif;
   --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-quote: "Fraunces", Georgia, serif;
+  /* Extra-large container used by the home hero (90rem at the 1536px design
+     viewport, matching the previous max-w-[90rem] cap). */
+  --container-8xl: 90rem;
+}
+
+/*
+ * Wide-desktop body text (100% scaled displays): body copy steps up to
+ * 18px (text-lg) from 1537px — i.e. strictly above the 1536px design viewport
+ * of a 1920px display at 125% scaling, so 125%-scaled screens are unchanged.
+ *
+ * Declared as a plain post-Tailwind rule instead of a Tailwind variant (we
+ * tried min-[1537px]: and a registered --breakpoint-wide:). Both compile
+ * BEFORE Tailwind's responsive variants (sm/md/lg/xl), so on elements that
+ * also carry md:text-base / sm:text-base the later responsive rule won the
+ * cascade and the wide-screen size was silently ignored. This block is
+ * emitted after all Tailwind utilities, so it always wins without needing
+ * !important.
+ */
+@media (width >= 1537px) {
+  .wide\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+/*
+ * Wide-viewport container scaling: this site was tuned on a 1920px display at
+ * 125% scaling, i.e. a 1536px CSS viewport. On 100% scaling the viewport is
+ * wider (e.g. 1920px), which left large empty rails beside the rem-based
+ * container caps (max-w-5xl/6xl/7xl / 8xl). Below 1536px nothing changes.
+ * From 1536px up, each cap grows proportionally with the viewport (each cap's
+ * default share of the design viewport is expressed in vw, clamped to a
+ * sensible max), so wider screens get the same proportions with the same
+ * physical font size instead of dead space.
+ */
+@media (min-width: 1536px) {
+  :root {
+    /* 64rem / 1536px = 66.67% of the design viewport */
+    --container-5xl: min(80rem, 66.67vw);
+    /* 72rem / 1536px = 75% of the design viewport */
+    --container-6xl: min(90rem, 75vw);
+    /* 80rem / 1536px = 83.33% of the design viewport */
+    --container-7xl: min(100rem, 83.33vw);
+    /* 90rem / 1536px = 93.75% of the design viewport */
+    --container-8xl: min(112.5rem, 93.75vw);
+  }
 }
 
 :root {

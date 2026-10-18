@@ -46,7 +46,7 @@ export default function HomeFeaturedWork() {
                   <h3 className="font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg sm:text-3xl md:text-4xl">
                     {project.name}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg sm:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base">
                     {project.description}
                   </p>
                 </div>

@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             to two gaps: a single untested internet line and unmanaged room audio. We remove both with bonded
             connectivity, a hardware switcher and an engineer mixing sound through the whole programme.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before the event we run a full tech check at the venue or in-studio, rehearse speakers and remote guests,
             and confirm platforms, graphics and recording backups in writing.
           </p>

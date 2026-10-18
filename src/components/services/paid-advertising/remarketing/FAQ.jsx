@@ -92,7 +92,7 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t border-frame-border p-6 pt-5 md:p-7 md:pt-5">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {faq.answer}
                 </p>
               </div>

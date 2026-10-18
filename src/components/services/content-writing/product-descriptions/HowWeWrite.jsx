@@ -87,7 +87,7 @@ export default function HowWeWrite() {
                 {block.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
                   >
                     {paragraph}
                   </p>
@@ -123,7 +123,7 @@ export default function HowWeWrite() {
           <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
             Product Page SEO Without Keyword Stuffing
           </h3>
-          <p className="mt-3 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-3 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Product-page SEO requires more than inserting a product name several times. It is covered in detail
             in the next section.
           </p>

@@ -244,7 +244,7 @@ export default function Offerings() {
                 <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-frame-accent"><AutoLinks currentPath="/services/website-design-development/shopify" allowed={["/services/content-writing/product-descriptions"]}>
                   {service.subtitle}
                 </AutoLinks></p>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/shopify" allowed={["/services/website-design-development/custom-development"]}>
+                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg"><AutoLinks currentPath="/services/website-design-development/shopify" allowed={["/services/website-design-development/custom-development"]}>
                   {service.description}
                 </AutoLinks></p>
 

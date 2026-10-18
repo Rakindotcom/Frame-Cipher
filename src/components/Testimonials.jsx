@@ -50,7 +50,7 @@ export default function Testimonials({
                       <h3 className="truncate text-lg font-black leading-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
                         {testimonial.name}
                       </h3>
-                      <p className="mt-1 max-w-sm text-sm font-semibold leading-snug text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
+                      <p className="mt-1 max-w-sm text-sm font-semibold leading-snug text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">
                         {testimonial.profession}
                       </p>
                     </div>

@@ -63,7 +63,7 @@ export default function Guarantee() {
                 <h3 className="mt-4 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {item.body}
                 </p>
               </div>

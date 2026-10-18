@@ -142,7 +142,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
                     </Link>
                   </h3>
                   {post.description && (
-                    <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg sm:text-base line-clamp-3">
+                    <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base line-clamp-3">
                       {post.description}
                     </p>
                   )}

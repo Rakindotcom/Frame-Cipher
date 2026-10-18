@@ -167,7 +167,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 text-sm font-medium leading-relaxed text-frame-muted-fg md:p-8">
+          <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-8">
             {notes.map((note, nIdx) => (
               <li key={nIdx} className="flex items-start gap-3">
                 <span className="mt-0.5 text-frame-accent font-bold">*</span>
@@ -177,7 +177,7 @@ export default function Pricing() {
           </ul>
 
           <div className="flex flex-col items-stretch justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Not sure which audit fits your website? Tell us about your site, platform, and goals,
               and we will recommend the right scope.
             </p>
@@ -187,7 +187,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <p className="mt-8 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           * Pricing is indicative rather than fixed. Final pricing is confirmed after reviewing the
           website, platform, size, target markets, and required audit scope.
         </p>

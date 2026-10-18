@@ -49,7 +49,7 @@ export default function Offerings() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {service.description}
                 </p>
               </div>
@@ -58,7 +58,7 @@ export default function Offerings() {
         </div>
 
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Our recommendations depend on your website&apos;s purpose, technical requirements, content workflow, and budget. We use only the functionality your project actually needs rather than adding unnecessary themes, plugins, or complexity.
           </p>
         </div>

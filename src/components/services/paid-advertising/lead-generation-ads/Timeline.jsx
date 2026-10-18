@@ -65,7 +65,7 @@ export default function Timeline() {
               </h3>
               <ul className="mt-6 grid gap-3">
                 {phase.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                     <span>{item}</span>
                   </li>
@@ -76,7 +76,7 @@ export default function Timeline() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-10">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Initial lead data can appear soon after launch, but meaningful lead-quality analysis
             usually requires enough leads to move through your sales process. The timeline therefore
             depends on the factors below.

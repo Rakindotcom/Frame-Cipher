@@ -53,7 +53,7 @@ export default function Timeline() {
               </h3>
               <ul className="mt-6 grid gap-3">
                 {phase.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                     <span>{item}</span>
                   </li>
@@ -63,7 +63,7 @@ export default function Timeline() {
           ))}
         </div>
 
-        <p className="mt-6 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-6 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Because search demand can be smaller in some Microsoft Ads markets, lower-volume campaigns
           may require more time to collect enough data for meaningful optimization. Early results
           should not automatically be treated as final performance benchmarks.

@@ -50,7 +50,7 @@ export default function Included() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body}
                 </p>
               </div>
@@ -59,7 +59,7 @@ export default function Included() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-5 md:p-6">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We define the final scope after reviewing your account and goals so you pay for work
             that aligns with your actual paid advertising needs.
           </p>

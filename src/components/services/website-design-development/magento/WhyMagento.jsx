@@ -51,7 +51,7 @@ export default function WhyMagento() {
                 <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {item.desc}
                 </p>
               </div>
@@ -60,7 +60,7 @@ export default function WhyMagento() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             The goal is not to make every ecommerce project more complicated. It is to use Magento when the business actually benefits from this level of control.
           </p>
         </div>

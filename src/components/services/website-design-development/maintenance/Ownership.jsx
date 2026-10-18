@@ -33,7 +33,7 @@ export default function Ownership() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg">
+          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
             <p>
               Domain and hosting ownership should remain clearly documented and aligned with the project agreement.
             </p>

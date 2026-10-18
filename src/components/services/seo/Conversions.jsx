@@ -88,26 +88,26 @@ export default function Conversions() {
             <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               That means we look beyond rankings and traffic.
             </h3>
-            <p className="mt-3 max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               On commercial pages we consider relevance, content clarity, trust signals, calls to action, internal navigation, and the path users take after arriving from search.
             </p>
 
             <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-6 md:p-7">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Ecommerce Websites</span>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   That path may lead to a product view, cart, checkout, or purchase.
                 </p>
               </div>
               <div className="bg-frame-bg p-6 md:p-7">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Service Businesses</span>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   It may lead to a form submission, phone call, WhatsApp conversation, or consultation request.
                 </p>
               </div>
               <div className="bg-frame-bg p-6 md:p-7">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Attribution</span>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   Where reliable tracking is available, we use conversion data to understand which organic traffic contributes to actual outcomes.
                 </p>
               </div>
@@ -135,7 +135,7 @@ export default function Conversions() {
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo" allowed={["/services/seo/keyword-research"]}>
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo" allowed={["/services/seo/keyword-research"]}>
                     {item.body}
                   </AutoLinks></p>
                 </div>
@@ -179,13 +179,13 @@ export default function Conversions() {
                 <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                   How each case study is documented
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Each case study should explain the starting situation, the SEO work performed,
                   the implementation period, and the measurable outcome.
                 </p>
               </div>
               <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Verified Framecipher SEO case studies are featured at the top of this page. Each
                   study is documented with search-console and analytics evidence rather than
                   unverified performance claims.

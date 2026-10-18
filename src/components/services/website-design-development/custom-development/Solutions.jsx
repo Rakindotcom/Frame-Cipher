@@ -132,7 +132,7 @@ export default function Solutions() {
                 <h3 className="mt-3 font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {sol.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+                <p className="mt-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
                   {sol.desc}
                 </p>
                 <ul className="mt-4 space-y-1.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">

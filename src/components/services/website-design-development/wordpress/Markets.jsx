@@ -33,7 +33,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For Bangladesh-Based Businesses
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 Where relevant, we can account for:
               </p>
               <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
@@ -55,7 +55,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 For International Businesses
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
                 We consider:
               </p>
               <ul className="mt-4 space-y-2.5 text-sm md:text-base font-medium text-frame-fg/90">
@@ -66,7 +66,7 @@ export default function Markets() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+              <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
                 The goal is not to force the same WordPress setup on every market. Your website architecture should match your audience, operations, and growth plans.
               </p>
             </div>

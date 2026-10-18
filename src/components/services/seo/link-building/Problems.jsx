@@ -53,7 +53,7 @@ export default function Problems() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {criterion.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {criterion.body}
                 </p>
               </div>
@@ -69,7 +69,7 @@ export default function Problems() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               We screen prospects before any outreach starts
             </h3>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               A relevance-first screening keeps effort off unrelated targets and keeps your
               profile clear of placements that could become a problem later.
             </p>

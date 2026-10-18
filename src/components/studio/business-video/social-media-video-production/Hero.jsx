@@ -54,7 +54,7 @@ export default function Hero({ service }) {
             subjects, kinetic captions and graphics clear of platform buttons — and batch-recording 10 to 20 clips in
             one session cuts the per-clip cost nearly in half.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before recording starts, we review your hooks and scripts in writing. The session, the edit and the posting
             calendar are then planned around the platforms you publish on.
           </p>

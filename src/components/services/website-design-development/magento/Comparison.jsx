@@ -89,7 +89,7 @@ export default function Comparison() {
             <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
               When We Recommend Magento
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               We consider Magento when a project has meaningful requirements around B2B pricing, complex catalogs, multiple storefronts, deep integrations, custom workflows, or greater control over the ecommerce architecture.
             </p>
           </div>
@@ -99,7 +99,7 @@ export default function Comparison() {
             <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
               When We Recommend Shopify or WooCommerce
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               For smaller or less complex stores, another platform may provide the required functionality with less technical overhead. We review the actual requirements before recommending a platform.
             </p>
           </div>

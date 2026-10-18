@@ -41,7 +41,7 @@ export default function CaseStudies() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+                <p className="mt-3 text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
                   {item.desc}
                 </p>
               </div>
@@ -73,7 +73,7 @@ export default function CaseStudies() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs md:text-sm italic text-frame-muted-fg">
+          <p className="mt-6 text-xs md:text-sm italic text-frame-muted-fg wide:text-lg">
             Only publish project metrics, performance claims, or business results that are supported by actual project evidence.
           </p>
         </div>

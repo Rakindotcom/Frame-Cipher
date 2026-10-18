@@ -39,7 +39,7 @@ export default function Economics() {
                 </span>
                 <div className="h-1.5 flex-1 bg-frame-accent" />
               </div>
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {block.body}
               </p>
             </div>
@@ -50,7 +50,7 @@ export default function Economics() {
           <p className="text-sm font-bold uppercase tracking-widest text-frame-accent">
             Review Your Amazon Advertising Economics
           </p>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We evaluate product-level economics, break-even ACOS, and realistic growth targets
             before deciding how much advertising to run.
           </p>

@@ -70,14 +70,14 @@ export default function Reporting() {
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start">
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Reporting is built around what each campaign was set up to produce, whether that
                 is leads, sales, bookings, sign-ups, or revenue, rather than an unfiltered dump
                 of every platform metric.
               </p>
             </div>
             <div className="border-l-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 The goal is to explain what happened, why it happened, and what should happen
                 next. Budget changes follow an agreed approval process rather than arbitrary shifts.
               </p>
@@ -107,7 +107,7 @@ export default function Reporting() {
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {source.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {source.body}
                   </p>
                 </div>
@@ -116,7 +116,7 @@ export default function Reporting() {
           </div>
 
           <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Where included in scope, tracking setup is reviewed before launch so campaign
               optimization is based on conversion data instead of clicks alone.
             </p>

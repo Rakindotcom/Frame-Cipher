@@ -175,7 +175,7 @@ export default function Offerings() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body}
                 </p>
                 <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -191,7 +191,7 @@ export default function Offerings() {
                     {item.notes.map((note, nIdx) => (
                       <p
                         key={nIdx}
-                        className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"
+                        className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"
                       >
                         {note}
                       </p>
@@ -211,7 +211,7 @@ export default function Offerings() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Start with a free consultation
             </h3>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We review your website and recommend which audit scope will have the most impact
               first.
             </p>

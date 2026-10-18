@@ -135,7 +135,7 @@ export default function TargetAudience() {
             <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
               Need A Single Campaign Or Dedicated Monthly Capacity?
             </h4>
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               We structure engagements for standalone launch sprints, template handoffs, or monthly design retainers.
             </p>
           </div>

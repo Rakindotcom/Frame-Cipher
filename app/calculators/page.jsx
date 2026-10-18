@@ -100,7 +100,7 @@ export default function CalculatorsIndexPage() {
                     {calc.title}
                   </h3>
 
-                  <p className="mt-3 text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+                  <p className="mt-3 text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
                     {calc.description}
                   </p>
 

@@ -109,7 +109,7 @@ export default function Offerings() {
                 {block.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
                   >
                     {paragraph}
                   </p>
@@ -142,7 +142,7 @@ export default function Offerings() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             A free content sample can be requested before a larger engagement so you can evaluate the writing
             approach and fit.
           </p>

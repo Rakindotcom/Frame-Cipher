@@ -70,7 +70,7 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
           We develop distinctive logo concepts, refine the selected direction into scalable vector artwork, create the required variations, and prepare the final files for print and digital use.
         </span>
       </PageHero>
@@ -85,7 +85,7 @@ export default function Hero({ service }) {
             <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Logo Design Built for Real-World Use
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               A logo should not only look good when presented large on a screen mockup. It must remain immediately recognizable and technically reproducible across real-world production environments.
             </p>
           </div>
@@ -100,7 +100,7 @@ export default function Hero({ service }) {
                 8 Environmental Benchmarks
               </span>
             </div>
-            <p className="mt-3 text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="mt-3 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               Before finalizing any mark, we verify that it functions flawlessly in demanding real-world conditions:
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

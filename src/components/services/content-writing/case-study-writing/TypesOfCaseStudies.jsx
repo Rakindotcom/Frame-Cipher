@@ -62,11 +62,11 @@ export default function TypesOfCaseStudies() {
               </h3>
 
               {block.text && (
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{block.text}</p>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{block.text}</p>
               )}
 
               {block.lead && (
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{block.lead}</p>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{block.lead}</p>
               )}
 
               {block.items && (

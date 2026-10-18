@@ -47,7 +47,7 @@ export default function QualityControl() {
               {checks.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
                   {item}
@@ -60,14 +60,14 @@ export default function QualityControl() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               What We Don&rsquo;t Guarantee
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We do not guarantee:
             </p>
             <ul className="mt-4 space-y-3">
               {nonGuarantees.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-muted" />
                   {item}
@@ -75,7 +75,7 @@ export default function QualityControl() {
               ))}
             </ul>
 
-            <p className="mt-7 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-7 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Those results also depend on factors outside the copy itself:
             </p>
             <ul className="mt-3 flex flex-wrap gap-2">

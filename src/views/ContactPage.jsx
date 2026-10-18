@@ -26,7 +26,7 @@ export default function ContactPage() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Visit Our Dhaka Studio & Office
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Located on the 6th floor of Eurasia Building at Matikata ECB Chattar, Dhaka. Easily accessible from Mirpur DOHS, Banani, and Airport Road.
             </p>
           </div>

@@ -192,7 +192,7 @@ export default function Offerings() {
                   <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
                     {item.summary}
                   </p>
-                  <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.body.map((paragraph, pIdx) => (
                       <p key={pIdx}>{paragraph}</p>
                     ))}
@@ -208,7 +208,7 @@ export default function Offerings() {
                     </ul>
                   )}
                   {item.note && (
-                    <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                    <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                       {item.note}
                     </div>
                   )}
@@ -237,10 +237,10 @@ export default function Offerings() {
                   <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {area.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {area.body}
                   </p>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {area.tail}
                   </p>
                 </div>

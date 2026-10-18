@@ -106,7 +106,7 @@ export default function WhyChoose() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -129,7 +129,7 @@ export default function WhyChoose() {
               <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Selected Product Photography Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Every project is executed to verified production standards with transparent objective documentation, strict color fidelity, and verified platform compliance.
               </p>
             </div>

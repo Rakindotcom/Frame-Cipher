@@ -198,7 +198,7 @@ export default function Hero({ service }) {
                     {item.title}
                   </h3>
 
-                  <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.description}
                   </p>
                 </div>

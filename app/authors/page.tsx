@@ -70,7 +70,7 @@ export default async function AuthorsIndexPage() {
           <h1 className="font-heading font-bold uppercase tracking-tight text-frame-fg [font-size:clamp(2.4rem,7vw,6rem)] leading-[0.9]">
             Author Profiles
           </h1>
-          <p className="font-body text-frame-muted-fg mt-6 max-w-2xl text-sm sm:text-base leading-relaxed">
+          <p className="font-body text-frame-muted-fg mt-6 max-w-2xl text-sm sm:text-base leading-relaxed wide:text-lg">
             Every strategy, build and insight on this site is signed by a real human.
             Profiles below carry structured <span className="text-frame-accent font-semibold">Person schema</span>,
             so search engines recognize exactly who wrote and stands behind the work.
@@ -82,7 +82,7 @@ export default async function AuthorsIndexPage() {
       <section className="py-16 px-6 sm:px-10 lg:px-16">
         <div className="max-w-6xl mx-auto">
           {authors.length === 0 ? (
-            <p className="font-body text-frame-muted-fg text-sm">No published authors yet.</p>
+            <p className="font-body text-frame-muted-fg text-sm wide:text-lg">No published authors yet.</p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 sm:gap-5">
               {authors.map((author) => {

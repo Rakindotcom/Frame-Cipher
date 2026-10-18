@@ -50,7 +50,7 @@ export default function TechStack() {
               </h3>
               <ul className="mt-5 space-y-2.5">
                 {cat.tools.map((t) => (
-                  <li key={t} className="flex items-center gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                  <li key={t} className="flex items-center gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="h-1.5 w-1.5 bg-frame-accent flex-none" />
                     <span>{t}</span>
                   </li>

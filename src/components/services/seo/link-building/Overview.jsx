@@ -59,7 +59,7 @@ export default function Overview() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t-2 border-frame-border/60 pt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-t-2 border-frame-border/60 pt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               The objective is not to manufacture a backlink profile, it is to build legitimate
               references that support the business over the long term.
             </p>

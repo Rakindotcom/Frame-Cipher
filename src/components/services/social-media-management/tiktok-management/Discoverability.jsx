@@ -95,10 +95,10 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Content built around what people want to discover
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We create content around topics people may actually want to discover.
               </p>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Instead of producing a generic video about a product, we can build content around the
                 questions, problems, comparisons, use cases, tutorials, product decisions, and
                 service-related topics your audience is exploring.
@@ -132,7 +132,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Context around the video
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Captions and on-screen text help provide context around a video. We use them to:
               </p>
             </div>
@@ -162,7 +162,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 What your profile should communicate quickly
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Your profile should quickly communicate:
               </p>
             </div>
@@ -220,7 +220,7 @@ export default function Discoverability() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 TikTok keyword research is not simply about collecting high-volume terms
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We look for topics that connect audience interest with your business. Research may include:
               </p>
             </div>
@@ -253,7 +253,7 @@ export default function Discoverability() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Discoverability is treated as part of professional management, not as an optional extra added
             after production.
           </p>

@@ -34,7 +34,7 @@ export default function Timeline() {
           </table>
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8 max-w-4xl space-y-2 text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed">
+        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8 max-w-4xl space-y-2 text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
           <p>
             Projects can move faster when access to the current website, analytics, hosting, content, and other required systems is provided at the beginning.
           </p>

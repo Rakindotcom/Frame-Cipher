@@ -83,7 +83,7 @@ export default function Overview() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 border-t border-frame-border/60 pt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-6 border-t border-frame-border/60 pt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Whether you are launching your first ChatGPT Ads test or adding the channel to an
             existing paid media strategy, the approach stays the same: build campaigns with a
             clear commercial purpose, measure what actually happens, and optimize from evidence.

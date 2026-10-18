@@ -69,11 +69,11 @@ export default function Platforms() {
                     {platform.title}
                   </Link>
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors group-hover:text-frame-accent-fg/90">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors group-hover:text-frame-accent-fg/90">
                   {platform.body}
                 </p>
                 {platform.note && (
-                  <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg transition-colors group-hover:bg-frame-accent/10 group-hover:text-frame-accent-fg/90 md:text-sm">
+                  <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg transition-colors group-hover:bg-frame-accent/10 group-hover:text-frame-accent-fg/90 md:text-sm wide:text-lg">
                     {platform.note}
                   </p>
                 )}
@@ -83,7 +83,7 @@ export default function Platforms() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             There is no universal platform mix. We consider your audience, industry, goals,
             content capabilities, and existing performance before recommending platforms.
           </p>

@@ -54,18 +54,18 @@ export default function Hero() {
             For Businesses In Bangladesh And International Markets
           </p>
 
-          <p className="mx-auto mt-2 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-2 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Your social media content should work as one coordinated system, not as separate posts
             created independently for every platform. Framecipher provides Content Calendar &amp; Strategy
             Service in Bangladesh for businesses that need a clear plan for what to publish, where to
             publish it, when to publish it, and why each piece of content matters.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We connect business goals, audience needs, content pillars, campaigns, platform roles,
             publishing schedules, repurposing opportunities, and performance insights into one practical
             content system.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Our team works with businesses across Bangladesh and international markets, including the US,
             UK, Australia, Canada, and UAE.
           </p>
@@ -92,7 +92,7 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Manage For</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Multi-platform businesses, ecommerce and product brands, service businesses, B2B and
                 professional brands, startups and growing businesses, in-house marketing teams, and
                 international businesses.
@@ -100,14 +100,14 @@ export default function Hero() {
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Where We Work</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Businesses across Bangladesh, including Dhaka, plus the US, UK, Australia, Canada, and UAE
                 with market-specific content planning.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Audience and content pillar planning, a master content calendar, campaign coordination,
                 platform-specific adaptation, a repurposing roadmap, approval workflows, and performance
                 review.

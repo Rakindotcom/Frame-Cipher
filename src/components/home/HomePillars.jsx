@@ -47,7 +47,7 @@ export default function HomePillars() {
                   </Link>
                 </h3>
               </div>
-              <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
+              <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
                 {pillar.description}
               </p>
             </article>

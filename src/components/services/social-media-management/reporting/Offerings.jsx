@@ -236,7 +236,7 @@ export default function Offerings() {
                 {block.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
                   ><AutoLinks currentPath="/services/social-media-management/reporting" allowed={["/services/social-media-management/community-management"]}>
                     {paragraph}
                   </AutoLinks></p>
@@ -245,7 +245,7 @@ export default function Offerings() {
                   block.extra.map((paragraph) => (
                     <p
                       key={paragraph}
-                      className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                      className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
                     >
                       {paragraph}
                     </p>

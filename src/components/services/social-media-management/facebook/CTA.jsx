@@ -21,7 +21,7 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-4xl">
               Ready to Build a More Active, Trustworthy Facebook Presence?
             </h2>
-            <p className="mt-5 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Request a free Facebook Page audit. We will review the Page, identify the highest-priority
               improvements, and recommend a realistic management plan based on your business and
               audience.

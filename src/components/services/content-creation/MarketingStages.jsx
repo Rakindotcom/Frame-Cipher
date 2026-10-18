@@ -66,7 +66,7 @@ export default function MarketingStages() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {stage.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/website-design-development/landing-pages"]}>
                   {stage.description}
                 </AutoLinks></p>
               </div>
@@ -92,7 +92,7 @@ export default function MarketingStages() {
             <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
               Need a coordinated campaign or complete marketing asset package?
             </h4>
-            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg">
+            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
               We align video, photography, ads, and web visuals under one cohesive visual direction.
             </p>
           </div>

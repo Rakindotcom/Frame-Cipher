@@ -105,7 +105,7 @@ export default function Offerings() {
                 <span className="mt-2 block h-1 w-8 bg-frame-accent" />
               </div>
               <div>
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.body}
                 </p>
                 {item.lead && (
@@ -124,7 +124,7 @@ export default function Offerings() {
                   </ul>
                 )}
                 {item.closing && (
-                  <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.closing}
                   </p>
                 )}

@@ -49,13 +49,13 @@ export default function Guarantee() {
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {commitments.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg md:text-base">
+              <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg md:text-base wide:text-lg">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                 <span>{item}</span>
               </li>
             ))}
           </ul>
-          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Every campaign is reviewed against the agreed objectives and scope.
           </p>
         </div>

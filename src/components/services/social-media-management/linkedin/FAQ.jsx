@@ -139,7 +139,7 @@ export default function FAQ({ service }) {
                   {faq.answer.split('\n\n').map((paragraph, pIdx) => (
                     <p
                       key={pIdx}
-                      className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
+                      className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
                         pIdx > 0 ? 'mt-4' : ''
                       }`}
                     ><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/social-media-management/community-management"]}>
@@ -153,7 +153,7 @@ export default function FAQ({ service }) {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             If your question is not covered here, ask directly during the audit call.
           </p>
           <div className="shrink-0">

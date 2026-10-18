@@ -29,7 +29,7 @@ export default function Takeover() {
           <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
             Initial Takeover Review
           </h3>
-          <p className="mt-2 text-sm font-medium text-frame-muted-fg mb-6">We assess:</p>
+          <p className="mt-2 text-sm font-medium text-frame-muted-fg mb-6 wide:text-lg">We assess:</p>
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {takeoverChecklist.map((chk, idx) => (
               <div key={idx} className="flex items-center gap-2.5 bg-frame-bg p-3.5 border border-frame-border">
@@ -39,7 +39,7 @@ export default function Takeover() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg">
+          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
             <p>
               We then identify the priority issues and define a maintenance scope around the current condition of the website.
             </p>

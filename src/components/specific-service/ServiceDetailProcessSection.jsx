@@ -19,7 +19,7 @@ export default function ServiceDetailProcessSection({ landing }) {
               <h3 className="mt-8 font-heading text-xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
                 {step.title}
               </h3>
-              <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
+              <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">
                 {step.text}
               </p>
             </article>

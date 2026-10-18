@@ -60,7 +60,7 @@ export default function Overview() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t-2 border-frame-border/60 pt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-t-2 border-frame-border/60 pt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               The goal is not to make a page look optimized on paper. The goal is to make the
               page the right result for the search intent it targets.
             </p>

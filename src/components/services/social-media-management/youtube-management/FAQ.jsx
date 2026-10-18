@@ -111,7 +111,7 @@ export default function FAQ({ service }) {
                 </span>
               </summary>
               <div className="border-t border-frame-border/60 px-5 py-5 md:px-6">
-                <p className="pl-7 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/social-media-management/community-management"]}>
+                <p className="pl-7 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/social-media-management/community-management"]}>
                   {faq.a}
                 </AutoLinks></p>
               </div>
@@ -120,7 +120,7 @@ export default function FAQ({ service }) {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Have a question that is not answered here? Ask during the consultation and we will answer it
             directly.
           </p>

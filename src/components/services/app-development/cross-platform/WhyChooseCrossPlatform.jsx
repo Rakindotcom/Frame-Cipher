@@ -31,7 +31,7 @@ export default function WhyChooseCrossPlatform() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Why Choose Cross-Platform App Development?
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Cross-platform development works well when your Android and iOS products share substantial functionality and you want a coordinated approach to development and maintenance.
         </p>
       </div>
@@ -48,7 +48,7 @@ export default function WhyChooseCrossPlatform() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {reason.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {reason.desc}
             </p>
           </div>
@@ -59,7 +59,7 @@ export default function WhyChooseCrossPlatform() {
         <h3 className="font-heading text-lg font-bold uppercase text-frame-accent">
           When Cross-Platform May Not Be the Right Fit
         </h3>
-        <p className="mt-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-2 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Cross-platform is not automatically the right choice for every product. Apps that rely heavily on specialized hardware, advanced graphics, deeply platform-specific behavior, or highly customized native experiences may benefit more from native development. The right decision depends on the product, not the framework.
         </p>
       </div>

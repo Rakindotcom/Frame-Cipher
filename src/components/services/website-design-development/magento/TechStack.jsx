@@ -51,7 +51,7 @@ export default function TechStack() {
                 <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {area.title}
                 </h3>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {area.desc}
                 </p>
               </div>

@@ -92,7 +92,7 @@ export default function Comparison() {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 When We Recommend Wix
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Wix is often a practical choice when ease of management, professional design, business functionality, and a managed platform are priorities.
               </p>
             </div>
@@ -104,7 +104,7 @@ export default function Comparison() {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 When We Recommend WordPress
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 WordPress may be better when the project needs a broader plugin ecosystem, deeper content flexibility, or functionality that fits the WordPress ecosystem more naturally.
               </p>
             </div>
@@ -116,7 +116,7 @@ export default function Comparison() {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 When We Recommend Custom Development
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/business-website"]}>
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/business-website"]}>
                 Custom development becomes more appropriate when the website is really a software product, application, or highly specialized digital system rather than a conventional business website.
               </AutoLinks></p>
             </div>

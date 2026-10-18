@@ -144,7 +144,7 @@ export default function Pricing({ service }) {
             <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
               Need a Complete Brand Identity or Enterprise Architecture?
             </h4>
-            <p className="mt-1 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-1 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
               For businesses that need a comprehensive brand system beyond the logo, including full collateral suites, packaging systems, custom typography licensing, or sub-brand architectures, we build custom project scopes.
             </p>
           </div>
@@ -174,7 +174,7 @@ export default function Pricing({ service }) {
               <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Logo Design in Bangladesh
               </h4>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We provide logo design for businesses across Dhaka and Bangladesh spanning startups, small businesses, ecommerce brands, product lines, professional firms, and established corporations. Where relevant, logo development considers custom Bangla typography, bilingual Bangla-English mark lockups, and local cultural relevance.
               </p>
             </div>
@@ -186,7 +186,7 @@ export default function Pricing({ service }) {
               <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Logo Design for International Businesses
               </h4>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We support companies serving international audiences across the US, UK, Australia, Canada, and UAE through a streamlined remote design workflow. Projects strictly adhere to international visual standards, digital accessibility rules, and modern cross-platform scaling requirements.
               </p>
             </div>

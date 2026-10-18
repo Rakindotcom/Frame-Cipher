@@ -49,7 +49,7 @@ export default function Timeline() {
               <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 {phase.title}
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 {phase.body}
               </p>
               {phase.bullets?.length > 0 && (
@@ -67,7 +67,7 @@ export default function Timeline() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             After launch, early data can help identify creative and delivery patterns, but early
             results should not automatically be treated as a final performance benchmark. Campaign
             evaluation depends on factors such as conversion volume, budget, sales cycle, creative

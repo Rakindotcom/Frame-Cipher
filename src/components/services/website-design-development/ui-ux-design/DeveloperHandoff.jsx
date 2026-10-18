@@ -20,10 +20,10 @@ export default function DeveloperHandoff() {
         <SectionIntro eyebrow="Engineering Handoff" title="Developer-Ready UI/UX Handoff" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-3 border-2 border-frame-border bg-frame-muted/10 p-7 sm:p-8 md:p-10">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             A design file should not leave developers guessing how the product is supposed to work.
           </p>
-          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We organize UI/UX deliverables so developers can understand the structure, states, interactions, and responsive behavior before implementation begins.
           </p>
         </div>
@@ -41,7 +41,7 @@ export default function DeveloperHandoff() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg">
+          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
             <p>
               Because Framecipher also provides website and application development, we can support the transition from approved design into implementation where required.
             </p>

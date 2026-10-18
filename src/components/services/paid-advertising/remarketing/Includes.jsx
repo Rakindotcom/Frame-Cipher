@@ -132,7 +132,7 @@ export default function Includes() {
           Everything required to build, run, and improve a remarketing system around real audience
           behavior.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           The objective is consistent strategy, not identical implementation. Creative decisions are
           guided by audience stage and performance data.
         </p>
@@ -154,7 +154,7 @@ export default function Includes() {
                   <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {service.body}
                   </p>
                 </div>
@@ -165,7 +165,7 @@ export default function Includes() {
                   </p>
                   <ul className="grid gap-3 sm:grid-cols-2">
                     {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                         <span>{item}</span>
                       </li>

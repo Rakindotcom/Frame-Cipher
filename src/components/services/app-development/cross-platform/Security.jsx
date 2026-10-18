@@ -57,7 +57,7 @@ export default function Security() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {sec.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {sec.desc}
             </p>
           </div>

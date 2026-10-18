@@ -122,7 +122,7 @@ export default function DedicatedServiceCalculatorView({ config }) {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               The Mathematical Architecture of {config.shortTitle}
             </h3>
-            <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
               Real stacked mathematical formulas formatted as vertical fractions (numerator / denominator), exactly as presented in economic and media buying textbooks.
             </p>
           </div>
@@ -146,7 +146,7 @@ export default function DedicatedServiceCalculatorView({ config }) {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Key {config.shortTitle} Metrics & Nomenclature
             </h3>
-            <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
               Essential advertising terminology decoded for business owners, media buyers, and growth directors.
             </p>
           </div>
@@ -190,7 +190,7 @@ export default function DedicatedServiceCalculatorView({ config }) {
                 <h3 className="font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
                   Need Help Scaling Your {config.shortTitle} Campaigns?
                 </h3>
-                <p className="text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+                <p className="text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
                   Don’t let bad ad accounts burn your capital. Frame Cipher provides end-to-end campaign architecture, creative testing pipelines, landing page conversion design, and weekly profit attribution.
                 </p>
               </div>

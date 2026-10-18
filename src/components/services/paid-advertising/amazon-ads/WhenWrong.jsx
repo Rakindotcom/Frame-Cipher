@@ -56,7 +56,7 @@ export default function WhenWrong() {
         <SectionIntro eyebrow="Context" title="Where Amazon Ad Accounts Commonly Go Wrong">
           One of the most common mistakes is treating Amazon like a pure traffic source.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Amazon is a marketplace. The customer sees your product, competing products, pricing,
           reviews, availability, and other purchase signals in the same shopping environment. That
           changes how advertising should be managed.
@@ -79,7 +79,7 @@ export default function WhenWrong() {
                   <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
                     {mistake.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {mistake.body}
                   </p>
                 </div>
@@ -93,7 +93,7 @@ export default function WhenWrong() {
                     )}
                     <ul className="grid gap-3 sm:grid-cols-2">
                       {mistake.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                           <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                           <span>{item}</span>
                         </li>

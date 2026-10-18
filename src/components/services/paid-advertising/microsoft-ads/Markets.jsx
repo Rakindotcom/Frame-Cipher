@@ -53,20 +53,20 @@ export default function Markets() {
             <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Bangladesh
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We manage Microsoft Ads for businesses targeting customers across Bangladesh where
               sufficient search demand exists. Campaign planning can consider the local context
               rather than a generic setup.
             </p>
             <ul className="mt-6 grid gap-3 sm:grid-cols-2">
               {bangladeshItems.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                   <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-l-2 border-frame-accent pl-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Because Microsoft search volume varies by market and category, we assess the available
               opportunity before recommending a dedicated budget.
             </p>
@@ -82,7 +82,7 @@ export default function Markets() {
                 <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                   {country.name}
                 </h4>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/microsoft-ads" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/microsoft-ads" allowed={["/services/website-design-development/landing-pages"]}>
                   {country.body}
                 </AutoLinks></p>
               </div>

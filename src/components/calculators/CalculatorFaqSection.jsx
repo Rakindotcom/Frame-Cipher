@@ -39,7 +39,7 @@ export default function CalculatorFaqSection({ faqs, title = 'Frequently Asked Q
         <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
           {title}
         </h3>
-        <p className="mt-1 text-xs md:text-sm text-frame-muted-fg">
+        <p className="mt-1 text-xs md:text-sm text-frame-muted-fg wide:text-lg">
           Common algorithmic questions, unit economic rules, and media planning guidelines.
         </p>
       </div>
@@ -71,7 +71,7 @@ export default function CalculatorFaqSection({ faqs, title = 'Frequently Asked Q
               </button>
 
               {isOpen && (
-                <div className="border-t border-frame-border/60 p-5 text-xs md:text-sm leading-relaxed text-frame-muted-fg">
+                <div className="border-t border-frame-border/60 p-5 text-xs md:text-sm leading-relaxed text-frame-muted-fg wide:text-lg">
                   {faq.answer}
                 </div>
               )}

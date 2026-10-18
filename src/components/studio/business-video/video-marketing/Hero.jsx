@@ -54,7 +54,7 @@ export default function Hero({ service }) {
             editing are planned together, one session produces a main video plus shorter pieces — which makes regular
             publishing practical for small teams.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before production starts, we map your funnel stages, search queries and placements in writing. Every asset
             is then scripted, shot and cut for the stage it must move.
           </p>

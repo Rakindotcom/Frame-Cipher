@@ -20,7 +20,7 @@ export default function Overview() {
         <SectionIntro eyebrow="The model" title="Lead Generation Built Around Sales Outcomes, Not Form Counts">
           A lead is not the final result of a campaign.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           A useful lead needs to reach the right person, receive timely follow-up, enter the right
           sales process, and have a realistic chance of becoming a customer.
         </p>
@@ -42,10 +42,10 @@ export default function Overview() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The goal is not to generate the highest possible number of forms.
           </p>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The goal is to generate more opportunities your sales team can actually use.
           </p>
         </div>

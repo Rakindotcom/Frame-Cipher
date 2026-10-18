@@ -33,7 +33,7 @@ export default function CaseStudies() {
               </li>
             ))}
           </ul>
-          <p className="mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             We do not publish invented approval percentages or unsupported &ldquo;100%
             approval&rdquo; claims. Verified results only.
           </p>

@@ -51,7 +51,7 @@ export default function Process() {
                 <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/local-seo" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/local-seo" allowed={["/services/website-design-development/landing-pages"]}>
                   {step.description}
                 </AutoLinks></p>
               </div>

@@ -58,7 +58,7 @@ export default function WhatWeNeed() {
                   className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg"
                   dangerouslySetInnerHTML={{ __html: group.title }}
                 />
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{group.body[0]}</p>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{group.body[0]}</p>
               </div>
             </article>
           ))}

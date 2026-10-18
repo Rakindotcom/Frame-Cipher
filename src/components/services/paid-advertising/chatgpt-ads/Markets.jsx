@@ -48,7 +48,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {area.title}
               </h3>
-              <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {area.body.map((paragraph, pIdx) => (
                   <p key={pIdx}>{paragraph}</p>
                 ))}
@@ -58,7 +58,7 @@ export default function Markets() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before committing to ChatGPT Ads, we confirm whether the advertiser setup and target
             market are currently eligible. Everything else, campaign structure, creative,
             tracking, and testing, is planned around that confirmed setup so you are not paying

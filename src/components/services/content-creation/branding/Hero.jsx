@@ -74,7 +74,7 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
           Whether you are launching a new business, growing an existing brand, or preparing for a rebrand, we create brand identities designed for real-world use across websites, social media, marketing materials, packaging, presentations, and other business channels.
         </span>
       </PageHero>
@@ -104,7 +104,7 @@ export default function Hero({ service }) {
             <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Branding Built Around Your Business and Customer Experience
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Branding should not exist only inside an idealistic presentation deck. Customers experience your business across dozens of physical and digital touchpoints every day. Each interaction creates another opportunity to reinforce credibility, or create confusion.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function Hero({ service }) {
                 12 Customer Touchpoints
               </span>
             </div>
-            <p className="mt-4 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-4xl">
+            <p className="mt-4 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-4xl wide:text-lg">
               When every designer, copywriter, marketer, or vendor makes creative decisions in isolation, the brand rapidly fractures. Our branding service creates the authoritative system behind those decisions:
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -141,7 +141,7 @@ export default function Hero({ service }) {
               <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 What Branding Means Beyond a Logo
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-3xl">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-3xl wide:text-lg">
                 A logo identifies a business; branding gives that identity meaning and context. Consider what happens the moment a logo is approved. A logo cannot answer the 10 operational questions that follow; a complete brand system can:
               </p>
             </div>

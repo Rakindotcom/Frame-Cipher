@@ -44,7 +44,7 @@ export default function Guarantee() {
               We do not guarantee a fixed ROAS, CPA, CPC, conversion rate, revenue level, or
               number of sales.
             </p>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Performance depends on factors including:
             </p>
             <ul className="mt-4 grid gap-2 sm:grid-cols-2">

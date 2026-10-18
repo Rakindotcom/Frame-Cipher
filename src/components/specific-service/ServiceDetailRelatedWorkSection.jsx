@@ -24,7 +24,7 @@ export default function ServiceDetailRelatedWorkSection({ projects }) {
                 <h3 className="font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-3xl">
                   {project.name}
                 </h3>
-                <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg">
+                <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">
                   {project.description}
                 </p>
                 <p className="mt-6 border-t-2 border-frame-border pt-5 text-sm font-black uppercase tracking-[0.18em] text-frame-accent">

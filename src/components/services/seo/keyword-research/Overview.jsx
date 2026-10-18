@@ -40,7 +40,7 @@ export default function Overview() {
           </blockquote>
         </div>
 
-        <p className="mt-10 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-10 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Framecipher evaluates keyword opportunities using a combination of:
         </p>
         <div className="mt-6 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-5">

@@ -43,7 +43,7 @@ export default function StoreLaunch() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Google Play Store Launch &amp; Release Support
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Building a production-ready Android application is only part of the release process. We can support the preparation and submission of the app to Google Play.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default function StoreLaunch() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {step.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {step.desc}
             </p>
           </div>

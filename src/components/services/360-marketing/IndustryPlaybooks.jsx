@@ -59,7 +59,7 @@ export default function IndustryPlaybooks() {
 
                 <div className="mt-6 border-t border-frame-border/60 pt-4">
                   <p className="text-xs font-bold uppercase tracking-wider text-red-400">The Primary Hurdle:</p>
-                  <p className="mt-1 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  <p className="mt-1 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                     {playbook.problem}
                   </p>
                 </div>

@@ -168,7 +168,7 @@ export default async function CategoryPage({ params }) {
                         </h2>
                       </Link>
 
-                      <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed line-clamp-3">
+                      <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed line-clamp-3 wide:text-lg">
                         {post.excerpt}
                       </p>
                     </div>
@@ -192,7 +192,7 @@ export default async function CategoryPage({ params }) {
               <div className="rounded-2xl bg-[#121216] border-2 border-frame-border p-6 text-center space-y-4 sm:p-12">
                 <BookOpen className="h-10 w-10 text-frame-muted-fg mx-auto opacity-50" />
                 <h3 className="font-heading text-xl font-bold uppercase text-white">No articles published yet</h3>
-                <p className="text-sm text-frame-muted-fg max-w-md mx-auto">
+                <p className="text-sm text-frame-muted-fg max-w-md mx-auto wide:text-lg">
                   Dispatches under {categoryName} are currently being prepared by our strategy team.
                 </p>
                 <Link

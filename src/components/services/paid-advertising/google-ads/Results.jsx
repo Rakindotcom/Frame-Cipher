@@ -49,14 +49,14 @@ export default function Results() {
               <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Why the context matters
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 For businesses considering Google Ads management, this makes it easier to
                 understand not only what changed, but why the campaign was structured that way
                 and what conditions influenced the result.
               </p>
             </div>
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We only publish performance figures that can be supported by the underlying
                 account or client-approved evidence.
               </p>

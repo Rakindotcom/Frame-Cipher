@@ -27,7 +27,7 @@ export default function RelatedAdsPlatforms({ service }) {
           <h2 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg sm:text-2xl">
             Compare {getServiceDisplayName(service)} With Every Other Channel
           </h2>
-          <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Each network runs a different auction, so the same budget buys very different volume.
             Read the channels competing for your money before the budget is split.
           </p>

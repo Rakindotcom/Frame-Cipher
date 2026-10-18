@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             sightlines between living areas, the approach from the street. Listings with cinematic tours attract
             qualified viewings instead of curious clicks.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We confirm staging, orientation-based timing, access and permissions before the crew arrives, so the
             shoot day captures the property at its best in a single visit.
           </p>

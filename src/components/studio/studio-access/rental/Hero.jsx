@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             survives load-shedding is difficult. Floor trip hazards and sudden blackouts waste expensive crew
             hours. Our facility keeps the infrastructure ready before your team walks in.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before booking, we agree the date, hours, backdrop, power needs and crew support in writing. The stage
             is then rigged and tested around your call time, so shooting starts on arrival.
           </p>

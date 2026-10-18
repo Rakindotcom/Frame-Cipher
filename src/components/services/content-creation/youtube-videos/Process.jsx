@@ -83,7 +83,7 @@ export default function Process() {
                 <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {step.desc}
                 </p>
               </div>
@@ -100,7 +100,7 @@ export default function Process() {
             <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               YouTube Video Production Timeline
             </h3>
-            <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               A standard YouTube video moves through three core phases. Final schedules are customized and locked during pre-production scoping.
             </p>
           </div>
@@ -114,7 +114,7 @@ export default function Process() {
                 <p className="mt-2 text-sm font-bold text-frame-fg">
                   {item.duration}
                 </p>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.focus}
                 </p>
               </div>

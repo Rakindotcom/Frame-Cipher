@@ -45,7 +45,7 @@ export default function HomeComparison() {
                     <p className="text-sm font-semibold text-frame-fg md:text-base">{row.us}</p>
                   </div>
                   <div className="bg-frame-bg p-4 md:px-6">
-                    <p className="text-sm font-medium leading-snug text-frame-muted-fg md:text-base">{row.them}</p>
+                    <p className="text-sm font-medium leading-snug text-frame-muted-fg md:text-base wide:text-lg">{row.them}</p>
                   </div>
                 </div>
               ))}

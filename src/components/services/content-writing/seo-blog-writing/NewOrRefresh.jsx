@@ -43,7 +43,7 @@ export default function NewOrRefresh() {
               <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                 {group.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {group.intro}
               </p>
               <ul className="mt-5 space-y-2">
@@ -67,18 +67,18 @@ export default function NewOrRefresh() {
           <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
             When Content Should Be Consolidated
           </h3>
-          <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Sometimes multiple pages target overlapping topics. In those situations, creating even more
             articles may increase duplication rather than improve coverage.
           </p>
-          <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Depending on the site and search intent, it may be more appropriate to consolidate, redirect,
             restructure, or clearly differentiate overlapping content.
           </p>
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Not sure whether your existing content needs a refresh, a rewrite, or a genuinely new page?
           </p>
           <div className="shrink-0">

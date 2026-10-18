@@ -178,7 +178,7 @@ export default function Pricing() {
         <div className="mt-10 grid gap-6 lg:grid-cols-2">
           <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 md:p-8">
             {includedAcross.map((item, iIdx) => (
-              <li key={iIdx} className="flex items-start gap-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <li key={iIdx} className="flex items-start gap-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 <span className="mt-0.5 text-frame-accent font-bold">✓</span>
                 <span>{item}</span>
               </li>
@@ -186,7 +186,7 @@ export default function Pricing() {
           </ul>
 
           <div className="flex flex-col items-center justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg max-w-2xl text-center">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-2xl text-center">
               Not sure which package fits? Tell us about your website and current AdSense status,
               and we will recommend the right preparation scope.
             </p>
@@ -196,7 +196,7 @@ export default function Pricing() {
           </div>
         </div>
 
-        <p className="mt-8 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Final pricing depends on the website, amount of remediation required, and whether this is
           a first application or a re-application.
         </p>

@@ -213,7 +213,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-10 border-t-2 border-frame-border pt-8">
-          <p className="max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Plans start at ৳15,000 per month for Company Page management. Executive profile management,
             combined company and executive management, and multi-executive programs have different
             pricing based on scope.

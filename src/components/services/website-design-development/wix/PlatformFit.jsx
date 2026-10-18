@@ -24,10 +24,10 @@ export default function PlatformFit() {
         <SectionIntro eyebrow="Platform Fit & Evaluation" title="Is Wix the Right Platform for Your Business?" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-3 border-2 border-frame-border bg-frame-muted/10 p-7 sm:p-8 md:p-10">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Wix can be an excellent fit for many businesses, but choosing a website platform should start with requirements rather than trends.
           </p>
-          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We recommend Wix when its editing experience, built-in features, development options, and long-term flexibility match what your business actually needs.
           </p>
         </div>

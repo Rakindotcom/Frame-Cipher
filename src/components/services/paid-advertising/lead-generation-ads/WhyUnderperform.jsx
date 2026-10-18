@@ -34,7 +34,7 @@ export default function WhyUnderperform() {
         <SectionIntro eyebrow="Context" title="Why Lead Generation Ads Underperform">
           Many lead campaigns are optimized around the easiest number to increase: submissions.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           That can hide problems deeper in the funnel.
         </p>
 
@@ -53,7 +53,7 @@ export default function WhyUnderperform() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl lg:max-w-2xl">
                 {mistake.title}
               </h3>
-              <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {mistake.body}
               </p>
             </div>

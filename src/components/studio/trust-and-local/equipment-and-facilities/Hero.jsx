@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             photos. Our stage welcomes inspection with test recordings, so your crew arrives knowing exactly
             what the room, the kit and the power will do.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Room-only hire runs ৳2,000/hour, operated sessions ৳2,500/hour, with half-day caps at ৳12,000 and
             full-day caps at ৳22,000. Specialist operators are quoted per session.
           </p>

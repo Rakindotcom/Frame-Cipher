@@ -41,7 +41,7 @@ export default function RelatedServices() {
         </div>
 
         <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <p className="text-sm font-medium text-frame-muted-fg">
+          <p className="text-sm font-medium text-frame-muted-fg wide:text-lg">
             Ready to talk? Message the team on WhatsApp at +880 1768-146650 with your brief and deadline
             for a same-day reply and a quote within 48 hours.
           </p>

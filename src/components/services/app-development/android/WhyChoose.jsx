@@ -35,7 +35,7 @@ export default function WhyChoose() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Why Choose Framecipher for Android App Development
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Framecipher connects product planning, Android UI/UX, native development, backend engineering, testing, and Google Play release within one coordinated in-house workflow.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function WhyChoose() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {reason.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {reason.desc}
             </p>
           </div>

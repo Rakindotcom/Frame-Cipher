@@ -99,7 +99,7 @@ export default function FAQ({ service }) {
                 {faq.a.split('\n\n').map((block, blockIdx) => (
                   <p
                     key={blockIdx}
-                    className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
+                    className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
                       blockIdx > 0 ? 'mt-4' : ''
                     }`}
                   ><AutoLinks currentPath="/services/content-writing/landing-page-copy" allowed={["/services/website-design-development/landing-pages"]}>

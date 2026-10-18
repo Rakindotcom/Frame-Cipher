@@ -21,7 +21,7 @@ export default function Integrations() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API, Payment &amp; Third-Party Integrations
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Modern applications often depend on external services. We plan integrations around the required data flow, authentication, business rules, and failure conditions. Integrations can include:
         </p>
       </div>
@@ -41,7 +41,7 @@ export default function Integrations() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           The exact integration scope depends on the provider, available APIs, authentication requirements, data flow, and project complexity.
         </p>
       </div>

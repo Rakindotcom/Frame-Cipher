@@ -41,7 +41,7 @@ export default function Guarantee() {
             <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               We commit to delivering the agreed scope
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Including, where applicable:
             </p>
             <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
@@ -65,7 +65,7 @@ export default function Guarantee() {
             <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               Outcomes that no agency can control
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We do not guarantee:
             </p>
             <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">

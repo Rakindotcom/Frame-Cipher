@@ -46,7 +46,7 @@ export default function CaseStudyDetailBreakdown({ study }) {
                       {section.items.map((item) => (
                         <li
                           key={item}
-                          className="grid grid-cols-[auto_1fr] gap-3 text-sm font-semibold leading-relaxed text-frame-muted-fg md:text-base"
+                          className="grid grid-cols-[auto_1fr] gap-3 text-sm font-semibold leading-relaxed text-frame-muted-fg md:text-base wide:text-lg"
                         >
                           <span className="mt-2 h-2 w-2 bg-frame-accent" aria-hidden="true" />
                           <span>{item}</span>
@@ -74,7 +74,7 @@ export default function CaseStudyDetailBreakdown({ study }) {
                   First-party campaign reporting
                 </h2>
               </div>
-              <p className="max-w-xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="max-w-xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Direct platform screenshots from Meta Ads Manager, Google Search Console, GA4,
                 and analytics platforms verifying performance numbers.
               </p>

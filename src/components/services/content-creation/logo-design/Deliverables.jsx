@@ -138,7 +138,7 @@ export default function Deliverables() {
               Trademark Considerations
             </span>
           </div>
-          <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
             We design 100% original logo concepts based on rigorous competitive audits and agreed creative briefs. However, creative design services do not constitute formal legal trademark clearance or statutory registration. If you plan to register your logo with government IP authorities, we recommend conducting formal trademark searches and legal review before final filing.
           </p>
         </div>

@@ -258,21 +258,61 @@ export default function ProjectsPage({ initialView = null }) {
   const [toastDismissed, setToastDismissed] = useState(false)
   const imageSectionRef = useRef(null)
   const carouselRef = useRef(null)
+  // Remembers the filter bar's "resting" document position (measured while near
+  // the top of the page, before sticky positioning engages). Used to bring the
+  // user back to the top of the work list instead of a clamped page bottom.
+  const filterBarNaturalTopRef = useRef(null)
 
   const currentWork = designWorks[currentWorkIndex]
 
-  const handleFilterSelect = (filterId) => {
-    setActiveFilter(filterId)
-    const filterEl = document.getElementById('portfolio-controls')
-    if (filterEl) {
-      const rect = filterEl.getBoundingClientRect()
-      // Only adjust scroll if user has scrolled FAR past the filter bar down below
-      // Never scroll when filter controls are visible in viewport
-      if (rect.bottom < 0) {
-        const targetY = window.scrollY + rect.top - 80
-        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' })
-      }
+  useEffect(() => {
+    const measureBar = () => {
+      // Only meaningful near the top where the bar is not sticky-displaced.
+      if (window.scrollY > 400) return
+      const bar = document.getElementById('portfolio-controls')
+      if (bar) filterBarNaturalTopRef.current = bar.getBoundingClientRect().top + window.scrollY
     }
+    measureBar()
+    window.addEventListener('scroll', measureBar, { passive: true })
+    window.addEventListener('resize', measureBar, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', measureBar)
+      window.removeEventListener('resize', measureBar)
+    }
+  }, [])
+
+  const handleFilterSelect = (filterId) => {
+    // Capture scroll BEFORE React re-renders and the browser clamps the scroll
+    // position. When the next view is shorter than the current scroll offset
+    // (e.g. switching from "All" while deep in the Writing section), the
+    // browser would otherwise clamp straight to the very bottom of the page.
+    const scrollYBefore = window.scrollY
+
+    setActiveFilter(filterId)
+
+    // The new sections need a frame to mount and layout to settle. Re-check
+    // shortly after as well in case images/fonts change the final page height.
+    const reAnchor = () => {
+      const doc = document.documentElement
+      const maxScroll = Math.max(0, doc.scrollHeight - window.innerHeight)
+      // Enough content remains at the old scroll offset — keep the position.
+      if (maxScroll >= scrollYBefore) return
+
+      // The viewport was clamped (previous content collapsed). Land the user
+      // at the top of the work list with the filter bar pinned under the nav.
+      const bar = document.getElementById('portfolio-controls')
+      const barTop = bar ? bar.getBoundingClientRect().top : 0
+      const targetY =
+        filterBarNaturalTopRef.current != null
+          ? filterBarNaturalTopRef.current - 76
+          : window.scrollY + barTop - 76
+      window.scrollTo({ top: Math.max(0, targetY), behavior: 'auto' })
+    }
+
+    requestAnimationFrame(() => {
+      requestAnimationFrame(reAnchor)
+    })
+    setTimeout(reAnchor, 200)
   }
 
   useEffect(() => {
@@ -462,7 +502,7 @@ export default function ProjectsPage({ initialView = null }) {
     !isWritingVisible
 
   return (
-    <main className="bg-frame-bg text-frame-fg">
+    <main className="bg-frame-bg text-frame-fg [overflow-anchor:none]">
       <ProjectsHero />
 
       <ProjectsFilterBar
@@ -507,7 +547,7 @@ export default function ProjectsPage({ initialView = null }) {
           <h3 className="mt-4 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-5xl">
             No projects found matching &ldquo;{searchQuery}&rdquo;
           </h3>
-          <p className="mt-4 text-base font-medium text-frame-muted-fg">
+          <p className="mt-4 text-base font-medium text-frame-muted-fg wide:text-lg">
             Try searching for another client name, service, or keyword, or reset the filters.
           </p>
           <button

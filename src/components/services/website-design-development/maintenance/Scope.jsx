@@ -45,7 +45,7 @@ export default function Scope() {
             <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Usually Included
             </h3>
-            <p className="mt-3 text-sm font-medium text-frame-muted-fg">
+            <p className="mt-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
               Depending on your plan, website maintenance can include:
             </p>
             <ul className="mt-6 space-y-2.5 text-xs sm:text-sm font-medium text-frame-fg">
@@ -65,7 +65,7 @@ export default function Scope() {
             <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Usually Handled as Separate Projects
             </h3>
-            <p className="mt-3 text-sm font-medium text-frame-muted-fg">
+            <p className="mt-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
               Some requests change the scope of the website rather than simply maintaining it. These may include:
             </p>
             <ul className="mt-6 space-y-2.5 text-xs sm:text-sm font-medium text-frame-fg">
@@ -80,7 +80,7 @@ export default function Scope() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             The exact boundary depends on your maintenance plan and the work required. We define that scope before beginning additional work so you know what is covered and what is not.
           </p>
         </div>

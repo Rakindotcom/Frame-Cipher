@@ -63,7 +63,7 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
           Framecipher creates motion graphics and animation that turn complex ideas into clear visual stories. We produce explainers, kinetic typography, animated brand assets, data visualizations, product and UI animation, social content, and 2D/3D animation for businesses in Bangladesh and international markets.
         </span>
       </PageHero>
@@ -78,7 +78,7 @@ export default function Hero({ service }) {
             <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Motion Graphics Built to Explain, Demonstrate & Move Ideas
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/motion-graphics-animation" allowed={["/services/content-creation/graphic-design"]}>
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg"><AutoLinks currentPath="/services/content-creation/motion-graphics-animation" allowed={["/services/content-creation/graphic-design"]}>
               Motion graphics combines graphic design, typography, illustration, visual elements, timing, movement, and sound to communicate something through motion. The goal is not simply to make a graphic move. The goal is to help the audience understand, remember, or act on a message.
             </AutoLinks></p>
           </div>
@@ -99,7 +99,7 @@ export default function Hero({ service }) {
                   <h3 className="mt-4 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>

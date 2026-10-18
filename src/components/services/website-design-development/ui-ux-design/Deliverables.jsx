@@ -76,7 +76,7 @@ export default function Deliverables() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             The final deliverables are agreed during project scoping so you know what is included before design begins.
           </p>
         </div>

@@ -118,7 +118,7 @@ export default function HowWeBuild() {
                   </h3>
                 </div>
 
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {block.lead}
                 </p>
 

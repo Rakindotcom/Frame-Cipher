@@ -53,11 +53,11 @@ export default function BudgetDecisions() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {area.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising" allowed={["/services/website-design-development/landing-pages"]}>
                   {area.body}
                 </AutoLinks></p>
                 {area.note && (
-                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {area.note}
                   </div>
                 )}
@@ -79,7 +79,7 @@ export default function BudgetDecisions() {
               <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Simulate Your Ad Spend, Break-Even ROAS & CPA
               </h3>
-              <p className="mt-2 text-sm text-frame-muted-fg leading-relaxed">
+              <p className="mt-2 text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
                 Before committing marketing capital, run our full-funnel budget simulator. Model Meta, Google Ads Quality Scores, TikTok video retention (VVR), and conversational AI search economics tailored to your industry and unit margins.
               </p>
             </div>

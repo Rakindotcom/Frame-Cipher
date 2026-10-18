@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             work like movies: narrative structure, candid observation, emotional scoring and colour timed like
             features — compressing a 6-hour function into a story the family actually replays.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We map the schedule, priority rituals and key family members with you beforehand, so no moment is
             missed and the crew stays discreet throughout.
           </p>

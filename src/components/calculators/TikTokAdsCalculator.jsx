@@ -375,7 +375,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               TikTok Advertising Region & Niche
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Sets baseline video CPMs, 6-second view retention rates, and engagement benchmarks.
             </p>
           </div>
@@ -478,7 +478,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Select Ad Format & Bidding Style
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Spark Ads (boosting organic creator posts) consistently achieve higher conversion rates than cold in-feed ads.
             </p>
           </div>
@@ -614,7 +614,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Revenue Target & Unit Economics
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Enter your sales targets and product margin to calculate the required video impression volume.
             </p>
           </div>
@@ -709,7 +709,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Video View Rate & Performance Overrides
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Customize 6-second retention (VVR) to see how hook rate lifts lower your overall cost per acquisition.
             </p>
           </div>
@@ -1025,7 +1025,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
                 <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   Need High-Converting TikTok Creatives & UGC That Scale?
                 </h4>
-                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg">
+                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">
                   Frame Cipher produces viral creator-led UGC, Spark Ads, TikTok Shop integrations, and high-tempo direct-response video scripts.
                 </p>
               </div>

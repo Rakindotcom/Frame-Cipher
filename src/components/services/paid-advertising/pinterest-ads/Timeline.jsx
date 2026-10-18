@@ -64,7 +64,7 @@ export default function Timeline() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {phase.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {phase.body}
               </p>
               {phase.bullets?.length > 0 && (
@@ -82,7 +82,7 @@ export default function Timeline() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Simple campaigns may move through setup faster. Catalog-heavy, international, or
             multi-market campaigns may require additional preparation. Pinterest recommends
             giving campaigns enough time to learn before making major changes. Its current

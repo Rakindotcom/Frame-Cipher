@@ -53,15 +53,15 @@ export default function Hero() {
             Strategy First. Content Second. Every Piece Has a Purpose.
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides Content Strategy Service for businesses in Bangladesh and clients across the US,
             UK, Australia, Canada, UAE, and other international markets.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We decide what content to create, who it is for, why it matters, where it fits, and what should happen
             next before production begins.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Our approach combines content audits, audience research, search intent, competitive gaps, topic
             architecture, content priorities, editorial planning, and performance measurement.
           </p>

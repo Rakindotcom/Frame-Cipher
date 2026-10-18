@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             compositing than a proper stage saves. Our wall is lit by a calibrated overhead grid with zero hot spots,
             so keying is a non-event and presenters step into any digital background with edge fidelity intact.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Watch the live key on monitors while you record, direct from the floor, and choose raw keyable footage or
             a finished composite with slides, sets and graphics composited in-house.
           </p>

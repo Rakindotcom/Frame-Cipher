@@ -20,7 +20,7 @@ export default function UiUxDesign() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           UI/UX Design for Apps
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           A successful app needs a clear experience before it needs more code. Our app UI/UX work can include:
         </p>
       </div>
@@ -44,7 +44,7 @@ export default function UiUxDesign() {
       </div>
 
       <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           We connect UX planning with development requirements so the final interface is designed around actual user actions rather than isolated screens.
         </p>
       </div>

@@ -54,7 +54,7 @@ export default function Hero({ service }) {
             and partners. Controlled studio lighting, broadcast audio and a directed interview keep the attention on
             the message instead of the production flaws around it.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before filming starts, we agree the audience, message and screen placements in writing. The shoot and the
             edit are then planned around where the film will actually run.
           </p>

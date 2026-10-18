@@ -33,7 +33,7 @@ export default function SeoArchitecture() {
           ))}
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 text-xs sm:text-sm text-frame-muted-fg space-y-2 leading-relaxed">
+        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 text-xs sm:text-sm text-frame-muted-fg space-y-2 leading-relaxed wide:text-lg">
           <p>
             Next.js provides built-in capabilities for metadata and different rendering approaches, which can be used as part of a broader technical SEO strategy.
           </p>

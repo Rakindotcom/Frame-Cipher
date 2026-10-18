@@ -32,7 +32,7 @@ export default function EmergencySupport() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg">
+          <div className="mt-8 border-t border-frame-border pt-6 space-y-3 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
             <p>
               Our response starts with identifying the immediate problem, protecting the available data, and restoring critical functionality where possible.
             </p>

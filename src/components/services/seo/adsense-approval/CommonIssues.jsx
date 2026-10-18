@@ -45,7 +45,7 @@ export default function CommonIssues() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.body}
               </p>
               <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />

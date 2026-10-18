@@ -34,7 +34,7 @@ export default function Overview() {
           Microsoft Ads can complement Google Ads, but the two platforms should not be treated as
           identical.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Microsoft Advertising combines search inventory with audience, retail, display, and
           automated campaign solutions. Its search ecosystem includes Bing as well as partner
           distribution such as Yahoo and DuckDuckGo. Its broader advertising environment also
@@ -53,7 +53,7 @@ export default function Overview() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.body}
               </p>
             </div>

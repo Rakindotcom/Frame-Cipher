@@ -32,7 +32,7 @@ export default function Overview() {
 
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div>
-            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               It is the ongoing work of listening to your audience, answering questions, handling feedback,
               identifying issues, protecting your brand voice, and knowing when a conversation needs to move
               to your internal team.
@@ -78,7 +78,7 @@ export default function Overview() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We combine timely response, brand voice, escalation workflows, moderation, and community
             engagement into one coordinated system.
           </p>

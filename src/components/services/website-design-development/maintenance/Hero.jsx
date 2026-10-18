@@ -122,19 +122,19 @@ export default function Hero() {
             <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Maintain For</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Businesses running WordPress, WooCommerce, Shopify, Wix, Webflow, Magento, or custom Next.js websites in any market.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Cover</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Security updates, tested backups, uptime monitoring, performance checks, bug fixes, integrations, and routine content changes.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Work</span>
-                <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   A plan matched to your stack&mdash;staging-tested patching, visible technical work, and a clear response when something goes wrong.
                 </p>
               </div>
@@ -160,7 +160,7 @@ export default function Hero() {
                   <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                     {pillar.title}
                   </h3>
-                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {pillar.description}
                   </p>
                 </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 import { SectionHeading } from '../GrowthPortfolioSection'
 
@@ -94,7 +95,7 @@ export default function ProjectsWebsitesSection({ websites }) {
 
         {displayedWebsites.length === 0 ? (
           <div className="mt-8 border-2 border-frame-border bg-frame-muted p-8 text-center">
-            <p className="text-sm font-bold text-frame-muted-fg">
+            <p className="text-sm font-bold text-frame-muted-fg wide:text-lg">
               No websites found under {selectedPlatform} platform.
             </p>
           </div>
@@ -122,28 +123,30 @@ export default function ProjectsWebsitesSection({ websites }) {
                       }`}
                       aria-label={`Visit ${project.name}`}
                     >
-                      <div className="flex items-center justify-between border-b-2 border-frame-border bg-frame-bg px-4 py-3">
-                        <div className="flex items-center gap-2">
-                          <span className="h-2.5 w-2.5 rounded-full bg-frame-accent" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/50" />
-                          <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/30" />
+                      <div className="flex items-center justify-between gap-2 border-b-2 border-frame-border bg-frame-bg px-4 py-3">
+                        <div className="flex min-w-0 flex-1 items-center gap-2">
+                          <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-frame-accent" />
+                          <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-frame-muted-fg/50" />
+                          <span className="h-2.5 w-2.5 shrink-0 rounded-full bg-frame-muted-fg/30" />
                           <span className="ml-2 min-w-0 truncate text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
                             {project.domain}
                           </span>
                         </div>
                         <span
-                          className={`rounded px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider ${badge.className}`}
+                          className={`shrink-0 whitespace-nowrap rounded px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider ${badge.className}`}
                         >
                           {badge.label}
                         </span>
                       </div>
 
-                      <div className="aspect-video overflow-hidden bg-frame-muted">
-                        <img
+                      <div className="relative aspect-video overflow-hidden bg-frame-muted">
+                        <Image
                           src={project.screenshot}
                           alt={`${project.name} website screenshot`}
-                          className="h-full w-full object-cover object-top transition duration-500 group-hover/image:scale-[1.03]"
-                          loading="lazy"
+                          fill
+                          sizes="(max-width: 1023px) 100vw, 50vw"
+                          quality={80}
+                          className="object-cover object-top transition duration-500 group-hover/image:scale-[1.03]"
                         />
                       </div>
                     </a>
@@ -169,7 +172,7 @@ export default function ProjectsWebsitesSection({ websites }) {
                         </p>
                       </div>
 
-                      <p className="max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                      <p className="max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                         {project.summary}
                       </p>
 

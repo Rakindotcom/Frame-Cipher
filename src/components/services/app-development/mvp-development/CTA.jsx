@@ -47,7 +47,7 @@ export default function CTA() {
               </li>
             ))}
           </ul>
-          <p className="mt-4 border-t border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-muted-fg">
+          <p className="mt-4 border-t border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
             We will review the requirements and help define an appropriate MVP development approach.
           </p>
         </div>

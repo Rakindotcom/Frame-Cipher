@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             acoustic room with broadcast microphones and an engineer monitoring every channel removes these
             problems at the source, so the episode is easy to edit and easy to keep listening to.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before recording starts, we agree the format, speaker count, branding and deliverables in writing. The
             session is then run around where the episode will actually publish: Spotify, Apple Podcasts, YouTube or all three.
           </p>

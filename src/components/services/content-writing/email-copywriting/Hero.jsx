@@ -53,12 +53,12 @@ export default function Hero() {
             For Welcome, Nurture, Newsletter &amp; Lifecycle Email
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides Email Copywriting Service for businesses in Bangladesh and clients across the US,
             UK, Australia, Canada, and UAE. We write subject lines, email campaigns, and sequences around the
             audience, offer, customer journey, and action each message needs to support.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             From welcome and nurture sequences to promotional campaigns, newsletters, ecommerce lifecycle emails,
             and win-back flows, we build email copy that has a clear purpose instead of filling another space in
             the sending calendar.

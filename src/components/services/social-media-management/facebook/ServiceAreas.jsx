@@ -32,7 +32,7 @@ export default function ServiceAreas() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Dhaka &amp; Nationwide
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We work with businesses across Bangladesh, including:
             </p>
             <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3">
@@ -48,7 +48,7 @@ export default function ServiceAreas() {
                 )
               )}
             </ul>
-            <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Content can be developed in Bangla or English depending on your audience and business
               needs.
             </p>
@@ -61,7 +61,7 @@ export default function ServiceAreas() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Global Support
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We manage Facebook Pages for clients targeting international audiences across multiple
               regions.
             </p>
@@ -72,21 +72,21 @@ export default function ServiceAreas() {
                   <h4 className="font-heading text-sm font-bold uppercase tracking-tight text-frame-fg md:text-base">
                     {market.region}
                   </h4>
-                  <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                  <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                     {market.cities}
                   </p>
                 </div>
               ))}
             </div>
 
-            <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {worldwideNote}
             </p>
           </div>
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Multi-location and multi-market businesses are supported through the Enterprise plan, where
             location-specific requirements are handled as part of one coordinated workflow.
           </p>

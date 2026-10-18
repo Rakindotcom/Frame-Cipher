@@ -166,7 +166,7 @@ export default function Offerings() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
 
@@ -199,7 +199,7 @@ export default function Offerings() {
             <h4 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
               Need A Customized Shoot Plan For Multiple Categories?
             </h4>
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               We mix white-background hero shots, lifestyle context, and macro details into a unified project quote.
             </p>
           </div>

@@ -78,7 +78,7 @@ export default function GettingStarted() {
                       <h3 className="mt-3 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                         {item.body}
                       </p>
                     </div>
@@ -91,7 +91,7 @@ export default function GettingStarted() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 You will see
               </span>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Framecipher can review your current campaigns, conversion setup, targeting,
                 creative, landing-page journey, and budget allocation, then identify the main
                 opportunities and problems.
@@ -130,7 +130,7 @@ export default function GettingStarted() {
                   <h3 className="mt-5 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {step.body}
                   </p>
                 </div>

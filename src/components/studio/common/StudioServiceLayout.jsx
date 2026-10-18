@@ -57,7 +57,7 @@ export default function StudioServiceLayout({
                   {lead || currentService.intro}
                 </p>
                 {currentService.detailedDescription && (
-                  <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                     {currentService.detailedDescription}
                   </p>
                 )}
@@ -158,7 +158,7 @@ export default function StudioServiceLayout({
                   <h3 className="mt-2 font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                     Technical Architecture & Quality Guarantees
                   </h3>
-                  <p className="mt-3 text-sm md:text-base leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-sm md:text-base leading-relaxed text-frame-muted-fg wide:text-lg">
                     FrameCipher Studio operates under strict broadcast engineering guidelines to eliminate the unpredictable variables of video production in Dhaka. From calibrated acoustic decay rates to 10-bit cinema color pipelines, our production methodology guarantees institutional polish across every deliverable.
                   </p>
                 </div>

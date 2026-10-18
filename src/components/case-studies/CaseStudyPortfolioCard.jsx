@@ -70,7 +70,7 @@ export default function CaseStudyPortfolioCard({ study, index }) {
             </Link>
           </h3>
 
-          <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             {study.summary}
           </p>
 

@@ -11,11 +11,11 @@ export default function CTA() {
         <h2 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-4xl">
           Ready to Improve Your Product Pages?
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Your product page has to do more than list specifications. It needs to help shoppers understand the
           product, assess its value, and know what to do next.
         </p>
-        <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Tell us how many products you sell, where they are listed, and what needs to improve. We can help
           define a practical scope from there.
         </p>

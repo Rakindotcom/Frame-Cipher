@@ -59,7 +59,7 @@ export default function WhereFits() {
 
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div>
-            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Each Framecipher platform-specific management service includes content strategy work for
               that individual platform. That includes decisions such as:
             </p>
@@ -100,7 +100,7 @@ export default function WhereFits() {
                 <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
                   {platform.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-base"><AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-writing/website-content"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-base"><AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-writing/website-content"]}>
                   {platform.body}
                 </AutoLinks></p>
               </div>

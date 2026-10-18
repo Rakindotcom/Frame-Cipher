@@ -54,7 +54,7 @@ export default function Guarantee() {
                 {column.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                    className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
                   >
                     <span
                       aria-hidden="true"
@@ -70,7 +70,7 @@ export default function Guarantee() {
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Reporting measures performance and informs decisions. It does not control audience behavior,
           platform distribution, competition, creative quality, offers, website performance, market
           conditions, or other factors affecting business results. Our commitment is to provide clear, honest

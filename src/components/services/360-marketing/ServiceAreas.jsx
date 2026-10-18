@@ -45,7 +45,7 @@ export default function ServiceAreas() {
               <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-fg/80">
                 {a.scope}
               </p>
-              <p className="mt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {a.description}
               </p>
             </article>

@@ -33,7 +33,7 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For Bangladesh-Based Projects
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               We consider:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -56,7 +56,7 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For International Projects
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               We adapt:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -70,7 +70,7 @@ export default function Markets() {
           </div>
         </div>
 
-        <p className="mt-6 text-xs sm:text-sm text-frame-muted-fg">
+        <p className="mt-6 text-xs sm:text-sm text-frame-muted-fg wide:text-lg">
           The technical approach remains project-specific rather than using one fixed architecture for every client.
         </p>
       </div>

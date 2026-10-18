@@ -60,7 +60,7 @@ export default function VsLandingPage() {
                 <span className="text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
                   {row.sales}
                 </span>
-                <span className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <span className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {row.landing}
                 </span>
               </div>
@@ -69,7 +69,7 @@ export default function VsLandingPage() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The two services can also work together. For example, a sales page project may require both the
             underlying sales argument and the page-specific copy structure.
           </p>

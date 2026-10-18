@@ -98,7 +98,7 @@ export default function Process() {
                 <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {phase.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {phase.description}
                 </p>
               </div>
@@ -124,7 +124,7 @@ export default function Process() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               How Long Does Video Production Take?
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Production timelines vary according to scope. A simple interview production moves quickly from brief to delivery (3–7 business days), while larger corporate films, commercials, and brand films require 2–4 weeks for planning, filming, editing, and approvals.
             </p>
           </div>

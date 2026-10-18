@@ -19,10 +19,10 @@ export default function UxAudit() {
         <SectionIntro eyebrow="Diagnostic & Optimization" title="UX Audit & Redesign Services" />
 
         <div className="mt-10 grid gap-6 md:grid-cols-3 border-2 border-frame-border bg-frame-muted/10 p-7 sm:p-8 md:p-10">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             You do not always need a completely new website or app. Sometimes the existing experience is the real problem.
           </p>
-          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Our UX audit and redesign service examines how users move through your current product, where friction occurs, and which areas need improvement. We can improve specific journeys or redesign the broader experience based on the condition and goals of the product.
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function UxAudit() {
               <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 What You Receive
               </h3>
-              <div className="mt-6 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-6 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 <p>
                   Depending on the project scope, an audit can include identified UX issues, prioritized recommendations, improved user flows, wireframes, redesigned screens, and a practical roadmap for implementation.
                 </p>

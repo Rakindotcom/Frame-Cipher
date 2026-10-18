@@ -82,7 +82,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               1 Shoot → 6 Tailored Assets
             </h3>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               We capture the master story alongside secondary interviews and b-roll, giving your marketing team assets across multiple channels:
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-2">
@@ -107,7 +107,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               1 Shoot → 5 Conversion Drivers
             </h3>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               We capture the hero demo, close-up macro angles, and lifestyle usage in one session to fuel your entire sales funnel:
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-2">
@@ -134,7 +134,7 @@ export default function ProductionMultiplier() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               What You Receive
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Your final deliverables depend on the approved project scope, organized into a clean and structured digital repository:
             </p>
           </div>

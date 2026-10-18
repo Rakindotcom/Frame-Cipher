@@ -79,7 +79,7 @@ export default function Guarantee() {
           </div>
         </div>
 
-        <p className="mt-10 max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-10 max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Keyword research identifies opportunities. Actual performance depends on content quality,
           technical implementation, authority, competition, search demand, user behavior, and
           ongoing optimization. Our responsibility is to provide a well-researched, relevant,

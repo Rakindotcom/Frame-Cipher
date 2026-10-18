@@ -95,7 +95,7 @@ export default function Included() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4">
+        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
           The exact deliverables depend on the platform, functionality, integrations, and scope agreed before development begins.
         </p>
       </div>

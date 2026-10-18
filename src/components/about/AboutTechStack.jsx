@@ -73,7 +73,7 @@ export default function AboutTechStack() {
                 <div className="my-4 rounded bg-frame-card p-3 font-mono text-xs font-bold text-frame-accent transition-colors duration-300 group-hover:bg-frame-bg/25 group-hover:text-frame-accent-fg">
                   {layer.stack}
                 </div>
-                <p className="text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
                   {layer.description}
                 </p>
               </div>

@@ -55,14 +55,14 @@ export default function Expectations() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Sustainable management, not vanity metrics
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We focus on keeping your social presence active, useful, consistent, and aligned
                 with your business rather than chasing follower counts or promising viral results.
               </p>
             </div>
 
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/social-media-management/community-management"]}>
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/social-media-management/community-management"]}>
                 Content volume, platform mix, and community management scope are confirmed during
                 the free initial audit, so the plan reflects what your business actually needs.
               </AutoLinks></p>

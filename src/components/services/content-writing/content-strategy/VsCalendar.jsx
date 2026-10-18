@@ -36,7 +36,7 @@ export default function VsCalendar() {
             <h3 className="mt-4 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
               A Content Calendar Organizes Production
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               It tells your team:
             </p>
             <ul className="mt-4 space-y-2">
@@ -82,14 +82,14 @@ export default function VsCalendar() {
             Why the Difference Matters
           </h3>
           <div className="mt-4 grid gap-5 md:grid-cols-3">
-            <p className="border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               A business can have a full calendar and still publish content that does not build toward a clear
               outcome.
             </p>
-            <p className="border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               A strong strategy gives every important content decision a reason.
             </p>
-            <p className="border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Strategy creates the direction. The calendar turns that direction into action.
             </p>
           </div>

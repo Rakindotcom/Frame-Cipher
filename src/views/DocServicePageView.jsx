@@ -135,7 +135,7 @@ export default function DocServicePageView({ service }) {
                   <h3 className="mt-6 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
                     {sub.sheetTitle}
                   </h3>
-                  <p className="mt-4 text-base font-medium leading-normal text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+                  <p className="mt-4 text-base font-medium leading-normal text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90 wide:text-lg">
                     {sub.shortDesc || sub.heroHook?.slice(0, 160) || sub.metaDescription}
                   </p>
                   <span className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
@@ -167,7 +167,7 @@ export default function DocServicePageView({ service }) {
                       {offering.title}
                     </h3>
                     {offering.description && (
-                      <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                         {offering.description}
                       </p>
                     )}
@@ -200,7 +200,7 @@ export default function DocServicePageView({ service }) {
                 <h2 className="mt-4 font-heading text-[clamp(1.8rem,4vw,2.8rem)] font-bold uppercase leading-tight tracking-tighter text-frame-fg">
                   Why This Service Matters
                 </h2>
-                <div className="mt-6 space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-6 space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {service.whyMatters.map((para, i) => (
                     <p key={i}>{para}</p>
                   ))}
@@ -221,7 +221,7 @@ export default function DocServicePageView({ service }) {
                       <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                         {diff.title}
                       </h3>
-                      <p className="mt-2 text-base font-medium leading-snug text-frame-muted-fg">
+                      <p className="mt-2 text-base font-medium leading-snug text-frame-muted-fg wide:text-lg">
                         {diff.text}
                       </p>
                     </div>
@@ -250,7 +250,7 @@ export default function DocServicePageView({ service }) {
                   <h3 className="mt-6 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+                  <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90 wide:text-lg">
                     {step.description}
                   </p>
                 </article>
@@ -283,7 +283,7 @@ export default function DocServicePageView({ service }) {
                         {pkg.name}
                       </h3>
                       {pkg.description && (
-                        <p className="mt-2 text-sm font-medium text-frame-muted-fg">
+                        <p className="mt-2 text-sm font-medium text-frame-muted-fg wide:text-lg">
                           {pkg.description}
                         </p>
                       )}
@@ -363,7 +363,7 @@ export default function DocServicePageView({ service }) {
                 <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   Bangladesh Market Fit
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Tested for typical local mobile connection speeds, local user intent, and seamless bKash/Nagad checkout gateways.
                 </p>
               </div>
@@ -371,7 +371,7 @@ export default function DocServicePageView({ service }) {
                 <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   International Standards
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Delivering projects across the US, UK, Canada, Australia, and UAE with clean code architecture and timezone-friendly communication.
                 </p>
               </div>
@@ -423,7 +423,7 @@ export default function DocServicePageView({ service }) {
                   <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                     {step.title}
                   </h3>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {step.description}
                   </p>
                 </article>

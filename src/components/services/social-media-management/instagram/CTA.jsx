@@ -24,11 +24,11 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-4xl">
               Ready to Build a Stronger Instagram Presence?
             </h2>
-            <p className="mt-5 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Your Instagram account should do more than look active. It should have a clear role in how
               people discover, understand, trust, and contact your business.
             </p>
-            <p className="mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/instagram" allowed={["/services/social-media-management/community-management"]}>
+            <p className="mt-4 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/instagram" allowed={["/services/social-media-management/community-management"]}>
               Framecipher brings Instagram strategy, content creation, Reels, Stories, profile
               optimization, community management, DMs, publishing, and reporting together under one
               in-house team. Whether you are building an Instagram presence in Bangladesh or

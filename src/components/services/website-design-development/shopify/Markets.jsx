@@ -33,7 +33,7 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For Bangladesh-Based Merchants
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               We can account for:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -44,7 +44,7 @@ export default function Markets() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 border-t border-frame-border/60 pt-4 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+            <div className="mt-6 border-t border-frame-border/60 pt-4 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
               Shopify&apos;s payment-provider availability varies by merchant location. Shopify Payments is currently available only in Shopify&apos;s listed supported countries, and Bangladesh is not currently listed among those supported locations. Businesses in unsupported countries need to use an available third-party payment provider. For Bangladesh-based businesses, we evaluate currently available third-party payment options and configure the appropriate provider or integration based on the merchant&apos;s location, customers, and business requirements.
             </div>
           </div>
@@ -59,7 +59,7 @@ export default function Markets() {
             <h3 className="mt-3 font-heading text-2xl font-bold uppercase text-frame-fg">
               For International Businesses
             </h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               We adapt:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -70,7 +70,7 @@ export default function Markets() {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 border-t border-frame-border/60 pt-4 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+            <div className="mt-6 border-t border-frame-border/60 pt-4 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
               We plan international expansion around the actual countries and customer segments you serve rather than creating duplicate storefronts without a clear operational reason.
             </div>
           </div>

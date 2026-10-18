@@ -38,11 +38,11 @@ export default function CrossPlatform() {
               <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                 Shared Campaign Message
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We identify the core message behind a campaign, product launch, announcement, educational
                 topic, or brand initiative.
               </p>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 This creates consistency across the campaign while allowing each platform to communicate
                 the message in its own format.
               </p>
@@ -62,7 +62,7 @@ export default function CrossPlatform() {
               <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                 Platform-Specific Execution
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Each platform can have a different role within the same campaign.
               </p>
             </div>
@@ -89,7 +89,7 @@ export default function CrossPlatform() {
               <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                 Repurposing Without Duplicate Posting
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Repurposing means adapting useful ideas and assets for new contexts. It does not mean
                 publishing identical content everywhere.
               </p>

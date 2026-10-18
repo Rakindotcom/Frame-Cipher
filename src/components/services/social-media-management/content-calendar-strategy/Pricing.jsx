@@ -138,7 +138,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Final pricing depends on platform count, content volume, campaign complexity, responsibilities,
             and delivery requirements. Your proposal confirms the final scope, fee, and delivery schedule
             before work begins.

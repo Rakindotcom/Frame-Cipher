@@ -67,7 +67,7 @@ export default function Overview() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               See where your business shows up locally
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We review your Google Business Profile, local pages, citations, competition, and
               Maps visibility to identify the improvements that matter most.
             </p>

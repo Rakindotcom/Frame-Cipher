@@ -95,7 +95,7 @@ export default function Process() {
                 {step.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
                   >
                     {paragraph}
                   </p>
@@ -128,7 +128,7 @@ export default function Process() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Tell us what you want each page to accomplish, and we can help define the right content scope.
           </p>
           <div className="shrink-0">

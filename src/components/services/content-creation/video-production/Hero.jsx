@@ -51,7 +51,7 @@ export default function Hero({ service }) {
           <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
             Video Production Built Around Your Goal
           </h2>
-          <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             A video can look professional and still fail to communicate the right message. That is why we start with the purpose behind the video, not just the production itself. Before filming begins, we consider your audience, message, platform, visual direction, required deliverables, and the action you want viewers to take. This helps us build the production around the final outcome.
           </p>
 
@@ -75,7 +75,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Trust & Narrative
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A corporate profile video needs a structured narrative and authority. A brand film depends on emotive visual storytelling.
               </p>
             </div>
@@ -84,7 +84,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Demonstration & Hook
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A product advertisement needs clear feature demonstrations. A paid social video needs immediate 3-second hook pacing.
               </p>
             </div>
@@ -93,7 +93,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Retention & Continuity
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 YouTube productions need structured chaptering, audio excellence, and visual continuity across longer view times.
               </p>
             </div>

@@ -19,11 +19,11 @@ export default function ServiceAreas() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               Bangladesh
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Framecipher provides SEO and blog writing services for businesses across Bangladesh, including
               Dhaka and other locations.
             </p>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Where relevant, content research can consider English and Bangla search behavior, local
               terminology, audience needs, and market context.
             </p>
@@ -33,7 +33,7 @@ export default function ServiceAreas() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               International Markets
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We also support businesses targeting:
             </p>
             <ul className="mt-4 flex flex-wrap gap-2">
@@ -46,7 +46,7 @@ export default function ServiceAreas() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               International SEO content is adapted to the intended audience rather than simply translating an
               existing article word for word.
             </p>

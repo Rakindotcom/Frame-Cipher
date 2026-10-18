@@ -15,7 +15,7 @@ export default function CTA() {
             <p className="mx-auto mt-6 max-w-2xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
               Need Reels, TikTok videos, YouTube Shorts, or a recurring batch of short-form content? Framecipher can help you define the concepts, plan the production, film the content, edit the final videos, and prepare the agreed platform-ready deliverables.
             </p>
-            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mx-auto mt-4 max-w-2xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Tell us what you want to create, who you want to reach, where the content will be used, and how many videos you need. We&apos;ll help define the production scope, content approach, timeline, and next steps.
             </p>
 
@@ -31,19 +31,19 @@ export default function CTA() {
             <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">In-House Creative Team</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Concept writers, directors, videographers, and mobile editors collaborate under one synchronized roof.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Native 9:16 Vertical Optics</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Filmed natively in vertical 9:16 with dedicated monitor cages, wireless audio, and platform framing guides.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Batch Production Agility</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Produce weeks of high-performing Reels and Shorts in coordinated monthly or multi-video shoot sessions.
                 </p>
               </div>

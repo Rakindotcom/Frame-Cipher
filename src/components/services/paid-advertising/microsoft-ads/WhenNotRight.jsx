@@ -29,7 +29,7 @@ export default function WhenNotRight() {
             {signals.map((signal) => (
               <li
                 key={signal}
-                className="flex items-start gap-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                className="flex items-start gap-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
               >
                 <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center text-frame-accent">
                   &#10005;
@@ -38,7 +38,7 @@ export default function WhenNotRight() {
               </li>
             ))}
           </ul>
-          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             For some businesses, Microsoft Ads may work best as a secondary acquisition channel
             rather than the primary paid media platform. We evaluate that before recommending a
             budget.

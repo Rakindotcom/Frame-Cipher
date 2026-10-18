@@ -51,11 +51,11 @@ export default function BuyerJourney() {
               </h3>
 
               {stage.lead && (
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{stage.lead}</p>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{stage.lead}</p>
               )}
 
               {stage.text && (
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{stage.text}</p>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{stage.text}</p>
               )}
 
               {stage.items && (
@@ -78,7 +78,7 @@ export default function BuyerJourney() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The strongest case study is therefore not simply a marketing story. It is a piece of evidence that
             supports the buying decision.
           </p>

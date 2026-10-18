@@ -111,7 +111,7 @@ function BookingSuccess({ whatsappUrl }) {
         <CheckCircle2 className="h-8 w-8" />
       </div>
       <h3 className="font-heading text-2xl font-bold uppercase text-frame-fg">Inquiry Received!</h3>
-      <p className="mx-auto max-w-md text-sm text-frame-muted-fg">Thank you! Our studio team will review your requirements and respond within 1 business day. For immediate scheduling, jump straight onto WhatsApp:</p>
+      <p className="mx-auto max-w-md text-sm text-frame-muted-fg wide:text-lg">Thank you! Our studio team will review your requirements and respond within 1 business day. For immediate scheduling, jump straight onto WhatsApp:</p>
       <div className="pt-4">
         <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-all hover:bg-frame-accent/90">
           <MessageSquare className="h-4 w-4" />

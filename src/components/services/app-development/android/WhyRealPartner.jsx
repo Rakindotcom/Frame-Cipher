@@ -31,7 +31,7 @@ export default function WhyRealPartner() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           Why Your Business Needs a Real Android Development Partner
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Android applications need more than functional code. They need to work across the devices, operating systems, network conditions, and user environments relevant to the product.
         </p>
       </div>
@@ -48,7 +48,7 @@ export default function WhyRealPartner() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {reason.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {reason.desc}
             </p>
           </div>

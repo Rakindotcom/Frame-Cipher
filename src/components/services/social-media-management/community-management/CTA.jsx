@@ -11,7 +11,7 @@ export default function CTA() {
         <h2 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-4xl">
           Ready to Build a More Responsive Brand Community?
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Tell us which platforms matter, what your customers are asking, and where responses are falling
           behind. We will help you define a community management scope that matches your actual workload.
         </p>

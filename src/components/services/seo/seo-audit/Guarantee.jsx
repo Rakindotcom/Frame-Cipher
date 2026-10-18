@@ -52,7 +52,7 @@ export default function Guarantee() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We aim to make the report useful to both technical and non-technical stakeholders.
             </p>
           </div>
@@ -77,7 +77,7 @@ export default function Guarantee() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               SEO performance depends on many factors beyond an audit alone, including competition,
               implementation quality, search demand, content, authority, user behavior, and changes
               in search systems.
@@ -86,7 +86,7 @@ export default function Guarantee() {
         </div>
 
         <div className="mt-10 border-l-2 border-frame-accent bg-frame-bg p-7 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Our responsibility is to provide an honest diagnosis, clear evidence, and practical
             priorities within the agreed scope.
           </p>

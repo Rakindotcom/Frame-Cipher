@@ -30,7 +30,7 @@ function GuideArticles() {
           {g.items ? (
             <ul className="mt-4 space-y-2.5">
               {g.items.map((item, j) => (
-                <li key={j} className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <li key={j} className="flex items-start gap-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   <span className="font-bold text-frame-accent">•</span>
                   <span>{item}</span>
                 </li>
@@ -38,8 +38,8 @@ function GuideArticles() {
             </ul>
           ) : (
             <>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{g.p1}</p>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{g.p2}</p>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{g.p1}</p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{g.p2}</p>
             </>
           )}
         </article>
@@ -58,7 +58,7 @@ export default function StudioHubExtended() {
           lighting grid, IPS and generator backup, and fibre internet.
         </SectionIntro>
         <GuideArticles />
-        <p className="mt-8 flex max-w-4xl items-start gap-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+        <p className="mt-8 flex max-w-4xl items-start gap-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
           <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
           <span>
             FrameCipher Studio — 6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar,

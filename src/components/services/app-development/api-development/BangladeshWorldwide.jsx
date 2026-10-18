@@ -9,7 +9,7 @@ export default function BangladeshWorldwide() {
       <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
         API Development Services Across Bangladesh &amp; Worldwide
       </h2>
-      <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+      <div className="mt-6 max-w-4xl space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
         <p>
           Framecipher is based in Dhaka, Bangladesh, and provides API development and integration services for businesses in Bangladesh and international markets.
         </p>

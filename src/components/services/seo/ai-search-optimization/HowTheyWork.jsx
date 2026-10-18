@@ -54,7 +54,7 @@ export default function HowTheyWork() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.body}
               </p>
               <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg">
@@ -68,7 +68,7 @@ export default function HowTheyWork() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 border-l-2 border-frame-accent p-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-6 border-l-2 border-frame-accent p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.closing}
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function HowTheyWork() {
             <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Neither exists in isolation
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Neither answer structure nor content depth exists in isolation.
             </p>
             <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
@@ -114,7 +114,7 @@ export default function HowTheyWork() {
                 <span>Entity and source authority can help connect the information together.</span>
               </li>
             </ul>
-            <p className="mt-5 border-t-2 border-frame-accent/40 pt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 border-t-2 border-frame-accent/40 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Together, they form a broader AI Search Optimization strategy that works alongside
               traditional SEO rather than attempting to replace it.
             </p>

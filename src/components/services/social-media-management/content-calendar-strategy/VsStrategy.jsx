@@ -45,7 +45,7 @@ export default function VsStrategy() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 What Content Strategy Decides
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Content strategy establishes the direction behind your content. It helps determine:
               </p>
             </div>
@@ -73,7 +73,7 @@ export default function VsStrategy() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 What the Content Calendar Organizes
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 The content calendar turns those strategic decisions into an execution plan. It organizes:
               </p>
             </div>

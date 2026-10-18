@@ -130,7 +130,7 @@ export default function AboutGlobalDelivery() {
                 <h4 className="font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h4>
-                <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>

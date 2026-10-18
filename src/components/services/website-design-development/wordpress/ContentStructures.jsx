@@ -39,7 +39,7 @@ export default function ContentStructures() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {struct.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {struct.description}
                 </p>
               </div>
@@ -48,7 +48,7 @@ export default function ContentStructures() {
         </div>
 
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             This approach is useful for directories, real estate websites, job boards, publications, portfolios, and other content-heavy WordPress projects.
           </p>
         </div>

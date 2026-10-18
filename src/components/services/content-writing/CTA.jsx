@@ -11,11 +11,11 @@ export default function CTA() {
         <h2 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-4xl">
           Ready to Create Content That Has a Clear Purpose?
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Your content should not exist simply because your website needs more words. It should help someone
           find you, understand you, trust you, choose you, or take the next step.
         </p>
-        <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Tell us what you want the content to accomplish, and Framecipher can help define the right writing
           scope.
         </p>

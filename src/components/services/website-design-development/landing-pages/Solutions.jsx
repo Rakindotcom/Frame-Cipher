@@ -47,7 +47,7 @@ export default function Solutions() {
                 <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {goal.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {goal.desc}
                 </p>
               </div>
@@ -55,7 +55,7 @@ export default function Solutions() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4">
+        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
           The right structure depends on your offer, audience, traffic source, and conversion goal. We recommend the page type around the campaign rather than forcing every project into the same template.
         </p>
       </div>

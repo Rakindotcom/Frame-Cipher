@@ -90,7 +90,7 @@ export default function VsPaid() {
               <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
                 Organic Social
               </span>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/content-creation"]}>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/content-creation"]}>
                 Covers your unpaid presence: content strategy, content creation, publishing,
                 community engagement, profile management, and reporting. The goal is a consistent
                 presence and stronger relationships with your audience over time.
@@ -100,7 +100,7 @@ export default function VsPaid() {
               <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
                 Paid Social
               </span>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/paid-advertising"]}>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/paid-advertising"]}>
                 Uses advertising budgets to reach selected audiences and support specific
                 campaign objectives such as lead generation, ecommerce sales, traffic, remarketing,
                 or campaign promotion. Framecipher provides paid advertising separately through
@@ -138,7 +138,7 @@ export default function VsPaid() {
                   <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                     {reason.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {reason.body}
                   </p>
                 </div>
@@ -147,7 +147,7 @@ export default function VsPaid() {
           </div>
 
           <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               The right mix depends on your business goals, audience, budget, and customer
               journey.
             </p>

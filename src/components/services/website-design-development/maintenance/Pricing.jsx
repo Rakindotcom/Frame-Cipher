@@ -234,7 +234,7 @@ export default function Pricing() {
               </p>
             </div>
 
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed max-w-4xl">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed max-w-4xl wide:text-lg">
               If you are not ready for a monthly maintenance plan, we can first assess the current condition of your website.
             </p>
 
@@ -252,7 +252,7 @@ export default function Pricing() {
               </div>
             </div>
 
-            <p className="mt-6 text-xs sm:text-sm font-medium text-frame-muted-fg italic">
+            <p className="mt-6 text-xs sm:text-sm font-medium text-frame-muted-fg italic wide:text-lg">
               The audit gives you a clearer picture of what needs attention before committing to ongoing maintenance.
             </p>
 
@@ -294,7 +294,7 @@ export default function Pricing() {
                   <tr key={idx} className="hover:bg-frame-muted/10 transition-colors">
                     <td className="p-5 md:p-6 font-heading text-base font-bold uppercase text-frame-fg">{row.stage}</td>
                     <td className="p-5 md:p-6 font-bold text-frame-accent whitespace-nowrap">{row.timeline}</td>
-                    <td className="p-5 md:p-6 text-sm text-frame-muted-fg leading-relaxed">{row.whatWeDo}</td>
+                    <td className="p-5 md:p-6 text-sm text-frame-muted-fg leading-relaxed wide:text-lg">{row.whatWeDo}</td>
                   </tr>
                 ))}
               </tbody>
@@ -309,7 +309,7 @@ export default function Pricing() {
             <h3 className="font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               How Ongoing Maintenance Works
             </h3>
-            <p className="text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="text-sm sm:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Once your maintenance plan is active, we continuously manage the technical tasks included in your selected package. Routine work may happen weekly or monthly depending on your website and its maintenance requirements.
             </p>
             <p className="text-sm sm:text-base font-bold text-frame-fg leading-relaxed">

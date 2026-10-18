@@ -33,7 +33,7 @@ export default function StudioProcess() {
                     <Icon className="h-5 w-5 text-frame-muted-fg transition-colors group-hover:text-frame-accent" />
                   </div>
                   <h3 className="mt-5 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">{st.title}</h3>
-                  <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">{st.description}</p>
+                  <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">{st.description}</p>
                 </div>
                 <div className="relative z-10 mt-6 border-t border-frame-border/60 pt-4">
                   <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-frame-accent">{st.action} &rarr;</span>
@@ -43,7 +43,7 @@ export default function StudioProcess() {
           })}
         </div>
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border border-frame-border bg-frame-muted/20 p-6 sm:flex-row">
-          <p className="text-sm font-medium text-frame-muted-fg">Your date, your setup, your goal — three messages and we take it from there.</p>
+          <p className="text-sm font-medium text-frame-muted-fg wide:text-lg">Your date, your setup, your goal — three messages and we take it from there.</p>
           <PosterButton href="https://wa.me/8801768146650" className="shrink-0 text-xs">Start on WhatsApp</PosterButton>
         </div>
       </div>

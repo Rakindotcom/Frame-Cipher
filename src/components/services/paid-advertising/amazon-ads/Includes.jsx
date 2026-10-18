@@ -166,12 +166,12 @@ export default function Includes() {
                   <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {service.body}
                   </p>
                   {service.note && (
                     <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-5">
-                      <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                         {service.note}
                       </p>
                     </div>
@@ -184,7 +184,7 @@ export default function Includes() {
                   </p>
                   <ul className="grid gap-3 sm:grid-cols-2">
                     {service.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                         <span>{item}</span>
                       </li>

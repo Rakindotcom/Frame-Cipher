@@ -54,7 +54,7 @@ export default function Overview() {
               <h3 className="mt-5 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">
                 {type.title}
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {type.body}
               </p>
             </article>
@@ -90,7 +90,7 @@ export default function Overview() {
             <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               See what your Page is communicating
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               A poorly structured Page creates friction before a customer ever contacts you. We
               review the information customers see and the operational setup behind the Page.
             </p>

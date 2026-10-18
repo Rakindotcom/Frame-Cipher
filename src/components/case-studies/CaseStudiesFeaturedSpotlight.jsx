@@ -76,7 +76,7 @@ export default function CaseStudiesFeaturedSpotlight() {
               <h4 className="mt-5 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg">
                 {result.label}
               </h4>
-              <p className="mt-4 text-base font-medium leading-tight text-frame-muted-fg">
+              <p className="mt-4 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">
                 {result.impact}
               </p>
             </article>
@@ -120,7 +120,7 @@ export default function CaseStudiesFeaturedSpotlight() {
                 <h4 className="mt-4 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-2xl">
                   {stage.title}
                 </h4>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
                   {stage.description}
                 </p>
               </article>
@@ -178,7 +178,7 @@ export default function CaseStudiesFeaturedSpotlight() {
                 <h4 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
                   350K+ Views on Video 01
                 </h4>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Proved that hook engineering and audience retention outperform channel size. The client reached massive organic reach immediately without paid boost or existing follower base.
                 </p>
               </article>
@@ -187,7 +187,7 @@ export default function CaseStudiesFeaturedSpotlight() {
                 <h4 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
                   Consistent 100K to 1M Views
                 </h4>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Subsequent videos repeatedly hit 447K, 390K, 378K, 333K, 287K, and 1M views, establishing Dr. Saleheen as a recognized thought leader in supply chain and organizational leadership.
                 </p>
               </article>

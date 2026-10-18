@@ -122,7 +122,7 @@ export default function FAQ({ service }) {
                   return (
                     <p
                       key={blockIdx}
-                      className={`text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base ${
+                      className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
                         blockIdx > 0 ? 'mt-4' : ''
                       }`}
                     ><AutoLinks currentPath="/services/content-writing/website-content" allowed={["/services/website-design-development/business-website"]}>

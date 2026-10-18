@@ -41,7 +41,7 @@ export default function Migrations() {
                 <h3 className="mt-2 font-heading text-base sm:text-lg font-bold uppercase text-frame-fg">
                   {mig.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+                <p className="mt-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
                   {mig.desc}
                 </p>
               </div>
@@ -49,7 +49,7 @@ export default function Migrations() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg border-l-2 border-frame-accent pl-3 py-1">
+        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg border-l-2 border-frame-accent pl-3 py-1 wide:text-lg">
           A migration plan should protect valuable content and functionality while giving the new architecture a clear path forward.
         </p>
       </div>

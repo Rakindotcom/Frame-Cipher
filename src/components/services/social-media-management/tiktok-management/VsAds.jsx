@@ -56,7 +56,7 @@ export default function VsAds() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Organic TikTok Management
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Organic TikTok management focuses on building and managing the account through content and
                 community activity. This includes:
               </p>
@@ -85,7 +85,7 @@ export default function VsAds() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 TikTok Ads Management
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 TikTok Ads Management focuses on paid campaigns and advertising objectives. Depending on
                 the campaign, this may include:
               </p>
@@ -121,7 +121,7 @@ export default function VsAds() {
                 <h4 className="font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-fg">
                   {item.title}
                 </h4>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {item.body}
                 </p>
               </div>

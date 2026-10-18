@@ -54,13 +54,13 @@ export default function Hero() {
             For SMEs, Startups, Ecommerce Brands &amp; Established Businesses
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides Website Content Writing Service in Bangladesh for businesses that need clear,
             credible, and brand-aligned copy across their core website pages. We write homepage, About, service,
             and supporting website content for businesses in Bangladesh and international markets, including the
             US, UK, Australia, Canada, and UAE.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Our approach combines business discovery, audience understanding, messaging strategy, page-specific
             copywriting, brand voice, SEO-aware structure, and cross-page consistency.
           </p>

@@ -63,7 +63,7 @@ export default function SystemVsOneOff() {
               11 Core System Tokens
             </span>
           </div>
-          <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
             If your business regularly produces brochures, presentations, packaging, sales documents, or marketing assets, creating every piece independently leads to inconsistent typography, mismatched colors, and fractured layouts. We establish reusable design rules across:
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -92,7 +92,7 @@ export default function SystemVsOneOff() {
               <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 When a One-Off Design Makes Sense
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A single project is the right choice when you have an isolated need and already possess a clear direction or only need one specific deliverable produced cleanly:
               </p>
               <ul className="mt-6 space-y-2.5">
@@ -125,7 +125,7 @@ export default function SystemVsOneOff() {
               <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 When a Design System Makes More Sense
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A reusable system becomes vastly more valuable when your team regularly produces branded touchpoints across departments and channels:
               </p>
               <ul className="mt-6 space-y-2.5">

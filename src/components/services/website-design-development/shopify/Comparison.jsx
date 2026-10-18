@@ -118,14 +118,14 @@ export default function Comparison() {
               <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-frame-fg">
                 {card.platform}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {card.desc}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
           We recommend the platform based on the project rather than forcing every business into the same technology.
         </p>
       </div>

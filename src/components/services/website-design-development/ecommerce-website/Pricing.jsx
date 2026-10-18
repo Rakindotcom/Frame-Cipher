@@ -137,7 +137,7 @@ export default function Pricing() {
                 <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                   {pkg.for}
                 </p>
 
@@ -187,7 +187,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Technical Architecture & Platform Comparison
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
               Compare package deliverables, capabilities, and system integrations to find the right scope for your store.
             </p>
           </div>
@@ -232,7 +232,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-frame-border bg-frame-muted/20 p-5">
-            <p className="text-xs md:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
               The packages provide a starting framework, not fixed limits for every project. We can adjust the scope based on your catalog, platform, integrations, and operational requirements.
             </p>
             <PosterButton href="/contact" className="shrink-0">
@@ -247,7 +247,7 @@ export default function Pricing() {
           <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
             E-commerce Website Development Timeline
           </h2>
-          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
             Ecommerce projects typically take 2&ndash;10+ weeks depending on catalog size, platform, integrations, content readiness, and custom functionality.
           </p>
 
@@ -282,7 +282,7 @@ export default function Pricing() {
               <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Website Ownership, Store Management & Handover
               </h2>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Your ecommerce store should remain a manageable business asset after launch. The project agreement defines ownership, access, deliverables, and handover terms. Depending on the platform and scope, this can include:
               </p>
               <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -306,7 +306,7 @@ export default function Pricing() {
               <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Post-Launch Support & E-commerce Maintenance
               </h2>
-              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 <p>
                   After launch, your store may need ongoing technical updates, security maintenance, backups, performance checks, product or feature updates, and troubleshooting.
                 </p>
@@ -370,7 +370,7 @@ export default function Pricing() {
               </ul>
             </div>
           </div>
-          <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
             Framecipher is based in Dhaka, Bangladesh, and builds e-commerce stores for merchants across Bangladesh as well as clients worldwide. Our process is built to handle different payment behavior, logistics needs, and market expectations.
           </p>
         </div>

@@ -202,7 +202,7 @@ export default function Pricing() {
             <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Quality Review & Revisions
             </h3>
-            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Every design batch goes through our 7-point review before final delivery. We verify the agreed graphics against strict visual criteria:
             </p>
           </div>
@@ -230,7 +230,7 @@ export default function Pricing() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border/80 pt-6 grid gap-6 md:grid-cols-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed">
+          <div className="mt-8 border-t border-frame-border/80 pt-6 grid gap-6 md:grid-cols-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
             <div className="border-l-2 border-frame-accent pl-4 space-y-2">
               <strong className="text-frame-fg block font-mono uppercase text-xs">Included Revision Round</strong>
               <p>
@@ -263,7 +263,7 @@ export default function Pricing() {
               <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Social Media Graphics Services in Bangladesh & International Markets
               </h3>
-              <p className="text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Framecipher is based in Dhaka and provides social media graphics services for businesses across Bangladesh and international markets including the US, UK, Australia, and Canada.
               </p>
               <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-medium text-frame-fg">

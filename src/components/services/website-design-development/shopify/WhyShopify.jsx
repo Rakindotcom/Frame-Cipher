@@ -46,14 +46,14 @@ export default function WhyShopify() {
                   {item.title}
                 </h3>
               </div>
-              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 {item.desc}
               </p>
             </article>
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
           Shopify works best when its managed infrastructure and extensibility match the way your business operates.
         </p>
       </div>

@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             Controlled studio lighting with reflection management and colour-accurate retouching shows customers
             exactly what they will receive.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before shooting starts, we agree the product count, angles per product, backgrounds and marketplace
             specs in writing. Styling, capture and retouching are then planned around where the images will run:
             Daraz, Shopify, Amazon or paid social.

@@ -60,7 +60,7 @@ export default function ServicesBusinessGoals() {
                   <h3 className="font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-3xl">
                     {goal.title}
                   </h3>
-                  <p className="mt-3 text-base font-medium leading-snug text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">
+                  <p className="mt-3 text-base font-medium leading-snug text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">
                     {goal.description}
                   </p>
                 </div>

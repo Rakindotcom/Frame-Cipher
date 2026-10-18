@@ -63,7 +63,7 @@ export function GrowthOSHome() {
           <div className="flex items-start justify-between gap-6 border-b border-frame-border pb-5">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.34em] text-cyan-300">Growth OS</p>
-              <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base">Strategy to execution map</p>
+              <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base wide:text-lg">Strategy to execution map</p>
             </div>
             <span className="mt-2 h-3 w-3 rounded-full bg-emerald-400 shadow-[0_0_24px_rgba(52,211,153,0.8)]" aria-hidden="true" />
           </div>
@@ -80,14 +80,14 @@ export function GrowthOSHome() {
               <h3 className="mt-7 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-3xl">
                 {module.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 md:text-base">
+              <p className="mt-4 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 md:text-base wide:text-lg">
                 {module.description}
               </p>
             </article>
           ))}
           </div>
 
-          <p className="border border-dashed border-frame-border p-5 text-sm font-medium leading-tight text-frame-muted-fg md:text-base">
+          <p className="border border-dashed border-frame-border p-5 text-sm font-medium leading-tight text-frame-muted-fg md:text-base wide:text-lg">
             Every launch feeds the next sharper move: plan, produce, build, launch, measure, and scale.
           </p>
         </div>
@@ -147,7 +147,7 @@ export function GrowthOSServices() {
                 <h3 className="font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-3xl">
                   {module.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-tight text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm font-medium leading-tight text-frame-muted-fg md:text-base wide:text-lg">
                   {module.description}
                 </p>
               </article>

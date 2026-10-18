@@ -13,7 +13,7 @@ export default function CaseStudiesGrid({
         <h3 className="mt-4 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-5xl">
           No case studies found matching &ldquo;{searchQuery}&rdquo;
         </h3>
-        <p className="mt-4 text-base font-medium text-frame-muted-fg">
+        <p className="mt-4 text-base font-medium text-frame-muted-fg wide:text-lg">
           Try searching for another client name, industry, service, metric, or keyword, or reset the filters.
         </p>
         <button
@@ -98,7 +98,7 @@ export default function CaseStudiesGrid({
                 <h2 className="mt-1 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
                   {sec.title}
                 </h2>
-                <p className="mt-1 text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-sm font-medium text-frame-muted-fg wide:text-lg">
                   {sec.subtitle}
                 </p>
               </div>

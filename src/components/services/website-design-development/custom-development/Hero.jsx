@@ -113,19 +113,19 @@ export default function Hero() {
               <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-1">
                 <div className="bg-frame-bg p-5">
                   <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
-                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     Growing companies and products with performance, integration, or scalability needs that pre-built platforms genuinely can&apos;t accommodate.
                   </p>
                 </div>
                 <div className="bg-frame-bg p-5">
                   <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
-                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     Custom websites, web applications, SaaS products, headless ecommerce, dashboards, and portals on Next.js/React with full source ownership.
                   </p>
                 </div>
                 <div className="bg-frame-bg p-5">
                   <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-                  <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     Every project starts with a platform-fit assessment, then frontend, backend, data, and performance are built around what your product needs.
                   </p>
                 </div>

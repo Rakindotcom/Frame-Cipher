@@ -44,7 +44,7 @@ export default function ServiceAreas() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Instagram Management In Bangladesh
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 For Bangladeshi businesses, we can adapt Instagram planning to local audiences,
                 customer behavior, language preferences, cultural context, seasonal campaigns, and
                 market-specific opportunities. Depending on the brand, content can be developed in
@@ -75,7 +75,7 @@ export default function ServiceAreas() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 International Instagram Management
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We also support businesses targeting audiences outside Bangladesh. International
                 Instagram management can include market-specific planning across the following areas.
               </p>
@@ -98,7 +98,7 @@ export default function ServiceAreas() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The strategy is adapted to the target market rather than treating every audience as one
             global group.
           </p>

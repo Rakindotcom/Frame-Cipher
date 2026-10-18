@@ -86,7 +86,7 @@ export default function TargetAudience() {
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.description}
                 </p>
               </div>
@@ -112,7 +112,7 @@ export default function TargetAudience() {
               <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Agencies & Marketing Teams
               </h3>
-              <p className="text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 For design agencies, performance marketing teams, and brand consultants that need a reliable, professional photography partner for campaigns, launches, ecommerce catalogs, or ongoing creative production without studio management overhead.
               </p>
               <div className="pt-1 flex items-center gap-2 text-xs font-mono font-bold text-frame-accent">

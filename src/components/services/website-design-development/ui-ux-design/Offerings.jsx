@@ -89,7 +89,7 @@ export default function Offerings() {
                 <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {service.intro}
                 </p>
                 <p className="mt-6 text-xs font-black uppercase tracking-wider text-frame-fg">

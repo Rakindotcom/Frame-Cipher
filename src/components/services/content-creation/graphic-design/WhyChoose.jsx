@@ -87,7 +87,7 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -111,7 +111,7 @@ export default function WhyChoose() {
             </span>
           </div>
 
-          <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
             To keep production fast and focused, we review these inputs before production begins. If any asset is missing or in progress, we help identify and coordinate requirements during briefing:
           </p>
 
@@ -135,7 +135,7 @@ export default function WhyChoose() {
               <h3 className="mt-1 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
                 Selected Graphic Design Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl wide:text-lg">
                 Explore selected graphic design projects across business presentations, company profiles, brochures, packaging, print collateral, marketing materials, and corporate communication.
               </p>
             </div>

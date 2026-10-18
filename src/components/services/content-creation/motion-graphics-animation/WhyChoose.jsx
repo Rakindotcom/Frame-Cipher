@@ -66,7 +66,7 @@ export default function WhyChoose() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function WhyChoose() {
           <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
             Coordinated With Other Creative Services
           </h4>
-          <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-3xl">
+          <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-3xl wide:text-lg">
             Where your campaign demands live-action integration, paid ad management, or full brand identity design, motion graphics connects seamlessly across our in-house departments:
           </p>
 
@@ -109,7 +109,7 @@ export default function WhyChoose() {
               <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Selected Motion Graphics & Animation Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl wide:text-lg">
                 Explore real Framecipher client productions across 2D explainers, 3D product visualizations, kinetic typography, and SaaS interface animations.
               </p>
             </div>

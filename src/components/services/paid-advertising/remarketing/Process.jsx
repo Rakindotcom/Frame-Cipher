@@ -89,7 +89,7 @@ export default function Process() {
                   <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
                     {step.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {step.body}
                   </p>
                 </div>
@@ -103,7 +103,7 @@ export default function Process() {
                     )}
                     <ul className="grid gap-3 md:grid-cols-2">
                       {step.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                           <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                           <span>{item}</span>
                         </li>

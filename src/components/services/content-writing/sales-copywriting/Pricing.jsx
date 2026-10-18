@@ -79,7 +79,7 @@ export default function Pricing() {
                 <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
                   {pkg.for}
                 </p>
 
@@ -135,7 +135,7 @@ export default function Pricing() {
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Final pricing is confirmed after the scope, format, research requirements, and delivery schedule
               are agreed.
             </p>

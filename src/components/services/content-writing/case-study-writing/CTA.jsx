@@ -11,11 +11,11 @@ export default function CTA() {
         <h2 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg md:text-4xl">
           Start Your Case Study Project
         </h2>
-        <p className="mx-auto mt-6 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-6 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Your customer results already exist. The challenge is turning those results into a story that prospects
           can understand, trust, and use when making a buying decision.
         </p>
-        <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mx-auto mt-4 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Framecipher handles the research, interviews, writing, evidence integration, revisions, and approval
           coordination so your team can turn real customer success into useful sales and marketing content.
         </p>

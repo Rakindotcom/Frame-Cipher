@@ -31,7 +31,7 @@ export default function AdsFormulasBreakdown() {
         <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           How the Performance Math Works
         </h3>
-        <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+        <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
           The exact mathematical models, auction algorithms, and unit economics equations that power our advertising calculators and client media plans.
         </p>
       </div>
@@ -65,7 +65,7 @@ export default function AdsFormulasBreakdown() {
           <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
             {activeFormula.title}
           </h4>
-          <p className="mt-2 text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+          <p className="mt-2 text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
             {activeFormula.summary}
           </p>
         </div>

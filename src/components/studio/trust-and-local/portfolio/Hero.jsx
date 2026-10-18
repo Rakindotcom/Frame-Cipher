@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             ৳3,00,000. We tag every case — starter ৳25,000 to ৳80,000, signature ৳1,00,000 to ৳3,00,000, flagship
             above ৳5,00,000 — so expectations calibrate before the first call.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Ask for the band behind any reel, plus grading before-and-afters and full films in your industry
             rather than trailers alone.
           </p>

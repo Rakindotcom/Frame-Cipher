@@ -49,7 +49,7 @@ export default function WooCommerceDev() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {feat.title}
                 </h3>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {feat.description}
                 </p>
               </div>
@@ -58,7 +58,7 @@ export default function WooCommerceDev() {
         </div>
 
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We recommend WooCommerce when its flexibility and WordPress content ecosystem provide a clear advantage for the business.
           </p>
         </div>

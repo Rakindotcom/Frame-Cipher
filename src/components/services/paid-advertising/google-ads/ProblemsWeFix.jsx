@@ -58,7 +58,7 @@ export default function ProblemsWeFix() {
                 <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {problem.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {problem.body.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}
@@ -75,7 +75,7 @@ export default function ProblemsWeFix() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Not sure which problem your account has?
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Every engagement starts with an account review that identifies what is actually
                 happening before any changes are made.
               </p>

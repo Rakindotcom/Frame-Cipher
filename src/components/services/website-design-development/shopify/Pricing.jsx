@@ -143,7 +143,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
             A store using an existing theme and standard functionality can usually move faster than a fully custom storefront with integrations, migration work, or advanced Shopify features.
           </p>
         </div>
@@ -177,7 +177,7 @@ export default function Pricing() {
                   </p>
                 )}
                 {pkg.description && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
                 )}
@@ -215,7 +215,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
             Final pricing and timeline should be confirmed after the technical scope, content requirements, integrations, and Shopify plan requirements are reviewed.
           </p>
         </div>
@@ -263,7 +263,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                   App &amp; Integration Handover
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   We document the important apps, integrations, accounts, and configuration decisions included within the agreed project scope.
                 </p>
               </div>
@@ -277,7 +277,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                   Practical Training
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Training focuses on the Shopify features your team will actually use rather than overwhelming you with unnecessary technical details.
                 </p>
               </div>
@@ -291,7 +291,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                   Documentation &amp; Ownership
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Where included in the project scope, we provide basic documentation covering routine store management, important access details, and agreed post-launch procedures. The exact access, documentation, account ownership, licenses, and training provided depend on the project agreement.
                 </p>
               </div>
@@ -308,7 +308,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Post-Launch Support &amp; Warranty
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Launching a Shopify store is only one part of the project. Ongoing maintenance helps keep the storefront stable, compatible, and aligned with changing business requirements.
             </p>
           </div>
@@ -331,7 +331,7 @@ export default function Pricing() {
             <h3 className="font-heading text-lg font-bold uppercase text-frame-fg mb-2">
               Warranty &amp; Workmanship
             </h3>
-            <div className="space-y-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed">
+            <div className="space-y-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
               <p>
                 Any post-launch warranty or workmanship coverage should follow the exact terms agreed in the project contract.
               </p>

@@ -69,7 +69,7 @@ export default function VsGeneric() {
                   >
                     {row.title}
                   </th>
-                  <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:p-5">
+                  <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-5">
                     {row.generic}
                   </td>
                   <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-fg md:p-5">
@@ -81,7 +81,7 @@ export default function VsGeneric() {
           </table>
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           The difference is not simply the number of keywords in an article. It is the planning and
           optimization process behind the content.
         </p>

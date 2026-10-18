@@ -29,19 +29,19 @@ export default function CTA() {
             <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Creative Director Review</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Every inquiry is personally reviewed by our creative leadership before initial consultation.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Portfolio Work Matching</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   We show you verified production examples in your specific niche, format, and platform.
                 </p>
               </div>
               <div className="bg-frame-bg p-5">
                 <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Transparent Estimates</span>
-                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   Transparent timelines, deliverables, equipment specs, and pricing before work begins.
                 </p>
               </div>

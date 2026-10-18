@@ -39,7 +39,7 @@ export default function CaseStudies() {
               <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Measurable data only
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We do not publish unsupported ranking, traffic, or revenue claims.
               </p>
             </div>

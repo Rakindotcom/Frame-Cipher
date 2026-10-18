@@ -40,7 +40,7 @@ export default function Overview() {
             <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               See what is working, what is missing
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               We review your existing profiles, content, engagement, and platform mix to identify
               where your social presence can improve before any commitment is made.
             </p>

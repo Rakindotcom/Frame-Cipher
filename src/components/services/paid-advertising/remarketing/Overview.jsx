@@ -20,7 +20,7 @@ export default function Overview() {
           Remarketing works best when previous interactions are used to make the next message more
           relevant.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           A homepage visitor, product viewer, cart abandoner, past customer, and qualified lead
           should not automatically receive the same campaign.
         </p>
@@ -42,7 +42,7 @@ export default function Overview() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             The goal is simple: re-engage people who already showed interest without wasting spend on
             audiences that no longer need the message.
           </p>

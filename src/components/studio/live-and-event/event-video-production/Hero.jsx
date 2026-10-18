@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             fast without disrupting attendees — locked stage camera plus roaming gimbal, board-feed audio, and an
             interview corner for testimonials.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             A 24-hour teaser ships while PR momentum is hot, then the full aftermovie and session archive follow for
             sponsors, reporting and next-year promotion.
           </p>

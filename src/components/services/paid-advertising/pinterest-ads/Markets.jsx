@@ -46,7 +46,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {area.title}
               </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 {area.body}
               </p>
               {area.bullets?.length > 0 && (
@@ -74,7 +74,7 @@ export default function Markets() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Before launching, we confirm that the advertiser account and target market qualify
             under Pinterest&apos;s current advertising requirements. Everything else, strategy,
             creative, catalog, tracking, and optimization, is planned around that confirmed setup.

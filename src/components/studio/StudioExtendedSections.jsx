@@ -32,8 +32,8 @@ export default function StudioExtendedSections({ data }) {
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
               {marketNote && (
                 <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-                  <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">{marketNote}</p>
-                  <p className="mt-4 flex items-start gap-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">{marketNote}</p>
+                  <p className="mt-4 flex items-start gap-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     <MapPin className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
                     <span>
                       All sessions run from our physical stage: 6th Floor, Eurasia Building, Matikata ECB Chattar,
@@ -55,7 +55,7 @@ export default function StudioExtendedSections({ data }) {
                         key={i}
                         className="flex items-start justify-between gap-4 border-b border-frame-border/50 px-6 py-3.5 last:border-0"
                       >
-                        <dt className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">{item}</dt>
+                        <dt className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item}</dt>
                         <dd className="shrink-0 text-xs md:text-sm font-black text-frame-fg text-right">{range}</dd>
                       </div>
                     ))}
@@ -86,9 +86,9 @@ export default function StudioExtendedSections({ data }) {
                   <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg leading-snug">
                     {s.h}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">{s.p1}</p>
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{s.p1}</p>
                   {s.p2 && (
-                    <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{s.p2}</p>
+                    <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{s.p2}</p>
                   )}
                 </article>
               ))}
@@ -120,7 +120,7 @@ export default function StudioExtendedSections({ data }) {
                         <span className="text-frame-accent font-black">Q{i + 1}</span>
                         <span>{f.q}</span>
                       </summary>
-                      <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">{f.a}</p>
+                      <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{f.a}</p>
                     </details>
                   ))}
                 </div>
@@ -152,7 +152,7 @@ export default function StudioExtendedSections({ data }) {
                     </Link>
                   ))}
                 </div>
-                <p className="mt-6 border-2 border-frame-border bg-frame-bg p-5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-6 border-2 border-frame-border bg-frame-bg p-5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Not sure which service fits? Message our directors on WhatsApp at{' '}
                   <a href="https://wa.me/8801768146650" className="font-bold text-frame-fg underline decoration-frame-accent/50">
                     +880 1768-146650

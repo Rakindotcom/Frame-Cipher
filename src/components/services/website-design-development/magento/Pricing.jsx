@@ -127,7 +127,7 @@ export default function Pricing() {
                     Typical Delivery: {pkg.timeline}
                   </p>
                 )}
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.description}
                 </p>
                 {pkg.features && (
@@ -164,7 +164,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs sm:text-sm text-frame-muted-fg border-t border-frame-border/60 pt-4">
+          <p className="mt-6 text-xs sm:text-sm text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
             Final pricing depends on the confirmed technical scope. Starting prices should be treated as indicative until the project requirements are reviewed.
           </p>
           <div className="mt-6">

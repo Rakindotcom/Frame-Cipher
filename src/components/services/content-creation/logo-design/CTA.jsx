@@ -30,10 +30,10 @@ export default function CTA({ service }) {
             <h2 className="mt-4 font-heading text-[clamp(2.4rem,5.5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Start Your Logo Design Project
             </h2>
-            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl wide:text-lg">
               Whether you are launching a new business, replacing an outdated logo, introducing a new product, or building a stronger visual identity, we can help define the right logo scope.
             </p>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
               Share your business information, existing brand materials, preferred applications, and preferred timeline. We will review the requirements and recommend the appropriate logo approach, deliverables, timeline, and pricing.
             </p>
 

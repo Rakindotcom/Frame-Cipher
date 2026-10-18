@@ -10,13 +10,13 @@ export default function BangladeshWorldwide() {
         SaaS App Development Services Across Bangladesh &amp; Worldwide
       </h2>
       <div className="mt-6 grid gap-6 md:grid-cols-2">
-        <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Framecipher provides SaaS app development services from Dhaka, Bangladesh for startups, businesses, and organizations across the country and international markets.
         </p>
-        <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           We work with businesses in Dhaka, Chattogram, Sylhet, Rajshahi, Khulna, Gazipur, Narayanganj, and other locations across Bangladesh.
         </p>
-        <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           Our remote development workflow also supports clients in the USA, UK, Australia, Canada, UAE, and other international markets.
         </p>
         <p className="text-sm md:text-base font-semibold leading-relaxed text-frame-fg border-2 border-frame-border bg-frame-bg p-5 flex items-center">

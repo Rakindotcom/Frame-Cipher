@@ -37,7 +37,7 @@ export default function Solutions() {
           We work across the Amazon advertising ecosystem that is available for the account,
           product, and marketplace.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Amazon&apos;s current advertising ecosystem includes sponsored ads, display advertising,
           Brand Stores, and Amazon DSP, with availability varying by marketplace and advertiser
           type.
@@ -53,7 +53,7 @@ export default function Solutions() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {solution.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/paid-advertising/amazon-ads" allowed={["/services/website-design-development/landing-pages"]}>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/paid-advertising/amazon-ads" allowed={["/services/website-design-development/landing-pages"]}>
                 {solution.body}
               </AutoLinks></p>
             </div>

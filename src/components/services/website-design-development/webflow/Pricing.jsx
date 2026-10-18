@@ -147,7 +147,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
             A straightforward marketing website can move faster than a build involving complex CMS relationships, extensive interactions, migration work, or custom integrations.
           </p>
         </div>
@@ -181,7 +181,7 @@ export default function Pricing() {
                   </p>
                 )}
                 {pkg.description && (
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
                 )}
@@ -219,7 +219,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
             Final pricing and timeline should be confirmed after reviewing the design, content structure, integrations, and technical requirements.
           </p>
         </div>
@@ -267,7 +267,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                   Component &amp; Design-System Handover
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   We explain the reusable components, naming conventions, CMS relationships, and approved editing areas included in the project.
                 </p>
               </div>
@@ -281,7 +281,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                   Custom Code Documentation
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   Where custom JavaScript, embeds, or integrations are included, documentation can explain what the code does, what it depends on, and how future developers should work with it.
                 </p>
               </div>
@@ -295,7 +295,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
                   Website Ownership
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   At project close, we provide the agreed access and ownership arrangements defined in the project contract.
                 </p>
               </div>
@@ -312,7 +312,7 @@ export default function Pricing() {
             <h2 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
               Post-Launch Webflow Support &amp; Maintenance
             </h2>
-            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Launching the site is only one part of the project. Ongoing support can include:
             </p>
           </div>
@@ -326,7 +326,7 @@ export default function Pricing() {
             ))}
           </div>
 
-          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
+          <p className="mt-6 text-xs sm:text-sm italic text-frame-muted-fg border-t border-frame-border/60 pt-4 wide:text-lg">
             We scope ongoing support separately based on the level of assistance the website requires.
           </p>
         </div>

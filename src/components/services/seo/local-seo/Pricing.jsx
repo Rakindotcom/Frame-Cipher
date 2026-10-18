@@ -218,7 +218,7 @@ export default function Pricing() {
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 lg:flex-row lg:items-center lg:justify-between">
           <div className="max-w-3xl space-y-2">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               For this reason, we do not force every business into the same package.
             </p>
             <p className="text-sm md:text-base font-semibold leading-relaxed text-frame-fg">

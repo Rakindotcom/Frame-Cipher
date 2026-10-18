@@ -157,7 +157,7 @@ export default function Pricing() {
                     </p>
                     <ul className="mt-3 space-y-2">
                       {pkg.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                           <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                             <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -187,12 +187,12 @@ export default function Pricing() {
             <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               What Is Included
             </h2>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
               Depending on the selected scope, projects can include:
             </p>
             <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {includedItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg">
+                <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                     <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -203,7 +203,7 @@ export default function Pricing() {
               ))}
             </ul>
             <div className="mt-6 border-t border-frame-border/60 pt-4">
-              <p className="text-xs md:text-sm font-medium text-frame-muted-fg italic">
+              <p className="text-xs md:text-sm font-medium text-frame-muted-fg italic wide:text-lg">
                 Prices shown are starting guidelines. The final proposal confirms the project scope, fee, deliverables, and delivery schedule before work begins.
               </p>
             </div>
@@ -214,12 +214,12 @@ export default function Pricing() {
             <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               What Can Affect the Timeline?
             </h2>
-            <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Most API and integration projects take 1–8+ weeks. A single third-party integration usually moves faster than a multi-system integration. Projects can take longer when they involve:
             </p>
             <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
               {timelineFactors.map((factor, fIdx) => (
-                <li key={fIdx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+                <li key={fIdx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
                   <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                   <span>{factor}</span>
                 </li>
@@ -239,7 +239,7 @@ export default function Pricing() {
             <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
               Project Scope, Review &amp; Support
             </h2>
-            <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base lg:mt-0 wide:text-lg">
               Clear scope helps prevent unexpected development changes.
             </p>
           </div>
@@ -253,7 +253,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {gov.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {gov.desc}
                 </p>
               </div>

@@ -138,7 +138,7 @@ export default function Deliverables() {
               Trademark Guidance
             </span>
           </div>
-          <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
             We develop original brand concepts grounded in thorough competitive category audits. However, branding services do not constitute formal legal trademark clearance or statutory registration. If you plan to register trademarks with national IP authorities, we recommend conducting formal trademark searches and legal review before final filing.
           </p>
         </div>

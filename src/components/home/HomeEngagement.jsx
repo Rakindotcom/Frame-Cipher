@@ -26,7 +26,7 @@ export default function HomeEngagement() {
                 <p className="mt-7 text-[10px] font-black uppercase tracking-[0.26em] text-frame-accent">
                   Best for
                 </p>
-                <p className="mt-2 text-sm font-medium leading-snug text-frame-muted-fg sm:text-base">
+                <p className="mt-2 text-sm font-medium leading-snug text-frame-muted-fg sm:text-base wide:text-lg">
                   {model.bestFor}
                 </p>
               </div>
@@ -35,7 +35,7 @@ export default function HomeEngagement() {
                 <p className="text-[10px] font-black uppercase tracking-[0.26em] text-frame-accent">
                   Includes
                 </p>
-                <p className="mt-2 text-sm font-medium leading-snug text-frame-muted-fg sm:text-base">
+                <p className="mt-2 text-sm font-medium leading-snug text-frame-muted-fg sm:text-base wide:text-lg">
                   {model.includes}
                 </p>
               </div>

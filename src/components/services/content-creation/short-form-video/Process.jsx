@@ -90,7 +90,7 @@ export default function Process() {
                 <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {phase.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {phase.description}
                 </p>
               </div>
@@ -116,7 +116,7 @@ export default function Process() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Short-Form Video Production Timeline
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               Timelines depend on the number of videos and production setup. A simple batch can move quickly from brief to final delivery (3–7 business days). For recurring monthly production, filming is organized into scheduled batch sessions with editing and delivery handled throughout the agreed content cycle.
             </p>
           </div>

@@ -39,7 +39,7 @@ export default function Timeline() {
         </div>
 
         <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-          <p className="bg-frame-bg p-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="bg-frame-bg p-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Client interviews, missing information, approvals, additional revision rounds, and complex research can
             affect the final timeline.
           </p>

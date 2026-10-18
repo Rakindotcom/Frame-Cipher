@@ -54,13 +54,13 @@ export default function Hero() {
             For Businesses In Bangladesh And International Markets
           </p>
 
-          <p className="mx-auto mt-2 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-2 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides TikTok Management Service for businesses in Bangladesh and international
             markets. We combine TikTok strategy, audience research, content planning, short-form video
             production, trend research, search-aware content, publishing, community management, and
             performance reporting.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Our goal is to build a TikTok presence that supports your business goals instead of treating
             the platform as another content channel to maintain.
           </p>
@@ -87,7 +87,7 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Manage For</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Ecommerce and product brands, food and hospitality businesses, local companies,
                 service businesses, SaaS and technology brands, creator-led brands, and
                 international businesses.
@@ -95,14 +95,14 @@ export default function Hero() {
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Where We Work</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 TikTok for businesses across Bangladesh, including Dhaka, plus the US, UK,
                 Australia, Canada, and UAE with market-specific content strategies.
               </p>
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Audience research, content pillars, short-form video production, trend research,
                 search-aware content, publishing, community management, and reporting.
               </p>

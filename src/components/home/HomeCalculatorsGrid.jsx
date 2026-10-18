@@ -139,7 +139,7 @@ export default function HomeCalculatorsGrid() {
                 </h3>
 
                 {/* Description */}
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85">
                   {item.description}
                 </p>
               </div>
@@ -170,7 +170,7 @@ export default function HomeCalculatorsGrid() {
             <h3 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               Need Multi-Channel Budget Allocation?
             </h3>
-            <p className="mt-1 text-xs md:text-sm text-frame-muted-fg">
+            <p className="mt-1 text-xs md:text-sm text-frame-muted-fg wide:text-lg">
               Compare all 10 platforms side-by-side or download your branded PDF media plan with company forecasts.
             </p>
           </div>

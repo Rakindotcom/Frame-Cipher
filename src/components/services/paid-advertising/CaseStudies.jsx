@@ -23,7 +23,7 @@ export default function CaseStudies() {
         </div>
 
         <div className="mt-10 flex flex-col gap-8 border-t-2 border-frame-border pt-8 lg:flex-row lg:items-center lg:justify-between">
-          <p className="max-w-2xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="max-w-2xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Each case study explains the starting situation, the campaign structure, the
             optimization decisions, and the measurable outcome reported through platform and
             analytics data.

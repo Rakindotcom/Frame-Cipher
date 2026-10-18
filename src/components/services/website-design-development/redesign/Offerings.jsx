@@ -49,7 +49,7 @@ export default function Offerings() {
               {approachesTable.map((row, idx) => (
                 <tr key={idx} className="hover:bg-frame-muted/10 transition-colors">
                   <td className="p-5 md:p-7 font-heading text-base md:text-lg font-bold uppercase text-frame-fg">{row.approach}</td>
-                  <td className="p-5 md:p-7 text-sm md:text-base text-frame-muted-fg leading-relaxed">{row.bestWhen}</td>
+                  <td className="p-5 md:p-7 text-sm md:text-base text-frame-muted-fg leading-relaxed wide:text-lg">{row.bestWhen}</td>
                   <td className="p-5 md:p-7 text-sm md:text-base text-frame-fg font-medium leading-relaxed">{row.whatChanges}</td>
                 </tr>
               ))}

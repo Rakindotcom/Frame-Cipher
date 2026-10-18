@@ -56,14 +56,14 @@ export default function Results() {
               <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
                 Why the context matters
               </h3>
-              <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 A meaningful LinkedIn case study should show more than lead volume. It should
                 explain whether the leads matched the intended customer profile and progressed
                 through the sales process.
               </p>
             </div>
             <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We do not publish performance figures that cannot be supported by the underlying
                 account or approved client evidence.
               </p>

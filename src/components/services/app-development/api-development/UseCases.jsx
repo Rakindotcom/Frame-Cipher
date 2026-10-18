@@ -47,7 +47,7 @@ export default function UseCases() {
         <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
           API Development Use Cases
         </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
           APIs support many different business workflows. We design the API around what your application and connected systems actually need to accomplish.
         </p>
       </div>
@@ -64,7 +64,7 @@ export default function UseCases() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {uc.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {uc.desc}
             </p>
           </div>

@@ -33,7 +33,7 @@ export default function Maintenance() {
             ))}
           </div>
 
-          <div className="mt-8 space-y-4 border-t border-frame-border/80 pt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <div className="mt-8 space-y-4 border-t border-frame-border/80 pt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             <p>
               Ongoing support is scoped separately based on the level of assistance your website requires.
             </p>

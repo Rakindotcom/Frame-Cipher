@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             before you arrive. Our isolated vocal booth removes horns, fans and room echo at the source, so the
             recording needs processing — not rescue.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Direct in person from our lounge or live over Zoom. You leave with de-breathed, levelled 24-bit masters —
             or a finished video track with the narration already synced to picture.
           </p>

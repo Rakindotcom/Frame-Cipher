@@ -44,7 +44,7 @@ function RichParagraphs({ text }) {
     .split(/\n{2,}/)
     .filter(Boolean)
     .map((paragraph) => (
-      <p key={paragraph} className="mb-4 text-base font-medium leading-relaxed text-frame-muted-fg last:mb-0">
+      <p key={paragraph} className="mb-4 text-base font-medium leading-relaxed text-frame-muted-fg last:mb-0 wide:text-lg">
         {paragraph}
       </p>
     ))

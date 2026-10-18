@@ -74,7 +74,7 @@ export default function CaseStudies() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.title}
               </h3>
-              <div className="mt-4 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 <p>
                   <span className="font-bold text-frame-fg">Situation: </span>
                   {item.context}
@@ -97,7 +97,7 @@ export default function CaseStudies() {
             <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
               Every recovery path is different
             </h3>
-            <p className="mt-2 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-2 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               These case types show why diagnosing the actual cause changes the outcome. Tell us
               what happened on your site and we will apply the same evidence-first approach.
             </p>

@@ -62,7 +62,7 @@ export default function BusinessGoals() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/studio/promotional-video-production"]}>
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/studio/promotional-video-production"]}>
                   {item.description}
                 </AutoLinks></p>
               </div>
@@ -78,7 +78,7 @@ export default function BusinessGoals() {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Targeting Multiple Business Goals?
               </h3>
-              <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 We can architect a phased production plan that captures awareness, conversion, and trust assets in one cohesive schedule.
               </p>
             </div>

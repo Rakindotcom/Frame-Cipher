@@ -136,7 +136,7 @@ export default function Pricing() {
                     {pkg.price}
                   </div>
                 </div>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pkg.description}
                 </p>
                 <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-frame-accent">
@@ -199,7 +199,7 @@ export default function Pricing() {
           <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
             Factors That Influence Short-Form Video Quotations
           </h3>
-          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
             Package scope is defined clearly around your production volume and technical requirements:
           </p>
 
@@ -213,7 +213,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               * Final pricing is confirmed after reviewing production requirements and monthly volume.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
@@ -232,7 +232,7 @@ export default function Pricing() {
               <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Short-Form Video for Bangladesh & International Markets
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Framecipher provides short-form video production in Dhaka and across Bangladesh. We also support clients targeting audiences in the USA, UK, Australia, Canada, and UAE with creative development, content planning, mobile-native editing, and Bangladesh-based filming or client-supplied footage editing.
               </p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-frame-fg">

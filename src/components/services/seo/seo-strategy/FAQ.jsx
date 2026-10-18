@@ -46,7 +46,7 @@ export default function FAQ({ service }) {
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 {faq.answer}
               </div>
             </details>
@@ -58,7 +58,7 @@ export default function FAQ({ service }) {
             <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Still deciding what your team needs?
             </h3>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Tell us about your situation, and we will recommend the engagement that actually
               fits.
             </p>

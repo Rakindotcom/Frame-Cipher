@@ -39,7 +39,7 @@ export default function WhyDedicated() {
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -48,7 +48,7 @@ export default function WhyDedicated() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6">
-          <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             <strong className="text-frame-fg uppercase tracking-wider">Please Note:</strong> A dedicated landing page does not guarantee campaign success. Traffic quality, offer strength, targeting, pricing, and market demand still play major roles.
           </p>
         </div>

@@ -52,7 +52,7 @@ export default function Metrics() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {metric.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {metric.body}
               </p>
               {metric.items && (

@@ -68,7 +68,7 @@ export default function FAQ() {
                 <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-snug tracking-tight text-frame-fg">
                   {faq.q}
                 </h3>
-                <p className="mt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {faq.a}
                 </p>
               </div>

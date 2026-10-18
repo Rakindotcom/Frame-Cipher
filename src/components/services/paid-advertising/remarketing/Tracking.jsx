@@ -61,7 +61,7 @@ export default function Tracking() {
         <SectionIntro eyebrow="Infrastructure" title="Tracking Infrastructure for Modern Remarketing">
           Good remarketing depends on accurate audience signals.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Before building campaigns, we review the tracking and data infrastructure that supports
           audience creation, exclusions, conversion measurement, and optimization.
         </p>
@@ -83,7 +83,7 @@ export default function Tracking() {
                   <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
                     {block.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {block.body}
                   </p>
                 </div>
@@ -94,7 +94,7 @@ export default function Tracking() {
                   </p>
                   <ul className="grid gap-3 sm:grid-cols-2">
                     {block.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                         <span>{item}</span>
                       </li>
@@ -107,7 +107,7 @@ export default function Tracking() {
         </div>
 
         <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Server-side tracking is not a replacement for every browser signal. It is part of a
             broader measurement architecture. Audience use depends on platform requirements,
             consent, data quality, and campaign eligibility.

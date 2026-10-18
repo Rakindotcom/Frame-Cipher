@@ -39,7 +39,7 @@ export default function HomeHero() {
         360
       </div>
 
-      <div className="mx-auto w-full max-w-[90rem]">
+      <div className="mx-auto w-full max-w-8xl">
         {/* Top Eyebrow & Status Row */}
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-10">
           <div className="flex flex-wrap items-center gap-3">

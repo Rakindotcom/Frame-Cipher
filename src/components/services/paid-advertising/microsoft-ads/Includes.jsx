@@ -146,7 +146,7 @@ export default function Includes() {
     <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
       <div className="max-w-7xl mx-auto">
         <SectionIntro eyebrow="Services" title="Microsoft Ads Management Services" />
-        <p className="mb-12 max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Everything required to launch, track, and optimize Microsoft Advertising campaigns around
           a measurable business objective.
         </p>
@@ -168,7 +168,7 @@ export default function Includes() {
                   <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
                     {service.title}
                   </h3>
-                  <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {service.body}
                   </p>
                 </div>
@@ -181,14 +181,14 @@ export default function Includes() {
                     {service.items.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg"
+                        className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg"
                       >
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="mt-6 border-l-2 border-frame-accent pl-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-6 border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {service.note}
                   </p>
                   {service.cta && (

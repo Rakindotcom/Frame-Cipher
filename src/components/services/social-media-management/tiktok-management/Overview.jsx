@@ -28,11 +28,11 @@ export default function Overview() {
 
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
           <div>
-            <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Some businesses need more product discovery. Others need brand awareness, website visits,
               customer inquiries, community growth, or stronger visibility in a specific market.
             </p>
-            <p className="mt-4 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We first understand your offer, audience, competitors, content opportunities, and commercial
               goals. Then we build a TikTok strategy around those priorities.
             </p>

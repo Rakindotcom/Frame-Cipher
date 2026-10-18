@@ -53,7 +53,7 @@ export default function ProductionStandards() {
             <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Commercial Print Design
             </h3>
-            <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Print artwork must adhere to unyielding mechanical constraints. Minor oversights in bleed or ink distribution cause expensive printing errors. We prepare final artwork according to exact press requirements:
             </p>
             <ul className="mt-6 space-y-2.5">
@@ -79,7 +79,7 @@ export default function ProductionStandards() {
             <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Digital & Screen Design
             </h3>
-            <p className="mt-2 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Digital assets demand rapid scanning speed, responsive clarity, and strict file weight controls for quick network loading and sharp rendering across high-density Retina and OLED screens:
             </p>
             <ul className="mt-6 space-y-2.5">

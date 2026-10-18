@@ -64,7 +64,7 @@ export default function LongTerm() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Every useful video becomes another entry point into your brand
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Over time, a well-organized library can cover:
               </p>
             </div>
@@ -95,7 +95,7 @@ export default function LongTerm() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Not every video performs as expected
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Instead of immediately abandoning it, we can review:
               </p>
             </div>
@@ -130,7 +130,7 @@ export default function LongTerm() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Your channel should not depend on one type of viewer discovery
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We can build content around:
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function LongTerm() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Different discovery paths allow different audiences to enter your content ecosystem.
               </p>
             </div>
@@ -161,7 +161,7 @@ export default function LongTerm() {
               <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                 Consistently covering relevant topics can establish your brand as a useful source
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 That does not mean publishing the same topic repeatedly. Instead, we build connected
                 content around important areas of your business.
               </p>

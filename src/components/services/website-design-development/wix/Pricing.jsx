@@ -96,7 +96,7 @@ export default function Pricing() {
                     Typical Delivery: {pkg.timeline}
                   </p>
                 )}
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                   {pkg.description}
                 </p>
                 {pkg.features && (

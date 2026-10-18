@@ -45,7 +45,7 @@ export default function Guarantee() {
           </div>
 
           <div className="border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-9">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Every campaign is reviewed against the agreed objectives and scope before major
               changes are made.
             </p>

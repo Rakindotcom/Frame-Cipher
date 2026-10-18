@@ -31,7 +31,7 @@ export default function Timeline() {
                 <span className="font-heading text-sm font-bold uppercase tracking-tight text-frame-fg md:text-base">
                   {row[0]}
                 </span>
-                <span className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <span className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {row[1]}
                 </span>
               </div>
@@ -39,7 +39,7 @@ export default function Timeline() {
           </div>
         </div>
 
-        <p className="mt-8 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mt-8 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Complex offers, regulated industries, multiple markets, or extensive stakeholder review may require
           additional time.
         </p>

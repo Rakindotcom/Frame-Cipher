@@ -72,7 +72,7 @@ export default function Measurement() {
                       <p className="text-sm font-bold uppercase tracking-tight text-frame-fg">
                         {area.title}
                       </p>
-                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-1.5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                         {area.body}
                       </p>
                     </div>

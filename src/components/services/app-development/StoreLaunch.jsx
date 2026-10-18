@@ -45,7 +45,7 @@ export default function StoreLaunch() {
             <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
               {pillar.title}
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               {pillar.desc}
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function StoreLaunch() {
       </div>
 
       <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
-        <p className="text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+        <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
           Final approval remains under the control of Apple and Google.
         </p>
       </div>

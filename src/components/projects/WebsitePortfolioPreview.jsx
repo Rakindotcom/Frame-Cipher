@@ -115,7 +115,7 @@ export default function WebsitePortfolioPreview({
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg">
                     {site.name}
                   </h3>
-                  <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {site.summary}
                   </p>
                   <div className="mt-auto pt-4 flex items-center justify-between">

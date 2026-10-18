@@ -144,7 +144,7 @@ export default function Pricing() {
                       Typical Delivery: {pkg.timeline}
                     </p>
                   )}
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg border-t border-frame-border/60 pt-4">
                     {pkg.description}
                   </p>
                   {pkg.features && (
@@ -169,7 +169,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-2xl">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-2xl wide:text-lg">
               Pricing is indicative rather than fixed. Final pricing is based on the project scope and requirements confirmed before development begins.
             </p>
             <div className="shrink-0">
@@ -216,7 +216,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Projects can move faster when content, brand assets, technical access, and required integrations are ready before development begins. Additional revisions, delayed approvals, custom functionality, or migration issues may extend the timeline.
             </p>
             <p className="mt-4 text-sm md:text-base font-semibold text-frame-fg">
@@ -254,7 +254,7 @@ export default function Pricing() {
               ))}
             </div>
 
-            <div className="mt-8 space-y-4 border-t border-frame-border/80 pt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <div className="mt-8 space-y-4 border-t border-frame-border/80 pt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               <p>
                 We can also guide your team through routine WordPress tasks such as editing pages, publishing content, managing supported sections, and updating approved website information.
               </p>
@@ -294,7 +294,7 @@ export default function Pricing() {
               ))}
             </div>
 
-            <div className="mt-8 space-y-4 border-t border-frame-border/80 pt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <div className="mt-8 space-y-4 border-t border-frame-border/80 pt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               <p>
                 Ongoing maintenance, new features, and larger changes are handled according to a separate maintenance scope.
               </p>

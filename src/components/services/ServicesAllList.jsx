@@ -32,7 +32,7 @@ export default function ServicesAllList({ pillarGroups }) {
                   <h2 className="mt-2 font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
                     {name}
                   </h2>
-                  <p className="mt-4 max-w-4xl text-sm font-medium leading-snug text-frame-muted-fg md:text-base">
+                  <p className="mt-4 max-w-4xl text-sm font-medium leading-snug text-frame-muted-fg md:text-base wide:text-lg">
                     {summary}
                   </p>
                 </div>

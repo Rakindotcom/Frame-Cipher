@@ -30,10 +30,10 @@ export default function CTA() {
             <h2 className="mt-4 font-heading text-[clamp(2.4rem,5.5vw,5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
               Start Your Product Photography Project
             </h2>
-            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+            <p className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-3xl wide:text-lg">
               Have a product catalog, new launch, marketplace listing, or campaign that needs professional photography?
             </p>
-            <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg max-w-3xl border-l-2 border-frame-accent pl-3">
+            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl border-l-2 border-frame-accent pl-3">
               Send us your product details, quantity, preferred photography style, target platform, and timeline. We will review the requirements and recommend the appropriate shoot structure before production begins.
             </p>
 

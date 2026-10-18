@@ -43,10 +43,10 @@ export default function ManagementComparison() {
               <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 YouTube Management
               </h3>
-              <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 Focuses on the continuous day-to-day operation, audience growth, and optimization of an entire YouTube channel over time.
               </p>
-              <ul className="mt-6 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <ul className="mt-6 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <li className="flex items-center gap-2">
                   <span className="text-frame-muted-fg/60">&bull;</span>
                   Channel content calendar & publishing schedule

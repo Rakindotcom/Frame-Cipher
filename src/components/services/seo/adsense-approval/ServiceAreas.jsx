@@ -24,7 +24,7 @@ export default function ServiceAreas({ service }) {
               key={index}
               className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-10"
             >
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 {body}
               </p>
             </div>
@@ -45,7 +45,7 @@ export default function ServiceAreas({ service }) {
             </div>
           )}
           <div className="mt-5 lg:flex lg:items-center lg:justify-between lg:gap-8">
-            <p className="max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Market targeting accounts for local search behavior rather than applying one
               market&apos;s assumptions everywhere.
             </p>

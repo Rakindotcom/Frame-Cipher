@@ -82,7 +82,7 @@ export default function CalculatorServiceBridge() {
           <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
             Turn These Projections Into Real Revenue
           </h3>
-          <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed">
+          <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
             Calculations without execution are just theoretical spreadsheets. Frame Cipher is the specialized growth partner that brings these models to life.
           </p>
         </div>

@@ -28,7 +28,7 @@ export default function HeadlessCms() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm text-frame-muted-fg wide:text-lg">
           The CMS is selected around the content model, editorial process, integrations, and long-term requirements rather than added simply because it is popular.
         </p>
       </div>

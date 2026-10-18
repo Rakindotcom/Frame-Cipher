@@ -73,7 +73,7 @@ export default function Markets() {
               <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.market}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/tiktok-ads" allowed={["/services/website-design-development/landing-pages"]}>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/tiktok-ads" allowed={["/services/website-design-development/landing-pages"]}>
                 {item.body}
               </AutoLinks></p>
               {item.bullets?.length > 0 && (
@@ -92,7 +92,7 @@ export default function Markets() {
                 </div>
               )}
               {item.note && (
-                <p className="mt-5 border-t border-frame-accent/40 pt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-5 border-t border-frame-accent/40 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.note}
                 </p>
               )}

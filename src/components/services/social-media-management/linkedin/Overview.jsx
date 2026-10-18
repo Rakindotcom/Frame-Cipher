@@ -51,7 +51,7 @@ export default function Overview() {
             </ul>
 
             <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6">
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 We can coordinate company page content with executive profiles, thought leadership,
                 employee participation, community engagement, and performance insights so each part
                 supports the broader LinkedIn strategy.
@@ -66,7 +66,7 @@ export default function Overview() {
             <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
               See what your presence is communicating
             </h3>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               A company page posting quarterly and a founder who hasn&rsquo;t updated their profile
               since changing jobs are both quietly telling LinkedIn the same thing. We review the
               pages, profiles, content, and audience response behind your presence.

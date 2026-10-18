@@ -77,7 +77,7 @@ export default function Markets() {
                   </span>
                 )}
               </div>
-              <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">{area.body}</p>
+              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{area.body}</p>
               {area.accent && (
                 <p className="mt-4 text-xs font-bold uppercase tracking-widest text-frame-accent">
                   {area.accent}
@@ -85,7 +85,7 @@ export default function Markets() {
               )}
               <ul className="mt-6 space-y-2.5 border-t border-frame-border pt-4">
                 {area.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg">
+                  <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg wide:text-lg">
                     <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                     <span>{item}</span>
                   </li>

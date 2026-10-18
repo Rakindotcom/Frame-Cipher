@@ -225,7 +225,7 @@ export default function Pricing() {
             <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-4xl">
               What Each Facebook Management Plan Includes
             </h2>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Exact scope is confirmed during the free audit. Higher plans build on the ones below
               rather than replacing them.
             </p>
@@ -241,7 +241,7 @@ export default function Pricing() {
                   <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
                     {plan.name}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {plan.intro}
                   </p>
                 </div>
@@ -270,7 +270,7 @@ export default function Pricing() {
 
         {/* PRICING NOTES */}
         <div className="mt-10 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/paid-advertising"]}>
+          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/paid-advertising"]}>
             Ad spend is separate from Facebook management fees. Facebook Ads Management can be added
             through a separate paid advertising engagement when required.
           </AutoLinks></p>
@@ -281,7 +281,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-6 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-2xl text-sm font-medium leading-relaxed text-frame-muted-fg">
+          <p className="max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Growth is the most requested plan for businesses that need more active publishing and
             customer interaction.
           </p>

@@ -61,7 +61,7 @@ export default function CTA() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                   {item.description}
                 </p>
               </div>
@@ -78,7 +78,7 @@ export default function CTA() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               Ready to build your next website?
             </h3>
-            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               Get a free consultation and see what we would build for you. Straight answers, clear estimates, and zero sales pressure.
             </p>
           </div>

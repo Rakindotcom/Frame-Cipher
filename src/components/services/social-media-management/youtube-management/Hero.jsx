@@ -64,13 +64,13 @@ export default function Hero() {
             Search, Retention &amp; Packaging
           </h2>
 
-          <p className="mx-auto mt-8 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-8 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides YouTube Management Service in Bangladesh for businesses, brands,
             experts, and organizations that want a structured approach to channel strategy, content
             production, YouTube SEO, thumbnails, publishing, Shorts, community management, and
             performance analysis.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We work with businesses in Bangladesh and international markets, including the US, UK,
             Australia, Canada, and UAE. Every channel strategy is built around your audience, business
             goals, content capabilities, and market.
@@ -98,7 +98,7 @@ export default function Hero() {
           <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border text-left sm:grid-cols-3">
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">We Handle</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Channel strategy, content planning, scripting, video production and editing, YouTube
                 SEO, thumbnail and title strategy, Shorts, playlists and end screens, publishing,
                 community management, and analytics.
@@ -119,7 +119,7 @@ export default function Hero() {
             </div>
             <div className="bg-frame-bg p-5">
               <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Where We Work</span>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm">
+              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
                 Bangladesh, the US, UK, Australia, Canada, and UAE, with channel strategies adapted
                 around market-specific audiences, language, search behavior, and business goals.
               </p>

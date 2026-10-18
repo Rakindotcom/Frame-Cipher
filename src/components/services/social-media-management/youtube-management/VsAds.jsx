@@ -47,7 +47,7 @@ export default function VsAds() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 Organic YouTube Management
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 Organic management focuses on building the channel and its content library through:
               </p>
             </div>
@@ -76,7 +76,7 @@ export default function VsAds() {
               <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
                 YouTube Ads Management
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 YouTube Ads use paid media to place advertising in front of selected audiences
                 through Google&rsquo;s advertising ecosystem. Paid campaigns can be useful when the
                 goal involves:

@@ -67,7 +67,7 @@ export default function VsBlogLanding() {
                   >
                     {row.type}
                   </th>
-                  <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:p-5">
+                  <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-5">
                     {row.purpose}
                   </td>
                 </tr>
@@ -76,7 +76,7 @@ export default function VsBlogLanding() {
           </table>
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/website-content" allowed={["/services/website-design-development/business-website"]}>
+        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/website-content" allowed={["/services/website-design-development/business-website"]}>
           Website content is generally more evergreen than blog content and is closely connected to the core
           structure of the business website.
         </AutoLinks></p>

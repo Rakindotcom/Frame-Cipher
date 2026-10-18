@@ -43,11 +43,11 @@ export default function Timeline() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Multi-case-study projects usually require additional time because each story involves separate
               research and approval.
             </p>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               Customer approval can also affect the final delivery date. We plan for that review stage rather than
               treating approval as an afterthought.
             </p>
@@ -59,7 +59,7 @@ export default function Timeline() {
                 <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {card.text}
                 </p>
               </article>

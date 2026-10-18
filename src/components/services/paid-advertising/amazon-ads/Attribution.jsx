@@ -30,7 +30,7 @@ export default function Attribution() {
         <SectionIntro eyebrow="Measurement" title="Amazon Attribution & Cross-Channel Measurement">
           Amazon sales do not always begin with an Amazon ad.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           Customers may discover a product through Google, Meta, social content, email, influencers,
           or other external channels before purchasing on Amazon. Amazon Attribution provides
           measurement for marketing channels outside Amazon and can help advertisers understand how
@@ -47,7 +47,7 @@ export default function Attribution() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {channel.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {channel.body}
               </p>
             </div>
@@ -58,13 +58,13 @@ export default function Attribution() {
           <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
             Cross-Channel Reporting
           </h3>
-          <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We bring available Amazon and external campaign data into a broader acquisition view.
             This helps answer questions such as:
           </p>
           <ul className="mt-6 grid gap-3 sm:grid-cols-2">
             {reportingQuestions.map((question) => (
-              <li key={question} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg">
+              <li key={question} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                 <span>{question}</span>
               </li>

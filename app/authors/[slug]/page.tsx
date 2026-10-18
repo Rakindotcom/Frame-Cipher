@@ -196,7 +196,7 @@ export default async function AuthorProfilePage({
                   {author.worksFor}
                 </span>
               </div>
-              <p className="font-body text-frame-muted-fg mt-5 max-w-2xl text-sm sm:text-base leading-relaxed">
+              <p className="font-body text-frame-muted-fg mt-5 max-w-2xl text-sm sm:text-base leading-relaxed wide:text-lg">
                 {author.shortBio || author.bio || "Strategist and contributor at FrameCipher."}
               </p>
 
@@ -253,7 +253,7 @@ export default async function AuthorProfilePage({
                 {bioParagraphs.map((paragraph, index) => (
                   <p
                     key={index}
-                    className="font-body text-frame-muted-fg text-sm leading-relaxed"
+                    className="font-body text-frame-muted-fg text-sm leading-relaxed wide:text-lg"
                   >
                     {paragraph}
                   </p>
@@ -335,7 +335,7 @@ export default async function AuthorProfilePage({
             <h2 className="font-heading font-bold uppercase tracking-tight text-frame-fg text-3xl sm:text-4xl leading-tight">
               Work with {author.name.split(" ")[0]}
             </h2>
-            <p className="font-body text-frame-muted-fg text-sm mt-3 max-w-lg">
+            <p className="font-body text-frame-muted-fg text-sm mt-3 max-w-lg wide:text-lg">
               {author.worksFor} builds high-converting experiences and growth systems.
               Get a free strategy assessment for your brand.
             </p>

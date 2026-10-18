@@ -84,10 +84,10 @@ export default function Strategies() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/local-seo" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/local-seo" allowed={["/services/website-design-development/landing-pages"]}>
                   {item.body}
                 </AutoLinks></p>
-                <div className="mt-5 space-y-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-5 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.bullets.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}

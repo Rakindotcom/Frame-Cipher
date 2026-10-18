@@ -77,7 +77,7 @@ export default function WhoNeedsBranding() {
                     {p.situation}
                   </p>
                 </div>
-                <p className="mt-4 text-xs sm:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {p.solution}
                 </p>
               </div>

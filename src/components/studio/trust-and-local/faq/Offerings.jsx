@@ -79,7 +79,7 @@ export default function Offerings() {
             <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
               The team that answers is the team that delivers.
             </h4>
-            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg">
+            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
               No call-centre layer sits between your question and the production floor.
             </p>
           </div>
@@ -88,7 +88,7 @@ export default function Offerings() {
           </PosterButton>
         </div>
 
-        <p className="mt-6 text-xs md:text-sm font-medium text-frame-muted-fg">
+        <p className="mt-6 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
           Also see our{' '}
           <Link href="/studio/contact/" className="font-bold text-frame-fg underline decoration-frame-accent/40 hover:text-frame-accent transition-colors">
             contact FrameCipher Studio in Dhaka

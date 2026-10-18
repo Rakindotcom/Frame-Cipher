@@ -55,7 +55,7 @@ export default function Hero({ service }) {
             answers below cover the questions buyers ask most — and anything unanswered gets a same-day reply
             on WhatsApp at +880 1768-146650.
           </p>
-          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Standard delivery runs 5 to 10 working days with 2 revision rounds. Sessions start from
             ৳2,000/hour with a 50% advance confirming dates and free rescheduling on 48-hour notice.
           </p>

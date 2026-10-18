@@ -99,7 +99,7 @@ export default function Offerings() {
                     {sub.title}
                   </Link>
                 </h3>
-                <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {sub.description}
                 </p>
               </div>

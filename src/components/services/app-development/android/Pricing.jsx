@@ -145,7 +145,7 @@ export default function Pricing() {
                     </p>
                     <ul className="mt-3 space-y-2">
                       {tier.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                           <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
                             <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -168,7 +168,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-6">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
               These are starting references rather than fixed quotes. Final pricing depends on the actual feature set, architecture, integrations, device support, and development requirements.
             </p>
           </div>
@@ -185,7 +185,7 @@ export default function Pricing() {
                 Android App Development Timeline
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Android development timelines depend on application complexity, backend requirements, integrations, device support, testing requirements, and project scope.
             </p>
           </div>
@@ -204,7 +204,7 @@ export default function Pricing() {
             <p className="text-sm font-semibold italic text-frame-fg">
               These are planning ranges rather than fixed guarantees.
             </p>
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Projects can move more efficiently when requirements, content, design direction, API access, and stakeholder feedback are available promptly. New features or scope changes during development can also affect the final timeline.
             </p>
           </div>
@@ -221,7 +221,7 @@ export default function Pricing() {
                 Approvals, Scope &amp; Release Support
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Clear review points and scope boundaries help keep Android development predictable.
             </p>
           </div>
@@ -238,7 +238,7 @@ export default function Pricing() {
                 <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {item.desc}
                 </p>
               </div>
@@ -263,7 +263,7 @@ export default function Pricing() {
                 Post-Launch Android Support
               </h2>
             </div>
-            <p className="mt-3 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
+            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
               Launching the application is the beginning of its operating lifecycle, not the end of development responsibility. Post-launch support can include:
             </p>
           </div>
@@ -283,7 +283,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-            <p className="text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               Routine maintenance and larger development work can be handled under separate scopes depending on the application and support requirements.
             </p>
           </div>

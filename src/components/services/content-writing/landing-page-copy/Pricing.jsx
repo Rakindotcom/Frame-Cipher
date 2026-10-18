@@ -158,7 +158,7 @@ export default function Pricing() {
             <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               Quoted Separately
             </h3>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
               These are not part of the copywriting packages unless they are explicitly included in the agreed
               scope.
             </p>
@@ -167,7 +167,7 @@ export default function Pricing() {
             {notIncluded.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2.5 bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-muted-fg"
+                className="flex items-start gap-2.5 bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"
               >
                 <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
                   &times;
@@ -179,7 +179,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Every package is scoped around one agreed brief, and final pricing is confirmed after we review your
             offer, audience, traffic source, and requirements.
           </p>

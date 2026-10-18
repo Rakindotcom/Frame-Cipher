@@ -54,15 +54,15 @@ export default function Hero() {
             For Sales Pages, Proposals, Pitch Decks &amp; VSL Scripts
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             Framecipher provides Sales Copywriting Service for businesses in Bangladesh and clients across the
             US, UK, Australia, and Canada.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             We build sales copy around the actual offer, audience, proof, objections, and buying decision rather
             than forcing every project into the same formula.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             From sales pages and proposals to pitch decks, VSL scripts, and direct-response materials, we write
             the argument that connects the problem to the solution and the solution to a clear next step.
           </p>

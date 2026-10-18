@@ -387,7 +387,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Target Geography & Industry Vertical
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Sets baseline conversational CPC and AI Search intent values.
             </p>
           </div>
@@ -490,7 +490,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Conversational Surface & Format
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Choose between Sponsored Answer Citations, Interactive Product Cards, or Shopping Assistant tables.
             </p>
           </div>
@@ -626,7 +626,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Revenue Target & Unit Economics
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Model required citation volume and conversion economics.
             </p>
           </div>
@@ -721,7 +721,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
               Relevance Score (1-10) & Custom CPC
             </h3>
-            <p className="mt-1 text-sm text-frame-muted-fg">
+            <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
               Higher semantic match with conversational queries gives priority in prompt answers.
             </p>
           </div>
@@ -1034,7 +1034,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
                 <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   Ready to Capture Intent in ChatGPT & AI Search?
                 </h4>
-                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg">
+                <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">
                   Frame Cipher optimizes entity citation graphs, semantic search relevance, and conversational commerce funnels for modern AI platforms.
                 </p>
               </div>

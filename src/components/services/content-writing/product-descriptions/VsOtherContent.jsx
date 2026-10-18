@@ -56,7 +56,7 @@ export default function VsOtherContent() {
                 >
                   {row.type}
                 </span>
-                <span className="text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <span className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                   {row.purpose}
                 </span>
               </div>

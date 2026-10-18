@@ -16,7 +16,7 @@ export default function ServiceAreas() {
             <h3 className="mt-4 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               Dhaka &amp; Across Bangladesh
             </h3>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We build strategies for businesses operating in Dhaka and across Bangladesh, with planning that
               considers local audiences, available resources, competitive conditions, and realistic production
               capacity.
@@ -30,7 +30,7 @@ export default function ServiceAreas() {
             <h3 className="mt-4 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
               Multi-Market Strategy Support
             </h3>
-            <p className="mt-3 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
               We also support businesses targeting markets such as:
             </p>
             <ul className="mt-5 flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export default function ServiceAreas() {
         </p>
 
         <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
             A single plan applied to every market usually fails, so market differences are planned for explicitly
             rather than assumed away.
           </p>

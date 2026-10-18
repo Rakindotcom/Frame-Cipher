@@ -91,7 +91,7 @@ export default function WhoFor() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {audience.title}
               </h3>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {audience.body}
               </p>
               {audience.items && (
@@ -101,7 +101,7 @@ export default function WhoFor() {
                   </p>
                   <ul className="space-y-2.5">
                     {audience.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg">
+                      <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg wide:text-lg">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                         <span>{item}</span>
                       </li>

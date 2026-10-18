@@ -124,7 +124,7 @@ export default function Deliverables() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Scope Confirmed Upfront
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                 Before production begins, we explicitly document every requirement so expectations, deliverables, and budgets remain 100% transparent:
               </p>
 
@@ -153,11 +153,11 @@ export default function Deliverables() {
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
                 Separately Scoped Upgrades
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
                 Specialized production requirements are scoped transparently on demand when your campaign calls for expanded creative resources:
               </p>
 
-              <div className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg">
+              <div className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
                 <div className="p-2.5 border border-frame-border bg-frame-muted/20 flex items-start gap-2">
                   <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
                   <span><strong className="text-frame-fg">Raw Camera Files:</strong> Uncompressed high-bitrate master files and layered PSD retouching assets.</span>

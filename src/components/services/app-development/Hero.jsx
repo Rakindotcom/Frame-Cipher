@@ -70,7 +70,7 @@ export default function Hero({ service }) {
               <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
                 {item.label}
               </h3>
-              <p className="mt-2 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                 {item.detail}
               </p>
             </div>

@@ -138,7 +138,7 @@ export default function Pricing() {
                     {pkg.price}
                   </div>
                 </div>
-                <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {pkg.description}
                 </p>
                 <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-frame-accent">
@@ -201,7 +201,7 @@ export default function Pricing() {
           <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
             Factors That Influence Final Video Quotations
           </h3>
-          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg">
+          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
             Every video production is scoped transparently around your physical and technical requirements:
           </p>
 
@@ -215,7 +215,7 @@ export default function Pricing() {
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg">
+            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
               * Final pricing is confirmed after we review the production scope, script, and technical deliverables.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
@@ -234,7 +234,7 @@ export default function Pricing() {
               <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
                 Video Production for Bangladesh & International Markets
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
                 Framecipher provides video production services in Dhaka and across Bangladesh. We also support businesses and brands in the USA, UK, Australia, Canada, and UAE with Bangladesh-based filming, remote creative development, editing, and platform-ready delivery around an international brief.
               </p>
               <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-frame-fg">

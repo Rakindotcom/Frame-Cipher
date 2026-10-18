@@ -84,7 +84,7 @@ export default function Comparison() {
         </div>
 
         <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             The right choice depends on your audience, offer, creative resources, funnel, market,
             and business objective. Framecipher can also manage TikTok and Meta together when a
             multi-channel paid strategy makes sense.

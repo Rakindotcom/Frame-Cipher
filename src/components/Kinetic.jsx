@@ -188,7 +188,7 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
           title
         )}
       </h3>
-      {children && <div className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80">{children}</div>}
+      {children && <div className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">{children}</div>}
     </>
   )
 

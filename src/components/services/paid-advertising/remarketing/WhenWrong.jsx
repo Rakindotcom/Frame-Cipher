@@ -52,7 +52,7 @@ export default function WhenWrong() {
           A common remarketing setup is one broad website-visitor audience, one creative, and an
           open-ended campaign.
         </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
           That approach can make every visitor look the same. Someone who left after four seconds
           has a different level of intent from someone who viewed a product, started checkout, or
           submitted a lead form. Different behavior requires different treatment.
@@ -75,7 +75,7 @@ export default function WhenWrong() {
                   <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
                     {mistake.title}
                   </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                     {mistake.body}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export default function WhenWrong() {
                   )}
                   <ul className="grid gap-3">
                     {mistake.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                      <li key={item} className="flex items-start gap-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                         <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
                         <span>{item}</span>
                       </li>

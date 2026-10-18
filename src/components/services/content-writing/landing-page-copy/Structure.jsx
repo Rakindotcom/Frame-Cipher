@@ -79,7 +79,7 @@ export default function Structure() {
                   dangerouslySetInnerHTML={{ __html: step.title }}
                 />
               </div>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
                 {step.body[0]}
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">

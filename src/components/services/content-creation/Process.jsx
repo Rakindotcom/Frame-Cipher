@@ -106,7 +106,7 @@ export default function Process() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {phase.title}
                 </h3>
-                <p className="mt-4 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/graphic-design"]}>
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/graphic-design"]}>
                   {phase.description}
                 </AutoLinks></p>
               </div>
@@ -132,7 +132,7 @@ export default function Process() {
             <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
               How It Works: Start Your Content Creation Project
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
               You do not need to know exactly what production package you need before contacting us. Tell us what you are trying to create, where you plan to use it, and what your business needs to achieve. We can review the requirements, show you relevant work, and recommend a practical production approach.
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function Process() {
                       {item.title}
                     </h4>
                   </div>
-                  <p className="mt-3 text-xs md:text-sm font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                     {item.desc}
                   </p>
                 </div>

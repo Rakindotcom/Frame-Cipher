@@ -67,7 +67,7 @@ export default function WhoFor() {
                 <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
                   {model.eyebrow}
                 </h3>
-                <p className="mt-4 text-sm font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
                   {model.body}
                 </p>
                 <div className="mt-6 flex flex-wrap gap-1.5 border-t-2 border-frame-border/60 pt-5">

@@ -29,7 +29,7 @@ export default function Markets() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Domestic Engineering</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">Bangladesh Websites</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               Maintenance can consider:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">
@@ -48,7 +48,7 @@ export default function Markets() {
               <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">Global Support Standards</span>
             </div>
             <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold text-frame-fg uppercase">International Websites</h3>
-            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg">
+            <p className="mt-4 text-sm sm:text-base font-medium text-frame-muted-fg wide:text-lg">
               We adapt the support process around:
             </p>
             <ul className="mt-4 space-y-2.5 text-sm sm:text-base font-medium text-frame-fg/90">

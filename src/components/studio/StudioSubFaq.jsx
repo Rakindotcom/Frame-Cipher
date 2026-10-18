@@ -12,7 +12,7 @@ function SubFaqAccordion({ faqs }) {
             <span className="pr-4">{item.q}</span>
             <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border font-bold text-frame-accent transition-transform duration-200 group-open:rotate-45">+</span>
           </summary>
-          <div className="border-t-2 border-frame-border p-6 text-sm font-medium leading-relaxed text-frame-muted-fg md:p-8 md:text-base">{item.a}</div>
+          <div className="border-t-2 border-frame-border p-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-8 md:text-base">{item.a}</div>
         </details>
       ))}
     </div>

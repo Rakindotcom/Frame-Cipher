@@ -102,7 +102,7 @@ export default function StudioSubClusterNav({ currentService, allServices }) {
           </Link>
         </div>
         {contextualCopy && (
-          <p className="mb-12 max-w-4xl text-sm font-medium leading-7 text-frame-muted-fg">
+          <p className="mb-12 max-w-4xl text-sm font-medium leading-7 text-frame-muted-fg wide:text-lg">
             {renderContextualParagraph(contextualCopy, {
               currentPath: `/studio/${currentService.slug}`,
               maxLinks: contextualTargets.length,

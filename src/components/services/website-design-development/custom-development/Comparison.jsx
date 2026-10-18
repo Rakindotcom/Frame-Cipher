@@ -95,7 +95,7 @@ export default function Comparison() {
           </table>
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg">
+        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
           We recommend the platform based on your requirements, budget, internal team, content workflow, integrations, and long-term plans.
         </p>
       </div>

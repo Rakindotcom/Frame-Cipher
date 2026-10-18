@@ -18,7 +18,7 @@ export default function Footer() {
               <img src="/logo.webp" alt="Frame Cipher" className="h-11 w-11 object-contain" />
               <div className="font-heading text-lg font-bold uppercase tracking-[0.16em] text-frame-fg">FRAME CIPHER</div>
             </div>
-            <p className="max-w-md text-sm font-medium leading-7 text-frame-muted-fg">
+            <p className="max-w-md text-sm font-medium leading-7 text-frame-muted-fg wide:text-lg">
               Frame Cipher is a 360 marketing, media, and technology agency helping brands build strategy,
               content, software, campaigns, and growth systems under one roof.
             </p>
@@ -107,7 +107,7 @@ export default function Footer() {
 
           <div>
             <h2 className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Contact</h2>
-            <ul className="grid gap-3 text-sm font-medium text-frame-muted-fg">
+            <ul className="grid gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
               <li>{contact.location}</li>
               <li>
                 <a href={`tel:${contact.phoneHref}`} className="transition-colors hover:text-frame-fg">
