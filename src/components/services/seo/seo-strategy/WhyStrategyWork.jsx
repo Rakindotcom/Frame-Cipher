@@ -1,6 +1,8 @@
+'use client'
 
+import React from 'react'
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import PosterButton from '../../../home/PosterButton'
 
 const reasons = [
   {
@@ -23,48 +25,62 @@ const reasons = [
 
 export default function WhyStrategyWork() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="The problem with execution alone" title="Why Your Business Needs Real SEO Strategy Work">
-          Execution without strategy tends to produce a lot of activity and not much direction.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">The Problem With Execution Alone</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Why Your Business Needs{' '}
+            <span className="italic text-frame-accent">Real SEO Strategy Work</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Execution without strategy tends to produce a lot of activity and not much direction.
+          </p>
+        </div>
 
+        {/* 4 Reasons Grid */}
         <div className="grid gap-6 sm:grid-cols-2">
           {reasons.map((reason, index) => (
             <div
               key={reason.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] md:p-8"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Reason 0{index + 1}
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Reason // 0{index + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
                   {reason.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/seo/seo-strategy" allowed={["/services/seo/link-building"]}>
-                  {reason.body}
-                </AutoLinks></p>
+                <p className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                  <AutoLinks currentPath="/services/seo/seo-strategy" allowed={['/services/seo/link-building']}>
+                    {reason.body}
+                  </AutoLinks>
+                </p>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
+        {/* Bottom Callout Banner */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-9 lg:flex lg:items-center lg:justify-between lg:gap-8">
           <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Direction before execution
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              Direction Before Execution // Discovery Call
             </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
               Start with a strategy session
             </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We review your situation and build a roadmap around what your team can actually
-              execute.
+            <p className="mt-2 max-w-2xl text-sm sm:text-base font-normal text-zinc-400">
+              Clarify your biggest organic growth bottlenecks and define a sequenced roadmap before deploying further resources.
             </p>
           </div>
           <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact" className="whitespace-nowrap">
+            <PosterButton href="/contact">
               Start With a Strategy Session &rarr;
             </PosterButton>
           </div>

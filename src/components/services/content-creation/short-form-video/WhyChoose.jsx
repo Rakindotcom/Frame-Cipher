@@ -33,8 +33,8 @@ const advantages = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="The Framecipher Standard"
           title="Why Choose Framecipher for Short-Form Video"
@@ -47,26 +47,26 @@ export default function WhyChoose() {
           {/* ADVANTAGES (LEFT) */}
           <div className="space-y-6">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Core Strengths
               </span>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 The Mobile-First Advantage
               </h3>
             </div>
 
-            <div className="grid border-2 border-frame-border bg-frame-border gap-px">
+            <div className="grid border border-white/[0.08] bg-frame-border gap-px">
               {advantages.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-6">
+                <div key={index} className="bg-[#09090B] p-6">
                   <div className="flex items-baseline gap-3">
-                    <span className="font-heading text-sm font-black text-frame-accent">
+                    <span className="font-heading text-sm font-black text-[#A855F7]">
                       0{index + 1}
                     </span>
-                    <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+                    <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-[#FAFAFA]">
                       {item.title}
                     </h4>
                   </div>
-                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                     {item.desc}
                   </p>
                 </div>
@@ -75,44 +75,44 @@ export default function WhyChoose() {
           </div>
 
           {/* PRODUCTION VS EDITING (RIGHT) */}
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 sticky top-28">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#09090B] p-7 md:p-10 sticky top-28">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Service Distinction
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
               Short-Form Production vs. Video Editing
             </h3>
-            <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="mt-3 text-xs md:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
               Short-form video production and editing solve different operational needs:
             </p>
 
             <div className="mt-6 space-y-4">
-              <div className="border border-frame-border bg-frame-muted/30 p-5">
-                <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
+              <div className="border border-white/[0.08] bg-[#121214] p-5">
+                <span className="text-xs font-black uppercase tracking-wider text-[#A855F7]">
                   Complete Short-Form Video Production (This Service)
                 </span>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-fg leading-relaxed">
+                <p className="mt-2 text-xs md:text-sm font-medium text-[#FAFAFA] leading-relaxed">
                   Covers the wider workflow from scratch: hook development, scriptwriting, pre-production planning, vertical filming on location, mobile editing, dynamic captions, sound design, and platform exports.
                 </p>
-                <span className="mt-3 block text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                <span className="mt-3 block text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                   Best For: Brands needing fresh, ongoing vertical content created from concept to delivery
                 </span>
               </div>
 
-              <div className="border border-frame-border bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-wider text-frame-fg">
+              <div className="border border-white/[0.08] bg-[#09090B] p-5">
+                <span className="text-xs font-black uppercase tracking-wider text-[#FAFAFA]">
                   Short-Form Video Editing Only
                 </span>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+                <p className="mt-2 text-xs md:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
                   Starts with footage you already have. Focuses on turning raw clips, zoom recordings, or podcasts into fast-paced Reels, Shorts, and TikTok cuts.
                 </p>
-                <span className="mt-3 block text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                <span className="mt-3 block text-[11px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                   Best For: Creators or brands that already record their own raw footage
                 </span>
               </div>
             </div>
 
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 border-t-2 border-frame-border pt-6">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 border-t border-white/[0.08] pt-6">
               <PosterButton href="/projects#video-work" variant="outline" className="w-full sm:w-auto text-xs">
                 View Short-Form Portfolio &rarr;
               </PosterButton>

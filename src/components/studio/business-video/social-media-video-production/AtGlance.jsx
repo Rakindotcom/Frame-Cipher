@@ -6,19 +6,19 @@ const glanceRows = [
   ['Batch-10 pack', '৳32,000 per session, 10 finished verticals'],
   ['Batch-20 pack', '৳62,000 per session, 20 clips plus calendar'],
   ['Monthly engine', '৳1,15,000 per month, 30+ clips plus trend response'],
-  ['Standard delivery', '3–7 working days from recording day'],
+  ['Standard delivery', '3 to 7 working days from recording day'],
   ['Priority delivery', '+25% for 48-hour rush edit lane'],
   ['Quote', 'Itemised, in writing, within 48 hours'],
   ['Payment', '50% advance confirms dates, balance on final sign-off, VAT-compliant invoices'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
   ['Phone and WhatsApp', '+880 1768-146650'],
-  ['Hours', 'Open 24 hours — sessions by advance reservation'],
+  ['Hours', 'Open 24 hours (sessions by advance reservation)'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Social Video Essentials"

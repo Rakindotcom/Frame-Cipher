@@ -35,8 +35,8 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Engagement workflow"
           title="How Our Content Writing Process Works"
@@ -44,24 +44,24 @@ export default function Process() {
           Our process changes slightly by content type, but the core workflow remains consistent.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
-            <article key={step.number} className="bg-frame-bg p-7 md:p-8">
+            <article key={step.number} className="bg-[#09090B] p-7 md:p-8">
               <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                 {step.number}
               </span>
-              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {step.title}
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                 {step.body}
               </p>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Tell us what you want the content to accomplish, and we can help define the right writing scope.
           </p>
           <div className="shrink-0">

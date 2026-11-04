@@ -14,8 +14,8 @@ const criteria = [
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Content approach"
           title="Website Content Built to Explain, Build Trust, and Guide Action"
@@ -23,8 +23,8 @@ export default function Overview() {
           Website content has a different job from a blog article.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             <p>
               Visitors may arrive on your website from search, advertising, social media, referrals, email, or
               another page on your site. Your core website pages then need to help them quickly understand what
@@ -36,15 +36,15 @@ export default function Overview() {
             </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Good website content should
             </span>
             <ul className="mt-5 space-y-2.5">
               {criteria.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
                   {item}
@@ -54,8 +54,8 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Tell us what you want each page to accomplish, and we can help define the right content scope.
           </p>
           <div className="shrink-0">

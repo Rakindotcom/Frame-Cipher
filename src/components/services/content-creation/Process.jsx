@@ -76,8 +76,8 @@ const onboardingSteps = [
 
 export default function Process() {
   return (
-    <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="process" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
         {/* PHASE 1: 6-STEP PRODUCTION PROCESS */}
         <SectionIntro
           eyebrow="Execution Framework"
@@ -87,11 +87,11 @@ export default function Process() {
           Every project starts with the required outcome and works through a defined production process to ensure creative excellence and on-time delivery.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
           {processPhases.map((phase) => (
             <div
               key={phase.number}
-              className="relative overflow-hidden bg-frame-bg p-7 md:p-10 flex flex-col justify-between"
+              className="relative overflow-hidden bg-[#09090B] p-7 md:p-10 flex flex-col justify-between"
             >
               <span
                 className="pointer-events-none absolute -right-2 -bottom-6 font-heading text-[7rem] md:text-[8rem] font-bold leading-none tracking-tighter text-frame-muted/30 select-none"
@@ -100,22 +100,22 @@ export default function Process() {
                 {phase.number}
               </span>
               <div className="relative z-10">
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.28em] text-[#A855F7]">
                   Phase {phase.number}
                 </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {phase.title}
                 </h3>
-                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/graphic-design"]}>
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/graphic-design"]}>
                   {phase.description}
                 </AutoLinks></p>
               </div>
 
-              <div className="relative z-10 mt-6 border-t-2 border-frame-border/60 pt-4">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+              <div className="relative z-10 mt-6 border-t border-white/[0.08]/60 pt-4">
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-1">
                   Deliverable
                 </span>
-                <span className="text-xs md:text-sm font-semibold text-frame-fg">
+                <span className="text-xs md:text-sm font-semibold text-[#FAFAFA]">
                   {phase.deliverable}
                 </span>
               </div>
@@ -124,32 +124,32 @@ export default function Process() {
         </div>
 
         {/* PHASE 2: HOW IT WORKS / ONBOARDING */}
-        <div className="mt-20 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
+        <div className="mt-20 border border-white/[0.08] bg-[#121214] p-7 md:p-12">
           <div className="max-w-3xl">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.28em] text-[#A855F7]">
               Getting Started
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold tracking-tight text-[#FAFAFA]">
               How It Works: Start Your Content Creation Project
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="mt-3 text-sm md:text-base font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
               You do not need to know exactly what production package you need before contacting us. Tell us what you are trying to create, where you plan to use it, and what your business needs to achieve. We can review the requirements, show you relevant work, and recommend a practical production approach.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
             {onboardingSteps.map((item) => (
-              <div key={item.step} className="bg-frame-bg p-6 flex flex-col justify-between">
+              <div key={item.step} className="bg-[#09090B] p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-3">
-                    <span className="flex h-7 w-7 items-center justify-center border-2 border-frame-accent bg-frame-accent/10 font-heading text-xs font-bold text-frame-accent">
+                    <span className="flex h-7 w-7 items-center justify-center border-2 border-[#A855F7]/40 bg-[#A855F7]/10 font-heading text-xs font-bold text-[#A855F7]">
                       {item.step}
                     </span>
-                    <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
+                    <h4 className="font-heading text-base font-bold tracking-tight text-[#FAFAFA]">
                       {item.title}
                     </h4>
                   </div>
-                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                     {item.desc}
                   </p>
                 </div>
@@ -157,8 +157,8 @@ export default function Process() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-fg max-w-xl">
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t border-white/[0.08] pt-6">
+            <p className="text-xs sm:text-sm font-medium text-[#FAFAFA] max-w-xl">
               Ready to explore what we can create for your business? Book a preliminary consultation and our creative team will provide portfolio references.
             </p>
             <div className="flex flex-wrap gap-4 shrink-0">

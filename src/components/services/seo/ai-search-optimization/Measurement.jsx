@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const measurements = [
   {
@@ -13,6 +16,7 @@ const measurements = [
       'Query categories',
       'Competitor mentions',
     ],
+    note: null,
   },
   {
     title: 'Prompt-Level Visibility',
@@ -25,6 +29,7 @@ const measurements = [
       'Changes over time',
       'Market-specific differences',
     ],
+    note: null,
   },
   {
     title: 'Competitor AI Visibility',
@@ -38,12 +43,14 @@ const measurements = [
       'Topic coverage',
       'Market-level differences',
     ],
+    note: null,
   },
   {
     title: 'Google Generative Search Performance',
     body: "Where relevant data is available, we review Google's reporting for generative search experiences alongside traditional Search Console performance.",
     lead: 'This can help connect AI-related search visibility with:',
     points: ['Impressions', 'Clicks', 'Queries', 'Landing pages', 'Search trends'],
+    note: null,
   },
   {
     title: 'Brand Accuracy & Source Consistency',
@@ -56,6 +63,7 @@ const measurements = [
       'Conflicting descriptions',
       'Inconsistent expertise or positioning',
     ],
+    note: null,
   },
   {
     title: 'Traffic, Leads & Business Outcomes',
@@ -77,46 +85,63 @@ const measurements = [
 
 export default function Measurement() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Transparent tracking" title="How We Measure AI Search Visibility">
-          AI visibility should be measured at the query, brand, source, and business level where
-          reliable data is available.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Telemetry &amp; Metrics // Transparent Tracking</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            How We Measure{' '}
+            <span className="italic text-frame-accent">AI Search Visibility</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            AI visibility should be measured at the query, brand, source, and business level where
+            reliable data is available.
+          </p>
+        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* 6 Measurements Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {measurements.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Measurement 0{index + 1}
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Dimension 0{index + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {item.body}
                 </p>
-                <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg">
-                  {item.lead}
-                </p>
-                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+
+                {item.lead && (
+                  <p className="mt-4 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                    {item.lead}
+                  </p>
+                )}
+
+                <ul className="mt-4 space-y-2 border-t border-white/[0.06] pt-4 text-xs sm:text-sm text-zinc-300">
                   {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                    <li key={pIdx} className="flex items-start gap-2.5">
+                      <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
                       <span className="leading-snug">{point}</span>
                     </li>
                   ))}
                 </ul>
-                {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </p>
-                )}
               </div>
+
+              {item.note && (
+                <div className="mt-6 border-l-2 border-frame-accent bg-[#09090B] p-4 text-xs leading-relaxed text-zinc-400 rounded-r-md">
+                  {item.note}
+                </div>
+              )}
             </div>
           ))}
         </div>

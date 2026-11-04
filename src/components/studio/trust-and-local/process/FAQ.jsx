@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     "question": "How do retainer lanes work for always-on brands?",
-    "answer": "Standing monthly studio and edit slots with the same crew learning your brand grammar, quarterly planning workshops and 10 to 20% effective savings versus spot booking — with pause-or-cancel flexibility."
+    "answer": "Standing monthly studio and edit slots with the same crew learning your brand grammar, quarterly planning workshops and 10 to 20% effective savings versus spot booking, with pause-or-cancel flexibility."
   },
   {
     "question": "What file formats and archives do we receive?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "Where does production happen?",
-    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with field production quoted separately for offices, factories and venues."
+    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206, with field production quoted separately for offices, factories and venues."
   },
   {
     "question": "How do I book and pay?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Lanes, timelines, revisions and booking — everything about our process at FrameCipher Studio.
+          Lanes, timelines, revisions and booking: everything about our process at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

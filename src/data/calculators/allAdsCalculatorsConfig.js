@@ -77,7 +77,7 @@ export const ALL_ADS_CALCULATORS = [
       {
         term: 'Quality Score (QS)',
         definition:
-          'Google’s 1–10 diagnostic score reflecting Expected CTR, Ad Relevance, and Landing Page Experience compared to competitors.',
+          'Google’s 1 to 10 diagnostic score reflecting Expected CTR, Ad Relevance, and Landing Page Experience compared to competitors.',
       },
       {
         term: 'Lost IS (Budget)',
@@ -119,7 +119,7 @@ export const ALL_ADS_CALCULATORS = [
       {
         question: 'What is the minimum budget required to test Google Search ads?',
         answer:
-          'We recommend a budget that can generate at least 15–20 clicks per day for 30 days. For e-commerce with a $1.20 CPC, $800–$1,500/month is a healthy testing baseline; for B2B or legal services with higher CPCs, $2,500–$5,000/month ensures statistically significant data.',
+          'We recommend a budget that can generate at least 15 to 20 clicks per day for 30 days. For e-commerce with a $1.20 CPC, $800 to $1,500/month is a healthy testing baseline; for B2B or legal services with higher CPCs, $2,500 to $5,000/month ensures statistically significant data.',
       },
       {
         question: 'Should I use Maximize Conversions or Target CPA (tCPA)?',
@@ -288,24 +288,24 @@ export const ALL_ADS_CALCULATORS = [
       {
         term: 'Creative Decay / Burnout',
         definition:
-          'The rapid drop in TikTok ad performance occurring every 10–14 days as fast-swiping users grow blind to repeated visual concepts.',
+          'The rapid drop in TikTok ad performance occurring every 10 to 14 days as fast-swiping users grow blind to repeated visual concepts.',
       },
     ],
     faqs: [
       {
         question: 'Why do TikTok ads stop working after 2 weeks?',
         answer:
-          'TikTok is an entertainment platform with ultra-high consumption velocity. Creative fatigue happens 3x faster than on Facebook. Top-performing TikTok brands rotate 3–5 fresh creative variations (different hooks, creators, text overlays) every 10 to 14 days.',
+          'TikTok is an entertainment platform with ultra-high consumption velocity. Creative fatigue happens 3x faster than on Facebook. Top-performing TikTok brands rotate 3 to 5 fresh creative variations (different hooks, creators, text overlays) every 10 to 14 days.',
       },
       {
         question: 'Are Spark Ads better than standard In-Feed video ads?',
         answer:
-          'Yes. Spark Ads typically achieve 25–40% higher CTR and 30% higher conversion rates because they look like genuine creator content rather than intrusive commercial interruptions.',
+          'Yes. Spark Ads typically achieve 25 to 40% higher CTR and 30% higher conversion rates because they look like genuine creator content rather than intrusive commercial interruptions.',
       },
       {
         question: 'What is a good 3-second hook rate on TikTok?',
         answer:
-          'Below 25% is poor (users swipe away immediately). 25%–35% is average. Above 35% is excellent. To lift hook rate, cut brand logos, start in the middle of action, and use bold on-screen text questions.',
+          'Below 25% is poor (users swipe away immediately). 25% to 35% is average. Above 35% is excellent. To lift hook rate, cut brand logos, start in the middle of action, and use bold on-screen text questions.',
       },
     ],
   },
@@ -320,7 +320,7 @@ export const ALL_ADS_CALCULATORS = [
       'Model LinkedIn B2B ad budgets, Cost Per Lead (CPL), MQL-to-SQL pipeline conversion, and enterprise customer acquisition cost. Free B2B calculator.',
     headline: 'Calculate High-Ticket B2B Economics & Account-Based CPL',
     description:
-      'LinkedIn commands high CPMs ($35–$80) and CPCs ($6–$18), but targets verified corporate decision-makers. Reverse-engineer your pipeline CAC and deal economics.',
+      'LinkedIn commands high CPMs ($35 to $80) and CPCs ($6 to $18), but targets verified corporate decision-makers. Reverse-engineer your pipeline CAC and deal economics.',
     equations: [
       {
         name: 'Customer Acquisition Cost (CAC)',
@@ -379,12 +379,12 @@ export const ALL_ADS_CALCULATORS = [
       {
         question: 'Why are LinkedIn CPCs so much higher than Google or Meta?',
         answer:
-          'LinkedIn sells verified professional identity data (job title, senior executive level, company size, industry). While Facebook CPC might be $1.00, LinkedIn CPC is often $8–$14 because you are reaching enterprise buyers with six-figure purchasing authority.',
+          'LinkedIn sells verified professional identity data (job title, senior executive level, company size, industry). While Facebook CPC might be $1.00, LinkedIn CPC is often $8 to $14 because you are reaching enterprise buyers with six-figure purchasing authority.',
       },
       {
         question: 'What is a realistic Cost Per Lead (CPL) on LinkedIn?',
         answer:
-          'Using native LinkedIn Lead Gen Forms, CPL ranges from $60–$140 for managers/directors, and $150–$300 for C-suite and VP decision-makers in competitive tech and fintech sectors.',
+          'Using native LinkedIn Lead Gen Forms, CPL ranges from $60 to $140 for managers/directors, and $150 to $300 for C-suite and VP decision-makers in competitive tech and fintech sectors.',
       },
       {
         question: 'Should I drive LinkedIn traffic to my website or use Lead Gen Forms?',
@@ -460,7 +460,7 @@ export const ALL_ADS_CALCULATORS = [
       {
         question: 'What is a good ACoS target on Amazon?',
         answer:
-          'A good ACoS is any number comfortably below your Break-Even ACoS (product margin after FBA fees). Typically, 18%–28% is considered healthy for mature products, while 35%–45% is acceptable during product launch flights to build organic rank.',
+          'A good ACoS is any number comfortably below your Break-Even ACoS (product margin after FBA fees). Typically, 18% to 28% is considered healthy for mature products, while 35% to 45% is acceptable during product launch flights to build organic rank.',
       },
       {
         question: 'Why is TACoS more important than ACoS for Amazon brands?',
@@ -536,7 +536,7 @@ export const ALL_ADS_CALCULATORS = [
     badge: 'Bing & Copilot Search',
     metaTitle: 'Microsoft Ads & Bing Search Calculator | Frame Cipher',
     metaDescription:
-      'Calculate Microsoft Bing Ads budgets, Copilot AI placements, and desktop B2B audience economics with 20–35% lower CPCs than Google.',
+      'Calculate Microsoft Bing Ads budgets, Copilot AI placements, and desktop B2B audience economics with 20 to 35% lower CPCs than Google.',
     headline: 'Capture High-Income Desktop Audiences at 30% Lower CPCs',
     description:
       'Microsoft Ads commands 35%+ of US desktop search market share with higher average household income. Model cheaper search traffic and Copilot AI ads.',
@@ -545,7 +545,7 @@ export const ALL_ADS_CALCULATORS = [
         name: 'Microsoft Search CPC Advantage',
         leftSide: 'Bing CPC',
         numerator: 'Google Search CPC Benchmark',
-        denominator: '1.35 (Average 25%–35% Cost Discount)',
+        denominator: '1.35 (Average 25% to 35% Cost Discount)',
         explanation:
           'Because competition on Microsoft Advertising is lower than Google, click costs average 25% to 35% cheaper for identical keyword queries.',
         example:
@@ -568,7 +568,7 @@ export const ALL_ADS_CALCULATORS = [
       {
         question: 'Why should I advertise on Microsoft Ads if Google is bigger?',
         answer:
-          'Microsoft owns default search on Windows PCs and Edge browsers, capturing enterprise office workers and older demographics with high disposable income at 25–35% lower CPCs.',
+          'Microsoft owns default search on Windows PCs and Edge browsers, capturing enterprise office workers and older demographics with high disposable income at 25 to 35% lower CPCs.',
       },
     ],
   },
@@ -627,7 +627,7 @@ export const ALL_ADS_CALCULATORS = [
       'Calculate retargeting ad budgets, cart abandonment recovery rates, frequency caps, and incremental ROAS across Google, Meta, and Display.',
     headline: 'Recover Abandoned Carts & Maximize Warm Audience ROAS',
     description:
-      'Retargeting converts visitors who did not purchase on their first visit. Model warm-audience conversion rates (4%–12%) and prevent wasted ad spend with frequency caps.',
+      'Retargeting converts visitors who did not purchase on their first visit. Model warm-audience conversion rates (4% to 12%) and prevent wasted ad spend with frequency caps.',
     equations: [
       {
         name: 'Cart Recovery Revenue',

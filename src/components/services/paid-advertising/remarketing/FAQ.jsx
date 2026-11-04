@@ -1,103 +1,165 @@
-import { SectionIntro } from '../../../Kinetic'
-import { resolveFaqs } from '../../../../lib/seo/faq'
+'use client'
 
-const fallbackFaqs = [
+import React, { useState } from 'react'
+import { ChevronDown, Sparkles, ChevronUp } from 'lucide-react'
+
+const faqs = [
   {
-    question: 'What are Remarketing Services?',
-    answer: 'Remarketing Services help businesses re-engage people who previously interacted with their website, products, content, ads, or brand. Framecipher manages audience segmentation, tracking, campaign setup, dynamic remarketing, suppression, creative testing, optimization, and reporting across relevant advertising platforms.',
+    q: 'What are Remarketing Services?',
+    a: 'Remarketing Services help businesses re-engage people who previously interacted with their website, products, content, ads, or brand. Framecipher manages audience segmentation, tracking, campaign setup, dynamic remarketing, suppression, creative testing, optimization, and reporting across relevant advertising platforms.',
   },
   {
-    question: 'What is the difference between remarketing and retargeting?',
-    answer: 'The terms are often used interchangeably. Retargeting usually refers to advertising to people based on previous interactions such as website visits or product views, while remarketing can be used more broadly for re-engaging previous visitors, leads, or customers.',
+    q: 'What is the difference between remarketing and retargeting?',
+    a: 'The terms are often used interchangeably in paid advertising. Retargeting usually refers to advertising to people based on previous interactions such as website visits, product views, or engagement. Remarketing is often used more broadly for re-engaging previous visitors, leads, or known customer audiences. Framecipher uses Remarketing Services as the overarching service term while applying the exact audience strategy that fits each channel.',
   },
   {
-    question: 'Does remarketing still work with privacy and tracking changes?',
-    answer: 'Yes, but audience availability and measurement depend on platform rules, consent, browser and app behavior, traffic volume, and the quality of the tracking setup. We use first-party data, consent-aware tracking, server-side options, and platform-supported audience methods where appropriate.',
+    q: 'Does remarketing still work with privacy and tracking changes?',
+    a: 'Yes, but audience availability and measurement depend on platform rules, consent, browser and app behavior, traffic volume, and the quality of the tracking setup. We build resilient remarketing systems utilizing first-party data, consent-aware tracking, server-side Conversion APIs (CAPI), and platform-supported audience methods where appropriate.',
   },
   {
-    question: 'How much website traffic do we need for remarketing?',
-    answer: 'There is no universal minimum. The practical requirement depends on traffic volume, buying cycle, audience window, platform, and campaign objective. Very low-traffic sites may need longer audience windows or a narrower platform strategy.',
+    q: 'How much website traffic do we need for remarketing?',
+    a: 'There is no universal minimum. The practical requirement depends on traffic volume, buying cycle, audience recency window, platform, and campaign objective. Very low-traffic websites may need longer audience windows or a narrower single-platform strategy before scaling.',
   },
   {
-    question: 'How long should someone stay in a remarketing audience?',
-    answer: 'There is no universal answer. A short buying cycle may need a short audience window, while high-consideration products or B2B services may require longer windows. We set audience duration based on actual customer behavior rather than applying one default timeframe.',
+    q: 'How long should someone stay in a remarketing audience?',
+    a: 'There is no universal timeframe. A short buying cycle may need a 7-day to 14-day audience window, while high-consideration products or B2B services may require 30 to 90-day windows. We calibrate audience duration based on actual customer buying behavior rather than applying one default timeframe.',
   },
   {
-    question: 'Do you manage ecommerce remarketing?',
-    answer: 'Yes. We can manage product-view, cart, checkout, customer, dynamic catalog, cross-sell, upsell, and replenishment audiences where the relevant platform features are available.',
+    q: 'Do you manage ecommerce remarketing?',
+    a: 'Yes. We manage product-view, cart abandonment, checkout abandonment, past purchaser, dynamic catalog, cross-sell, upsell, and replenishment audiences across Google, Meta, TikTok, and Pinterest where relevant platform features are available.',
   },
   {
-    question: 'Do you manage lead-generation remarketing?',
-    answer: 'Yes. We can build remarketing around service-page visits, pricing-page views, form activity, content engagement, previous leads, and other available signals.',
+    q: 'Do you manage lead-generation remarketing?',
+    a: 'Yes. We build remarketing campaigns around service-page visits, pricing-page views, form abandonment, content engagement, previous leads, and consultation page interactions, deploying tailored proof and objection-handling messaging.',
   },
   {
-    question: 'Do you manage remarketing across multiple platforms?',
-    answer: 'Yes. We can coordinate remarketing across Google, Meta, Pinterest, TikTok, LinkedIn, Amazon, and other relevant platforms where the required audience and campaign capabilities are available.',
+    q: 'Do you manage remarketing across multiple platforms?',
+    a: 'Yes. We coordinate remarketing across Google (Display & YouTube), Meta (Facebook & Instagram), Pinterest, TikTok, LinkedIn, Amazon, and other relevant platforms where the required audience and campaign capabilities are available.',
   },
   {
-    question: 'Do you provide dynamic product remarketing?',
-    answer: 'Yes. For eligible ecommerce setups, we can connect product catalogs with dynamic remarketing campaigns that use relevant product or service data.',
+    q: 'Do you provide dynamic product remarketing?',
+    a: 'Yes. For eligible ecommerce setups, we connect product catalogs and feeds with dynamic remarketing campaigns that display the exact or complementary products a user previously viewed or added to cart.',
   },
   {
-    question: 'Can you use CRM data for remarketing?',
-    answer: 'Yes, where the advertising platform supports customer-list audiences and the data can be used lawfully for advertising. We can help structure customer, lead, qualified-lead, and existing-customer audiences for inclusion or exclusion.',
+    q: 'Can you use CRM data for remarketing?',
+    a: 'Yes, where the advertising platform supports customer-list audiences and the data has been collected lawfully with proper consent. We structure customer, lead, qualified-lead, and past-customer audiences for targeted inclusion or suppression.',
   },
   {
-    question: 'Do you manage frequency caps?',
-    answer: 'Where a platform and campaign type support manual frequency caps, we can configure and monitor them. Where direct frequency controls are unavailable, exposure can be managed through audience windows, exclusions, campaign structure, creative rotation, budget, and sequencing.',
+    q: 'Do you manage frequency caps?',
+    a: 'Where a platform and campaign type support manual frequency caps, we configure and monitor them. Where direct frequency controls are unavailable, exposure is managed through audience windows, exclusions, campaign structure, creative rotation, budget, and sequencing to prevent ad fatigue.',
   },
   {
-    question: 'Can remarketing work with low website traffic?',
-    answer: 'It can, but limited traffic usually means smaller audiences and slower audience accumulation. We assess traffic volume before recommending a cross-platform remarketing program.',
+    q: 'Can remarketing work with low website traffic?',
+    a: 'It can, but limited traffic usually means smaller audiences and slower audience accumulation. We assess traffic volume before recommending a cross-platform remarketing program, ensuring media spend is allocated where it yields measurable impact.',
   },
   {
-    question: 'Can remarketing improve ROAS?',
-    answer: 'It can contribute to improved efficiency when the audience, offer, creative, tracking, and conversion journey are well aligned. However, we do not treat ROAS improvement as guaranteed, and we distinguish attributed conversions from broader incremental business impact where the data allows.',
+    q: 'Can remarketing improve ROAS?',
+    a: 'It can contribute to improved efficiency when the audience, offer, creative, tracking, and conversion journey are well aligned. However, we do not treat ROAS improvement as guaranteed, and we distinguish attributed conversions from broader incremental business impact where data allows.',
   },
   {
-    question: 'Do you provide this service outside Bangladesh?',
-    answer: 'Yes. Framecipher manages remarketing campaigns for businesses in Bangladesh and international markets including the US, UK, Australia, Canada, UAE, and other eligible markets.',
+    q: 'Do you provide this service outside Bangladesh?',
+    a: 'Yes. Framecipher manages remarketing campaigns for businesses in Bangladesh and international markets including the US, UK, Australia, Canada, UAE, and other eligible markets.',
   },
   {
-    question: 'Do you guarantee remarketing results?',
-    answer: 'No. We do not guarantee a specific ROAS, CPA, conversion rate, or recovered revenue. We commit to proper tracking, structured audiences, exposure management, ongoing optimization, and transparent reporting.',
+    q: 'Do you guarantee remarketing results?',
+    a: 'No. We do not guarantee a specific ROAS, CPA, conversion rate, or recovered revenue. Remarketing performance depends on audience volume, traffic quality, offer strength, product demand, and conversion rates outside any agency control. We commit to proper tracking, structured audiences, exposure management, ongoing optimization, and transparent reporting.',
   },
 ]
 
-export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-4xl mx-auto">
-        <SectionIntro eyebrow="FAQ" title="Remarketing Services: Frequently Asked Questions" />
 
-        <div className="mt-12 space-y-4">
-          {faqs.map((faq, index) => (
-            <details
-              key={faq.question}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-6 p-6 md:p-7">
-                <span className="flex items-center gap-5">
-                  <span className="font-heading text-sm font-bold text-frame-accent md:text-base">
-                    {String(index + 1).padStart(2, '0')}
+import PosterButton from '../../../home/PosterButton'
+
+export default function FAQ({ service }) {
+  const [openIndex, setOpenIndex] = useState(null)
+  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : faqs
+
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx)
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question || faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer || faq.a,
+      },
+    })),
+  }
+
+  return (
+    <section id="faqs" className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl">
+        {/* Strictly Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked{' '}
+            <span className="italic font-normal text-frame-accent">Questions.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl mx-auto">
+            Everything you need to know about audience segmentation, dynamic retargeting, frequency capping, first-party data, and cross-platform setup.
+          </p>
+        </div>
+
+        {/* Centered Accordion Column */}
+        <div className="mx-auto max-w-4xl space-y-3">
+          {faqList.map((faq, idx) => {
+            const isOpen = openIndex === idx
+            const qText = faq.question || faq.q
+            const aText = faq.answer || faq.a
+            return (
+              <div
+                key={idx}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(idx)}
+                  className="flex w-full items-center justify-between p-6 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
+                    {qText}
                   </span>
-                  <span className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg md:text-lg">
-                    {faq.question}
+                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
                   </span>
-                </span>
-                <span className="relative flex h-8 w-8 shrink-0 items-center justify-center">
-                  <span className="absolute h-0.5 w-4 bg-frame-accent" />
-                  <span className="absolute h-4 w-0.5 bg-frame-accent transition-transform group-open:rotate-90" />
-                </span>
-              </summary>
-              <div className="border-t border-frame-border p-6 pt-5 md:p-7 md:pt-5">
-                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                  {faq.answer}
-                </p>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                    <p className="text-base font-normal leading-relaxed text-zinc-300 whitespace-pre-line">
+                      {aText}
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Contact Prompt Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base font-medium text-white max-w-xl">
+            Have an audience list or cart drop-off issue you want to recover? Contact us, and we will structure a high-converting remarketing sequence.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact" variant="accent">
+              Request Consultation
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

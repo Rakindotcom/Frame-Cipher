@@ -30,14 +30,14 @@ const marqueeItems = [
 
 export default function ContentWritingEmailCopywritingService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-[#FAFAFA] min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <WritingPortfolioPreview
         type="content"
         eyebrow="Published writing samples"
         title="Writing samples archive."
-        description="A cross-section of delivered writing — guides, service pages, product copy, and campaign copy."
+        description="A cross-section of delivered writing, including guides, service pages, product copy, and campaign copy."
       />
       <AttentionClarityAction />
       <Offerings />

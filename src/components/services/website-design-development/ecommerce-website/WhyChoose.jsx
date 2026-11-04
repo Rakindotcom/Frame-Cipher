@@ -1,6 +1,5 @@
-
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import PosterButton from '../../../home/PosterButton'
 
 const whyChooseUs = [
   {
@@ -31,30 +30,67 @@ const whyChooseUs = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Strategic Value / Revenue Architecture" title="Why Choose Frame Cipher for E-commerce Development" align="center">
-          Stores built to generate sustainable revenue, handle peak checkout volumes, and adapt to your operational growth.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Sticky Left Column (5 cols) */}
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-32 space-y-6">
+              <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-medium leading-[1.05] tracking-[-0.03em] text-white max-w-full break-words">
+                Why Merchants Choose{' '}
+                <span className="italic text-frame-accent">Frame Cipher.</span>
+              </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2 lg:grid-cols-3">
-          {whyChooseUs.map((adv, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Pillar 0{idx + 1}</span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {adv.title}
-                </h3>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg"><AutoLinks currentPath="/services/website-design-development/ecommerce-website" allowed={["/services/website-design-development/custom-development"]}>
-                  {adv.desc}
-                </AutoLinks></p>
+              <p className="text-base leading-relaxed text-zinc-300 sm:text-lg">
+                Stores built to generate sustainable revenue, handle peak checkout volumes, and adapt to your operational growth.
+              </p>
+
+              {/* Performance / Accountability Metric Card */}
+              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-2">
+                <span className="font-mono text-3xl font-medium text-white sm:text-4xl">
+                  100%
+                </span>
+                <span className="block font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Store &amp; Inventory Ownership
+                </span>
+                <p className="text-xs text-zinc-400 leading-relaxed pt-1">
+                  You own all store templates, custom code, product databases, and gateway credentials upon final handover.
+                </p>
+              </div>
+
+              <div className="pt-2">
+                <PosterButton href="/contact" variant="accent">
+                  Request a Custom Quote
+                </PosterButton>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-12 text-center">
-          <PosterButton href="/contact">Request a Custom Quote &rarr;</PosterButton>
+          {/* Scrolling Right Column (7 cols): Editorial Divided Rows */}
+          <div className="divide-y divide-white/[0.08] border-y border-white/[0.08] lg:col-span-7">
+            {whyChooseUs.map((adv, idx) => (
+              <div
+                key={idx}
+                className="group py-8 transition-colors duration-200 hover:bg-white/[0.02]"
+              >
+                <div className="flex items-baseline gap-4">
+                  <span className="font-mono text-xs font-semibold text-frame-accent">
+                    0{idx + 1}
+                  </span>
+                  <div className="space-y-3">
+                    <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                      {adv.title}
+                    </h3>
+                    <p className="text-sm sm:text-base leading-relaxed text-zinc-300">
+                      <AutoLinks currentPath="/services/website-design-development/ecommerce-website" allowed={["/services/website-design-development/custom-development"]}>
+                        {adv.desc}
+                      </AutoLinks>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

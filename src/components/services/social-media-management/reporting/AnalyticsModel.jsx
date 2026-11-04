@@ -38,8 +38,8 @@ const layers = [
 
 export default function AnalyticsModel() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="The analytics model"
           title="What Good Social Media Analytics Actually Tells You"
@@ -47,20 +47,20 @@ export default function AnalyticsModel() {
           A useful report should move through four questions.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {layers.map((layer) => (
-            <article key={layer.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <article key={layer.number} className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                   {layer.number}
                 </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                <h3 className="mt-5 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                   {layer.title}
                 </h3>
                 {layer.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                   >
                     {paragraph}
                   </p>
@@ -68,7 +68,7 @@ export default function AnalyticsModel() {
               </div>
 
               {layer.note && (
-                <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 border-l-2 border-[#A855F7]/40 bg-[#121214] p-3 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {layer.note}
                 </p>
               )}
@@ -76,7 +76,7 @@ export default function AnalyticsModel() {
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
+        <p className="mt-8 border-l-2 border-[#A855F7]/40 bg-[#121214] p-4 text-sm font-semibold leading-relaxed text-[#FAFAFA] md:text-base">
           That is the difference between reporting and analytics.
         </p>
       </div>

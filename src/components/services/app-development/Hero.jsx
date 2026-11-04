@@ -1,5 +1,10 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { PageHero, PosterButton } from '../../Kinetic'
+import { ChevronRight, ShieldCheck } from 'lucide-react'
+import PosterButton from '../../home/PosterButton'
+import AppInterfaceHeroVisual from './AppInterfaceHeroVisual'
 
 const kineticMetrics = [
   {
@@ -25,78 +30,122 @@ const kineticMetrics = [
 ]
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "App Development Services in Bangladesh"
-  const subtitle = service?.shortDesc || "Custom mobile and web apps built to actually launch and scale, Android, iOS, cross-platform, and SaaS products, handled by one in-house team from strategy through App Store release. Talk to us about what you're building."
+  const title = service?.h1 || 'App Development Services in Bangladesh'
+  const subtitle =
+    service?.shortDesc ||
+    "Custom mobile and web apps built to actually launch and scale, Android, iOS, cross-platform, and SaaS products, handled by one in-house team from strategy through App Store release. Talk to us about what you're building."
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
-          <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          <span>/</span>
-          <span className="text-frame-accent">App Development</span>
-        </div>
-      </nav>
+    <div className="relative isolate bg-[#09090B] text-white">
+      {/* HERO SECTION */}
+      <section className="relative isolate overflow-hidden border-b border-white/[0.08] px-4 pt-28 pb-20 sm:px-6 md:px-8 md:pt-32 md:pb-28">
+        <div className="mx-auto max-w-7xl">
+          {/* Breadcrumbs (§2.3 Clearance Standard) */}
+          <nav
+            aria-label="Breadcrumbs"
+            className="mb-8 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none py-1 font-mono text-[11px] sm:text-xs text-zinc-400"
+          >
+            <Link href="/" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              Home
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <Link href="/services" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              Services
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <span className="shrink-0 whitespace-nowrap text-frame-accent">App Development</span>
+          </nav>
 
-      {/* HERO */}
-      <PageHero
-        eyebrow="Core Service Pillar / App Development"
-        meta="One In-House Team / Built For Scale"
-        number="02"
-        title={title}
-        actions={
-          <>
-            <PosterButton href="/contact">Get a Free App Consultation &rarr;</PosterButton>
-            <PosterButton href="#pricing" variant="outline">
-              View Packages &amp; Pricing &rarr;
-            </PosterButton>
-          </>
-        }
-      >
-        {subtitle}
-      </PageHero>
+          {/* Grid Layout: Left Content, Right Visual */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
+            {/* Left Content Column (6 cols) */}
+            <div className="space-y-6">
+              {/* Main Headline */}
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white">
+                {title.includes('Bangladesh') ? (
+                  <>
+                    App Development{' '}
+                    <span className="italic text-frame-accent">Services in Bangladesh.</span>
+                  </>
+                ) : (
+                  title
+                )}
+              </h1>
 
-      {/* KINETIC BRUTALIST METRICS */}
-      <div className="border-b-2 border-frame-border bg-frame-muted/30">
-        <div className="mx-auto grid max-w-[95vw] grid-cols-1 divide-y-2 divide-frame-border sm:grid-cols-2 sm:divide-y-0 sm:divide-x-2 lg:grid-cols-4">
-          {kineticMetrics.map((item, idx) => (
-            <div key={idx} className="p-6 md:p-8">
-              <span className="font-heading text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                {item.num}
-              </span>
-              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.label}
-              </h3>
-              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.detail}
+              {/* Running Description */}
+              <p className="text-base sm:text-lg md:text-xl font-normal leading-relaxed text-zinc-300 max-w-2xl">
+                {subtitle}
               </p>
-            </div>
-          ))}
-        </div>
-      </div>
 
-      {/* STRATEGIC OPENING SECTION */}
-      <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-8 md:p-14">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Engineering Reality &amp; Execution
-            </span>
-            <h2 className="mt-4 font-heading text-2xl md:text-4xl lg:text-5xl font-bold uppercase tracking-tight text-frame-fg leading-tight">
-              Your App Idea Needs a Team That&apos;s Shipped Before, Not Just Designed
+              {/* Symmetrical 52px Button Pair (§4 Standard) */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                <PosterButton href="/contact" variant="accent">
+                  Get Free Consultation
+                </PosterButton>
+                <PosterButton href="#pricing" variant="outline">
+                  Discuss Your App Project &rarr;
+                </PosterButton>
+              </div>
+
+              {/* Trust Badge / Technical SLA */}
+              <div className="flex items-center gap-3 pt-2 text-xs text-zinc-400">
+                <ShieldCheck className="h-4 w-4 text-frame-accent shrink-0" />
+                <span>
+                  Apple App Store &amp; Google Play &bull; Production Backend &bull; 100% In-House Team
+                </span>
+              </div>
+            </div>
+
+            {/* Right Visual Column (6 cols): Interactive App Interface Mockup */}
+            <div className="relative flex items-center justify-center lg:justify-end">
+              <AppInterfaceHeroVisual />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4-METRIC ARCHITECTURAL LEDGER RIBBON */}
+      <section className="border-b border-white/[0.08] bg-[#09090B]">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid grid-cols-1 divide-y divide-white/[0.08] sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
+            {kineticMetrics.map((item, idx) => (
+              <div key={idx} className="p-6 md:p-8 bg-[#121214]/60 transition-colors hover:bg-[#121214]">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  {item.num}
+                </span>
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-medium tracking-tight text-white">
+                  {item.label}
+                </h3>
+                <p className="mt-3 text-xs md:text-sm font-normal leading-relaxed text-zinc-300">
+                  {item.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* STRATEGIC EVALUATION SECTION */}
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12 md:p-14">
+            <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+              Your App Idea Needs a Team That&apos;s Shipped Before,{' '}
+              <span className="italic text-frame-accent">Not Just Designed.</span>
             </h2>
-            <div className="mt-6 max-w-4xl space-y-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+            <div className="mt-6 max-w-4xl space-y-4 text-base md:text-lg font-normal leading-relaxed text-zinc-300">
               <p>
                 Most app projects stall somewhere between &ldquo;great idea&rdquo; and &ldquo;live in the App Store&rdquo;, usually because design, development, and backend infrastructure were never planned as one system. Framecipher builds Android, iOS, cross-platform, and SaaS applications for startups and businesses in Bangladesh, and for international clients across the US, UK, Australia, Canada, and UAE, handled by one in-house team from architecture through launch and post-launch support. Not sure if you need a native app, a cross-platform build, or just an MVP to test the idea first? Talk to us and we&apos;ll tell you honestly what fits your stage and budget.
               </p>
             </div>
+
             <div className="mt-8 flex flex-wrap gap-4">
-              <PosterButton href="/contact">Talk to Our Team &rarr;</PosterButton>
+              <PosterButton href="/contact" variant="accent">
+                Talk to Our Team
+              </PosterButton>
               <PosterButton href="#offerings" variant="outline">
-                Explore App Capabilities &rarr;
+                Explore App Capabilities
               </PosterButton>
             </div>
           </div>

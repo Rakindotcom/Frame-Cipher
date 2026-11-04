@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for faq — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for faq: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Consultation & Booking Costs",
@@ -14,7 +14,7 @@ const DATA = {
       "priceNote": "same-day replies",
       "tag": "WhatsApp First",
       "cta": "Ask on WhatsApp",
-      "description": "Quotes, technical questions, availability and reference matching — answered on WhatsApp within hours.",
+      "description": "Quotes, technical questions, availability and reference matching: answered on WhatsApp within hours.",
       "features": [
         "Same-day response on +880 1768-146650",
         "Itemised written quotes within 48 hours",
@@ -47,7 +47,7 @@ const DATA = {
       "priceNote": "balance on delivery",
       "tag": "Locked Calendar",
       "cta": "Confirm a Booking",
-      "description": "Written scope, locked dates, crewed stage and scheduled post — production with contractual certainty.",
+      "description": "Written scope, locked dates, crewed stage and scheduled post: production with contractual certainty.",
       "features": [
         "Itemised scope with milestones and timeline",
         "VAT-compliant invoice for every payment",
@@ -66,7 +66,7 @@ const DATA = {
     "Stakeholder approvals and timeline pressure",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Dhaka studios vary most in booking discipline: some demand full advance with no rescheduling; others confirm verbally and double-book dates. Our structure — free consultation and verification, 50% to confirm, balance on delivery, free 48-hour rescheduling — mirrors professional production practice internationally. The policy that protects you most is written scope before payment, which we observe without exception.",
+  "marketNote": "Dhaka studios vary most in booking discipline: some demand full advance with no rescheduling; others confirm verbally and double-book dates. Our structure: free consultation and verification, 50% to confirm, balance on delivery, free 48-hour rescheduling: mirrors professional production practice internationally. The policy that protects you most is written scope before payment, which we observe without exception.",
   "costRows": [
     [
       "Consultation, quotes, walkthroughs",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Booking Certainty Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

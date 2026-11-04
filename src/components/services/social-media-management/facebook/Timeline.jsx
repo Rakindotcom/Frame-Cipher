@@ -1,93 +1,128 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
 const phases = [
   {
     number: '01',
-    phase: 'Days 1-3',
-    title: 'Onboarding',
-    body: 'We collect the access, assets, and business context needed to start properly.',
-    bullets: ['Access handover', 'Brand assets', 'Business information', 'Reporting access', 'Campaign context'],
+    window: 'Initial Audit (Days 1–3)',
+    title: 'Initial Page Audit',
+    body: 'We review your Page, business information, existing content, audience, competitors, and current performance. The initial audit typically takes a few business days after receiving the required access and information.',
+    bullets: [
+      'Current Page setup & role access',
+      'Business info & contact accuracy',
+      'Historical content & format audit',
+      'Audience & competitor analysis',
+      'Highest-priority improvement roadmap',
+    ],
   },
   {
     number: '02',
-    phase: 'Days 3-7',
-    title: 'Facebook Page Audit',
-    body: 'We review the current Page before making recommendations.',
-    bullets: ['Page audit', 'Content review', 'Competitor review', 'Audience review', 'Opportunity list'],
+    window: 'Setup & Launch (Weeks 1–2)',
+    title: 'First-Month Setup',
+    body: 'The first month focuses on establishing foundational systems: Page improvements, Content pillars, Content calendar, Brand voice, Creative direction, Publishing workflow, Community process, and Reporting structure.',
+    bullets: [
+      'Page optimization & CTA configuration',
+      'Core content pillars & editorial cadence',
+      'First-month monthly content calendar',
+      'Brand voice & creative guidelines',
+      'Approval & escalation workflows',
+    ],
   },
   {
     number: '03',
-    phase: 'Days 7-14',
-    title: 'Page Optimization & First Content',
-    body: 'We apply priority improvements and begin building the content foundation.',
-    bullets: ['Page optimization', 'Content pillars', 'First content batch', 'Calendar setup', 'Workflow setup'],
-  },
-  {
-    number: '04',
-    phase: 'Days 15-30',
-    title: 'Ongoing Management',
-    body: 'The plan moves into its regular rhythm: publish, engage, and improve.',
+    window: 'Ongoing Cadence (Month 2+)',
+    title: 'Ongoing Management & Optimization',
+    body: 'Facebook management is an ongoing process. Each month, we publish, monitor, report, learn, and refine the strategy based on available data and business priorities.',
     bullets: [
-      'Regular publishing',
-      'Community management',
-      'Comment and review monitoring',
-      'Moderation',
-      'Monthly reporting',
+      'Consistent multi-format publishing',
+      'Active community & Messenger triage',
+      'Review monitoring & response care',
+      'Comprehensive monthly reporting',
+      'Iterative strategy refinement',
     ],
   },
 ]
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Onboarding timeline"
-          title="What Happens After You Start"
-        >
-          A clear onboarding sequence means you know what is happening, what we need from you, and
-          when results should start appearing in the Page itself.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            Onboarding Timeline
+          </div>
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Facebook Management Timeline
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            A clear onboarding sequence means you know what is happening, what we need from you, and
+            when results should start appearing in the Page itself.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+        {/* Timeline Grid */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {phases.map((phase) => (
-            <article key={phase.number} className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8">
+            <article
+              key={phase.number}
+              className="group flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-300 hover:border-white/[0.18] hover:bg-[#151518]"
+            >
               <div>
-                <div className="flex items-center justify-between gap-3">
-                  <span className="font-heading text-4xl font-black leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                    {phase.number}
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-semibold text-frame-accent">
+                    Phase {phase.number}
                   </span>
-                  <span className="border border-frame-accent/50 bg-frame-accent/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    {phase.phase}
+                  <span className="rounded-full rounded-xl border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 text-[10px] font-mono uppercase text-[#A1A1AA]">
+                    {phase.window}
                   </span>
                 </div>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg">
+                <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {phase.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+                <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
                   {phase.body}
                 </p>
-              </div>
 
-              <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 transition-colors duration-200 group-hover:border-frame-accent-fg/30 group-hover:text-frame-accent-fg/90 md:text-sm">
-                {phase.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg" />
-                    <span className="leading-snug">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A]">
+                    Key Deliverables
+                  </span>
+                  <ul className="mt-3 space-y-2">
+                    {phase.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
+                        <svg
+                          className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Timelines describe the onboarding sequence, not a guaranteed performance outcome. Growth
-            on Facebook depends on the business, the market, and the quality of the content.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Begin the Onboarding Process &rarr;</PosterButton>
+        {/* Bottom Banner */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-frame-accent">
+              Honest Expectation Setting
+            </span>
+            <p className="mt-2 text-base leading-relaxed text-[#FAFAFA] sm:text-lg">
+              Timelines describe the onboarding sequence, not a guaranteed performance outcome. Growth
+              on Facebook depends on the business, the market, and the quality of the content.
+            </p>
+          </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Begin the Onboarding Process</PosterButton>
           </div>
         </div>
       </div>

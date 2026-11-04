@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import { SectionIntro } from '../Kinetic'
 import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
 const visionMetrics = [
@@ -29,69 +28,63 @@ const pillarManifestos = [
 
 export default function AboutVision() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-            Manifesto / The Multinational Blueprint
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-            Born in Dhaka. Built for the World.
+        <div className="mb-14 space-y-4 max-w-4xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            Born in Dhaka.{' '}
+            <span className="italic text-frame-accent">
+              Built for the World.
+            </span>
           </h2>
-          <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+          <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
             Bangladesh is home to one of the youngest, most ambitious engineering and creative populations on earth. 
             Frame Cipher harnesses this generational talent pool to deliver sovereign digital infrastructure, 
             enterprise-grade software, and high-ROI acquisition systems for brands across five continents.
           </p>
         </div>
 
-        {/* Global Key Metrics Grid */}
-        <div className="mb-16 grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
+        {/* Global Key Metrics Ledger (Modality 2: Divided Column Band) */}
+        <div className="mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-white/[0.08] divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08] bg-[#09090B]">
           {visionMetrics.map((metric) => (
-            <div key={metric.label} className="bg-frame-bg p-6 sm:p-8">
-              <p className="font-heading text-5xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-6xl">
+            <div
+              key={metric.label}
+              className="p-6 md:p-8 space-y-2.5 transition-colors duration-200 hover:bg-[#121214]"
+            >
+              <p className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium uppercase leading-none tracking-tight text-white">
                 {metric.value}
               </p>
-              <p className="mt-3 text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
+              <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
                 {metric.label}
               </p>
-              <p className="mt-2 text-xs font-medium text-frame-muted-fg">
+              <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                 {metric.sub}
               </p>
             </div>
           ))}
         </div>
 
-        {/* 3 Strategic Manifesto Pillars */}
-        <div className="grid bg-frame-border gap-px lg:grid-cols-3">
+        {/* 3 Strategic Manifesto Pillars (Modality 2: Architectural Column Band) */}
+        <div className="border-t border-b border-white/[0.08] grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08] bg-[#09090B]">
           {pillarManifestos.map((pillar, idx) => (
             <article
               key={pillar.title}
-              className="group relative flex flex-col justify-between bg-frame-bg p-8 transition-colors duration-300 hover:bg-frame-accent sm:p-10"
+              className="group flex flex-col justify-between p-8 sm:p-10 space-y-6 transition-colors duration-200 hover:bg-[#121214]"
             >
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-[0.28em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/80 sm:text-xs">
-                    {pillar.tag}
-                  </span>
-                  <span className="font-mono text-xs font-bold text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/70">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums">
                     0{idx + 1}
                   </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
                 </div>
-                <h3 className="mt-6 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-3xl">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium leading-tight text-white group-hover:text-frame-accent transition-colors">
                   {pillar.title}
                 </h3>
-                <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
+                <div className="text-sm font-normal leading-relaxed text-zinc-300">
                   {renderContextualParagraph(pillar.text, { maxLinks: 3, theme: 'frame' })}
-                </p>
-              </div>
-
-              <div className="mt-10 pt-6 border-t border-frame-border/60 transition-colors duration-300 group-hover:border-frame-accent-fg/20">
-                <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
-                  <span>Explore Ecosystem</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </span>
+                </div>
               </div>
             </article>
           ))}

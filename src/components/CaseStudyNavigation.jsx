@@ -71,9 +71,9 @@ export default function CaseStudyNavigation() {
     <nav
       ref={navRef}
       aria-label="Case study navigation"
-      className="sticky top-[var(--case-study-header-height,78px)] z-40 border-y-2 border-frame-border bg-frame-bg/95 px-4 py-3 shadow-lg backdrop-blur-xl md:px-8"
+      className="sticky top-[var(--case-study-header-height,78px)] z-40 border-y border-white/[0.08] bg-[#09090B]/95 px-4 py-3 backdrop-blur-xl md:px-8"
     >
-      <div className="mx-auto flex max-w-[95vw] items-center gap-4">
+      <div className="mx-auto flex max-w-7xl items-center gap-4">
         <span className="hidden shrink-0 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg md:block">
           Case studies
         </span>

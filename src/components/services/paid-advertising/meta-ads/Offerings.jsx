@@ -44,7 +44,7 @@ export default function Offerings({ service }) {
   },
   {
     "title": "ONGOING OPTIMIZATION & CREATIVE REFRESH",
-    "description": "Meta campaigns need more frequent attention than search campaigns, since creative fatigue sets in faster than keyword performance typically declines. What We Do Meta Ads perform best paired with a landing page built for that specific traffic - see our Landing Page Development page for how that connects.",
+    "description": "Meta campaigns need more frequent attention than search campaigns, since creative fatigue sets in faster than keyword performance typically declines. What We Do Meta Ads perform best paired with a landing page built for that specific traffic (see our Landing Page Development page for how that connects.",
     "bullets": [
       "Performance Monitoring: Regular review of frequency, cost-per-result, and creative-level performance data.",
       "Creative Refresh Scheduling: Rotating in new creative before fatigue meaningfully hurts performance, not after.",
@@ -116,7 +116,7 @@ export default function Offerings({ service }) {
   },
   {
     "title": "What We Do",
-    "text": "* Performance Monitoring: Regular review of frequency, cost-per-result, and creative-level performance data. * Creative Refresh Scheduling: Rotating in new creative before fatigue meaningfully hurts performance, not after. * Audience Expansion & Refinement: Adjusting targeting as performance data reveals what's actually working. * Budget Reallocation: Shifting spend toward what's performing, away from what isn't, based on real results. Meta Ads perform best paired with a landing page built for that specific traffic - see our Landing Page Development page for how that connects. Why Creative Carries More Weight on Meta Than Almost Anywhere Else Search advertising and social advertising ask fundamentally different things about the advertiser, and it's worth understanding why. Search: Answering a Question Already Asked Someone searching has already expressed intent, the ad's job is mostly to be relevant and show up at the right moment. Meta: Creating Interest From Nothing Someone scrolling wasn't looking for you, the ad has to generate the interest a search ad gets to assume already exists, which is a creative problem before it's a targeting problem."
+    "text": "* Performance Monitoring: Regular review of frequency, cost-per-result, and creative-level performance data. * Creative Refresh Scheduling: Rotating in new creative before fatigue meaningfully hurts performance, not after. * Audience Expansion & Refinement: Adjusting targeting as performance data reveals what's actually working. * Budget Reallocation: Shifting spend toward what's performing, away from what isn't, based on real results. Meta Ads perform best paired with a landing page built for that specific traffic (see our Landing Page Development page for how that connects. Why Creative Carries More Weight on Meta Than Almost Anywhere Else Search advertising and social advertising ask fundamentally different things about the advertiser, and it's worth understanding why. Search: Answering a Question Already Asked Someone searching has already expressed intent, the ad's job is mostly to be relevant and show up at the right moment. Meta: Creating Interest From Nothing Someone scrolling wasn't looking for you, the ad has to generate the interest a search ad gets to assume already exists, which is a creative problem before it's a targeting problem."
   },
   {
     "title": "Why That Changes the Management Approach",
@@ -167,35 +167,31 @@ export default function Offerings({ service }) {
   if (!offerings?.length && !whyMatters?.length) return null
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="bg-[#09090B] text-white">
       {offerings?.length > 0 && (
         <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
+          <div className="mx-auto max-w-7xl">
             <SectionIntro
-              eyebrow="Capabilities & Scope"
               title="What We Deliver"
             >
               Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
             </SectionIntro>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            <div className="grid bg-white/[0.08] gap-px sm:grid-cols-2 lg:grid-cols-3 border border-white/[0.08]">
               {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+                <div key={index} className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-zinc-300">
                         {item.description}
                       </p>
                     )}
                   </div>
                   {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                    <ul className="mt-6 space-y-2 border-t border-white/[0.06] pt-4 text-xs md:text-sm font-medium text-white/90">
                       {item.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2">
                           <span className="text-frame-accent font-bold">✓</span>
@@ -213,18 +209,15 @@ export default function Offerings({ service }) {
 
       {/* WHY IT MATTERS & WHY CHOOSE US */}
       {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
+        <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+          <div className="mx-auto max-w-7xl">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
-                  </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                <div className="border border-white/[0.08] bg-[#09090B] p-7 md:p-10">
+                  <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
                     Why This Matters for Growth
                   </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-zinc-300 wide:text-lg">
                     {whyMatters.map((point, idx) => (
                       <p key={idx}>{point}</p>
                     ))}
@@ -238,21 +231,18 @@ export default function Offerings({ service }) {
               {whyChooseUs?.length > 0 && (
                 <div className="space-y-6">
                   <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    <h3 className="mt-2 font-heading text-2xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
                       Why Choose Frame Cipher
                     </h3>
                   </div>
 
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
+                  <div className="grid bg-white/[0.08] gap-px border border-white/[0.08]">
                     {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+                      <div key={index} className="bg-[#09090B] p-6">
+                        <h4 className="font-heading text-base md:text-lg font-medium leading-[0.96] tracking-[-0.03em] text-white">
                           {item.title}
                         </h4>
-                        <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                        <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-zinc-300">
                           {item.text || item.desc}
                         </p>
                       </div>

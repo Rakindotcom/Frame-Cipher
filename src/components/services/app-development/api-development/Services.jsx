@@ -1,4 +1,8 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import Link from 'next/link'
+import PosterButton from '../../../home/PosterButton'
 
 const apiServices = [
   {
@@ -87,61 +91,62 @@ const apiServices = [
 
 export default function Services() {
   return (
-    <div>
-      <SectionIntro
-        eyebrow="Core Offerings"
-        title="Our API Development & Integration Services"
-      >
-        We handle API projects from architecture and development through integration, testing, monitoring, and ongoing improvement.
-      </SectionIntro>
+    <section id="services" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our API Development &amp; <span className="italic text-frame-accent">Integration Services.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {apiServices.map((svc, i) => (
-          <div
-            key={i}
-            className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 transition-colors hover:border-frame-accent"
-          >
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Service 0{i + 1}
-              </span>
-              <h3 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {svc.title}
-              </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {svc.desc}
-              </p>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We handle API projects from architecture and development through integration, testing, monitoring, and ongoing improvement.
+          </p>
+        </div>
 
-              {svc.bullets && (
-                <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg">
-                  {svc.bullets.map((b, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </span>
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {apiServices.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col justify-between relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors hover:border-white/[0.16] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+            >
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  {item.desc}
+                </p>
+
+                {item.bullets && item.bullets.length > 0 && (
+                  <ul className="mt-4 space-y-2 border-t border-white/[0.06] pt-3 text-xs text-zinc-300">
+                    {item.bullets.map((b, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <span className="h-1 w-1 rounded-full bg-frame-accent shrink-0 mt-1.5" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {item.footer && (
+                <div className="mt-6 border-t border-white/[0.08] pt-3 font-mono text-[11px] text-zinc-400">
+                  {item.footer}
+                </div>
               )}
             </div>
+          ))}
+        </div>
 
-            {svc.footer && (
-              <div className="mt-6 border-t border-frame-border/60 pt-3">
-                <p className="text-xs font-semibold italic text-frame-muted-fg">
-                  {svc.footer}
-                </p>
-              </div>
-            )}
-          </div>
-        ))}
+        <div className="mt-12 flex justify-center">
+          <PosterButton href="/contact" variant="accent">
+            Discuss Your API Requirements &rarr;
+          </PosterButton>
+        </div>
       </div>
-
-      <div className="mt-8 flex justify-center">
-        <PosterButton href="/contact">Discuss Your API Requirements &rarr;</PosterButton>
-      </div>
-    </div>
+    </section>
   )
 }

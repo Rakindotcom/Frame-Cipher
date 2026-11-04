@@ -1,6 +1,6 @@
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -85,8 +85,8 @@ const deliverablesData = [
 
 export default function Deliverables() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Complete Handover"
           title="Logo Variations & Deliverables"
@@ -98,26 +98,26 @@ export default function Deliverables() {
           {deliverablesData.map((deliv, idx) => (
             <div
               key={idx}
-              className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between"
+              className="border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     PACKAGE 0{idx + 1}
                   </span>
-                  <span className="rounded bg-frame-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="rounded bg-[#121214] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     {deliv.badge}
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {deliv.category}
                 </h3>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {deliv.desc}
                 </p>
-                <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-4">
+                <ul className="mt-6 space-y-2 border-t border-white/[0.06] pt-4">
                   {deliv.items.map((item, iIdx) => (
-                    <li key={iIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90">
+                    <li key={iIdx} className="flex items-start gap-2 text-xs font-medium text-zinc-200">
                       <CheckIcon />
                       <span>{item}</span>
                     </li>
@@ -129,16 +129,16 @@ export default function Deliverables() {
         </div>
 
         {/* TRADEMARK DISCLAIMER CALLOUT */}
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-frame-border/60 pb-3">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-8 border border-white/[0.08] bg-[#09090B] p-6 md:p-8">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-white/[0.06] pb-3">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Intellectual Property Clarity
             </span>
-            <span className="text-xs font-mono font-bold text-frame-muted-fg">
+            <span className="text-xs font-mono font-bold text-[#A1A1AA]">
               Trademark Considerations
             </span>
           </div>
-          <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+          <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] max-w-4xl">
             We design 100% original logo concepts based on rigorous competitive audits and agreed creative briefs. However, creative design services do not constitute formal legal trademark clearance or statutory registration. If you plan to register your logo with government IP authorities, we recommend conducting formal trademark searches and legal review before final filing.
           </p>
         </div>

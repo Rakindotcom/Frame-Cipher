@@ -399,7 +399,7 @@ export function AuthorProfileEditor({ author, onSave, onClose, saveError }: Auth
                   rows={3}
                   value={shortBio}
                   onChange={(e) => setShortBio(e.target.value)}
-                  placeholder="1–2 sentences used by search engines as the Person schema description and author card excerpt..."
+                  placeholder="1 to 2 sentences used by search engines as the Person schema description and author card excerpt..."
                   className="w-full p-2.5 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8] focus:bg-white"
                 />
                 <p className="text-[10px] text-[#64748B] mt-1">
@@ -633,7 +633,7 @@ export function AuthorProfileEditor({ author, onSave, onClose, saveError }: Auth
                 />
                 <p className="text-[10px] text-[#64748B] mt-1">
                   {seoAnalysis.titleLen} chars · {seoAnalysis.goodTitle ? (
-                    <span className="text-emerald-600 font-semibold">optimal (40–65)</span>
+                    <span className="text-emerald-600 font-semibold">optimal (40 to 65)</span>
                   ) : seoAnalysis.titleLen > 65 ? (
                     <span className="text-amber-600 font-semibold">too long (max 65)</span>
                   ) : (
@@ -649,12 +649,12 @@ export function AuthorProfileEditor({ author, onSave, onClose, saveError }: Auth
                   rows={3}
                   value={metaDescription}
                   onChange={(e) => setMetaDescription(e.target.value)}
-                  placeholder="Describe the author's expertise, agency role and specialties in 120–160 characters..."
+                  placeholder="Describe the author's expertise, agency role and specialties in 120 to 160 characters..."
                   className="w-full p-2.5 bg-[#F8FAFC] border border-[#CBD5E1] rounded-xl text-xs text-[#0F172A] focus:outline-none focus:border-[#1D4ED8]"
                 />
                 <p className="text-[10px] text-[#64748B] mt-1">
                   {seoAnalysis.descLen} chars · {seoAnalysis.goodDesc ? (
-                    <span className="text-emerald-600 font-semibold">optimal (120–160)</span>
+                    <span className="text-emerald-600 font-semibold">optimal (120 to 160)</span>
                   ) : seoAnalysis.descLen > 160 ? (
                     <span className="text-amber-600 font-semibold">too long (max 160)</span>
                   ) : (

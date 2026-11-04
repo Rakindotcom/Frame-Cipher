@@ -26,20 +26,20 @@ const processPhases = [
   {
     "num": "05",
     "title": "Delivery & Rights",
-    "desc": "You receive WAV and MP3 masters — or a synced video track — with usage-rights documentation, archived for 60 days."
+    "desc": "You receive WAV and MP3 masters: or a synced video track, with usage-rights documentation, archived for 60 days."
   }
 ]
 
 export default function Process() {
   return (
     <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Workflow & Delivery"
           title="Our 5-Stage Voice Over Process"
           index="04"
         >
-          From final script to broadcast master — one team owns casting, session, processing and rights paperwork.
+          From final script to broadcast master: one team owns casting, session, processing and rights paperwork.
         </SectionIntro>
 
         <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-5">
@@ -59,7 +59,7 @@ export default function Process() {
                 <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
                   Phase {phase.num}
                 </span>
-                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                   {phase.title}
                 </h3>
                 <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

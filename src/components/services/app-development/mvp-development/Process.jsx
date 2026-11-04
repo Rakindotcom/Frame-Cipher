@@ -1,126 +1,87 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const processSteps = [
   {
-    step: "01",
-    title: "Discovery & Product Hypothesis",
-    desc: "We start by understanding the product idea, target users, business problem, and uncertainty that needs to be tested.",
-    bullets: [
-      "The core problem",
-      "Target users",
-      "Proposed solution",
-      "Main product assumption",
-      "Essential user journey",
-      "Existing alternatives",
-      "Technical constraints",
-      "Business priorities"
-    ],
-    deliverable: "a clear product hypothesis and initial MVP direction."
+    step: '01',
+    title: 'Discovery & Product Hypothesis',
+    desc: 'We start by understanding the product idea, target users, business problem, and uncertainty that needs to be tested. We identify the core problem, target users, proposed solution, main product assumption, essential user journey, existing alternatives, technical constraints, and business priorities.',
+    deliverable: 'A clear product hypothesis and initial MVP direction.'
   },
   {
-    step: "02",
-    title: "MVP Scope & Success Metrics",
-    desc: "We turn the product hypothesis into a defined MVP scope with clear boundaries and objective measurement criteria.",
-    bullets: [
-      "Essential features",
-      "Features for later phases",
-      "Core workflow",
-      "Success signals",
-      "Required integrations",
-      "Analytics requirements",
-      "Platform requirements",
-      "Initial timeline"
-    ],
-    deliverable: "an agreed MVP scope with clear priorities and measurement goals."
+    step: '02',
+    title: 'MVP Scope & Success Metrics',
+    desc: 'We turn the product hypothesis into a defined MVP scope. We determine essential features, features for later phases, core workflow, success signals, required integrations, analytics requirements, platform requirements, and initial timeline.',
+    deliverable: 'An agreed MVP scope with clear priorities and measurement goals.'
   },
   {
-    step: "03",
-    title: "UX/UI Design & Prototype",
-    desc: "We map the core user journey and create the necessary interface before development begins.",
-    bullets: [
-      "User flows",
-      "Wireframes",
-      "Functional UI design",
-      "Clickable prototype",
-      "Responsive layouts",
-      "Review and refinement"
-    ],
-    deliverable: "a defined product experience ready for development."
+    step: '03',
+    title: 'UX/UI Design & Prototype',
+    desc: 'We map the core user journey and create the necessary interface before development. The process can include user flows, wireframes, functional UI design, clickable prototype, responsive layouts, review, and refinement.',
+    deliverable: 'A defined product experience ready for development.'
   },
   {
-    step: "04",
-    title: "Development & Integration",
-    desc: "We develop the agreed functionality and connect the external systems required for the MVP. This may include frontend, backend, database, APIs, authentication, payments, third-party services, and analytics.",
-    deliverable: "the agreed working MVP functionality."
+    step: '04',
+    title: 'Development & Integration',
+    desc: 'We develop the agreed functionality and connect the external systems required for the MVP. This may include frontend, backend, database, APIs, authentication, payments, third-party services, and analytics.',
+    deliverable: 'The agreed working MVP functionality.'
   },
   {
-    step: "05",
-    title: "QA & Launch Preparation",
-    desc: "We test the core workflows and prepare the product for real users. Testing can cover functionality, integrations, authentication, payments, responsive behavior, error handling, and other requirements within scope. We also verify the agreed analytics and launch configuration.",
-    deliverable: "a tested MVP prepared for deployment."
+    step: '05',
+    title: 'QA & Launch Preparation',
+    desc: 'We test the core workflows and prepare the product for real users. Testing covers functionality, integrations, authentication, payments, responsive behavior, error handling, and launch configuration verification.',
+    deliverable: 'A tested MVP prepared for deployment.'
   },
   {
-    step: "06",
-    title: "Launch & Validation Review",
-    desc: "We deploy the approved MVP and help establish the agreed feedback and measurement setup. After launch, the available data and feedback can be reviewed against the original hypothesis.",
-    deliverable: "a launched MVP and a clearer evidence base for the next product decision."
-  }
+    step: '06',
+    title: 'Launch & Validation Review',
+    desc: 'We deploy the approved MVP and help establish the agreed feedback and measurement setup. After launch, the available data and feedback can be reviewed against the original hypothesis.',
+    deliverable: 'A launched MVP and a clearer evidence base for the next product decision.'
+  },
 ]
 
 export default function Process() {
   return (
-    <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Our Engineering Methodology"
-          title="How We Approach an MVP Build"
-        >
-          Our process keeps product validation and software development connected from the beginning.
-        </SectionIntro>
+    <section id="process" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            How We Approach an{' '}
+            <span className="italic text-frame-accent">MVP Build.</span>
+          </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Our process keeps product validation and software development connected from the beginning.
+          </p>
+        </div>
+
+        <div className="mt-14 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
           {processSteps.map((step, index) => (
             <div
               key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-8 hover:border-frame-accent transition-colors"
+              className="group flex flex-col justify-between gap-6 p-7 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02] lg:flex-row lg:items-start lg:gap-12"
             >
               <div>
-                <span className="font-heading text-4xl md:text-5xl font-black text-frame-accent">
+                <span className="font-mono text-3xl md:text-4xl font-medium text-frame-accent">
                   {step.step}
                 </span>
-                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg font-medium tracking-tight text-white">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {step.desc}
                 </p>
-
-                {step.bullets && (
-                  <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4">
-                    {step.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
 
-              {step.deliverable && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <p className="text-xs font-black uppercase tracking-wider text-frame-accent">
-                    You receive:
-                  </p>
-                  <p className="mt-1 text-xs md:text-sm font-semibold text-frame-fg capitalize">
-                    {step.deliverable}
-                  </p>
-                </div>
-              )}
+              <div className="mt-6 border-t border-white/[0.08] pt-3">
+                <span className="text-[10px] font-mono uppercase tracking-wider text-frame-accent block">
+                  You Receive:
+                </span>
+                <span className="text-xs text-zinc-300 font-medium mt-1 block">
+                  {step.deliverable}
+                </span>
+              </div>
             </div>
           ))}
         </div>

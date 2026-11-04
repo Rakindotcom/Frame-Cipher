@@ -1,84 +1,72 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const markets = [
-  {
-    eyebrow: 'Market reality',
-    title: 'Pinterest Ads Management From Bangladesh',
-    body: 'Framecipher is based in Dhaka and manages Pinterest Ads from Bangladesh for eligible advertiser accounts targeting supported markets. Pinterest advertising availability depends on the advertiser account, market, and current platform requirements. We verify eligibility before campaign launch rather than assuming every business can access the same advertising features.',
-    tail: 'For Bangladesh-based businesses, this distinction matters. The campaign can be managed remotely from Dhaka, but the advertiser account and target market must meet Pinterest\u2019s current requirements.',
-  },
-  {
-    eyebrow: 'Global delivery',
-    title: 'International Pinterest Advertising',
-    body: 'Framecipher supports businesses targeting international Pinterest markets, including major markets where Pinterest has an established advertising presence.',
-    label: 'International campaigns can include',
-    bullets: [
-      'Country-specific targeting',
-      'Market-specific messaging',
-      'Localized creative',
-      'Local landing pages',
-      'Regional product or service positioning',
-      'Market-level conversion tracking',
-      'Country-level reporting',
-    ],
-    tail: 'We do not simply duplicate one campaign across every country. Different markets can have different demand patterns, competition, language, offers, and customer behavior.',
-  },
-]
+import React from 'react'
+import { Globe, MapPin, CheckCircle2, ShieldCheck } from 'lucide-react'
 
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Where we work"
-          title="Pinterest Ads for Bangladesh & Global Markets"
-        >
-          Pinterest campaigns are managed from Dhaka and structured around the advertiser setup,
-          the target market, and Pinterest&apos;s current platform requirements.
-        </SectionIntro>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          {markets.map((area, index) => (
-            <div key={index} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                {area.eyebrow}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {area.title}
-              </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {area.body}
-              </p>
-              {area.bullets?.length > 0 && (
-                <div className="mt-5">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {area.label}:
-                  </span>
-                  <ul className="mt-3 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                    {area.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {area.tail && (
-                <p className="mt-5 border-t border-frame-border/60 pt-4 text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
-                  {area.tail}
-                </p>
-              )}
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Pinterest Ads for Bangladesh &amp;{' '}
+            <span className="italic text-frame-accent">Global Markets.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Whether managing campaigns remotely from Dhaka for export brands or scaling multi-region Pinterest accounts across North America, Europe, and the Middle East, our strategy adapts to market economics.
+          </p>
         </div>
 
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            Before launching, we confirm that the advertiser account and target market qualify
-            under Pinterest&apos;s current advertising requirements. Everything else, strategy,
-            creative, catalog, tracking, and optimization, is planned around that confirmed setup.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Box 1: From Bangladesh */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]">
+            <h3 className="font-heading text-2xl font-medium text-white mb-3">
+              Pinterest Ads Management From Bangladesh
+            </h3>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              Framecipher is based in Dhaka and manages Pinterest Ads for eligible advertiser accounts targeting supported Pinterest advertising regions. Because platform availability varies by advertiser billing country and business entity, we conduct rigorous pre-flight readiness checks.
+            </p>
+
+            <div className="space-y-3 pt-4 border-t border-white/[0.06]">
+              {[
+                'Advertiser account billing and eligibility verification',
+                'Remote campaign governance, creative testing, and optimization',
+                'Clear separation of media spend (client card) and management fees',
+                'Transparent real-time Ads Manager access and shared reporting dashboards',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Box 2: International Markets */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]">
+            <h3 className="font-heading text-2xl font-medium text-white mb-3">
+              International Pinterest Advertising
+            </h3>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              We manage campaigns across premier Pinterest ad territories including the United States, United Kingdom, Canada, Australia, Germany, France, and the UAE. We never simply clone campaigns across borders; messaging, currency, and creative are localized.
+            </p>
+
+            <div className="space-y-3 pt-4 border-t border-white/[0.06]">
+              {[
+                'Country-specific keyword research and regional search volume mapping',
+                'Localized Pin creative matching cultural visual aesthetics and seasons',
+                'Currency, shipping, and return policy alignment on product destinations',
+                'Country-level ROAS, CPA, and attribution reporting breakdowns',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

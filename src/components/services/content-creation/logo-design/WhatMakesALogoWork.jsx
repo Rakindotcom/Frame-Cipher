@@ -41,8 +41,8 @@ const pillars = [
 
 export default function WhatMakesALogoWork() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Design Philosophy"
           title="What Makes a Logo Work"
@@ -54,21 +54,21 @@ export default function WhatMakesALogoWork() {
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between"
+              className="border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     CRITERIA {pillar.num}
                   </span>
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     {pillar.summary}
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {pillar.desc}
                 </p>
               </div>

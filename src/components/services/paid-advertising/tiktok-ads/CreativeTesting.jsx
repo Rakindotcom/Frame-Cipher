@@ -1,113 +1,81 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const testing = [
+import React from 'react'
+import { Eye, Layers, TrendingUp, RefreshCw, CheckCircle2 } from 'lucide-react'
+
+const testingPillars = [
   {
-    title: 'Hook Testing',
-    body: 'The opening seconds need to give viewers a reason to continue watching. We test different approaches including:',
-    bullets: [
-      'Problem-led hooks',
-      'Product-first hooks',
-      'Curiosity hooks',
-      'Demonstrations',
-      'Questions',
-      'Social proof',
-      'Offers',
-      'Before-and-after concepts where appropriate',
-    ],
+    icon: Eye,
+    title: 'Hook & Opening Frame Testing',
+    desc: 'The first 2–3 seconds dictate performance. We test problem-led hooks, product-first openers, curiosity questions, and bold demonstrations to maximize 6-second video view rates (VVR).',
+    checks: ['Problem-first vs. Curiosity openers', 'Visual pattern interrupts in frame 01', 'Direct offer announcements', 'Side-by-side demonstration hooks'],
   },
   {
-    title: 'UGC & Native Creative',
-    body: 'We develop creative that fits the TikTok viewing environment without forcing every brand into the same visual style. The objective is to make the message feel relevant to the platform while maintaining brand clarity.',
+    icon: Layers,
+    title: 'Structured Variable Matrices',
+    desc: 'We do not test randomly. One core message is broken into structured variations across creators, hooks, text overlays, voiceovers, and CTA prompts to isolate what actually converts.',
+    checks: ['Alternate creator voices & demographics', 'Pacing and editing tempo shifts', 'On-screen text font and placement variations', 'Direct action vs. curiosity CTAs'],
   },
   {
-    title: 'Creative Variations',
-    body: 'One concept can produce several testable variations. We may vary:',
-    bullets: [
-      'Hook',
-      'Script',
-      'Creator',
-      'Opening frame',
-      'Product angle',
-      'Offer',
-      'CTA',
-      'Editing pace',
-      'Caption',
-      'Voiceover',
-      'Visual sequence',
-    ],
-    tail: 'This creates a structured testing system instead of random creative changes.',
+    icon: TrendingUp,
+    title: 'Commercial Trend Evaluation',
+    desc: 'Not every TikTok audio trend fits every brand. We filter trends strictly through commercial feasibility, brand safety, and product relevance rather than pursuing empty viral engagement.',
+    checks: ['Audience demographic alignment', 'Brand safety and tone consistency', 'Direct commercial intent linkage', 'Longer-term asset sustainability'],
   },
   {
-    title: 'Trend and Format Testing',
-    body: 'Trends can create useful creative opportunities, but not every trend fits every brand. We assess trends based on:',
-    bullets: [
-      'Audience relevance',
-      'Brand fit',
-      'Product suitability',
-      'Production feasibility',
-      'Commercial intent',
-      'Creative longevity',
-    ],
-    tail: 'We use trends as inputs for creative development rather than building the entire advertising strategy around temporary formats.',
-  },
-  {
-    title: 'Creative Fatigue & Refresh',
-    body: 'Creative performance can change as audiences see the same assets repeatedly. We monitor performance and refresh creative when the data indicates that existing assets are losing efficiency. The goal is not to replace ads simply because they are old. It is to replace or adapt creative when the evidence shows that the campaign needs a new angle.',
+    icon: RefreshCw,
+    title: 'Creative Fatigue & Refresh Cycles',
+    desc: 'High-performing TikTok ads degrade as frequency climbs. We monitor cost-per-click and conversion velocity daily, injecting fresh creative angles before ad efficiency collapses.',
+    checks: ['Frequency curve monitoring', 'Proactive bi-weekly asset rotations', 'Angle pivoting for winning products', 'Winning hook adaptation to new formats'],
   },
 ]
 
 export default function CreativeTesting() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="The testing system"
-          title="Creative Testing Is the Core of TikTok Advertising"
-        >
-          TikTok advertising requires a testing system, not one &ldquo;perfect&rdquo; video.
-          Creative performance can vary based on the hook, message, product presentation, creator,
-          editing style, offer, audience, and campaign objective. That is why we build creative
-          testing into the campaign plan from the beginning.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Creative Testing Is the Core of{' '}
+            <span className="italic text-frame-accent">TikTok Advertising.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            TikTok advertising requires a structured testing system, not one “perfect” video. We engineer repeatable experimentation across hooks, scripting, angles, and refresh cycles.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {testing.map((item, index) => (
-            <div
-              key={index}
-              className={
-                !item.bullets
-                  ? 'flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8'
-                  : 'flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8 transition-colors hover:border-frame-accent'
-              }
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Testing 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {testingPillars.map((tp) => {
+            const Icon = tp.icon
+            return (
+              <div
+                key={tp.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <h3 className="font-heading text-xl font-medium text-white">
+                    {tp.title}
+                  </h3>
+                </div>
+
+                <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+                  {tp.desc}
                 </p>
-                {item.bullets?.length > 0 && (
-                  <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                    {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                {item.tail && (
-                  <p className="mt-4 border-t border-frame-border/60 pt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-                    {item.tail}
-                  </p>
-                )}
+
+                <div className="border-t border-white/[0.06] pt-4 space-y-2.5">
+                  {tp.checks.map((c, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5">
+                      <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                      <span className="text-xs sm:text-sm text-zinc-300">{c}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

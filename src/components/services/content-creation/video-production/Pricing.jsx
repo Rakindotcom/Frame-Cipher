@@ -94,8 +94,8 @@ const pricingFactors = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="pricing" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
         {/* HEADER */}
         <SectionIntro
           eyebrow="Investment & Packages"
@@ -112,43 +112,43 @@ export default function Pricing() {
               key={i}
               className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
                 pkg.isPopular
-                  ? 'border-frame-accent bg-frame-accent/10'
-                  : 'border-frame-border bg-frame-bg'
+                  ? 'border-[#A855F7]/40 bg-[#A855F7]/10'
+                  : 'border-white/[0.08] bg-[#09090B]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     {pkg.tag}
                   </span>
                   {pkg.isPopular && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
+                    <span className="border-2 border-[#A855F7]/40 bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#FAFAFA]">
                       Most Popular
                     </span>
                   )}
                 </div>
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {pkg.name}
                 </h3>
-                <div className="mt-4 border-y-2 border-frame-border/60 py-3">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                <div className="mt-4 border-y border-white/[0.08]/60 py-3">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     Starting From
                   </span>
-                  <div className="font-heading text-2xl md:text-3xl font-black text-frame-fg">
+                  <div className="font-heading text-2xl md:text-3xl font-black text-[#FAFAFA]">
                     {pkg.price}
                   </div>
                 </div>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {pkg.description}
                 </p>
-                <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-frame-accent">
+                <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-[#A855F7]">
                   Suitable For: {pkg.suitableFor}
                 </div>
                 {pkg.features && (
-                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90 border-t border-frame-border/60 pt-4">
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-zinc-200 border-t border-white/[0.06] pt-4">
                     {pkg.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="text-[#A855F7] font-bold">✓</span>
                         <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
@@ -156,7 +156,7 @@ export default function Pricing() {
                 )}
               </div>
 
-              <div className="mt-8 pt-4 border-t border-frame-border/60">
+              <div className="mt-8 pt-4 border-t border-white/[0.06]">
                 <PosterButton
                   href="/contact"
                   variant={pkg.isPopular ? 'accent' : 'outline'}
@@ -170,12 +170,12 @@ export default function Pricing() {
         </div>
 
         {/* COMPARISON TABLE */}
-        <div className="mt-16 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+        <div className="mt-16 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
           <table className="w-full min-w-[640px] text-left">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+            <thead className="border-b border-white/[0.08] bg-[#121214]">
               <tr>
                 {pricingTable.headers.map((h, i) => (
-                  <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     {h}
                   </th>
                 ))}
@@ -183,10 +183,10 @@ export default function Pricing() {
             </thead>
             <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
               {pricingTable.rows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-frame-muted/20">
-                  <td className="p-4 md:p-6 font-bold text-frame-fg">{row[0]}</td>
-                  <td className="p-4 md:p-6 font-bold text-frame-accent">{row[1]}</td>
-                  <td className="p-4 md:p-6 text-frame-muted-fg">{row[2]}</td>
+                <tr key={rIdx} className="hover:bg-[#121214]">
+                  <td className="p-4 md:p-6 font-bold text-[#FAFAFA]">{row[0]}</td>
+                  <td className="p-4 md:p-6 font-bold text-[#A855F7]">{row[1]}</td>
+                  <td className="p-4 md:p-6 text-[#A1A1AA]">{row[2]}</td>
                 </tr>
               ))}
             </tbody>
@@ -194,28 +194,28 @@ export default function Pricing() {
         </div>
 
         {/* PRICING FACTORS */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-          <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-16 border border-white/[0.08] bg-[#09090B] p-7 md:p-10">
+          <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
             Scoping Variables
           </span>
-          <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
             Factors That Influence Final Video Quotations
           </h3>
-          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
+          <p className="mt-2 text-xs md:text-sm font-medium text-[#A1A1AA] wide:text-lg">
             Every video production is scoped transparently around your physical and technical requirements:
           </p>
 
           <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
             {pricingFactors.map((factor, idx) => (
-              <div key={idx} className="flex items-center gap-2 border border-frame-border/80 bg-frame-muted/20 px-3.5 py-2.5">
-                <span className="text-frame-accent font-bold text-xs">◆</span>
-                <span className="text-xs font-medium text-frame-fg">{factor}</span>
+              <div key={idx} className="flex items-center gap-2 border border-white/[0.08] bg-[#121214] px-3.5 py-2.5">
+                <span className="text-[#A855F7] font-bold text-xs">◆</span>
+                <span className="text-xs font-medium text-[#FAFAFA]">{factor}</span>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-white/[0.08] pt-6">
+            <p className="text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               * Final pricing is confirmed after we review the production scope, script, and technical deliverables.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
@@ -225,25 +225,25 @@ export default function Pricing() {
         </div>
 
         {/* SERVICE AREAS BANNER */}
-        <div className="mt-20 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-10">
+        <div className="mt-20 border border-white/[0.08] bg-[#121214] p-7 md:p-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-3xl">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Regional & Global Footprint
               </span>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Video Production for Bangladesh & International Markets
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-[#A1A1AA] wide:text-lg">
                 Framecipher provides video production services in Dhaka and across Bangladesh. We also support businesses and brands in the USA, UK, Australia, Canada, and UAE with Bangladesh-based filming, remote creative development, editing, and platform-ready delivery around an international brief.
               </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-frame-fg">
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Bangladesh (Dhaka & Nationwide)</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United States</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United Kingdom</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Australia</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Canada</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United Arab Emirates</span>
+              <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-[#FAFAFA]">
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Bangladesh (Dhaka & Nationwide)</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">United States</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">United Kingdom</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Australia</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Canada</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">United Arab Emirates</span>
               </div>
             </div>
             <div className="shrink-0">

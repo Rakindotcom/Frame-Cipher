@@ -1,91 +1,170 @@
-import { SectionIntro } from '../../../Kinetic'
-import { resolveFaqs } from '../../../../lib/seo/faq'
+'use client'
 
-const fallbackFaqs = [
+import React, { useState } from 'react'
+import { HelpCircle, Plus, Minus, ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
+
+const faqs = [
   {
-    question: 'What are ChatGPT Ads and when should I use them?',
-    answer: 'ChatGPT Ads are advertising placements that appear within ChatGPT conversational AI responses. They are shown below ChatGPT answers and are clearly identified as advertisements, connecting with users who are actively researching, comparing, or deciding. The channel is most useful when your offer fits conversational research and decision-making, and when the advertiser setup is eligible for the platform.',
+    question: 'What is ChatGPT Ads management?',
+    answer:
+      'ChatGPT Ads management covers the planning, setup, launch, monitoring, testing, optimization, tracking, and reporting of advertising campaigns within ChatGPT. The exact scope depends on the campaign objective and business requirements.',
   },
   {
     question: 'How do ChatGPT Ads work?',
-    answer: 'A ChatGPT Ad is an advertisement shown alongside ChatGPT\u2019s response. It can include advertiser identification, a headline, a description, a landing page, and image creative. The system decides when an ad may be relevant using campaign settings, advertiser-provided context hints, the ad\u2019s landing page, title and copy, and, where applicable, signals from the user\u2019s broader ChatGPT experience.',
+    answer:
+      'ChatGPT Ads operate within the conversational experience and can use signals such as the context and intent of the current conversation, ad information, landing-page content, advertiser-provided context hints, and, where applicable, selected signals from a user’s broader ChatGPT experience. This makes relevance and context important parts of campaign strategy.',
   },
   {
-    question: 'How is targeting done on ChatGPT Ads?',
-    answer: 'Targeting on ChatGPT Ads is context-focused rather than keyword-focused. Advertisers provide context hints at the ad-group level that describe situations, customer needs, topics, or conversations where an offering may be relevant. OpenAI states these hints are not exact-match keywords and do not guarantee delivery for specific conversations. Campaign objectives, budgets, locations, and ad structure still function like on other advertising platforms.',
+    question: 'How does targeting work in ChatGPT Ads?',
+    answer:
+      'ChatGPT Ads use campaign and ad-group settings together with contextual signals. Advertisers can provide context hints describing when a product or service may be relevant. These hints help guide ad matching but are not exact-match keywords and do not guarantee delivery for specific conversations.',
   },
   {
     question: 'Where do ChatGPT Ads appear?',
-    answer: 'ChatGPT Ads appear below ChatGPT responses and are clearly identified as advertisements. The exact rendering can vary across surfaces and depends on the specific campaign and platform settings. Ads are not part of the generated answer itself, which matters for how creative should be written and what the landing page needs to deliver.',
+    answer:
+      'ChatGPT Ads appear below ChatGPT responses and are clearly labeled as advertisements. They remain separate from the generated answer itself.',
   },
   {
-    question: 'What does a ChatGPT Ads management service include?',
-    answer: 'A ChatGPT Ads management service typically covers account and campaign setup, context and intent targeting, ad creative and copy, conversion tracking and measurement, campaign management and optimization, and performance reporting. Framecipher includes all of these across its management packages.',
+    question: 'What does your ChatGPT Ads Management Service include?',
+    answer:
+      'Our service can include campaign strategy, account and campaign setup, ad-group structure, context targeting, creative development, conversion tracking, ongoing optimization, and performance reporting. The final scope depends on the campaign requirements.',
   },
   {
-    question: 'Can conversions be improved on ChatGPT Ads?',
-    answer: 'Yes, where the platform supports it. We set up conversion-aware campaigns toward supported events such as purchases, registrations, and lead submissions, implement conversion tracking through the OpenAI Pixel and Conversions API where appropriate, and optimize creative, context, budgets, and landing pages based on what the data shows.',
+    question: 'Can ChatGPT Ads be optimized for conversions?',
+    answer:
+      'Yes. OpenAI supports conversion-optimized campaigns for eligible advertisers. Supported conversion events can include actions such as purchases, sign-ups, and lead submissions.',
   },
   {
-    question: 'Can I manage ChatGPT Ads from Bangladesh?',
-    answer: 'OpenAI Ads Manager is not yet available directly in Bangladesh. However, some Bangladeshi businesses can still run ChatGPT Ads in specific supported cases, such as where they have access to an eligible advertiser account or advertiser representative arrangement. We confirm eligibility before planning the campaign.',
+    question: 'Do you provide ChatGPT Ads management from Bangladesh?',
+    answer:
+      'Yes. Framecipher is based in Dhaka and can manage campaigns for businesses targeting eligible advertising markets. Bangladesh is not currently listed as an OpenAI Ads Manager self-service advertiser country, so we verify the advertiser entity and target market before recommending a campaign.',
   },
   {
-    question: 'Can Bangladeshi businesses target customers in other countries?',
-    answer: 'Where the advertiser setup is eligible, we can plan and manage ChatGPT Ads for international audiences such as the US, UK, Canada, Australia, India, Saudi Arabia, and UAE. The target market must be supported by the eligible advertiser setup under OpenAI\u2019s current requirements.',
+    question: 'Can a Bangladeshi business target customers in other countries?',
+    answer:
+      'Yes, where the advertiser entity and target market meet the current platform requirements. We assess eligibility, target-country availability, campaign requirements, landing-page readiness, and business objectives before launch.',
   },
   {
-    question: 'How does ChatGPT Ads compare to Google Ads?',
-    answer: 'Google Ads matches your ads to search queries using keywords and query matching. ChatGPT Ads are delivered within conversational AI, using context rather than exact-match keywords to decide relevance. ChatGPT Ads give you a presence in AI-assisted research and decision-making, while Google Ads captures active search demand. Each has different data, formats, and maturity, and the right mix depends on your market and funnel.',
+    question: 'How is ChatGPT Ads different from Google Ads?',
+    answer:
+      'Google Ads and ChatGPT Ads operate in different advertising environments. Google Search can target explicit search behavior around queries and keywords. ChatGPT Ads operate inside conversations, where contextual intent can play an important role in ad matching. The two channels can therefore serve different roles within a broader paid media strategy.',
   },
   {
-    question: 'What is AEO/GEO and how does it relate to ChatGPT Ads?',
-    answer: 'AEO (Answer Engine Optimization) and GEO (Generative Engine Optimization) improve how AI search engines understand, cite, and represent your content in AI-generated answers. ChatGPT Ads are the paid surface of that same AI-driven discovery. Running both lets a brand appear in paid placements and organic AI answers with consistent, credible messaging.',
+    question: 'Do you provide AEO/GEO with ChatGPT Ads management?',
+    answer:
+      'AEO/GEO can be provided as a separate or combined service. Paid ChatGPT Ads and organic AI search visibility are different disciplines, but coordinating both can create a broader AI visibility strategy.',
   },
   {
     question: 'What is the difference between ChatGPT Ads and Sponsored Agents?',
-    answer: 'ChatGPT Ads are ads shown alongside ChatGPT responses. Sponsored Agents let users start a conversation with an AI representative of a business after interacting with an advertisement. Sponsored Agents are currently limited to selected advertisers in an alpha test, while ChatGPT Ads are available through Ads Manager in eligible markets.',
+    answer:
+      'Sponsored Agents are a newer advertising format that allows people to chat with an AI representative of a business after interacting with an ad. OpenAI currently describes Sponsored Agents as a limited alpha test available only to selected advertisers. Availability may expand or change as the product develops.',
   },
   {
-    question: 'What is the cost of ChatGPT Ads management?',
-    answer: 'Framecipher\u2019s ChatGPT Ads management plans start at \u09F312,000 one-time for Setup, \u09F315,000/month for Management, \u09F325,000/month for Growth, and \u09F340,000+/month for International or Multi-Market engagements. The management fee is separate from your media budget. Final pricing depends on scope and is confirmed in a written proposal.',
+    question: 'How much does ChatGPT Ads management cost?',
+    answer:
+      'Our ChatGPT Ads management starts at ৳15,000 per month, while setup starts at ৳12,000 one-time. International and multi-market campaigns start at ৳40,000+ per month, depending on scope. Advertising spend is separate from management fees.',
   },
   {
-    question: 'Which businesses typically benefit most from ChatGPT Ads?',
-    answer: 'Businesses whose offerings are researched and compared conversationally, such as ecommerce brands, SaaS and technology companies, B2B and professional services, and local or service businesses. The channel requires an eligible advertiser setup and a test-minded, data-driven approach rather than an expectation of instant scale.',
+    question: 'Do you guarantee ChatGPT Ads results?',
+    answer:
+      'No agency can responsibly guarantee a specific CPC, conversion rate, ROAS, or revenue outcome. We focus on sound campaign structure, reliable measurement, disciplined testing, and transparent reporting.',
   },
 ]
 
-export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about ChatGPT Ads, context targeting, eligibility, reporting,
-          pricing, AEO/GEO, and how the channel compares to traditional search advertising.
-        </SectionIntro>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {faq.answer}
+import PosterButton from '../../../home/PosterButton'
+
+export default function FAQ({ service }) {
+  const [openIndex, setOpenIndex] = useState(null)
+  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : faqs
+
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx)
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question || faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer || faq.a,
+      },
+    })),
+  }
+
+  return (
+    <section id="faqs" className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl">
+        {/* Strictly Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked{' '}
+            <span className="italic font-normal text-frame-accent">Questions.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl mx-auto">
+            Clear, direct answers regarding OpenAI Ads Manager availability, conversational intent targeting, early eligibility, and attribution measurement.
+          </p>
+        </div>
+
+        {/* Centered Accordion Column */}
+        <div className="mx-auto max-w-4xl space-y-3">
+          {faqList.map((faq, idx) => {
+            const isOpen = openIndex === idx
+            const qText = faq.question || faq.q
+            const aText = faq.answer || faq.a
+            return (
+              <div
+                key={idx}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(idx)}
+                  className="flex w-full items-center justify-between p-6 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
+                    {qText}
+                  </span>
+                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                    <p className="text-base font-normal leading-relaxed text-zinc-300 whitespace-pre-line">
+                      {aText}
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Contact Prompt Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base font-medium text-white max-w-xl">
+            Want to prepare your brand for conversational AI advertising and sponsored placements? Contact us, and we will assess your market readiness.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact" variant="accent">
+              Request Consultation
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

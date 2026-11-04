@@ -1,6 +1,6 @@
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -85,8 +85,8 @@ const applications = [
 
 export default function RealWorldApplications() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Practical Deployment"
           title="Branding Designed for Real-World Applications"
@@ -98,26 +98,26 @@ export default function RealWorldApplications() {
           {applications.map((app, idx) => (
             <div
               key={idx}
-              className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between"
+              className="border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     ENV 0{idx + 1}
                   </span>
-                  <span className="rounded bg-frame-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="rounded bg-[#121214] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     {app.badge}
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {app.category}
                 </h3>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {app.desc}
                 </p>
-                <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-4">
+                <ul className="mt-6 space-y-2 border-t border-white/[0.06] pt-4">
                   {app.items.map((item, iIdx) => (
-                    <li key={iIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90">
+                    <li key={iIdx} className="flex items-start gap-2 text-xs font-medium text-zinc-200">
                       <CheckIcon />
                       <span>{item}</span>
                     </li>
@@ -129,8 +129,8 @@ export default function RealWorldApplications() {
         </div>
 
         {/* BOTTOM SUMMARY CALLOUT */}
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 text-center md:p-8">
-          <p className="text-xs sm:text-sm font-medium text-frame-fg leading-relaxed max-w-4xl mx-auto">
+        <div className="mt-8 border border-white/[0.08] bg-[#09090B] p-6 text-center md:p-8">
+          <p className="text-xs sm:text-sm font-medium text-[#FAFAFA] leading-relaxed max-w-4xl mx-auto">
             The core objective is uncompromising consistency: your brand should remain instantly recognizable, unmistakably distinct, and commercially credible, regardless of whether a customer encounters you on a smartphone screen, a retail store shelf, or a formal legal proposal.
           </p>
         </div>

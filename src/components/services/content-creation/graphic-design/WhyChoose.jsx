@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -62,8 +62,8 @@ const portfolioAttributes = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         {/* WHY CHOOSE US */}
         <SectionIntro
           eyebrow="Proven Methodology"
@@ -76,18 +76,18 @@ export default function WhyChoose() {
           {reasons.map((item, idx) => (
             <div
               key={idx}
-              className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+              className={`border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between ${
                 idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}
             >
               <div>
-                <span className="font-mono text-xs font-black text-frame-accent">
+                <span className="font-mono text-xs font-black text-[#A855F7]">
                   PILLAR {item.num}
                 </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
               </div>
@@ -96,46 +96,46 @@ export default function WhyChoose() {
         </div>
 
         {/* WHAT WE NEED FROM YOU */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-bg p-6 md:p-10">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-frame-border/60 pb-4">
+        <div className="mt-16 border border-white/[0.08] bg-[#09090B] p-6 md:p-10">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-white/[0.06] pb-4">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Streamlined Production
               </span>
-              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 What We Need From You
               </h3>
             </div>
-            <span className="text-xs font-mono font-bold text-frame-muted-fg">
+            <span className="text-xs font-mono font-bold text-[#A1A1AA]">
               Kickoff Checklist
             </span>
           </div>
 
-          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] max-w-3xl">
             To keep production fast and focused, we review these inputs before production begins. If any asset is missing or in progress, we help identify and coordinate requirements during briefing:
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {clientChecklist.map((item, idx) => (
-              <div key={idx} className="flex items-start gap-2.5 border border-frame-border/80 bg-frame-muted/20 p-3.5">
+              <div key={idx} className="flex items-start gap-2.5 border border-white/[0.08] bg-[#121214] p-3.5">
                 <CheckIcon />
-                <span className="text-xs font-medium text-frame-fg leading-snug">{item}</span>
+                <span className="text-xs font-medium text-[#FAFAFA] leading-snug">{item}</span>
               </div>
             ))}
           </div>
         </div>
 
         {/* SELECTED GRAPHIC DESIGN WORK / PORTFOLIO TRIGGER */}
-        <div className="mt-12 border-2 border-frame-accent bg-frame-bg p-6 md:p-10">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-b border-frame-border/60 pb-6">
+        <div className="mt-12 border-2 border-[#A855F7]/40 bg-[#09090B] p-6 md:p-10">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-b border-white/[0.06] pb-6">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Work In The Real World
               </span>
-              <h3 className="mt-1 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-2xl md:text-4xl font-bold tracking-tight text-[#FAFAFA]">
                 Selected Graphic Design Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl wide:text-lg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] max-w-2xl wide:text-lg">
                 Explore selected graphic design projects across business presentations, company profiles, brochures, packaging, print collateral, marketing materials, and corporate communication.
               </p>
             </div>
@@ -147,12 +147,12 @@ export default function WhyChoose() {
           </div>
 
           <div className="mt-6">
-            <span className="text-[11px] font-black uppercase tracking-wider text-frame-muted-fg">
+            <span className="text-[11px] font-black uppercase tracking-wider text-[#A1A1AA]">
               Detailed Case Study Documentation Includes:
             </span>
             <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {portfolioAttributes.map((attr, idx) => (
-                <div key={idx} className="flex items-center gap-2 border border-frame-border/60 bg-frame-muted/30 px-3 py-2 text-[11px] font-bold uppercase tracking-tight text-frame-fg">
+                <div key={idx} className="flex items-center gap-2 border border-white/[0.06] bg-[#121214] px-3 py-2 text-[11px] font-bold uppercase tracking-tight text-[#FAFAFA]">
                   <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
                   <span className="truncate">{attr}</span>
                 </div>

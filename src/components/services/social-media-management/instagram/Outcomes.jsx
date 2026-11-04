@@ -1,126 +1,156 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Eye, Heart, ShieldCheck, MessageCircle, ShoppingBag } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const outcomes = [
   {
+    icon: Eye,
+    num: '01',
     title: 'Increase Content Discovery',
     body: 'A combination of relevant content, original creative work, strong topics, profile optimization, and consistent publishing can create more opportunities for people to discover your account.',
     points: [
       'Different formats used for different discovery opportunities',
-      'Strong topics and creative work',
-      'Profile optimization',
-      'Consistent publishing',
+      'Strong original topics and creative work',
+      'Profile optimization for discoverability',
+      'Consistent, structured publishing cadence',
     ],
     note: 'We use different formats for different discovery opportunities rather than relying on one content type.',
   },
   {
+    icon: Heart,
+    num: '02',
     title: 'Build Audience Engagement',
-    body: 'Useful and relevant content gives people reasons to interact with your brand. Depending on the content and audience, we can create opportunities for:',
-    points: ['Comments', 'Shares', 'Saves', 'Story interactions', 'Replies', 'DMs', 'Community conversations'],
-    note: 'The goal is meaningful audience activity, not engagement numbers without business context.',
+    body: 'Useful and relevant content gives people reasons to interact with your brand. Depending on the content and audience, we create structured opportunities for active dialogue.',
+    points: [
+      'Meaningful comments and conversations',
+      'High-intent saves and bookmarking',
+      'Social sharing across DM circles',
+      'Story polls, questions, and replies',
+    ],
+    note: 'The goal is meaningful audience activity, not vanity engagement numbers without business context.',
   },
   {
+    icon: ShieldCheck,
+    num: '03',
     title: 'Strengthen Brand Trust',
-    body: 'A well-managed Instagram profile can help potential customers understand your business before they contact you. Consistent visuals, useful content, customer feedback, product information, behind-the-scenes content, and responsive communication can all contribute to a stronger customer experience.',
+    body: 'A well-managed Instagram profile can help potential customers understand your business before they contact you. Professional presentation builds customer confidence.',
     points: [
-      'Consistent visuals',
-      'Useful content',
-      'Customer feedback',
-      'Product information',
-      'Behind-the-scenes content',
-      'Responsive communication',
+      'Consistent branded visual identity',
+      'Educational and problem-solving content',
+      'Verified customer feedback & reviews',
+      'Authentic behind-the-scenes culture',
+      'Responsive, helpful direct communication',
     ],
+    note: 'Trust converts profile visitors into qualified inquiries and repeat customers over time.',
   },
   {
+    icon: MessageCircle,
+    num: '04',
     title: 'Generate DMs & Inquiries',
-    body: 'Your Instagram profile should make it clear how an interested person can take the next step. We can structure content, CTAs, Stories, profile information, and community management around common customer questions and inquiry opportunities.',
+    body: 'Your Instagram profile should make it clear how an interested person can take the next step. We structure content, CTAs, Stories, profile information, and community management around common customer questions.',
     points: [
-      'Profile clarity',
-      'Content and CTAs',
-      'Stories',
-      'Community management',
+      'Clear profile-to-inquiry funnel',
+      'Actionable caption CTAs in every post',
+      'Interactive Story question boxes & links',
+      'Structured DM lead qualification workflow',
     ],
-    note: 'Where appropriate, qualified inquiries can be escalated to your sales or customer-service team.',
+    note: 'Where appropriate, qualified inquiries can be escalated directly to your sales or customer-service team.',
   },
   {
+    icon: ShoppingBag,
+    num: '05',
     title: 'Support Ecommerce & Product Discovery',
-    body: 'Instagram can help customers discover products, understand how they work, compare options, and see how other customers use them. For ecommerce brands, we build content around product education, demonstrations, social proof, launches, promotions, UGC, and purchase-related questions.',
+    body: 'Instagram can help customers discover products, understand how they work, compare options, and see how other customers use them in everyday situations.',
     points: [
-      'Product education',
-      'Demonstrations',
-      'Social proof',
-      'Launches and promotions',
-      'UGC',
-      'Purchase-related questions',
+      'Product demonstrations & unboxings',
+      'Feature breakdowns and use cases',
+      'Social proof & customer testimonial reels',
+      'New collection launches and seasonal drops',
+      'Purchase-related DM customer support',
     ],
+    note: 'For ecommerce brands, we connect product storytelling directly with website traffic and sales consideration.',
   },
 ]
 
 export default function Outcomes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Realistic outcomes"
-          title="What Instagram Management Can Help Your Business Achieve"
-        >
-          Instagram performance depends on your market, audience, offer, content quality, account
-          history, competition, and other factors. Our role is to build a structured management system
-          that supports measurable business objectives without promising outcomes the platform cannot
-          guarantee.
-        </SectionIntro>
-
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
-          {outcomes.map((item, index) => (
-            <article key={item.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                  {item.body}
-                </p>
-              </div>
-
-              {item.points?.length > 0 && (
-                <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 md:text-sm">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {item.note && (
-                <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                  {item.note}
-                </p>
-              )}
-            </article>
-          ))}
-
-          <div className="flex flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              The honest framing
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90 md:text-base">
-              We build and manage a structured system, then use real performance data to improve it.
-              We do not promise viral content, specific follower counts, or guaranteed leads and sales.
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               MEASURABLE RESULTS · VALUE PILLARS 
             </p>
-            <div className="mt-6">
-              <PosterButton href="/contact" variant="outline">
-                Discuss Your Instagram Strategy &rarr;
-              </PosterButton>
-            </div>
           </div>
+
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What Instagram Management Can{' '}
+            <span className="italic text-[#A855F7]">Help Your Business Achieve.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Instagram performance depends on your market, audience, offer, content quality, account history, competition, and other factors. Our role is to build a structured management system that supports measurable business objectives without promising outcomes the platform cannot guarantee.
+          </p>
+        </div>
+
+        {/* 5 Outcome Cards Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {outcomes.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <article
+                key={item.num}
+                className={`flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:border-white/[0.16] ${
+                  idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                    <span className="font-mono text-xs uppercase tracking-widest text-[#A855F7]">
+                      {item.num} · </span>
+                    <Icon className="h-4 w-4 text-[#A855F7]" />
+                  </div>
+
+                  <h3 className="font-heading text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.body}
+                  </p>
+
+                  <div className="space-y-2 border-t border-white/[0.06] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-[#A855F7] shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {item.note && (
+                  <div className="mt-6 rounded-lg border-l-2 border-[#A855F7] bg-[#18181B]/70 p-3 text-xs text-zinc-400">
+                    <p className="leading-relaxed">{item.note}</p>
+                  </div>
+                )}
+              </article>
+            )
+          })}
+        </div>
+
+        {/* CTA Bar */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <p className="font-heading text-lg font-medium uppercase text-white">
+            Ready to give your Instagram a defined commercial purpose?
+          </p>
+          <PosterButton href="/contact">
+            Discuss Your Instagram Strategy
+          </PosterButton>
         </div>
       </div>
     </section>

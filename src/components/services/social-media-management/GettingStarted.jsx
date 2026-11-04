@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const startSteps = [
   {
@@ -35,39 +37,52 @@ const startSteps = [
 
 export default function GettingStarted() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="After you contact us"
-          title="What Happens After You Contact Us?"
-        >
-          Getting started is straightforward, and nothing is published before you approve the
-          direction.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               ONBOARDING FLOW 
+            </p>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {startSteps.map((step, index) => (
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What Happens After You{' '}
+            <span className="italic text-[#A855F7]">Contact Us?</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Getting started is straightforward, and nothing is published before you approve the direction.
+          </p>
+        </div>
+
+        {/* 6 Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {startSteps.map((step) => (
             <div
               key={step.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:border-white/[0.16]"
             >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.number}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-6">
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-[#A855F7]">
+                    {step.number}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase text-zinc-500">
+                    Step {step.number}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white leading-snug">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+
+                <p className="mt-3 text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
                   {step.body}
                 </p>
               </div>
-              <span
-                aria-hidden="true"
-                className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-200 group-hover:text-frame-accent-fg"
-              >
-                Step 0{index + 1}
-              </span>
             </div>
           ))}
         </div>

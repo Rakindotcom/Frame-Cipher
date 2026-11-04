@@ -1,72 +1,77 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
 
 const steps = [
   {
-    title: 'Evidence Collection',
-    body: 'We begin by gathering the available evidence: where and when the drop started, which pages and queries were affected, Search Console data, analytics, manual-action reports, and any relevant site changes.',
-    closing: 'This step establishes the factual baseline before anything is assumed.',
+    title: 'Initial Diagnosis & Data Collection',
+    body: 'We begin by collecting the available evidence from Search Console, analytics, site data, technical changes, backlink history, and your description of what happened. The first objective is to understand the timeline before recommending changes.',
   },
   {
-    title: 'Root Cause Analysis',
-    body: 'We determine whether the problem appears to be a manual action, a Google update impact, a technical or migration issue, a security problem, or a search-demand and competitive change.',
-    closing: 'Different causes require different recovery paths, so this step shapes everything that follows.',
+    title: 'Impact & Scope Analysis',
+    body: 'We identify the size and pattern of the visibility loss. This includes looking at affected pages, queries, traffic sources, countries, devices, content categories, and important commercial URLs.',
   },
   {
-    title: 'Recovery Plan Design',
-    body: 'We produce a prioritized, sequenced recovery plan covering the specific issues that need correction, the work required, and the order in which it should happen.',
-    closing: 'The plan is documented so your team always knows where the recovery stands.',
+    title: 'Root Cause Investigation',
+    body: 'We compare the evidence against likely causes, including manual actions, Google updates, technical changes, migrations, indexing issues, security problems, backlink patterns, content quality, and competitive SERP changes.',
   },
   {
-    title: 'Remediation & Implementation',
-    body: 'We implement the agreed fixes, including content, technical, structural, and link-related work, depending on the diagnosis and the scope of the engagement.',
-    closing: 'Changes are made carefully and verified rather than applied broadly on assumption.',
+    title: 'Remediation Planning',
+    body: 'Once the likely cause is established, we create a prioritized recovery plan showing what needs to be fixed, what can be left unchanged, and what evidence should be documented.',
   },
   {
-    title: 'Review Preparation',
-    body: 'For manual actions, we prepare the reconsideration request with the remediation evidence organized clearly after the underlying issues have been resolved.',
-    closing: 'Google asks for an explanation of the problem, the fixes applied, and the outcome, so we document accordingly.',
+    title: 'Implementation & Documentation',
+    body: 'We implement agreed fixes and maintain a record of the work completed. For manual actions, documentation can be especially important because Google asks reconsideration requests to explain the violation, the corrective steps, and the results of those efforts.',
   },
   {
-    title: 'Monitoring & Measurement',
-    body: 'We track the relevant visibility and technical indicators after changes are made, comparing affected pages and queries over time.',
-    closing: 'Recovery is measured through consistent trends, not single-day ranking movement.',
+    title: 'Reconsideration or Algorithmic Reassessment',
+    body: 'Manual actions may require a reconsideration request after the underlying violation has been fixed. Algorithmic and technical recovery does not use the same process. Instead, changes need to be implemented and then assessed as Google recrawls and reassesses the site.',
   },
   {
-    title: 'Prevention & Maintenance',
-    body: 'Where appropriate, we recommend technical, content, and workflow controls designed to reduce the chance of the same problem returning.',
-    closing: 'The goal is a site that holds up across Google updates rather than a one-time cleanup.',
+    title: 'Recovery Validation & Prevention',
+    body: 'We monitor whether the affected pages and queries are showing signs of improvement and whether the original technical, content, or policy issue has been resolved. We also identify preventive changes that can reduce the chance of the same problem recurring.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="How we work" title="How We Approach Google Penalty Recovery">
-          Our process is deliberately evidence-first. The right diagnosis prevents wasted work and
-          shortens the actual recovery path.
-        </SectionIntro>
+    <section className="bg-[#09090B] py-20 md:py-28 border-t border-white/[0.08]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#A855F7]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span>Step-by-Step Methodology</span>
+          </div>
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
+            How We Approach Google Penalty Recovery
+          </h2>
+          <p className="text-base leading-relaxed text-zinc-300 sm:text-lg">
+            Our process is deliberately evidence-first. The right diagnosis prevents wasted work and shortens the actual recovery path.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 xl:grid-cols-4">
+        {/* Modality 3: Seamless Blueprint Matrix Grid */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={step.title} className="flex flex-col justify-between bg-frame-muted/30 p-7 md:p-8">
+            <div
+              key={step.title}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-6 transition-colors duration-200 hover:bg-[#121214] sm:p-8"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                    Phase // 0{index + 1}
+                  </span>
+                  <span className="h-2 w-2 rounded-full bg-white/10 transition-colors duration-300 group-hover:bg-frame-accent" />
+                </div>
+
+                <h3 className="mt-6 text-lg font-medium text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="mt-3 text-xs leading-relaxed text-zinc-300 sm:text-sm">
                   {step.body}
                 </p>
-                {step.closing && (
-                  <p className="mt-4 border-l-2 border-frame-accent pl-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                    {step.closing}
-                  </p>
-                )}
               </div>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
             </div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -38,17 +38,17 @@ export default function Hero({ service }) {
   const subtitle = service?.shortDesc || "Your logo needs to work beyond the presentation mockup. Framecipher provides logo design service for businesses that need a new logo, a professional redesign, or a practical logo system built for real-world use."
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="bg-[#09090B] text-[#FAFAFA]">
       {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
+      <nav aria-label="Breadcrumb" className="border-b border-white/[0.06] bg-[#09090B]/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA] md:px-8">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
+          <Link href="/" className="transition hover:text-[#FAFAFA]">Home</Link>
           <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
+          <Link href="/services" className="transition hover:text-[#FAFAFA]">Services</Link>
           <span>/</span>
-          <Link href="/services/content-creation" className="transition hover:text-frame-fg">Content Creation</Link>
+          <Link href="/services/content-creation" className="transition hover:text-[#FAFAFA]">Content Creation</Link>
           <span>/</span>
-          <span className="text-frame-accent">Logo Design</span>
+          <span className="text-[#A855F7]">Logo Design</span>
         </div>
       </nav>
 
@@ -70,70 +70,70 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-[#A1A1AA] leading-relaxed wide:text-lg">
           We develop distinctive logo concepts, refine the selected direction into scalable vector artwork, create the required variations, and prepare the final files for print and digital use.
         </span>
       </PageHero>
 
       {/* LOGO DESIGN BUILT FOR REAL-WORLD USE */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-[95vw]">
+      <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7] mb-4">
               Real-World Engineering
             </p>
-            <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-medium leading-[0.96] tracking-[-0.03em] text-[#FAFAFA]">
               Logo Design Built for Real-World Use
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-[#A1A1AA] wide:text-lg">
               A logo should not only look good when presented large on a screen mockup. It must remain immediately recognizable and technically reproducible across real-world production environments.
             </p>
           </div>
 
           {/* 8 STRESS TEST CONTEXTS */}
-          <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-frame-border/60 pb-4">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="mt-12 border border-white/[0.08] bg-[#09090B] p-6 md:p-8">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-white/[0.06] pb-4">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Stress-Tested Usability
               </span>
-              <span className="text-xs font-mono font-bold text-frame-muted-fg">
+              <span className="text-xs font-mono font-bold text-[#A1A1AA]">
                 8 Environmental Benchmarks
               </span>
             </div>
-            <p className="mt-3 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <p className="mt-3 text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               Before finalizing any mark, we verify that it functions flawlessly in demanding real-world conditions:
             </p>
             <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               {realWorldContexts.map((context, idx) => (
-                <div key={idx} className="flex items-start gap-2.5 border border-frame-border/80 bg-frame-muted/20 p-3.5">
+                <div key={idx} className="flex items-start gap-2.5 border border-white/[0.08] bg-[#121214] p-3.5">
                   <CheckIcon />
-                  <span className="text-xs font-medium text-frame-fg leading-snug">{context}</span>
+                  <span className="text-xs font-medium text-[#FAFAFA] leading-snug">{context}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* 10-POINT EVALUATION GRID */}
-          <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <div className="border-b border-frame-border/60 pb-4">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="mt-8 border border-white/[0.08] bg-[#09090B] p-6 md:p-8">
+            <div className="border-b border-white/[0.06] pb-4">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Systematic Assessment
               </span>
-              <h3 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                 Our 10-Point Logo Design Evaluation
               </h3>
             </div>
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
               {evaluationPoints.map((pt, idx) => (
-                <div key={idx} className="border border-frame-border/60 bg-frame-muted/10 p-4 flex flex-col justify-between">
-                  <span className="font-mono text-[10px] font-black text-frame-accent">
+                <div key={idx} className="border border-white/[0.06] bg-[#121214] p-4 flex flex-col justify-between">
+                  <span className="font-mono text-[10px] font-black text-[#A855F7]">
                     0{idx + 1}
                   </span>
                   <div className="mt-3">
-                    <h4 className="font-heading text-sm font-bold uppercase tracking-tight text-frame-fg">
+                    <h4 className="font-heading text-sm font-bold tracking-tight text-[#FAFAFA]">
                       {pt.label}
                     </h4>
-                    <p className="mt-1 text-[11px] font-medium leading-relaxed text-frame-muted-fg">
+                    <p className="mt-1 text-[11px] font-medium leading-relaxed text-[#A1A1AA]">
                       {pt.desc}
                     </p>
                   </div>

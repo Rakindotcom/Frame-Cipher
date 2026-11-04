@@ -1,78 +1,139 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const areas = [
-  {
-    eyebrow: 'Domestic reach',
-    title: 'Local SEO Across Bangladesh',
-    body: 'For businesses targeting Bangladesh, we structure local SEO around relevant cities, areas, neighborhoods, services, and customer search behavior. We build location targeting around actual service coverage rather than adding city names without purpose.',
-    tags: [
-      'Dhaka',
-      'Chattogram',
-      'Sylhet',
-      'Gazipur',
-      'Narayanganj',
-      'Rajshahi',
-      'Khulna',
-      'Other target areas',
-    ],
-  },
-  {
-    eyebrow: 'Global delivery',
-    title: 'Local SEO for International Markets',
-    body: 'Businesses targeting customers outside Bangladesh may need location-specific strategies for different countries, cities, or service areas. The strategy depends on your business model, target locations, competition, and customer search behavior.',
-    tags: [
-      'United States',
-      'United Kingdom',
-      'Canada',
-      'Australia',
-      'United Arab Emirates',
-      'Other relevant markets',
-    ],
-  },
+import React from 'react'
+import { MapPin, Globe, CheckCircle2 } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+
+const bdLocations = [
+  'Dhaka (Gulshan, Banani, Dhanmondi, Uttara, Mirpur)',
+  'Chattogram (Agrabad, Nasirabad, GEC, Halishahar)',
+  'Sylhet (Zindabazar, Amberkhana, Shahjalal Upashahar)',
+  'Gazipur & Tongi Industrial Hubs',
+  'Narayanganj Commercial & Export Belts',
+  'Rajshahi (Shaheb Bazar, Motihar)',
+  'Khulna (Shibbari, Daulatpur, Khalishpur)',
+  'Barishal, Rangpur & Mymensingh Divisional Centers',
+]
+
+const intlMarkets = [
+  'United States (City, County & State Service Areas)',
+  'United Kingdom (London Boroughs & Regional Shires)',
+  'Canada (Greater Toronto, Vancouver, Montreal, Calgary)',
+  'Australia (Sydney, Melbourne, Brisbane, Perth)',
+  'United Arab Emirates (Dubai, Abu Dhabi, Sharjah)',
+  'Multi-country branch & franchise geo-targeting',
 ]
 
 export default function ServiceAreas() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Where we work"
-          title="Local SEO for Bangladesh & International Markets"
-        >
-          Local search behavior varies by market. We adapt the strategy to the locations your
-          business actually serves.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Geographic Deployment
+            </span>
+          </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          {areas.map((area) => (
-            <div key={area.title} className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-10 transition-colors hover:border-frame-accent">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                  {area.eyebrow}
-                </span>
-                <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                  {area.title}
-                </h3>
-                <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                  {area.body}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-1.5">
-                  {area.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="border border-frame-border/80 bg-frame-bg px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-frame-muted-fg"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Local SEO for{' '}
+            <span className="italic text-frame-accent">Bangladesh &amp; International Markets</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Local search behavior and competitive intensity vary dramatically by territory. We customize geographic targeting to the exact metropolitan areas and regions your business serves.
+          </p>
         </div>
 
-        <div className="mt-10">
-          <PosterButton href="/contact">Start Your Local SEO Strategy &rarr;</PosterButton>
+        {/* 2 Regional Columns */}
+        <div className="mt-12 grid gap-8 lg:grid-cols-2">
+          {/* Bangladesh Column */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 pb-4 border-b border-white/[0.06]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-frame-accent/15 text-frame-accent border border-frame-accent/30">
+                  <MapPin className="h-5 w-5" />
+                </div>
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                    Domestic Dominance
+                  </span>
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                    Bangladesh Coverage
+                  </h3>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm text-zinc-300 leading-relaxed">
+                For businesses targeting Bangladesh, we structure local SEO around specific divisional hubs, commercial wards, and neighborhood search terms based on actual service coverage.
+              </p>
+
+              <div className="mt-6 space-y-2.5">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Key Focus Territories:
+                </span>
+                <ul className="space-y-2">
+                  {bdLocations.map((loc, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-400">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                      <span>{loc}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* International Column */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-3 pb-4 border-b border-white/[0.06]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500/15 text-emerald-400 border border-emerald-500/30">
+                  <Globe className="h-5 w-5" />
+                </div>
+                <div>
+                  <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
+                    Global Reach
+                  </span>
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                    International Markets
+                  </h3>
+                </div>
+              </div>
+
+              <p className="mt-4 text-sm text-zinc-300 leading-relaxed">
+                For international businesses operating in Tier-1 western and Middle-Eastern markets, we configure hyper-local service radiuses, localized language nuances, and country-specific citation ecosystems.
+              </p>
+
+              <div className="mt-6 space-y-2.5">
+                <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
+                  Target Territories:
+                </span>
+                <ul className="space-y-2">
+                  {intlMarkets.map((mkt, idx) => (
+                    <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-400">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <span>{mkt}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <p className="max-w-2xl text-sm sm:text-base text-zinc-300 leading-relaxed">
+            Need local Map Pack prominence in a specific city or multi-branch franchise market? Request an audit of your target location.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact">
+              Get Free Consultation &rarr;
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

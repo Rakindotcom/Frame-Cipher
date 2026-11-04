@@ -1,4 +1,4 @@
-﻿import Hero from './Hero'
+import Hero from './Hero'
 import Overview from './Overview'
 import WhenToAudit from './WhenToAudit'
 import Offerings from './Offerings'
@@ -16,17 +16,20 @@ import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
   'SEO Audit',
-  'Technical Audit',
-  'On-Page Review',
-  'Content Analysis',
-  'Backlink Review',
-  'Competitor Analysis',
-  'Prioritized Roadmap',
+  'Technical Crawl & Indexation',
+  'On-Page & Keyword Mapping',
+  'Cannibalization Analysis',
+  'Backlink & Authority Diagnostic',
+  'Competitor SERP Gaps',
+  'GA4 & Search Console Verification',
+  'AI Overview Signals',
+  '30/60/90 Action Roadmap',
+  'Dhaka to Global Markets',
 ]
 
 export default function SeoSeoAuditService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -40,7 +43,7 @@ export default function SeoSeoAuditService({ service }) {
       <Guarantee />
       <CaseStudies />
       <Markets />
-      <FAQ service={service} />
+      <FAQ />
       <CTA />
     </main>
   )

@@ -31,7 +31,7 @@ export default function ServiceDetailPage({ service }) {
   const fallbackProjects = relatedProjects.length > 0 ? relatedProjects : portfolioProjects.slice(0, 2)
 
   return (
-    <main className="bg-frame-bg text-frame-fg">
+    <main className="bg-[#09090B] text-[#FAFAFA] min-h-screen selection:bg-[#A855F7]/20 selection:text-white">
       <ServiceDetailHero service={service} />
 
       <ServiceDetailProblemSection landing={landing} />

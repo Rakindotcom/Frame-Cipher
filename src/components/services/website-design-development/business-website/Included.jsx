@@ -1,4 +1,4 @@
-import { SectionIntro } from '../../../Kinetic'
+import { Check } from 'lucide-react'
 
 const includedCategories = [
   {
@@ -68,36 +68,47 @@ const includedCategories = [
 
 export default function Included() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/20 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Scope Breakdown / Complete Coverage" title="What's Included in Our Business Website Development Service">
-          Every business website project is scoped around your requirements, but our standard approach covers the core elements needed to launch a professional, usable, and lead-focused website.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            What&apos;s Included in Our{' '}
+            <span className="italic text-frame-accent">Development Service.</span>
+          </h2>
+          <p className="text-base text-zinc-400 sm:text-lg">
+            Every business website project is scoped around your requirements, but our standard approach covers the core elements needed to launch a professional, usable, and lead-focused website.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2 lg:grid-cols-3">
+        {/* Modality 3: Blueprint Matrix (6 Modules) */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
           {includedCategories.map((cat, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-6 transition-colors duration-200 hover:bg-[#121214] sm:p-8"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Module 0{idx + 1}</span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-6 font-heading text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {cat.title}
                 </h3>
-                <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
+
+                <ul className="mt-6 space-y-2.5 border-t border-white/[0.06] pt-5 text-xs sm:text-sm text-zinc-300">
                   {cat.items.map((item, iIdx) => (
                     <li key={iIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span>{item}</span>
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                      <span className="leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
+
+              <div className="mt-8 border-t border-white/[0.06] pt-4 font-mono text-[11px] text-zinc-500">
+                Verified Deliverable · 100% In-Scope
+              </div>
             </div>
           ))}
         </div>
-
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          The exact deliverables depend on the platform, functionality, integrations, and scope agreed before development begins.
-        </p>
       </div>
     </section>
   )

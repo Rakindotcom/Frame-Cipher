@@ -1,12 +1,12 @@
-
+import React from 'react'
+import { Check } from 'lucide-react'
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
 
 const coreServices = [
   {
-    tag: 'Service 01',
+    tag: '01',
     title: 'Site Strategy & Planning',
-    description: 'Every Wix project starts with a clear plan for what the website needs to achieve. We define the site\'s goals, target audience, key pages, calls to action, content requirements, and required functionality before development begins.',
+    description: "Every Wix project starts with a clear plan for what the website needs to achieve. We define the site's goals, target audience, key pages, calls to action, content requirements, and required functionality before development begins.",
     items: [
       'Business goals and primary conversion actions',
       'Sitemap and page structure',
@@ -18,7 +18,7 @@ const coreServices = [
     note: 'A clear structure makes the website easier to build, easier to use, and easier to manage after launch.',
   },
   {
-    tag: 'Service 02',
+    tag: '02',
     title: 'Custom Wix Website Design',
     description: 'We design Wix websites around your brand instead of leaving a template unchanged.',
     items: [
@@ -33,7 +33,7 @@ const coreServices = [
     note: 'The goal is a website that feels like your business, not a lightly edited template.',
   },
   {
-    tag: 'Service 03',
+    tag: '03',
     title: 'Wix Studio Development',
     description: 'Wix Studio is designed for more advanced professional website development and responsive control. We use Wix Studio when a project needs greater design precision, responsive breakpoints, custom layouts, advanced interactions, or deeper development flexibility.',
     items: [
@@ -49,9 +49,9 @@ const coreServices = [
     note: 'We recommend Wix Studio when the project needs more control than a standard Wix Editor build.',
   },
   {
-    tag: 'Service 04',
+    tag: '04',
     title: 'Wix Velo Development & Custom Functionality',
-    description: 'When built-in Wix features are not enough, Velo and Wix\'s developer tools can extend the site\'s functionality. We use custom development when it solves a real business requirement rather than adding unnecessary complexity.',
+    description: "When built-in Wix features are not enough, Velo and Wix's developer tools can extend the site's functionality. We use custom development when it solves a real business requirement rather than adding unnecessary complexity.",
     items: [
       'Custom forms and workflows',
       'Database-driven functionality',
@@ -67,7 +67,7 @@ const coreServices = [
     note: 'The exact implementation depends on the Wix capabilities, APIs, apps, and technical requirements involved in the project.',
   },
   {
-    tag: 'Service 05',
+    tag: '05',
     title: 'Wix CMS & Dynamic Website Development',
     description: 'Wix CMS can separate your content from the page design, making it easier to manage structured information as your website grows.',
     items: [
@@ -84,7 +84,7 @@ const coreServices = [
     note: 'Dynamic pages allow one page structure to display different content items while keeping the design consistent. This is useful when your website needs many similar pages without manually building every page from scratch.',
   },
   {
-    tag: 'Service 06',
+    tag: '06',
     title: 'Wix Integrations & Business Automation',
     description: 'Your website often needs to work with more than Wix alone. We can configure supported apps, APIs, and third-party tools for your business workflows.',
     items: [
@@ -102,7 +102,7 @@ const coreServices = [
     note: 'We select integrations based on the actual workflow instead of adding unnecessary apps that make the website harder to maintain.',
   },
   {
-    tag: 'Service 07',
+    tag: '07',
     title: 'Wix Ecommerce Development',
     description: 'Wix can support ecommerce websites that need a streamlined storefront and manageable product operations.',
     items: [
@@ -122,7 +122,7 @@ const coreServices = [
     note: 'We also review catalog size, payment requirements, fulfillment workflows, and future growth before recommending Wix Ecommerce. For complex ecommerce operations, another platform may be more appropriate.',
   },
   {
-    tag: 'Service 08',
+    tag: '08',
     title: 'Wix SEO & Technical Performance Optimization',
     description: 'We build the SEO foundation into the website from the start rather than treating it as an afterthought.',
     items: [
@@ -142,7 +142,7 @@ const coreServices = [
     note: 'We optimize what the platform allows and explain any platform-specific constraints before launch. No website platform can guarantee rankings on its own. Strong SEO also depends on content, competition, authority, technical quality, and ongoing optimization.',
   },
   {
-    tag: 'Service 09',
+    tag: '09',
     title: 'Wix Website Redesign & Optimization',
     description: 'An existing Wix website may not need a complete replacement. We can redesign and improve an existing Wix website when the platform still fits the business.',
     items: [
@@ -160,7 +160,7 @@ const coreServices = [
     note: 'We review the existing website first and recommend what should be retained, rebuilt, or removed.',
   },
   {
-    tag: 'Service 10',
+    tag: '10',
     title: 'Wix Migration & Website Rebuild',
     description: 'We can help businesses move an existing website to Wix when Wix is a better fit for their current needs.',
     items: [
@@ -176,10 +176,10 @@ const coreServices = [
       'SEO preservation checks',
       'Mobile and functionality testing',
     ],
-    note: 'A migration should protect useful content and existing search visibility as much as possible while improving the new site\'s structure.',
+    note: "A migration should protect useful content and existing search visibility as much as possible while improving the new site's structure.",
   },
   {
-    tag: 'Service 11',
+    tag: '11',
     title: 'Ongoing Wix Maintenance & Support',
     description: 'After launch, we can provide ongoing support for businesses that need help maintaining or improving their Wix website.',
     items: [
@@ -198,41 +198,55 @@ const coreServices = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Core Capabilities & Engineering" title="Our Wix Development Services" index="06">
-          We build Wix websites around your business goals, content, customers, and day-to-day workflows. From a simple business website to a more advanced Wix Studio build, we choose the right level of functionality for the project.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Heading: STRICTLY LEFT-ALIGNED */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Our Wix Development{' '}
+            <span className="italic text-frame-accent">Services.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            We build Wix websites around your business goals, content, customers, and day-to-day workflows. From a simple business website to a more advanced Wix Studio build, we choose the right level of functionality for the project.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* 11 Core Service Cards */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {coreServices.map((service, index) => (
             <div
               key={index}
-              className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 min-h-[360px]"
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
                   {service.tag}
                 </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/custom-development"]}>
-                  {service.description}
-                </AutoLinks></p>
-                <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-5 text-xs sm:text-sm font-medium text-frame-fg/90">
+                <div className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
+                  <AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/custom-development"]}>
+                    {service.description}
+                  </AutoLinks>
+                </div>
+                <ul className="mt-6 space-y-2 border-t border-white/[0.08] pt-5 text-xs sm:text-sm font-normal text-zinc-300">
                   {service.items.map((item, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
+                    <li key={bIdx} className="flex items-start gap-2.5">
+                      <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent mt-0.5">
+                        <Check className="h-3 w-3 stroke-[2.5]" />
+                      </span>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="mt-6 border-t border-frame-border/40 pt-4">
-                <p className="text-xs italic text-frame-muted-fg"><AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/ecommerce-website"]}>
-                  {service.note}
-                </AutoLinks></p>
+              <div className="mt-6 border-t border-white/[0.08] pt-4">
+                <div className="text-xs italic text-zinc-500 font-normal">
+                  <AutoLinks currentPath="/services/website-design-development/wix" allowed={["/services/website-design-development/ecommerce-website"]}>
+                    {service.note}
+                  </AutoLinks>
+                </div>
               </div>
             </div>
           ))}

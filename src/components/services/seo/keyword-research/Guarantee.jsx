@@ -1,90 +1,109 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { ShieldCheck, CheckCircle2, AlertCircle, Check, Minus } from 'lucide-react'
 
 const received = [
-  'Structured keyword research',
-  'Search-intent classification',
-  'Competitive analysis',
-  'Keyword clusters',
-  'Keyword-to-URL mapping',
-  'Priority opportunities',
-  'Content planning inputs',
-  'Market-specific keyword recommendations',
-  'A clear final delivery suitable for SEO and content execution',
+  'Structured, multi-platform keyword research dataset',
+  'Search-intent classification (Informational, Commercial, Transactional)',
+  'Direct & indirect competitor gap analysis',
+  'Topical cluster & SILO hierarchy maps',
+  '1-to-1 Keyword-to-URL architectural mapping',
+  'RICE-scored priority keyword opportunity list',
+  'Granular content planning inputs & editorial angles',
+  'Market-specific keyword recommendations (Bangladesh & Global)',
+  'A clear, defensible final delivery ready for writers & devs',
 ]
 
 const nonGuarantees = [
-  'A #1 ranking for any keyword',
-  'A specific ranking position',
-  'A fixed traffic increase',
-  'A fixed number of leads',
-  'Guaranteed revenue',
-  'A specific ranking timeframe',
-  'Permanent search visibility',
+  'An automatic #1 ranking for any specific keyword',
+  'A guaranteed ranking position within an arbitrary timeline',
+  'A fixed percentage traffic increase without content execution',
+  'A fixed number of inbound leads or conversions',
+  'Guaranteed commercial revenue without execution quality',
+  'A fixed ranking timeframe that ignores competitor velocity',
+  'Permanent search visibility immune to core algorithm updates',
 ]
 
 export default function Guarantee() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Clear expectations" title="What We Guarantee">
-          Keyword research should give your team a structured and defensible search strategy within
-          the agreed scope.
-        </SectionIntro>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="flex flex-col border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              What you receive
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Header Block */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <ShieldCheck className="h-4 w-4 text-emerald-400" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400">
+              Clear Expectations
             </span>
-            <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-              Depending on the selected project
-            </h3>
-            <ul className="mt-6 space-y-3.5">
-              {received.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-sm md:text-base font-medium leading-relaxed text-frame-fg"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent text-frame-accent-fg">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white">
+            What We <span className="italic text-frame-accent">Guarantee</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-400">
+            Keyword research must equip your team with a structured, defensible, and empirically grounded search strategy within the agreed scope.
+          </p>
+        </div>
+
+        {/* 2-Column Comparison Grid */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          {/* What You Receive Card */}
+          <div className="rounded-2xl border border-emerald-500/30 bg-[#121415] p-7 sm:p-9 space-y-6">
+            <div>
+              <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs uppercase tracking-wider">
+                <CheckCircle2 className="h-4 w-4" />
+                <span>What You Receive</span>
+              </div>
+              <h3 className="mt-2 font-heading text-2xl font-medium tracking-tight text-white">
+                Deliverables Within Our Direct Control
+              </h3>
+            </div>
+
+            <ul className="space-y-3">
+              {received.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-300">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 mt-0.5">
+                    <Check className="h-3.5 w-3.5" />
                   </span>
-                  <span>{item}</span>
+                  <span className="leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="flex flex-col border-2 border-frame-border bg-frame-muted/10 p-7 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              What we don&apos;t guarantee
-            </span>
-            <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-              Outcomes we don&apos;t control
-            </h3>
-            <ul className="mt-6 space-y-3.5">
-              {nonGuarantees.map((item, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-sm md:text-base font-medium leading-relaxed text-frame-fg"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-border text-frame-muted-fg">
-                    <span className="font-bold">&ndash;</span>
+          {/* What We Don't Guarantee Card */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-7 sm:p-9 space-y-6">
+            <div>
+              <div className="flex items-center gap-2 text-zinc-400 font-mono text-xs uppercase tracking-wider">
+                <AlertCircle className="h-4 w-4 text-frame-accent" />
+                <span>Outcomes We Don&apos;t Control</span>
+              </div>
+              <h3 className="mt-2 font-heading text-2xl font-medium tracking-tight text-white">
+                Honest Ranking &amp; Commercial Realities
+              </h3>
+            </div>
+
+            <ul className="space-y-3">
+              {nonGuarantees.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-3 text-xs sm:text-sm text-zinc-400">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-md bg-white/[0.04] text-zinc-500 border border-white/[0.08] mt-0.5">
+                    <Minus className="h-3.5 w-3.5" />
                   </span>
-                  <span>{item}</span>
+                  <span className="leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <p className="mt-10 max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          Keyword research identifies opportunities. Actual performance depends on content quality,
-          technical implementation, authority, competition, search demand, user behavior, and
-          ongoing optimization. Our responsibility is to provide a well-researched, relevant,
-          organized, and strategically prioritized keyword framework.
-        </p>
+        {/* Bottom Reality Note */}
+        <div className="mt-10 rounded-2xl border border-white/[0.08] bg-[#14121A] p-7 md:p-8">
+          <p className="text-sm font-normal leading-relaxed text-zinc-300">
+            Keyword research identifies and prioritizes market opportunities. Actual organic ranking performance depends on technical code execution, content depth, domain authority acquisition, competition counter-moves, search demand seasonality, and ongoing conversion optimization. Our responsibility is to deliver a rigorous, strategically prioritized keyword framework your developers and writers can execute with certainty.
+          </p>
+        </div>
       </div>
     </section>
   )

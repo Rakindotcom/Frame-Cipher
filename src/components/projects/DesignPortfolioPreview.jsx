@@ -38,15 +38,15 @@ export default function DesignPortfolioPreview({
   return (
     <section
       id="design-portfolio"
-      className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28"
+      className="border-t border-white/[0.08] bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28"
     >
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-3xl">
             <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
               {eyebrow}
             </p>
-            <h2 className="mt-4 font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+            <h2 className="mt-4 font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold leading-[0.85] tracking-tighter text-frame-fg">
               {title}
             </h2>
             {description && (

@@ -1,84 +1,71 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Users, Layers, ShieldCheck, Globe, BarChart3 } from 'lucide-react'
 
 const reasons = [
   {
-    title: 'One In-House Team',
-    body: 'Strategy, advertising management, creative coordination, tracking, and reporting are handled through one in-house team. You do not need to coordinate separate media buyers, creative vendors, and tracking teams for every campaign requirement.',
+    icon: Users,
+    title: 'One In-House Creative & Tech Team',
+    desc: 'Strategy, video scripting, media buying, Events API tracking, and weekly optimization are handled by our dedicated team in Dhaka without external handoffs.',
   },
   {
-    title: 'Creative + Media Buying Together',
-    body: 'TikTok performance depends on both the media strategy and the creative entering the account. We connect creative planning with campaign data so performance insights can influence the next round of creative.',
+    icon: Layers,
+    title: 'Creative + Media Buying Synchronized',
+    desc: 'Media performance directly dictates the next video production cycle. When a hook or angle demonstrates high conversion efficiency, our video team iterates instantly.',
   },
   {
-    title: 'Client-Owned Accounts & Assets',
-    body: 'Your advertising accounts, pixels, catalogs, business assets, and campaign data remain under your ownership. We work inside the appropriate client-owned advertising environment rather than building your business around an agency-controlled account.',
+    icon: ShieldCheck,
+    title: '100% Client-Owned Accounts & Assets',
+    desc: 'Your TikTok Business Center, Ads Manager, Pixels, and catalog assets remain under your direct ownership. We never trap clients in proprietary agency accounts.',
   },
   {
-    title: 'Bangladesh + International Campaign Experience',
-    body: 'Framecipher is based in Dhaka and works with businesses in Bangladesh as well as international markets. We adapt campaign structure, creative, targeting, language, offers, and measurement to the market rather than assuming one campaign setup works everywhere.',
+    icon: Globe,
+    title: 'Bangladesh & Global Territory Delivery',
+    desc: 'We manage local campaigns tailored for Bangladesh consumer culture as well as international campaigns across the US, UK, Canada, Australia, and UAE.',
   },
   {
-    title: 'Transparent Reporting',
-    body: 'You receive reporting based on the metrics that matter to the campaign. Depending on the objective, reporting can include the metrics below.',
-    metrics: [
-      'Spend',
-      'Impressions',
-      'Reach',
-      'Video engagement',
-      'Click-through rate',
-      'Cost per click',
-      'Leads',
-      'Cost per lead',
-      'Purchases',
-      'Conversion rate',
-      'Revenue',
-      'ROAS',
-      'Creative performance',
-    ],
+    icon: BarChart3,
+    title: 'Transparent Commercial Reporting',
+    desc: 'No vanity engagement metrics. We report on true business KPIs: outbound CTR, acquisition CPA, downstream sales pipeline stages, and verified revenue.',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Why Framecipher"
-          title="Why Businesses Choose Framecipher for TikTok Ads"
-        >
-          TikTok rewards a system that connects creative, data, and business outcomes inside one
-          accountable team.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Businesses Choose Framecipher for{' '}
+            <span className="italic text-frame-accent">TikTok Ads.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            TikTok requires both fast-turnaround video creative and disciplined performance media buying. Here is how our model delivers compounding returns.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {reasons.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Reason 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
-                {item.metrics?.length > 0 && (
-                  <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                    {item.metrics.map((metric, mIdx) => (
-                      <li key={mIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{metric}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {reasons.map((r, idx) => {
+            const Icon = r.icon
+            return (
+              <div
+                key={r.title}
+                className={`rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between ${
+                  idx === 0 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white mb-2.5">
+                    {r.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {r.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

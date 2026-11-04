@@ -8,17 +8,17 @@ const glanceRows = [
   ['Heritage archive', '৳1,40,000 per project, 5 members + vault'],
   ['Extra restoration batch', '৳8,000 per 50 photographs'],
   ['Heirloom USB box set', '৳3,500 per additional set'],
-  ['Standard delivery', '5–10 working days after final session'],
-  ['Quote and payment', 'Itemised within 48 hours — 50% advance, VAT invoices'],
+  ['Standard delivery', '5 to 10 working days after final session'],
+  ['Quote and payment', 'Itemised within 48 hours: 50% advance, VAT invoices'],
   ['Sessions and studio', 'Home sessions across Dhaka or quiet studio at ECB Chattar'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
-  ['Phone and hours', '+880 1768-146650 — Open 24 hours, sessions by advance reservation'],
+  ['Phone and hours', '+880 1768-146650: Open 24 hours, sessions by advance reservation'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Family and Legacy Film Essentials"

@@ -1,93 +1,147 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Sparkles, MessageSquare, Calendar, Share2, Layers, MousePointerClick, Globe } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const outcomes = [
   {
+    icon: MessageSquare,
     number: '01',
     title: 'Consistent Brand Messaging',
-    body: 'Keep important messages, positioning, offers, and campaign information aligned across the platforms your business uses.',
+    body: 'Keep important messages, positioning, commercial offers, and campaign information tightly aligned across all the platforms your business uses.',
   },
   {
+    icon: Calendar,
     number: '02',
     title: 'Better Campaign Coordination',
-    body: 'Plan the supporting content around launches, promotions, events, seasonal opportunities, and other important business dates.',
+    body: 'Plan supporting content around product launches, seasonal promotions, company events, and commercial dates with weeks of runway.',
   },
   {
+    icon: Share2,
     number: '03',
     title: 'More Efficient Content Production',
-    body: 'Identify repurposing opportunities early so one strong source asset can support multiple relevant content pieces.',
+    body: 'Identify repurposing opportunities before shooting so one strong source asset supports multiple relevant platform-specific pieces.',
   },
   {
+    icon: Layers,
     number: '04',
     title: 'Stronger Content Coverage',
-    body: 'Create a more balanced mix of educational, promotional, trust-building, proof-based, community, and product or service content where appropriate.',
+    body: 'Create a balanced mix of educational, promotional, trust-building, proof-based, and community content across every customer stage.',
   },
   {
+    icon: MousePointerClick,
     number: '05',
     title: 'Clearer Calls to Action',
-    body: 'Give content a relevant next step based on its purpose. Depending on the content, that may include:',
+    body: 'Give every piece of content a relevant next step based on its purpose in the funnel:',
     points: [
-      'Reading a resource',
-      'Visiting a website',
-      'Viewing a product',
-      'Requesting a consultation',
-      'Watching another video',
-      'Sending an enquiry',
-      'Making a purchase',
-      'Engaging with the brand',
+      'Reading a high-value resource or guide',
+      'Visiting the website or product page',
+      'Requesting a consultation or quote',
+      'Watching another related video deep dive',
+      'Sending an inquiry or initiating a purchase',
+      'Engaging actively with the brand community',
     ],
   },
   {
+    icon: Globe,
     number: '06',
     title: 'Better Cross-Platform Visibility',
-    body: 'Coordinate related content across multiple platforms so audiences have more opportunities to discover your brand, campaigns, products, and expertise.',
+    body: 'Coordinate related content across multiple platforms so audiences encounter your brand, campaigns, and expertise across multiple touchpoints.',
   },
 ]
 
 export default function Outcomes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Realistic outcomes"
-          title="What a Strategic Content Calendar Can Help Your Business Achieve"
-        >
-          A well-structured content calendar is not a guarantee of specific business results. Its role is
-          to create a stronger planning and execution system that supports your wider marketing objectives.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Commercial Impact · Operational Realism
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {outcomes.map((item) => (
-            <article
-              key={item.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What a Strategic Content Calendar{' '}
+            <span className="italic text-frame-accent">Helps Your Business Achieve.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            A well-structured content calendar is not a guarantee of specific business results. Its role is to create a stronger planning and execution system that supports your wider marketing objectives.
+          </p>
+        </div>
+
+        {/* 6 Outcomes Cards Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {outcomes.map((item) => {
+            const Icon = item.icon
+            return (
+              <article
+                key={item.number}
+                className="group flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 space-y-4 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-purple-500/30 bg-purple-500/10 text-frame-accent">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                    <span className="font-mono text-[10px] text-zinc-500">
+                      Outcome {item.number}
+                    </span>
+                  </div>
+
+                  <h3 className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                    <AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-creation", "/services/content-writing/content-strategy"]}>
+                      {item.body}
+                    </AutoLinks>
+                  </p>
+
+                  {item.points && (
+                    <div className="border-t border-white/[0.06] pt-3">
+                      <ul className="space-y-1.5 text-xs text-zinc-300">
+                        {item.points.map((point) => (
+                          <li key={point} className="flex items-start gap-2">
+                            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0 mt-1.5" />
+                            <span className="leading-snug">{point}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </article>
+            )
+          })}
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Plan With Calm Predictability
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl">
+              Turn reactive scramble into an organized, stress-free publishing operation that drives real business results.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
             >
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {item.number}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-base">
-                  {item.body}
-                </p>
-              </div>
-
-              {item.points && (
-                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 transition-colors duration-200 group-hover:border-frame-accent-fg/30 group-hover:text-frame-accent-fg/90 md:text-sm">
-                  {item.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2">
-                      <span
-                        aria-hidden="true"
-                        className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg"
-                      />
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </article>
-          ))}
+              Get a Content Strategy Consultation
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

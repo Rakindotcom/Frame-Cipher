@@ -2,7 +2,7 @@ import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 export default function CTA() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-3xl text-center">
         <SectionIntro
           eyebrow="Next step"

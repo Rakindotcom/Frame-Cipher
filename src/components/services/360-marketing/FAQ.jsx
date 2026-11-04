@@ -45,34 +45,48 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Questions &amp; Answers"
-          title="Frequently Asked Questions About 360 Marketing."
+          title={
+            <>
+              Frequently Asked Questions About{' '}
+              <span className="italic text-frame-accent">360 Marketing.</span>
+            </>
+          }
         >
           Everything you need to know about our approach, pricing, ad budgets, video production,
           and performance accountability.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-2">
+        <div className="grid gap-4 md:grid-cols-2">
           {faqs.map((faq, index) => (
-            <article
+            <details
               key={faq.q}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#151518] open:border-white/[0.14] open:bg-[#151518] overflow-hidden"
             >
-              <div>
-                <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
-                  Question 0{index + 1}
+              <summary className="flex cursor-pointer list-none items-start justify-between p-6 sm:p-7 text-left transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-purple-500 [&::-webkit-details-marker]:hidden">
+                <div className="flex items-start gap-4 pr-4">
+                  <span className="font-mono text-xs text-frame-accent mt-0.5 tabular-nums">
+                    {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <h3 className="font-heading text-base sm:text-lg font-medium leading-snug tracking-tight text-white group-open:text-frame-accent transition-colors">
+                    {faq.q}
+                  </h3>
+                </div>
+                <span
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.12] bg-[#18181B] text-frame-accent font-mono text-sm font-medium transition-transform duration-300 group-open:rotate-45 group-open:bg-frame-accent group-open:text-white"
+                  aria-hidden="true"
+                >
+                  +
                 </span>
-                <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-snug tracking-tight text-frame-fg">
-                  {faq.q}
-                </h3>
-                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              </summary>
+              <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-zinc-300">
+                <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                   {faq.a}
                 </p>
               </div>
-            </article>
+            </details>
           ))}
         </div>
       </div>

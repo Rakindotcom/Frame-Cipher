@@ -1,5 +1,8 @@
-import Link from 'next/link'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Target, Compass, ArrowRight } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const objectives = [
   'Build B2B visibility',
@@ -7,9 +10,9 @@ const objectives = [
   'Establish executive authority',
   'Communicate industry expertise',
   'Support lead generation',
-  'Build relationships with prospects and partners',
-  'Support recruitment and employer branding',
-  'Share company news and milestones',
+  'Build relationships with prospects & partners',
+  'Support recruitment & employer branding',
+  'Share company news & milestones',
   'Educate potential customers',
   'Support sales conversations',
   'Strengthen your professional reputation',
@@ -18,75 +21,104 @@ const objectives = [
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Strategic approach"
-          title="LinkedIn Management Built Around Your Business Goals"
-        >
-          LinkedIn should have a clear role in your broader business strategy. Framecipher develops
-          your LinkedIn strategy around those objectives instead of treating every business like a
-          corporate publishing account.
-        </SectionIntro>
-
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Depending on your business, your LinkedIn presence may need to
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Strategic Foundation · Commercial Role
             </span>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {objectives.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 border-2 border-frame-border bg-frame-muted/10 p-4 transition-colors hover:border-frame-accent"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-sm font-semibold leading-snug text-frame-fg">{item}</span>
-                </li>
-              ))}
-            </ul>
+          </div>
 
-            <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6">
-              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We can coordinate company page content with executive profiles, thought leadership,
-                employee participation, community engagement, and performance insights so each part
-                supports the broader LinkedIn strategy.
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            LinkedIn Management Built Around{' '}
+            <span className="italic text-frame-accent">Your Business Goals.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            LinkedIn should have a clear role in your broader business strategy. Framecipher develops your LinkedIn strategy around commercial objectives instead of treating every business like an automated corporate publishing account.
+          </p>
+        </div>
+
+        {/* 2-Column Asymmetric Grid */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
+          {/* Left Column: 12 Objectives Grid (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-zinc-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <span>Depending on your business, your LinkedIn presence may need to:</span>
+            </div>
+
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {objectives.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-[#121214] p-4 transition-colors hover:border-purple-500/40 hover:bg-[#15121c]"
+                >
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/10 text-frame-accent mt-0.5">
+                    <Check className="h-3 w-3 stroke-[2.5]" />
+                  </span>
+                  <span className="text-xs sm:text-sm font-medium leading-snug text-zinc-200">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="rounded-2xl border border-purple-500/30 bg-[#15121c] p-6 text-xs sm:text-sm leading-relaxed text-purple-100">
+              <p>
+                We can coordinate company page content with executive profiles, thought leadership, employee participation, community engagement, and performance insights so each part supports the broader LinkedIn strategy.
               </p>
             </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Free LinkedIn Presence Audit
-            </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-              See what your presence is communicating
-            </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              A company page posting quarterly and a founder who hasn&rsquo;t updated their profile
-              since changing jobs are both quietly telling LinkedIn the same thing. We review the
-              pages, profiles, content, and audience response behind your presence.
-            </p>
-            <div className="mt-7 space-y-3">
-              <PosterButton href="/contact">Get Your LinkedIn Presence Audited &rarr;</PosterButton>
-              <PosterButton href="/contact" variant="outline" className="w-full">
-                Request a Custom Quote
+          {/* Right Column: Free Audit Spotlight Card (5 cols) */}
+          <div className="lg:col-span-5 flex flex-col justify-between rounded-2xl border border-white/[0.12] bg-[#121214] p-7 md:p-8 shadow-xl">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Presence Evaluation · </span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-purple-500/30 bg-purple-500/10 text-frame-accent">
+                  <Target className="h-4 w-4" />
+                </span>
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                See What Your LinkedIn Presence Is Communicating
+              </h3>
+
+              <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                A company page posting quarterly and a founder who hasn&apos;t updated their profile since changing jobs are both quietly telling LinkedIn the same thing. We review the pages, profiles, content, and audience response behind your presence.
+              </p>
+
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 font-mono text-xs text-zinc-300 space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-frame-accent" />
+                  <span>Company Page Positioning &amp; Completeness</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-frame-accent" />
+                  <span>Executive Profiles &amp; Thought Leadership Gap</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-frame-accent" />
+                  <span>Content Format Mix &amp; Audience Engagement</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-8 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row gap-3">
+              <PosterButton
+                href="/contact"
+                variant="primary"
+                size="md"
+                className="w-full text-center"
+              >
+                Get Your Free LinkedIn Presence Audit
               </PosterButton>
             </div>
-            <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              Looking for the full service?{' '}
-              <Link
-                href="/services/social-media-management"
-                className="font-bold text-frame-accent underline underline-offset-4 transition hover:text-frame-fg"
-              >
-                Social media management
-              </Link>{' '}
-              covers LinkedIn as part of a coordinated cross-platform presence.
-            </p>
           </div>
         </div>
       </div>

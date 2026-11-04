@@ -1,146 +1,143 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ArrowRight, Sparkles } from 'lucide-react'
 
 const packages = [
   {
     name: 'Standard',
-    tag: 'Sponsored Products',
-    fee: '\u09F325,000',
-    feeNote: 'per month',
-    bestFor: 'Focused product ranges running primarily Sponsored Products',
+    tag: 'Sponsored Products Focus',
+    fee: '৳25,000',
+    feeNote: 'per month + ad spend',
+    bestFor: 'Focused product catalogs (up to 10 active ASINs) running primarily Sponsored Products and keyword targeting.',
     included: [
-      'Campaign structure and management',
+      'Campaign architecture and portfolio structure',
       'Keyword and product-targeting strategy',
-      'Search-term review',
-      'Negative targeting',
-      'Bid and budget optimization',
-      'ACOS and TACOS reporting',
-      'Listing health flagging',
-      'Performance monitoring',
-      'Monthly reporting',
-      'Strategic recommendations',
+      'Weekly search-term harvesting routines',
+      'Negative keyword and ASIN sculpting',
+      'Dynamic bid and budget optimization',
+      'Monthly ACOS and TACOS executive reporting',
+      'Listing health & Buy Box loss monitoring',
+      'Ongoing performance tracking & strategy',
     ],
-    cta: 'Request This Plan',
+    cta: 'Start Standard Plan',
+    popular: false,
   },
   {
     name: 'Full Account',
-    tag: 'Sponsored + Display',
-    fee: '\u09F340,000',
-    feeNote: 'per month',
-    bestFor: 'Brands needing Sponsored Products, Sponsored Brands, Display Ads, and broader optimization',
+    tag: 'Sponsored Products + Brands + Display',
+    fee: '৳40,000',
+    feeNote: 'per month + ad spend',
+    bestFor: 'Growing brands needing Sponsored Products, Sponsored Brands, Video Ads, Display Ads, and Storefront coordination.',
     included: [
-      'Everything in Standard',
-      'Sponsored Brands and Video coordination',
-      'Display Ads management',
-      'Brand Store coordination where eligible',
-      'Multi-marketplace structure',
+      'Everything in the Standard Plan',
+      'Sponsored Brands headline banners management',
+      'Sponsored Brands Video campaign creation & testing',
+      'Display Ads (retargeting & competitor conquesting)',
+      'Amazon Brand Store layout & conversion alignment',
+      'Multi-marketplace structure coordination',
+      'Amazon Attribution setup for external traffic',
+      'Bi-weekly performance reviews and strategy calls',
     ],
-    cta: 'Request This Plan',
+    cta: 'Start Full Account Plan',
     popular: true,
   },
   {
     name: 'DSP Add-On',
-    tag: 'Programmatic',
+    tag: 'Enterprise Programmatic DSP',
     fee: 'Custom',
-    feeNote: 'assessed per account',
-    bestFor: 'Established brands requiring programmatic prospecting or retargeting',
+    feeNote: 'assessed per catalog scope',
+    bestFor: 'Established brands with large catalogs seeking programmatic display, audio, and connected TV advertising at scale.',
     included: [
-      'DSP opportunity assessment',
-      'Audience strategy',
-      'Prospecting and retargeting',
-      'Cross-device planning',
-      'DSP reporting',
+      'Everything in Full Account Plan',
+      'Amazon DSP account access & campaign configuration',
+      'Amazon exclusive 1st-party audience segmentation',
+      'Off-Amazon programmatic display & video retargeting',
+      'Connected TV (Prime Video, Freevee, Twitch) ads',
+      'Cross-device attribution and incremental reach reports',
+      'Custom creative production & frequency capping',
+      'Dedicated senior programmatic advertising director',
     ],
-    cta: 'Get a Custom Quote',
+    cta: 'Request DSP Custom Quote',
+    popular: false,
   },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & plans" title="Amazon Ads Management Pricing">
-          Our pricing depends on catalog size, number of active ASINs, campaign volume,
-          marketplaces, advertising formats, reporting needs, and account complexity.
-        </SectionIntro>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {packages.map((pkg, i) => (
-            <div
-              key={pkg.name}
-              className={
-                pkg.popular
-                  ? 'relative flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/5 p-6 md:p-7'
-                  : 'relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-7'
-              }
-            >
-              {pkg.popular && (
-                <span className="absolute right-4 top-4 border border-frame-accent bg-frame-accent px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.18em] text-frame-bg">
-                  Most Popular
-                </span>
-              )}
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                  Plan 0{i + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.name}
-                </h3>
-                <p className="mt-1 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
-                  {pkg.tag}
-                </p>
-                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
-                  {pkg.fee}
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-frame-muted-fg">
-                    {pkg.feeNote}
-                  </span>
-                </p>
-                <div className="mt-4 border border-frame-accent/50 bg-frame-accent/5 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Best For
-                  </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
-                    {pkg.bestFor}
-                  </p>
-                </div>
-
-                <p className="mt-5 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
-                  What&apos;s included
-                </p>
-                <ul className="mt-3 space-y-2.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
-                  {pkg.included.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2">
-                      <span className="font-bold text-frame-accent">&#10003;</span>
-                      <span className="leading-snug">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 border-t border-frame-border/60 pt-4">
-                <PosterButton href="/contact" className="w-full text-xs">
-                  {pkg.cta}
-                </PosterButton>
-              </div>
-            </div>
-          ))}
+    <section id="pricing" className="scroll-mt-20 relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Amazon Ads Management{' '}
+            <span className="italic text-frame-accent">Pricing.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Transparent, monthly retainer pricing based on active ASIN count, ad format scope, marketplace volume, and reporting requirements. No media spend markups or hidden fees.
+          </p>
         </div>
 
-        <div className="mt-8 flex flex-col gap-8 border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-9 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl space-y-3 text-sm md:text-base font-medium leading-relaxed">
-            <p className="text-frame-fg">
-              <span className="font-black uppercase tracking-[0.18em] text-frame-accent">Important: </span>
-              Ad spend is separate from management fees. Your advertising spend is paid through the
-              advertising account and remains under your control.
-            </p>
-            <p className="text-frame-muted-fg">
-              Advanced listing optimization, product photography, video production, A+ Content
-              creation, catalog remediation, third-party software, and other implementation work can
-              be scoped separately where required. Final pricing is confirmed in a written proposal.
-            </p>
-          </div>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get a Custom Amazon Ads Quote &rarr;</PosterButton>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {packages.map((pkg) => (
+            <div
+              key={pkg.name}
+              className={`relative rounded-2xl border p-7 sm:p-8 flex flex-col justify-between transition-colors duration-300 ${
+                pkg.popular
+                  ? 'border-frame-accent bg-[#141218]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+              }`}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-3 right-6 inline-flex items-center gap-1 rounded-full bg-frame-accent px-3 py-0.5 font-mono text-[10px] uppercase font-bold tracking-wider text-black">
+                  <Sparkles className="h-3 w-3" />
+                  <span>Most Popular</span>
+                </div>
+              )}
+
+              <div>
+                <h3 className="font-heading text-2xl font-medium text-white mt-1">
+                  {pkg.name}
+                </h3>
+                <div className="mt-4 mb-4">
+                  <span className="font-heading text-3xl sm:text-4xl font-bold text-white">
+                    {pkg.fee}
+                  </span>
+                  <span className="block font-mono text-xs text-zinc-400 mt-1">
+                    {pkg.feeNote}
+                  </span>
+                </div>
+
+                <div className="rounded-lg border border-white/[0.06] bg-black/30 p-3.5 mb-6 text-xs text-zinc-300 leading-relaxed font-normal">
+                  <span className="font-semibold text-frame-accent block mb-0.5">Best For:</span>
+                  {pkg.bestFor}
+                </div>
+
+                <div className="space-y-2.5 mb-8">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                    What&apos;s Included:
+                  </p>
+                  {pkg.included.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="/contact"
+                className={`w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-6 font-mono text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
+                  pkg.popular
+                    ? 'bg-frame-accent text-black hover:bg-white hover:text-black'
+                    : 'border border-white/[0.12] bg-white/[0.04] text-white hover:border-frame-accent hover:bg-frame-accent hover:text-black'
+                }`}
+              >
+                <span>{pkg.cta}</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>

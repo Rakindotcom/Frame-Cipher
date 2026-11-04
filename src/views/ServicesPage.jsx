@@ -11,6 +11,8 @@ import {
   ServicesBusinessGoals,
   ServicesConnectedSystem,
   ServicesCoreCapabilities,
+  ServicesPillarsGrid,
+  ServicesStats,
   ServicesAllList,
   ServicesDeliverables,
   ServicesBundles,
@@ -18,6 +20,8 @@ import {
   ServicesIndustries,
   ServicesCaseStudies,
   ServicesWhy,
+  ServicesComparison,
+  ServicesEngagementModels,
   ServicesFAQ,
   ServicesCTA,
 } from '../components/services'
@@ -32,12 +36,14 @@ const pillarGroups = getPillarServices().map((pillar) => ({
 
 export default function ServicesPage() {
   return (
-    <main className="bg-frame-bg text-frame-fg">
+    <main className="service-page services-overview min-h-screen bg-[#09090B] text-[#FAFAFA] overflow-x-hidden">
       <ServicesHero
         totalServices={allServices.length}
         totalPillars={pillarGroups.length}
         pillarNames={pillarGroups.map((group) => group.name)}
       />
+
+      <ServicesStats />
 
       <ServicesProblemSelector />
 
@@ -46,6 +52,8 @@ export default function ServicesPage() {
       <ServicesConnectedSystem />
 
       <ServicesCoreCapabilities />
+
+      <ServicesPillarsGrid pillarGroups={pillarGroups} />
 
       <ServicesAllList pillarGroups={pillarGroups} />
 
@@ -60,6 +68,10 @@ export default function ServicesPage() {
       <ServicesCaseStudies />
 
       <ServicesWhy />
+
+      <ServicesComparison />
+
+      <ServicesEngagementModels />
 
       <ServicesFAQ />
 

@@ -22,44 +22,44 @@ const cards = [
 
 export default function Timeline() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Timeline, revisions & approval" title="Timeline, Revisions &amp; Approval">
-          A standard case study typically takes 2–3 weeks from initial scoping to final delivery.
+          A standard case study typically takes 2 to 3 weeks from initial scoping to final delivery.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-2 lg:items-start">
           <div>
-            <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               The exact timeline depends on
             </h3>
             <ul className="mt-5 flex flex-wrap gap-2">
               {factors.map((item) => (
                 <li
                   key={item}
-                  className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                  className="border border-white/[0.08] bg-[#09090B] px-2.5 py-1 text-[11px] font-semibold text-[#FAFAFA]"
                 >
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
               Multi-case-study projects usually require additional time because each story involves separate
               research and approval.
             </p>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
               Customer approval can also affect the final delivery date. We plan for that review stage rather than
               treating approval as an afterthought.
             </p>
           </div>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border">
+          <div className="grid gap-px border border-white/[0.08] bg-frame-border">
             {cards.map((card) => (
-              <article key={card.title} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-                <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <article key={card.title} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+                <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                   {card.text}
                 </p>
               </article>

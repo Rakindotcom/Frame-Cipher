@@ -2,36 +2,36 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for portfolio — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for portfolio: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Project Bands in Our Portfolio",
-  "pricingIntro": "Every portfolio piece maps to a real budget band: starter productions ৳25,000–80,000, signature work ৳1,00,000–3,00,000, flagship campaigns above ৳5,00,000. Ask for the band behind any reel.",
+  "pricingIntro": "Every portfolio piece maps to a real budget band: starter productions ৳25,000 to 80,000, signature work ৳1,00,000 to 3,00,000, flagship campaigns above ৳5,00,000. Ask for the band behind any reel.",
   "tiers": [
     {
       "name": "Starter Productions",
-      "price": "৳25,000–80,000",
+      "price": "৳25,000 to 80,000",
       "priceNote": "band reference",
       "tag": "Interviews & Shorts",
       "cta": "Replicate a Starter Project",
-      "description": "Studio interviews, batch shorts, catalogue shoots and event teasers — the efficient end of the portfolio.",
+      "description": "Studio interviews, batch shorts, catalogue shoots and event teasers, the efficient end of the portfolio.",
       "features": [
         "Single-session studio recordings and interviews",
         "Batch vertical packs and catalogue banks",
         "Half-day event coverage with 24h teasers",
         "Portfolio pieces tagged with scope and crew",
         "Reference contacts available on request",
-        "Fastest to replicate: 3–7 day turnarounds"
+        "Fastest to replicate: 3 to 7 day turnarounds"
       ]
     },
     {
       "name": "Signature Work",
-      "price": "৳1,00,000–3,00,000",
+      "price": "৳1,00,000 to 3,00,000",
       "priceNote": "band reference",
       "tag": "Most Requested",
       "cta": "Replicate a Signature Project",
       "popular": true,
-      "description": "Company profiles, OVCs, documentaries and wedding narratives — where concept and craft visibly compound.",
+      "description": "Company profiles, OVCs, documentaries and wedding narratives, where concept and craft visibly compound.",
       "features": [
         "Multi-day productions with creative direction",
         "Before/after grading reels on request",
@@ -47,7 +47,7 @@ const DATA = {
       "priceNote": "band reference",
       "tag": "National Scale",
       "cta": "Scope a Flagship Campaign",
-      "description": "TVCs, multi-film campaigns and feature documentaries — the productions that anchor categories.",
+      "description": "TVCs, multi-film campaigns and feature documentaries, the productions that anchor categories.",
       "features": [
         "Broadcast and festival-grade finishing pipelines",
         "Casting, art direction and location portfolios",
@@ -66,15 +66,15 @@ const DATA = {
     "Talent, wardrobe and location permissions",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Dhaka portfolios rarely disclose budgets, forcing buyers to guess whether a reel cost ৳30,000 or ৳3,00,000. We tag every case with its band — starter (৳25k–80k), signature (৳1L–3L), flagship (৳5L+) — so expectations calibrate before the first call. Always judge studios on full films in your industry, not trailers; ask for grading before/afters and, where relevant, performance metrics rather than view counts alone.",
+  "marketNote": "Dhaka portfolios rarely disclose budgets, forcing buyers to guess whether a reel cost ৳30,000 or ৳3,00,000. We tag every case with its band: starter (৳25k to 80k), signature (৳1L to 3L), flagship (৳5L+), so expectations calibrate before the first call. Always judge studios on full films in your industry, not trailers; ask for grading before/afters and, where relevant, performance metrics rather than view counts alone.",
   "costRows": [
     [
       "Starter-band productions",
-      "৳25,000–80,000"
+      "৳25,000 to 80,000"
     ],
     [
       "Signature-band productions",
-      "৳1,00,000–3,00,000"
+      "৳1,00,000 to 3,00,000"
     ],
     [
       "Flagship-band campaigns",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Portfolio Bands Mean in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

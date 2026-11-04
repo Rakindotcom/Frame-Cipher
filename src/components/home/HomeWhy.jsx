@@ -28,43 +28,56 @@ const reasons = [
 
 export default function HomeWhy() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-muted px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-12 max-w-[95vw]">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-            Why / Frame Cipher
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-            Why businesses work with Frame Cipher.
-          </h2>
-          <p className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
-            The difference is not the number of services, it is how they are connected and who
-            is held accountable for the result.
-          </p>
-        </div>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column: Header & The Result Anchor */}
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-28">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+                Why businesses work with{' '}
+                <span className="italic text-frame-accent">
+                  Frame Cipher.
+                </span>
+              </h2>
+              <p className="mt-6 text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+                The difference is not the number of services, it is how they are connected and who
+                is held accountable for the result.
+              </p>
 
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {reasons.map((reason, index) => (
-            <article
-              key={reason.title}
-              className="group flex min-h-52 flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 transition-all duration-300 hover:border-frame-accent hover:bg-frame-accent sm:p-8"
-            >
-              <div>
-                <p
-                  className="font-heading text-5xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-6xl"
-                  aria-hidden="true"
-                >
-                  {String(index + 1).padStart(2, '0')}
+              {/* The Result Highlight Box */}
+              <div className="relative overflow-hidden mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-7 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/50 before:to-transparent">
+                <h3 className="font-heading text-2xl font-medium text-white">
+                  Zero Vendor Friction
+                </h3>
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                  One disciplined partner holding total accountability for your brand, media, web, campaigns, and compounding growth.
                 </p>
-                <h3 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-3xl">
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Editorial Divided List of Reasons */}
+          <div className="border-t border-white/[0.08] lg:col-span-7">
+            {reasons.map((reason, index) => (
+              <article
+                key={reason.title}
+                className="group border-b border-white/[0.08] py-8 transition-colors duration-200 hover:bg-white/[0.02] sm:py-10"
+              >
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums tracking-wider">
+                    0{index + 1}
+                  </span>
+                </div>
+                <h3 className="mt-4 font-heading text-2xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-3xl">
                   {reason.title}
                 </h3>
-              </div>
-              <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
-                {reason.description}
-              </p>
-            </article>
-          ))}
+                <p className="mt-4 max-w-2xl text-sm md:text-base font-normal leading-relaxed text-zinc-400 transition-colors duration-200 group-hover:text-zinc-200">
+                  {reason.description}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

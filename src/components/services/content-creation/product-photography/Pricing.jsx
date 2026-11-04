@@ -1,6 +1,6 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -92,8 +92,8 @@ const qualityCheckpoints = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="pricing" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
         
         {/* HEADER */}
         <SectionIntro
@@ -111,54 +111,54 @@ export default function Pricing() {
               key={index}
               className={`border-2 p-6 md:p-7 flex flex-col justify-between transition-all ${
                 pkg.popular
-                  ? 'border-frame-accent bg-frame-accent/10 shadow-lg'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-fg'
+                  ? 'border-[#A855F7]/40 bg-[#A855F7]/10 shadow-lg'
+                  : 'border-white/[0.08] bg-[#09090B] hover:border-frame-fg'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-4">
-                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     {pkg.badge}
                   </span>
                   {pkg.popular && (
-                    <span className="border border-frame-accent bg-frame-accent px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-frame-accent-fg">
+                    <span className="border border-[#A855F7]/40 bg-frame-accent px-2 py-0.5 text-[9px] font-black uppercase tracking-wider text-[#FAFAFA]">
                       Recommended
                     </span>
                   )}
                 </div>
 
-                <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg leading-snug">
+                <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA] leading-snug">
                   {pkg.name}
                 </h3>
 
-                <div className="mt-4 border-y border-frame-border/60 py-3">
+                <div className="mt-4 border-y border-white/[0.06] py-3">
                   <div className="flex items-baseline gap-1">
-                    <span className="font-heading text-3xl font-black text-frame-fg">
+                    <span className="font-heading text-3xl font-black text-[#FAFAFA]">
                       {pkg.price}
                     </span>
-                    <span className="text-xs font-mono text-frame-muted-fg font-bold">
+                    <span className="text-xs font-mono text-[#A1A1AA] font-bold">
                       /{pkg.unit}
                     </span>
                   </div>
-                  <span className="text-[10px] font-mono text-frame-accent uppercase tracking-wider block mt-0.5">
+                  <span className="text-[10px] font-mono text-[#A855F7] uppercase tracking-wider block mt-0.5">
                     Starting reference price
                   </span>
                 </div>
 
                 <div className="mt-3">
-                  <span className="text-[11px] font-mono font-bold text-frame-fg block">Best For:</span>
-                  <p className="text-xs font-medium text-frame-muted-fg mt-0.5">{pkg.bestFor}</p>
+                  <span className="text-[11px] font-mono font-bold text-[#FAFAFA] block">Best For:</span>
+                  <p className="text-xs font-medium text-[#A1A1AA] mt-0.5">{pkg.bestFor}</p>
                 </div>
 
-                <p className="mt-3 text-xs font-medium text-frame-muted-fg leading-relaxed border-t border-frame-border/60 pt-2">
+                <p className="mt-3 text-xs font-medium text-[#A1A1AA] leading-relaxed border-t border-white/[0.06] pt-2">
                   {pkg.summary}
                 </p>
 
-                <div className="mt-5 border-t border-frame-border/60 pt-4">
-                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-2.5">
+                <div className="mt-5 border-t border-white/[0.06] pt-4">
+                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-2.5">
                     What&apos;s Included
                   </span>
-                  <ul className="space-y-2 text-xs font-medium text-frame-fg">
+                  <ul className="space-y-2 text-xs font-medium text-[#FAFAFA]">
                     {pkg.whatsIncluded.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2">
                         <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
@@ -169,7 +169,7 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-frame-border/60">
+              <div className="mt-8 pt-4 border-t border-white/[0.06]">
                 <PosterButton
                   href="/contact"
                   variant={pkg.popular ? 'accent' : 'outline'}
@@ -183,7 +183,7 @@ export default function Pricing() {
         </div>
 
         {/* PRICING NOTE & CUSTOM QUOTE */}
-        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-frame-border bg-frame-muted/30 p-5 md:p-6 text-xs font-mono text-frame-muted-fg">
+        <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border border-white/[0.08] bg-[#121214] p-5 md:p-6 text-xs font-mono text-[#A1A1AA]">
           <p className="max-w-3xl leading-relaxed text-center sm:text-left">
             * Pricing shown above is a starting reference and is confirmed with Framecipher after evaluating your specific shot list, product materials, and styling scope.
           </p>
@@ -195,30 +195,30 @@ export default function Pricing() {
         </div>
 
         {/* QUALITY REVIEW & REVISIONS PANEL */}
-        <div className="mt-20 border-2 border-frame-border bg-frame-bg p-6 md:p-10">
+        <div className="mt-20 border border-white/[0.08] bg-[#09090B] p-6 md:p-10">
           <div className="max-w-3xl mb-8">
-            <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-frame-accent block mb-2">
+            <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-2">
               Production Standards
             </span>
-            <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
               Quality Review & Revisions
             </h3>
-            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
               Every project goes through a rigid 8-point quality review before final asset handover. We verify the agreed image set against commercial criteria:
             </p>
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {qualityCheckpoints.map((chk, cIdx) => (
-              <div key={cIdx} className="border border-frame-border bg-frame-muted/15 p-4 flex flex-col justify-between">
+              <div key={cIdx} className="border border-white/[0.08] bg-[#121214] p-4 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <CheckIcon className="h-4 w-4 text-frame-accent" />
-                    <h4 className="font-heading text-xs font-bold uppercase tracking-tight text-frame-fg">
+                    <CheckIcon className="h-4 w-4 text-[#A855F7]" />
+                    <h4 className="font-heading text-xs font-bold tracking-tight text-[#FAFAFA]">
                       {chk.item}
                     </h4>
                   </div>
-                  <p className="text-xs font-medium text-frame-muted-fg leading-relaxed">
+                  <p className="text-xs font-medium text-[#A1A1AA] leading-relaxed">
                     {chk.desc}
                   </p>
                 </div>
@@ -226,23 +226,23 @@ export default function Pricing() {
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border/80 pt-6 grid gap-6 md:grid-cols-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
-            <div className="border-l-2 border-frame-accent pl-4 space-y-2">
-              <strong className="text-frame-fg block font-mono uppercase text-xs">Included Revision Round</strong>
+          <div className="mt-8 border-t border-white/[0.08] pt-6 grid gap-6 md:grid-cols-2 text-xs md:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
+            <div className="border-l-2 border-[#A855F7]/40 pl-4 space-y-2">
+              <strong className="text-[#FAFAFA] block font-mono uppercase text-xs">Included Revision Round</strong>
               <p>
                 One reasonable round of post-production retouching revisions is included where specified in your selected package (e.g. slight exposure adjustment, shadow tuning, or dust touch-ups).
               </p>
-              <p className="text-xs text-frame-muted-fg/80">
+              <p className="text-xs text-[#A1A1AA]/80">
                 If a change requires a fresh shoot, additional products, new styling, a different concept, or substantially altered creative direction, it will be scoped as additional production.
               </p>
             </div>
 
-            <div className="border-l-2 border-frame-border pl-4 space-y-2">
-              <strong className="text-frame-fg block font-mono uppercase text-xs">Realistic Performance Disclosure</strong>
+            <div className="border-l-2 border-white/[0.08] pl-4 space-y-2">
+              <strong className="text-[#FAFAFA] block font-mono uppercase text-xs">Realistic Performance Disclosure</strong>
               <p>
                 We do not guarantee a specific sales, conversion, or return-rate outcome from photography alone. Product photography works alongside pricing, product quality, merchandising, reviews, ad targeting, and copy.
               </p>
-              <p className="text-xs text-frame-accent font-mono font-bold">
+              <p className="text-xs text-[#A855F7] font-mono font-bold">
                 Our commitment is to deliver the agreed photography scope to the rigorous production and quality standards defined for your project.
               </p>
             </div>
@@ -250,35 +250,35 @@ export default function Pricing() {
         </div>
 
         {/* GEOGRAPHIC COVERAGE: BANGLADESH & INTERNATIONAL */}
-        <div className="mt-12 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-10">
+        <div className="mt-12 border border-white/[0.08] bg-[#121214] p-6 md:p-10">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8 space-y-3">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-frame-accent block">
+              <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#A855F7] block">
                 Studio Logistics & Global Reach
               </span>
-              <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Product Photography Services in Bangladesh & International Markets
               </h3>
-              <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                 Framecipher is based in Dhaka and provides product photography for businesses across Bangladesh. We also support international clients in markets including the United States, United Kingdom, Australia, and Canada, subject to product shipping, studio requirements, and production logistics.
               </p>
-              <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-medium text-frame-fg">
-                <div className="p-3 border border-frame-border bg-frame-bg">
-                  <strong className="text-frame-accent block font-mono uppercase text-[11px] mb-1">Bangladesh-Based Brands:</strong>
+              <div className="grid sm:grid-cols-2 gap-4 pt-2 text-xs font-medium text-[#FAFAFA]">
+                <div className="p-3 border border-white/[0.08] bg-[#09090B]">
+                  <strong className="text-[#A855F7] block font-mono uppercase text-[11px] mb-1">Bangladesh-Based Brands:</strong>
                   Photography planned around local ecommerce and marketplace requirements (Daraz, Shopify, local courier logistics).
                 </div>
-                <div className="p-3 border border-frame-border bg-frame-bg">
-                  <strong className="text-frame-accent block font-mono uppercase text-[11px] mb-1">International Brands:</strong>
+                <div className="p-3 border border-white/[0.08] bg-[#09090B]">
+                  <strong className="text-[#A855F7] block font-mono uppercase text-[11px] mb-1">International Brands:</strong>
                   Seamless remote workflow working from approved creative briefs, reference imagery, brand guidelines, and global platform specs.
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-4 border-2 border-frame-border bg-frame-bg p-6 text-center space-y-4">
-              <span className="font-mono text-xs font-black uppercase tracking-wider text-frame-accent block">
+            <div className="lg:col-span-4 border border-white/[0.08] bg-[#09090B] p-6 text-center space-y-4">
+              <span className="font-mono text-xs font-black uppercase tracking-wider text-[#A855F7] block">
                 Ready To Ship Your Samples?
               </span>
-              <p className="text-xs font-medium text-frame-muted-fg leading-relaxed">
+              <p className="text-xs font-medium text-[#A1A1AA] leading-relaxed">
                 Send your product units directly to our Dhaka studio for sample inspection, test frames, and high-end commercial capture.
               </p>
               <PosterButton href="/contact" className="w-full text-center">

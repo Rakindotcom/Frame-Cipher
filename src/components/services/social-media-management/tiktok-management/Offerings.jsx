@@ -1,6 +1,9 @@
+'use client'
 
+import React from 'react'
+import { Check, ArrowRight, Video, Sparkles } from 'lucide-react'
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import PosterButton from '../../../home/PosterButton'
 
 const services = [
   {
@@ -342,131 +345,157 @@ const services = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Service scope" title="What Our TikTok Management Service Includes">
-          Our TikTok management service covers the full content lifecycle: research, strategy, content
-          pillars, production, trends, discoverability, publishing, community, LIVE, creators,
-          repurposing, and reporting.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Core Capabilities · 11 Pillars
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What Our TikTok Management{' '}
+            <span className="italic text-frame-accent">Service Includes.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Our TikTok management service covers the full content lifecycle: research, strategy, content pillars, production, trends, discoverability, publishing, community, LIVE, creators, repurposing, and reporting.
+          </p>
+        </div>
+
+        {/* 11 Offerings Cards Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {services.map((service) => (
             <article
               key={service.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
             >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {service.number}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    Capability {service.number} · </span>
+                  <span className="font-mono text-xs text-zinc-500">
+                    Pillar {service.number} of 11
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90"><AutoLinks currentPath="/services/social-media-management/tiktok-management" allowed={["/services/content-writing/content-strategy"]}>
-                  {service.lead}
-                </AutoLinks></p>
-              </div>
 
-              {(service.notes || service.groups || service.chips || service.flow || service.flowLead) && (
-                <div className="mt-6 space-y-5 border-t-2 border-frame-border/60 pt-5 transition-colors duration-200 group-hover:border-frame-accent-fg/30">
-                  {service.notes &&
-                    service.notes.map((note) => (
-                      <p
-                        key={note}
-                        className="text-xs font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-sm wide:text-lg"
-                      >
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  <AutoLinks currentPath="/services/social-media-management/tiktok-management" allowed={["/services/content-writing/content-strategy"]}>
+                    {service.lead}
+                  </AutoLinks>
+                </p>
+
+                {/* Pre-notes if any */}
+                {service.notes && (
+                  <div className="mt-4 space-y-2">
+                    {service.notes.map((note, nIdx) => (
+                      <p key={nIdx} className="text-xs text-zinc-400 leading-relaxed">
                         {note}
                       </p>
                     ))}
+                  </div>
+                )}
 
-                  {service.chips && (
-                    <ul className="flex flex-wrap gap-2">
-                      {service.chips.map((chip) => (
-                        <li
-                          key={chip}
-                          className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                        >
-                          {chip}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                {/* Chips (Platform targets) */}
+                {service.chips && (
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {service.chips.map((chip) => (
+                      <span
+                        key={chip}
+                        className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[11px] text-purple-300"
+                      >
+                        {chip}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
-                  {service.groups &&
-                    service.groups.map((group, gIdx) => (
-                      <div key={group.label || `group-${gIdx}`}>
-                        {group.label && (
-                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                            {group.label}
+                {/* Flow / Step sequence */}
+                {service.flow && (
+                  <div className="mt-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                    {service.flowLead && (
+                      <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-2.5">
+                        {service.flowLead}
+                      </p>
+                    )}
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {service.flow.map((entry, fIdx) => (
+                        <React.Fragment key={entry}>
+                          <span className="rounded-md border border-white/[0.08] bg-[#18181B] px-2.5 py-1 font-mono text-[10px] text-zinc-200">
+                            {entry}
                           </span>
+                          {fIdx < service.flow.length - 1 && (
+                            <span aria-hidden="true" className="text-frame-accent text-xs">
+                              &rarr;
+                            </span>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Groups checklist */}
+                {service.groups && (
+                  <div className="mt-6 space-y-4 border-t border-white/[0.06] pt-4">
+                    {service.groups.map((group, gIdx) => (
+                      <div key={group.label || gIdx}>
+                        {group.label && (
+                          <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2.5">
+                            {group.label}:
+                          </p>
                         )}
-                        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                          {group.items.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-start gap-2 text-xs font-medium leading-snug text-frame-fg/90 transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-sm"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg"
-                              />
-                              <span>{item}</span>
+                        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400">
+                          {group.items.map((item, iIdx) => (
+                            <li key={iIdx} className="flex items-start gap-2">
+                              <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                              <span className="leading-snug">{item}</span>
                             </li>
                           ))}
                         </ul>
                       </div>
                     ))}
+                  </div>
+                )}
+              </div>
 
-                  {service.flowLead && (
-                    <p className="text-xs font-semibold leading-relaxed text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-sm">
-                      {service.flowLead}
-                    </p>
-                  )}
-
-                  {service.flow && (
-                    <ul className="flex flex-wrap items-center gap-1.5">
-                      {service.flow.map((entry, index) => (
-                        <li key={entry} className="flex items-center gap-1.5">
-                          <span className="border border-frame-accent/50 bg-frame-bg px-2 py-0.5 text-[10px] font-bold text-frame-fg">
-                            {entry}
-                          </span>
-                          {index < service.flow.length - 1 && (
-                            <span aria-hidden="true" className="text-frame-accent">
-                              &rarr;
-                            </span>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-
-                  {service.notesAfter && (
-                    <div className="space-y-3">
-                      {service.notesAfter.map((note) => (
-                        <p
-                          key={note}
-                          className="text-xs font-semibold leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80"
-                        >
-                          {note}
-                        </p>
-                      ))}
-                    </div>
-                  )}
+              {/* Notes After */}
+              {service.notesAfter && (
+                <div className="mt-6 rounded-xl border border-white/[0.06] bg-[#09090B] p-4 text-[11px] text-zinc-400 leading-relaxed space-y-2">
+                  {service.notesAfter.map((note, aIdx) => (
+                    <p key={aIdx}>{note}</p>
+                  ))}
                 </div>
               )}
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            The result is a TikTok strategy connected to your business rather than a generic monthly content
-            calendar.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact" variant="outline">
-              Request a Custom Quote &rarr;
+        {/* Bottom Banner */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Ready to Formulate Your Brand&apos;s TikTok Strategy?
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400">
+              The result is a TikTok strategy connected to your business rather than a generic monthly content calendar.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Request a Custom Quote
             </PosterButton>
           </div>
         </div>

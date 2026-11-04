@@ -8,48 +8,46 @@ export default function CaseStudiesGrid({
 }) {
   if (caseStudies.length === 0) {
     return (
-      <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-6 text-center sm:p-12">
-        <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">No matches</p>
-        <h3 className="mt-4 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-5xl">
+      <div className="mx-auto my-16 max-w-2xl rounded-xl border border-white/[0.08] bg-[#121214] p-8 text-center sm:p-12 ">
+        <span className="inline-block rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-mono text-xs uppercase tracking-wider text-violet-300">
+          No matches found
+        </span>
+        <h3 className="mt-4 font-heading text-2xl font-medium tracking-tight text-white md:text-3xl">
           No case studies found matching &ldquo;{searchQuery}&rdquo;
         </h3>
-        <p className="mt-4 text-base font-medium text-frame-muted-fg wide:text-lg">
+        <p className="mt-3 text-sm text-zinc-400">
           Try searching for another client name, industry, service, metric, or keyword, or reset the filters.
         </p>
         <button
           type="button"
           onClick={onResetFilters}
-          className="mt-6 inline-flex border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent cursor-pointer"
+          className="group mt-6 inline-flex h-[52px] items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-semibold text-zinc-950 transition-colors duration-200 hover:bg-zinc-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B] touch-manipulation"
         >
-          Reset filters & search
+          <span>Reset filters &amp; search</span>
+          <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
         </button>
       </div>
     )
   }
 
-  // If viewing a specific category or searching, display a flat clean grid
-  // If viewing All without search, we can organize by category sections with clear headings
   const isOrganized = activeFilter === 'All' && !searchQuery
 
   if (!isOrganized) {
     return (
       <section className="px-4 py-12 md:px-8 md:py-16">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="mb-8 flex items-center justify-between border-b-2 border-frame-border pb-4">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex items-center justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                {activeFilter === 'All' ? 'Search Results' : activeFilter}
-              </p>
-              <h2 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h2 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-white">
                 {activeFilter === 'All' ? `Showing matches for "${searchQuery}"` : `${activeFilter} Case Studies`}
               </h2>
             </div>
-            <span className="border border-frame-border bg-frame-muted px-3 py-1 text-xs font-mono font-bold text-frame-fg">
+            <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1 font-mono text-xs tabular-nums text-zinc-400">
               {caseStudies.length} {caseStudies.length === 1 ? 'Study' : 'Studies'}
             </span>
           </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {caseStudies.map((study, index) => (
               <CaseStudyPortfolioCard key={study.slug} study={study} index={index} />
             ))}
@@ -87,27 +85,24 @@ export default function CaseStudiesGrid({
 
   return (
     <div className="px-4 py-12 md:px-8 md:py-16 space-y-20">
-      <div className="mx-auto max-w-[95vw] space-y-20">
+      <div className="mx-auto max-w-7xl space-y-20">
         {sections.map((sec) => (
           <section key={sec.category} id={`section-${sec.category.toLowerCase().replace(/\s+/g, '-')}`}>
-            <div className="mb-8 flex flex-col gap-2 border-b-2 border-frame-border pb-4 sm:flex-row sm:items-end sm:justify-between">
+            <div className="mb-8 flex flex-col gap-2 border-b border-white/[0.08] pb-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  {sec.category} Case Studies
-                </p>
-                <h2 className="mt-1 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+                <h2 className="font-heading text-2xl md:text-4xl font-medium tracking-tight text-white">
                   {sec.title}
                 </h2>
-                <p className="mt-1 text-sm font-medium text-frame-muted-fg wide:text-lg">
+                <p className="mt-1 text-sm font-normal text-zinc-400">
                   {sec.subtitle}
                 </p>
               </div>
-              <span className="self-start sm:self-auto border border-frame-border bg-frame-muted px-3 py-1 text-xs font-mono font-bold text-frame-fg">
+              <span className="self-start sm:self-auto rounded-full border border-white/[0.08] bg-white/[0.04] px-3.5 py-1 font-mono text-xs text-zinc-400">
                 {sec.items.length} {sec.items.length === 1 ? 'Study' : 'Studies'}
               </span>
             </div>
 
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {sec.items.map((study) => (
                 <CaseStudyPortfolioCard
                   key={study.slug}

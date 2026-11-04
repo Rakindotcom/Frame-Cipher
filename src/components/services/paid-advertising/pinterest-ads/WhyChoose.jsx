@@ -1,59 +1,77 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Layers,
+  Palette,
+  Calendar,
+  Sparkles,
+  Users,
+} from 'lucide-react'
 
 const reasons = [
   {
+    icon: Layers,
     title: 'Full-Funnel Campaign Management',
-    body: 'Pinterest performance does not depend on media buying alone. The campaign also depends on the creative, catalog, landing page, tracking, and conversion experience. Framecipher connects those elements within one campaign strategy instead of treating each part as a separate handoff.',
+    desc: 'Pinterest performance does not depend on media buying alone. We connect creative, merchant catalog, destination landing page, server-side tracking, and checkout flow into one cohesive system.',
   },
   {
-    title: 'Pinterest-Native Creative',
-    body: 'We create Pinterest creative for Pinterest. That means considering the visual hook, vertical format, product context, message hierarchy, Pin copy, landing page, and customer intent. The objective is not simply to make an existing social ad fit a different screen. It is to create a Pin that makes sense in the way people discover content on Pinterest.',
+    icon: Palette,
+    title: 'Pinterest-Native Creative Production',
+    desc: 'We never simply resize Facebook or Instagram ads. Our creative studio builds Pins engineered specifically for Pinterest—vertical 2:3 aspect ratios, clear utility overlays, and high-save appeal.',
   },
   {
+    icon: Calendar,
     title: 'Seasonal & Demand-Led Planning',
-    body: 'We do not build the campaign calendar around when the business remembers to advertise. We plan around when customers begin searching, saving, comparing, and preparing for the purchase. Pinterest Trends, seasonal patterns, campaign history, product priorities, and business calendars can all inform that process.',
+    desc: 'We build campaign calendars around Pinterest Trends and early consumer planning windows, deploying campaigns 60–90 days ahead of peak holiday and occasion buying cycles.',
   },
   {
+    icon: Sparkles,
     title: 'Paid + Organic Pinterest Strategy',
-    body: 'Pinterest Ads and Pinterest SEO are different disciplines, but they can support each other. Paid campaigns can provide immediate visibility and testing. Organic Pinterest strategy can improve the discoverability of Pins, boards, and content over time. Framecipher can coordinate paid and organic activity where a broader Pinterest strategy makes sense, without treating one as a substitute for the other.',
+    desc: 'Paid campaigns provide immediate conversion velocity, while organic board and keyword SEO build enduring compound reach. We coordinate both disciplines without treating one as a substitute.',
   },
   {
-    title: 'One In-House Paid Media & SEO Team',
-    body: 'Pinterest Ads can benefit from paid media expertise. Broader Pinterest visibility can also involve keyword strategy, content, SEO, landing pages, analytics, and creative. Framecipher keeps those capabilities under one in-house team, making it easier to connect Pinterest advertising with the wider search and digital growth strategy.',
+    icon: Users,
+    title: 'One In-House Media & Tech Team',
+    desc: 'No fragmented handoffs between media buyers, designers, and developers. Creative strategists, data engineers, and media managers collaborate directly in-house in Dhaka.',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Why Framecipher"
-          title="Why Choose Framecipher for Pinterest Ads"
-        >
-          A Pinterest partner should connect creative, catalog, tracking, and landing-page
-          performance with campaign management, not just press the launch button.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Choose Framecipher for{' '}
+            <span className="italic text-frame-accent">Pinterest Ads.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Pinterest is a visual search and discovery engine, not a passive social feed. Here is how our specialized capabilities deliver measurable commercial outcomes.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {reasons.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Reason 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {reasons.map((r, idx) => {
+            const Icon = r.icon
+            return (
+              <div
+                key={r.title}
+                className={`rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between ${
+                  idx === 0 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white mb-2.5">
+                    {r.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {r.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

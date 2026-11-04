@@ -1,261 +1,249 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import PosterButton from '../../../home/PosterButton'
 
 const pricingTiers = [
   {
-    name: "SaaS MVP",
-    price: "৳450,000",
-    timeline: "10–14 weeks",
+    name: 'SaaS MVP',
+    price: '৳450,000',
+    timeline: '10–14 weeks',
     featured: false,
+    drivers: 'Core workflow, basic multi-tenancy, initial billing',
     includes: [
-      "Core workflow",
-      "Basic multi-tenancy",
-      "Initial billing",
-      "Standard admin dashboard",
-      "Foundational testing"
-    ]
+      'Core business workflow',
+      'Basic multi-tenancy',
+      'Initial subscription billing',
+      'Standard admin dashboard',
+      'Foundational testing & release',
+    ],
   },
   {
-    name: "Standard SaaS Product",
-    price: "৳800,000",
-    timeline: "16–22 weeks",
+    name: 'Standard SaaS Product',
+    price: '৳800,000',
+    timeline: '16–22 weeks',
     featured: true,
+    drivers: 'Full multi-tenant architecture, tiered billing, team accounts',
     includes: [
-      "Full multi-tenant architecture",
-      "Tiered subscription billing",
-      "Team accounts & roles",
-      "Admin dashboards",
-      "API integrations",
-      "Launch support"
-    ]
+      'Full multi-tenant architecture',
+      'Tiered subscription billing',
+      'Team accounts & role permissions',
+      'Admin dashboards & analytics',
+      'API integrations & webhooks',
+      'Staging & production deployment',
+    ],
   },
   {
-    name: "Advanced SaaS Platform",
-    price: "৳1,400,000",
-    timeline: "22–30 weeks",
+    name: 'Advanced SaaS Platform',
+    price: '৳1,400,000+',
+    timeline: '24–36+ weeks',
     featured: false,
+    drivers: 'Large infrastructure, advanced security, complex integrations',
     includes: [
-      "Complex permission model",
-      "Usage-based billing",
-      "Extensive integrations",
-      "Automation & background jobs",
-      "Analytics & reporting",
-      "Advanced security"
-    ]
+      'Dedicated multi-region infrastructure',
+      'Advanced security & SSO / SAML',
+      'Complex enterprise integrations',
+      'High-availability database cluster',
+      'Custom SLA & dedicated support',
+      'Continuous DevOps & compliance',
+    ],
   },
-  {
-    name: "Enterprise-Scale SaaS",
-    price: "Custom Quote",
-    timeline: "30+ weeks",
-    featured: false,
-    includes: [
-      "Large-scale infrastructure",
-      "Advanced security & compliance",
-      "Complex integrations",
-      "High availability",
-      "Dedicated architecture",
-      "Ongoing SLA support"
-    ]
-  }
 ]
 
 const pricingFactors = [
-  "Number of user roles",
-  "Multi-tenant architecture",
-  "Subscription model",
-  "Billing complexity",
-  "Admin dashboards",
-  "APIs and integrations",
-  "Automation",
-  "Analytics",
-  "Security requirements",
-  "Infrastructure",
-  "Mobile applications",
-  "Enterprise requirements"
+  'Number of user roles',
+  'Multi-tenant architecture',
+  'Subscription model',
+  'Billing complexity',
+  'Admin dashboards',
+  'APIs and integrations',
+  'Automation & background jobs',
+  'Analytics & tracking',
+  'Security requirements',
+  'Cloud infrastructure scale',
+  'Mobile applications',
+  'Enterprise requirements',
 ]
 
-const governanceCheckpoints = [
+const scopeCheckpoints = [
   {
-    title: "Project Scope",
-    desc: "Features, user roles, integrations, supported environments, revision rounds, and deliverables are agreed before development begins."
+    title: 'Agreed Scope & Deliverables',
+    desc: 'Features, user roles, integrations, supported environments, revision rounds, and deliverables are agreed before development begins.',
   },
   {
-    title: "Client Approvals",
-    desc: "You review important requirements, designs, functionality, and production milestones before the project progresses."
+    title: 'Client Approvals',
+    desc: 'You review important requirements, designs, functionality, and production milestones before the project progresses.',
   },
   {
-    title: "Workmanship Warranty",
-    desc: "Any warranty or defect-fixing period is provided according to Framecipher's actual terms and the project agreement."
+    title: 'Workmanship Warranty',
+    desc: 'Any warranty or defect-fixing period is provided according to Framecipher\'s actual terms and the project agreement.',
   },
   {
-    title: "Third-Party Dependencies",
-    desc: "Payment providers, cloud services, APIs, authentication services, email platforms, and other external systems can affect functionality or timing."
+    title: 'Third-Party Dependencies',
+    desc: 'Payment providers, cloud services, APIs, authentication services, email platforms, and other external systems can affect functionality or timing.',
   },
   {
-    title: "Post-Launch Support",
-    desc: "Bug fixes, infrastructure support, platform updates, new features, and ongoing development can be provided under an agreed support arrangement."
-  }
+    title: 'Post-Launch Support',
+    desc: 'Bug fixes, infrastructure support, platform updates, new features, and ongoing development can be provided under an agreed support arrangement.',
+  },
 ]
 
 const postLaunchItems = [
   {
-    title: "Bug Fixes & Technical Support",
-    desc: "Investigate application bugs, API issues, crashes, and other technical problems after launch."
+    title: 'Bug Fixes & Technical Support',
+    desc: 'Investigate application bugs, API issues, crashes, and other technical problems after launch.',
   },
   {
-    title: "Security & Dependency Updates",
-    desc: "Keep frameworks, libraries, packages, and infrastructure components current based on the product's maintenance needs."
+    title: 'Security & Dependency Updates',
+    desc: 'Keep frameworks, libraries, packages, and infrastructure components current based on the product\'s maintenance needs.',
   },
   {
-    title: "Performance Monitoring",
-    desc: "Review application behavior, infrastructure, database performance, and other important technical indicators as usage grows."
+    title: 'Performance Monitoring',
+    desc: 'Review application behavior, infrastructure, database performance, and other important technical indicators as usage grows.',
   },
   {
-    title: "Framework & Infrastructure Updates",
-    desc: "Update application frameworks, deployment environments, dependencies, and infrastructure when required."
+    title: 'Framework & Infrastructure Updates',
+    desc: 'Update application frameworks, deployment environments, dependencies, and infrastructure when required.',
   },
   {
-    title: "Feature Enhancements",
-    desc: "Add new functionality and improve existing workflows as customer needs and the product roadmap develop."
+    title: 'Feature Enhancements',
+    desc: 'Add new functionality and improve existing workflows as customer needs and the product roadmap develop.',
   },
   {
-    title: "Billing & Integration Support",
-    desc: "Maintain payment integrations, APIs, webhooks, communication services, and other connected systems as they evolve."
+    title: 'Billing & Integration Support',
+    desc: 'Maintain payment integrations, APIs, webhooks, communication services, and other connected systems as they evolve.',
   },
   {
-    title: "Future Product Releases",
-    desc: "Plan, build, test, and deploy future product updates based on the agreed development scope."
+    title: 'Future Product Releases',
+    desc: 'Plan, build, test, and deploy future product updates based on the agreed development scope.',
   },
-  {
-    title: "Tenant Isolation & DB Health Audits",
-    desc: "Regular multi-tenant data boundary checks, automated query profiling, backup recovery drills, and database index tuning."
-  }
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="pricing" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            SaaS Development Pricing and <span className="italic text-frame-accent">Timeline.</span>
+          </h2>
 
-        {/* SECTION 1: SAAS DEVELOPMENT PRICING AND TIMELINE */}
-        <div>
-          <SectionIntro
-            eyebrow="Scope & Investment"
-            title="SaaS Development Pricing and Timeline"
-          >
-            SaaS development cost depends on the product model, tenant architecture, number of user roles, billing complexity, integrations, backend requirements, infrastructure, and testing scope.
-          </SectionIntro>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            SaaS development cost depends on the product model, tenant architecture, number of user roles, billing complexity, integrations, backend requirements, infrastructure, and testing scope. We confirm the final scope, deliverables, timeline, and price before development begins.
+          </p>
+        </div>
 
-          {/* PRICING TIERS GRID */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {pricingTiers.map((tier, i) => (
-              <div
-                key={i}
-                className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
-                  tier.featured
-                    ? 'border-frame-accent bg-frame-accent/5'
-                    : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
-                }`}
-              >
-                <div>
+        {/* 3 Tier Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {pricingTiers.map((tier, i) => (
+            <div
+              key={i}
+              className={`relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 transition-colors ${
+                tier.featured
+                  ? 'border-frame-accent/40 bg-[#18181B]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+              }`}
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      Project Type
+                    </span>
+                    <h3 className="font-heading text-lg font-medium tracking-tight text-white mt-1">
+                      {tier.name}
+                    </h3>
+                  </div>
                   {tier.featured && (
-                    <span className="mb-4 inline-block border border-frame-accent bg-frame-accent/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-frame-accent">
-                      Most Requested
+                    <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      Popular
                     </span>
                   )}
-                  <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {tier.name}
-                  </h3>
-                  <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                </div>
+
+                <div className="mt-4">
+                  <span className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
                     {tier.price}
-                  </p>
-                  <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
+                  </span>
+                  <p className="mt-1 font-mono text-xs text-zinc-400">
                     Typical Delivery: {tier.timeline}
                   </p>
-                  <div className="mt-4 border-t border-frame-border/60 pt-4">
-                    <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
-                      What&apos;s Included:
-                    </p>
-                    <ul className="mt-3 space-y-2">
-                      {tier.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  <p className="mt-2 text-[11px] text-zinc-400 font-mono">
+                    {tier.drivers}
+                  </p>
                 </div>
 
-                <div className="mt-8 pt-4 border-t border-frame-border/60">
-                  <PosterButton href="/contact" variant={tier.featured ? 'accent' : 'outline'} className="w-full text-xs">
-                    Get Free Consultation &rarr;
-                  </PosterButton>
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-3">
+                    What&apos;s Included:
+                  </p>
+                  <ul className="space-y-2.5">
+                    {tier.includes.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-normal text-zinc-300">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* PRICING FACTORS */}
-          <div className="mt-8 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-            <h4 className="font-heading text-base md:text-lg font-bold uppercase text-frame-fg">
+              <div className="mt-8 border-t border-white/[0.08] pt-5">
+                <PosterButton
+                  href="/contact"
+                  variant={tier.featured ? 'accent' : 'outline'}
+                  className="w-full px-4 text-xs sm:text-sm justify-center"
+                >
+                  Get Free Consultation
+                </PosterButton>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Pricing Factors Note Card */}
+        <div className="mt-12 rounded-xl border border-white/[0.06] bg-[#121214] p-6 sm:p-8 space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h4 className="font-heading text-base font-medium text-white">
               Pricing Factors
             </h4>
-            <p className="mt-1 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-muted-fg">
-              The final cost can change based on:
-            </p>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-              {pricingFactors.map((factor, fIdx) => (
-                <div key={fIdx} className="flex items-center gap-2 border border-frame-border bg-frame-bg p-3">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-xs md:text-sm font-medium text-frame-fg">
-                    {factor}
-                  </span>
-                </div>
-              ))}
-            </div>
-            <p className="mt-6 text-sm font-semibold italic text-frame-fg border-t border-frame-border/60 pt-4">
-              We confirm the final scope, deliverables, timeline, and price before development begins.
-            </p>
+          </div>
+          <p className="text-xs sm:text-sm text-zinc-400">
+            The final cost can change based on:
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 pt-2">
+            {pricingFactors.map((factor, idx) => (
+              <div key={idx} className="flex items-center gap-2 rounded-lg border border-white/[0.04] bg-white/[0.02] p-2.5 text-xs text-zinc-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                <span>{factor}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* SECTION 2: SAAS PROJECT SCOPE, WARRANTY & SUPPORT */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8 items-end gap-8 lg:grid lg:grid-cols-[1.5fr_1fr] lg:mb-12">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                Project Governance
-              </span>
-              <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-                SaaS Project Scope, Warranty &amp; Support
-              </h2>
-            </div>
-            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
-              Every SaaS project should have clear expectations around scope, revisions, ownership, support, and third-party dependencies.
-            </p>
+        {/* Scope, Warranty & Support Checkpoints */}
+        <div className="mt-12">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h4 className="font-heading text-xl font-medium text-white">
+              SaaS Project Scope, Warranty &amp; Support
+            </h4>
           </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-            {governanceCheckpoints.map((item, i) => (
-              <div
-                key={i}
-                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-              >
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Standard 0{i + 1}
+          <p className="mb-6 text-sm text-zinc-400">
+            Every SaaS project should have clear expectations around scope, revisions, ownership, support, and third-party dependencies.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {scopeCheckpoints.map((item, idx) => (
+              <div key={idx} className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14]">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
                 </span>
-                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+                <h5 className="mt-2 font-heading text-base font-medium text-white">
                   {item.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                </h5>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
                   {item.desc}
                 </p>
               </div>
@@ -263,42 +251,30 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* SECTION 3: POST-LAUNCH SAAS SUPPORT & MAINTENANCE */}
-        <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-          <div className="mb-8 items-end gap-8 lg:grid lg:grid-cols-[1.5fr_1fr] lg:mb-12">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                Lifecycle &amp; Maintenance
-              </span>
-              <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-                Post-Launch SaaS Support &amp; Maintenance
-              </h2>
-            </div>
-            <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base lg:mt-0">
-              A SaaS product does not stop evolving after its first production release.
-            </p>
+        {/* Post-Launch Maintenance Deliverables */}
+        <div className="mt-12">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h4 className="font-heading text-xl font-medium text-white">
+              Post-Launch SaaS Support &amp; Maintenance
+            </h4>
           </div>
-
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <p className="mb-6 text-sm text-zinc-400">
+            A SaaS product does not stop evolving after its first production release. The same team can continue with feature development, maintenance, platform updates, performance work, and integrations after launch.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {postLaunchItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-              >
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Support Area 0{idx + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
+              <div key={idx} className="rounded-xl border border-white/[0.06] bg-[#121214] p-5 transition-colors hover:border-white/[0.12]">
+                <h5 className="font-heading text-sm font-medium text-white">
                   {item.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                </h5>
+                <p className="mt-2 text-xs leading-relaxed text-zinc-400">
                   {item.desc}
                 </p>
               </div>
             ))}
           </div>
         </div>
-
       </div>
     </section>
   )

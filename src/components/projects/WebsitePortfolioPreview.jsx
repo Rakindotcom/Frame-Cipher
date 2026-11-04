@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
 import { getWebsitesByCategory } from '../../data/websiteProjects'
 
@@ -6,20 +9,20 @@ function getPlatformBadge(platform) {
     return {
       label: 'Shopify Store',
       className:
-        'border border-emerald-500/50 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
+        'border border-emerald-500/30 bg-emerald-950/40 text-emerald-300',
     }
   }
   if (platform === 'WordPress') {
     return {
       label: 'WordPress CMS',
       className:
-        'border border-blue-500/50 bg-blue-500/10 text-blue-600 dark:text-blue-400',
+        'border border-blue-500/30 bg-blue-950/40 text-blue-300',
     }
   }
   return {
     label: 'React / Next.js',
     className:
-      'border border-frame-accent/50 bg-frame-accent/10 text-frame-accent',
+      'border border-purple-500/30 bg-purple-950/40 text-frame-accent',
   }
 }
 
@@ -47,35 +50,42 @@ export default function WebsitePortfolioPreview({
       : 'md:grid-cols-3'
 
   return (
-    <section id="website-portfolio" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">{eyebrow}</p>
-            <h2 className="mt-4 font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
+    <section id="website-portfolio" className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-3xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               {title}
             </h2>
             {description && (
-              <p className="mt-4 text-base md:text-lg font-medium text-frame-muted-fg leading-relaxed">
+              <p className="text-base font-normal leading-relaxed text-zinc-300">
                 {description}
               </p>
             )}
           </div>
           <Link
             href={buttonHref}
-            className="inline-flex min-h-12 items-center justify-center border-2 border-frame-border px-5 py-3 text-center text-sm font-black uppercase tracking-tighter text-frame-fg transition hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg shrink-0"
+            className="group inline-flex min-h-[48px] h-[48px] items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-6 text-[14px] font-medium leading-none text-white backdrop-blur-sm transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08] shrink-0 whitespace-nowrap"
           >
-            {buttonText}
+            <span>{buttonText.replace('→', '').trim()}</span>
+            <span
+              aria-hidden="true"
+              className="ml-1.5 text-lg leading-none transition-transform duration-200 group-hover:translate-x-1 shrink-0"
+            >
+              &rarr;
+            </span>
           </Link>
         </div>
 
-        <div className={`grid gap-5 ${gridColsClass}`}>
+        {/* Modality 4 Pure 16:10 Media Cards Grid */}
+        <div className={`grid gap-6 ${gridColsClass}`}>
           {displayedWebsites.map((site) => {
             const badge = getPlatformBadge(site.platform)
             return (
               <article
                 key={site.domain || site.name}
-                className="group flex flex-col overflow-hidden border-2 border-frame-border bg-frame-bg transition-colors hover:border-frame-accent"
+                className="group flex flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
               >
                 <a
                   href={site.url}
@@ -84,55 +94,52 @@ export default function WebsitePortfolioPreview({
                   aria-label={`Visit ${site.name}`}
                   className="block"
                 >
-                  <div className="flex items-center gap-2 border-b-2 border-frame-border px-4 py-3">
-                    <span className="h-2.5 w-2.5 rounded-full bg-frame-accent" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/50" />
-                    <span className="h-2.5 w-2.5 rounded-full bg-frame-muted-fg/30" />
-                    <span className="ml-2 truncate text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
-                      {site.domain}
-                    </span>
-                  </div>
-                  <div className="aspect-video overflow-hidden bg-frame-muted">
+                  <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/[0.08] bg-zinc-950">
                     <img
                       src={site.screenshot}
                       alt={`${site.name} website screenshot`}
-                      className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                      className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                 </a>
-                <div className="flex flex-1 flex-col p-5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span
-                      className={`rounded px-2 py-0.5 text-[10px] font-mono font-bold uppercase tracking-wider ${badge.className}`}
-                    >
-                      {badge.label}
-                    </span>
-                    <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                      {site.category}
-                    </span>
+
+                <div className="flex flex-1 flex-col p-6 justify-between space-y-4">
+                  <div>
+                    <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.08] pb-3 mb-3">
+                      <span
+                        className={`rounded-full px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${badge.className}`}
+                      >
+                        {badge.label}
+                      </span>
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                        {site.category}
+                      </span>
+                    </div>
+                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-frame-accent transition-colors">
+                      {site.name}
+                    </h3>
+                    <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                      {site.summary}
+                    </p>
                   </div>
-                  <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg">
-                    {site.name}
-                  </h3>
-                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {site.summary}
-                  </p>
-                  <div className="mt-auto pt-4 flex items-center justify-between">
+
+                  <div className="pt-4 flex flex-col gap-2 border-t border-white/[0.08]">
                     <a
                       href={site.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex text-xs md:text-sm font-black uppercase tracking-tighter text-frame-fg transition hover:text-frame-accent"
+                      className="group/btn inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08]"
                     >
-                      Visit website &rarr;
+                      <span>Visit website</span>
+                      <span aria-hidden="true" className="ml-2 text-base transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
                     </a>
                     {site.caseStudyUrl && (
                       <Link
                         href={site.caseStudyUrl}
-                        className="text-xs font-bold uppercase tracking-wider text-frame-muted-fg hover:text-frame-fg underline underline-offset-4"
+                        className="inline-flex min-h-[40px] w-full items-center justify-center rounded-full border border-white/[0.08] bg-transparent px-4 text-xs font-medium text-zinc-300 transition-colors duration-200 hover:border-white/[0.18] hover:text-white"
                       >
-                        Case Study
+                        Read Case Study
                       </Link>
                     )}
                   </div>

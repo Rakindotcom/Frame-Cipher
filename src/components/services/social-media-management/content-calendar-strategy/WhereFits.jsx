@@ -1,15 +1,18 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
+import React from 'react'
 import Link from 'next/link'
-import { SectionIntro } from '../../../Kinetic'
+import { ArrowRight, Compass, Layers, CheckCircle2 } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const platformDecisions = [
   'What to publish',
   'Which formats to use',
   'Which content pillars matter',
   'What publishing cadence makes sense',
-  'How the platform\u2019s audience should be addressed',
-  'Which platform-specific objectives matter',
+  'How the audience should be addressed',
+  'Which channel KPIs matter most',
 ]
 
 const platforms = [
@@ -47,87 +50,129 @@ const platforms = [
 
 export default function WhereFits() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="How it connects"
-          title="Where Content Calendar &amp; Strategy Fits With Platform Management"
-        >
-          Content Calendar &amp; Strategy sits above individual platform plans. It connects them into one
-          coordinated business content system.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Architectural Hierarchy · Master Layer
+            </span>
+          </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div>
-            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-              Each Framecipher platform-specific management service includes content strategy work for
-              that individual platform. That includes decisions such as:
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Where Content Calendar Fits With{' '}
+            <span className="italic text-frame-accent">Platform Management.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Content Calendar &amp; Strategy sits above individual platform plans. It connects them into one coordinated business content system.
+          </p>
+        </div>
+
+        {/* Top Split Explainer */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start mb-12">
+          <div className="lg:col-span-7 space-y-4">
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              Each Framecipher platform-specific management service includes content strategy work for that individual platform.
             </p>
-
-            <div className="mt-8 border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-              <p className="text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-                Content Calendar &amp; Strategy sits above those individual plans.
-              </p>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90 md:text-base">
-                It connects them into one coordinated business content system, so each platform keeps its
-                own role while the campaign stays connected.
+            <div className="rounded-2xl border border-white/[0.08] bg-[#15121C] p-6 space-y-2">
+              <span className="font-mono text-xs uppercase tracking-wider text-frame-accent block">
+                The Master Strategy Layer
+              </span>
+              <p className="text-xs sm:text-sm text-white font-medium leading-relaxed">
+                Content Calendar &amp; Strategy sits above those individual plans. It connects them into one coordinated business content system, so each platform keeps its own native role while the campaign stays unified.
               </p>
             </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Platform-specific decisions
+          <div className="lg:col-span-5 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 space-y-3">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent block border-b border-white/[0.08] pb-2">
+              Individual Platform Decisions Included:
             </span>
-            <ul className="mt-5 grid gap-2 sm:grid-cols-2">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
               {platformDecisions.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                  <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                <div key={item} className="flex items-center gap-2">
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
                   <span>{item}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* 5 Platforms Grid + 6th Synthesis Card */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {platforms.map((platform) => (
             <article
               key={platform.title}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              className="group flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 space-y-4 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]"
             >
-              <div>
-                <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
-                  {platform.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-base"><AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-writing/website-content"]}>
-                  {platform.body}
-                </AutoLinks></p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white group-hover:text-frame-accent transition-colors">
+                    {platform.title}
+                  </h3>
+                  <ArrowRight className="h-4 w-4 text-zinc-500 group-hover:text-frame-accent group-hover:translate-x-1 transition-colors" />
+                </div>
+
+                <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  <AutoLinks currentPath="/services/social-media-management/content-calendar-strategy" allowed={["/services/content-writing/website-content"]}>
+                    {platform.body}
+                  </AutoLinks>
+                </p>
               </div>
 
-              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                <p className="text-xs font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80">
+              <div className="space-y-4 border-t border-white/[0.06] pt-3">
+                <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-3 text-[11px] leading-relaxed text-zinc-400">
+                  <span className="font-mono text-[10px] uppercase text-frame-accent font-semibold block mb-0.5">
+                    Calendar Alignment:
+                  </span>
                   {platform.note}
-                </p>
+                </div>
+
                 <Link
                   href={platform.href}
-                  className="mt-4 inline-block text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-200 group-hover:text-frame-accent-fg"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-frame-accent hover:text-white transition-colors"
                 >
-                  Explore {platform.title} &rarr;
+                  <span>Explore {platform.title}</span>
+                  <span>&rarr;</span>
                 </Link>
               </div>
             </article>
           ))}
 
-          <div className="flex flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              One coordinated system
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              The calendar does not replace platform-specific thinking. It gives every platform a shared
-              direction to work from.
-            </p>
-          </div>
+          {/* 6th Synthesis Card */}
+          <article className="flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#15121C] p-6 sm:p-7 space-y-4 shadow-xl shadow-purple-950/20">
+            <div className="space-y-3">
+              <div className="flex items-center gap-2 text-frame-accent border-b border-white/[0.08] pb-3">
+                <Compass className="h-4 w-4" />
+                <span className="font-mono text-xs uppercase tracking-wider text-white">
+                  One Coordinated System
+                </span>
+              </div>
+
+              <h4 className="font-heading text-lg sm:text-xl font-medium text-white">
+                Shared Direction, Native Delivery
+              </h4>
+
+              <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                The calendar does not replace platform-specific thinking. It gives every individual platform a shared commercial direction and timetable to work from.
+              </p>
+            </div>
+
+            <div className="pt-2">
+              <PosterButton
+                href="/contact"
+                variant="primary"
+                size="md"
+                className="w-full text-center"
+              >
+                Discuss Your Platforms
+              </PosterButton>
+            </div>
+          </article>
         </div>
       </div>
     </section>

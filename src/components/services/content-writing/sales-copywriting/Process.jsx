@@ -47,23 +47,23 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Workflow" title="Our Sales Copywriting Process">
           The argument is mapped before any copy is written, and the format is decided before the drafting
           begins.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
-            <article key={step.number} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+            <article key={step.number} className="flex flex-col bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-[#A855F7]">
                 {step.number}
               </span>
-              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{step.description}</p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">{step.description}</p>
             </article>
           ))}
         </div>

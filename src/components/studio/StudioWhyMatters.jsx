@@ -1,7 +1,7 @@
 'use client'
 
+import React from 'react'
 import { VolumeX, CalendarClock, Smartphone, Layers } from 'lucide-react'
-import { SectionIntro } from '../Kinetic'
 
 const reasons = [
   {
@@ -28,38 +28,58 @@ const reasons = [
 
 export default function StudioWhyMatters() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-16 grid gap-8 lg:grid-cols-2 lg:items-end">
-          <div>
-            <SectionIntro eyebrow="Why a physical studio" title="Why a physical studio in Dhaka improves your video." index="07" className="mb-0 md:mb-0" />
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Modality 4 Asymmetrical Editorial Split Header */}
+        <div className="mb-14 grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div className="lg:col-span-7 space-y-4">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
+              Why a physical studio in Dhaka{' '}
+              <span className="italic text-frame-accent">transforms quality.</span>
+            </h2>
           </div>
-          <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
-            Most Dhaka video problems are practical ones: noisy audio, mixed lighting, power cuts mid-take and
-            footage that was never planned for its platform. A physical studio removes these with acoustic isolation,
-            a softbox lighting grid, IPS and generator backup, and fibre internet.
-          </p>
+          <div className="lg:col-span-5">
+            <p className="text-base font-normal leading-relaxed text-zinc-300">
+              Most Dhaka video problems are practical: noisy traffic audio, mixed colour temperatures, power cuts mid-take, and footage never planned for distribution platforms. A dedicated physical studio eliminates these bottlenecks completely.
+            </p>
+          </div>
         </div>
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
+
+        {/* Modality 3 Blueprint Matrix (2x2 Structured Grid) */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2">
           {reasons.map((item, idx) => {
             const Icon = item.icon
             return (
-              <div key={idx} className="group bg-frame-bg p-8 transition-colors duration-300 hover:bg-frame-muted/30">
-                <div className="flex h-12 w-12 items-center justify-center border border-frame-border bg-frame-muted/50 text-frame-accent transition-colors duration-300 group-hover:border-frame-accent group-hover:bg-frame-accent group-hover:text-frame-accent-fg">
-                  <Icon className="h-6 w-6" />
+              <div
+                key={idx}
+                className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-8 sm:p-10 transition-colors duration-200 hover:bg-white/[0.02]"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-5">
+                    <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                      Advantage 0{idx + 1}
+                    </span>
+                    <Icon className="h-5 w-5 text-zinc-500 group-hover:text-frame-accent transition-colors" />
+                  </div>
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.description}
+                  </p>
                 </div>
-                <h3 className="mt-6 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">{item.title}</h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">{item.description}</p>
               </div>
             )
           })}
         </div>
-        <div className="mt-12 border-2 border-frame-border bg-frame-muted/20 p-8 md:p-12">
-          <span className="text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent">A studio day versus a location shoot</span>
-          <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">Compare both options in writing</h3>
-          <p className="mt-3 max-w-3xl text-sm leading-relaxed text-frame-muted-fg wide:text-lg">
-            A studio day often costs less than a location shoot once venue hire, portable lighting, sound treatment,
-            travel and weather contingency are added up. We itemise both options so you can compare them.
+
+        {/* Studio Day vs Location Shoot Comparative Ledger */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10">
+          <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
+            Compare both options in writing
+          </h3>
+          <p className="mt-3 max-w-3xl text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+            A soundstage studio day often costs significantly less than a location shoot once venue hire, portable lighting transport, acoustic sound blankets, travel logistics, and unpredictable weather contingencies are added up. We itemise both options so you make an informed decision.
           </p>
         </div>
       </div>

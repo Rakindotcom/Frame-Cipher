@@ -36,72 +36,76 @@ const statsHighlights = [
 
 export default function AboutTechStack() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-            Engineering & Technology / Infrastructure
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-            Code Meets Math. Media Meets Architecture.
+        <div className="mb-14 space-y-4 max-w-4xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            Code Meets Math.{' '}
+            <span className="italic text-frame-accent">
+              Media Meets Architecture.
+            </span>
           </h2>
-          <p className="mt-6 max-w-4xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+          <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
             We are not just a marketing agency that buys software off the shelf; we are software engineers who build proprietary digital infrastructure. From headless commerce to AI workflow engines, our technology stack is engineered for enterprise performance and sovereign control.
           </p>
         </div>
 
-        {/* 4 Pillars of Tech Architecture */}
-        <div className="mb-16 grid bg-frame-border gap-px md:grid-cols-2">
+        {/* Modality 3: Blueprint Matrix (Seamless 2x2 grid, gap-0, zero rounded corners) */}
+        <div className="mb-14 border-t border-l border-white/[0.08] grid grid-cols-1 md:grid-cols-2 bg-[#09090B]">
           {techLayers.map((layer, index) => (
             <article
               key={layer.category}
-              className="group flex flex-col justify-between bg-frame-bg p-8 transition-colors duration-300 hover:bg-frame-accent sm:p-10"
+              className="group border-r border-b border-white/[0.08] p-8 md:p-10 flex flex-col justify-between space-y-6 transition-colors duration-200 hover:bg-[#121214]"
             >
-              <div>
-                <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs font-bold text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
-                    0{index + 1} / {layer.tag}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    0{index + 1}
                   </span>
-                  <span className="rounded border border-frame-border/80 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-wider text-frame-muted-fg transition-colors duration-300 group-hover:border-frame-accent-fg/40 group-hover:text-frame-accent-fg/80">
-                    Engineered In-House
-                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
                 </div>
-                <h3 className="mt-5 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-3xl">
+
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-purple-300 transition-colors">
                   {layer.category}
                 </h3>
-                <div className="my-4 rounded bg-frame-card p-3 font-mono text-xs font-bold text-frame-accent transition-colors duration-300 group-hover:bg-frame-bg/25 group-hover:text-frame-accent-fg">
+
+                <div className="rounded-lg border border-white/[0.08] bg-[#18181B] p-3 font-mono text-xs text-purple-300">
                   {layer.stack}
                 </div>
-                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85 sm:text-base">
+
+                <p className="text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
                   {layer.description}
                 </p>
               </div>
 
-              <div className="mt-8 pt-4">
+              <div className="pt-4 border-t border-white/[0.08]">
                 <Link
                   href="/services/website-design-development"
-                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg"
+                  className="inline-flex min-h-[44px] h-[44px] w-full items-center justify-between rounded-full border border-white/[0.12] bg-[#18181B] px-5 text-xs font-medium text-white transition-all duration-200 hover:border-frame-accent/60 hover:bg-frame-accent hover:text-white"
                 >
                   <span>Explore Engineering Services</span>
-                  <span aria-hidden="true">&rarr;</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </article>
           ))}
         </div>
 
-        {/* Speed & Quality Benchmarks */}
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
+        {/* Speed & Quality Benchmarks Ledger (Modality 2: Divided Column Band) */}
+        <div className="border-t border-b border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08] bg-[#09090B]">
           {statsHighlights.map((stat) => (
-            <div key={stat.label} className="bg-frame-card p-6 sm:p-8">
-              <p className="font-heading text-4xl font-bold uppercase tracking-tighter text-frame-accent md:text-5xl">
+            <div
+              key={stat.label}
+              className="p-6 md:p-8 space-y-2 transition-colors duration-200 hover:bg-[#121214]"
+            >
+              <p className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium uppercase leading-none tracking-tight text-white">
                 {stat.metric}
               </p>
-              <p className="mt-2 text-xs font-black uppercase tracking-[0.2em] text-frame-fg">
+              <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
                 {stat.label}
               </p>
-              <p className="mt-2 text-xs font-medium text-frame-muted-fg">
+              <p className="text-xs text-zinc-400 leading-relaxed font-normal">
                 {stat.desc}
               </p>
             </div>

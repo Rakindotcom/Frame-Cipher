@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const solutionTypes = [
   {
@@ -116,36 +118,47 @@ const solutionTypes = [
 
 export default function Solutions() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Applied Architecture" title="Next.js Solutions for Different Business Needs">
-          Next.js can power much more than a standard marketing website. We use it when a project needs greater control over functionality, data, integrations, performance, or user experience.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Next.js Solutions for{' '}
+            <span className="italic text-frame-accent">Different Business Needs.</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Next.js can power much more than a standard marketing website. We use it when a project needs greater control over functionality, data, integrations, performance, or user experience.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
+        {/* 8 Solutions Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {solutionTypes.map((sol, idx) => (
-            <div key={idx} className="flex flex-col justify-between bg-frame-bg p-6 sm:p-8">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-frame-accent">
-                  Solution 0{idx + 1}
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {sol.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                   {sol.desc}
                 </p>
-                <ul className="mt-4 space-y-1.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
+                <ul className="mt-4 space-y-1.5 border-t border-white/[0.08] pt-4 text-xs text-zinc-300">
                   {sol.bullets.map((b, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-1.5">
-                      <span className="text-frame-accent">•</span>
+                      <span className="text-frame-accent font-bold">&bull;</span>
                       <span>{b}</span>
                     </li>
                   ))}
                 </ul>
               </div>
               {sol.note && (
-                <p className="mt-6 border-t border-frame-border/60 pt-3 text-xs italic text-frame-muted-fg">
+                <p className="mt-6 border-t border-white/[0.08] pt-3 text-xs italic text-zinc-400">
                   {sol.note}
                 </p>
               )}

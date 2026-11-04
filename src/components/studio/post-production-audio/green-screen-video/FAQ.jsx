@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     "question": "What should presenters avoid wearing on green screen?",
-    "answer": "Avoid green clothing and accessories, reflective jewellery, shiny silk fabrics and thin green-tinted glasses. Bring wardrobe options — we check each outfit against spill risk on the live key monitors before recording."
+    "answer": "Avoid green clothing and accessories, reflective jewellery, shiny silk fabrics and thin green-tinted glasses. Bring wardrobe options: we check each outfit against spill risk on the live key monitors before recording."
   },
   {
     "question": "Do you provide virtual backgrounds and 3D sets?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "How fast can you deliver?",
-    "answer": "Raw keyable footage hands over the same day. Finished composites deliver in 5–7 working days. Express 48–72 hour compositing adds 30%."
+    "answer": "Raw keyable footage hands over the same day. Finished composites deliver in 5 to 7 working days. Express 48 to 72 hour compositing adds 30%."
   },
   {
     "question": "How many revisions are included?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, wardrobe, keying, delivery and booking — everything about the green screen stage at FrameCipher Studio.
+          Costs, wardrobe, keying, delivery and booking: everything about the green screen stage at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const audiences = [
   {
@@ -56,27 +58,45 @@ const businessTypes = [
 
 export default function WhoFor() {
   return (
-    <div className="border-t-2 border-frame-border bg-frame-bg text-frame-fg">
+    <div className="border-b border-white/[0.08] bg-[#09090B] text-white">
+      {/* SECTION 1: WHO IS OUR SEO SERVICE FOR? */}
       <section className="px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Who we help"
-            title="Who Is Our SEO Service For?"
-          >
-            Our SEO services can support businesses at different stages of search growth.
-          </SectionIntro>
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                Who We Help // Growth Stages
+              </span>
+            </div>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Who Is Our{' '}
+              <span className="italic text-frame-accent">SEO Service For?</span>
+            </h2>
+
+            <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+              Our SEO services can support businesses at different stages of search growth.
+            </p>
+          </div>
+
+          {/* Modality 3 Blueprint Matrix for 7 audiences */}
+          <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
             {audiences.map((item, index) => (
-              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+              <div
+                key={index}
+                className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:bg-[#18181B] sm:p-8"
+              >
                 <div>
-                  <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
+                  <span className="font-mono text-3xl sm:text-4xl font-light text-zinc-600 group-hover:text-frame-accent transition-colors">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+
+                  <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                     {item.title}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-300">
                     {item.body}
                   </p>
                 </div>
@@ -86,27 +106,47 @@ export default function WhoFor() {
         </div>
       </section>
 
-      <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Industry application"
-            title="SEO for Different Business Types"
-          >
-            SEO should reflect how your business sells, how customers search, and what the
-            website needs to achieve.
-          </SectionIntro>
+      {/* SECTION 2: SEO FOR DIFFERENT BUSINESS TYPES */}
+      <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                Industry Application // Vertical Specialization
+              </span>
+            </div>
 
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              SEO for Different{' '}
+              <span className="italic text-frame-accent">Business Types.</span>
+            </h2>
+
+            <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+              SEO should reflect how your business sells, how customers search, and what the website needs to achieve.
+            </p>
+          </div>
+
+          {/* Modality 3 Matrix for 5 business types */}
+          <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
             {businessTypes.map((type, index) => (
-              <div key={index} className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8 transition-colors hover:border-frame-accent">
+              <div
+                key={index}
+                className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:bg-[#18181B] sm:p-8"
+              >
                 <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Type 0{index + 1}
-                  </span>
-                  <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                    <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                      Business Type 0{index + 1}
+                    </span>
+                    <span className="h-1.5 w-1.5 rounded-full bg-white/10 group-hover:bg-frame-accent transition-colors" />
+                  </div>
+
+                  <h3 className="font-heading text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                     {type.title}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-300">
                     {type.body}
                   </p>
                 </div>

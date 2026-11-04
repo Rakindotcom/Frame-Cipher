@@ -7,8 +7,6 @@ import { getServicePageBySlug, getAllServicePages } from '../../../src/data/serv
 import { siteUrl, getServiceBySlug } from '../../../src/data/agency'
 import { buildLegacyServiceSchema, buildServiceSchema } from '../../../src/lib/seo/schema'
 import { withBrandSuffix, clampMetaDescription } from '../../../src/lib/seo/metadata'
-import ServiceClusterSection from '../../../src/components/services/ServiceClusterSection'
-
 function schemaScript(schema) {
   if (!schema) return null
   return (
@@ -117,7 +115,6 @@ export default async function Page({ params }) {
       <>
         {schemaScript(buildServiceSchema(docPage))}
         {content}
-        <ServiceClusterSection service={docPage} />
       </>
     )
   }

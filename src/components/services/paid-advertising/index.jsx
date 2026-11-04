@@ -1,15 +1,17 @@
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import CaseStudies from './CaseStudies'
+import ServiceSubServices from '../ServiceSubServices'
 import Offerings from './Offerings'
-import WhyFail from './WhyFail'
-import Included from './Included'
-import WhoFor from './WhoFor'
 import Platforms from './Platforms'
 import CustomerJourney from './CustomerJourney'
 import BudgetDecisions from './BudgetDecisions'
+import WhoFor from './WhoFor'
+import WhyFail from './WhyFail'
 import Process from './Process'
-import Reporting from './Reporting'
+import Included from './Included'
+import WhyChoose from './WhyChoose'
 import Pricing from './Pricing'
 import Timeline from './Timeline'
 import Guarantee from './Guarantee'
@@ -18,34 +20,37 @@ import FAQ from './FAQ'
 import GettingStarted from './GettingStarted'
 import CTA from './CTA'
 import { TypeMarquee } from '../../Kinetic'
-import ServiceSubServices from '../ServiceSubServices'
 
 const marqueeItems = [
-  "Paid Media Strategy",
-  "Google & Meta Ads",
-  "LinkedIn, TikTok & More",
-  "Conversion Tracking",
-  "Creative & Landing Pages",
-  "Account Audits"
+  'Paid Media Strategy',
+  'Google & Meta Ads',
+  'LinkedIn, TikTok & Microsoft Ads',
+  'Conversion Tracking & Attribution',
+  'Creative & Landing Page Sprints',
+  'Free Ad Account Audits',
+  'Full Funnel Accountability',
+  'Dhaka & Global Delivery',
 ]
 
 export default function PaidAdvertisingService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
-      <TypeMarquee items={marqueeItems} slow />
+      <div className="border-b border-white/[0.08] bg-[#09090B] py-3 text-xs font-mono uppercase tracking-widest text-zinc-400">
+        <TypeMarquee items={marqueeItems} slow />
+      </div>
       <Overview />
       <CaseStudies />
       <ServiceSubServices service={service} />
       <Offerings />
-      <WhyFail />
-      <Included />
-      <WhoFor />
       <Platforms />
       <CustomerJourney />
       <BudgetDecisions />
+      <WhoFor />
+      <WhyFail />
       <Process />
-      <Reporting />
+      <Included />
+      <WhyChoose />
       <Pricing />
       <Timeline />
       <Guarantee />
@@ -57,4 +62,24 @@ export default function PaidAdvertisingService({ service }) {
   )
 }
 
-export { Hero, Overview, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  Overview,
+  CaseStudies,
+  Offerings,
+  Platforms,
+  CustomerJourney,
+  BudgetDecisions,
+  WhoFor,
+  WhyFail,
+  Process,
+  Included,
+  WhyChoose,
+  Pricing,
+  Timeline,
+  Guarantee,
+  ServiceAreas,
+  FAQ,
+  GettingStarted,
+  CTA,
+}

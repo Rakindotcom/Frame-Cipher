@@ -1,143 +1,180 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Rocket,
+  Compass,
+  AlertTriangle,
+  Target,
+  Globe2,
+  PackagePlus,
+  Check,
+} from 'lucide-react'
 
 const scenarios = [
   {
+    number: '01',
+    icon: Rocket,
     title: 'Launching a New Website',
-    body: 'A new website has no established keyword strategy or ranking history to guide content planning. We research the market, competitors, search intent, and topic opportunities before pages are created.',
+    description:
+      'A new website has no established keyword strategy or ranking history to guide content planning. We research the market, competitors, search intent, and topic opportunities before pages are created.',
     pointsHead: 'This helps establish:',
     points: [
-      'Priority keywords',
-      'Core topics',
-      'Service and product opportunities',
-      'Supporting content',
-      'Page types',
-      'Initial content hierarchy',
+      'Priority keywords & core business terms',
+      'Core service and product opportunities',
+      'Supporting informational content silos',
+      'Appropriate page types & initial content hierarchy',
     ],
-    note: 'Starting with a structured keyword strategy can reduce the risk of building pages around terms that are too competitive, too broad, or poorly aligned with customer intent.',
+    note: 'Starting with a structured keyword strategy reduces the risk of building pages around terms that are too competitive, too broad, or misaligned with customer intent.',
   },
   {
+    number: '02',
+    icon: Compass,
     title: 'Planning a New Content Strategy',
-    body: 'Publishing more content does not guarantee more organic visibility. Keyword research helps identify the topics worth covering, the questions users ask, and the relationship between core pages and supporting content.',
-    pointsHead: 'We can identify:',
+    description:
+      'Publishing more content does not guarantee organic visibility. Keyword research identifies the topics worth covering, the questions users actually ask, and the relationship between core pages and supporting articles.',
+    pointsHead: 'We identify:',
     points: [
-      'Pillar topics',
-      'Supporting topics',
-      'Long-tail opportunities',
-      'Question queries',
-      'Commercial opportunities',
-      'Informational opportunities',
-      'Content gaps',
-      'Competitor gaps',
+      'Pillar topics & supporting content clusters',
+      'High-intent long-tail & question queries',
+      'Commercial vs. informational opportunities',
+      'Critical competitor & content gaps',
     ],
-    note: 'This gives your content team a clearer roadmap instead of an unstructured list of article ideas.',
+    note: 'This gives your editorial team an empirical roadmap instead of an unstructured, guesswork list of article ideas.',
   },
   {
+    number: '03',
+    icon: AlertTriangle,
     title: "Existing Pages Aren't Ranking",
-    body: 'When important pages fail to rank, the problem may not be the writing alone. The target keyword may be too competitive, the page may target the wrong intent, another URL may be competing for the same query, or the page may simply be targeting a weak opportunity.',
+    description:
+      'When important commercial pages fail to rank, the problem may not be the writing alone. The target keyword may be overly competitive, targeting the wrong intent, or suffering from internal cannibalization.',
     pointsHead: 'We assess:',
     points: [
-      'Current keyword targets',
-      'Ranking positions',
-      'Search intent',
-      'Competing URLs',
-      'Cannibalization',
-      'Keyword relevance',
-      'SERP composition',
-      'Competitor pages',
-      'Existing search visibility',
+      'Current keyword targets & ranking positions',
+      'Search intent & competing URLs',
+      'Keyword cannibalization & duplicate targeting',
+      'SERP composition & competitor page quality',
     ],
-    note: 'The goal is to identify whether the page needs optimization, repositioning, consolidation, or a different keyword strategy.',
+    note: 'The goal is to determine whether the page needs optimization, repositioning, consolidation, or a completely restructured keyword strategy.',
   },
   {
+    number: '04',
+    icon: Target,
     title: "Traffic Isn't Reaching the Right Customers",
-    body: 'Traffic volume only matters when it comes from relevant searches. We evaluate whether your target keywords align with:',
-    pointsHead: '',
+    description:
+      'Traffic volume only matters when it originates from qualified, commercial searches. We evaluate whether your keywords align with what your business actually monetizes.',
+    pointsHead: 'We evaluate alignment with:',
     points: [
-      'Products or services',
-      'Customer needs',
-      'Buying stage',
-      'Geographic market',
-      'Commercial intent',
-      'Conversion goals',
+      'Products & actual service offerings',
+      'Customer buying stage & commercial intent',
+      'Geographic market & customer needs',
+      'Bottom-line conversion goals',
     ],
-    note: 'A lower-volume keyword with strong commercial relevance can be more valuable to a business than a high-volume term with little connection to what it sells.',
+    note: 'A lower-volume keyword with strong commercial relevance can generate vastly more revenue than a high-volume head term with zero buying intent.',
   },
   {
+    number: '05',
+    icon: Globe2,
     title: 'Expanding Into New Markets',
-    body: 'Search behavior can change significantly between countries, even when the language is similar. We research:',
-    pointsHead: '',
+    description:
+      'Search behavior changes significantly across countries, even when the language is similar. We uncover localized terminology, regional competitors, and distinct commercial intent before entering new markets.',
+    pointsHead: 'We research:',
     points: [
-      'Country-specific terminology',
-      'Regional keyword variations',
-      'Local search intent',
-      'Market-specific competitors',
-      'Search demand',
-      'Commercial queries',
-      'Language differences',
-      'Localization requirements',
+      'Country-specific terminology & local query nuances',
+      'Regional keyword variations & search demand',
+      'Market-specific competitors & SERP landscape',
+      'Content localization & regional language intent',
     ],
-    note: 'This helps businesses entering new markets build keyword strategies around how people in those markets actually search.',
+    note: 'This ensures businesses entering new territories build keyword strategies around how customers in those markets actually search—never direct machine translation.',
   },
   {
+    number: '06',
+    icon: PackagePlus,
     title: 'Entering a New Product or Service Category',
-    body: 'Launching a new product or service creates a new search opportunity, but the existing website may not have the right keyword structure to support it. We research the category from multiple angles, including:',
-    pointsHead: '',
+    description:
+      'Launching a new offering creates an immediate search opportunity, but existing site architecture may lack the semantic structure to support it.',
+    pointsHead: 'We research the category across:',
     points: [
-      'Core product or service terms',
-      'Problem-based searches',
-      'Feature-based queries',
-      'Comparison searches',
-      'Commercial modifiers',
-      'Informational topics',
-      'Supporting questions',
-      'Competitor coverage',
+      'Core product/service terms & problem-based queries',
+      'Feature-based searches & comparison terms',
+      'Commercial modifiers & informational topics',
+      'Supporting questions & competitor coverage',
     ],
-    note: 'This helps determine which pages should be created first and how the wider topic should be developed.',
+    note: 'This determines which high-intent landing pages must be built first and how supporting topic clusters should be sequenced.',
   },
 ]
 
 export default function WhenNeed() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="When this applies" title="When Does Your Business Need Keyword Research?">
-          Keyword research is useful whenever you need to make better decisions about what your
-          website should target next.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Header Block */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              When This Applies
+            </span>
+          </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {scenarios.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Scenario 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              {item.pointsHead && (
-                <p className="mt-6 border-t-2 border-frame-border/60 pt-4 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                  {item.pointsHead}
-                </p>
-              )}
-              <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
-                {item.points.map((point, pIdx) => (
-                  <li key={pIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.note}
-              </p>
-            </div>
-          ))}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white">
+            When Does Your Business Need <span className="italic text-frame-accent">Keyword Research?</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-400">
+            Keyword research is crucial whenever you need to make informed, defensible decisions about what your website and content team should target next.
+          </p>
+        </div>
+
+        {/* 6 Scenario Cards Grid */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {scenarios.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.number}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-all duration-300 hover:border-frame-accent/40 hover:bg-[#151518] md:p-8"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-semibold tracking-wider text-frame-accent">
+                      Scenario {item.number}
+                    </span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-frame-accent/30 group-hover:text-frame-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                    {item.description}
+                  </p>
+
+                  {item.pointsHead && (
+                    <p className="mt-5 font-mono text-[11px] uppercase tracking-wider text-zinc-300 border-t border-white/[0.06] pt-4">
+                      {item.pointsHead}
+                    </p>
+                  )}
+
+                  <ul className="mt-2.5 space-y-2 text-xs text-zinc-300">
+                    {item.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5 text-xs text-zinc-400 font-normal leading-relaxed">
+                  {item.note}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

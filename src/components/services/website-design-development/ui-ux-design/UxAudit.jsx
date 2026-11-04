@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const auditReviewItems = [
   'Navigation and information architecture',
@@ -14,52 +17,56 @@ const auditReviewItems = [
 
 export default function UxAudit() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Diagnostic & Optimization" title="UX Audit & Redesign Services" />
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            UX Audit &amp;{' '}
+            <span className="italic text-frame-accent">Redesign Services.</span>
+          </h2>
+        </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3 border-2 border-frame-border bg-frame-muted/10 p-7 sm:p-8 md:p-10">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+        {/* Overview Banner */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10 mb-8">
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
             You do not always need a completely new website or app. Sometimes the existing experience is the real problem.
           </p>
-          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+          <p className="md:col-span-2 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
             Our UX audit and redesign service examines how users move through your current product, where friction occurs, and which areas need improvement. We can improve specific journeys or redesign the broader experience based on the condition and goals of the product.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2">
-          {/* WHAT WE REVIEW */}
-          <div className="border-2 border-frame-border bg-frame-bg p-7 sm:p-8 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Evaluation Areas
-            </span>
-            <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+        {/* 2-Column Details: What We Review & What You Receive */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {/* What We Review */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10">
+            <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
               What We Review
             </h3>
-            <ul className="mt-6 space-y-2.5 text-xs sm:text-sm font-medium text-frame-fg">
+            <ul className="mt-6 space-y-2.5 text-xs sm:text-sm font-normal text-zinc-200">
               {auditReviewItems.map((item, idx) => (
                 <li key={idx} className="flex items-center gap-2.5">
-                  <span className="text-frame-accent font-bold">✓</span>
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent">
+                    <Check className="h-3 w-3 stroke-[2.5]" />
+                  </span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* WHAT YOU RECEIVE */}
-          <div className="border-2 border-frame-border bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between">
+          {/* What You Receive */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Tangible Deliverables
-              </span>
-              <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                 What You Receive
               </h3>
-              <div className="mt-6 space-y-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+              <div className="mt-6 space-y-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                 <p>
                   Depending on the project scope, an audit can include identified UX issues, prioritized recommendations, improved user flows, wireframes, redesigned screens, and a practical roadmap for implementation.
                 </p>
-                <p className="font-bold text-frame-fg">
+                <p className="font-medium text-white">
                   This service is useful for existing business websites, ecommerce stores, SaaS products, dashboards, mobile apps, and web applications that work technically but create unnecessary friction for users.
                 </p>
               </div>

@@ -22,6 +22,12 @@ function StatCounterItem({ stat, isVisible }) {
       return () => cancelAnimationFrame(resetRaf)
     }
 
+    const prefersReducedMotion = typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (prefersReducedMotion) {
+      setDisplayValue(stat.target)
+      return
+    }
+
     let start = 0
     const end = stat.target
     const duration = 1200
@@ -58,11 +64,11 @@ function StatCounterItem({ stat, isVisible }) {
       : displayValue
 
   return (
-    <div className="flex flex-col items-center justify-center bg-frame-accent px-3 py-6 text-center transition-colors">
-      <span className="font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-accent-fg sm:text-4xl lg:text-5xl">
+    <div className="relative flex flex-col items-center justify-center bg-[#09090B] px-3 py-6 text-center transition-colors duration-300 hover:bg-[#121214] overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/30 before:to-transparent before:opacity-0 hover:before:opacity-100">
+      <span className="font-heading text-3xl sm:text-4xl lg:text-5xl font-medium leading-none tabular-nums text-white">
         {stat.prefix}{formattedNumber}{stat.suffix}
       </span>
-      <span className="mt-2 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg/80 sm:text-xs">
+      <span className="mt-2 font-mono text-[11px] text-zinc-400 uppercase tracking-wider">
         {stat.label}
       </span>
     </div>
@@ -80,7 +86,6 @@ export default function HomeMarqueeStats() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Re-triggers every time the user scrolls into view
           if (entry.isIntersecting) {
             setIsVisible(true)
           } else {
@@ -100,10 +105,10 @@ export default function HomeMarqueeStats() {
   return (
     <section
       ref={sectionRef}
-      className="border-y-2 border-frame-border bg-frame-accent text-frame-accent-fg"
+      className="relative isolate border-y border-white/[0.08] bg-[#09090B] text-white"
     >
       <h2 className="sr-only">Performance metrics and capabilities</h2>
-      <div className="grid grid-cols-2 gap-px bg-frame-border/40 sm:grid-cols-4 lg:grid-cols-8">
+      <div className="grid grid-cols-2 gap-px bg-white/[0.08] sm:grid-cols-4 lg:grid-cols-8">
         {stats.map((stat) => (
           <StatCounterItem key={stat.label} stat={stat} isVisible={isVisible} />
         ))}

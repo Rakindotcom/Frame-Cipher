@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const paragraphs = [
   'AI Search Optimization timelines depend on the number of pages, prompt sets, markets, entity work, content restructuring, technical scope, and ongoing monitoring required.',
@@ -8,53 +10,66 @@ const paragraphs = [
 
 const timelineRows = [
   { project: 'AI Visibility Audit', duration: '~1 week' },
-  { project: 'Standard AEO/GEO Package', duration: '~3\u20134 weeks' },
-  { project: 'Comprehensive AI Visibility Build', duration: '~6\u20138 weeks' },
+  { project: 'Standard AEO/GEO Package', duration: '~3–4 weeks' },
+  { project: 'Comprehensive AI Visibility Build', duration: '~6–8 weeks' },
   { project: 'Ongoing AI Visibility Monitoring', duration: 'Ongoing' },
 ]
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Realistic expectations" title="AI Search Optimization Pricing & Timeline">
-          Timelines depend on scope, readiness, and review speed, so we set expectations rather
-          than promising a fixed schedule.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Delivery Schedules // Realistic Expectations</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Project <span className="italic text-frame-accent">Timelines</span> &amp; Typical Delivery
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Timelines depend on scope, readiness, and review speed, so we set expectations rather
+            than promising a fixed schedule.
+          </p>
+        </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        {/* 2-Column Content + Table */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+          {/* Left Column (7 cols) */}
+          <div className="lg:col-span-7 space-y-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
             {paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          {/* Right Column (5 cols) */}
+          <div className="lg:col-span-5 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+            <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
               Engagement &amp; typical delivery
             </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
               What this looks like in practice
             </h3>
             <div className="mt-6 overflow-x-auto">
               <table className="w-full border-collapse text-left">
                 <thead>
-                  <tr>
-                    <th className="border-b-2 border-frame-border pb-2 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <tr className="border-b border-white/[0.08]">
+                    <th className="pb-3 text-xs font-mono uppercase tracking-wider text-frame-accent">
                       Project Type
                     </th>
-                    <th className="border-b-2 border-frame-border pb-2 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    <th className="pb-3 text-xs font-mono uppercase tracking-wider text-frame-accent">
                       Typical Delivery
                     </th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className="divide-y divide-white/[0.06]">
                   {timelineRows.map((row) => (
-                    <tr key={row.project} className="border-b border-frame-border/60">
-                      <td className="py-3 pr-4 text-xs md:text-sm font-semibold text-frame-fg">
+                    <tr key={row.project}>
+                      <td className="py-3.5 pr-4 text-xs sm:text-sm font-medium text-white">
                         {row.project}
                       </td>
-                      <td className="py-3 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
+                      <td className="py-3.5 text-xs sm:text-sm font-mono text-zinc-400">
                         {row.duration}
                       </td>
                     </tr>

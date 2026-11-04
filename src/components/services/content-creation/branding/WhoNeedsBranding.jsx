@@ -40,8 +40,8 @@ const profiles = [
 
 export default function WhoNeedsBranding() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Target Scenarios"
           title="Who Needs a Branding Service?"
@@ -53,31 +53,31 @@ export default function WhoNeedsBranding() {
           {profiles.map((p, idx) => (
             <div
               key={idx}
-              className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+              className={`border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between ${
                 idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     SCENARIO 0{p.num}
                   </span>
-                  <span className="rounded bg-frame-muted px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="rounded bg-[#121214] px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     {p.badge}
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {p.title}
                 </h3>
-                <div className="mt-4 border-l-2 border-frame-accent/40 pl-3">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-frame-muted-fg">
+                <div className="mt-4 border-l-2 border-[#A855F7]/30 pl-3">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-[#A1A1AA]">
                     Current Challenge:
                   </span>
-                  <p className="text-xs font-medium text-frame-fg mt-0.5">
+                  <p className="text-xs font-medium text-[#FAFAFA] mt-0.5">
                     {p.situation}
                   </p>
                 </div>
-                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {p.solution}
                 </p>
               </div>

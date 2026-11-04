@@ -13,8 +13,8 @@ const questions = [
 
 export default function CaseForBuying() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="The buying decision"
           title="Sales Copy Built Around the Case for Buying"
@@ -23,8 +23,8 @@ export default function CaseForBuying() {
           questions a serious prospect is already asking.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             <p>Our approach starts with those questions.</p>
             <p>
               We research the audience, clarify the offer, identify the strongest proof, map objections, and
@@ -36,17 +36,17 @@ export default function CaseForBuying() {
             </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#09090B] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Questions the copy answers
             </span>
             <ul className="mt-5 space-y-2.5">
               {questions.map((question) => (
                 <li
                   key={question}
-                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
-                  <span aria-hidden="true" className="mt-1 shrink-0 font-bold text-frame-accent">
+                  <span aria-hidden="true" className="mt-1 shrink-0 font-bold text-[#A855F7]">
                     &rarr;
                   </span>
                   {question}
@@ -56,8 +56,8 @@ export default function CaseForBuying() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             If the argument does not hold up, more persuasive language will not fix it.
           </p>
           <div className="shrink-0">

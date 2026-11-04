@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const steps = [
   {
@@ -39,38 +41,55 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="How we work" title="How We Prepare Your Website for AdSense">
-          Each engagement follows the same path: understand the site, assess its readiness, fix what
-          needs fixing, and review it again before you submit.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Workflow Protocol // Execution Blueprint</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            How We Prepare Your Website for{' '}
+            <span className="italic text-frame-accent">AdSense</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Each engagement follows the same path: understand the site, assess its readiness, fix what
+            needs fixing, and review it again before you submit.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        {/* 6 Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((step, index) => (
-            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <div
+              key={step.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
+            >
               <div>
-                <span className="font-heading text-3xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Phase 0{index + 1}
                 </span>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {step.body}
                 </p>
-                {step.closing && (
-                  <p className="mt-4 border-l-2 border-frame-accent pl-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                    {step.closing}
-                  </p>
-                )}
               </div>
+
+              {step.closing && (
+                <div className="mt-6 border-l-2 border-frame-accent bg-[#09090B] p-3 text-xs leading-relaxed text-zinc-400 rounded-r-md">
+                  {step.closing}
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-10">
-          <p className="text-sm md:text-base font-black uppercase leading-tight tracking-tight text-frame-fg">
+        {/* Bottom Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 text-center sm:text-left">
+          <p className="text-sm sm:text-base font-medium leading-relaxed text-white">
             A prepared website that presents useful content, clear structure, and compliant
             implementation before Google reviews it.
           </p>

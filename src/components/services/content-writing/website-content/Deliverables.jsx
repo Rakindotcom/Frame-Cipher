@@ -93,27 +93,27 @@ const blocks = [
 
 export default function Deliverables() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Deliverables" title="What You Receive With Your Website Content">
           Website content writing should provide more than a block of text. Depending on the project scope, your
           deliverables can include the following.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border lg:grid-cols-2">
           {blocks.map((block) => (
-            <article key={block.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={block.number} className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                   {block.number}
                 </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                <h3 className="mt-5 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                   {block.title}
                 </h3>
                 {block.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                   >
                     {paragraph}
                   </p>
@@ -124,9 +124,9 @@ export default function Deliverables() {
                     {block.bullets.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                       >
-                        <span aria-hidden="true" className="mt-1 text-frame-accent">
+                        <span aria-hidden="true" className="mt-1 text-[#A855F7]">
                           &bull;
                         </span>
                         {item}
@@ -140,7 +140,7 @@ export default function Deliverables() {
                     {block.chips.map((chip) => (
                       <li
                         key={chip}
-                        className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                        className="border border-white/[0.08] bg-[#121214] px-2.5 py-1 text-[11px] font-semibold text-[#FAFAFA]"
                       >
                         {chip}
                       </li>
@@ -150,7 +150,7 @@ export default function Deliverables() {
               </div>
 
               {block.note && (
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-5 border-l-2 border-[#A855F7]/40 bg-[#121214] p-3 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {block.note}
                 </p>
               )}
@@ -158,8 +158,8 @@ export default function Deliverables() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             A free content consultation can be requested before a larger engagement so you can evaluate the
             approach and fit.
           </p>

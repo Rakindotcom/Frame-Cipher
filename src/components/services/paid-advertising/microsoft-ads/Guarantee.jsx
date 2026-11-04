@@ -1,63 +1,84 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const commitments = [
-  'Proper campaign structure',
-  'Accurate conversion tracking',
-  'Microsoft-specific campaign strategy',
-  'Structured keyword and audience management',
-  'Ongoing optimization',
-  'Transparent reporting',
-  'Clear communication',
-  'Recommendations based on campaign evidence',
-]
+import React from 'react'
+import { ShieldCheck, XCircle, CheckCircle2 } from 'lucide-react'
 
 export default function Guarantee() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Clear commitment" title="What We Commit To">
-          We do not guarantee a specific CPC, CPA, conversion rate, traffic volume, or revenue
-          outcome.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What We{' '}
+            <span className="italic text-frame-accent">Commit To.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Professional media buyers do not make fabricated revenue claims. Real performance is built on technical accuracy and disciplined keyword management.
+          </p>
+        </div>
 
-        <div className="border-2 border-frame-border bg-frame-muted/10 p-8 md:p-12">
-          <p className="mb-8 text-sm font-bold uppercase tracking-widest text-frame-accent">
-            Performance depends on factors such as
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {[
-              'Search demand',
-              'Competition',
-              'Offer quality',
-              'Landing-page experience',
-              'Conversion data',
-              'Market conditions',
-              'Budget',
-              'Customer behavior',
-              'Platform delivery',
-            ].map((item) => (
-              <span
-                key={item}
-                className="border border-frame-border px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-frame-muted-fg"
-              >
-                {item}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Left: What We Do Not Guarantee */}
+          <div className="rounded-xl border border-red-500/20 bg-[#121214] p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/10 text-red-400">
+                <XCircle className="h-5 w-5" />
               </span>
-            ))}
+              <h3 className="font-heading text-xl font-medium text-white">
+                No Unverified Guarantees
+              </h3>
+            </div>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              We do not guarantee a specific CPC, CPA, conversion rate, search volume, or revenue level. Commercial performance is influenced by factors beyond media management:
+            </p>
+
+            <div className="space-y-3 pt-2">
+              {[
+                'Underlying search demand volume on Bing in target locations',
+                'Competitor auction bidding and seasonal CPC volatility',
+                'Product pricing, brand reputation, and commercial offer viability',
+                'Landing-page conversion friction, load speeds, and trust factors',
+                'Macroeconomic buyer budgets and corporate procurement cycles',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <XCircle className="h-4 w-4 text-red-400/80 shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <p className="mt-8 text-sm font-bold uppercase tracking-widest text-frame-accent">
-            What we commit to is a clear management process
-          </p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-            {commitments.map((item) => (
-              <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg md:text-base wide:text-lg">
-                <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-8 max-w-3xl border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Every campaign is reviewed against the agreed objectives and scope.
-          </p>
+
+          {/* Right: What We Firmly Commit To */}
+          <div className="rounded-xl border border-frame-accent/40 bg-[#121214] p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-frame-accent/30 bg-frame-accent/10 text-frame-accent">
+                <ShieldCheck className="h-5 w-5" />
+              </span>
+              <h3 className="font-heading text-xl font-medium text-white">
+                Our Professional Guarantee
+              </h3>
+            </div>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              What Framecipher guarantees is the rigorous, professional execution of the entire Microsoft Advertising discipline:
+            </p>
+
+            <div className="space-y-3 pt-2">
+              {[
+                'Proper, platform-tailored campaign structures (not raw Google clones)',
+                'Accurate UET tracking and conversion goal verification prior to launch',
+                'Strategic deployment of LinkedIn profile targeting attributes for B2B',
+                'Disciplined negative keyword management eliminating syndicated junk',
+                'Completely transparent client account ownership and zero media markups',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

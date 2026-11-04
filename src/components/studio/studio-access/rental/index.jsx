@@ -36,7 +36,7 @@ export default function RentalService({ service }) {
         category="all"
         eyebrow="Studio Deployments"
         title="Work Produced at Our Studio"
-        description="A sample of productions that used our space, lighting grid, and equipment — from podcasts to commercials."
+        description="A sample of productions that used our space, lighting grid, and equipment, from podcasts to commercials."
         buttonText="Explore Studio Work →"
         buttonHref="/projects#video-work"
       />

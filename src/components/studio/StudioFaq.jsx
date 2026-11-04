@@ -1,7 +1,7 @@
 'use client'
 
-import Link from 'next/link'
-import { SectionIntro } from '../Kinetic'
+import React, { useState } from 'react'
+import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
 
 const faqs = [
   {
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     q: 'What equipment do you use?',
-    a: 'Camera bodies, lenses, microphones, audio interfaces, lights and monitors are listed with photos on our equipment and facilities page — every quote also states exactly which kit your session includes.',
+    a: 'Camera bodies, lenses, microphones, audio interfaces, lights and monitors are listed with photos on our equipment and facilities page; every quote also states exactly which kit your session includes.',
   },
   {
     q: 'How long does delivery take?',
@@ -51,22 +51,83 @@ const faqs = [
 ]
 
 export default function StudioFaq() {
+  const [openIndex, setOpenIndex] = useState(null)
+
+  const toggleFaq = (index) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  // Schema.org FAQPage JSON-LD
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  }
+
   return (
-    <section id="faq" className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro eyebrow="Questions, answered" title="Frequently asked questions." index="10" align="center">
-          Costs, inclusions, delivery and booking — everything about recording at FrameCipher Studio in Dhaka.
-        </SectionIntro>
-        <div className="space-y-4">
-          {faqs.map((item, idx) => (
-            <details key={idx} className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent">
-              <summary className="flex cursor-pointer list-none select-none items-center justify-between p-6 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg transition-colors marker:content-none hover:text-frame-accent md:p-8 md:text-xl">
-                <span className="pr-4">{item.q}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border font-bold text-frame-accent transition-transform duration-200 group-open:rotate-45">+</span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-8 md:text-base">{item.a}</div>
-            </details>
-          ))}
+    <section id="faq" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      {/* Schema.org FAQPage Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl">
+        {/* Strictly Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
+            Studio booking{' '}
+            <span className="italic text-frame-accent">questions.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Costs, inclusions, turnaround times, and booking logistics: everything about recording at FrameCipher Studio in Dhaka.
+          </p>
+        </div>
+
+        {/* Centered Accordion Column */}
+        <div className="mx-auto max-w-4xl space-y-3">
+          {faqs.map((item, idx) => {
+            const isOpen = openIndex === idx
+            return (
+              <div
+                key={idx}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(idx)}
+                  className="flex w-full items-center justify-between p-6 text-left cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] rounded-xl"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
+                    {item.q}
+                  </span>
+                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                    <p className="text-base font-normal leading-relaxed text-zinc-300">
+                      {item.a}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

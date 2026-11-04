@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React, { useState } from 'react'
+import { Plus } from 'lucide-react'
 import { resolveFaqs } from '../../../../lib/seo/faq'
 
 const fallbackFaqs = [
@@ -24,7 +27,7 @@ const fallbackFaqs = [
   },
   {
     question: 'Can you guarantee that ChatGPT or Gemini will cite my website?',
-    answer: "No. AI platforms control their own retrieval and response systems, and citation outcomes can vary by query, source availability, platform, and time. We focus on improving the factors within our scope and measuring actual visibility rather than promising a specific citation outcome.",
+    answer: 'No. AI platforms control their own retrieval and response systems, and citation outcomes can vary by query, source availability, platform, and time. We focus on improving the factors within our scope and measuring actual visibility rather than promising a specific citation outcome.',
   },
   {
     question: 'How do you measure AI search visibility?',
@@ -32,11 +35,11 @@ const fallbackFaqs = [
   },
   {
     question: 'Can you optimize content for AI search without hurting Google SEO?',
-    answer: 'Yes. The goal is to improve clarity, usefulness, structure, entity relationships, and search-intent alignment while maintaining strong traditional SEO fundamentals. We do not recommend unnatural formatting or keyword stuffing simply to make content appear \u201CAI optimized.\u201D',
+    answer: 'Yes. The goal is to improve clarity, usefulness, structure, entity relationships, and search-intent alignment while maintaining strong traditional SEO fundamentals. We do not recommend unnatural formatting or keyword stuffing simply to make content appear “AI optimized.”',
   },
   {
     question: 'Can small businesses benefit from AI Search Optimization?',
-    answer: 'Yes. Small businesses can benefit from clearer service information, stronger entity signals, useful answers, local relevance, credible external references, and targeted visibility testing. The strategy should reflect the business\u2019s actual market and resources rather than imitate enterprise-scale campaigns.',
+    answer: 'Yes. Small businesses can benefit from clearer service information, stronger entity signals, useful answers, local relevance, credible external references, and targeted visibility testing. The strategy should reflect the business’s actual market and resources rather than imitate enterprise-scale campaigns.',
   },
   {
     question: 'Can you optimize an ecommerce website for AI search?',
@@ -58,31 +61,86 @@ const fallbackFaqs = [
 
 export default function FAQ({ service }) {
   const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro eyebrow="Direct Answers" title="Frequently Asked Questions">
-          Common questions about AI Search Optimization, AEO, GEO, measurement, and what we can and
-          can&apos;t guarantee.
-        </SectionIntro>
+  const [openIndex, setOpenIndex] = useState(null)
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {faq.answer}
+  const toggleFaq = (index) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  // Schema.org FAQPage JSON-LD
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+
+  return (
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      {/* Schema.org FAQPage Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Canonical Centered FAQ Header (§5.3) */}
+        <div className="mx-auto mb-16 max-w-3xl text-center space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent justify-center">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Direct Answers // Knowledge Base</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Frequently Asked <span className="italic text-frame-accent">Questions</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Common questions about AI Search Optimization, AEO, GEO, measurement, and what we can and
+            can&apos;t guarantee.
+          </p>
+        </div>
+
+        {/* Centered Accordion Stack (§5.3) */}
+        <div className="mx-auto max-w-4xl space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div
+                key={index}
+                className={`rounded-xl border transition-all duration-200 overflow-hidden ${
+                  isOpen
+                    ? 'border-white/[0.14] bg-[#18181B]'
+                    : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.12]'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  className="flex w-full cursor-pointer items-center justify-between p-6 sm:p-7 text-left font-heading text-base sm:text-lg md:text-xl font-medium uppercase tracking-tight text-white transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <span className="pr-4">{faq.question}</span>
+                  <span
+                    className={`ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.12] bg-[#18181B] text-frame-accent transition-transform duration-200 ${
+                      isOpen ? 'rotate-45 bg-frame-accent text-[#09090B]' : ''
+                    }`}
+                  >
+                    <Plus className="h-4 w-4" />
+                  </span>
+                </button>
+                {isOpen && (
+                  <div className="border-t border-white/[0.06] p-6 sm:p-7 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

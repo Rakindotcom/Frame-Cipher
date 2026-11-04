@@ -117,7 +117,7 @@ const servicePackages = {
       price: '৳1,500',
       priceNote: 'per product',
       description: 'Clean white-background catalogue shots for Daraz, Shopify & websites.',
-      features: ['White background setup', '2–3 angles per product', 'Colour-accurate retouch', 'Web + marketplace sizes', '48h delivery', 'Bulk slab discounts'],
+      features: ['White background setup', '2 to 3 angles per product', 'Colour-accurate retouch', 'Web + marketplace sizes', '48h delivery', 'Bulk slab discounts'],
       cta: 'Book Catalogue Shoot',
       popular: false,
     },

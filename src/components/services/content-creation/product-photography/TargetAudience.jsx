@@ -1,6 +1,6 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -55,8 +55,8 @@ const clientProfiles = [
 
 export default function TargetAudience() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Market Fit"
           title="Who Our Product Photography Service Is For"
@@ -66,32 +66,32 @@ export default function TargetAudience() {
         </SectionIntro>
 
         {/* 6 BALANCED CATEGORY PROFILES (2 rows of 3) */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {clientProfiles.map((item, index) => (
             <div
               key={index}
-              className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors"
+              className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between hover:bg-[#121214] transition-colors"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3 mb-4">
-                  <span className="font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                  <span className="font-heading text-2xl md:text-3xl font-black text-[#A855F7]">
                     {item.num}
                   </span>
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg border border-frame-border px-2 py-0.5">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA] border border-white/[0.08] px-2 py-0.5">
                     {item.subtitle}
                   </span>
                 </div>
 
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-6 border-t border-frame-border/60 pt-4 flex items-start gap-2 text-xs font-mono font-bold text-frame-accent">
+              <div className="mt-6 border-t border-white/[0.06] pt-4 flex items-start gap-2 text-xs font-mono font-bold text-[#A855F7]">
                 <CheckIcon className="h-4 w-4 shrink-0 mt-0.5" />
                 <span className="leading-snug">{item.valuePoint}</span>
               </div>
@@ -100,32 +100,32 @@ export default function TargetAudience() {
         </div>
 
         {/* 7TH PROFILE: AGENCIES & MARKETING TEAMS (FEATURED FULL-WIDTH WIDE BANNER) */}
-        <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-10">
+        <div className="mt-8 border border-white/[0.08] bg-[#121214] p-6 md:p-10">
           <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8 space-y-3">
               <div className="flex items-center gap-3">
-                <span className="font-heading text-2xl font-black text-frame-accent">07</span>
-                <span className="font-mono text-xs font-black uppercase tracking-wider text-frame-accent border border-frame-accent px-2 py-0.5">
+                <span className="font-heading text-2xl font-black text-[#A855F7]">07</span>
+                <span className="font-mono text-xs font-black uppercase tracking-wider text-[#A855F7] border border-[#A855F7]/40 px-2 py-0.5">
                   Creative & Performance Partners
                 </span>
               </div>
-              <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Agencies & Marketing Teams
               </h3>
-              <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                 For design agencies, performance marketing teams, and brand consultants that need a reliable, professional photography partner for campaigns, launches, ecommerce catalogs, or ongoing creative production without studio management overhead.
               </p>
-              <div className="pt-1 flex items-center gap-2 text-xs font-mono font-bold text-frame-accent">
+              <div className="pt-1 flex items-center gap-2 text-xs font-mono font-bold text-[#A855F7]">
                 <CheckIcon className="h-4 w-4 shrink-0" />
                 <span>White-label production & overflow studio support with SLA delivery</span>
               </div>
             </div>
 
-            <div className="lg:col-span-4 border-2 border-frame-border bg-frame-bg p-6 text-center space-y-3">
-              <span className="font-mono text-xs font-black uppercase tracking-wider text-frame-accent block">
+            <div className="lg:col-span-4 border border-white/[0.08] bg-[#09090B] p-6 text-center space-y-3">
+              <span className="font-mono text-xs font-black uppercase tracking-wider text-[#A855F7] block">
                 Agency Partnership Inquiries
               </span>
-              <p className="text-xs font-medium text-frame-muted-fg">
+              <p className="text-xs font-medium text-[#A1A1AA]">
                 Discuss volume retainer rates and priority scheduling for your agency clients.
               </p>
               <PosterButton href="/contact" className="w-full text-center">

@@ -1,5 +1,8 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { Calculator, ArrowRight, Sparkles, TrendingUp, Search, Video, Bot } from 'lucide-react'
+import { Calculator, TrendingUp, Search, Video, Bot } from 'lucide-react'
 
 const CONFIGS = {
   meta: {
@@ -78,7 +81,7 @@ const CONFIGS = {
     badge: 'Full-Funnel Cart Recovery',
     title: 'Model Retargeting Conversion Lift & Frequency Caps',
     description:
-      'Simulate warm audience conversion rates (4%–12%), cart abandonment win-backs, and frequency safety caps.',
+      'Simulate warm audience conversion rates (4% to 12%), cart abandonment win-backs, and frequency safety caps.',
     href: '/calculators/remarketing',
     ctaText: 'Launch Remarketing Calculator',
     icon: Calculator,
@@ -105,33 +108,27 @@ const CONFIGS = {
 
 export default function ServiceCalculatorBanner({ platform = 'general' }) {
   const cfg = CONFIGS[platform] || CONFIGS.general
-  const Icon = cfg.icon
 
   return (
-    <section className="border-t-2 border-b-2 border-frame-accent/40 bg-frame-bg px-4 py-16 md:px-8 md:py-20">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between border-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white md:px-8 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-8 md:p-12 transition-colors duration-200 hover:border-white/[0.14]">
           <div className="max-w-3xl space-y-3">
-            <div className="flex items-center gap-2">
-              <Icon className="h-4 w-4 text-frame-accent" />
-              <span className="text-xs font-mono font-bold uppercase tracking-[0.24em] text-frame-accent">
-                {cfg.badge}
-              </span>
-            </div>
-            <h3 className="font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="font-heading text-2xl md:text-3xl font-medium tracking-tight text-white">
               {cfg.title}
             </h3>
-            <p className="text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="text-sm md:text-base text-zinc-300 leading-relaxed font-normal">
               {cfg.description}
             </p>
           </div>
 
-          <div className="flex w-full flex-col gap-4 sm:w-auto sm:flex-row sm:flex-wrap sm:items-start">
+          <div className="shrink-0 pt-2 lg:pt-0">
             <Link
               href={cfg.href}
-              className="inline-flex w-full items-center justify-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-4 text-center text-xs font-black uppercase tracking-wider text-frame-accent-fg transition hover:bg-transparent hover:text-frame-fg sm:w-auto"
+              className="group sw-btn sw-btn-primary inline-flex min-h-[52px] h-[52px] items-center justify-center px-6 md:px-8 text-[15px] font-medium leading-none transition-colors duration-200"
             >
-              {cfg.ctaText} <ArrowRight className="h-4 w-4 shrink-0" />
+              <span>{cfg.ctaText}</span>
+              <span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
             </Link>
           </div>
         </div>

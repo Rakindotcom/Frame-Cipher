@@ -26,7 +26,7 @@ function SubProcessGrid({ steps }) {
                 <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Phase {st.num}</span>
                 <Icon className="h-4 w-4 text-frame-muted-fg" />
               </div>
-              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">{st.title}</h3>
+              <h3 className="font-heading text-lg font-medium tracking-tight text-frame-fg md:text-xl">{st.title}</h3>
               <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">{st.desc}</p>
             </div>
             <div className="relative z-10 mt-6 border-t border-frame-border/50 pt-3 font-mono text-[11px] font-bold uppercase text-frame-accent">
@@ -44,7 +44,7 @@ export default function StudioSubProcess({ service }) {
 
   return (
     <section className="border-b-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Workflow & execution" title="From brief to delivery." index="04">
           Every step keeps your project organized, avoids last-minute surprises, and produces content ready for
           immediate commercial publication.

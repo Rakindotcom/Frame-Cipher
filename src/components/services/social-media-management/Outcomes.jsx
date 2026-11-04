@@ -1,7 +1,8 @@
+'use client'
 
-import { AutoLinks } from '../../seo/AutoLinks'
+import React from 'react'
 import Link from 'next/link'
-import { SectionIntro } from '../../Kinetic'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const outcomes = [
   {
@@ -14,7 +15,7 @@ const outcomes = [
   },
   {
     title: 'Customer Trust',
-    body: 'Active profiles, useful information, visible customer interactions, and consistent communication help potential customers understand and evaluate your business.',
+    body: 'Active profiles, useful information, visible customer interactions, and consistent communication can help potential customers understand and evaluate your business.',
   },
   {
     title: 'Website Traffic',
@@ -27,57 +28,86 @@ const outcomes = [
   },
   {
     title: 'Community & Retention',
-    body: 'Ongoing interaction helps businesses maintain relationships with existing audiences and gives customers more opportunities to stay connected with the brand.',
+    body: 'Ongoing interaction can help businesses maintain relationships with existing audiences and give customers more opportunities to stay connected with the brand.',
   },
 ]
 
 export default function Outcomes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Business outcomes"
-          title="What Social Media Management Can Help Your Business Achieve"
-        >
-          Social media management is not only about follower counts. A well-managed presence can
-          support several parts of your broader marketing strategy.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               BUSINESS OUTCOMES 
+            </p>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What Social Media Management{' '}
+            <span className="italic text-[#A855F7]">Can Help Achieve.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Social media management is not only about follower counts. A well-managed presence can support several parts of your broader marketing strategy.
+          </p>
+        </div>
+
+        {/* 6 Outcomes Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {outcomes.map((outcome, index) => (
-            <article key={outcome.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <article
+              key={outcome.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-200 hover:border-white/[0.16]"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                    Outcome 0{index + 1}
+                  </span>
+                  <span className="font-mono text-[10px] text-zinc-500 uppercase">
+                    Commercial Impact
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white leading-snug">
                   {outcome.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/website-design-development/landing-pages"]}>
+
+                <p className="mt-3 text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
                   {outcome.body}
-                </AutoLinks></p>
+                </p>
               </div>
 
               {outcome.note && (
-                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
-                  {outcome.note}
-                </p>
+                <div className="mt-6 pt-4 border-t border-white/[0.06]">
+                  <div className="rounded-lg border-l-2 border-[#A855F7]/40 border-white/[0.04] bg-[#18181B] p-2.5 text-[11px] text-zinc-300 leading-relaxed font-normal">
+                    {outcome.note}
+                  </div>
+                </div>
               )}
             </article>
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            We measure the metrics that support these outcomes rather than reporting follower
-            counts in isolation.
-          </p>
+        {/* Action Link Footer */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-1 max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+              Measurement Philosophy
+            </span>
+            <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
+              We measure the metrics that support these outcomes rather than reporting follower counts in isolation.
+            </p>
+          </div>
           <Link
             href="/services/social-media-management/reporting"
-            className="group mt-5 inline-flex items-center gap-2 text-sm font-black uppercase tracking-[0.18em] text-frame-accent transition hover:text-frame-fg"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-[#A855F7] hover:text-white transition-colors shrink-0"
           >
-            See how social media reporting works
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+            <span>See How Social Media Reporting Works</span>
+            <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

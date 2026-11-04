@@ -2,23 +2,29 @@ import { industries } from '../../data/agency'
 
 export default function AboutIndustries() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-accent px-4 py-16 text-frame-accent-fg sm:py-20 md:px-8 md:py-28">
-      <div className="mx-auto grid max-w-[95vw] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
-        <h2 className="font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.85] tracking-tighter">
-          Built for brands that move in public.
-        </h2>
-        <div>
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            Built for brands that{' '}
+            <span className="italic text-frame-accent">
+              move in public.
+            </span>
+          </h2>
+        </div>
+
+        <div className="space-y-6">
           <div className="flex flex-wrap gap-2.5 sm:gap-3">
             {industries.map((industry) => (
               <span
                 key={industry}
-                className="border-2 border-frame-accent-fg px-4 py-2.5 text-xs font-black uppercase tracking-wider sm:px-5 sm:py-3 sm:text-sm"
+                className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2 font-mono text-xs uppercase tracking-wider text-zinc-300 transition-colors duration-200 hover:border-white/[0.18] hover:text-white"
               >
                 {industry}
               </span>
             ))}
           </div>
-          <p className="mt-7 text-sm font-semibold leading-relaxed sm:text-base md:text-xl">
+          <p className="pt-2 text-base font-normal leading-relaxed text-zinc-300 sm:text-lg">
             We start with the business problem, define the growth system around it, then move through
             strategy, creative direction, production, development, launch, reporting, and optimization.
           </p>

@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const processSteps = [
   {
@@ -15,7 +17,7 @@ const processSteps = [
   },
   {
     title: 'SEO Roadmap & Priority Setting',
-    description: 'We turn the findings into a practical roadmap covering the areas that require attention. This can include technical fixes, page optimization, content work, internal linking, authority building, local SEO, ecommerce improvements, and AI search optimization.',
+    description: 'We turn the findings into a practical roadmap covering the areas that require attention. Depending on the project, this can include technical fixes, page optimization, content work, internal linking, authority building, local SEO, ecommerce improvements, and AI search optimization.',
   },
   {
     title: 'Technical & On-Page Execution',
@@ -33,26 +35,47 @@ const processSteps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our SEO Process"
-        >
-          We begin by understanding your business and search landscape before deciding what should change.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Execution Framework // 7-Step Sprint Model
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our SEO{' '}
+            <span className="italic text-frame-accent">Process.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            We begin by understanding your business and search landscape before deciding what should change.
+          </p>
+        </div>
+
+        {/* Modality 3 Blueprint Matrix Grid */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {processSteps.map((step, index) => (
-            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:bg-[#18181B] sm:p-8"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                    Step 0{index + 1}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/10 group-hover:bg-frame-accent transition-colors" />
+                </div>
+
+                <h3 className="font-heading text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-300">
                   {step.description}
                 </p>
               </div>

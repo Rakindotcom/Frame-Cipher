@@ -1,107 +1,144 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { ShoppingBag, Cpu, Briefcase, MapPin, CheckCircle2 } from 'lucide-react'
 
 const businessTypes = [
   {
     title: 'Ecommerce Brands',
+    icon: ShoppingBag,
     body: [
-      'Ecommerce businesses can benefit from ChatGPT Ads because people often use conversational search to research products, compare options, and decide what to buy. We structure campaigns around product categories and purchase intent, connect ads to relevant product pages, and set up conversion events such as purchases or cart events where the setup supports them. Creative can be built around product benefits, promotions, and category-specific messaging so the ad addresses the user at the product discovery and research stage.',
+      'Ecommerce customers may use conversational tools to compare products, evaluate alternatives, understand features, and narrow down purchase decisions.',
+      'For ecommerce brands, we can structure campaigns around:',
     ],
     bullets: [
-      'Products discoverable during conversational research',
-      'Product or category context',
-      'Buyers likely to compare alternatives',
-      'Promotions, product pages, cart or purchase events',
+      'Product categories',
+      'Customer needs',
+      'Use cases',
+      'Product benefits',
+      'Comparison-driven intent',
+      'Promotional opportunities',
+      'Product landing pages',
+      'Purchase conversion tracking',
     ],
+    tail: 'Where supported, product-feed and catalog-based campaigns can also be evaluated for suitable ecommerce accounts. The ad, product page, pricing information, availability, and checkout experience should remain aligned from impression to purchase.',
   },
   {
     title: 'SaaS & Technology Companies',
+    icon: Cpu,
     body: [
-      'SaaS and technology businesses operate in a space where users often need to understand features, integrations, and pricing before making a decision. ChatGPT Ads allow these companies to appear in the conversation during the discovery and evaluation stage. We structure campaigns around product categories, user roles, use cases, and adoption scenarios, with creative that communicates features, functions, and integrations.',
+      'Software buyers often have longer and more complex decision journeys. A customer may research features, compare platforms, evaluate integrations, explore pricing, or look for a solution to a specific operational problem.',
+      'For SaaS and technology campaigns, we can build around:',
     ],
     bullets: [
-      'Technical, solution-led discovery',
-      'Feature, function, and integration messaging',
-      'Account-type and plan-stage messaging',
-      'Sign-up or trial event tracking',
+      'Use cases',
+      'Product capabilities',
+      'Business problems',
+      'Industry needs',
+      'Feature comparisons',
+      'Demo requests',
+      'Free trials',
+      'Lead generation',
     ],
+    tail: 'The campaign should connect the conversational problem with a clear product solution and a relevant next step.',
   },
   {
     title: 'B2B & Professional Services',
+    icon: Briefcase,
     body: [
-      'B2B and professional service businesses use ChatGPT for fast, advisory-style answers when comparing vendors and services. We structure campaigns around client types, service categories, and decision situations, with proof-driven creative such as case studies and client outcomes. Lead form submissions are set up and tracked as the conversion event.',
+      'B2B buyers may use ChatGPT during research long before they contact a provider. That creates an opportunity to position a business around the specific problems, services, industries, and outcomes it addresses.',
+      'Our approach can include:',
     ],
     bullets: [
-      'Fast and advisory nature of conversational research',
-      'Case-study and proof-driven creative',
-      'Client-type segmentation',
-      'Lead form submissions as conversion events',
+      'Lead-focused campaigns',
+      'Service-specific ad groups',
+      'Industry use cases',
+      'Professional service positioning',
+      'Consultation landing pages',
+      'Lead conversion tracking',
+      'Multi-step enquiry journeys',
     ],
+    tail: 'The emphasis stays on qualified intent rather than traffic volume alone.',
   },
   {
     title: 'Local & Service Businesses',
+    icon: MapPin,
     body: [
-      'Local and service businesses need to appear as trustworthy, relevant options during conversational searches for local services. We use service-area-led context and creative, and track local-relevant conversion events such as lead enquiries or calls where the setup supports them. A clear offer, honest creative, and a credible business presence help the ad earn the click and the enquiry.',
+      'Local and service businesses often compete around immediate needs. Customers may research providers, compare solutions, check availability, or look for help with a specific problem.',
+      'Campaigns can be structured around:',
     ],
     bullets: [
-      'Local trust and relevance',
-      'Service-area-led context and creative',
-      'Location-based verification and brand signals',
-      'Lead enquiries and calls as conversion events',
+      'Service categories',
+      'Customer needs',
+      'Geographic areas',
+      'Appointment requests',
+      'Enquiries',
+      'Local landing pages',
     ],
+    tail: 'Where location targeting and market availability support the objective, we align campaigns with the locations the business can actually serve.',
   },
 ]
 
 export default function BusinessTypes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Tailored approach"
-          title="ChatGPT Ads Strategy for Different Business Types"
-        >
-          ChatGPT Ads work best when the campaign structure, context, creative, and conversion
-          events reflect how a specific type of business is researched and bought.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            ChatGPT Ads Strategy for{' '}
+            <span className="italic text-frame-accent">Different Business Types.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            ChatGPT Ads can support different business models, but the campaign structure should reflect how customers in each category research and make decisions.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {businessTypes.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Business type 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
-                  ))}
-                </div>
-                {item.bullets?.length > 0 && (
-                  <ul className="mt-4 border-t border-frame-border/60 pt-4 grid gap-2 text-xs font-semibold text-frame-fg/90">
+        {/* 2x2 Architectural Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {businessTypes.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+              >
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                      Category 0{index + 1}
+                    </span>
+                    <Icon className="h-4 w-4 text-zinc-500 group-hover:text-frame-accent transition-colors" />
+                  </div>
+
+                  <h3 className="font-heading text-2xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <div className="space-y-2 text-sm md:text-base font-normal leading-relaxed text-zinc-300">
+                    {item.body.map((p, pIdx) => (
+                      <p key={pIdx}>{p}</p>
+                    ))}
+                  </div>
+
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.04] pt-4">
                     {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
+                      <li key={bIdx} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                        <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
+                </div>
+
+                {item.tail && (
+                  <div className="mt-6 border-l-2 border-frame-accent bg-frame-accent/10 p-4 rounded-r-lg text-xs sm:text-sm leading-relaxed text-zinc-400">
+                    {item.tail}
+                  </div>
                 )}
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            These are starting frameworks. Where a business operates in more than one category,
-            we adjust the structure to reflect its actual product mix, customer segments, and the
-            markets where ChatGPT Ads are eligible.
-          </p>
+            )
+          })}
         </div>
       </div>
     </section>

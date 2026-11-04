@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -62,8 +62,8 @@ const services = [
 
 export default function ServiceEcosystem() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Creative Scope Boundaries"
           title="Where Branding Fits With Logo Design and Graphic Design"
@@ -72,13 +72,13 @@ export default function ServiceEcosystem() {
         </SectionIntro>
 
         {/* 3-PART FORMULA SUMMARY */}
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 text-center">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-            <span className="text-frame-muted-fg">Logo Design = <span className="text-frame-fg">The Mark</span></span>
-            <span className="text-frame-accent font-mono">&bull;</span>
-            <span className="text-frame-accent">Branding = <span className="text-frame-fg">The System</span></span>
-            <span className="text-frame-accent font-mono">&bull;</span>
-            <span className="text-frame-muted-fg">Graphic Design = <span className="text-frame-fg">The Application</span></span>
+        <div className="mt-8 border border-white/[0.08] bg-[#09090B] p-6 text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-[#FAFAFA]">
+            <span className="text-[#A1A1AA]">Logo Design = <span className="text-[#FAFAFA]">The Mark</span></span>
+            <span className="text-[#A855F7] font-mono">&bull;</span>
+            <span className="text-[#A855F7]">Branding = <span className="text-[#FAFAFA]">The System</span></span>
+            <span className="text-[#A855F7] font-mono">&bull;</span>
+            <span className="text-[#A1A1AA]">Graphic Design = <span className="text-[#FAFAFA]">The Application</span></span>
           </div>
         </div>
 
@@ -89,40 +89,40 @@ export default function ServiceEcosystem() {
               key={idx}
               className={`border-2 p-6 md:p-8 flex flex-col justify-between ${
                 item.highlight
-                  ? 'border-frame-accent bg-frame-accent/5'
-                  : 'border-frame-border bg-frame-bg'
+                  ? 'border-[#A855F7]/40 bg-[#A855F7]/[0.05]'
+                  : 'border-white/[0.08] bg-[#09090B]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     0{idx + 1} // {item.formula}
                   </span>
                   <span
                     className={`rounded px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider ${
                       item.highlight
-                        ? 'border border-frame-accent bg-frame-accent text-frame-accent-fg'
-                        : 'bg-frame-muted text-frame-muted-fg'
+                        ? 'border border-[#A855F7]/40 bg-frame-accent text-[#FAFAFA]'
+                        : 'bg-[#121214] text-[#A1A1AA]'
                     }`}
                   >
                     {item.badge}
                   </span>
                 </div>
 
-                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.role}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-wider text-frame-accent">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <span className="text-[11px] font-black uppercase tracking-wider text-[#A855F7]">
                     Core Focus:
                   </span>
                   <ul className="mt-3 space-y-2">
                     {item.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90">
+                      <li key={pIdx} className="flex items-start gap-2 text-xs font-medium text-zinc-200">
                         <CheckIcon />
                         <span>{pt}</span>
                       </li>
@@ -131,17 +131,17 @@ export default function ServiceEcosystem() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-frame-border/60 pt-6">
+              <div className="mt-8 border-t border-white/[0.06] pt-6">
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-frame-accent hover:underline"
+                    className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#A855F7] hover:underline"
                   >
                     <span>{item.linkText}</span>
                     <span>&rarr;</span>
                   </Link>
                 ) : (
-                  <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
+                  <span className="text-xs font-black uppercase tracking-wider text-[#A855F7]">
                     {item.linkText}
                   </span>
                 )}

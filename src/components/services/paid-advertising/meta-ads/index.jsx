@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import Campaigns from './Campaigns'
@@ -14,25 +17,29 @@ import Timeline from './Timeline'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
-
-const marqueeItems = [
-  "Facebook & Instagram",
-  "Reels & Stories",
-  "Advantage+ Sales",
-  "Lead Generation",
-  "Creative Testing",
-  "Pixel & Conversions API",
-  "Retargeting"
-]
-
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
 import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
+const marqueeItems = [
+  "Facebook & Instagram Ads",
+  "Advantage+ Sales & Shopping",
+  "Reels & Stories Creative Testing",
+  "Conversions API (CAPI) Tracking",
+  "High-Intent Lead Generation",
+  "Catalog Dynamic Retargeting",
+  "WhatsApp & Messenger Campaigns",
+  "ROAS & Target CPA Scaling",
+  "100% Client BM Ownership",
+  "Dhaka & Global Media Delivery"
+]
+
 export default function PaidAdvertisingMetaAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="min-h-screen bg-[#09090B] text-white selection:bg-purple-500/30 selection:text-white">
       <Hero />
-      <TypeMarquee items={marqueeItems} slow />
+      <div className="border-b border-white/[0.08] bg-[#121214]/60 py-3 font-mono text-xs text-zinc-400">
+        <TypeMarquee items={marqueeItems} slow />
+      </div>
       <Overview />
       <Campaigns />
       <Includes />

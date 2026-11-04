@@ -88,7 +88,7 @@ export default async function CategoryPage({ params }) {
   );
 
   return (
-    <div className="min-h-screen bg-[#09090B] text-[#FAFAFA] font-sans">
+    <div className="min-h-screen bg-[#09090B] text-white font-sans relative overflow-hidden">
       <BreadcrumbJsonLd
         items={[
           { name: "Home", url: "/" },
@@ -96,35 +96,42 @@ export default async function CategoryPage({ params }) {
           { name: categoryName, url: `/blog/category/${catSlug}` },
         ]}
       />
-      <div className="pt-24 pb-14 px-4 sm:px-6 lg:px-8 border-b border-[#27272A] bg-linear-to-b from-[#130E1C] to-[#09090B]">
+
+      {/* Header Banner */}
+      <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 pt-32 pb-16 text-white sm:px-6 md:px-8 md:pt-40 md:pb-24">
         <div className="max-w-7xl mx-auto space-y-4">
-          <nav className="flex items-center gap-2 text-xs font-heading uppercase tracking-[0.2em] text-[#A1A1AA]">
-            <Link href="/" className="hover:text-white transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="h-3 w-3 text-[#71717A]" />
-            <Link href="/blog" className="hover:text-white transition-colors">
-              Blog
-            </Link>
-            <ChevronRight className="h-3 w-3 text-[#71717A]" />
-            <span className="text-frame-accent font-bold">{categoryName}</span>
+          <nav aria-label="Breadcrumb" className="sr-only">
+            <Link href="/">Home</Link>
+            <Link href="/blog">Blog</Link>
+            <span>{categoryName}</span>
           </nav>
 
-          <div className="space-y-2">
-            <span className="inline-block px-3 py-1 rounded-md text-[10px] font-mono font-bold uppercase tracking-wider bg-frame-accent/15 text-frame-accent border border-frame-accent/30">
-              Strategic Discipline Archive
-            </span>
-            <h1 className="text-3xl sm:text-5xl font-heading font-bold uppercase text-white tracking-tight">
-              {categoryName}
+          <div className="space-y-3">
+            <div className="flex items-center gap-3">
+              <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400">
+                FrameCipher Archive
+              </span>
+              <span className="h-1 w-1 rounded-full bg-zinc-600" />
+              <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                {categoryName}
+              </span>
+            </div>
+
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              {categoryName}{' '}
+              <span className="italic text-frame-accent">
+                Playbooks.
+              </span>
             </h1>
-            <p className="text-sm font-body text-[#A1A1AA] max-w-2xl leading-relaxed">
+
+            <p className="text-base sm:text-lg font-normal text-zinc-300 max-w-2xl leading-relaxed">
               Strategic articles, operational playbooks, and architecture breakdowns for {categoryName.toLowerCase()}.
             </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           <main className="lg:col-span-8 space-y-8 min-w-0">
             {categoryPosts.length > 0 ? (
@@ -132,12 +139,12 @@ export default async function CategoryPage({ params }) {
                 {categoryPosts.map((post) => (
                   <article
                     key={post.slug}
-                    className="group rounded-2xl bg-[#121216]/80 border-2 border-frame-border hover:border-frame-accent p-5 flex flex-col justify-between transition-all duration-300 shadow-md space-y-4"
+                    className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14] space-y-4"
                   >
                     {/* Card Featured Image */}
                     <Link
                       href={`/blog/${post.slug}`}
-                      className="block w-full h-48 rounded-xl overflow-hidden bg-[#09090B] border border-frame-border relative"
+                      className="block w-full h-48 rounded-lg overflow-hidden bg-[#09090B] border border-white/[0.08] relative aspect-video"
                     >
                       <img
                         src={post.featuredImage?.url || "/logo.png"}
@@ -145,59 +152,59 @@ export default async function CategoryPage({ params }) {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       />
                       <div className="absolute top-2.5 left-2.5">
-                        <span className="font-heading font-bold text-[10px] uppercase tracking-wider text-white bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
+                        <span className="font-mono text-[10px] uppercase tracking-wider text-white bg-black/80 backdrop-blur-md px-2.5 py-0.5 rounded border border-white/[0.08]">
                           {post.category}
                         </span>
                       </div>
                     </Link>
 
                     <div className="space-y-2.5 flex-1">
-                      <div className="flex items-center justify-between text-xs">
-                        <span className="text-[11px] text-frame-muted-fg font-body">
+                      <div className="flex items-center justify-between text-xs font-mono text-zinc-400">
+                        <span className="text-[11px]">
                           {post.publishDate}
                         </span>
-                        <div className="flex items-center gap-1 text-[11px] text-frame-muted-fg">
+                        <div className="flex items-center gap-1 text-[11px]">
                           <Clock className="h-3 w-3 text-frame-accent" />
                           <span>{post.readTime}</span>
                         </div>
                       </div>
 
                       <Link href={`/blog/${post.slug}`}>
-                        <h2 className="font-heading text-lg font-bold uppercase tracking-tight text-white group-hover:text-frame-accent transition-colors line-clamp-2 leading-snug">
+                        <h2 className="font-heading text-xl font-medium tracking-tight text-white group-hover:text-purple-300 transition-colors line-clamp-2 leading-snug">
                           {post.title}
                         </h2>
                       </Link>
 
-                      <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed line-clamp-3 wide:text-lg">
+                      <p className="text-sm font-normal text-zinc-400 leading-relaxed line-clamp-3">
                         {post.excerpt}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-frame-border flex items-center justify-between text-xs">
-                      <span className="text-[11px] text-frame-muted-fg font-body">
+                    <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+                      <span className="text-[11px] text-zinc-400 font-mono">
                         By {post.author.split(" ")[0]}
                       </span>
                       <Link
                         href={`/blog/${post.slug}`}
-                        className="font-heading font-bold uppercase tracking-wider text-xs text-frame-accent flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+                        className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-white transition-colors duration-200 group-hover:text-frame-accent"
                       >
                         <span>Read Blueprint</span>
-                        <ChevronRight className="h-3.5 w-3.5" />
+                        <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                       </Link>
                     </div>
                   </article>
                 ))}
               </div>
             ) : (
-              <div className="rounded-2xl bg-[#121216] border-2 border-frame-border p-6 text-center space-y-4 sm:p-12">
-                <BookOpen className="h-10 w-10 text-frame-muted-fg mx-auto opacity-50" />
-                <h3 className="font-heading text-xl font-bold uppercase text-white">No articles published yet</h3>
-                <p className="text-sm text-frame-muted-fg max-w-md mx-auto wide:text-lg">
+              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-14 text-center space-y-5">
+                <BookOpen className="h-10 w-10 text-zinc-500 mx-auto opacity-50" />
+                <h3 className="font-heading text-xl font-medium text-white">No articles published yet</h3>
+                <p className="text-sm text-zinc-400 max-w-md mx-auto">
                   Dispatches under {categoryName} are currently being prepared by our strategy team.
                 </p>
                 <Link
                   href="/blog"
-                  className="inline-block px-5 py-2.5 rounded-xl bg-frame-accent hover:bg-purple-600 text-white font-heading text-xs font-bold uppercase tracking-wider transition-colors"
+                  className="sw-btn sw-btn-primary"
                 >
                   View All Blog Articles
                 </Link>
@@ -217,4 +224,3 @@ export default async function CategoryPage({ params }) {
     </div>
   );
 }
-

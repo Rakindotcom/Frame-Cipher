@@ -61,7 +61,7 @@ export default function FAQ({ service }) {
   )
 
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
           eyebrow="Direct Clarity"
@@ -77,7 +77,7 @@ export default function FAQ({ service }) {
             placeholder="Search YouTube production questions..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border-2 border-frame-border bg-frame-muted/20 px-4 py-3 text-sm font-medium text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none wide:text-lg"
+            className="w-full border border-white/[0.08] bg-[#121214] px-4 py-3 text-sm font-medium text-[#FAFAFA] placeholder:text-[#A1A1AA] focus:border-[#A855F7]/40 focus:outline-none wide:text-lg"
           />
         </div>
 
@@ -86,34 +86,34 @@ export default function FAQ({ service }) {
           {filteredFaqs.map((faq, index) => (
             <details
               key={index}
-              className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
+              className="group border border-white/[0.08] bg-[#09090B] transition-colors open:border-[#A855F7]/40"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-5 md:p-6 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg hover:text-frame-accent marker:content-none">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-5 md:p-6 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-[#FAFAFA] hover:text-[#A855F7] marker:content-none">
                 <span>{faq.question}</span>
-                <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center border border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+                <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="border-t border-frame-border/60 p-5 md:p-6 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <div className="border-t border-white/[0.06] p-5 md:p-6 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                 {faq.answer}
               </div>
             </details>
           ))}
 
           {filteredFaqs.length === 0 && (
-            <p className="py-8 text-center text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <p className="py-8 text-center text-sm font-medium text-[#A1A1AA] wide:text-lg">
               No matching questions found. Contact our team directly.
             </p>
           )}
         </div>
 
         {/* FAQ FOOTER CTA */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-2 border-frame-accent/40 bg-frame-accent/5 p-6 sm:flex-row text-center sm:text-left">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-2 border-[#A855F7]/30 bg-[#A855F7]/[0.05] p-6 sm:flex-row text-center sm:text-left">
           <div>
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
               Have a Specific Production Question?
             </span>
-            <p className="mt-1 text-xs sm:text-sm font-medium text-frame-fg">
+            <p className="mt-1 text-xs sm:text-sm font-medium text-[#FAFAFA]">
               Our creative directors are ready to discuss your channel goals, formats, and budget.
             </p>
           </div>

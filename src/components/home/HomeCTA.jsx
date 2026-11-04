@@ -1,47 +1,29 @@
-import Link from 'next/link'
-
-function PosterButton({ href, children, variant = 'accent' }) {
-  const classes =
-    variant === 'accent'
-      ? 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:bg-transparent hover:text-frame-fg'
-      : 'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg'
-
-  return (
-    <Link
-      href={href}
-      className={`group inline-flex min-h-14 w-full sm:w-auto items-center justify-center gap-3 border-2 px-8 py-4 text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-12 md:text-base ${classes}`}
-    >
-      <span>{children}</span>
-      <span
-        aria-hidden="true"
-        className="transition-transform duration-200 group-hover:translate-x-1"
-      >
-        &rarr;
-      </span>
-    </Link>
-  )
-}
+import PosterButton from './PosterButton'
 
 export default function HomeCTA() {
   return (
-    <section className="border-t-2 border-frame-border px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="relative border-2 border-frame-border bg-frame-bg p-7 sm:p-10 md:p-14">
-          {/* Corner accents */}
-          <span className="absolute -left-1 -top-1 h-2 w-2 bg-frame-accent" aria-hidden="true" />
-          <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-frame-accent" aria-hidden="true" />
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.16] sm:p-10 md:p-16 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/60 before:to-transparent">
+          {/* Heading beside oversized directional arrow */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+              Bring us the brief.
+              <br />
+              <span className="italic text-frame-accent">
+                We will bring the system.
+              </span>
+            </h2>
+            <span
+              aria-hidden="true"
+              className="hidden lg:block select-none font-heading text-7xl xl:text-8xl font-medium leading-none text-white/20 shrink-0 transition-transform duration-300 group-hover:translate-x-3"
+            >
+              &rarr;
+            </span>
+          </div>
 
-          <p className="mb-4 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-            Next move / Strategy
-          </p>
-          <h2 className="font-heading text-[clamp(2.5rem,8vw,8.5rem)] font-bold uppercase leading-[0.82] tracking-tighter text-frame-fg">
-            Bring us the brief.
-            <br />
-            We will bring the system.
-          </h2>
-
-          <div className="mt-8 grid gap-8 border-t-2 border-frame-border/80 pt-8 lg:grid-cols-[1fr_0.65fr] lg:items-end lg:gap-12">
-            <p className="max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg sm:text-lg md:text-2xl">
+          <div className="mt-10 grid gap-8 border-t border-white/[0.08] pt-8 lg:grid-cols-[1fr_0.65fr] lg:items-end lg:gap-12">
+            <p className="max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
               Tell us what you are building, selling, launching, or fixing. We will shape the
               strategy, content, technology, and marketing path around it.
             </p>

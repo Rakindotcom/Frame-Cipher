@@ -1,134 +1,152 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Target, Server, FolderTree, Package, Check } from 'lucide-react'
 
 const factors = [
   {
     title: 'Buyer Intent Comes Before Traffic Volume',
-    body: [
-      'Not every search visitor is ready to buy. Someone searching a product name may be close to purchase, while another visitor may simply be researching options or comparing brands.',
-    ],
+    icon: Target,
+    lead: 'Not every keyword represents the same business opportunity. Someone searching for "how to choose running shoes" has different intent from someone searching for "buy running shoes online."',
+    subtext: 'We map keywords according to where the customer is in the buying journey. This can include:',
     points: [
-      'Product searches',
-      'Category searches',
-      'Brand searches',
-      'Model-specific queries',
-      'Comparison searches',
-      'Research queries',
-      'Educational or supporting topics',
+      'Informational intent',
+      'Commercial research intent',
+      'Category intent',
+      'Product intent',
+      'Brand intent',
+      'Model-specific intent',
+      'Transactional intent',
     ],
-    note: 'We map commercial and research intent to the right pages instead of chasing volume that never converts.',
+    summary: 'This helps prevent your store from targeting valuable searches with the wrong type of page.',
   },
   {
     title: 'Large Catalogs Create Technical Complexity',
-    body: [
-      'A store with thousands of products can create technical issues a small website never faces. Variants, filters, pagination, duplicates, and out-of-stock pages all need controlled handling.',
-    ],
+    icon: Server,
+    lead: 'Growing product catalogs can create SEO problems that are difficult to see from the customer-facing website.',
+    subtext: 'Common technical issues include:',
     points: [
-      'Duplicate product and variant pages',
-      'Filtered and faceted URLs',
-      'Pagination and load-more patterns',
-      'Crawl budget and indexation',
-      'Canonicalization and redirects',
-      'JavaScript rendering',
-      'Site speed and Core Web Vitals',
-      'Out-of-stock and discontinued products',
-      'Orphaned pages',
-      'XML sitemaps and indexation signals',
-      'Partial content duplication',
-      'Technical errors across templates',
+      'Duplicate URLs',
+      'Faceted navigation',
+      'Filter-generated pages',
+      'Product variants',
+      'Thin or near-duplicate pages',
+      'Incorrect canonical URLs',
+      'Crawl inefficiency',
+      'Orphaned products',
+      'Pagination issues',
+      'Out-of-stock products',
+      'Discontinued products',
     ],
-    note: 'A single technical decision can affect hundreds or thousands of product URLs at once.',
+    summary: 'We identify these problems and prioritize fixes based on their effect on crawling, indexing, visibility, and user experience.',
   },
   {
     title: 'Category Pages Often Drive Commercial Discovery',
-    body: [
-      'Customers frequently begin with a general search and discover products through category pages. These pages need to justify relevance to the search and help shoppers navigate toward a buying decision.',
-    ],
+    icon: FolderTree,
+    lead: 'Category pages help shoppers discover groups of related products. They can also target broader commercial searches than individual product pages.',
+    subtext: 'We optimize category pages around:',
     points: [
-      'Category keyword targeting',
-      'Search-intent alignment',
-      'Category titles and headings',
-      'Category descriptions',
-      'Subcategory structure',
-      'Internal linking',
+      'Relevant commercial keywords',
+      'Search intent',
+      'Useful category content',
+      'Logical product organization',
+      'Internal links',
+      'Subcategory relationships',
+      'Search-friendly headings',
       'Product discovery',
-      'Metadata',
-      'Breadcrumbs',
-      'Supporting category content',
+      'Helpful navigation',
     ],
-    note: 'We also manage keyword overlap between categories and products so important pages do not compete unnecessarily.',
+    summary: 'A strong category page should help both search engines and shoppers understand what the store offers.',
   },
   {
     title: 'Product Pages Need More Than Manufacturer Copy',
-    body: [
-      'A product page copied from the manufacturer rarely answers the questions real buyers ask. Useful product content helps both visibility and conversion.',
-    ],
+    icon: Package,
+    lead: 'Using the same manufacturer description as other stores can make it harder for a product page to provide unique value.',
+    subtext: 'We improve priority product pages with useful, customer-focused information. This may include:',
     points: [
-      'Product titles',
-      'Meta titles and descriptions',
-      'Product descriptions',
-      'Headings',
+      'Original product descriptions',
+      'Product benefits and features',
+      'Relevant specifications',
+      'Search-intent alignment',
       'Product attributes',
-      'Image optimization',
-      'Alt text',
-      'Product FAQs',
+      'Customer-focused FAQs',
       'Internal links',
       'Reviews and user-generated content',
+      'Clear calls to action',
       'Structured data',
-      'Canonical signals',
     ],
-    note: 'The result is a page that is relevant to search intent and useful to a shopper deciding what to buy.',
+    summary: 'The aim is to make important product pages more useful, relevant, and competitive in organic search.',
   },
 ]
 
 export default function WhyDifferent() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Why it&apos;s different"
-          title="Why Ecommerce SEO Is Different"
-        >
-          An ecommerce website can contain hundreds or thousands of URLs. Products, categories,
-          variants, filters, reviews, pagination, and inventory changes can all affect organic
-          search performance. That makes ecommerce SEO different from optimizing a typical
-          business website. A strong strategy must consider both search visibility and the
-          shopping journey.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Scale &amp; Mechanics // Beyond Basic SEO
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Why Ecommerce SEO{' '}
+            <span className="italic text-frame-accent">Is Different</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            An ecommerce website can contain hundreds or thousands of URLs. Products, categories, variants, filters, reviews, pagination, and inventory changes can all affect organic search performance.
+          </p>
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
+            That makes ecommerce SEO different from optimizing a typical business website. A strong strategy must consider both search visibility and the shopping journey.
+          </p>
+        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {factors.map((factor, index) => (
-            <div
-              key={factor.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Factor 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {factor.title}
-                </h3>
-                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {factor.body.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
-                  ))}
-                </div>
-                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {factor.points.map((point, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                {factor.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {factor.note}
+        {/* 4 Architectural Difference Cards */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          {factors.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 transition-colors hover:border-white/[0.16] hover:bg-[#151518]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">Factor 0{idx + 1}</span>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-xl sm:text-2xl font-semibold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.lead}
                   </p>
-                )}
+
+                  <p className="mt-2 text-xs font-mono uppercase tracking-wider text-frame-accent">
+                    {item.subtext}
+                  </p>
+
+                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.08] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] text-zinc-400 leading-relaxed italic">
+                    &rarr; {item.summary}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

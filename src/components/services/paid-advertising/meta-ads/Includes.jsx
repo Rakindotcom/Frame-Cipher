@@ -1,243 +1,217 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2 } from 'lucide-react'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const services = [
   {
     title: 'Account Audit & Campaign Strategy',
+    badge: 'Diagnostic & Architecture',
     body: [
       'We begin by understanding the business before changing the account.',
-      'For existing campaigns, we review the business and ad account structure, campaign objectives, conversion events, Pixel configuration, Conversions API setup where applicable, audience strategy, creative performance, frequency, cost per result, budget distribution, landing-page experience, and existing campaign history. For new campaigns, we define the objective, offer, customer journey, measurement framework, creative direction, and initial testing plan before launch.',
+      'For existing campaigns, we review business and ad account structure, campaign objectives, conversion events, Pixel configuration, Conversions API setup, audience strategy, creative performance, frequency, cost per result, budget distribution, landing-page experience, and historical campaign data.',
+      'For new campaigns, we define the objective, offer, customer journey, measurement framework, creative direction, and initial testing plan before launch.',
     ],
     bullets: [
-      'Business and ad account structure',
-      'Campaign objectives',
-      'Conversion events',
-      'Pixel configuration',
-      'Conversions API setup where applicable',
-      'Audience strategy',
-      'Creative performance',
-      'Frequency',
-      'Cost per result',
-      'Budget distribution',
-      'Landing-page experience',
-      'Existing campaign history',
+      'Business & ad account structure review',
+      'Pixel & Conversions API verification',
+      'Historical CPA & ROAS diagnostics',
+      'Creative fatigue & frequency audit',
+      'Audience overlap & cannibalization check',
+      'Offer & customer journey mapping',
+      'Budget allocation & pacing plan',
+      'Landing-page conversion flow review',
     ],
     note: 'The result is a strategy built around the business rather than a generic Meta Ads template.',
   },
   {
     title: 'Creative Strategy & Production',
+    badge: 'High-Impact Creative',
     body: [
       'Creative is one of the most important inputs in Meta advertising, particularly when campaigns are reaching people who are not actively searching for the product.',
-      'We do not treat "creative testing" as changing colors or headlines randomly. Each variation should test a meaningful hypothesis about the audience, offer, message, format, or proof.',
+      'We develop creative around customer problems, product benefits, offers, proof, objections, demonstrations, before-and-after narratives where appropriate, product use cases, testimonials, social proof, and brand differentiation.',
     ],
     bullets: [
-      'Customer problems',
-      'Product benefits',
-      'Offers',
-      'Proof',
-      'Objections',
-      'Demonstrations',
-      'Before-and-after narratives where appropriate',
-      'Product use cases',
-      'Testimonials',
-      'Social proof',
-      'Brand differentiation',
+      'Customer problem & hook research',
+      'Static direct response ad designs',
+      'Multi-slide storytelling carousels',
+      'Short-form vertical video & Reels',
+      'UGC-style product demonstrations',
+      'Social proof & testimonial integration',
+      'Multiple 3-second hook testing frames',
+      'Advantage+ creative asset adaptations',
     ],
-    bullets2Label: 'Creative formats can include',
-    bullets2: [
-      'Static ads',
-      'Carousels',
-      'Short-form video',
-      'Reels concepts',
-      'Story creatives',
-      'Product demonstrations',
-      'UGC-style concepts',
-      'Multiple hooks and opening frames',
-    ],
-    note: "Meta's current advertising ecosystem also includes Advantage+ creative tools that can help adapt or optimize creative assets for delivery, making creative diversity and asset quality increasingly important.",
+    note: 'Each variation tests a meaningful hypothesis about audience, offer, message, format, or proof—never random color changes.',
   },
   {
     title: 'Audience Strategy & Advantage+ Targeting',
+    badge: 'Audience Science',
     body: [
-      "Meta's targeting system has evolved beyond simply selecting interests and demographics. We combine appropriate first-party signals and audience inputs with Meta's automated delivery systems.",
-      "Meta's current Advantage+ audience system allows advertisers to provide audience information and signals while using Meta's delivery system to find people more likely to respond. Meta's own Blueprint training still covers detailed targeting, Custom Audiences, Lookalike Audiences, and Advantage+ audience as parts of audience planning. We therefore do not build a campaign around the assumption that a long list of interests automatically creates better targeting.",
+      'Meta\'s targeting system has evolved beyond simply selecting interests and demographics. We combine appropriate first-party signals and audience inputs with Meta\'s automated delivery systems.',
+      'Meta\'s current Advantage+ audience system allows advertisers to provide audience information and signals while using Meta\'s delivery system to find people more likely to respond.',
     ],
     bullets: [
-      'Location',
-      'Age and language where relevant',
-      'Customer lists',
-      'Website audiences',
-      'Engagement audiences',
-      'Purchase audiences',
-      'Custom Audiences',
-      'Lookalike signals',
-      'CRM data where supported',
-      'First-party conversion data',
-      'Advantage+ audience',
+      'Granular location & demographic filters',
+      'First-party customer list matching (CRM)',
+      'High-intent website visitor audiences',
+      'Video view & profile engagement pools',
+      'High-value purchase Custom Audiences',
+      'Value-based Lookalike Audiences',
+      'Advantage+ audience signal inputs',
+      'Broad targeting & algorithm training',
     ],
-    note: 'The audience strategy starts with the customer and the data available to teach the system, not with a long list of interests automatically creating better targeting.',
+    note: 'The audience strategy starts with the customer and the first-party data available to teach the delivery system.',
   },
   {
-    title: 'Pixel, Conversions API & Conversion Tracking',
+    title: 'Pixel, Conversions API & Tracking',
+    badge: 'Signal Resilience',
     body: [
-      'Meta optimization depends on useful conversion signals. We configure and review measurement for the actions that matter to the business.',
-      'Where appropriate, we use Meta Pixel together with Conversions API to improve the quality and resilience of event data. Conversions API creates a direct connection between business data and Meta technologies and can support measurement and campaign optimization. Meta\u2019s current training specifically presents CAPI as a way to improve ad delivery, measurement, and reporting. We also review event configuration, data consistency, and duplicate-event handling where both browser and server-side signals are used.',
+      'Meta optimization depends on useful conversion signals. Where appropriate, we use Meta Pixel together with Conversions API to improve the quality and resilience of event data.',
+      'Conversions API creates a direct connection between business data and Meta technologies to bypass browser ad-blockers and iOS privacy restrictions.',
     ],
     bullets: [
-      'Purchases',
-      'Leads',
-      'Add to cart',
-      'Checkout',
-      'Registration',
-      'Calls',
-      'Messages',
-      'Appointment requests',
-      'Other defined business events',
+      'Meta Pixel browser event tracking',
+      'Server-side Conversions API (CAPI)',
+      'Event deduplication & data consistency',
+      'Aggregated Event Measurement setup',
+      'Purchase value & currency parameters',
+      'Lead form & appointment tracking',
+      'Messenger & WhatsApp conversion tags',
+      'Downstream CRM sales feedback loops',
     ],
-    note: 'For lead-generation businesses, measurement can extend beyond the submitted form where the technical setup supports qualified-lead or downstream sales feedback.',
+    note: 'Accurate conversion signals train Meta\'s machine learning to bid for paying customers rather than passive window-shoppers.',
   },
   {
     title: 'Campaign, Budget & Delivery Optimization',
+    badge: 'Bid Management',
     body: [
       'Once campaigns are collecting reliable data, we monitor how spend is distributed and how campaigns are responding.',
-      'We do not make major changes simply to keep an account "active." The objective is to identify what the data is telling us, determine whether enough evidence exists to make a change, and then test or implement that change with a clear reason.',
+      'We do not make major changes simply to keep an account "active." The objective is to identify what the data is telling us, determine whether enough evidence exists, and implement changes with a clear reason.',
     ],
     bullets: [
-      'Budget allocation',
-      'Cost-per-result analysis',
-      'Conversion-volume analysis',
-      'Conversion-value analysis',
-      'Campaign consolidation',
-      'Audience refinement',
-      'Creative allocation',
-      'Placement analysis',
-      'Bid and delivery settings where applicable',
-      'Scaling and budget pacing',
-      'Underperforming campaign restructuring',
+      'Advantage Campaign Budget (CBO) tuning',
+      'Cost-per-result & Target CPA pacing',
+      'Conversion-volume & ROAS analysis',
+      'Campaign consolidation to unlock data',
+      'Audience segmentation & pruning',
+      'Placement analysis (Feed vs Reels)',
+      'Scaling winning ad sets with stability',
+      'Restructuring underperforming campaigns',
     ],
-    note: 'Changes are guided by evidence, not constant activity for the sake of activity.',
+    note: 'Decisions are driven by statistical confidence and unit economics rather than daily emotional tweaks.',
   },
   {
     title: 'Landing Page & Funnel Alignment',
+    badge: 'Post-Click CRO',
     body: [
       'The ad is only one part of the acquisition system. We review whether the post-click or post-message experience supports the same promise that the creative makes.',
     ],
     bullets: [
-      'Offer clarity',
-      'Landing-page relevance',
-      'Page speed',
-      'Mobile usability',
-      'Call-to-action clarity',
-      'Trust signals',
-      'Form friction',
-      'Product-page quality',
-      'Checkout experience',
-      'Messenger or WhatsApp handoff',
+      'Ad promise-to-headline congruency',
+      'Clear, immediate value propositions',
+      'Sub-second mobile page load speed',
+      'Friction-free mobile checkout flows',
+      'Trust badges, reviews & social proof',
+      'Lead form field reduction & testing',
+      'Product-page visual demonstration',
+      'Seamless WhatsApp/Messenger handoff',
     ],
-    note: 'Where needed, our in-house web and creative capabilities can support improvements to the landing page or conversion flow rather than treating the ad account as an isolated system.',
+    note: 'Our in-house web engineers optimize the landing page and chat flows so traffic converts into revenue.',
   },
   {
     title: 'Creative Testing & Fatigue Management',
+    badge: 'Performance Longevity',
     body: [
-      'Meta performance can change as audiences, competition, offers, and creative exposure change.',
-      'Creative refresh is based on actual performance and audience exposure, not a rigid rule that every ad must be replaced after an arbitrary number of days.',
+      'Meta performance can change as audiences, competition, offers, and creative exposure change. We monitor signals such as frequency, CTR, CPA, and audience size to refresh creative before fatigue sets in.',
     ],
     bullets: [
-      'Frequency',
-      'Cost per result',
-      'CTR',
-      'Conversion rate',
-      'Creative-level performance',
-      'Audience size',
-      'Spend concentration',
-      'Comment sentiment',
-      'Purchase or lead quality',
+      'Ad frequency threshold monitoring',
+      'Click-through rate (CTR) fatigue tracking',
+      'Cost-per-result trend surveillance',
+      'Creative-level spend concentration',
+      'Systematic hook variation deployment',
+      'New format exploration (Reels vs Static)',
+      'Comment sentiment & moderation check',
+      'Multiple winning creative backups',
     ],
-    note: 'We keep multiple meaningful creative angles available so the account is not dependent on one winning asset.',
+    note: 'Creative refresh is based on real performance data and audience exposure, keeping your account insulated from sudden CPA spikes.',
   },
   {
     title: 'Reporting & Attribution',
+    badge: 'Executive Clarity',
     body: [
       'Reporting should explain what happened and what should happen next. We distinguish platform-reported performance from broader business results wherever the measurement setup allows us to do so.',
     ],
     bullets: [
-      'Ad spend',
-      'Reach',
-      'Impressions',
-      'Frequency',
-      'Clicks',
-      'Leads',
-      'Purchases',
-      'Cost per result',
-      'Conversion rate',
-      'Revenue where measurable',
-      'ROAS where meaningful',
-      'Creative performance',
-      'Audience performance',
-      'Market performance',
-      'Key changes',
-      'Recommended next actions',
+      'Transparent net ad spend reporting',
+      'Cost per lead & cost per acquisition',
+      'Blended ROAS & verified revenue',
+      'Creative-by-creative winner rankings',
+      'Placement & device breakdown logs',
+      'Audience signal performance comparisons',
+      'Platform vs internal CRM data alignment',
+      'Executive roadmap & next testing sprints',
     ],
+    note: 'Actionable executive insights that connect Meta ad spend directly with bankable business progression.',
   },
 ]
 
 export default function Includes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Capabilities & scope"
-          title="What Our Meta Ads Management Service Includes"
-        >
-          Meta Ads management covers strategy, creative, audience inputs, conversion tracking,
-          budget optimization, and reporting. Each part is managed as one connected process.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Eyebrow & Headline */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What Our Meta Ads Management{' '}
+            <span className="italic text-frame-accent">Service Includes.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            From creative strategy and production to server-side Conversions API and Advantage+ campaign scaling, we manage every component as one unified growth system.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* Modality 3 Blueprint Matrix (8 Core Deliverables) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((item, index) => (
-            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Service 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <div
+              key={item.title}
+              className="relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-9 transition-colors duration-200 hover:border-white/[0.14] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+            >
+              <div className="space-y-5">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <div className="space-y-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   {item.body.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
+                    <p key={pIdx}>
+                      <AutoLinks currentPath="/services/paid-advertising/meta-ads" allowed={["/services/content-creation/video-production"]}>
+                        {paragraph}
+                      </AutoLinks>
+                    </p>
                   ))}
                 </div>
-                {item.bullets?.length > 0 && (
-                  <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
+
+                <div className="pt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-zinc-300">
                     {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
+                      <div key={bIdx} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
                         <span className="leading-snug">{bullet}</span>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
-                )}
-                {item.bullets2?.length > 0 && (
-                  <div className="mt-5">
-                    <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      {item.bullets2Label}:
-                    </span>
-                    <ul className="mt-2 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                      {item.bullets2.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span className="leading-snug">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
                   </div>
-                )}
-                {item.note && (
-                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </div>
-                )}
+                </div>
               </div>
+
+              {item.note && (
+                <div className="mt-6 rounded-lg border-l-2 border-frame-accent bg-[#09090B] p-4 text-xs font-normal leading-relaxed text-zinc-400">
+                  <span className="font-semibold text-zinc-300">Standard: </span>
+                  {item.note}
+                </div>
+              )}
             </div>
           ))}
         </div>

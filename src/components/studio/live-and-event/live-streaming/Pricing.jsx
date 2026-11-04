@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for live-streaming — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for live-streaming: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Live Streaming Rates in Dhaka",
@@ -66,7 +66,7 @@ const DATA = {
     "Simulcast platforms and recording backup scope",
     "Highlight recap turnaround: 72-hour standard, same-day adds crew"
   ],
-  "marketNote": "Dhaka live-streaming market rates run ৳15,000 for a basic single-HD-camera 4-hour Facebook stream, ৳25,000 for two cameras with switching, and ৳50,000 for four-camera broadcast productions (GOCON published rates). Dedicated streaming services quote around ৳20,000 per event (BackspaceX). Our ৳18,000 entry matches the market floor while adding bonded redundancy and pro audio that budget streams skip — the two failure points that ruin reputations.",
+  "marketNote": "Dhaka live-streaming market rates run ৳15,000 for a basic single-HD-camera 4-hour Facebook stream, ৳25,000 for two cameras with switching, and ৳50,000 for four-camera broadcast productions (GOCON published rates). Dedicated streaming services quote around ৳20,000 per event (BackspaceX). Our ৳18,000 entry matches the market floor while adding bonded redundancy and pro audio that budget streams skip, the two failure points that ruin reputations.",
   "costRows": [
     [
       "Single-camera stream, pro audio + graphics (2h)",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Live Streaming Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

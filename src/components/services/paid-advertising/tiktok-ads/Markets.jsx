@@ -1,103 +1,72 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
-
-const areas = [
-  {
-    market: 'Bangladesh',
-    body: 'We manage TikTok advertising for businesses targeting customers across Bangladesh. Campaign planning can account for Bangla or English creative, local consumer behavior, Bangladesh-specific offers, geographic targeting, local landing pages, lead-generation requirements, and website and ecommerce conversions.',
-    label: 'Campaign planning can account for',
-    bullets: [
-      'Bangla or English creative',
-      'Local consumer behavior',
-      'Bangladesh-specific offers',
-      'Geographic targeting',
-      'Local landing pages',
-      'Lead-generation requirements',
-      'Website and ecommerce conversions',
-    ],
-    note: 'TikTok advertising availability and targeting options depend on the advertising account and market configuration, so we verify the available setup before launch.',
-    featured: true,
-  },
-  {
-    market: 'US',
-    body: 'For US campaigns, we adapt creative offers, landing pages, audience strategy, and conversion tracking around the specific customer segment and business model.',
-  },
-  {
-    market: 'UK',
-    body: 'UK campaigns require market-specific creative and offer considerations rather than simply reusing Bangladesh advertising assets. For eligible ecommerce businesses, TikTok Shop advertising may also be available in the UK.',
-  },
-  {
-    market: 'Australia',
-    body: 'We can manage campaigns targeting Australian audiences with market-specific creative, geographic targeting, and conversion tracking.',
-  },
-  {
-    market: 'Canada',
-    body: 'For Canadian campaigns, we build audience and creative strategies around the business\u2019s specific customer segments and acquisition goals.',
-  },
-  {
-    market: 'UAE',
-    body: 'We can adapt TikTok advertising for UAE audiences with consideration for language, location, customer behavior, offer structure, and conversion goals.',
-  },
-  {
-    market: 'Other Eligible Markets',
-    body: 'Framecipher can support campaigns beyond these markets where TikTok advertising features, account eligibility, targeting, and relevant campaign objectives are available. We confirm market and feature availability before promising a specific TikTok advertising workflow.',
-  },
-]
+import React from 'react'
+import { MapPin, Globe, CheckCircle2 } from 'lucide-react'
 
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Where we work"
-          title="TikTok Ads Management for Bangladesh and Global Markets"
-        >
-          Campaign structure, creative, targeting, offers, and measurement are adapted to the
-          target market rather than copied from a single-region setup.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Ads for Bangladesh and{' '}
+            <span className="italic text-frame-accent">Global Markets.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            From local Bangla campaigns targeting consumers in Dhaka and regional districts to international campaigns scaled across North America, Europe, Australia, and the Middle East.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {areas.map((item, index) => (
-            <div
-              key={index}
-              className={
-                item.featured
-                  ? 'flex flex-col border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-8 xl:col-span-2'
-                  : 'flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8'
-              }
-            >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Market 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.market}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/tiktok-ads" allowed={["/services/website-design-development/landing-pages"]}>
-                {item.body}
-              </AutoLinks></p>
-              {item.bullets?.length > 0 && (
-                <div className="mt-5">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {item.label}:
-                  </span>
-                  <ul className="mt-3 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                    {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Bangladesh Market Card */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]">
+            <h3 className="font-heading text-2xl font-medium text-white mb-3">
+              Bangladesh Domestic Campaigns
+            </h3>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              We manage TikTok advertising targeting audiences across Bangladesh. We craft campaigns in native Bangla or English, accounting for local cultural nuances, regional consumer behavior, and mobile browsing habits.
+            </p>
+
+            <div className="space-y-3 pt-4 border-t border-white/[0.06]">
+              {[
+                'Native Bangla scripting, voiceovers, and localized video hooks',
+                'Bangladesh-specific offers, cash-on-delivery (COD), and bKash flows',
+                'Local lead generation for education, healthcare, and consumer services',
+                'Pre-flight verification of advertiser account registration and availability',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
                 </div>
-              )}
-              {item.note && (
-                <p className="mt-5 border-t border-frame-accent/40 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.note}
-                </p>
-              )}
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Global Markets Card */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]">
+            <h3 className="font-heading text-2xl font-medium text-white mb-3">
+              US, UK, Canada, Australia &amp; UAE
+            </h3>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              For export brands, software companies, and international ecommerce operators, we build localized campaigns matching purchasing power, cultural formats, and platform capabilities.
+            </p>
+
+            <div className="space-y-3 pt-4 border-t border-white/[0.06]">
+              {[
+                'US & UK market-specific creative testing and high-converting hooks',
+                'TikTok Shop & GMV Max campaign execution in supported territories',
+                'Australia, Canada, and UAE localized currency and shipping routing',
+                'Country-level ROAS, CPA, and attribution dashboards in GA4',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

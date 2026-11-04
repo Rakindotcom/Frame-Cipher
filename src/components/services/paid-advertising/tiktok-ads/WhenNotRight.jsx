@@ -1,47 +1,45 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const signals = [
-  'The target audience is difficult to reach on TikTok',
-  'The product has little visual or creative appeal',
-  'The landing page or offer is not conversion-ready',
-  'The business cannot support regular creative testing',
-  'The available market has limited TikTok advertising or commerce functionality',
-  'The sales cycle requires a channel better suited to high-intent search',
-  'There is not enough budget for meaningful testing',
+import React from 'react'
+import { AlertTriangle, XCircle } from 'lucide-react'
+
+const reasonsNotRight = [
+  'The target audience has virtually no active user presence on TikTok.',
+  'The product or service has little visual, demonstrative, or narrative appeal.',
+  'The destination landing page, pricing, or checkout offer is not conversion-ready.',
+  'The business cannot support ongoing creative production and video testing.',
+  'The target market has restricted TikTok advertising or commerce functionality.',
+  'The sales cycle requires high-intent search (where Google Search Ads excels).',
+  'There is insufficient monthly budget to support statistically valid creative testing.',
 ]
 
 export default function WhenNotRight() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Honest channel fit"
-          title="When TikTok Ads May Not Be the Right Primary Channel"
-        >
-          TikTok is not automatically the right paid channel for every business.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12">
+          <div className="flex items-center gap-3 mb-4">
+            <span className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-yellow-500/30 bg-yellow-500/10 text-yellow-400">
+              <AlertTriangle className="h-5 w-5" />
+            </span>
+            <div>
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+                When TikTok Ads May Not Be Your Primary Channel
+              </h3>
+            </div>
+          </div>
 
-        <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-10">
-          <p className="text-base font-medium leading-relaxed text-frame-fg md:text-lg">
-            It may not be the best primary channel when:
+          <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed mb-6 max-w-3xl">
+            TikTok is not automatically the right primary paid channel for every business model. In these scenarios, another acquisition channel (such as Google Ads or LinkedIn Ads) may deserve priority:
           </p>
-          <ul className="mt-6 space-y-3">
-            {signals.map((item, index) => (
-              <li key={index} className="flex items-start gap-4 border-b border-frame-border/60 pb-3">
-                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-border text-frame-muted-fg">
-                  <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </span>
-                <span className="text-sm md:text-base font-semibold text-frame-fg/90">{item}</span>
-              </li>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-2">
+            {reasonsNotRight.map((reason, idx) => (
+              <div key={idx} className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3.5">
+                <XCircle className="h-4 w-4 text-zinc-500 shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm text-zinc-300 leading-snug">{reason}</span>
+              </div>
             ))}
-          </ul>
-          <div className="mt-6 border-l-2 border-frame-accent bg-frame-bg p-5">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-              In these situations, another channel may deserve priority, or TikTok may work
-              better as part of a broader paid media strategy.
-            </p>
           </div>
         </div>
       </div>

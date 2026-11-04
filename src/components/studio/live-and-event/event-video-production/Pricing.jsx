@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for event-video-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for event-video-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Event Videography Rates in Dhaka",
@@ -36,7 +36,7 @@ const DATA = {
         "2 videographers: locked stage + roaming audience",
         "Wireless lavaliers for VIPs plus board feed",
         "Exhibition booth and sponsor branding coverage",
-        "2–4 minute cinematic aftermovie + 24h teaser",
+        "2 to 4 minute cinematic aftermovie + 24h teaser",
         "Interview corner for delegate testimonials",
         "Drone slot coordination where venue permits"
       ]
@@ -44,7 +44,7 @@ const DATA = {
     {
       "name": "Multi-Day Summit",
       "price": "৳1,25,000+",
-      "priceNote": "2–3 days",
+      "priceNote": "2 to 3 days",
       "tag": "Expos & Conferences",
       "cta": "Request Multi-Day Summit",
       "description": "Summit-scale documentation across halls and days, with daily social drops and a flagship recap film.",
@@ -66,7 +66,7 @@ const DATA = {
     "Teaser speed: 24-hour standard vs same-day edit",
     "Aftermovie length, grade and vertical cutdown count"
   ],
-  "marketNote": "Dhaka event filming runs ৳20,000–50,000 per day for seminars and launches including highlight reels (Brandtics 2025), with premium multi-day conference crews priced by headcount and turnaround. Same-day edits command 25–40% premiums market-wide. Our 24-hour teaser is standard — not a surcharge — because post-event PR windows close within a day and late highlights lose most of their earned-media value.",
+  "marketNote": "Dhaka event filming runs ৳20,000 to 50,000 per day for seminars and launches including highlight reels (Brandtics 2025), with premium multi-day conference crews priced by headcount and turnaround. Same-day edits command 25 to 40% premiums market-wide. Our 24-hour teaser is standard, not a surcharge: because post-event PR windows close within a day and late highlights lose most of their earned-media value.",
   "costRows": [
     [
       "Half-day single crew + 24h teaser",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Event Videography Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
@@ -203,7 +203,7 @@ export default function Pricing() {
             </dl>
           )}
           <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-            Event shoots happen on-location across Bangladesh — convention halls, expos and resorts — with the studio
+            Event shoots happen on-location across Bangladesh: convention halls, expos and resorts, with the studio
             at ECB Chattar as base for interview corners, editing and backup power on every booking.
           </p>
         </div>

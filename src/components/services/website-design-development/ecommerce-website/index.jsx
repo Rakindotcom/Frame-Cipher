@@ -25,12 +25,12 @@ const ecommerceKeywords = [
 
 export default function WebsiteDesignDevelopmentEcommerceWebsiteService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={ecommerceKeywords} slow />
       <WebsitePortfolioPreview
         category="ecommerce-website"
-        eyebrow="Case Studies / Verified Commerce"
+        eyebrow="Case Studies // Verified Commerce"
         title="Our E-commerce Website Development Portfolio"
         description="Explore selected ecommerce projects built around real products, customer journeys, and business requirements. Our ecommerce work may include Shopify stores, WooCommerce websites, custom storefronts, product catalogs, payment integrations, and conversion-focused shopping experiences. For each project, we focus on product discovery, mobile usability, checkout flow, performance, and the operational requirements that support the business behind the store."
         buttonText="View Project →"

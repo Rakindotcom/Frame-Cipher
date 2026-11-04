@@ -1,116 +1,124 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const audiences = [
+import React from 'react'
+import {
+  Briefcase,
+  MapPin,
+  Laptop,
+  GraduationCap,
+  Shield,
+  PhoneCall,
+  CheckCircle2,
+} from 'lucide-react'
+
+const verticals = [
   {
+    icon: Briefcase,
     title: 'B2B & Professional Services',
-    body: 'Longer sales cycles can benefit from CRM-based qualification and downstream conversion tracking.',
-    label: 'Useful for businesses selling',
-    items: [
-      'Consulting',
-      'Technology',
-      'SaaS',
-      'Agencies',
-      'Professional services',
-      'Business solutions',
-      'Enterprise services',
+    desc: 'Management consultancies, IT service providers, legal firms, and corporate solutions requiring multi-touch pipeline nurturing and committee consensus.',
+    deliverables: [
+      'Account-based targeting on LinkedIn & Google Search',
+      'Executive whitepaper and assessment lead funnels',
+      'CRM integration for MQL/SQL lifecycle tracking',
     ],
   },
   {
-    title: 'Local Service Businesses',
-    body: 'Campaigns can be structured around geographic demand and the contact method most appropriate for the business.',
-    label: 'Lead generation ads can support',
-    items: [
-      'Consultations',
-      'Quote requests',
-      'Phone inquiries',
-      'Appointments',
-      'Service bookings',
-      'Local inquiries',
+    icon: MapPin,
+    title: 'Local & Regional Services',
+    desc: 'Healthcare clinics, home improvement, commercial contractors, and financial advisors seeking high-intent local phone calls and booked appointments.',
+    deliverables: [
+      'High-intent localized Google Search campaigns',
+      'Click-to-Call and WhatsApp instant consultation ads',
+      'Radius-based demographic and postal code exclusions',
     ],
   },
   {
-    title: 'SaaS & Technology Businesses',
-    body: 'Lead campaigns can support the software evaluation and trial journey.',
-    label: 'Lead campaigns can support',
-    items: [
-      'Demo requests',
-      'Free trials',
-      'Product consultations',
-      'Enterprise inquiries',
-      'Webinar registrations',
-      'Sales conversations',
+    icon: Laptop,
+    title: 'SaaS & Enterprise Technology',
+    desc: 'Software companies driving qualified product demos, sandbox trials, and executive sales consultations with decision-makers.',
+    deliverables: [
+      'Demo request landing pages with automated calendar booking',
+      'Pre-qualified job seniority and company size filters',
+      'Downstream product usage and trial conversion tracking',
     ],
   },
   {
-    title: 'Education & Training',
-    body: 'Campaigns can generate interest for courses and programs.',
-    label: 'Campaigns can generate',
-    items: [
-      'Course inquiries',
-      'Admission leads',
-      'Consultation requests',
-      'Program information requests',
-      'Webinar registrations',
+    icon: GraduationCap,
+    title: 'Education & Professional Training',
+    desc: 'Executive academies, universities, certification bodies, and specialized bootcamps enrolling high-value students and corporate cohorts.',
+    deliverables: [
+      'Course curriculum download and syllabus inquiry funnels',
+      'Admission counselor direct phone routing',
+      'Webinar registration and automated nurture sequencing',
     ],
   },
   {
-    title: 'High-Ticket Services',
-    body: 'For expensive or complex purchases, lead generation can help turn research activity into qualified conversations.',
-    label: 'Examples include',
-    items: [
-      'Business services',
-      'Real estate',
-      'Technology solutions',
-      'Professional services',
-      'High-value consulting',
-      'Specialized services',
+    icon: Shield,
+    title: 'High-Ticket & Complex Purchases',
+    desc: 'Commercial real estate developers, luxury brands, and specialized industrial equipment suppliers where single deals represent massive LTV.',
+    deliverables: [
+      'De-risked consultation and private viewing workflows',
+      'Extended 90-day consideration retargeting sequences',
+      'Offline contract tracking tied back to ad source',
     ],
   },
   {
-    title: 'Consultation-Based Businesses',
-    body: 'Businesses that sell through calls, meetings, consultations, or assessments can use lead campaigns when the sales process is clearly defined.',
+    icon: PhoneCall,
+    title: 'Consultation & Discovery Sales',
+    desc: 'Advisory agencies and service businesses that close high-margin contracts through strategy sessions, discovery calls, and diagnostic audits.',
+    deliverables: [
+      'Diagnostic audit and strategy session application forms',
+      'Pre-qualification budget and timeline dropdowns',
+      'Automated SMS reminders to reduce consultation no-shows',
+    ],
   },
 ]
 
 export default function WhoFor() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Fit" title="Who Is Lead Generation Ads For?">
-          Lead generation campaigns fit businesses where an inquiry, call, booking, or consultation
-          is a meaningful step toward a customer.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Who Is Lead Generation{' '}
+            <span className="italic text-frame-accent">Ads For?</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Our lead acquisition frameworks are purpose-built for businesses whose sales models depend on qualified human conversations, proposals, and consultative closing.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {audiences.map((audience) => (
-            <div
-              key={audience.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {audience.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {audience.body}
-              </p>
-              {audience.items && (
-                <>
-                  <p className="mb-3 mt-5 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                    {audience.label}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {verticals.map((v) => {
+            const Icon = v.icon
+            return (
+              <div
+                key={v.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-xl font-medium text-white mb-2">
+                    {v.title}
+                  </h3>
+                  <p className="text-sm text-zinc-400 font-normal leading-relaxed mb-6">
+                    {v.desc}
                   </p>
-                  <ul className="space-y-2.5">
-                    {audience.items.map((item) => (
-                      <li key={item} className="flex items-start gap-2 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              )}
-            </div>
-          ))}
+                </div>
+
+                <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                  {v.deliverables.map((item) => (
+                    <div key={item} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

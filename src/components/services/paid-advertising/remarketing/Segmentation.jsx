@@ -1,140 +1,122 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const audiences = [
+import React from 'react'
+import {
+  Globe,
+  Eye,
+  ShoppingCart,
+  FileText,
+  PlayCircle,
+  Award,
+  Database,
+  ArrowRight,
+} from 'lucide-react'
+
+const segments = [
   {
-    title: 'Site Visitors',
-    body: 'People who visited your website but did not take a meaningful conversion action.',
-    label: 'Possible strategies include',
-    items: [
-      'Brand reassurance',
-      'Educational content',
-      'Service benefits',
-      'Product discovery',
-      'Social proof',
-      'Category-specific messaging',
-    ],
+    icon: Globe,
+    title: 'General Site Visitors',
+    stage: 'Top-of-Funnel Re-engagement',
+    desc: 'People who explored non-transactional pages but exited without meaningful action.',
+    messaging: 'Brand authority, educational articles, core value propositions, social proof, and high-level product discovery.',
   },
   {
+    icon: Eye,
     title: 'Product & Service Viewers',
-    body: 'People who viewed a specific product or service page without converting. Dynamic or page-specific remarketing can make the message more relevant by reflecting the content they previously explored.',
+    stage: 'Mid-Funnel Consideration',
+    desc: 'Prospects who spent time on specific product detail or service solution pages.',
+    messaging: 'Dynamic ads showcasing the exact items viewed, feature comparisons, customer case studies, and FAQ objection handling.',
   },
   {
+    icon: ShoppingCart,
     title: 'Cart & Checkout Abandoners',
-    body: 'These are typically among the highest-intent pre-purchase audiences.',
-    label: 'Depending on the business, messaging can include',
-    items: [
-      'Product reminders',
-      'Reviews',
-      'Benefits',
-      'Objection handling',
-      'Shipping information',
-      'Relevant offers',
-    ],
+    stage: 'High-Intent Decision Window',
+    desc: 'Shoppers who added products to cart or initiated checkout before bouncing.',
+    messaging: 'Urgent reminder banners, free shipping notices, trust guarantees, customer review quotes, and limited-time incentives.',
   },
   {
+    icon: FileText,
     title: 'Lead & Form Abandoners',
-    body: 'For lead-generation businesses, people who visit a service page or start a form can be treated differently from general website visitors.',
-    label: 'We can build audiences around actions such as',
-    items: [
-      'Service-page views',
-      'Pricing-page visits',
-      'Form starts',
-      'Form abandonment',
-      'Content engagement',
-      'Consultation-page visits',
-    ],
+    stage: 'High-Value Pipeline Capture',
+    desc: 'Users who started completing a consultation form, demo request, or pricing contact but stopped.',
+    messaging: 'De-risking messages, calendar booking links, WhatsApp direct chat CTAs, and enterprise trust credentials.',
   },
   {
-    title: 'Engaged Audiences',
-    body: 'People can show interest without visiting your website.',
-    label: 'Depending on the platform, relevant signals can include',
-    items: [
-      'Video engagement',
-      'Social engagement',
-      'Content interaction',
-      'Pin engagement',
-      'Ad interaction',
-      'Previous campaign engagement',
-    ],
+    icon: PlayCircle,
+    title: 'In-Platform Engaged Audiences',
+    stage: 'Platform Native Interest',
+    desc: 'Users who watched 50%+ of your video, engaged with Instagram/TikTok content, or saved Pins.',
+    messaging: 'Guiding engaged social followers toward your owned website assets, high-value lead magnets, and flagship offerings.',
   },
   {
-    title: 'Past Purchasers & Existing Customers',
-    body: 'Past customers can be segmented with customer exclusions preventing acquisition campaigns from unnecessarily targeting people who have already converted.',
-    label: 'Past customers can be segmented for',
-    items: [
-      'Cross-sell',
-      'Upsell',
-      'Replenishment',
-      'New product launches',
-      'Loyalty messaging',
-      'Win-back campaigns',
-    ],
+    icon: Award,
+    title: 'Past Purchasers & Customers',
+    stage: 'Retention & Lifetime Value (LTV)',
+    desc: 'Verified customers who have already purchased from your brand.',
+    messaging: 'Complementary cross-sell accessories, premium tier upsells, automated replenishment reminders, and VIP loyalty rewards.',
   },
   {
-    title: 'CRM & Customer Lists',
-    body: 'First-party CRM and customer data can support audience inclusion and exclusion strategies where the platform, consent requirements, and data format allow it.',
-    label: 'We can work with',
-    items: [
-      'Customer lists',
-      'Lead lists',
-      'Qualified lead lists',
-      'Existing customer segments',
-      'Sales opportunity lists',
-      'High-value customer groups',
-    ],
+    icon: Database,
+    title: 'CRM & First-Party Lists',
+    stage: 'Enterprise Strategic Targeting',
+    desc: 'Offline customer lists, newsletter subscribers, and stalled sales pipeline opportunities.',
+    messaging: 'Account-based marketing (ABM) touchpoints, win-back discounts for inactive accounts, and product update announcements.',
   },
 ]
 
 export default function Segmentation() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Structure" title="Audience Segmentation for Smarter Remarketing">
-          Remarketing starts with understanding who should receive which message.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Audience Segmentation for{' '}
+            <span className="italic text-frame-accent">Smarter Remarketing.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Remarketing starts with knowing exactly who should receive which message. We architect granular audience segments mapped directly to behavioral depth, intent, and buying stages.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {audiences.map((audience, index) => (
-            <div
-              key={audience.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent md:p-12"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {segments.map((seg, idx) => {
+            const Icon = seg.icon
+            return (
+              <div
+                key={seg.title}
+                className={`rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between ${
+                  idx === 6 ? 'md:col-span-2 lg:col-span-3' : ''
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      {seg.stage}
                     </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                    {audience.title}
+
+                  <h3 className="font-heading text-xl font-medium text-white mb-2">
+                    {seg.title}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {audience.body}
+                  <p className="text-sm text-zinc-400 font-normal leading-relaxed mb-4">
+                    {seg.desc}
                   </p>
                 </div>
 
-                {audience.items && (
-                  <div className="lg:w-1/2">
-                    {audience.label && (
-                      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                        {audience.label}
-                      </p>
-                    )}
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {audience.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                <div className="pt-4 border-t border-white/[0.06] rounded-lg bg-black/30 p-3.5">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 font-semibold block mb-1">
+                    Recommended Messaging Strategy:
+                  </span>
+                  <p className="text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
+                    {seg.messaging}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

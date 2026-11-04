@@ -4,15 +4,15 @@ export default function ProjectsPaidAdsSection({ projects }) {
   if (!projects || projects.length === 0) return null
 
   return (
-    <section id="paid-ads-work" className="scroll-mt-36 border-b-2 border-frame-border px-4 py-14 md:px-8 md:py-20">
+    <section id="paid-ads-work" className="relative isolate scroll-mt-36 border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white md:px-8 md:py-24">
       <div id="performance-work" className="-mt-36 pt-36" aria-hidden="true" />
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionHeading
           number="05"
           title="Paid advertising"
           count={`${projects.length} project${projects.length === 1 ? '' : 's'}`}
         />
-        <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
+        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-12">
           {projects.map((project, index) => (
             <ProjectCard
               key={project.slug}

@@ -481,9 +481,9 @@ function isCurrentPage(targetHref, currentSlug = '') {
  *
  * Two sources of anchors are merged, longest phrase wins:
  *   1. Index anchors derived from the destination pages themselves
- *      (`internalLinkIndex.js`, tiers 1-2) — the anchor is guaranteed to
+ *      (`internalLinkIndex.js`, tiers 1-2): the anchor is guaranteed to
  *      describe the page it points at.
- *   2. The curated dictionary below (tier 3) — calculators, studio bridges,
+ *   2. The curated dictionary below (tier 3): calculators, studio bridges,
  *      case-study proof and direct conversion links.
  *
  * @param {string} text - The raw paragraph string.

@@ -1,208 +1,284 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React, { useState } from 'react'
+import {
+  Settings,
+  Search,
+  ShoppingBag,
+  Briefcase,
+  Users,
+  Sparkles,
+  Activity,
+  ArrowRightLeft,
+  CheckCircle2,
+  ChevronRight,
+} from 'lucide-react'
 
 const services = [
   {
-    title: 'Campaign Strategy & Account Setup',
-    body: 'Effective Microsoft Ads management starts with understanding the business, market, offer, conversion path, and available search demand. We review the account structure and build campaigns around the actual business objective rather than defaulting to a copied Google Ads setup.',
-    items: [
-      'Campaign objective and account structure',
-      'Search, Shopping, Audience, and other campaign-type selection',
-      'Budget and bidding strategy',
-      'Geographic and market planning',
-      'Keyword and match-type strategy',
-      'Audience strategy',
-      'Landing-page review',
-      'Conversion tracking plan',
-      'Competitor and search-term research',
-      'Initial reporting framework',
+    id: 'strategy',
+    icon: Settings,
+    name: 'Campaign Strategy & Setup',
+    subtitle: 'Account Architecture & Planning',
+    desc: 'Effective Microsoft Ads management starts with understanding the business, market, offer, conversion path, and available search demand rather than blindly importing a Google Ads setup.',
+    deliverables: [
+      'Campaign objective and multi-tier account hierarchy setup',
+      'Search, Shopping, and Audience campaign-type selection',
+      'Budget allocation and target CPA/ROAS bidding calibration',
+      'Geographic targeting and localized keyword match-type planning',
+      'Landing-page message-match and funnel review',
+      'UET and server conversion tracking blueprint',
+      'Competitor search query landscape and benchmark analysis',
+      'Standardized naming conventions and reporting dashboards',
     ],
-    note: 'The right structure depends on whether the campaign is designed for qualified leads, ecommerce purchases, traffic, remarketing, or another measurable business outcome.',
+    technicalNote:
+      'We assess whether campaigns are structured for high-intent B2B inquiries, ecommerce purchases, or remarketing, applying platform-specific network parameters.',
   },
   {
-    title: 'Search Ads Management',
-    body: 'Search is often the core of a Microsoft Ads account. We build and manage Search campaigns around the queries, offers, and conversion goals that matter to the business.',
-    items: [
-      'Keyword research',
-      'Match-type planning',
-      'Search campaign structure',
-      'Ad group organization',
-      'Search ad copy',
-      'Responsive search ad development',
-      'Negative keyword management',
-      'Search-term analysis',
-      'Bid and budget optimization',
-      'Ad asset management',
-      'Landing-page alignment',
+    id: 'search',
+    icon: Search,
+    name: 'Search Ads Management',
+    subtitle: 'Bing & Syndicated Network Reach',
+    desc: 'Search is the commercial core of Microsoft Ads. We engineer Search campaigns around high-intent queries, responsive text variations, and aggressive negative keyword filtering.',
+    deliverables: [
+      'In-depth commercial keyword research on Bing and Yahoo networks',
+      'Strategic match-type allocation (Exact, Phrase, Broad)',
+      'High-converting Responsive Search Ads (RSA) copywriting',
+      'Continuous search-term audit and negative keyword pruning',
+      'Ad asset optimization (sitelinks, callouts, structured snippets)',
+      'Network distribution management (Bing vs. Search Partners)',
+      'Device bid adjustments (desktop-skew optimization)',
+      'Landing-page relevance score enhancement',
     ],
-    note: 'We do not assume that keywords or ad copy that work on Google will perform identically on Microsoft Ads.',
+    technicalNote:
+      'Desktop users dominate Bing search traffic in many high-ticket B2B and financial verticals, providing higher average order values at 20–35% lower cost per click.',
   },
   {
-    title: 'Microsoft Shopping & Ecommerce Ads',
-    body: 'Microsoft Shopping can help ecommerce businesses capture product-focused search demand and connect product data with advertising campaigns.',
-    items: [
-      'Microsoft Merchant Center setup support',
-      'Product-feed review',
-      'Product-group organization',
-      'Shopping campaign setup',
-      'Product title and data review',
-      'Ecommerce conversion tracking',
-      'Budget and bid optimization',
-      'Search-term analysis',
-      'Product performance monitoring',
-      'Remarketing where supported',
+    id: 'shopping',
+    icon: ShoppingBag,
+    name: 'Shopping & Ecommerce Ads',
+    subtitle: 'Microsoft Merchant Center Integration',
+    desc: 'Microsoft Shopping connects product catalogs with visual product listing ads across Bing search results, Edge browser shopping hubs, and retail placements.',
+    deliverables: [
+      'Microsoft Merchant Center catalog setup and feed integration',
+      'Feed health diagnostics, attribute validation, and sync scheduling',
+      'Product-group organization by margin, category, and season',
+      'Product title, description, and pricing data optimization',
+      'Dedicated Shopping campaign structures with tiered bidding',
+      'Ecommerce revenue, checkout, and cart addition tracking',
+      'Search-term query audits tailored for product SKUs',
+      'Dynamic product retargeting for previous store visitors',
     ],
-    note: 'The goal is to connect product visibility with measurable commercial outcomes rather than treating Shopping as a separate feed-management task.',
+    technicalNote:
+      'Microsoft Shopping integrates seamlessly with Edge browser shopping assists, putting your products in front of consumers during final checkout comparisons.',
   },
   {
-    title: 'LinkedIn Profile Targeting & Audience Strategy',
-    body: 'LinkedIn Profile Targeting is one of Microsoft Advertising\u2019s distinctive audience capabilities. Advertisers can use professional information such as company, industry, and job function, with additional professional targeting options available in supported campaigns and markets. We use these signals where they add meaningful value to the campaign.',
-    items: [
-      'LinkedIn Profile Targeting setup',
-      'Company targeting',
-      'Industry targeting',
-      'Job function targeting',
-      'Job Seniority targeting where available',
-      'In-market audience strategy',
-      'Custom audience planning',
-      'Remarketing',
-      'Similar audiences were available',
-      'Audience exclusions',
-      'Search and audience-layer testing',
+    id: 'linkedin',
+    icon: Briefcase,
+    name: 'LinkedIn Profile Targeting',
+    subtitle: 'Native B2B Professional Signals',
+    desc: 'Exclusively available through Microsoft Advertising, LinkedIn Profile Targeting overlays professional attributes—company, industry, job function, and seniority—directly onto search queries.',
+    deliverables: [
+      'Target company list integration and ABM tiering',
+      'Industry sector segmentation matching your ideal customer profile',
+      'Job function targeting (e.g., Engineering, Finance, Operations)',
+      'Job Seniority targeting (Director, VP, CXO, Owner)',
+      'Bid adjustment multipliers (+10% to +50%) for target executives',
+      'Audience exclusions to filter non-decision makers',
+      'Search + LinkedIn professional audience layered experiments',
+      'Pipeline quality measurement and MQL-to-SQL analytics',
     ],
-    note: 'For B2B accounts, professional audience signals can help refine who sees the campaign without replacing keyword intent or conversion data.',
+    technicalNote:
+      'Unlike costly LinkedIn Sponsored Content, Microsoft Ads lets you target specific companies and job functions at search-engine CPC rates when they actively research solutions.',
   },
   {
-    title: 'Microsoft Audience Ads & Remarketing',
-    body: 'Audience advertising can extend beyond active search and support remarketing or broader audience development. Microsoft supports remarketing and additional audience capabilities, including predictive targeting and similar audiences where available.',
-    items: [
-      'Audience campaign setup',
-      'Remarketing lists',
-      'Customer-list audiences',
-      'Audience exclusions',
-      'Predictive audience options where available',
-      'Similar audience strategies where available',
-      'Creative and asset testing',
-      'Performance monitoring',
-      'Budget optimization',
+    id: 'audience',
+    icon: Users,
+    name: 'Audience Ads & Remarketing',
+    subtitle: 'MSN, Edge & Outlook Inventory',
+    desc: 'Audience campaigns extend reach beyond active search into native display placements across MSN, Microsoft Edge, Outlook, and syndicated partner media.',
+    deliverables: [
+      'Audience campaign setup with native visual asset curation',
+      'Website visitor remarketing lists and cart-abandoner pools',
+      'First-party customer list matching and CRM segment uploads',
+      'In-market audience targeting across commercial categories',
+      'Predictive targeting and similar audience exploration',
+      'Strict placement exclusions protecting brand safety',
+      'Cross-device frequency capping to prevent ad fatigue',
+      'View-through and click-through conversion attribution analysis',
     ],
-    note: 'We use audience campaigns when they support the overall acquisition strategy rather than adding display inventory simply to increase reach.',
+    technicalNote:
+      'We use Microsoft Audience Ads selectively to support remarketing and demand capture rather than inflating vanity impressions on low-relevance placements.',
   },
   {
-    title: 'Performance Max, AI Max & Dynamic Search',
-    body: 'Automation can help manage broader campaign coverage, but it still needs the right inputs. Microsoft Performance Max is designed to use automation across Microsoft inventory, while AI Max for Search adds AI-powered functionality to Search campaigns. We assess automated campaign types based on data quality, conversion volume, creative assets, product or service coverage, and the level of control required.',
-    items: [
-      'Performance Max setup',
-      'AI Max for Search evaluation and setup where available',
-      'Dynamic Search strategy',
-      'Feed and asset configuration',
-      'Conversion-goal alignment',
-      'Audience-signal planning',
-      'Budget and bidding configuration',
-      'Exclusions and controls',
-      'Search-term and landing-page review',
-      'Performance analysis',
+    id: 'automation',
+    icon: Sparkles,
+    name: 'Performance Max & AI Max',
+    subtitle: 'Machine-Learned Search Expansion',
+    desc: 'Microsoft Performance Max and AI Max for Search bring automated machine learning into standard campaigns—expanding query reach while respecting strict business thresholds.',
+    deliverables: [
+      'Microsoft Performance Max campaign setup and asset group creation',
+      'AI Max for Search configuration (search-term matching & URL expansion)',
+      'Audience signal planning to guide algorithmic machine learning',
+      'Target CPA and Target ROAS bid strategy governance',
+      'Negative keyword list application to prevent budget waste',
+      'Asset performance monitoring (headlines, images, video assets)',
+      'Dynamic Search Ads (DSA) deployment for large site catalogs',
+      'Controlled A/B testing against manual campaign structures',
     ],
-    note: 'For large websites or frequently changing inventories, Dynamic Search can also help expand query coverage where manual keyword management becomes difficult.',
+    technicalNote:
+      'AI Max for Search dynamically matches relevant new queries and customizes ad headlines. We enforce negative keyword guardrails so automation stays on brand.',
   },
   {
-    title: 'Conversion Tracking & UET',
-    body: 'Reliable tracking is essential for optimizing Microsoft Ads against actual business outcomes. Microsoft\u2019s Universal Event Tracking system can collect website activity for conversion tracking and remarketing. A UET setup can support conversion goals and audience strategies such as remarketing.',
-    items: [
-      'UET tag setup',
-      'Conversion goal configuration',
-      'Event tracking',
-      'Purchase tracking',
-      'Lead tracking',
-      'Revenue measurement',
-      'Remarketing audience setup',
-      'Tracking QA',
-      'Conversion troubleshooting',
+    id: 'tracking',
+    icon: Activity,
+    name: 'Conversion Tracking & UET',
+    subtitle: 'Accurate Revenue & Lead Attribution',
+    desc: 'Universal Event Tracking (UET) is the measurement backbone of Microsoft Advertising. We ensure events, purchases, and leads are accurately captured and attributed.',
+    deliverables: [
+      'UET tag implementation across site headers and checkout pages',
+      'Conversion goal configuration (Destination, Event, Pages/Visit)',
+      'Variable revenue and currency tracking for ecommerce checkouts',
+      'Enhanced conversion tracking with hashed first-party user data',
+      'UET Tag Helper testing and conversion QA verification',
+      'Google Analytics 4 and UTM tracking alignment',
+      'CRM offline conversion import setup for closed B2B deals',
+      'Data-loss troubleshooting and attribution window calibration',
     ],
-    note: 'Where needed, we also connect campaign reporting with GA4, CRM data, and broader business reporting.',
+    technicalNote:
+      'Enhanced conversions through UET send privacy-compliant customer identifiers, recovering conversion signals lost to browser tracking restrictions.',
   },
   {
-    title: 'Google Ads to Microsoft Ads Migration',
-    body: 'Microsoft provides an official Google Ads import workflow, making it possible to transfer supported campaign structures into Microsoft Advertising. The import itself is only the starting point.',
-    items: [
-      'Google Ads campaign import',
-      'Campaign and ad review',
-      'Keyword cleanup',
-      'Match-type review',
-      'Bid-strategy adjustment',
-      'Budget review',
-      'Conversion-goal verification',
-      'Network-setting review',
-      'Duplicate and irrelevant campaign removal',
-      'Post-import audit',
-      'Relaunch and optimization',
+    id: 'migration',
+    icon: ArrowRightLeft,
+    name: 'Google Ads Migration',
+    subtitle: 'Deliberate Platform Adaptation',
+    desc: 'Microsoft provides an official Google Ads import workflow, but an unmonitored import creates severe budget waste. We review, clean, and adapt imported campaigns for Microsoft.',
+    deliverables: [
+      'Structured Google Ads campaign import via official API',
+      'Detailed audit of imported match types, bids, and budgets',
+      'Pruning of irrelevant keywords with low Microsoft search volume',
+      'Search partner network setting review and placement controls',
+      'Conversion goal re-mapping and UET verification',
+      'Re-writing ad copy to match Microsoft audience demographics',
+      'Removal of duplicate or conflicting campaign elements',
+      'Post-migration launch monitoring and bid calibration',
     ],
-    note: 'We do not treat a one-click import as a finished campaign.',
-    cta: { text: 'Plan Your Microsoft Ads Migration', href: '#pricing' },
+    technicalNote:
+      'Never treat a one-click Google import as ready to run. Differences in syndicated partner networks and search query behavior require manual optimization.',
   },
 ]
 
 export default function Includes() {
+  const [activeTab, setActiveTab] = useState(services[0].id)
+  const currentService = services.find((s) => s.id === activeTab) || services[0]
+
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Services" title="Microsoft Ads Management Services" />
-        <p className="mb-12 max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          Everything required to launch, track, and optimize Microsoft Advertising campaigns around
-          a measurable business objective.
-        </p>
+    <section id="services" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Microsoft Ads Management{' '}
+            <span className="italic text-frame-accent">Services.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            From search keyword strategy and LinkedIn profile overlays to merchant product shopping feeds, UET tracking, and clean Google Ads account migration.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {services.map((service, index) => (
-            <div
-              key={service.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 md:p-12 transition-colors hover:border-frame-accent"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
-                    {service.title}
-                  </h3>
-                  <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {service.body}
-                  </p>
-                </div>
-
-                <div className="lg:w-1/2">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                    What We Do
-                  </p>
-                  <ul className="grid gap-3 sm:grid-cols-2">
-                    {service.items.map((item) => (
-                      <li
-                        key={item}
-                        className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg"
-                      >
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-6 border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {service.note}
-                  </p>
-                  {service.cta && (
-                    <a
-                      href={service.cta.href}
-                      className="mt-8 inline-flex border-2 border-frame-accent px-6 py-3 text-sm font-bold uppercase tracking-widest text-frame-accent transition-colors hover:bg-frame-accent hover:text-frame-bg"
+        {/* Interactive Vertical Y-Axis Tabs Layout */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10 items-start">
+          {/* Left Column: Interactive Vertical Y-Axis Tab Buttons (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col space-y-2">
+            {services.map((service) => {
+              const Icon = service.icon
+              const isActive = service.id === activeTab
+              return (
+                <button
+                  key={service.id}
+                  type="button"
+                  onClick={() => setActiveTab(service.id)}
+                  className={`group flex w-full items-center justify-between rounded-xl border p-4 text-left transition-colors duration-200 ${
+                    isActive
+                      ? 'border-frame-accent/60 bg-[#18181B] text-white'
+                      : 'border-white/[0.06] bg-[#121214] hover:border-white/[0.14] hover:bg-[#18181B]/70 text-zinc-400'
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-xs font-mono transition-colors ${
+                        isActive
+                          ? 'border-frame-accent/40 bg-frame-accent/10 text-frame-accent'
+                          : 'border-white/[0.08] bg-white/[0.04] text-zinc-400 group-hover:text-white'
+                      }`}
                     >
-                      {service.cta.text}
-                    </a>
-                  )}
-                </div>
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <p
+                        className={`font-heading text-sm font-medium uppercase tracking-wide truncate ${
+                          isActive ? 'text-white' : 'text-zinc-300 group-hover:text-white'
+                        }`}
+                      >
+                        {service.name}
+                      </p>
+                      <p className="font-mono text-[10px] uppercase text-zinc-400 truncate">
+                        {service.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight
+                    className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                      isActive
+                        ? 'translate-x-1 text-frame-accent'
+                        : 'text-zinc-600 group-hover:translate-x-0.5 group-hover:text-zinc-400'
+                    }`}
+                  />
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Right Column: Active Tab Detailed Deliverables Panel (8 cols) */}
+          <div className="lg:col-span-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 lg:p-10 transition-colors duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-frame-accent/30 bg-frame-accent/10 text-frame-accent">
+                {React.createElement(currentService.icon, { className: 'h-5 w-5' })}
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+                  {currentService.name}
+                </h3>
               </div>
             </div>
-          ))}
+
+            <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed mb-6">
+              {currentService.desc}
+            </p>
+
+            <div className="border-t border-white/[0.08] pt-6 mb-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-4">
+                What We Deliver:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {currentService.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-zinc-300 leading-snug">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Technical Verification Note */}
+            <div className="rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs font-mono text-zinc-400">
+              <span className="text-frame-accent font-bold mr-1.5">TECHNICAL NOTE:</span>
+              <span>{currentService.technicalNote}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

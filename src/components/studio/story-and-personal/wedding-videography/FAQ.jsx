@@ -5,11 +5,11 @@ import { SectionIntro } from '../../../Kinetic'
 const faqs = [
   {
     "question": "How much does wedding videography cost in Dhaka?",
-    "answer": "At FrameCipher Studio, single-event cinema is ৳32,000, a two-event narrative with couple session is ৳68,000, and signature 3–4 event celebrations are ৳1,45,000. Drone adds ৳25,000 and 4K delivery ৳15,000. Every quote is itemised in writing within 48 hours."
+    "answer": "At FrameCipher Studio, single-event cinema is ৳32,000, a two-event narrative with couple session is ৳68,000, and signature 3 to 4 event celebrations are ৳1,45,000. Drone adds ৳25,000 and 4K delivery ৳15,000. Every quote is itemised in writing within 48 hours."
   },
   {
     "question": "How far in advance should we book our dates?",
-    "answer": "Book 1 to 3 months ahead, especially for November–February peak weekends. Off-season and weekday dates often confirm faster — message us the moment your venues firm up."
+    "answer": "Book 1 to 3 months ahead, especially for November, February peak weekends. Off-season and weekday dates often confirm faster: message us the moment your venues firm up."
   },
   {
     "question": "What is the difference between cinematic films and traditional coverage?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     "question": "Do you travel for destination weddings?",
-    "answer": "Yes — Sylhet, Chattogram, Cox’s Bazar and international assignments, with travel quoted transparently and the same creative team across all functions for narrative consistency."
+    "answer": "Yes: Sylhet, Chattogram, Cox’s Bazar and international assignments, with travel quoted transparently and the same creative team across all functions for narrative consistency."
   },
   {
     "question": "Can you fly a drone at our venue?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     "question": "Will the crew direct us and our family?",
-    "answer": "Candid first, guided only for portraits. Our contractual discretion keeps filming unobtrusive — natural interactions, never forced performances — with direction limited to couple sessions and group portraits."
+    "answer": "Candid first, guided only for portraits. Our contractual discretion keeps filming unobtrusive: natural interactions, never forced performances, with direction limited to couple sessions and group portraits."
   },
   {
     "question": "How many revisions are included?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, dates, timelines and booking — everything about wedding films at FrameCipher Studio.
+          Costs, dates, timelines and booking: everything about wedding films at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

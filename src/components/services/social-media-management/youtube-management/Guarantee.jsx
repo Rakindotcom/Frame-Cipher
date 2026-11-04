@@ -1,110 +1,137 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, X, ShieldCheck, Sparkles } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const controlled = [
-  'Content strategy',
-  'Content planning',
-  'Video production',
-  'Editing',
-  'YouTube SEO',
-  'Thumbnail design',
-  'Publishing',
-  'Channel optimization',
-  'Reporting',
-  'Ongoing strategic recommendations',
+  'Content strategy & positioning roadmap',
+  'Search-aware content planning',
+  'Professional video production & editing',
+  'Pacing, story structure & hook development',
+  'YouTube SEO & metadata optimization',
+  'Custom thumbnail & title packaging',
+  'Publishing & upload management',
+  'Playlist & end-screen architecture',
+  'Community management & comment moderation',
+  'Detailed performance reporting & analytics',
+  'Ongoing strategic recommendations & testing',
 ]
 
 const notGuaranteed = [
-  'Specific video views',
-  'Specific subscriber numbers',
-  'Specific rankings',
-  'Viral results',
-  'Guaranteed leads',
-  'Guaranteed sales',
-  'Guaranteed monetization',
-  'Guaranteed revenue',
+  'Specific video view counts',
+  'Specific subscriber milestones',
+  'Guaranteed search rankings',
+  'Guaranteed viral distribution',
+  'Guaranteed sales or revenue figures',
+  'Instant monetization approvals',
+  'Immediate lead volume guarantees',
+  'Unpredictable algorithm distribution',
 ]
 
 export default function Guarantee() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Service commitments" title="What We Commit to">
-          YouTube performance depends on factors outside any agency&rsquo;s direct control. We therefore
-          separate our service commitments from outcomes that cannot responsibly be guaranteed.
-        </SectionIntro>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              What we control
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Service Commitments · Integrity
             </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-              We commit to delivering the agreed scope
-            </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Including, where applicable:
-            </p>
-            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What We <span className="italic text-frame-accent">Commit to.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            YouTube performance depends on factors outside any agency’s direct control. We therefore separate our service commitments from outcomes that cannot responsibly be guaranteed.
+          </p>
+        </div>
+
+        {/* 2-Column Ledger Grid */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* What We Control (Commitments) */}
+          <div className="rounded-2xl border border-purple-500/30 bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/50 hover:bg-[#15121C]">
+            <div className="space-y-2 border-b border-white/[0.08] pb-4">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  100% Operational Accountability
+                </span>
+                <ShieldCheck className="h-4 w-4 text-emerald-400" />
+              </div>
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                What We Control &amp; Deliver
+              </h3>
+              <p className="text-xs text-zinc-400">
+                We commit to executing the agreed scope with high craft and rigor:
+              </p>
+            </div>
+
+            <ul className="space-y-3 text-xs sm:text-sm text-zinc-300">
               {controlled.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm font-semibold leading-snug text-frame-fg">
-                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-bg text-frame-accent">
-                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+                <li key={item} className="flex items-start gap-3">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mt-0.5">
+                    <Check className="h-2.5 w-2.5 stroke-[2.5]" />
                   </span>
-                  <span>{item}</span>
+                  <span className="leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
-              What we don&rsquo;t guarantee
-            </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-              Outcomes that no agency can control
-            </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We do not guarantee:
-            </p>
-            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+          {/* What We Don't Guarantee (No False Promises) */}
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-white/[0.14] hover:bg-[#15121C]">
+            <div className="space-y-2 border-b border-white/[0.08] pb-4">
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Algorithmic Realities
+                </span>
+                <span className="font-mono text-[10px] text-zinc-500">No False Claims</span>
+              </div>
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                What We Don’t Guarantee
+              </h3>
+              <p className="text-xs text-zinc-400">
+                Outcomes that no agency can honestly control:
+              </p>
+            </div>
+
+            <ul className="space-y-3 text-xs sm:text-sm text-zinc-400">
               {notGuaranteed.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-border bg-frame-muted/20 text-frame-muted-fg">
-                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
-                    </svg>
+                <li key={item} className="flex items-start gap-3">
+                  <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-zinc-700 bg-white/[0.02] text-zinc-500 mt-0.5">
+                    <X className="h-2.5 w-2.5 stroke-[2.5]" />
                   </span>
-                  <span>{item}</span>
+                  <span className="leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <div className="mt-10 grid gap-6 border-t-2 border-frame-border pt-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Our actual goal
-            </span>
-            <p className="mt-4 max-w-4xl text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-              Our goal is to create better content systems, improve discoverability, learn from audience
-              response, and continuously optimize the channel based on available data. We focus on
-              building the system and using real performance data to improve it.
+        {/* Commitment Statement Footer */}
+        <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div className="space-y-1 max-w-3xl">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Our Core Service Philosophy
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Our goal is to create better content systems, improve discoverability, learn from audience response, and continuously optimize the channel based on verified data. We will be direct about what a realistic plan looks like for your channel.
             </p>
           </div>
-
-          <div className="flex flex-col justify-center border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Ready to talk scope?
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              We will be direct about what a realistic plan looks like for your channel.
-            </p>
-            <div className="mt-6">
-              <PosterButton href="/contact">Get a Free Consultation &rarr;</PosterButton>
-            </div>
+          <div className="shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get a Free Consultation
+            </PosterButton>
           </div>
         </div>
       </div>

@@ -7,18 +7,18 @@ const glanceRows = [
   ['Response time', 'Same-day replies on WhatsApp'],
   ['Quotes', 'Itemised, in writing, within 48 hours'],
   ['Walkthroughs', 'Free by appointment with test recordings'],
-  ['Standard delivery', '5–10 working days, 2 revisions'],
+  ['Standard delivery', '5 to 10 working days, 2 revisions'],
   ['Sessions from', '৳2,000/hour with 50% advance'],
   ['Rescheduling', 'Free with 48-hour notice'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
   ['Phone and WhatsApp', '+880 1768-146650'],
-  ['Hours', 'Open 24 hours — sessions by advance reservation'],
+  ['Hours', 'Open 24 hours (sessions by advance reservation)'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Answer Index"

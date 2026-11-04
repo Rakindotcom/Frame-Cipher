@@ -31,7 +31,7 @@ export function contentUpdatedAt(routePath) {
   return SITE_CONTENT_UPDATED;
 }
 
-// Newest content date in the map — used as the <lastmod> of the sitemap index,
+// Newest content date in the map: used as the <lastmod> of the sitemap index,
 // which should reflect when any listed page last changed.
 export function latestContentDate() {
   const times = Object.values(contentDates?.dates || {})

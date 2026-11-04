@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "How fast can you deliver?",
-    "answer": "Standard finishing delivers in 5–10 working days from verified intake. Express 48–72 hour finishing adds 30%, and raw or proxy files are available within 24 hours."
+    "answer": "Standard finishing delivers in 5 to 10 working days from verified intake. Express 48 to 72 hour finishing adds 30%, and raw or proxy files are available within 24 hours."
   },
   {
     "question": "What happens to our files after delivery?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, handoffs, formats, revisions and booking — everything about post-production at FrameCipher Studio.
+          Costs, handoffs, formats, revisions and booking: everything about post-production at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -1,12 +1,16 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const plans = [
   {
     name: 'AdSense Readiness Audit',
-    price: '\u09F38,000',
+    price: '৳8,000',
     period: '+',
     type: 'One-time',
-    delivery: '~3\u20135 business days',
+    delivery: '~3–5 business days',
     bestFor: 'Publishers and business sites that want an honest readiness assessment before applying or reapplying',
     features: [
       'Website assessment against relevant AdSense requirements',
@@ -18,13 +22,14 @@ const plans = [
       'Written findings with prioritized recommendations',
     ],
     note: 'A defined preparation base: you understand exactly where the site stands and what will matter before you submit.',
+    highlight: false,
   },
   {
     name: 'Standard Preparation',
-    price: '\u09F320,000',
+    price: '৳20,000',
     period: '+',
     type: 'One-time',
-    delivery: '~1\u20132 weeks',
+    delivery: '~1–2 weeks',
     bestFor: 'Websites that pass the audit but need core content, page, and structural fixes before submission',
     features: [
       'Everything in AdSense Readiness Audit',
@@ -40,10 +45,10 @@ const plans = [
   },
   {
     name: 'Comprehensive Preparation',
-    price: '\u09F335,000',
+    price: '৳35,000',
     period: '+',
     type: 'One-time',
-    delivery: '~2\u20133 weeks',
+    delivery: '~2–3 weeks',
     bestFor: 'Websites needing deeper content, policy, structure, technical, and readiness work before submission',
     features: [
       'Everything in Standard Preparation',
@@ -55,13 +60,14 @@ const plans = [
       'Pre-submission review',
     ],
     note: 'Built for sites with several problem areas that need coordinated content, structural, and technical work.',
+    highlight: false,
   },
   {
     name: 'Re-Application Support',
-    price: '\u09F315,000',
+    price: '৳15,000',
     period: '+',
     type: 'One-time',
-    delivery: '~1\u20132 weeks',
+    delivery: '~1–2 weeks',
     bestFor: 'Publishers who have already been rejected and need targeted fixes before trying again',
     features: [
       'Rejection notice and account review',
@@ -72,6 +78,7 @@ const plans = [
       'Re-application guidance',
     ],
     note: 'Focused on reapplying with genuine fixes instead of resending the same application.',
+    highlight: false,
   },
 ]
 
@@ -86,120 +93,96 @@ const includedAcross = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & timeline" title="Google AdSense Approval Pricing & Timeline">
-          Pricing depends on your website&apos;s current condition, the amount of remediation
-          required, and whether this is a first application or a re-application after rejection.
-        </SectionIntro>
+    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Investment Structure // Transparent Plans</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Google AdSense Approval{' '}
+            <span className="italic text-frame-accent">Pricing &amp; Timeline</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Pricing depends on your website&apos;s current condition, the amount of remediation
+            required, and whether this is a first application or a re-application after rejection.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {plans.map((plan, index) => (
+        {/* 4 Pricing Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`flex flex-col p-7 md:p-8 ${
+              className={`flex flex-col justify-between rounded-xl p-6 sm:p-8 transition-all ${
                 plan.highlight
-                  ? 'border-2 border-frame-accent bg-frame-accent/10'
-                  : 'border-2 border-frame-border bg-frame-bg'
+                  ? 'border-2 border-frame-accent bg-[#18181B] relative ring-1 ring-frame-accent/40'
+                  : 'border border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Plan 0{index + 1}
-                </span>
+              <div>
                 {plan.highlight && (
-                  <span className="bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
+                  <span className="mb-3 inline-block rounded-full bg-frame-accent/20 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent font-semibold">
                     Most Popular
                   </span>
                 )}
-              </div>
-
-              <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {plan.name}
-              </h3>
-
-              <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                <div className="flex items-end gap-1.5">
-                  <span className="font-heading text-3xl font-bold leading-none tracking-tight text-frame-fg">
+                <h3 className="font-heading text-lg font-medium tracking-tight text-white">
+                  {plan.name}
+                </h3>
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
                     {plan.price}
                   </span>
-                  <span className="pb-0.5 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                    {plan.period}
-                  </span>
+                  <span className="font-mono text-xs text-zinc-400">{plan.period}</span>
                 </div>
+                <div className="mt-2 flex items-center gap-2 font-mono text-xs text-zinc-400">
+                  <span>{plan.type}</span>
+                  <span>•</span>
+                  <span>{plan.delivery}</span>
+                </div>
+
+                <p className="mt-4 text-xs font-normal leading-relaxed text-zinc-300 border-t border-white/[0.06] pt-3">
+                  {plan.bestFor}
+                </p>
+
+                <ul className="mt-5 space-y-2 text-xs text-zinc-300">
+                  {plan.features.map((feature, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2">
+                      <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
+                      <span className="leading-snug">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <dl className="mt-5 space-y-3 text-sm">
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Engagement
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.type}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Typical Delivery
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.delivery}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Best For
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.bestFor}</dd>
-                </div>
-              </dl>
-
-              <p className="mt-5 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                Included
-              </p>
-              <ul className="mt-3 space-y-2.5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                {plan.note}
-              </p>
-
-              <div className="mt-auto pt-8">
-                <PosterButton href="/contact" className="w-full whitespace-nowrap">
-                  Request This Package
+              <div className="mt-6 pt-4 border-t border-white/[0.06] space-y-4">
+                <p className="text-xs text-zinc-400 italic">
+                  {plan.note}
+                </p>
+                <PosterButton href="/contact" variant={plan.highlight ? 'default' : 'outline'} className="w-full justify-center">
+                  Get Started &rarr;
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            {includedAcross.map((item, iIdx) => (
-              <li key={iIdx} className="flex items-start gap-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+        {/* Included Across Section */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-4">
+          <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase block">
+            Included Across Applicable Packages:
+          </span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            {includedAcross.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
                 <span>{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
-
-          <div className="flex flex-col items-center justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-2xl text-center">
-              Not sure which package fits? Tell us about your website and current AdSense status,
-              and we will recommend the right preparation scope.
-            </p>
-            <PosterButton href="/contact" className="w-full whitespace-nowrap">
-              Get a Custom Quote
-            </PosterButton>
           </div>
         </div>
-
-        <p className="mt-8 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          Final pricing depends on the website, amount of remediation required, and whether this is
-          a first application or a re-application.
-        </p>
       </div>
     </section>
   )

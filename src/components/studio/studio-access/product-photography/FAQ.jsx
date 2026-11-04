@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     "question": "How many photos do we receive per product?",
-    "answer": "Three retouched angles per product as standard — front, 45-degree and detail macro — with extra retouched angles at ৳300 each. Custom shot lists are confirmed in writing before the shoot."
+    "answer": "Three retouched angles per product as standard: front, 45-degree and detail macro, with extra retouched angles at ৳300 each. Custom shot lists are confirmed in writing before the shoot."
   },
   {
     "question": "What pushes a quote from ৳7,500 toward ৳34,000?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "What is the product reel add-on?",
-    "answer": "A short motion spotlight cut from the same styled setup at ৳2,500 per product — catalogue stills plus a reel formatted for Reels, Shorts and TikTok."
+    "answer": "A short motion spotlight cut from the same styled setup at ৳2,500 per product: catalogue stills plus a reel formatted for Reels, Shorts and TikTok."
   },
   {
     "question": "How fast can you deliver?",
@@ -58,7 +58,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, angles, retouching and booking — everything about product photography at FrameCipher Studio.
+          Costs, angles, retouching and booking: everything about product photography at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -2,15 +2,15 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for process — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for process: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Process Timelines & Lanes",
-  "pricingIntro": "Standard projects deliver in 5–10 working days with 2 revision rounds included. Priority 48–72 hour lanes run at +30%; retainer clients hold permanent fast-lane capacity.",
+  "pricingIntro": "Standard projects deliver in 5 to 10 working days with 2 revision rounds included. Priority 48 to 72 hour lanes run at +30%; retainer clients hold permanent fast-lane capacity.",
   "tiers": [
     {
       "name": "Standard Lane",
-      "price": "5–10 days",
+      "price": "5 to 10 days",
       "priceNote": "included",
       "tag": "Most Projects",
       "cta": "Book the Standard Lane",
@@ -26,7 +26,7 @@ const DATA = {
     },
     {
       "name": "Priority Lane",
-      "price": "48–72 hours",
+      "price": "48 to 72 hours",
       "priceNote": "+30% fee",
       "tag": "Urgent Deadlines",
       "cta": "Book the Priority Lane",
@@ -51,7 +51,7 @@ const DATA = {
       "features": [
         "Standing monthly studio and edit slots",
         "Same crew learning your brand grammar",
-        "10–20% effective savings vs spot booking",
+        "10 to 20% effective savings vs spot booking",
         "Quarterly content planning workshops",
         "Trend-response pickup slots included",
         "Pause-or-cancel flexibility, no lock-in"
@@ -64,21 +64,21 @@ const DATA = {
     "Finishing depth: grading, sound design and graphics",
     "Aspect-ratio versions and subtitle languages",
     "Stakeholder count and approval consolidation speed",
-    "Lane choice: priority 48–72h adds 30%"
+    "Lane choice: priority 48 to 72h adds 30%"
   ],
-  "marketNote": "Dhaka production timelines cluster at 3–7 days for standard edits, 2–4 weeks for corporate films and 10–14 days for commercial campaigns from storyboard approval. Express 24–48 hour turnarounds command 25–40% premiums market-wide. Our 5-stage workflow exists to make those numbers reliable: 80% of smooth delivery is preparation, and every delay we have ever post-mortemed traced to skipped briefing or unscoped feedback — both structurally prevented here.",
+  "marketNote": "Dhaka production timelines cluster at 3 to 7 days for standard edits, 2 to 4 weeks for corporate films and 10 to 14 days for commercial campaigns from storyboard approval. Express 24 to 48 hour turnarounds command 25 to 40% premiums market-wide. Our 5-stage workflow exists to make those numbers reliable: 80% of smooth delivery is preparation, and every delay we have ever post-mortemed traced to skipped briefing or unscoped feedback, and both are structurally prevented here.",
   "costRows": [
     [
       "Standard lane delivery",
-      "5–10 working days"
+      "5 to 10 working days"
     ],
     [
-      "Priority lane (48–72h)",
+      "Priority lane (48 to 72h)",
       "+30% fee"
     ],
     [
       "Retainer lane effective saving",
-      "10–20% vs spot"
+      "10 to 20% vs spot"
     ],
     [
       "Structured revision rounds included",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Production Timelines Cost in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

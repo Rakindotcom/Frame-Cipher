@@ -22,12 +22,12 @@ const marqueeItems = [
   'Messenger Workflows',
   'Comment & Review Care',
   'Moderation',
-  'Reporting',
+  'Monthly Reporting',
 ]
 
 export default function SocialMediaManagementFacebookService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page min-h-screen bg-[#09090B] text-[#FAFAFA] selection:bg-frame-accent/30 selection:text-white">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <VideoPortfolioPreview
@@ -55,4 +55,4 @@ export default function SocialMediaManagementFacebookService({ service }) {
   )
 }
 
-export { Hero, Overview, Offerings, Process, Pricing, Timeline, Guarantee, ServiceAreas, FAQ, CTA }
+export { Hero, Overview, Offerings, Groups, WhyMatters, WhoFor, Process, WhyChoose, Pricing, Timeline, Guarantee, ServiceAreas, FAQ, CTA }

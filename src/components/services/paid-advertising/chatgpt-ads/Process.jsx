@@ -1,93 +1,116 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
 
 const steps = [
   {
     title: 'Discovery & Readiness Assessment',
-    body: 'We begin by reviewing your business goals, offer, target markets, and the current state of your landing pages. We also confirm whether the account setup and market are eligible for ChatGPT Ads before anything moves forward.',
-    bullets: [
-      'Review goals, offer, and target markets',
-      'Confirm eligibility for ChatGPT Ads',
-      'Define the campaign structure',
-      'Set up the measurement plan',
+    body: [
+      'We start by understanding the business, target market, offer, customer journey, website, conversion goal, and current advertising setup.',
+      'We also review current ChatGPT Ads availability and account requirements relevant to the campaign.',
     ],
+    note: 'The result is a practical readiness assessment before media spend is committed.',
   },
   {
     title: 'Account & Tracking Setup',
-    body: 'The correct account setups belong inside the campaign preparation stage, not after launch. We connect the right advertiser account, prepare the campaign settings, set up conversions, and build the measurement foundation before the first ad goes live.',
-    bullets: [
-      'Connect the advertiser account',
-      'Approve domains and prepare campaigns',
-      'Create or connect conversion events',
+    body: [
+      'We prepare the campaign structure and measurement foundation required for the engagement.',
     ],
+    bullets: [
+      'Campaign setup',
+      'Ad groups',
+      'Conversion events',
+      'Tracking parameters',
+      'OpenAI Pixel',
+      'Conversions API',
+      'Analytics alignment',
+    ],
+    note: 'Tracking is validated before we rely on the resulting data for optimization. OpenAI recommends using the Pixel, Conversions API, or both to improve conversion measurement quality where appropriate.',
   },
   {
     title: 'Campaign & Creative Development',
-    body: 'We develop campaign objectives, ad-group structure, context hints, creative variations, and landing-page alignment. A ChatGPT Ads campaign should reach the right conversation with the right message and the right landing page.',
-    bullets: [
-      'Campaign, ad-group, and creative structure',
-      'Context and intent targeting',
-      'Alignment with landing pages',
+    body: [
+      'We build the campaign around a defined business objective.',
     ],
+    bullets: [
+      'Campaign structure',
+      'Ad groups',
+      'Context hints',
+      'Creative variations',
+      'Landing-page alignment',
+      'Conversion setup',
+      'Initial testing plan',
+    ],
+    note: 'Each element should support the same customer need.',
   },
   {
     title: 'Launch & Data Collection',
-    body: 'We launch the campaign in a structured way and monitor early delivery. Early data in a new channel can be limited, so we focus on detecting real problems such as tracking issues or delivery problems rather than reacting to normal performance variation.',
-    bullets: [
-      'Structured launch',
-      'Issue detection',
-      'Performance monitoring against baseline targets, if applicable',
+    body: [
+      'Once the campaign is ready and the account is eligible, we launch within the available platform requirements and monitor early delivery.',
+      'We look for enough useful data to identify meaningful patterns.',
     ],
+    note: 'Early results are treated as signals rather than final conclusions.',
   },
   {
     title: 'Optimization & Reporting',
-    body: 'We review performance, refine context, test creative, and adjust budgets based on data. Reporting connects the numbers back to your original business objectives, so you always know what you are paying for and why.',
-    bullets: [
-      'Creative, context, and budget refinement',
-      'Testing roadmap',
-      'Reporting progress against objectives',
+    body: [
+      'We review campaign performance and make controlled improvements. That can include refining context, adjusting budgets, testing new creative, improving conversion measurement, reviewing landing-page performance, or changing campaign structure.',
     ],
+    note: 'Reporting documents what happened, what was tested, what the data suggests, and what the next optimization cycle should address.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="How we work"
-          title="Our ChatGPT Ads Management Process"
-        >
-          A clear process protects your budget and your decision-making, especially on a channel
-          that is still maturing.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            Our ChatGPT Ads{' '}
+            <span className="italic text-frame-accent">Management Process.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            A controlled, five-phase management framework designed to move from readiness assessment to disciplined campaign scaling.
+          </p>
+        </div>
 
-        <div className="space-y-6 border-t-2 border-frame-border pt-12">
+        {/* 5-Stage Architectural Cards Grid */}
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
             <div
-              key={step.title}
-              className="grid gap-8 border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-start"
+              key={index}
+              className="group relative flex flex-col justify-between bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
             >
-              <div className="flex items-start gap-5">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center border-2 border-frame-accent bg-frame-accent/10 font-mono text-base font-black text-frame-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <div className="space-y-4">
+                <h3 className="font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {step.title}
                 </h3>
-              </div>
-              <div className="border-t-2 border-frame-border/60 pt-5 lg:border-l-2 lg:border-t-0 lg:pl-10 lg:pt-0">
-                <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                  {step.body}
-                </p>
-                <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                  {step.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
+
+                <div className="space-y-2 text-sm font-normal leading-relaxed text-zinc-300">
+                  {step.body.map((p, pIdx) => (
+                    <p key={pIdx}>{p}</p>
                   ))}
-                </ul>
+                </div>
+
+                {step.bullets?.length > 0 && (
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.04] pt-3">
+                    {step.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-1.5 text-xs text-zinc-300">
+                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
               </div>
+
+              {step.note && (
+                <div className="mt-5 border-l-2 border-frame-accent bg-frame-accent/10 p-3.5 rounded-r-lg text-xs leading-relaxed text-zinc-400">
+                  {step.note}
+                </div>
+              )}
             </div>
           ))}
         </div>

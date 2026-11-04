@@ -158,8 +158,8 @@ const offeringsList = [
 
 export default function Offerings() {
   return (
-    <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="offerings" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Capabilities & Scope"
           title="What Content Creation Services Include"
@@ -168,28 +168,28 @@ export default function Offerings() {
           Our content creation services cover the main visual formats businesses use to communicate, promote products, launch campaigns, and maintain a consistent brand presence.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
           {offeringsList.map((item, index) => (
             <div
               key={index}
-              className="group bg-frame-bg p-7 md:p-8 flex flex-col justify-between transition-colors hover:bg-frame-muted/20"
+              className="group bg-[#09090B] p-7 md:p-8 flex flex-col justify-between transition-colors hover:bg-[#121214]"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   {item.tag}
                 </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg group-hover:text-frame-accent transition-colors">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA] group-hover:text-[#A855F7] transition-colors">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/motion-graphics-animation"]}>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-creation/motion-graphics-animation"]}>
                   {item.description}
                 </AutoLinks></p>
 
                 {item.bullets?.length > 0 && (
-                  <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                  <ul className="mt-6 space-y-2 border-t border-white/[0.08]/60 pt-4 text-xs md:text-sm font-medium text-zinc-200">
                     {item.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="text-[#A855F7] font-bold">✓</span>
                         <span className="leading-snug">{bullet}</span>
                       </li>
                     ))}
@@ -197,10 +197,10 @@ export default function Offerings() {
                 )}
               </div>
 
-              <div className="mt-8 border-t-2 border-frame-border/60 pt-4">
+              <div className="mt-8 border-t border-white/[0.08]/60 pt-4">
                 <Link
                   href={item.actionHref}
-                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent hover:underline"
+                  className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#A855F7] hover:underline"
                 >
                   <span>{item.actionText}</span>
                 </Link>

@@ -6,19 +6,19 @@ const glanceRows = [
   ['Short read (up to 2 min)', '৳4,500 with directed session and master'],
   ['Commercial VO (per commercial)', '৳9,500 with timing to picture and rights'],
   ['Series / course (per 60 min)', '৳28,000 with session continuity'],
-  ['Priority session lane', '+30% for 48–72 hour turnaround'],
-  ['Standard turnaround', '24–48 hours for short reads, 5–10 working days for series'],
+  ['Priority session lane', '+30% for 48 to 72 hour turnaround'],
+  ['Standard turnaround', '24 to 48 hours for short reads, 5 to 10 working days for series'],
   ['Revisions', 'Pickups and corrections window on full scopes'],
   ['Quote', 'Itemised, in writing, within 48 hours'],
   ['Payment', '50% advance confirms dates, balance on final sign-off, VAT-compliant invoices'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
-  ['Phone and WhatsApp', '+880 1768-146650 — Open 24 hours, sessions by advance reservation'],
+  ['Phone and WhatsApp', '+880 1768-146650: Open 24 hours, sessions by advance reservation'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Voice Over Studio Essentials"

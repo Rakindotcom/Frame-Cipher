@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const platformsList = [
   {
     title: 'Shopify',
@@ -21,21 +19,35 @@ const platformsList = [
 
 export default function Platforms() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Engineering / Technology Selection" title="E-commerce Platforms We Work With">
-          The right ecommerce platform depends on your catalog, budget, internal management needs, integrations, and future growth plans.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Centered Section Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            E-commerce Platforms We{' '}
+            <span className="italic text-frame-accent">Work With.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-4">
+          <p className="text-base text-zinc-300 sm:text-lg">
+            The right ecommerce platform depends on your catalog, budget, internal management needs, integrations, and future growth plans.
+          </p>
+        </div>
+
+        {/* 4-Column Architectural Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {platformsList.map((platform, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-8"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Platform 0{index + 1}</span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Platform 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {platform.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {platform.desc}
                 </p>
               </div>
@@ -43,9 +55,12 @@ export default function Platforms() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          We recommend a platform based on your actual business requirements rather than pushing one solution for every store.
-        </p>
+        {/* Bottom Recommendation Note */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 border-l-2 border-l-frame-accent">
+          <p className="text-sm font-medium text-zinc-300 sm:text-base">
+            We recommend a platform based on your actual business requirements rather than pushing one solution for every store.
+          </p>
+        </div>
       </div>
     </section>
   )

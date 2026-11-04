@@ -1,10 +1,13 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 
 const steps = [
   {
     number: '01',
     title: 'Social Audit',
-    body: 'We review your existing profiles, content, audience, engagement, platform mix, and overall social presence. The audit identifies strengths, gaps, and opportunities before we build the management plan.',
+    body: 'We review your existing profiles, content, audience, engagement, platform mix, and overall social presence. The audit helps identify strengths, gaps, and opportunities before we build the management plan.',
   },
   {
     number: '02',
@@ -30,48 +33,72 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution framework"
-          title="Social Media Management Process"
-        >
-          A structured management process rather than a monthly content drop, so the strategy can
-          improve cycle after cycle.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               EXECUTION FRAMEWORK 
+            </p>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, index) => (
-            <div key={step.number} className="group relative flex min-h-64 flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Social Media Management{' '}
+            <span className="italic text-[#A855F7]">Process.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            A structured management process rather than a monthly content drop, so the strategy can improve cycle after cycle.
+          </p>
+        </div>
+
+        {/* 5-Step Process Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {steps.map((step) => (
+            <div
+              key={step.number}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:border-white/[0.16]"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.number}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-6">
+                  <span className="font-mono text-2xl sm:text-3xl font-bold text-[#A855F7]">
+                    {step.number}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase text-zinc-500">
+                    Phase {step.number}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white leading-snug">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+
+                <p className="mt-3 text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
                   {step.body}
                 </p>
               </div>
-              <span
-                aria-hidden="true"
-                className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-200 group-hover:text-frame-accent-fg"
-              >
-                Phase 0{index + 1}
-              </span>
             </div>
           ))}
 
-          <div className="flex min-h-64 flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Transparency by default
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              Your strategy evolves based on actual performance rather than assumptions, and every
-              reporting cycle explains what should continue, what should change, and what should be
-              tested next.
-            </p>
+          {/* Continuous Evolution Card */}
+          <div className="flex flex-col justify-between rounded-xl border border-[#A855F7]/40 bg-frame-accent/[0.04] p-6 sm:p-8 space-y-4">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                Continuous Evolution
+              </span>
+              <h3 className="mt-2 font-heading text-xl font-medium text-white">
+                Data-Led Iteration
+              </h3>
+              <p className="mt-3 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
+                Your strategy evolves based on actual performance rather than assumptions. Every reporting cycle explains what should continue, what should change, and what should be tested next.
+              </p>
+            </div>
+            <div className="pt-2 flex items-center gap-2 font-mono text-xs text-[#A855F7]">
+              <CheckCircle2 className="h-4 w-4" />
+              <span>Full Transparency by Default</span>
+            </div>
           </div>
         </div>
       </div>

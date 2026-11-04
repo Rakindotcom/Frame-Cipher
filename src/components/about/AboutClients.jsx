@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import SectionButton from '../home/SectionButton'
 
 const clientLogos = [
   { name: 'Sonali Bioplastics', logo: '/client01.webp', industry: 'Bioplastics' },
@@ -20,47 +21,83 @@ const clientLogos = [
 // Duplicate for continuous seamless marquee loop
 const marqueeList = [...clientLogos, ...clientLogos, ...clientLogos]
 
+const directoryList = [
+  {
+    name: 'Clutch',
+    logo: '/Listed%20In/Clutch-transparent.webp',
+    status: 'Verified Agency',
+    badge: 'Top B2B & Tech Partner',
+    rating: '5.0 ★ Rating',
+  },
+  {
+    name: 'Trustpilot',
+    logo: '/Listed%20In/Trustpilot-transparent.webp',
+    status: '5.0 Score',
+    badge: 'Verified Client Reviews',
+    rating: 'Excellent',
+  },
+  {
+    name: 'SelectedFirms',
+    logo: '/Listed%20In/SelectedFirms-transparent.webp',
+    status: 'Top Marketing Agency',
+    badge: 'Ranked Global Company',
+    rating: 'Official Badge',
+    url: 'https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic',
+  },
+  {
+    name: 'GoodFirms',
+    logo: '/Listed%20In/GoodFirms-transparent.webp',
+    status: 'Top Rated Company',
+    badge: 'Software & Growth',
+    rating: 'Verified Leader',
+  },
+  {
+    name: 'ShortList',
+    logo: '/Listed%20In/ShortList-transparent.webp',
+    status: 'Featured Partner',
+    badge: 'Curated Agency Directory',
+    rating: 'Official Listing',
+  },
+]
+
 export default function AboutClients() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <div className="max-w-3xl">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-                Verified Roster / Social Proof
-              </p>
-            </div>
-            <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-              Trusted by Brands Across 20+ Countries.
+          <div className="max-w-3xl space-y-3">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+              Trusted by Brands{' '}
+              <span className="italic text-frame-accent">
+                Across 20+ Countries.
+              </span>
             </h2>
           </div>
           <div className="max-w-md space-y-3">
-            <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-zinc-300">
               From category-defining Bangladeshi startups to multinational enterprises in the US, UK, and UAE, we engineer digital systems that scale revenue and market equity.
             </p>
-            <div className="flex flex-wrap gap-2 text-[10px] font-mono font-bold uppercase text-frame-accent">
-              <span className="border border-frame-border bg-frame-card px-2 py-0.5">50+ Brands</span>
-              <span className="border border-frame-border bg-frame-card px-2 py-0.5">20+ Countries</span>
-              <span className="border border-frame-border bg-frame-card px-2 py-0.5">Zero Outsourcing</span>
+            <div className="flex flex-wrap gap-2 text-xs font-mono uppercase text-zinc-400">
+              <span className="rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 text-frame-accent">50+ Brands</span>
+              <span className="rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 text-zinc-300">20+ Countries</span>
+              <span className="rounded-full border border-frame-accent/30 bg-purple-950/40 px-3 py-1 text-purple-200">Zero Outsourcing</span>
             </div>
           </div>
         </div>
 
-        {/* Dynamic Infinite Marquee Track */}
-        <div className="relative -mx-4 mb-16 overflow-hidden border-y-2 border-frame-border bg-frame-card py-6 md:-mx-8 md:py-8 [mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_5%,black_95%,transparent)]">
-          <div className="kinetic-marquee-track kinetic-marquee-track-slow" aria-hidden="true">
+        {/* Dynamic Infinite Marquee Track - Clean floating logos with zero background boxes */}
+        <div className="relative -mx-4 mb-8 overflow-hidden border-y border-white/[0.08] bg-[#121214] py-6 md:-mx-8 md:py-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+          <div className="kinetic-marquee-track kinetic-marquee-track-slow hover:[animation-play-state:paused]" aria-hidden="true">
             {marqueeList.map((client, index) => (
               <div
                 key={`${client.name}-${index}`}
-                className="group mx-2 flex h-20 w-36 shrink-0 items-center justify-center border-2 border-zinc-200 bg-white px-5 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-[0_12px_24px_rgba(168,85,247,0.22)] sm:h-24 sm:w-48 sm:px-6 md:h-28 md:w-56 md:px-8"
+                className="group mx-4 flex h-16 w-32 shrink-0 items-center justify-center sm:mx-6 sm:h-20 sm:w-40 md:mx-8 md:h-22 md:w-44"
               >
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-12 w-full object-contain filter transition duration-300 group-hover:scale-105 sm:max-h-14 md:max-h-16"
+                  className="max-h-9 sm:max-h-11 md:max-h-12 w-auto max-w-[85%] object-contain opacity-50 grayscale brightness-125 contrast-125 transition-opacity duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110"
                   loading="lazy"
                 />
               </div>
@@ -68,147 +105,90 @@ export default function AboutClients() {
           </div>
         </div>
 
-        {/* Structured 12-Logo Cyber-Brutalist Grid */}
-        <div className="border-2 border-frame-border bg-frame-card p-6 md:p-10">
-          <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-frame-border/80 pb-4">
-            <div>
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-frame-accent">
-                VERIFIED PORTFOLIO ROSTER
-              </span>
-              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg sm:text-xl">
-                Partner Brands &amp; Client Deployments
-              </h3>
-            </div>
-            <span className="font-mono text-xs font-semibold text-frame-muted-fg">
-              {clientLogos.length} Client Showcases Displayed
-            </span>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 sm:gap-4">
-            {clientLogos.map((client, idx) => (
-              <div
-                key={client.name}
-                className="group relative flex flex-col items-center justify-between border border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-[0_10px_25px_rgba(168,85,247,0.2)]"
-              >
-                <span className="self-start font-mono text-[9px] font-bold text-zinc-400 group-hover:text-frame-accent transition-colors">
-                  {String(idx + 1).padStart(2, '0')}
-                </span>
-                <div className="flex h-16 w-full items-center justify-center py-2">
-                  <img
-                    src={client.logo}
-                    alt={client.name}
-                    className="max-h-12 max-w-full object-contain filter transition-transform duration-300 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                </div>
-                <span className="mt-1 text-center font-mono text-[9px] font-bold uppercase tracking-wider text-zinc-500 truncate w-full">
-                  {client.industry || '\u00A0'}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Bottom Trust Quote */}
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-frame-border/80 pt-6 text-xs text-frame-muted-fg">
-            <p className="font-medium text-center sm:text-left">
-              From stealth-stage startups to international enterprises, our clients stay with us because we take sovereign ownership over every deliverable.
-            </p>
-            <Link
-              href="/projects"
-              className="inline-flex shrink-0 items-center gap-1.5 font-bold uppercase tracking-wider text-frame-accent hover:text-white transition-colors"
-            >
-              <span>View Case Studies &amp; Work</span>
-              <span aria-hidden="true">&rarr;</span>
-            </Link>
-          </div>
+        {/* Provenance Context Bar */}
+        <div className="mb-14 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-white/[0.08] pb-8 text-xs text-zinc-400">
+          <p className="font-normal text-center sm:text-left text-zinc-300 max-w-2xl leading-relaxed">
+            From stealth-stage startups to international enterprises, our clients stay with us because we take sovereign ownership over every deliverable.
+          </p>
+          <SectionButton href="/projects" className="font-mono text-xs uppercase tracking-wider">
+            View Case Studies &amp; Work
+          </SectionButton>
         </div>
 
-        {/* Global Directory Listings & Badges */}
-        <div className="mt-12 border-2 border-frame-border bg-frame-card p-6 md:p-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-frame-border/80 pb-4">
+        {/* Elevated "Recognized & Listed On" Architectural Trust Ribbon */}
+        <div className="space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <span className="font-mono text-xs font-bold uppercase tracking-widest text-frame-accent">
-                DIRECTORY ACCREDITATIONS
-              </span>
-              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg sm:text-xl">
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                 Recognized &amp; Listed On
               </h3>
             </div>
-            <span className="font-mono text-xs font-semibold text-frame-muted-fg">
-              Verified Agency &amp; Review Profiles
-            </span>
+            <p className="font-mono text-xs text-zinc-500 uppercase">
+              Independent Agency Ratings &amp; Verified Reviews
+            </p>
           </div>
 
-          <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-5">
-            {/* SelectedFirms */}
-            <div className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-3 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md">
-              <a
-                href="https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Top Digital Marketing Company - SelectedFirms"
-                className="flex items-center"
-              >
-                <img
-                  src="https://selectedfirms.co/public/assets/frontend/img/services/round/digital-marketing-agencies.webp"
-                  alt="Top Digital Marketing Company"
-                  className="h-14 w-14 object-contain transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </a>
-            </div>
+          {/* 5-Column High-End Architectural Directory Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            {directoryList.map((dir) => {
+              const cardContent = (
+                <div className="relative rounded-xl border border-white/[0.08] bg-[#121214] p-5 md:p-6 flex flex-col justify-between h-full hover:border-white/[0.14] hover:bg-[#151518] transition-colors duration-300 group">
+                  <div>
+                    <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5">
+                      <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent font-medium">
+                        {dir.rating}
+                      </span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent/60 group-hover:bg-frame-accent transition-colors" />
+                    </div>
 
-            {/* Clutch */}
-            <div
-              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
-              title="Clutch Verified Agency"
-            >
-              <img
-                src="/Listed%20In/Cutch.webp"
-                alt="Clutch"
-                className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
+                    <div className="flex h-12 items-center justify-start my-3">
+                      <img
+                        src={dir.logo}
+                        alt={dir.name}
+                        className="max-h-8 max-w-[130px] w-auto object-contain filter brightness-105 contrast-110 opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                        loading="lazy"
+                      />
+                    </div>
 
-            {/* GoodFirms */}
-            <div
-              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
-              title="GoodFirms Top Agency"
-            >
-              <img
-                src="/Listed%20In/GoodFirms.png"
-                alt="GoodFirms"
-                className="max-h-9 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
+                    <div className="space-y-1">
+                      <h4 className="font-heading text-sm md:text-base font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                        {dir.name}
+                      </h4>
+                      <p className="font-mono text-[10px] uppercase text-zinc-400">
+                        {dir.status}
+                      </p>
+                    </div>
+                  </div>
 
-            {/* Trustpilot */}
-            <div
-              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
-              title="Trustpilot Reviews"
-            >
-              <img
-                src="/Listed%20In/Trustpilot.webp"
-                alt="Trustpilot"
-                className="max-h-10 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
+                  <div className="pt-3 border-t border-white/[0.04] mt-3">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-500 group-hover:text-zinc-300 transition-colors">
+                      {dir.badge}
+                    </span>
+                  </div>
+                </div>
+              )
 
-            {/* ShortList */}
-            <div
-              className="group flex h-20 items-center justify-center border-2 border-frame-border bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:border-frame-accent hover:shadow-md"
-              title="ShortList Featured Agency"
-            >
-              <img
-                src="/Listed%20In/ShortList-logo.webp"
-                alt="ShortList"
-                className="max-h-9 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
+              if (dir.url) {
+                return (
+                  <a
+                    key={dir.name}
+                    href={dir.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${dir.name} - ${dir.status}`}
+                    className="block h-full"
+                  >
+                    {cardContent}
+                  </a>
+                )
+              }
+
+              return (
+                <div key={dir.name} className="h-full">
+                  {cardContent}
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

@@ -1,127 +1,103 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import { ShoppingCart, Sparkles, Home, Camera } from 'lucide-react'
 
-const businessTypes = [
+const verticals = [
   {
+    icon: ShoppingCart,
     title: 'Ecommerce & Product Brands',
-    body: 'Ecommerce is a natural fit for Pinterest when products are visual, discoverable, and easy to connect with a specific need or lifestyle.',
-    label: 'Campaigns can focus on',
-    bullets: [
-      'Product discovery',
-      'Shopping Ads',
-      'Product Groups',
-      'Seasonal collections',
-      'Dynamic retargeting',
-      'Catalog creative',
-      'Product-page conversions',
-      'Purchase tracking',
+    badge: 'Catalog & Shopping',
+    desc: 'Ecommerce is a natural fit for Pinterest when products are visual, discoverable, and easy to connect with a specific need or lifestyle.',
+    focusPoints: [
+      'Visual product discovery in high-intent search feeds',
+      'Merchant catalog integration and Product Groups',
+      'Dynamic retargeting for cart abandoners and viewers',
+      'Product-page direct routing with ROAS-optimized bidding',
     ],
-    tail: 'The strongest setup connects catalog quality, creative, targeting, product pages, and conversion tracking rather than treating Shopping Ads as a standalone campaign.',
   },
   {
+    icon: Sparkles,
     title: 'Fashion, Beauty & Lifestyle',
-    body: 'Fashion, beauty, and lifestyle customers often discover products through visual inspiration, mood boards, and saved ideas before buying.',
-    label: 'Campaigns can be built around',
-    bullets: [
-      'Outfit inspiration',
-      'Beauty routines',
-      'Product use cases',
-      'Seasonal collections',
-      'Trends',
-      'Before-and-after concepts',
-      'Product benefits',
-      'Lifestyle positioning',
+    badge: 'Aesthetic & Trends',
+    desc: 'Fashion, beauty, and lifestyle consumers turn to Pinterest specifically for visual styling ideas, beauty tutorials, and seasonal wardrobes.',
+    focusPoints: [
+      'Outfit inspiration and seasonal trend collections',
+      'Beauty routines, tutorials, and before-and-after imagery',
+      'Lifestyle positioning showing products in natural contexts',
+      'Carousel and Idea Pins highlighting multiple use cases',
     ],
-    tail: 'Creative needs to show the product in a context that feels natural to the Pinterest experience.',
   },
   {
+    icon: Home,
     title: 'Home, Weddings, Food & DIY',
-    body: 'Pinterest is especially relevant to categories built around planning and inspiration, where people assemble ideas over weeks or months.',
-    label: 'Relevant categories include',
-    bullets: [
-      'Home decor',
-      'Interior design',
-      'Furniture',
-      'Home improvement',
-      'DIY',
-      'Weddings',
-      'Events',
-      'Food',
-      'Recipes',
-      'Entertaining',
+    badge: 'Planning & Milestones',
+    desc: 'The heart of Pinterest. Users plan major life events, home renovations, and recipes months before making purchase decisions.',
+    focusPoints: [
+      'Home decor, furniture, and room makeover showcases',
+      'Wedding planning, bridal registries, and event services',
+      'Food, recipes, entertaining, and seasonal culinary guides',
+      'Search-oriented keyword targeting paired with seasonal timing',
     ],
-    tail: 'These campaigns can combine search-oriented targeting, visual creative, seasonal planning, and relevant landing pages. The earlier the customer enters the planning process, the more important timing and creative relevance become.',
   },
   {
+    icon: Camera,
     title: 'Service & Visually Driven Businesses',
-    body: 'Pinterest is not limited to ecommerce. Some service businesses can also use Pinterest when their service has a strong visual, project-based, or planning component.',
-    label: 'Examples include',
-    bullets: [
-      'Interior design',
-      'Wedding services',
-      'Photography',
-      'Beauty services',
-      'Travel',
-      'Home improvement',
-      'Event services',
-      'Creative professionals',
+    badge: 'High-Ticket Consideration',
+    desc: 'Pinterest is not limited to ecommerce. Service businesses with a strong visual, project-based, or planning component achieve high lead quality.',
+    focusPoints: [
+      'Interior design studios and architectural practices',
+      'Wedding photography, bespoke catering, and event planning',
+      'Travel destinations, luxury retreats, and resort packages',
+      'Pre-qualification lead gen forms capturing project scope',
     ],
-    tail: 'We assess category fit before recommending Pinterest as a primary acquisition channel.',
   },
 ]
 
 export default function BusinessTypes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Tailored approach"
-          title="Pinterest Ads Strategy for Different Business Types"
-        >
-          Pinterest does not fit every business in the same way. We adapt the campaign strategy
-          around the way customers discover, research, save, and buy in each category.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Pinterest Ads Strategy for Different{' '}
+            <span className="italic text-frame-accent">Business Types.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Pinterest does not fit every business in the same way. We adapt campaign structure, creative formats, and bidding around how customers discover, research, save, and buy in each industry.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {businessTypes.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Business type 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/pinterest-ads" allowed={["/services/website-design-development/landing-pages"]}>
-                  {item.body}
-                </AutoLinks></p>
-                {item.bullets?.length > 0 && (
-                  <div className="mt-5">
-                    <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      {item.label}:
-                    </span>
-                    <ul className="mt-3 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span className="leading-snug">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                {item.tail && (
-                  <p className="mt-5 border-t border-frame-border/60 pt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-                    {item.tail}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {verticals.map((v) => {
+            const Icon = v.icon
+            return (
+              <div
+                key={v.title}
+                className="relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+              >
+                <div>
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
+                    {v.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-5">
+                    {v.desc}
                   </p>
-                )}
+                </div>
+
+                <div className="border-t border-white/[0.06] pt-4 space-y-2">
+                  {v.focusPoints.map((point, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <span className="h-1 w-1 rounded-full bg-frame-accent shrink-0 mt-1.5" />
+                      <span className="font-mono text-xs text-zinc-300 leading-snug">
+                        {point}
+                      </span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

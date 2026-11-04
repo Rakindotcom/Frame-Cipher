@@ -61,32 +61,32 @@ const steps = [
 
 export default function Structure() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Page structure" title="How We Structure a Landing Page">
           A logical order reduces friction. Each section should earn its place and help the next decision.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {steps.map((step) => (
-            <article key={step.number} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={step.number} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <div className="flex items-baseline gap-4">
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                   {step.number}
                 </span>
                 <h3
-                  className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg"
+                  className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg"
                   dangerouslySetInnerHTML={{ __html: step.title }}
                 />
               </div>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                 {step.body[0]}
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
                 {step.bullets.map((item) => (
                   <li
                     key={item}
-                    className="border border-frame-border/80 bg-frame-muted/10 px-2.5 py-1 text-xs font-semibold text-frame-fg"
+                    className="border border-white/[0.08] bg-[#121214] px-2.5 py-1 text-xs font-semibold text-[#FAFAFA]"
                   >
                     {item}
                   </li>

@@ -12,34 +12,34 @@ export default function Timeline({ service }) {
     .filter((s) => s && /(week|day|month)/i.test(s))
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Realistic expectations" title="How Long Does This Take?">
           Timelines depend on scope, readiness, and review speed, so we set expectations rather than
           promising a fixed schedule.
         </SectionIntro>
 
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+          <div className="space-y-4 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             {paragraphs.map((paragraph, index) => (
               <p key={index}>{paragraph}</p>
             ))}
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Typical timings
             </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-3 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
               What this looks like in practice
             </h3>
             <ul className="mt-6 space-y-2.5">
               {drivers.map((factor, index) => (
                 <li
                   key={index}
-                  className="flex items-start gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg"
+                  className="flex items-start gap-3 border-b border-white/[0.06] pb-2.5 text-sm font-semibold text-[#FAFAFA]"
                 >
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span>{factor}</span>

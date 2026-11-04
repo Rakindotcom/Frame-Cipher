@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     "question": "What should we send before the session?",
-    "answer": "The final script as editable text with pronunciations for brand names and technical terms marked, tone references, and — for sync work — the locked video with timecodes."
+    "answer": "The final script as editable text with pronunciations for brand names and technical terms marked, tone references, and: for sync work, the locked video with timecodes."
   },
   {
     "question": "Are recordings delivered broadcast-ready?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "How fast can you deliver?",
-    "answer": "Short reads deliver in 24–48 hours from script confirmation. Commercial VO follows your picture-lock schedule, and series narration runs on agreed multi-session calendars. Priority lanes add 30%."
+    "answer": "Short reads deliver in 24 to 48 hours from script confirmation. Commercial VO follows your picture-lock schedule, and series narration runs on agreed multi-session calendars. Priority lanes add 30%."
   },
   {
     "question": "What if a line needs re-recording?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, talent, direction, sync and booking — everything about voice over at FrameCipher Studio.
+          Costs, talent, direction, sync and booking: everything about voice over at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -1,5 +1,11 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { PageHero, PosterButton } from '../../../Kinetic'
+import { Check, ChevronRight, ShieldCheck } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { Ambient3DCanvas } from '../../../ui/ambient-3d-canvas'
+import { BlueprintBg } from '../../../ui/blueprint-bg'
 
 const readinessFactors = [
   'The design feels outdated and no longer represents your brand or market position.',
@@ -43,142 +49,197 @@ const keepingAssets = [
 
 export default function Hero() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg/90 px-4 py-3.5 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
-          <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          <span>/</span>
-          <Link href="/services/website-design-development" className="transition hover:text-frame-fg">Website Design & Development</Link>
-          <span>/</span>
-          <span className="text-frame-accent">Website Redesign</span>
+    <div className="relative isolate bg-[#09090B] text-white">
+      {/* 1. TOP HEADER & BREADCRUMBS CLEARANCE */}
+      <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] pt-28 pb-16 px-4 sm:px-6 md:px-8">
+        {/* Ambient Morph Canvas in Background */}
+        <div className="hidden lg:block absolute right-6 top-1/2 -translate-y-1/2 h-[420px] w-[460px] opacity-25 pointer-events-none select-none [mask-image:radial-gradient(ellipse_70%_65%_at_50%_50%,#000_40%,transparent_100%)]">
+          <BlueprintBg mode="morph" className="h-full w-full" />
         </div>
-      </nav>
 
-      {/* HERO */}
-      <PageHero
-        eyebrow="Focused Service / Website Redesign"
-        meta="Modern UX & Speed / Zero SEO Loss"
-        number="11"
-        title="Best Website Redesign Service in Bangladesh"
-        actions={
-          <>
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
-            <PosterButton href="#pricing" variant="outline">
-              View Pricing &amp; Plans &rarr;
-            </PosterButton>
-          </>
-        }
-      >
-        Framecipher redesigns websites for businesses, ecommerce stores, blogs, portfolios, and any other kind of site that&apos;s outdated, slow, or no longer performing, without losing the SEO rankings, content, or traffic already built up. Whether you&apos;re redesigning a business site, an online store, a content platform, or something else entirely in Dhaka or across the US, UK, Australia, Canada, or UAE, our redesign services fix what&apos;s actually broken instead of just applying a new coat of paint.
-      </PageHero>
+        <div className="mx-auto max-w-7xl">
+          {/* Breadcrumb Navigation Header Row */}
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.08] pb-6">
+            <nav aria-label="Breadcrumb navigation" className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+              <Link href="/" className="shrink-0 hover:text-white transition-colors">
+                Home
+              </Link>
+              <ChevronRight className="h-3 w-3 text-zinc-600 shrink-0" />
+              <Link href="/services" className="shrink-0 hover:text-white transition-colors">
+                Services
+              </Link>
+              <ChevronRight className="h-3 w-3 text-zinc-600 shrink-0" />
+              <Link href="/services/website-design-development" className="shrink-0 hover:text-white transition-colors">
+                Website Design &amp; Development
+              </Link>
+              <ChevronRight className="h-3 w-3 text-zinc-600 shrink-0" />
+              <span className="text-frame-accent shrink-0">Website Redesign</span>
+            </nav>
 
-      {/* KINETIC METRIC CARDS */}
-      <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">
-        <div className="mx-auto max-w-5xl border-2 border-frame-border bg-frame-muted/20 p-5 md:p-8 font-mono text-xs">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-frame-border pb-4">
-            <div className="flex items-center gap-2">
-              <span className="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="font-bold uppercase tracking-wider text-frame-fg">REDESIGN_AUDIT // PRESERVATION & MODERNIZATION</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-4 text-frame-muted-fg font-semibold uppercase">
-              <span>STATUS: SAFE MIGRATION</span>
-              <span>EQUITY: ZERO SEO LOSS</span>
-              <span className="text-frame-accent font-black">CUTOVER: 100% UPTIME</span>
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-emerald-400 bg-[#121214] border border-emerald-500/20 rounded-full px-3.5 py-1">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+              <span>SEO Preservation &middot; Dhaka &amp; Global</span>
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Strategy</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Audit First</p>
-              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Diagnose Before Rebuild</p>
+          {/* Master 12-Column Hero Grid */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* Left Column (7-col) */}
+            <div className="space-y-6 lg:col-span-6 xl:col-span-6">
+              {/* Eyebrow & Meta */}
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                  <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                    [ 11 / WEBSITE REDESIGN ]
+                  </span>
+                </span>
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Modern UX &amp; Speed / Zero SEO Loss
+                </span>
+              </div>
+
+              {/* H1 Heading */}
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white break-normal hyphens-none">
+                Best Website Redesign{' '}
+                <span className="italic text-frame-accent">Service in Bangladesh.</span>
+              </h1>
+
+              {/* Description */}
+              <p className="max-w-2xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+                Framecipher redesigns websites for businesses, ecommerce stores, blogs, portfolios, and any other kind of site that&apos;s outdated, slow, or no longer performing, without losing the SEO rankings, content, or traffic already built up. Whether you&apos;re redesigning a business site, an online store, a content platform, or something else entirely in Dhaka or across the US, UK, Australia, Canada, or UAE, our redesign services fix what&apos;s actually broken instead of just applying a new coat of paint.
+              </p>
+
+              {/* Symmetrical 52px Button Pair */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <PosterButton href="/contact" variant="accent">
+                  Get Free Consultation
+                </PosterButton>
+                <PosterButton href="#pricing" variant="outline">
+                  View Pricing &amp; Plans
+                </PosterButton>
+              </div>
             </div>
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">SEO Protection</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Zero Loss</p>
-              <p className="mt-1 text-[11px] text-frame-accent font-bold">301 Redirect Mapping</p>
-            </div>
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Performance</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">&lt; 1.0s Speed</p>
-              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Core Web Vitals Pass</p>
-            </div>
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Cutover</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">100% Uptime</p>
-              <p className="mt-1 text-[11px] text-frame-accent font-bold">Zero-Downtime Launch</p>
+
+            {/* Right Column (5-col) - Interactive 3D Canvas */}
+            <div className="relative flex justify-center lg:col-span-6 xl:col-span-6 w-full">
+              <div className="relative w-full max-w-[540px]">
+                <Ambient3DCanvas
+                  mode="refraction-scan"
+                  className="w-full aspect-square max-h-[500px]"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* STRATEGIC ASSESSMENT: DOES YOUR WEBSITE ACTUALLY NEED A REDESIGN? */}
-      <section className="bg-frame-bg px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="max-w-4xl">
-            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Strategic Evaluation
-            </p>
-            <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Does Your Website Actually Need a Redesign?
+      {/* 2. PRODUCTION STATUS & KPI LEDGER */}
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-8 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 font-mono text-xs">
+          <div className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">Strategy</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">Audit First</p>
+              <p className="mt-1 text-[11px] text-emerald-400">Diagnose Before Rebuild</p>
+            </div>
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">SEO Protection</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">Zero Loss</p>
+              <p className="mt-1 text-[11px] text-frame-accent">301 Redirect Mapping</p>
+            </div>
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">Performance</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">&lt; 1.0s Speed</p>
+              <p className="mt-1 text-[11px] text-emerald-400">Core Web Vitals Pass</p>
+            </div>
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">Cutover</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">100% Uptime</p>
+              <p className="mt-1 text-[11px] text-frame-accent">Zero-Downtime Launch</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3. STRATEGIC ASSESSMENT: DOES YOUR WEBSITE ACTUALLY NEED A REDESIGN? */}
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          {/* Left-Aligned Header Block */}
+          <div className="mb-14 max-w-3xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Does Your Website Actually{' '}
+              <span className="italic text-frame-accent">Need a Redesign?</span>
             </h2>
 
-            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Website Audit</span>
+            {/* 4-Step Process Pipeline */}
+            <div className="pt-2 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono uppercase tracking-wider text-white">
+              <span className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2">Website Audit</span>
               <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">SEO Equity Check</span>
+              <span className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2">SEO Equity Check</span>
               <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Performance Baseline</span>
+              <span className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2">Performance Baseline</span>
               <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Focused Rebuild</span>
+              <span className="rounded-full border border-frame-accent/40 bg-frame-accent/15 px-3.5 py-2 text-frame-accent">Focused Rebuild</span>
             </div>
+          </div>
 
-            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
-              <div className="bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Redesign For</span>
-                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+          {/* 3 Strategic Approach Cards */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors hover:border-white/[0.14]">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                  Who We Redesign For
+                </span>
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   Businesses, ecommerce stores, blogs, portfolios, and content platforms whose site is outdated, slow, or no longer performing.
                 </p>
               </div>
-              <div className="bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Fix</span>
-                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            </div>
+            <div className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors hover:border-white/[0.14]">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                  What We Fix
+                </span>
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   Structure, performance, UX, platform issues, and conversion paths&mdash;not just a new coat of paint on an old design.
                 </p>
               </div>
-              <div className="bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Protect You</span>
-                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            </div>
+            <div className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors hover:border-white/[0.14]">
+              <div>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                  How We Protect You
+                </span>
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   We diagnose before rebuilding, preserve SEO equity, map 301 redirects, and launch with zero-downtime cutover.
                 </p>
               </div>
             </div>
-
-            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
-              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
-                Not sure whether your website needs a redesign or just an update? We audit it and tell you honestly what fits.
-              </p>
-              <PosterButton href="/contact" className="shrink-0">
-                Get an Honest Assessment
-              </PosterButton>
-            </div>
           </div>
 
-          {/* READINESS CHECKLIST */}
-          <div className="mt-12 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-10">
-            <h3 className="font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg mb-6">
+          {/* Honest Assessment Callout */}
+          <div className="mt-8 flex flex-col items-start justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:flex-row md:items-center">
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300 max-w-2xl">
+              Not sure whether your website needs a redesign or just an update? We audit it and tell you honestly what fits.
+            </p>
+            <PosterButton href="/contact" variant="outline" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
+          </div>
+
+          {/* Readiness Checklist */}
+          <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+            <h3 className="font-heading text-xl sm:text-2xl font-medium text-white mb-6">
               Your Website May Be Ready for a Redesign If:
             </h3>
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               {readinessFactors.map((factor, idx) => (
-                <div key={idx} className="flex items-start gap-3 bg-frame-bg p-4 border border-frame-border">
-                  <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent font-black text-xs text-frame-accent">
-                    ✓
+                <div key={idx} className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-[#09090B] p-4">
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent mt-0.5">
+                    <Check className="h-3 w-3 stroke-[2.5]" />
                   </span>
-                  <span className="text-sm sm:text-base font-medium text-frame-fg leading-snug">
+                  <span className="text-sm font-normal text-zinc-300 leading-snug">
                     {factor}
                   </span>
                 </div>
@@ -186,22 +247,19 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* NOT EVERY WEBSITE NEEDS A FULL REBUILD */}
-          <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-10">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-              Practical Determination
-            </span>
-            <h3 className="mt-3 font-heading text-2xl sm:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+          {/* Not Every Website Needs a Full Rebuild */}
+          <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+            <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium text-white">
               Not Every Website Needs a Full Rebuild
             </h3>
-            <div className="mt-4 space-y-4 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-4xl">
+            <div className="mt-4 space-y-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 max-w-4xl">
               <p>
                 If your existing platform and structure are sound, a focused visual or UX refresh may solve the problem.
               </p>
               <p>
                 If the underlying platform, codebase, architecture, or content structure is causing the problem, a deeper rebuild or migration may be the better option.
               </p>
-              <p className="font-bold text-frame-fg">
+              <p className="font-medium text-white">
                 We determine that from the audit instead of assuming every client needs the largest possible redesign.
               </p>
             </div>
@@ -209,17 +267,17 @@ export default function Hero() {
         </div>
       </section>
 
-      {/* ASSET AUDIT: WHAT IS WORTH KEEPING BEFORE WE REDESIGN? */}
-      <section className="bg-frame-muted/20 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="max-w-4xl">
-            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Asset Preservation
-            </p>
-            <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              What Is Worth Keeping Before We Redesign?
+      {/* 4. ASSET AUDIT: WHAT IS WORTH KEEPING BEFORE WE REDESIGN? */}
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          {/* Left-Aligned Header Block */}
+          <div className="mb-14 max-w-3xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              What Is Worth Keeping{' '}
+              <span className="italic text-frame-accent">Before We Redesign?</span>
             </h2>
-            <div className="mt-6 space-y-4 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+
+            <div className="space-y-3 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
               <p>
                 A redesign should not mean throwing away everything your current website has built over the years.
               </p>
@@ -229,17 +287,21 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="mt-12 grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+          {/* 6 Keeping Asset Cards */}
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {keepingAssets.map((asset, idx) => (
-              <div key={idx} className="bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
+              <div
+                key={idx}
+                className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors hover:border-white/[0.14]"
+              >
                 <div>
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
                     Asset 0{idx + 1}
                   </span>
-                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                     {asset.title}
                   </h3>
-                  <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                     {asset.description}
                   </p>
                 </div>
@@ -247,12 +309,12 @@ export default function Hero() {
             ))}
           </div>
 
-          {/* KEEP WHAT WORKS. FIX WHAT DOESN'T */}
-          <div className="mt-10 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <h3 className="font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          {/* Keep What Works Callout */}
+          <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+            <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
               Keep What Works. Fix What Doesn&apos;t.
             </h3>
-            <p className="mt-3 text-sm sm:text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
               A redesign should improve the existing website, not automatically replace everything. We use the current website as evidence, identify what should stay, and focus the redesign effort where it can create meaningful improvement.
             </p>
           </div>

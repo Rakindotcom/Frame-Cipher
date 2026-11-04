@@ -45,31 +45,31 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Workflow" title="Our Case Study Writing Process">
           Every project follows a structured process from story selection through approval.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
-            <article key={step.number} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+            <article key={step.number} className="flex flex-col bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-[#A855F7]">
                 {step.number}
               </span>
-              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {step.title}
               </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{step.description}</p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">{step.description}</p>
 
               {step.checks && (
-                <ul className="mt-5 border-t-2 border-frame-border pt-4">
+                <ul className="mt-5 border-t border-white/[0.08] pt-4">
                   {step.checks.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2.5 py-1 text-sm font-medium leading-relaxed text-frame-fg"
+                      className="flex items-start gap-2.5 py-1 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                     >
-                      <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                      <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                         ✓
                       </span>
                       <span>{item}</span>

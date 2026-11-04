@@ -37,8 +37,8 @@ const columns = [
 
 export default function VsCopywriting() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Service boundaries"
           title="Content Writing vs. Copywriting"
@@ -46,31 +46,31 @@ export default function VsCopywriting() {
           The terms are often used interchangeably, but they usually serve different purposes.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-3">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-3">
           {columns.map((column) => (
             <article
               key={column.title}
               className={`flex flex-col p-7 md:p-8 ${
-                column.title === 'When Your Business Needs Both' ? 'bg-frame-accent/10' : 'bg-frame-bg'
+                column.title === 'When Your Business Needs Both' ? 'bg-[#A855F7]/10' : 'bg-[#09090B]'
               }`}
             >
-              <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {column.title}
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                 {column.body}
               </p>
 
               {column.examples && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                <div className="mt-6 border-t border-white/[0.08]/60 pt-4">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     {column.examplesLabel}
                   </span>
                   <ul className="mt-3 flex flex-wrap gap-2">
                     {column.examples.map((example) => (
                       <li
                         key={example}
-                        className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                        className="border border-white/[0.08] bg-[#121214] px-2.5 py-1 text-[11px] font-semibold text-[#FAFAFA]"
                       >
                         {example}
                       </li>
@@ -82,7 +82,7 @@ export default function VsCopywriting() {
           ))}
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-[#A855F7]/40 bg-[#121214] p-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
           Framecipher can coordinate those writing requirements within one broader content engagement, so
           the informational and conversion-focused work stay consistent with each other.
         </p>

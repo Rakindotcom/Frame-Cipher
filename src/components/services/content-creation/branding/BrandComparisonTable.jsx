@@ -29,8 +29,8 @@ const rows = [
 
 export default function BrandComparisonTable() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Architectural Interdependence"
           title="Brand Identity vs. Brand Strategy vs. Brand Guidelines"
@@ -38,36 +38,36 @@ export default function BrandComparisonTable() {
           These terms are often conflated, but they describe distinct, interlocking disciplines. A visually stunning identity will still fail if its strategic positioning is undefined or if teams lack documented rules to apply it.
         </SectionIntro>
 
-        <div className="mt-12 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+        <div className="mt-12 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
           <table className="w-full text-left">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+            <thead className="border-b border-white/[0.08] bg-[#121214]">
               <tr>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Branding Discipline
                 </th>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   What It Defines
                 </th>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Main Commercial Purpose
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y-2 divide-frame-border text-xs sm:text-sm font-medium">
               {rows.map((row, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20">
-                  <td className="p-4 md:p-6 font-bold uppercase tracking-tight text-frame-fg whitespace-nowrap">
+                <tr key={idx} className="hover:bg-[#121214]">
+                  <td className="p-4 md:p-6 font-bold uppercase tracking-tight text-[#FAFAFA] whitespace-nowrap">
                     <div>
                       <span>{row.area}</span>
-                      <span className="block mt-1 font-mono text-[10px] text-frame-accent">
+                      <span className="block mt-1 font-mono text-[10px] text-[#A855F7]">
                         {row.badge}
                       </span>
                     </div>
                   </td>
-                  <td className="p-4 md:p-6 text-frame-muted-fg leading-relaxed max-w-md">
+                  <td className="p-4 md:p-6 text-[#A1A1AA] leading-relaxed max-w-md">
                     {row.defines}
                   </td>
-                  <td className="p-4 md:p-6 font-semibold text-frame-fg leading-relaxed max-w-sm">
+                  <td className="p-4 md:p-6 font-semibold text-[#FAFAFA] leading-relaxed max-w-sm">
                     {row.purpose}
                   </td>
                 </tr>
@@ -76,8 +76,8 @@ export default function BrandComparisonTable() {
           </table>
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-xs sm:text-sm font-medium text-frame-fg leading-relaxed max-w-4xl mx-auto text-center">
+        <div className="mt-8 border border-white/[0.08] bg-[#121214] p-6 md:p-8">
+          <p className="text-xs sm:text-sm font-medium text-[#FAFAFA] leading-relaxed max-w-4xl mx-auto text-center">
             A complete Framecipher branding engagement unifies all four disciplines into one working ecosystem, ensuring your company looks authoritative, speaks with unmistakable distinction, and maintains visual discipline for years to come.
           </p>
         </div>

@@ -9,7 +9,7 @@ const productionStandards = [
   "Dialogue restoration: spectral de-noise, de-reverb, de-click, EQ and broadcast loudness compliance",
   "Motion graphics packaging: lower thirds, logo animation and kinetic typography in your brand style",
   "Timestamped cloud review links so stakeholders comment frame-accurately, not over chat screenshots",
-  "Direct handoff from our own shoot floor when you film with us — no outside vendor in between"
+  "Direct handoff from our own shoot floor when you film with us: no outside vendor in between"
 ]
 const confirmedDeliverables = [
   "ProRes 422 HQ and high-bitrate MP4 masters in 16:9",
@@ -22,7 +22,7 @@ const confirmedDeliverables = [
 export default function Offerings() {
   return (
     <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Scope & Standards"
           title="What Our Post-Production Service Includes"
@@ -37,7 +37,7 @@ export default function Offerings() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Production Standards
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 Verified, Graded & Mixed In-House
               </h3>
               <ul className="mt-6 space-y-3 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -56,7 +56,7 @@ export default function Offerings() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Confirmed Deliverables
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 Masters, Stems & Subtitle Files
               </h3>
               <ul className="mt-6 space-y-3 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -76,7 +76,7 @@ export default function Offerings() {
             <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
               Single Team Accountability
             </span>
-            <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="mt-1 font-heading text-xl font-bold tracking-tight text-frame-fg">
               One team owns your footage from intake checksum to final export.
             </h4>
             <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">

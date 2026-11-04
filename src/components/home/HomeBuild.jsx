@@ -1,105 +1,128 @@
 import Link from 'next/link'
+import SectionButton from './SectionButton'
 
-const buildItems = [
+const coreServices = [
   {
-    title: 'Brand & marketing systems',
-    description: 'Positioning, messaging, identity, and campaign direction built as one system.',
-    href: '/services/content-creation/branding',
-    anchor: 'Explore branding and brand strategy services',
-    tag: 'Strategy',
-  },
-  {
-    title: 'High-converting websites',
-    description: 'Fast, modern websites and landing pages designed around clear next actions.',
-    href: '/services/website-design-development',
-    anchor: 'Explore website design and development services',
-    tag: 'Web',
-  },
-  {
-    title: 'E-commerce platforms',
-    description: 'Storefronts, product pages, checkout flows, and tracking built for sales.',
-    href: '/services/website-design-development/ecommerce-website',
-    anchor: 'Explore e-commerce website development services',
-    tag: 'E-commerce',
-  },
-  {
-    title: 'Custom software',
-    description: 'Web applications, dashboards, and tools built around how your business operates.',
-    href: '/services/app-development',
-    anchor: 'Explore custom software and app development services',
-    tag: 'Software',
-  },
-  {
-    title: 'CRM & business systems',
-    description: 'Lead capture, pipelines, automations, and reporting that keep teams organized.',
-    href: '/services/app-development/saas-apps',
-    anchor: 'Explore CRM and business automation systems',
-    tag: 'Automation',
-  },
-  {
-    title: 'Content & media systems',
-    description: 'Social content, video, photography, and creative production on a repeatable rhythm.',
-    href: '/services/social-media-management',
-    anchor: 'Explore social media management services',
-    tag: 'Content',
-  },
-  {
-    title: 'SEO & search visibility',
-    description: 'Technical foundations, keyword mapping, local SEO, and content built to be found.',
-    href: '/services/seo',
-    anchor: 'Explore search engine optimization services',
-    tag: 'SEO',
-  },
-  {
-    title: 'Paid acquisition systems',
-    description: 'Campaign strategy, creative, targeting, tracking, and continuous optimization.',
+    title: '360 Growth Marketing & Paid Acquisition',
+    description: 'Full-funnel campaign planning, Meta & Google ad management, offer testing, and continuous ROAS optimization.',
     href: '/services/paid-advertising',
-    anchor: 'Explore paid advertising and PPC services',
-    tag: 'Ads',
+    anchor: 'Explore paid advertising and 360 growth marketing services',
+    tag: 'Growth / Acquisition',
+    metric: 'Data-Driven ROAS Scaling',
+    deliverables: ['Brand Strategy', 'Meta & Google Ads', 'Funnel CRO', 'Attribution Tracking'],
+  },
+  {
+    title: 'High-Converting Websites & E-Commerce',
+    description: 'Fast, modern Next.js web applications, headless Shopify storefronts, and conversion-engineered landing pages.',
+    href: '/services/website-design-development',
+    anchor: 'Explore website design and e-commerce development services',
+    tag: 'Web / E-Commerce',
+    metric: '100% Performance & LCP <0.8s',
+    deliverables: ['Next.js 15 Web Apps', 'Shopify Storefronts', 'Sub-Second Speed', 'Landing Page Sprints'],
+  },
+  {
+    title: 'Custom Software, CRM & Automations',
+    description: 'Custom web platforms, executive dashboards, CRM lead routing, and business workflow automations.',
+    href: '/services/app-development',
+    anchor: 'Explore custom software and business automation systems',
+    tag: 'Software / Automation',
+    metric: 'Automated Pipelines',
+    deliverables: ['Custom Dashboards', 'CRM Pipelines', 'Workflow Automations', 'API Integrations'],
+  },
+  {
+    title: 'Cinematic Media & Studio Video Production',
+    description: 'Commercial 4K filming, viral short-form reels/TikTok engine, studio photography, and cinematic post-production.',
+    href: '/services/content-creation/video-production',
+    anchor: 'Explore video production and media studio services',
+    tag: 'Studio / Media',
+    metric: 'In-House Studio & 4K Video',
+    deliverables: ['Commercial Shoots', 'Viral Reels Engine', 'Studio Photography', 'Color Grading'],
+  },
+  {
+    title: 'Technical & Local Search Dominance (SEO)',
+    description: 'Dhaka Google Maps 3-pack domination, technical search audits, keyword clusters, and modern AEO/GEO optimization.',
+    href: '/services/seo',
+    anchor: 'Explore search engine optimization and local SEO services',
+    tag: 'Search / Local SEO',
+    metric: 'Organic Search Authority',
+    deliverables: ['Local Map 3-Pack', 'Technical SEO Audits', 'Keyword Clustering', 'AEO / GEO Strategy'],
+  },
+  {
+    title: 'Brand Strategy & Visual Design Systems',
+    description: 'Market positioning, offer messaging, comprehensive design systems, campaign visuals, and kinetic brand identity.',
+    href: '/services/content-creation/branding',
+    anchor: 'Explore branding and visual identity design services',
+    tag: 'Brand / Creative',
+    metric: 'Full Identity & Direction',
+    deliverables: ['Brand Positioning', 'Visual Identity', 'Design Systems', 'Campaign Creatives'],
   },
 ]
 
 export default function HomeBuild() {
   return (
-    <section className="px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              What we build / Capabilities
-            </p>
-            <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-              What we build for growing businesses.
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white sm:px-6 md:px-8 md:py-24 lg:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Core services built for{' '}
+              <span className="italic text-frame-accent">
+                compounding growth.
+              </span>
             </h2>
           </div>
-          <p className="max-w-md text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-            We combine strategy, creative, marketing, and technology to build complete digital
-            systems around your business.
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            We combine strategy, creative, marketing, and engineering to build complete growth
+            systems around your business without vendor friction.
           </p>
         </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
-          {buildItems.map((item, index) => (
+        {/* Linear/Raycast Architectural Continuum Grid (Shared 1px Hairlines, Zero Box Clutter) */}
+        <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] grid gap-px sm:grid-cols-2 lg:grid-cols-3 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:z-10">
+          {coreServices.map((item, index) => (
             <article
               key={item.title}
-              className="group relative flex min-h-56 flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-accent sm:p-7"
+              className="group relative flex flex-col justify-between bg-[#121214] p-6 transition-colors duration-200 hover:bg-[#151518] sm:p-8"
             >
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.28em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/75 sm:text-xs">
-                  {item.tag} / 0{index + 1}
-                </p>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl">
-                  <Link href={item.href} className="after:absolute after:inset-0 after:content-['']">
+                <div className="flex items-center justify-between gap-3 border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs text-frame-accent">
+                    {item.tag}
+                  </span>
+                  <span className="font-mono text-xs text-zinc-500 tabular-nums">
+                    0{index + 1}
+                  </span>
+                </div>
+
+                <h3 className="mt-5 font-heading text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl">
+                  <Link href={item.href} className="after:absolute after:inset-0 after:content-['']" title={item.anchor}>
                     {item.title}
                   </Link>
                 </h3>
-              </div>
-              <div>
-                <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/85">
+
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400 transition-colors duration-200 group-hover:text-zinc-200">
                   {item.description}
                 </p>
+
+                {/* Key Deliverables Pills (Nested concentric radii: rounded-md) */}
+                <div className="mt-6 flex flex-wrap gap-1.5">
+                  {item.deliverables.map((deliv) => (
+                    <span
+                      key={deliv}
+                      className="rounded-md border border-white/[0.08] bg-white/[0.03] px-2.5 py-1 font-mono text-[11px] uppercase tracking-wider text-zinc-300"
+                    >
+                      {deliv}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 flex items-center justify-between border-t border-white/[0.06] pt-4">
+                <span className="font-mono text-xs text-zinc-400 transition-colors duration-200 group-hover:text-zinc-200">
+                  {item.metric}
+                </span>
                 <span
-                  className="mt-6 inline-flex items-center gap-2 border-b-2 border-frame-border pb-1 text-xs font-black uppercase tracking-wider text-frame-fg transition-colors duration-300 group-hover:border-frame-accent-fg group-hover:text-frame-accent-fg"
+                  className="inline-flex items-center gap-1.5 text-xs font-mono uppercase tracking-wider text-white transition-colors duration-200 group-hover:text-frame-accent"
                   aria-hidden="true"
                 >
                   <span>Explore</span>
@@ -110,16 +133,8 @@ export default function HomeBuild() {
           ))}
         </div>
 
-        <div className="mt-10 flex justify-center">
-          <Link
-            href="/services"
-            className="group inline-flex min-h-14 w-full sm:w-auto items-center justify-center gap-3 border-2 border-frame-border bg-transparent px-7 py-4 text-sm font-black uppercase tracking-tighter text-frame-fg transition-all duration-200 hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg active:scale-95 md:min-h-16 md:px-9 md:text-base"
-          >
-            <span>Explore all services</span>
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
-              &rarr;
-            </span>
-          </Link>
+        <div className="mt-14 flex justify-center">
+          <SectionButton href="/services">Explore all services</SectionButton>
         </div>
       </div>
     </section>

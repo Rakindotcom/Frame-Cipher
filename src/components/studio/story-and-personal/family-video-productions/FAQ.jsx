@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     "question": "Can you restore old photos, VHS tapes and documents?",
-    "answer": "Yes. High-resolution scanning with dust cleanup and colour restoration for vintage photographs, plus VHS and document digitisation — woven into the film alongside the interviews."
+    "answer": "Yes. High-resolution scanning with dust cleanup and colour restoration for vintage photographs, plus VHS and document digitisation: woven into the film alongside the interviews."
   },
   {
     "question": "Do you offer Bangla and English versions?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "Can each sibling get a copy?",
-    "answer": "Yes. Heirloom box sets include copies for the family, and additional engraved USB sets are ৳3,500 each — planned at the brief stage so every household receives one."
+    "answer": "Yes. Heirloom box sets include copies for the family, and additional engraved USB sets are ৳3,500 each: planned at the brief stage so every household receives one."
   },
   {
     "question": "How do we book and pay?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, sessions, restoration and booking — everything about family films at FrameCipher Studio.
+          Costs, sessions, restoration and booking: everything about family films at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

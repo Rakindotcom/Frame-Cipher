@@ -21,8 +21,8 @@ const purposes = [
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Content approach"
           title="Content Writing Built Around What Your Business Needs to Achieve"
@@ -30,8 +30,8 @@ export default function Overview() {
           Good writing is not just about correct grammar or filling a page with words.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             <p>
               A blog post may need to answer a search query. A service page may need to explain your offer
               and build trust. A product description may need to remove buying uncertainty. A landing page
@@ -47,17 +47,17 @@ export default function Overview() {
             </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Every piece has one job
             </span>
             <ul className="mt-5 space-y-4">
               {purposes.map((purpose) => (
-                <li key={purpose.label} className="border-t-2 border-frame-border/60 pt-4 first:border-t-0 first:pt-0">
-                  <span className="font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-accent">
+                <li key={purpose.label} className="border-t border-white/[0.08]/60 pt-4 first:border-t-0 first:pt-0">
+                  <span className="font-heading text-sm font-bold uppercase leading-snug tracking-tight text-[#A855F7]">
                     {purpose.label}
                   </span>
-                  <p className="mt-1 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-1 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                     {purpose.body}
                   </p>
                 </li>
@@ -66,8 +66,8 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Tell us what you want the content to accomplish, and we can help define the right writing scope.
           </p>
           <div className="shrink-0">

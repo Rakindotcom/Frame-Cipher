@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     "question": "What are your operating hours?",
-    "answer": "Open 24 hours — every session runs by advance reservation, covering overnight edits, early call times and international client time zones."
+    "answer": "Open 24 hours: every session runs by advance reservation, covering overnight edits, early call times and international client time zones."
   },
   {
     "question": "How quickly can we schedule a walkthrough visit?",
@@ -25,15 +25,15 @@ const faqs = [
   },
   {
     "question": "How do quotes, advances and invoices work?",
-    "answer": "Itemised written quotes within 48 hours, a 50% advance to lock dates, balance only on final sign-off, and VAT-compliant invoices on every payment — bKash, Nagad, bank, cheque or cash."
+    "answer": "Itemised written quotes within 48 hours, a 50% advance to lock dates, balance only on final sign-off, and VAT-compliant invoices on every payment: bKash, Nagad, bank, cheque or cash."
   },
   {
     "question": "Can we reschedule after confirming?",
-    "answer": "Yes. Rescheduling is free with at least 48 hours notice to any available slot — no penalties and no lost advance."
+    "answer": "Yes. Rescheduling is free with at least 48 hours notice to any available slot: no penalties and no lost advance."
   },
   {
     "question": "Where is the studio and where do we park?",
-    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — off the Mirpur DOHS–Banani access road with dedicated parking beside the building and elevator to the stage."
+    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: off the Mirpur DOHS, Banani access road with dedicated parking beside the building and elevator to the stage."
   },
   {
     "question": "How fast is standard delivery once we book?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Channels, visits, quotes and booking — everything about reaching FrameCipher Studio.
+          Channels, visits, quotes and booking: everything about reaching FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

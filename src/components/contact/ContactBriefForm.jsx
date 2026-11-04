@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore'
+import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../firebase'
 
 const budgetRanges = [
@@ -128,8 +128,8 @@ export const contactServiceGroups = [
 function Field({ label, name, value, onChange, type = 'text', required = false }) {
   return (
     <div className="w-full min-w-0 max-w-full">
-      <label className="mb-3 block text-xs font-black uppercase tracking-[0.22em] text-frame-accent truncate" htmlFor={name}>
-        {label}
+      <label className="mb-2 block font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 truncate" htmlFor={name}>
+        {label} {required && <span className="text-frame-accent">*</span>}
       </label>
       <input
         id={name}
@@ -138,7 +138,7 @@ function Field({ label, name, value, onChange, type = 'text', required = false }
         value={value}
         onChange={onChange}
         required={required}
-        className="h-14 w-full min-w-0 max-w-full border-2 border-frame-border bg-frame-bg px-4 text-base font-semibold text-frame-fg outline-none transition-colors placeholder:text-frame-muted focus:border-frame-accent md:h-16 box-border"
+        className="h-13 w-full min-w-0 max-w-full rounded-lg border border-white/[0.08] bg-[#18181B] px-4 text-[16px] sm:text-[15px] font-normal text-white placeholder:text-zinc-500 focus:border-white/[0.2] focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-colors box-border"
       />
     </div>
   )
@@ -147,7 +147,7 @@ function Field({ label, name, value, onChange, type = 'text', required = false }
 function SelectField({ label, name, value, onChange, options, groups }) {
   return (
     <div className="w-full min-w-0 max-w-full">
-      <label className="mb-3 block text-xs font-black uppercase tracking-[0.22em] text-frame-accent truncate" htmlFor={name}>
+      <label className="mb-2 block font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 truncate" htmlFor={name}>
         {label}
       </label>
       <div className="relative w-full min-w-0 max-w-full">
@@ -156,13 +156,13 @@ function SelectField({ label, name, value, onChange, options, groups }) {
           name={name}
           value={value}
           onChange={onChange}
-          className="h-14 w-full min-w-0 max-w-full appearance-none truncate border-2 border-frame-border bg-frame-bg px-4 pr-10 text-sm font-bold uppercase tracking-tight text-frame-fg outline-none transition-colors focus:border-frame-accent md:h-16 md:text-base cursor-pointer box-border"
+          className="h-13 w-full min-w-0 max-w-full appearance-none truncate rounded-lg border border-white/[0.08] bg-[#18181B] px-4 pr-10 text-[16px] sm:text-[14px] font-medium text-white focus:border-white/[0.2] focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-colors cursor-pointer box-border"
         >
           {groups ? (
             groups.map((grp) => (
-              <optgroup key={grp.category} label={`── ${grp.category} ──`} className="bg-frame-bg font-black text-frame-accent">
+              <optgroup key={grp.category} label={`── ${grp.category} ──`} className="bg-[#121214] font-mono text-xs text-frame-accent">
                 {grp.items.map((item) => (
-                  <option key={item} value={item} className="bg-frame-bg text-frame-fg py-1.5 font-semibold normal-case">
+                  <option key={item} value={item} className="bg-[#18181B] text-white py-1.5 font-normal">
                     {item}
                   </option>
                 ))}
@@ -170,14 +170,14 @@ function SelectField({ label, name, value, onChange, options, groups }) {
             ))
           ) : (
             options?.map((option) => (
-              <option key={option} value={option} className="bg-frame-bg text-frame-fg py-2 font-semibold">
+              <option key={option} value={option} className="bg-[#18181B] text-white py-2 font-normal">
                 {option}
               </option>
             ))
           )}
         </select>
-        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-frame-accent">
-          <svg className="h-4 w-4 fill-current transition-transform duration-200" viewBox="0 0 20 20">
+        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-zinc-400">
+          <svg className="h-4 w-4 fill-current" viewBox="0 0 20 20">
             <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" />
           </svg>
         </div>
@@ -272,29 +272,37 @@ export default function ContactBriefForm() {
   }
 
   return (
-    <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-      <h2 className="font-heading text-[clamp(1.8rem,4vw,3rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-        Send us a brief
-      </h2>
+    <div className="w-full min-w-0 max-w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+      <div className="mb-8">
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-white">
+          Send us a{' '}
+          <span className="italic text-frame-accent">
+            brief.
+          </span>
+        </h2>
+        <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
+          Fill in what you know; leave what you don&apos;t. We&apos;ll schedule a session or respond async.
+        </p>
+      </div>
 
       {submitStatus === 'success' && (
-        <div className="mt-6 border-2 border-frame-accent bg-frame-accent p-4 text-base font-black uppercase tracking-tighter text-frame-accent-fg">
+        <div className="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4 font-mono text-xs uppercase tracking-wider text-emerald-300">
           Message sent. We will review the brief and reply with the best next step.
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mt-6 border-2 border-frame-border bg-frame-muted p-4 text-base font-black uppercase tracking-tighter text-frame-fg">
-          The form could not be sent. Please email us or try WhatsApp.
+        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-4 font-mono text-xs uppercase tracking-wider text-red-300">
+          The form could not be sent. Please email us or try WhatsApp directly.
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="mt-8 grid gap-7 w-full min-w-0 max-w-full">
-        <div className="grid gap-7 md:grid-cols-2 w-full min-w-0">
+      <form onSubmit={handleSubmit} className="grid gap-6 w-full min-w-0 max-w-full">
+        <div className="grid gap-6 md:grid-cols-2 w-full min-w-0">
           <Field label="Name" name="name" value={formData.name} onChange={handleChange} required />
           <Field label="Company" name="company" value={formData.company} onChange={handleChange} />
         </div>
-        <div className="grid gap-7 md:grid-cols-2 w-full min-w-0">
+        <div className="grid gap-6 md:grid-cols-2 w-full min-w-0">
           <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
           <Field label="Phone or WhatsApp" name="phone" value={formData.phone} onChange={handleChange} required />
         </div>
@@ -307,7 +315,7 @@ export default function ContactBriefForm() {
           groups={contactServiceGroups}
         />
 
-        <div className="grid gap-7 md:grid-cols-2 w-full min-w-0">
+        <div className="grid gap-6 md:grid-cols-2 w-full min-w-0">
           <SelectField
             label="Budget range"
             name="budgetRange"
@@ -325,8 +333,8 @@ export default function ContactBriefForm() {
         </div>
 
         <div className="w-full min-w-0 max-w-full">
-          <label className="mb-3 block text-xs font-black uppercase tracking-[0.22em] text-frame-accent truncate" htmlFor="details">
-            Project details
+          <label className="mb-2 block font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 truncate" htmlFor="details">
+            Project details <span className="text-frame-accent">*</span>
           </label>
           <textarea
             id="details"
@@ -334,8 +342,8 @@ export default function ContactBriefForm() {
             value={formData.details}
             onChange={handleChange}
             required
-            rows="6"
-            className="h-48 w-full min-w-0 max-w-full resize-none border-2 border-frame-border bg-frame-bg px-4 py-4 text-base font-semibold leading-snug text-frame-fg outline-none transition-colors placeholder:text-frame-muted focus:border-frame-accent box-border"
+            rows="5"
+            className="w-full min-w-0 max-w-full resize-none rounded-lg border border-white/[0.08] bg-[#18181B] p-4 text-[16px] sm:text-[15px] font-normal leading-relaxed text-white placeholder:text-zinc-500 focus:border-white/[0.2] focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-colors box-border"
             placeholder="Tell us about the business, offer, goal, current problem, and what you need built or promoted."
           />
         </div>
@@ -343,9 +351,12 @@ export default function ContactBriefForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="min-h-16 w-full border-2 border-frame-accent bg-frame-accent px-8 py-4 text-base font-black uppercase tracking-tighter text-frame-accent-fg transition-all duration-200 hover:scale-[1.01] active:scale-95 disabled:cursor-not-allowed disabled:opacity-50 md:min-h-20 md:text-lg"
+          className="group sw-btn sw-btn-primary min-h-[52px] h-[52px] px-8 text-[15px] font-medium leading-none text-[#09090B] bg-[#FAFAFA] rounded-full w-full flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
         >
-          {isSubmitting ? 'Sending...' : 'Send us a brief'}
+          <span>{isSubmitting ? 'Sending...' : 'Send us a brief'}</span>
+          <span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-hover:translate-x-1 shrink-0">
+            &rarr;
+          </span>
         </button>
       </form>
     </div>

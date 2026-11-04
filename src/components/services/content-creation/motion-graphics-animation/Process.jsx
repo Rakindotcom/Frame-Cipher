@@ -36,23 +36,23 @@ const processSteps = [
 const timelines = [
   {
     type: 'Logo Animation / Brand Sting',
-    duration: '3–7 business days',
+    duration: '3 to 7 business days',
     scope: 'Quick vector reveals, intro/outro stings, sound effect sync.'
   },
   {
     type: 'Simple Social Motion Creative',
-    duration: '3–7 business days',
+    duration: '3 to 7 business days',
     scope: 'Kinetic text, campaign announcements, 15-second social cuts.'
   },
   {
     type: 'Data or Infographic Animation',
-    duration: '1–3 weeks',
+    duration: '1 to 3 weeks',
     scope: 'Chart builds, statistical comparisons, report visualization.'
   },
   {
     type: 'Standard Explainer Animation',
-    duration: '2–4 weeks',
-    scope: '60–90 second SaaS or service walkthroughs with full voice-over.'
+    duration: '2 to 4 weeks',
+    scope: '60 to 90 second SaaS or service walkthroughs with full voice-over.'
   },
   {
     type: 'Complex 3D Product Animation',
@@ -63,8 +63,8 @@ const timelines = [
 
 export default function Process() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Milestone-Driven Pipeline"
           title="Our Motion Graphics Production Process"
@@ -73,27 +73,27 @@ export default function Process() {
         </SectionIntro>
 
         {/* 5 STEPS */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {processSteps.map((step, idx) => (
             <div
               key={step.num}
-              className={`bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+              className={`bg-[#09090B] p-6 md:p-8 flex flex-col justify-between ${
                 idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-heading text-2xl font-bold text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-heading text-2xl font-bold text-[#A855F7]">
                     {step.num}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     {step.milestone}
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {step.desc}
                 </p>
               </div>
@@ -102,35 +102,35 @@ export default function Process() {
         </div>
 
         {/* TIMELINE MATRIX */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-10">
+        <div className="mt-16 border border-white/[0.08] bg-[#121214] p-6 md:p-10">
           <div className="max-w-3xl">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Turnaround Benchmarks
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
               Typical Animation Timelines
             </h3>
-            <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               Timelines depend on project complexity, asset readiness, and how quickly approvals are provided at each milestone.
             </p>
           </div>
 
-          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-8 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
             {timelines.map((item, idx) => (
               <div
                 key={idx}
-                className={`bg-frame-bg p-6 flex flex-col justify-between ${
+                className={`bg-[#09090B] p-6 flex flex-col justify-between ${
                   idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
                 }`}
               >
                 <div>
-                  <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="font-heading text-base font-bold tracking-tight text-[#FAFAFA]">
                     {item.type}
                   </h4>
-                  <p className="mt-2 text-xs font-black uppercase tracking-wider text-frame-accent">
+                  <p className="mt-2 text-xs font-black uppercase tracking-wider text-[#A855F7]">
                     {item.duration}
                   </p>
-                  <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+                  <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
                     {item.scope}
                   </p>
                 </div>
@@ -138,8 +138,8 @@ export default function Process() {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-frame-border/60 pt-6 sm:flex-row">
-            <p className="text-xs font-medium text-frame-fg">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-6 sm:flex-row">
+            <p className="text-xs font-medium text-[#FAFAFA]">
               Have an impending product launch or conference deadline? Fast-track production tracks can be arranged.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">

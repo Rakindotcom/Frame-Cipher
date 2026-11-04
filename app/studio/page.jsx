@@ -97,7 +97,7 @@ export default function Page() {
               priceCurrency: 'BDT',
               itemOffered: {
                 '@type': 'Service',
-                name: 'Studio Session — Room Only Hire',
+                name: 'Studio Session: Room Only Hire',
                 description: 'Sound-isolated studio room hire from ৳2,000 per hour for crews with their own equipment.',
               },
             },

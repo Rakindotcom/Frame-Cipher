@@ -1,51 +1,65 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, AlertCircle } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const plans = [
   {
     name: 'Starter Store',
-    price: '\u09F335,000',
+    price: '৳35,000',
     period: '/month',
     scope: 'Up to 100 products',
     bestFor: 'Small ecommerce stores',
+    highlight: false,
     features: [
       'Ecommerce SEO audit',
       'Keyword and search intent research',
-      'Product optimization',
-      'Category optimization',
-      'Technical SEO',
-      'Monthly reporting',
+      'Product page optimization (core SKUs)',
+      'Category page optimization',
+      'Technical SEO audit & essential fixes',
+      'Product structured data (Schema)',
+      'Monthly performance reporting',
     ],
-    note: 'A focused foundation for small stores and new ecommerce launches.',
   },
   {
     name: 'Growth Store',
-    price: '\u09F360,000',
+    price: '৳60,000',
     period: '/month',
     scope: 'Up to 500 products',
     bestFor: 'Growing ecommerce businesses',
-    features: [
-      'Everything in Starter Store',
-      'Site architecture recommendations',
-      'Internal linking',
-      'Product schema',
-      'Performance monitoring',
-    ],
-    note: 'The best fit for growing stores with expanding catalogs.',
     highlight: true,
+    badge: 'Most Popular',
+    features: [
+      'Comprehensive store & catalog audit',
+      'Full keyword & search intent mapping',
+      'Priority product & collection optimization',
+      'Site architecture & hierarchy review',
+      'Internal linking distribution strategy',
+      'Advanced Product Schema & Rich Snippets',
+      'Faceted navigation & canonical controls',
+      'Core Web Vitals & speed optimization',
+      'Bi-weekly monitoring & monthly reporting',
+    ],
   },
   {
     name: 'Large Catalog',
-    price: '\u09F3100,000',
+    price: '৳100,000',
     period: '/month',
     scope: '500+ products',
     bestFor: 'Large and complex stores',
+    highlight: false,
     features: [
-      'Everything in Growth Store',
-      'Ongoing SEO recommendations',
-      'Extensive technical work',
-      'Dedicated reporting',
+      'Enterprise catalog architecture systems',
+      'Crawl efficiency & indexation governance',
+      'Scalable category & subcategory optimization',
+      'Duplicate URL & parameter management',
+      'Automated product schema validation',
+      'Google Merchant Center feed optimization',
+      'Content-led link building & digital PR',
+      'Developer coordination for code-level fixes',
+      'Dedicated weekly reporting & sync',
     ],
-    note: 'Built for large stores competing in competitive categories.',
   },
   {
     name: 'Custom Enterprise',
@@ -53,136 +67,157 @@ const plans = [
     period: '',
     scope: 'Custom scope',
     bestFor: 'Complex or enterprise ecommerce',
+    highlight: false,
     features: [
-      'Everything in Large Catalog',
-      'Multi-market ecommerce',
-      'Complex platform needs',
-      'A custom scope agreed with your team',
+      'Multi-market & international SEO (Hreflang)',
+      'Multi-currency / multi-language catalog setup',
+      'Custom headless / Next.js ecommerce SEO',
+      'Dedicated technical SEO engineer',
+      'Custom reporting dashboards & API integrations',
+      'Comprehensive digital PR & authority building',
+      'Direct developer implementation support',
     ],
-    note: 'For enterprise-scale and multi-market ecommerce operations.',
   },
 ]
 
-const notes = [
-  'Large catalogs may require additional technical work, content production, or development support.',
-  'Product count is only one pricing factor. Platform, catalog complexity, competition, technical condition, and monthly workload can also affect the final scope.',
+const includedFeatures = [
+  'Ecommerce SEO audit',
+  'Keyword and search intent research',
+  'Product optimization',
+  'Category optimization',
+  'Technical SEO',
+  'Site architecture recommendations',
+  'Internal linking',
+  'Product schema',
+  'Performance monitoring',
+  'Monthly reporting',
+  'Ongoing SEO recommendations',
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & Plans" title="Ecommerce SEO Pricing in Bangladesh">
-          Ecommerce SEO pricing depends on catalog size, platform complexity, competition,
-          technical requirements, and the amount of ongoing optimization required. Our plans
-          provide a starting framework. Depending on the selected plan and agreed scope, services
-          can include the items listed in each package.
-        </SectionIntro>
+    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Investment &amp; Scope // Transparent Retainers
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Ecommerce SEO Pricing{' '}
+            <span className="italic text-frame-accent">in Bangladesh</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            Ecommerce SEO pricing depends on catalog size, platform complexity, competition, technical requirements, and the amount of ongoing optimization required.
+          </p>
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
+            Our plans provide a starting framework. The final scope is confirmed after reviewing your store.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {plans.map((plan, index) => (
+        {/* 4 Plans Grid */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {plans.map((plan, idx) => (
             <div
-              key={plan.name}
-              className={`flex flex-col p-7 md:p-8 ${
+              key={idx}
+              className={`relative flex flex-col justify-between rounded-2xl border p-7 sm:p-8 transition-colors ${
                 plan.highlight
-                  ? 'border-2 border-frame-accent bg-frame-accent/10'
-                  : 'border-2 border-frame-border bg-frame-bg'
+                  ? 'border-frame-accent bg-[#16131c] shadow-2xl ring-1 ring-frame-accent/40'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
               }`}
             >
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Plan 0{index + 1}
-                </span>
-                {plan.highlight && (
-                  <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                    Most Popular
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                    Plan 0{idx + 1}
                   </span>
-                )}
-              </div>
-
-              <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {plan.name}
-              </h3>
-
-              <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                <div className="flex items-end gap-1.5">
-                  <span className="font-heading text-3xl font-bold leading-none tracking-tight text-frame-fg">
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span className="pb-0.5 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                      {plan.period}
+                  {plan.badge && (
+                    <span className="rounded-full bg-frame-accent/20 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-frame-accent border border-frame-accent/40">
+                      {plan.badge}
                     </span>
                   )}
                 </div>
+
+                <h3 className="mt-4 font-heading text-xl font-semibold tracking-tight text-white">
+                  {plan.name}
+                </h3>
+
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="font-heading text-3xl sm:text-4xl font-bold tracking-tight text-white">
+                    {plan.price}
+                  </span>
+                  {plan.period && (
+                    <span className="font-mono text-xs text-zinc-400">{plan.period}</span>
+                  )}
+                </div>
+
+                <div className="mt-4 space-y-1 rounded-xl bg-white/[0.03] p-3 border border-white/[0.04]">
+                  <div className="font-mono text-[11px] text-zinc-400">
+                    Catalog: <span className="font-semibold text-white">{plan.scope}</span>
+                  </div>
+                  <div className="font-mono text-[11px] text-zinc-400">
+                    Best for: <span className="text-emerald-400">{plan.bestFor}</span>
+                  </div>
+                </div>
+
+                <ul className="mt-6 space-y-2 border-t border-white/[0.06] pt-5">
+                  {plan.features.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                      <span className="leading-snug">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
-              <dl className="mt-5 space-y-3 text-sm">
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Catalog Scope
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.scope}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Best For
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.bestFor}</dd>
-                </div>
-              </dl>
-
-              <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                {plan.features.map((feat, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                {plan.note}
-              </p>
-
-              <div className="mt-auto pt-8">
+              <div className="mt-8 pt-4 border-t border-white/[0.06]">
                 <PosterButton
                   href="/contact"
-                  variant={plan.highlight ? 'accent' : 'outline'}
-                  className="w-full whitespace-nowrap"
+                  variant={plan.highlight ? 'primary' : 'outline'}
                 >
-                  Get Free Consultation
+                  Select Plan &rarr;
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-8">
-            {notes.map((note, nIdx) => (
-              <li key={nIdx} className="flex items-start gap-3">
-                <span className="mt-0.5 text-frame-accent font-bold">*</span>
-                <span>{note}</span>
-              </li>
-            ))}
-          </ul>
+        {/* Included in Ecommerce SEO Plans & Important Advisory Box */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-8 md:p-10">
+          <h3 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-white">
+            Included in Ecommerce SEO Plans
+          </h3>
+          <p className="mt-2 text-sm text-zinc-400">
+            Depending on the selected plan and agreed scope, services can include:
+          </p>
 
-          <div className="flex flex-col items-stretch justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Not sure which plan fits your store? Tell us about your catalog and goals, and we
-              will recommend the right starting point.
-            </p>
-            <PosterButton href="/contact" className="w-full whitespace-nowrap">
-              Get a Free SEO Consultation
+          <div className="mt-6 grid gap-2.5 sm:grid-cols-2 lg:grid-cols-3 border-t border-white/[0.06] pt-6">
+            {includedFeatures.map((feat, idx) => (
+              <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
+                <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                <span>{feat}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-xl border border-amber-500/20 bg-amber-500/5 p-4 sm:p-5 flex items-start gap-3">
+            <AlertCircle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+            <div className="space-y-1 font-sans text-xs text-zinc-300 leading-relaxed">
+              <p>
+                <strong className="text-amber-300">Large catalogs:</strong> Large catalogs may require additional technical work, content production, or development support.
+              </p>
+              <p>
+                <strong className="text-amber-300">Important:</strong> Product count is only one pricing factor. Platform, catalog complexity, competition, technical condition, and monthly workload can also affect the final scope.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-8 flex justify-end">
+            <PosterButton href="/contact">
+              Request an Ecommerce SEO Consultation &rarr;
             </PosterButton>
           </div>
         </div>
-
-        <p className="mt-8 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          * Pricing is indicative rather than fixed. Final pricing is confirmed after scoping
-          requirements.
-        </p>
       </div>
     </section>
   )

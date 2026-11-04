@@ -1,21 +1,25 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const measurements = [
   {
-    title: 'Market-Level Visibility',
-    intro: 'We monitor how your website appears across target markets. This includes:',
+    title: 'Market-Level Search Visibility',
+    intro: 'We monitor visibility across priority countries and languages. This can include:',
     points: [
-      'Country-level search impressions',
-      'Organic visibility per market',
+      'Search impressions',
+      'Organic clicks',
+      'Ranking visibility',
       'Indexed pages',
-      'Search queries per market',
-      'SERP presence',
-      'Regional content performance',
+      'Priority keyword performance',
+      'Search trends',
     ],
+    note: 'This helps identify which markets are gaining traction and where additional optimization may be needed.',
   },
   {
-    title: 'Country & Language Rankings',
-    intro: 'We track priority keywords within their relevant market and language versions. This helps identify:',
+    title: 'Country-Specific Rankings & CTR',
+    intro: 'Rankings and click behavior can vary by country. We track priority terms by market where reliable data is available and evaluate how titles, snippets, search intent, SERP features, and competitors affect click-through rates.',
     points: [
       'Ranking improvements per market',
       'Ranking losses per market',
@@ -24,103 +28,98 @@ const measurements = [
       'Underperforming regional pages',
       'Keyword cannibalization across versions',
     ],
+    note: 'Evaluates real searcher response and SERP performance per country.',
   },
   {
-    title: 'Organic Clicks & CTR',
-    intro: 'Impressions do not automatically create visits. We monitor organic clicks and click-through rates to identify pages that may need:',
+    title: 'Organic Traffic by Market',
+    intro: 'We analyze organic traffic by country and landing page to understand:',
     points: [
-      'Better search intent alignment',
-      'Improved page titles',
-      'Improved meta descriptions',
-      'Stronger localized relevance',
-      'Higher search positioning',
+      'Which markets are growing',
+      'Which pages drive that growth',
+      'Whether new markets are gaining visibility',
+      'Which markets are losing traffic',
+      'Which pages need further optimization',
     ],
+    note: 'This turns a single global traffic number into a clearer market-by-market picture.',
   },
   {
-    title: 'Indexation & Technical Health',
-    intro: 'International websites are prone to technical issues that grow as more regions, languages, and URLs are added. We track:',
+    title: 'Leads & Conversions by Market',
+    intro: 'Traffic matters most when it contributes to meaningful business activity. Where analytics supports it, we can track:',
     points: [
-      'Indexed page growth by market',
-      'Hreflang health',
-      'Canonical consistency',
-      'Internal links',
-      'Redirects',
-      'Sitemap coverage',
-      'Technical errors',
+      'Form submissions',
+      'Phone calls and demo requests',
+      'Online purchases and orders',
+      'Quote requests and enquiries',
+      'Contact actions and goal completions',
     ],
+    note: 'This connects international organic visibility with measurable customer activity.',
   },
   {
-    title: 'Leads, Conversions & Business Outcomes',
-    intro: 'Where reliable analytics are available, we connect international search activity with business performance. This can include:',
+    title: 'Revenue & Business Outcomes',
+    intro: 'For ecommerce and businesses with suitable analytics setups, reporting can also cover:',
     points: [
-      'Organic leads and enquiries',
-      'Organic ecommerce revenue per market',
-      'Organizations by country',
-      'Purchases or signups per market',
-      'Conversion rate by market',
-      'Assisted conversions',
+      'Organic revenue by country',
+      'Revenue by market segment',
+      'Conversion rate per country',
+      'Lead value and pipeline velocity',
+      'Revenue-driving regional landing pages',
     ],
-    note: 'Attribution depends on your analytics configuration and the quality of available data.',
+    note: "The exact reporting depends on the website's analytics, conversion tracking, CRM integration, and available business data.",
   },
 ]
 
 export default function Measurement() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Transparent tracking" title="How We Measure International SEO Performance">
-          Rankings matter, but they do not tell the entire story across multiple countries. We
-          measure performance at the market level wherever reliable data is available.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Empirical Reporting</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            How We Measure{' '}
+            <span className="italic text-frame-accent">International SEO Performance</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            International SEO should show more than total global traffic. Our reporting focuses on how individual markets perform and whether organic visibility is contributing to meaningful business outcomes.
+          </p>
+        </div>
 
+        {/* 5 Measurement Blocks Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {measurements.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] md:p-8"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Measurement 0{index + 1}
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Metric Stream // 0{index + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {item.intro}
                 </p>
-                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                <ul className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-3 text-xs sm:text-sm text-zinc-300">
                   {item.points.map((point, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                      <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
                       <span className="leading-snug">{point}</span>
                     </li>
                   ))}
                 </ul>
                 {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </p>
+                  <div className="mt-5 rounded-lg border border-white/[0.06] bg-[#18181B] p-3 text-xs text-zinc-400">
+                    <p className="leading-relaxed">{item.note}</p>
+                  </div>
                 )}
               </div>
             </div>
           ))}
-
-          <div className="flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                International Reporting Principle
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                Market-level reporting supports decisions
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                Reporting focuses on the markets that matter to the business rather than a single
-                combined traffic number. This makes it easier to identify where international SEO
-                is gaining traction and where further work is needed.
-              </p>
-            </div>
-          </div>
         </div>
       </div>
     </section>

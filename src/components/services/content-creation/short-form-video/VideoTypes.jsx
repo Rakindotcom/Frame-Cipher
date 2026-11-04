@@ -42,7 +42,7 @@ const videoTypes = [
   {
     tag: 'Format 07',
     title: 'Educational & Explainer Shorts',
-    description: 'Simplify complex subjects, product FAQs, and customer objections into single, high-retention 30–60 second actionable tips that educate and convert.',
+    description: 'Simplify complex subjects, product FAQs, and customer objections into single, high-retention 30 to 60 second actionable tips that educate and convert.',
     useCases: 'Customer onboarding, how-to tips, industry breakdowns & objection handling'
   },
   {
@@ -55,8 +55,8 @@ const videoTypes = [
 
 export default function VideoTypes() {
   return (
-    <section id="types" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="types" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Specialized Capabilities"
           title="Short-Form Videos We Produce"
@@ -65,28 +65,28 @@ export default function VideoTypes() {
           We produce different types of short-form video based on your content objective, target audience, and primary distribution channels.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
           {videoTypes.map((item, idx) => (
             <div
               key={idx}
-              className="bg-frame-bg p-7 flex flex-col justify-between"
+              className="bg-[#09090B] p-7 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   {item.tag}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/short-form-video" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-creation/short-form-video" allowed={["/services/website-design-development/landing-pages"]}>
                   {item.description}
                 </AutoLinks></p>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-1">
                     Primary Use Cases
                   </span>
-                  <span className="text-xs font-semibold text-frame-fg leading-relaxed">
+                  <span className="text-xs font-semibold text-[#FAFAFA] leading-relaxed">
                     {item.useCases}
                   </span>
                 </div>

@@ -1,61 +1,74 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import { ShoppingBag, Sparkles, GraduationCap, Smartphone, Users } from 'lucide-react'
 
-const audiences = [
+const targets = [
   {
+    icon: ShoppingBag,
     title: 'Ecommerce & DTC Brands',
-    body: 'TikTok can be useful for product discovery, creative-led acquisition, catalog advertising, and retargeting. We help ecommerce brands connect their products, creative, landing pages, and conversion tracking into one advertising workflow.',
+    desc: 'Ideal for visual products, fast checkouts, dynamic catalog retargeting, and creator-led unboxing or demonstration videos.',
   },
   {
+    icon: Sparkles,
     title: 'Fashion, Beauty & Lifestyle',
-    body: 'Visual products often give brands a wide range of creative angles. We can test demonstrations, styling content, UGC, product education, creator content, offers, and other concepts based on the brand and audience.',
+    desc: 'Perfect for visual styling transformations, beauty routines, before-and-after demonstrations, and seasonal collections.',
   },
   {
+    icon: GraduationCap,
     title: 'Education & Consumer Services',
-    body: 'Lead-generation campaigns can help education providers and consumer-service businesses reach potential customers and collect inquiries. The key is connecting advertising with a clear lead qualification and follow-up process.',
+    desc: 'High-performing for lead generation forms offering free consultations, enrollment guides, or specialized educational programs.',
   },
   {
-    title: 'Apps & Digital Products',
-    body: 'TikTok can support app acquisition and re-engagement campaigns where the required app measurement and campaign setup are available. We manage creative testing alongside event tracking and acquisition measurement.',
+    icon: Smartphone,
+    title: 'Apps & Mobile Games',
+    desc: 'Engineered for direct app install campaigns and in-app action optimization utilizing mobile measurement partners (MMPs).',
   },
   {
-    title: 'Brands Targeting Younger Audiences',
-    body: 'TikTok has a strong role in short-form content discovery, but audience fit should be evaluated by market, product, age eligibility, buying behavior, and campaign objective. We do not recommend TikTok simply because a business wants to \u201Creach young people.\u201D',
+    icon: Users,
+    title: 'High-Growth Consumer Brands',
+    desc: 'For brands needing to build high-volume awareness and rapid consideration across Gen Z and Millennial purchasing demographics.',
   },
 ]
 
 export default function WhoFor() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Who we help"
-          title="Who Is TikTok Ads Management For?"
-        >
-          TikTok fits businesses whose product, audience, and funnel can support a creative-led,
-          testing-heavy acquisition model.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Who Is TikTok Ads{' '}
+            <span className="italic text-frame-accent">Management For?</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            TikTok provides unmatched discovery when products have visual proof, strong offers, and native short-form video concepts.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {audiences.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Business 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/tiktok-ads" allowed={["/services/website-design-development/landing-pages"]}>
-                  {item.body}
-                </AutoLinks></p>
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
+          {targets.map((t, idx) => {
+            const Icon = t.icon
+            return (
+              <div
+                key={t.title}
+                className={`bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between ${
+                  idx === 4 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white mb-2">
+                    {t.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {t.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

@@ -1,103 +1,117 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const platforms = [
+import React from 'react'
+import { Search, Share2, Briefcase, PlusCircle, ArrowUpRight } from 'lucide-react'
+
+const channels = [
   {
-    title: 'Google Ads',
-    body: 'Google can capture existing demand when prospects are actively searching for a product, service, provider, quote, or solution.',
-    label: 'We can build campaigns around',
-    items: [
-      'High-intent search terms',
-      'Service and product queries',
-      'Local searches',
-      'Commercial landing pages',
-      'Call-focused campaigns',
-      'Website lead generation',
-      'Google Lead Form Assets where available',
+    icon: Search,
+    platform: 'Google Ads',
+    badge: 'High-Intent Demand Capture',
+    desc: 'Capturing active commercial search queries when prospects are researching specific solutions, comparing providers, or requesting immediate quotes.',
+    capabilities: [
+      'High-intent exact and phrase match search campaigns',
+      'High-converting mobile-responsive landing pages',
+      'Call-only ads and call extensions for immediate phone inquiries',
+      'Enhanced Conversions for Leads and Google Data Manager CRM sync',
+      'Market eligibility verification for Google Lead Form Assets',
     ],
-    note: 'Google Lead Form Assets are only available in supported countries and require specific campaign, conversion, and advertiser-verification conditions. We therefore confirm market eligibility before using them.',
   },
   {
-    title: 'Meta Ads',
-    body: 'Meta can support lead generation through native lead forms, website destinations, messaging, and other supported campaign experiences.',
-    items: ['We use Meta when creative, audience signals, and offer strategy can create or capture demand effectively.'],
-  },
-  {
-    title: 'LinkedIn Ads',
-    body: 'LinkedIn can be useful for B2B campaigns where professional attributes matter to qualification.',
-    label: 'We can use',
-    items: [
-      'LinkedIn Lead Gen Forms',
-      'Website lead campaigns',
-      'Company and professional audience signals',
-      'Job function',
-      'Job seniority',
-      'Industry',
-      'CRM-connected lead workflows where supported',
+    icon: Share2,
+    platform: 'Meta Ads (Facebook & Instagram)',
+    badge: 'Visual Demand Generation & Native Forms',
+    desc: 'Engaging prospective buyers in their social feeds with scroll-stopping video hooks, high-utility assessments, and low-friction native Instant Forms.',
+    capabilities: [
+      'Native in-app Instant Lead Forms with auto-filled fields',
+      'Direct Click-to-WhatsApp and Messenger automated lead funnels',
+      'Custom audience retargeting based on video and social engagement',
+      'Server-side Meta Conversions API (CAPI) lead event tracking',
+      'Lookalike audience modeling built from your highest-value customers',
     ],
-    note: 'LinkedIn currently supports Lead Gen Form integration with supported CRM and marketing platforms and also documents lead-to-sales reporting workflows.',
   },
   {
-    title: 'Other Supported Platforms',
-    body: 'Other paid channels may support lead-generation objectives depending on the market, business model, audience, and campaign requirements.',
-    items: ['We recommend additional platforms only when they have a clear role in the acquisition strategy.'],
+    icon: Briefcase,
+    platform: 'LinkedIn Ads',
+    badge: 'B2B & High-Ticket Professional Targeting',
+    desc: 'Targeting exact job titles, company seniority, industry sectors, and buying committees with pre-filled LinkedIn Lead Gen Forms.',
+    capabilities: [
+      'Native LinkedIn Lead Gen Forms achieving 2x higher completion rates',
+      'Precise firmographic targeting (job title, function, company headcount)',
+      'Account-based marketing (ABM) matched company lists',
+      'Direct CRM integration syncing leads to HubSpot and Salesforce',
+      'Closed-loop lead-to-revenue pipeline reporting',
+    ],
+  },
+  {
+    icon: PlusCircle,
+    platform: 'Other Paid Channels (TikTok & Microsoft Ads)',
+    badge: 'Selective Channel Expansion',
+    desc: 'Deploying secondary channels such as Microsoft Advertising (for desktop business audiences) or TikTok Lead Gen only when they provide a clear, lower-CPA role in the funnel.',
+    capabilities: [
+      'Microsoft Ads search campaigns with LinkedIn profile targeting overlays',
+      'TikTok Instant Forms for younger demographics and trade services',
+      'Cross-platform audience suppression preventing duplicated reach',
+      'Unified multi-touch attribution across all active advertising networks',
+    ],
   },
 ]
 
 export default function Platforms() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Platforms" title="Lead Generation Ads by Platform">
-          Lead generation is a business objective, not a single advertising platform.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Lead Generation Ads{' '}
+            <span className="italic text-frame-accent">by Platform.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Lead generation is a business objective, not an advertising channel. We select and synchronize platforms based on where your buyers search, evaluate, and commit to purchasing decisions.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {platforms.map((platform, index) => (
-            <div
-              key={platform.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 md:p-12 transition-colors hover:border-frame-accent"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
-                  </div>
-                  <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
-                    {platform.title}
-                  </h3>
-                  <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {platform.body}
-                  </p>
-                  {platform.note && (
-                    <div className="mt-6 border-l-2 border-frame-accent bg-frame-accent/5 p-5">
-                      <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                        {platform.note}
-                      </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {channels.map((ch) => {
+            const Icon = ch.icon
+            return (
+              <div
+                key={ch.platform}
+                className="group rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                      <Icon className="h-5 w-5" />
                     </div>
-                  )}
+                    <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      {ch.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="font-heading text-2xl font-medium text-white mb-2 flex items-center justify-between">
+                    <span>{ch.platform}</span>
+                    <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100 text-frame-accent" />
+                  </h3>
+                  <p className="text-sm text-zinc-400 font-normal leading-relaxed mb-6">
+                    {ch.desc}
+                  </p>
                 </div>
 
-                <div className="lg:w-1/2">
-                  {platform.label && (
-                    <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                      {platform.label}
-                    </p>
-                  )}
-                  <ul className="grid gap-3 sm:grid-cols-2">
-                    {platform.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                    Key Execution Capabilities:
+                  </p>
+                  {ch.capabilities.map((item) => (
+                    <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0 mt-1.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

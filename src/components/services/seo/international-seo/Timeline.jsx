@@ -1,67 +1,72 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const paragraphs = [
-  'International SEO does not have a fixed ranking timeline. The time required depends on the number of target markets, website structure, technical condition, competition, authority, content quality, localization needs, implementation speed, and search demand. A typical engagement may follow this general timeline:',
-  'Technical fixes and structure changes can be completed relatively quickly. Organic ranking, traffic, and revenue changes usually take longer to develop and may vary by market.',
-  'We track progress throughout the engagement rather than promising a specific ranking date, market entry date, or guaranteed results.',
-]
+import React from 'react'
+import { Clock } from 'lucide-react'
 
 const timelineRows = [
-  { project: 'International SEO Audit', duration: '1\u20132 weeks' },
-  { project: 'Single-Market Expansion', duration: '3\u20136 weeks' },
-  { project: 'Multi-Market SEO Setup', duration: '6\u201312+ weeks' },
-  { project: 'Complex International Migration', duration: 'Depends on site size and migration scope' },
+  { project: 'International SEO Audit', duration: '1–2 weeks' },
+  { project: 'Single-Market Expansion', duration: '3–6 weeks' },
+  { project: 'Multi-Market Setup', duration: '6–12+ weeks' },
+  { project: 'Complex Migration', duration: 'Depends on site size and migration scope' },
   { project: 'Ongoing International SEO', duration: 'Continuous' },
 ]
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Realistic expectations" title="How Long Does International SEO Take?">
-          Timelines depend on scope, readiness, and review speed, so we set expectations rather
-          than promising a fixed schedule.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Realistic Expectations</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            How Long Does{' '}
+            <span className="italic text-frame-accent">International SEO Take?</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            The timeline depends on the number of markets, site size, languages, technical condition, migration requirements, content volume, and amount of localization involved.
+          </p>
+        </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-            {paragraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+        {/* 2-Column Split: Explanatory Context & Timeline Matrix */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+          {/* Left Column: Realistic Narrative */}
+          <div className="lg:col-span-6 space-y-4 text-base font-normal leading-relaxed text-zinc-300">
+            <p>
+              Technical implementation can often be completed within a defined project window, but ranking growth in a new market does not follow a fixed schedule.
+            </p>
+            <p className="text-zinc-400">
+              New markets need time to establish visibility, relevance, authority, and search demand. Performance can also vary based on competition and the strength of existing websites in the target market.
+            </p>
+            <p className="text-zinc-400">
+              We therefore focus on building the right technical and strategic foundation instead of promising a specific ranking date.
+            </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Project &amp; typical timeline
-            </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-              What this looks like in practice
-            </h3>
-            <div className="mt-6 overflow-x-auto">
-              <table className="w-full border-collapse text-left">
-                <thead>
-                  <tr>
-                    <th className="border-b-2 border-frame-accent pb-2 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Project
-                    </th>
-                    <th className="border-b-2 border-frame-accent pb-2 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Typical Timeline
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {timelineRows.map((row) => (
-                    <tr key={row.project} className="border-b border-frame-border/60">
-                      <td className="py-3 pr-4 text-xs md:text-sm font-semibold text-frame-fg">
-                        {row.project}
-                      </td>
-                      <td className="py-3 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        {row.duration}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+          {/* Right Column: Architectural Table Card */}
+          <div className="lg:col-span-6 rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
+              <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                Project Scope
+              </span>
+              <span className="font-mono text-xs uppercase tracking-widest text-zinc-400">
+                Typical Timeline
+              </span>
+            </div>
+
+            <div className="divide-y divide-white/[0.06]">
+              {timelineRows.map((row) => (
+                <div key={row.project} className="py-4 flex items-center justify-between gap-4">
+                  <span className="text-sm sm:text-base font-medium text-white">
+                    {row.project}
+                  </span>
+                  <span className="font-mono text-xs sm:text-sm text-frame-accent shrink-0">
+                    {row.duration}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

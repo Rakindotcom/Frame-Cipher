@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import HowItWorks from './HowItWorks'
@@ -15,25 +18,27 @@ import Guarantee from './Guarantee'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
-
-const marqueeItems = [
-  "Context Targeting",
-  "Conversation-Ready Creative",
-  "OpenAI Pixel & Conversions API",
-  "Conversion Tracking",
-  "Campaign Optimization",
-  "AEO / GEO Connection",
-  "Eligible International Markets"
-]
-
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
 import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
+const marqueeItems = [
+  "Conversational Intent Targeting",
+  "OpenAI Ads Manager Workflows",
+  "Context Hints & Relevance",
+  "OpenAI Pixel & Conversions API",
+  "High-Converting Landing Pages",
+  "Coordinated AEO & GEO Strategy",
+  "Eligible International Markets",
+  "Transparent B2B Attribution",
+]
+
 export default function PaidAdvertisingChatgptAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="min-h-screen bg-[#09090B] text-white selection:bg-purple-500/30 selection:text-white">
       <Hero />
-      <TypeMarquee items={marqueeItems} slow />
+      <div className="border-b border-white/[0.08] bg-[#121214]/60 py-3 font-mono text-xs text-zinc-400">
+        <TypeMarquee items={marqueeItems} slow />
+      </div>
       <Overview />
       <HowItWorks />
       <Includes />

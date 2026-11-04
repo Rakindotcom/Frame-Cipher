@@ -34,7 +34,7 @@ export default function Offerings({ service }) {
   },
   {
     "title": "CONVERSATIONAL BRAND MENTION MONITORING",
-    "description": "Distinct from paid placement, tracking how your brand shows up in ChatGPT's actual conversational answers. What We Do This overlaps meaningfully with organic AI visibility work - see our AI Search Optimization (AEO/GEO) page for the fuller picture beyond paid placement specifically.",
+    "description": "Distinct from paid placement, tracking how your brand shows up in ChatGPT's actual conversational answers. What We Do This overlaps meaningfully with organic AI visibility work (see our AI Search Optimization (AEO/GEO) page for the fuller picture beyond paid placement specifically.",
     "bullets": [
       "Brand Mention Tracking: Monitoring when and how your business gets referenced in AI-generated conversations relevant to your category.",
       "Competitor Mention Comparison: Understanding who's currently getting surfaced for queries relevant to your business.",
@@ -88,7 +88,7 @@ export default function Offerings({ service }) {
   },
   {
     "title": "What We Do",
-    "text": "* Brand Mention Tracking: Monitoring when and how your business gets referenced in AI-generated conversations relevant to your category. * Competitor Mention Comparison: Understanding who's currently getting surfaced for queries relevant to your business. * Sentiment & Context Review: Checking not just whether you're mentioned, but how accurately and favorably. * Gap Identification: Flagging where your brand should logically be surfacing and currently isn't. This overlaps meaningfully with organic AI visibility work - see our AI Search Optimization (AEO/GEO) page for the fuller picture beyond paid placement specifically. What Advertising on ChatGPT Actually Means Right Now This channel deserves a direct, no-spin explanation rather than being folded into the same confident language used for mature platforms. What's Genuinely Available Sponsored placement options within ChatGPT and similar assistants are rolling out gradually and unevenly, with access, format, and availability changing over time rather than existing as one settled product. What's Still Developing The actual mechanics, how targeting works, how pricing gets determined, what genuinely moves performance, are still being defined by the platforms themselves, which means no provider anywhere has years of proven playbook to draw from yet. What's Worth Doing Regardless Brand entity clarity and topical authority, the foundation of good AEO and GEO work, position a business well no matter how the specific ad mechanics eventually settle, which makes this a reasonable place to start even before formal ad products fully mature."
+    "text": "* Brand Mention Tracking: Monitoring when and how your business gets referenced in AI-generated conversations relevant to your category. * Competitor Mention Comparison: Understanding who's currently getting surfaced for queries relevant to your business. * Sentiment & Context Review: Checking not just whether you're mentioned, but how accurately and favorably. * Gap Identification: Flagging where your brand should logically be surfacing and currently isn't. This overlaps meaningfully with organic AI visibility work (see our AI Search Optimization (AEO/GEO) page for the fuller picture beyond paid placement specifically. What Advertising on ChatGPT Actually Means Right Now This channel deserves a direct, no-spin explanation rather than being folded into the same confident language used for mature platforms. What's Genuinely Available Sponsored placement options within ChatGPT and similar assistants are rolling out gradually and unevenly, with access, format, and availability changing over time rather than existing as one settled product. What's Still Developing The actual mechanics, how targeting works, how pricing gets determined, what genuinely moves performance, are still being defined by the platforms themselves, which means no provider anywhere has years of proven playbook to draw from yet. What's Worth Doing Regardless Brand entity clarity and topical authority, the foundation of good AEO and GEO work, position a business well no matter how the specific ad mechanics eventually settle, which makes this a reasonable place to start even before formal ad products fully mature."
   },
   {
     "title": "Our Honest Position",
@@ -143,35 +143,31 @@ export default function Offerings({ service }) {
   if (!offerings?.length && !whyMatters?.length) return null
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="bg-[#09090B] text-white">
       {offerings?.length > 0 && (
         <section className="px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
+          <div className="mx-auto max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <SectionIntro
-              eyebrow="Capabilities & Scope"
               title="What We Deliver"
             >
               Structured deliverables and execution phases designed for measurable outcomes and reliable business growth.
             </SectionIntro>
 
-            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+            <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-white/[0.08]">
               {offerings.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+                <div key={index} className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between">
                   <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      Scope 0{index + 1}
-                    </span>
-                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                      <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-zinc-300">
                         {item.description}
                       </p>
                     )}
                   </div>
                   {item.bullets?.length > 0 && (
-                    <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
+                    <ul className="mt-6 space-y-2 border-t-2 border-white/[0.08]/60 pt-4 text-xs md:text-sm font-medium text-white/90">
                       {item.bullets.map((bullet, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2">
                           <span className="text-frame-accent font-bold">✓</span>
@@ -189,18 +185,15 @@ export default function Offerings({ service }) {
 
       {/* WHY IT MATTERS & WHY CHOOSE US */}
       {(whyMatters?.length > 0 || whyChooseUs?.length > 0) && (
-        <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-          <div className="mx-auto max-w-[95vw]">
+        <section className="border-t-2 border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+          <div className="mx-auto max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
             <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
               {whyMatters?.length > 0 && (
-                <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Business Context
-                  </span>
-                  <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                <div className="border-2 border-white/[0.08] bg-[#09090B] p-7 md:p-10">
+                  <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
                     Why This Matters for Growth
                   </h2>
-                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                  <div className="mt-6 space-y-4 text-sm md:text-base font-medium leading-relaxed text-zinc-300 wide:text-lg">
                     {whyMatters.map((point, idx) => (
                       <p key={idx}>{point}</p>
                     ))}
@@ -214,21 +207,18 @@ export default function Offerings({ service }) {
               {whyChooseUs?.length > 0 && (
                 <div className="space-y-6">
                   <div>
-                    <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                      The Frame Cipher Standard
-                    </span>
-                    <h3 className="mt-2 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                    <h3 className="mt-2 font-heading text-2xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
                       Why Choose Frame Cipher
                     </h3>
                   </div>
 
-                  <div className="grid bg-frame-border gap-px border-2 border-frame-border">
+                  <div className="grid bg-frame-border gap-px border-2 border-white/[0.08]">
                     {whyChooseUs.map((item, index) => (
-                      <div key={index} className="bg-frame-bg p-6">
-                        <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+                      <div key={index} className="bg-[#09090B] p-6">
+                        <h4 className="font-heading text-base md:text-lg font-medium leading-[0.96] tracking-[-0.03em] text-white">
                           {item.title}
                         </h4>
-                        <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                        <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-zinc-300">
                           {item.text || item.desc}
                         </p>
                       </div>

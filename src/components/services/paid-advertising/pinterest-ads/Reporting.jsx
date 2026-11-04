@@ -1,92 +1,97 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { BarChart3, TrendingUp, AlertCircle, CheckCircle2 } from 'lucide-react'
 
 const metrics = [
-  'Impressions',
-  'Pin clicks',
-  'Outbound clicks',
-  'CTR',
-  'CPC',
-  'Spend',
-  'Saves',
-  'Conversions',
-  'Conversion rate',
-  'CPA',
-  'ROAS',
-  'Product performance',
-  'Audience performance',
-  'Creative performance',
-  'Key observations',
-  'Optimization actions',
-]
-
-const interpretations = [
-  {
-    title: 'CTR Alone Is Not Profitability',
-    body: 'A higher CTR does not automatically mean stronger profitability. It can reflect interesting creative, curiosity, or misalignment. The question is whether the click produces the intended conversion at an acceptable cost.',
-  },
-  {
-    title: 'CPC Alone Is Not Traffic Quality',
-    body: 'A lower CPC does not automatically mean better traffic quality. Cheap clicks that do not convert are still wasted spend. The relationship between what the click costs and what it produces matters more than the click price itself.',
-  },
-  {
-    title: 'ROAS Alone Is Not Scale',
-    body: 'A higher ROAS does not automatically mean the campaign should scale if the total revenue opportunity is limited. We evaluate results against the objective, the market, and the realistic ceiling before recommending growth.',
-  },
+  'Impressions & Pin Clicks',
+  'Outbound Clicks & CTR',
+  'Cost Per Click (CPC)',
+  'Total Spend & Budget Pacing',
+  'Organic Pin Saves & Repins',
+  'Purchases & Conversion Volume',
+  'Conversion Rate (CVR)',
+  'Cost Per Acquisition (CPA)',
+  'Return on Ad Spend (ROAS)',
+  'Product Group Performance',
+  'Audience & Search Query Breakdown',
+  'Creative Asset Fatigue Signals',
 ]
 
 export default function Reporting() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Transparent tracking"
-          title="Reporting & Performance Expectations"
-        >
-          Reporting should explain performance, not simply list numbers.
-        </SectionIntro>
-
-        <div className="border-l-2 border-frame-accent bg-frame-bg p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            Depending on the campaign objective, reports can include the metrics below. Pinterest
-            reporting varies according to the campaign objective, bidding strategy, and
-            measurement setup. Performance+ campaigns also provide breakdowns across dimensions
-            such as ad group, geography, placement, device, and audience lists in supported cases.
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Reporting &amp; Performance{' '}
+            <span className="italic text-frame-accent">Expectations.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Reporting should explain commercial performance, not simply vomit vanity metrics. We interpret the numbers within the economics of your business.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {metrics.map((item, index) => (
-            <div key={index} className="flex items-center gap-3 border-2 border-frame-border bg-frame-bg p-4">
-              <span className="font-mono text-xs font-black text-frame-accent">
-                {String(index + 1).padStart(2, '0')}.
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left Column: Tracked KPI Matrix (7 cols) */}
+          <div className="lg:col-span-7 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                <BarChart3 className="h-4 w-4" />
               </span>
-              <span className="text-sm font-semibold text-frame-fg">{item}</span>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {interpretations.map((item, index) => (
-            <div key={index} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Context 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
+              <h3 className="font-heading text-xl font-medium text-white">
+                Tracked Metrics &amp; Diagnostic Signals
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {metrics.map((m, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 rounded-lg border border-white/[0.04] bg-white/[0.02] p-3">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0" />
+                  <span className="font-mono text-xs text-zinc-300 truncate">{m}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Right Column: Commercial Reality Checks (5 cols) */}
+          <div className="lg:col-span-5 space-y-4">
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6">
+              <div className="flex items-center gap-2.5 mb-2.5 text-zinc-300">
+                <AlertCircle className="h-4 w-4 text-frame-accent" />
+                <h4 className="font-heading text-sm font-medium text-white">
+                  CTR Does Not Guarantee Profit
+                </h4>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                A high Click-Through Rate or save rate on an attractive Pin means little if post-click traffic bounces. We optimize for downstream checkouts and qualified actions.
               </p>
             </div>
-          ))}
-        </div>
 
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            We interpret the numbers in a business context. What changed, what was tested, what
-            the data suggests, and what should happen next are the questions every report should
-            answer.
-          </p>
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6">
+              <div className="flex items-center gap-2.5 mb-2.5 text-zinc-300">
+                <AlertCircle className="h-4 w-4 text-frame-accent" />
+                <h4 className="font-heading text-sm font-medium text-white">
+                  Lower CPC Is Not Always Better
+                </h4>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                Cheap clicks from low-intent demographic clusters often dilute conversion rates. We prioritize high-intent outbound clicks that convert into revenue.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6">
+              <div className="flex items-center gap-2.5 mb-2.5 text-zinc-300">
+                <AlertCircle className="h-4 w-4 text-frame-accent" />
+                <h4 className="font-heading text-sm font-medium text-white">
+                  ROAS Context vs. Net Scale
+                </h4>
+              </div>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                A 10x ROAS on a microscopic budget does not move the needle for an enterprise. We balance optimal return with achievable scale across target territories.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

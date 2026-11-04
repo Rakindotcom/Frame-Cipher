@@ -16,7 +16,7 @@ export function ConditionalLayout({ children, pillarNavServices }) {
   }
 
   return (
-    <div className="min-h-screen overflow-x-clip bg-frame-bg text-frame-fg">
+    <div className="public-site-shell min-h-screen overflow-x-clip bg-frame-bg text-frame-fg">
       <div className="kinetic-noise" aria-hidden="true" />
       <Navbar pillarNavServices={pillarNavServices} />
       {children}

@@ -1,15 +1,14 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
+import { ArrowRight, Layers } from 'lucide-react'
 import { getAdsComparisonLinks } from '../../../lib/seo/internalLinks'
 import { getServiceDisplayName } from '../../../data/servicePages'
 
 /**
- * In-body platform navigation for the ten specific ads service pages.
- *
- * Sibling cards, the pillar hub, cross-cluster links and the geo link stay in
- * ServiceClusterSection at the foot of the page, so this block deliberately
- * carries only the "compare with the other channels" links that the cluster
- * section does not already provide. It sits directly after the calculator
- * banner, where a reader deciding between channels is actually looking.
+ * In-body platform navigation for the paid advertising service pages.
+ * SoftWebGrove modern styling: #09090B canvas, #121214 cards, border-white/[0.08].
  */
 export default function RelatedAdsPlatforms({ service }) {
   if (!service) return null
@@ -18,28 +17,25 @@ export default function RelatedAdsPlatforms({ service }) {
   if (!links.length) return null
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-14 sm:px-6 md:px-8 md:py-20">
-      <div className="mx-auto w-full max-w-[95vw]">
-        <div className="border-2 border-frame-border bg-frame-muted/10 p-6 sm:p-8">
-          <p className="text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-            Not sure which channel fits?
-          </p>
-          <h2 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg sm:text-2xl">
-            Compare {getServiceDisplayName(service)} With Every Other Channel
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white md:px-8 md:py-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10">
+          <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-white">
+            Compare {getServiceDisplayName(service)} With Other Channels
           </h2>
-          <p className="mt-3 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-            Each network runs a different auction, so the same budget buys very different volume.
-            Read the channels competing for your money before the budget is split.
+          <p className="mt-3 max-w-3xl text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+            Each platform operates on distinct auction dynamics, intent horizons, and data algorithms. Compare how your ad budget performs across competing channels before dividing spend:
           </p>
 
-          <div className="mt-6 flex flex-wrap gap-2">
+          <div className="mt-6 flex flex-wrap gap-2.5">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="inline-flex items-center border border-frame-border/70 px-3 py-2.5 text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg transition-colors hover:border-frame-accent hover:text-frame-accent"
+                className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-[#09090B] px-3.5 py-2 font-mono text-xs uppercase tracking-wider text-zinc-300 transition-colors duration-200 hover:border-white/[0.14] hover:text-white hover:bg-white/[0.04]"
               >
-                {link.anchor}
+                <span>{link.anchor}</span>
+                <ArrowRight className="h-3 w-3 text-frame-accent" />
               </Link>
             ))}
           </div>

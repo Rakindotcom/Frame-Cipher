@@ -5,20 +5,20 @@ export default function GrowthCaseStudyLibrary() {
   const categories = ['Paid Ads', 'SEO']
 
   return (
-    <section className="border-t-2 border-frame-border px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-12 grid gap-8 border-b-2 border-frame-border pb-10 lg:grid-cols-[0.72fr_1fr] lg:items-end">
+        <div className="mb-12 grid gap-8 border-b border-white/[0.08] pb-10 lg:grid-cols-[0.72fr_1fr] lg:items-end">
           <div>
             <p className="text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
               Documented outcomes · Systematic execution
             </p>
-            <h2 className="mt-5 font-heading text-[clamp(2.8rem,5vw,4.5rem)] font-bold uppercase leading-[0.82] tracking-tighter text-frame-fg">
+            <h2 className="mt-5 font-heading text-[clamp(2.8rem,5vw,4.5rem)] font-bold leading-[0.82] tracking-tighter text-white">
               Growth & performance library.
             </h2>
           </div>
           <div>
-            <p className="max-w-4xl text-lg font-medium leading-tight text-frame-muted-fg md:text-2xl">
+            <p className="max-w-4xl text-lg font-medium leading-tight text-zinc-300 md:text-2xl">
               Case studies document the underlying challenge, systematic work process, conversion mechanics,
               and first-party verified results across our paid-media and search growth programs. Select any study to inspect the complete operational breakdown and reporting data.
             </p>
@@ -32,7 +32,7 @@ export default function GrowthCaseStudyLibrary() {
             const studies = growthCaseStudies.filter((study) => study.category === category)
             return (
               <section key={category} id={id} tabIndex={-1} aria-labelledby={`${id}-heading`} className="scroll-mt-[var(--case-study-scroll-offset,160px)]">
-                <h3 id={`${id}-heading`} className="mb-6 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-4xl">
+                <h3 id={`${id}-heading`} className="mb-6 font-heading text-3xl font-bold tracking-tighter text-white md:text-4xl">
                   {category} <span className="text-frame-accent">({studies.length})</span>
                 </h3>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -60,7 +60,7 @@ function CaseStudyCard({ study, index }) {
     >
       <div>
         {/* Card Header: Index & Badge */}
-        <div className="flex items-center justify-between border-b-2 border-frame-border p-5 pb-4">
+        <div className="flex items-center justify-between border-b border-white/[0.08] p-5 pb-4">
           <span className="font-heading text-xl font-bold tracking-tight text-frame-accent">
             {String(index + 1).padStart(2, '0')}
           </span>
@@ -71,13 +71,13 @@ function CaseStudyCard({ study, index }) {
 
         {/* Client & Title & Summary */}
         <div className="p-5">
-          <p className="text-[0.68rem] font-black uppercase tracking-[0.2em] text-frame-muted-fg line-clamp-1">
+          <p className="text-[0.68rem] font-black uppercase tracking-[0.2em] text-zinc-300 line-clamp-1">
             {study.client} · {study.industry}
           </p>
-          <h4 className="mt-2.5 font-heading text-xl font-bold uppercase leading-snug tracking-tight text-frame-fg transition-colors group-hover:text-frame-accent md:text-2xl line-clamp-2">
+          <h4 className="mt-2.5 font-heading text-xl font-bold leading-snug tracking-tight text-white transition-colors group-hover:text-frame-accent md:text-2xl line-clamp-2">
             {study.title}
           </h4>
-          <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg line-clamp-3">
+          <p className="mt-3 text-xs font-medium leading-relaxed text-zinc-300 line-clamp-3">
             {study.summary}
           </p>
 
@@ -87,17 +87,17 @@ function CaseStudyCard({ study, index }) {
               <span className="text-[0.6rem] font-black uppercase tracking-[0.22em] text-frame-accent">
                 Case Study Metrics
               </span>
-              <span className="text-[0.6rem] font-mono font-bold uppercase tracking-wider text-frame-muted-fg">
+              <span className="text-[0.6rem] font-mono font-bold uppercase tracking-wider text-zinc-300">
                 Verified Data
               </span>
             </div>
             <div className="mt-3 grid grid-cols-2 gap-3">
               {displayMetrics.map(([val, lbl], mIdx) => (
                 <div key={mIdx} className="border-l-2 border-frame-accent/40 pl-2.5">
-                  <span className="block font-heading text-lg font-bold tracking-tight text-frame-fg transition-colors group-hover:text-frame-accent md:text-xl">
+                  <span className="block font-heading text-lg font-bold tracking-tight text-white transition-colors group-hover:text-frame-accent md:text-xl">
                     {val}
                   </span>
-                  <span className="block text-[0.62rem] font-bold uppercase tracking-wider text-frame-muted-fg line-clamp-1">
+                  <span className="block text-[0.62rem] font-bold uppercase tracking-wider text-zinc-300 line-clamp-1">
                     {lbl}
                   </span>
                 </div>

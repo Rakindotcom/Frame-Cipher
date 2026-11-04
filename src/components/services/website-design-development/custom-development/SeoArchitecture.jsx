@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const seoFeatures = [
   'Search-friendly URL structures',
@@ -18,26 +21,40 @@ const seoFeatures = [
 
 export default function SeoArchitecture() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Technical Discovery / Organic Acquisition" title="Next.js SEO Architecture">
-          SEO should be considered during architecture, especially when organic search is an important acquisition channel. Our Next.js SEO foundation can include:
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Next.js SEO{' '}
+            <span className="italic text-frame-accent">Architecture.</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            SEO should be considered during architecture, especially when organic search is an important acquisition channel. Our Next.js SEO foundation can include:
+          </p>
+        </div>
 
-        <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {/* 13 Features Grid */}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {seoFeatures.map((seo, idx) => (
-            <div key={idx} className="flex items-center gap-2 border border-frame-border/60 bg-frame-muted/20 p-3.5 text-xs sm:text-sm font-medium text-frame-fg">
-              <span className="text-frame-accent font-bold">✓</span>
+            <div
+              key={idx}
+              className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#121214] p-3.5 text-xs sm:text-sm font-medium text-white transition-colors hover:border-white/[0.14]"
+            >
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent">
+                <Check className="h-3 w-3 stroke-[2.5]" />
+              </span>
               <span>{seo}</span>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 text-xs sm:text-sm text-frame-muted-fg space-y-2 leading-relaxed wide:text-lg">
+        {/* Technical Context Card */}
+        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 text-xs sm:text-sm text-zinc-300 space-y-2 leading-relaxed">
           <p>
             Next.js provides built-in capabilities for metadata and different rendering approaches, which can be used as part of a broader technical SEO strategy.
           </p>
-          <p className="italic">
+          <p className="italic text-zinc-400">
             Technical implementation alone does not guarantee rankings. Content quality, search intent, competition, authority, and ongoing optimization still matter.
           </p>
         </div>

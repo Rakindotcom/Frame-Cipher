@@ -1,4 +1,8 @@
+'use client'
+
+import React from 'react'
 import { resolveFaqs } from '../../../../lib/seo/faq'
+
 const fallbackFaqs = [
   {
     question: 'Will a redesign hurt my current Google rankings?',
@@ -43,35 +47,56 @@ const fallbackFaqs = [
 ]
 
 export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
+  const faqs = (service?.faqs && service.faqs.length >= fallbackFaqs.length) ? resolveFaqs(service, fallbackFaqs) : fallbackFaqs
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  }
+
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-16 sm:py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <div className="mb-12">
-          <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Direct Answers
-          </span>
-          <h2 className="mt-3 font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Frequently Asked Questions
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      {/* Schema.org Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl">
+        {/* Strictly Center-Aligned Header (§5.3 Standard) */}
+        <div className="mx-auto mb-14 max-w-3xl text-center space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Frequently Asked{' '}
+            <span className="italic text-frame-accent">Questions.</span>
           </h2>
-          <p className="mt-6 text-base sm:text-lg md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
             Common questions about website redesigns, SEO preservation, technical platforms, and timelines.
           </p>
         </div>
 
-        <div className="space-y-4">
+        {/* Center-Aligned Accordion Container (max-w-4xl) */}
+        <div className="mx-auto max-w-4xl space-y-3">
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+              className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors open:border-white/[0.14]"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-base sm:text-lg md:text-xl font-medium uppercase tracking-tight text-white marker:content-none">
                 <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+                <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#09090B] font-mono text-sm text-frame-accent transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line wide:text-lg">
+              <div className="border-t border-white/[0.08] p-6 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 whitespace-pre-line">
                 {faq.answer}
               </div>
             </details>

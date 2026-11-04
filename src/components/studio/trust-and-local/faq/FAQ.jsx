@@ -9,11 +9,11 @@ const faqs = [
   },
   {
     "question": "Do you charge for quotes, consultations or walkthroughs?",
-    "answer": "No. Answers, itemised quotes and studio walkthroughs with test recordings are all free. You only pay when cameras roll — sessions from ৳2,000/hour with the balance due on final sign-off."
+    "answer": "No. Answers, itemised quotes and studio walkthroughs with test recordings are all free. You only pay when cameras roll: sessions from ৳2,000/hour with the balance due on final sign-off."
   },
   {
     "question": "Can I reschedule if my team is delayed?",
-    "answer": "Yes. Sessions reschedule free of charge to any available slot with at least 48 hours notice — no penalties, no lost advance."
+    "answer": "Yes. Sessions reschedule free of charge to any available slot with at least 48 hours notice: no penalties, no lost advance."
   },
   {
     "question": "What power backup runs during load-shedding?",
@@ -21,11 +21,11 @@ const faqs = [
   },
   {
     "question": "How do I reach the studio, and where do we park?",
-    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — off the Mirpur DOHS–Banani access road with dedicated parking beside the building and elevator to the stage."
+    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: off the Mirpur DOHS, Banani access road with dedicated parking beside the building and elevator to the stage."
   },
   {
     "question": "What kit and room specs can we verify on a visit?",
-    "answer": "Acoustic isolation, the overhead softbox grid, 4K cinema cameras, broadcast microphones, seamless backdrops, green screen, monitoring and power backup — with test recordings on your own media."
+    "answer": "Acoustic isolation, the overhead softbox grid, 4K cinema cameras, broadcast microphones, seamless backdrops, green screen, monitoring and power backup, with test recordings on your own media."
   },
   {
     "question": "How long does delivery take, and what revisions are included?",
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     "question": "What payment methods and invoices do you provide?",
-    "answer": "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash — every payment with a formal VAT-compliant invoice for corporate accounting."
+    "answer": "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash: every payment with a formal VAT-compliant invoice for corporate accounting."
   },
   {
     "question": "Can we bring catering, and is Wi-Fi provided?",
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     "question": "What are your operating hours?",
-    "answer": "Open 24 hours — all sessions run by advance reservation, including overnight edits, early call times and international client time zones."
+    "answer": "Open 24 hours: all sessions run by advance reservation, including overnight edits, early call times and international client time zones."
   }
 ]
 
@@ -58,7 +58,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Booking, kit, access, reviews and delivery — everything about working with FrameCipher Studio.
+          Booking, kit, access, reviews and delivery: everything about working with FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

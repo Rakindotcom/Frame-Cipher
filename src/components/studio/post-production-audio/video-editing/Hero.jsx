@@ -6,13 +6,13 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 export default function Hero({ service }) {
   const title = 'Video Editing Services in Dhaka'
   const subtitle =
-    'FrameCipher Studio edits video for YouTube, social media, corporate use, podcasts and events — from footage we record or footage you send on SSD or cloud drive. Pacing, narrative flow and retention hooks are cut for the platform the video will run on, then finished with grade, sound and subtitles in-house.'
+    'FrameCipher Studio edits video for YouTube, social media, corporate use, podcasts and events, from footage we record or footage you send on SSD or cloud drive. Pacing, narrative flow and retention hooks are cut for the platform the video will run on, then finished with grade, sound and subtitles in-house.'
 
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/studio" className="transition hover:text-frame-fg">Studio</Link>
@@ -47,13 +47,12 @@ export default function Hero({ service }) {
           <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
             Your Footage. Our Timeline.
           </p>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] tracking-tighter text-frame-fg">
             Send Files. Receive Finished Video.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
             Whether it is a two-hour podcast or multi-angle commercial footage, our editors remove the fluff, sync
-            cameras and audio, place B-roll and build a tight narrative that holds retention from the first frame —
-            without you re-shooting a second.
+            cameras and audio, place B-roll and build a tight narrative that holds retention from the first frame: without you re-shooting a second.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             Hand off drives in person at ECB Chattar or upload to Drive or Dropbox. We verify every clip on intake,

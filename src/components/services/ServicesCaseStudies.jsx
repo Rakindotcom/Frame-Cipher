@@ -1,43 +1,56 @@
 import Link from 'next/link'
 import { growthCaseStudies } from '../../data/growthWork'
 import CaseStudyPortfolioCard from '../case-studies/CaseStudyPortfolioCard'
-import { PosterButton } from '../Kinetic'
+import PosterButton from '../home/PosterButton'
 
 export default function ServicesCaseStudies() {
   const featured = growthCaseStudies.slice(0, 3)
 
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-          Case studies / proof, not promises
-        </p>
-        <h2 className="max-w-4xl font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-          See how we&apos;ve built, marketed &amp; grown real brands.
-        </h2>
-        <p className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
-          Every metric below comes from live reporting data, not estimates. Explore a few ways the
-          Frame Cipher system shows up in the real world.
-        </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28 overflow-hidden">
+      {/* Background Architectural Grid Pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 fc-grid-pattern opacity-15"
+        aria-hidden="true"
+      />
 
-        <div className="mt-14 grid gap-6 lg:grid-cols-3">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              See how we&apos;ve built, marketed &amp;{' '}
+              <span className="italic text-frame-accent">
+                grown real brands.
+              </span>
+            </h2>
+            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+              Every metric below comes from live reporting data, not estimates. Explore a few ways the
+              Frame Cipher system shows up in the real world.
+            </p>
+          </div>
+
+          <div className="shrink-0">
+            <PosterButton href="/case-studies" variant="outline">
+              View All Case Studies
+            </PosterButton>
+          </div>
+        </div>
+
+        {/* 3-Column Luxury Case Studies Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((study, index) => (
             <CaseStudyPortfolioCard key={study.slug} study={study} index={index} />
           ))}
         </div>
 
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
-          <Link
-            href="/case-studies"
-            className="group inline-flex min-h-14 items-center gap-3 border-2 border-frame-border bg-frame-bg px-7 text-sm font-black uppercase tracking-[0.18em] text-frame-fg transition-colors duration-300 hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg md:min-h-16"
-          >
-            View All Case Studies
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1.5">
-              →
-            </span>
-          </Link>
-          <PosterButton href="/contact" variant="accent" className="whitespace-nowrap">
+        {/* Symmetrical Action Button Pair */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <PosterButton href="/contact">
             Start Your Own Growth Story
+          </PosterButton>
+          <PosterButton href="/case-studies" variant="outline">
+            Browse All Case Studies
           </PosterButton>
         </div>
       </div>

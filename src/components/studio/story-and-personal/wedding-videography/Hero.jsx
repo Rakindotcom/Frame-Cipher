@@ -6,13 +6,13 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 export default function Hero({ service }) {
   const title = 'Cinematic Wedding Videography in Dhaka'
   const subtitle =
-    'FrameCipher Studio films Holud, wedding and reception celebrations across Bangladesh as narrative cinema — candid observation, emotional scoring and feature-grade colour — with teaser, highlight and full ceremony edits agreed before the dates.'
+    'FrameCipher Studio films Holud, wedding and reception celebrations across Bangladesh as narrative cinema: candid observation, emotional scoring and feature-grade colour, with teaser, highlight and full ceremony edits agreed before the dates.'
 
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/studio" className="transition hover:text-frame-fg">Studio</Link>
@@ -47,13 +47,13 @@ export default function Hero({ service }) {
           <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
             A Movie, Not a Stage Recording
           </p>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] tracking-tighter text-frame-fg">
             Moments You Will Replay.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
             Traditional coverage plants a tripod at the stage and records whatever passes. Cinematic wedding films
             work like movies: narrative structure, candid observation, emotional scoring and colour timed like
-            features — compressing a 6-hour function into a story the family actually replays.
+            features: compressing a 6-hour function into a story the family actually replays.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
             We map the schedule, priority rituals and key family members with you beforehand, so no moment is

@@ -30,8 +30,8 @@ const differences = [
 
 export default function WhyDifferent() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Format Principles"
           title="Why Short-Form Video Production Is Different"
@@ -40,17 +40,17 @@ export default function WhyDifferent() {
           Short-form video is not simply a horizontal video cropped down. It requires a dedicated creative discipline tailored to mobile viewing behavior and platform distribution.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
           {differences.map((item) => (
-            <div key={item.num} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={item.num} className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="font-heading text-3xl font-black text-frame-accent">
+                <span className="font-heading text-3xl font-black text-[#A855F7]">
                   {item.num}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.description}
                 </p>
               </div>
@@ -58,15 +58,15 @@ export default function WhyDifferent() {
           ))}
 
           {/* HOOK WORKSHOP BANNER */}
-          <div className="bg-frame-accent/10 border-2 border-frame-accent p-7 md:p-8 flex flex-col justify-between">
+          <div className="bg-[#A855F7]/10 border-2 border-[#A855F7]/40 p-7 md:p-8 flex flex-col justify-between">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Conversion Engineering
               </span>
-              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                 Need Hooks That Stop the Scroll?
               </h3>
-              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                 We develop multiple hook variations for every concept so your team can test and scale the highest-converting angles.
               </p>
             </div>

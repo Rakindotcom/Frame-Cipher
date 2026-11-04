@@ -1,149 +1,143 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import React from 'react'
+import { CheckCircle2, ArrowRight, Sparkles } from 'lucide-react'
 
 const packages = [
   {
-    name: 'Remarketing: Single Platform',
-    tag: 'Focused Program',
-    fee: '\u09F315,000',
-    feeNote: 'per month',
-    bestFor: 'Businesses starting with a focused remarketing program',
+    name: 'Single Platform',
+    tag: 'Focused Channel Program',
+    fee: '৳15,000',
+    feeNote: 'per month + ad spend',
+    bestFor: 'Businesses starting with a focused remarketing program on a single primary network (e.g. Meta or Google).',
     included: [
-      'Tracking review and setup',
-      'Audience segmentation',
-      'Suppression and exclusion rules',
-      'Remarketing campaign management',
-      'Frequency and exposure management',
-      'Creative testing recommendations',
-      'Performance monitoring',
-      'Monthly reporting by audience segment',
+      'Single-platform pixel/tag tracking review & setup',
+      'Funnel-stage audience segmentation (up to 4 tiers)',
+      'Basic recency window setup (7-day, 30-day)',
+      'Purchaser & converted lead suppression rules',
+      'Remarketing campaign setup & bid management',
+      'Manual frequency cap configuration & exposure checks',
+      'Creative rotation & ad fatigue monitoring',
+      'Monthly performance reporting by audience cohort',
     ],
-    cta: 'Request This Plan',
+    cta: 'Start Single Platform',
+    popular: false,
   },
   {
-    name: 'Remarketing: Cross-Platform',
-    tag: 'Multi-Channel',
-    fee: '\u09F325,000',
-    feeNote: 'per month',
-    bestFor: 'Businesses running remarketing across up to three platforms',
+    name: 'Cross-Platform',
+    tag: 'Multi-Channel Omnichannel',
+    fee: '৳25,000',
+    feeNote: 'per month + ad spend',
+    bestFor: 'Growing businesses running cohesive remarketing across up to three platforms (e.g. Meta + Google + TikTok or LinkedIn).',
     included: [
       'Everything in Single Platform',
-      'Up to three platforms',
-      'Cross-platform messaging alignment',
-      'Cross-platform audience suppression',
-      'Performance comparison across platforms',
+      'Multi-platform tracking & Server-Side CAPI setup',
+      'Advanced audience architecture across up to 3 networks',
+      'Sequential creative narrative staging (Days 1–3, 4–14, 15–30)',
+      'Cross-platform audience suppression & deduplication',
+      'CRM customer list synchronization and offline matching',
+      'Holdout incrementality testing & attribution analysis',
+      'Bi-weekly performance reviews and strategy calls',
     ],
-    cta: 'Request This Plan',
+    cta: 'Start Cross-Platform',
     popular: true,
   },
   {
-    name: 'Dynamic Catalog Remarketing Add-On',
-    tag: 'Ecommerce',
-    fee: '\u09F310,000',
-    feeNote: 'per month',
-    bestFor: 'Ecommerce businesses needing product-specific dynamic remarketing',
+    name: 'Dynamic Catalog Add-On',
+    tag: 'Ecommerce Product-Level DPA',
+    fee: '৳10,000',
+    feeNote: 'per month add-on',
+    bestFor: 'Ecommerce and multi-product brands requiring real-time product-specific dynamic catalog ads and replenishment loops.',
     included: [
-      'Product catalog setup',
-      'Feed review',
-      'Dynamic audience configuration',
-      'Product-view audiences',
-      'Cart audiences',
-      'Product-specific creative',
-      'Cross-sell and upsell logic',
-      'Feed troubleshooting',
+      'Product catalog feed health review & sync',
+      'Dynamic product ads (DPA) on Meta, Google & TikTok',
+      'Product-view and abandoned cart dynamic matching',
+      'Cross-sell and upsell automated recommendation logic',
+      'Usage-cycle replenishment reminder campaigns',
+      'Promotional overlay badges & dynamic pricing feeds',
+      'Out-of-stock automatic suppression management',
+      'Dedicated ecommerce feed troubleshooting support',
     ],
-    cta: 'Get a Custom Quote',
+    cta: 'Add Dynamic Catalog',
+    popular: false,
   },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & plans" title="Remarketing Services Pricing">
-          Pricing depends on the number of platforms, audience segments, tracking requirements,
-          catalog complexity, and ongoing optimization scope.
-        </SectionIntro>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {packages.map((pkg, i) => (
-            <div
-              key={pkg.name}
-              className={
-                pkg.popular
-                  ? 'relative flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/5 p-6 md:p-7'
-                  : 'relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-7'
-              }
-            >
-              {pkg.popular && (
-                <span className="absolute right-4 top-4 border border-frame-accent bg-frame-accent px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.18em] text-frame-bg">
-                  Most Popular
-                </span>
-              )}
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                  Plan 0{i + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.name}
-                </h3>
-                <p className="mt-1 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
-                  {pkg.tag}
-                </p>
-                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
-                  {pkg.fee}
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-frame-muted-fg">
-                    {pkg.feeNote}
-                  </span>
-                </p>
-                <div className="mt-4 border border-frame-accent/50 bg-frame-accent/5 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Best For
-                  </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
-                    {pkg.bestFor}
-                  </p>
-                </div>
-
-                <p className="mt-5 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
-                  What&apos;s included
-                </p>
-                <ul className="mt-3 space-y-2.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
-                  {pkg.included.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2">
-                      <span className="font-bold text-frame-accent">&#10003;</span>
-                      <span className="leading-snug">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 border-t border-frame-border/60 pt-4">
-                <PosterButton href="/contact" className="w-full text-xs">
-                  {pkg.cta}
-                </PosterButton>
-              </div>
-            </div>
-          ))}
+    <section id="pricing" className="scroll-mt-20 relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Remarketing Services{' '}
+            <span className="italic text-frame-accent">Pricing.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Transparent, monthly retainer pricing based on platform count, audience tier depth, tracking complexity, and catalog scale. Zero media spend markups or hidden fees.
+          </p>
         </div>
 
-        <div className="mt-8 flex flex-col gap-8 border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-9 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl space-y-3 text-sm md:text-base font-medium leading-relaxed">
-            <p className="text-frame-fg">
-              <span className="font-black uppercase tracking-[0.18em] text-frame-accent">Important: </span>
-              Ad spend is separate from management fees. Your advertising spend is paid through the
-              advertising account and remains under your control.
-            </p>
-            <p className="text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/remarketing" allowed={["/studio/video-editing"]}>
-              New creative production, video editing, advanced catalog production, CRM development,
-              custom tracking development, and third-party tools can be scoped separately where
-              required. Final pricing is confirmed in a written proposal.
-            </AutoLinks></p>
-          </div>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get a Custom Remarketing Quote &rarr;</PosterButton>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {packages.map((pkg) => (
+            <div
+              key={pkg.name}
+              className={`relative rounded-2xl border p-7 sm:p-8 flex flex-col justify-between transition-colors duration-300 ${
+                pkg.popular
+                  ? 'border-frame-accent bg-[#141218]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+              }`}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-3 right-6 inline-flex items-center gap-1 rounded-full bg-frame-accent px-3 py-0.5 font-mono text-[10px] uppercase font-bold tracking-wider text-black">
+                  <Sparkles className="h-3 w-3" />
+                  <span>Most Popular</span>
+                </div>
+              )}
+
+              <div>
+                <h3 className="font-heading text-2xl font-medium text-white mt-1">
+                  {pkg.name}
+                </h3>
+                <div className="mt-4 mb-4">
+                  <span className="font-heading text-3xl sm:text-4xl font-bold text-white">
+                    {pkg.fee}
+                  </span>
+                  <span className="block font-mono text-xs text-zinc-400 mt-1">
+                    {pkg.feeNote}
+                  </span>
+                </div>
+
+                <div className="rounded-lg border border-white/[0.06] bg-black/30 p-3.5 mb-6 text-xs text-zinc-300 leading-relaxed font-normal">
+                  <span className="font-semibold text-frame-accent block mb-0.5">Best For:</span>
+                  {pkg.bestFor}
+                </div>
+
+                <div className="space-y-2.5 mb-8">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                    What&apos;s Included:
+                  </p>
+                  {pkg.included.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="/contact"
+                className={`w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-6 font-mono text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
+                  pkg.popular
+                    ? 'bg-frame-accent text-black hover:bg-white hover:text-black'
+                    : 'border border-white/[0.12] bg-white/[0.04] text-white hover:border-frame-accent hover:bg-frame-accent hover:text-black'
+                }`}
+              >
+                <span>{pkg.cta}</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>

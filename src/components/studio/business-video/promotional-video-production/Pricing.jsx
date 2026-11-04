@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for promotional-video-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for promotional-video-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Promotional Video Packages and Prices in Dhaka (BDT)",
@@ -14,9 +14,9 @@ const DATA = {
       "priceNote": "per video",
       "tag": "Single Offer",
       "cta": "Book Launch Cut",
-      "description": "One punchy 30–60 second promo: hook, product demo, kinetic price tag and hard call to action.",
+      "description": "One punchy 30 to 60 second promo: hook, product demo, kinetic price tag and hard call to action.",
       "features": [
-        "Direct-response script structure (hook–demo–offer–CTA)",
+        "Direct-response script structure (hook, demo, offer, CTA)",
         "Half-day studio product staging with gel lighting",
         "Kinetic price and offer typography animation",
         "Licensed upbeat track with risers and impact SFX",
@@ -66,10 +66,10 @@ const DATA = {
     "Showroom or outlet field-shoot day add-on",
     "Turnaround: 48-hour flash-sale express adds 25%"
   ],
-  "marketNote": "Dhaka social promos from freelancers run ৳5,000–15,000 per clip, while agency-built conversion assets with strategy, grade and versioning sit at ৳80,000–1,50,000 per video. Short-form social content from studios runs ৳80,000–150,000 per video with cutdowns (Public Pulse 2026). The gap is creative engineering: hook testing, kinetic offer design and platform-native exports. Our ৳28,000–58,000 band exists to give SMEs agency-grade conversion craft without enterprise overhead.",
+  "marketNote": "Dhaka social promos from freelancers run ৳5,000 to 15,000 per clip, while agency-built conversion assets with strategy, grade and versioning sit at ৳80,000 to 1,50,000 per video. Short-form social content from studios runs ৳80,000 to 150,000 per video with cutdowns (Public Pulse 2026). The gap is creative engineering: hook testing, kinetic offer design and platform-native exports. Our ৳28,000 to 58,000 band exists to give SMEs agency-grade conversion craft without enterprise overhead.",
   "costRows": [
     [
-      "Single launch promo (30–60s + story cut)",
+      "Single launch promo (30 to 60s + story cut)",
       "৳28,000"
     ],
     [
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Promotional Video Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

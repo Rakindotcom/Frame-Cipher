@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const challenges = [
   {
@@ -76,7 +79,7 @@ const challenges = [
   },
   {
     title: 'Limited Country-Level Authority',
-    body: 'A website can have strong overall authority while remaining less competitive within a specific market. We compare the site\u2019s market-level competitive position with relevant competitors and identify opportunities involving:',
+    body: "A website can have strong overall authority while remaining less competitive within a specific market. We compare the site's market-level competitive position with relevant competitors and identify opportunities involving:",
     points: [
       'Local links',
       'Industry publications',
@@ -86,48 +89,58 @@ const challenges = [
       'Market-specific outreach',
       'Content promotion',
     ],
-    note: 'The strategy focuses on building relevance and authority where it can support the business\u2019s market priorities.',
+    note: 'The strategy focuses on building relevance and authority where it can support the business’s market priorities.',
   },
 ]
 
 export default function Challenges() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Problems we fix" title="International SEO Challenges We Solve">
-          International SEO problems often appear as a website expands into more countries and
-          languages. We focus on the issues that can prevent regional pages from being understood,
-          indexed, competitive, or shown to the appropriate audience.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Risk Mitigation</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            International SEO{' '}
+            <span className="italic text-frame-accent">Challenges We Solve</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            International SEO problems often appear as a website expands into more countries and languages. We focus on the issues that can prevent regional pages from being understood, indexed, competitive, or shown to the appropriate audience.
+          </p>
+        </div>
 
+        {/* 6 Challenges Grid */}
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {challenges.map((item, index) => (
+          {challenges.map((challenge, index) => (
             <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
+              key={challenge.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] md:p-8"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Challenge 0{index + 1}
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Issue // 0{index + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
+                <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
+                  {challenge.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
+                <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-300">
+                  {challenge.body}
                 </p>
-                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
+                <ul className="mt-5 space-y-1.5 border-t border-white/[0.06] pt-4 text-xs sm:text-sm text-zinc-300">
+                  {challenge.points.map((point, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                      <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
                       <span className="leading-snug">{point}</span>
                     </li>
                   ))}
                 </ul>
-                {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </p>
+                {challenge.note && (
+                  <div className="mt-6 rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs text-zinc-300">
+                    <p className="leading-relaxed">{challenge.note}</p>
+                  </div>
                 )}
               </div>
             </div>

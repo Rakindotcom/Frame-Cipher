@@ -1,135 +1,162 @@
+import { PosterButton } from '../../../Kinetic'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
-import { resolveFaqs } from '../../../../lib/seo/faq'
-
-const fallbackFaqs = [
+const facebookFaqs = [
   {
-    question: 'What does Facebook Page management include?',
+    question: 'What Does a Facebook Management Service Include?',
     answer:
-      'It can include Page optimization, content strategy, content creation, publishing, comment and review management, community care, Messenger handling, moderation, and reporting.\n\nThe exact scope is confirmed after the free Page audit and recorded in your plan.',
+      'A Facebook management service can include Page optimization, content strategy, content creation, publishing, Reels and Stories, community management, Messenger handling, review monitoring, moderation, reporting, and ongoing optimization. The exact scope depends on the management plan.',
   },
   {
-    question: 'How much does Facebook management cost?',
+    question: 'How Much Does Facebook Management Cost in Bangladesh?',
     answer:
-      'Plans start at ৳10,000 per month for Essential, ৳18,000 per month for Growth, and ৳28,000 per month for Full Coverage. Enterprise pricing is custom.\n\nFinal scope and pricing are confirmed after the audit, and ad spend is separate from management fees.',
+      'Our Facebook management plans currently start at ৳10,000 per month. Growth and broader management plans increase based on content volume, creative requirements, community coverage, response expectations, and additional Page or location requirements. Enterprise requirements are quoted separately.',
   },
   {
-    question: 'How much content should I post?',
+    question: 'Do I Need to Provide Content for Facebook Management?',
     answer:
-      'It depends on your business and goals. Essential covers 3 posts per week, Growth covers 5 posts per week, and Full Coverage supports daily content.\n\nWe recommend a cadence your team can sustain instead of publishing more than is useful.',
+      'Not necessarily. We can handle content planning, copywriting, and agreed creative production as part of your management plan. You can also provide your own product images, videos, brand assets, offers, announcements, or other materials when you want them included.',
   },
   {
-    question: 'Do you create the content?',
+    question: 'Why Is My Facebook Page Getting Low Organic Reach?',
     answer:
-      'Yes. Content creation is part of the management scope, including graphics, carousels, captions, short-form videos, Reels, and Stories.\n\nYour approval workflow is built into the process where required.',
+      'Organic reach varies based on many factors, including content performance, audience behavior, competition, content format, and Facebook\'s distribution systems. A lower-reach Page should not automatically respond by posting more often. We review the Page, content, audience response, and performance data before recommending changes.',
   },
   {
-    question: 'Do you manage comments and reviews?',
+    question: 'How Often Should a Facebook Page Post?',
     answer:
-      'Yes. Comment responses, review monitoring, and review responses are included according to the plan.\n\nSpam, abuse, and sensitive issues are handled within the agreed moderation and escalation process.',
+      'There is no universal posting frequency that works for every business. Your ideal cadence depends on your audience, content resources, business model, content quality, and goals. Our plans range from several posts per week to daily publishing.',
   },
   {
-    question: 'Can you manage Messenger?',
+    question: 'Do You Create Facebook Content?',
     answer:
-      'Yes. We can monitor Messenger, answer common questions, and escalate leads, serious complaints, or questions that need your authority.',
+      'Yes. Depending on your plan, we can create captions, branded graphics, carousels, Reels, short-form videos, Stories, promotional content, educational posts, and other agreed content formats.',
   },
   {
-    question: 'Can you manage a Facebook Group?',
+    question: 'Do You Manage Facebook Comments and Messages?',
     answer:
-      'Yes, where it makes sense for your business. Group management can include content planning, discussion prompts, member engagement, moderation, and community guidelines.\n\nWe assess whether a Group is worth the effort first.',
+      'Yes. Community management can include comment monitoring, replies, Messenger monitoring, customer questions, basic information, and lead or issue escalation. Response expectations depend on your selected plan and agreed scope.',
   },
   {
-    question: 'Do you manage Facebook Ads?',
+    question: 'Do You Manage Facebook Reviews?',
     answer:
-      'Facebook Ads Management is a separate service from organic Facebook management.\n\nIf you need paid advertising, it is scoped and billed separately from the management plan.',
+      'Yes. Where included in your plan, we monitor reviews and help manage appropriate responses to positive, negative, and customer-service-related feedback. Serious complaints or matters requiring internal authority are escalated to your team.',
   },
   {
-    question: 'How does the reporting work?',
+    question: 'Do You Manage Facebook Groups?',
     answer:
-      'You receive reporting around agreed metrics such as reach, engagement, video performance, message activity, response performance, and top or underperforming content.\n\nReports also include observations and recommended next actions.',
+      'Yes, when Group management is included in the agreed scope. We first assess whether a Group makes strategic sense for your business before adding one to the workflow.',
   },
   {
-    question: 'Do you guarantee followers, engagement, or sales?',
+    question: 'Do You Manage Facebook Ads?',
     answer:
-      'No. We do not promise follower counts, engagement levels, leads, sales, or specific revenue.\n\nOutcomes depend on your business, market, content, and factors outside our control.',
+      'Facebook Ads Management is separate from our organic Facebook management service. This keeps organic content, community management, and paid advertising strategically distinct. If you need paid campaigns, we can manage them through our separate paid advertising service.',
   },
   {
-    question: 'How do approvals work?',
+    question: 'Can You Help With a Restricted Facebook Page?',
     answer:
-      'Content is prepared, reviewed, and shared for your approval before publishing when the agreed workflow requires it.\n\nUrgent or sensitive matters are escalated to you rather than handled on assumption.',
+      'We can review visible Page health, access, content, and restriction-related issues and help identify appropriate next steps. We do not guarantee that Meta will remove a restriction, restore content, approve an appeal, or reinstate a Page.',
   },
   {
-    question: 'Will you manage my Page even if it is restricted?',
+    question: 'Do You Use Meta Business Suite?',
     answer:
-      'We can review the situation and guide you through the correct process, but we cannot guarantee that Meta will approve an appeal or remove a restriction.\n\nPlatform decisions rest with Meta.',
+      'We can use Meta\'s business tools where appropriate for publishing, Page management, access coordination, messaging workflows, and performance management. Access should be structured around appropriate business permissions rather than sharing personal passwords.',
   },
   {
-    question: 'Who owns the Page and content?',
+    question: 'Do You Manage Facebook Pages Outside Bangladesh?',
     answer:
-      'Your business owns the Page, its assets, and your customer data.\n\nWe work through appropriate access permissions rather than taking ownership of your accounts.',
-  },
-  {
-    question: 'How do I get started?',
-    answer:
-      'Request a free Facebook Page audit. We review the Page, discuss your goals, and recommend the plan that matches your actual needs.',
+      'Yes. We support Facebook management for businesses targeting markets including the US, UK, Australia, Canada, and UAE. We adapt communication, content, and workflow to the intended market.',
   },
 ]
 
 export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
+  const faqs = (service?.faqs && service.faqs.length >= facebookFaqs.length)
+    ? service.faqs
+    : facebookFaqs
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question || faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer || faq.a,
+      },
+    })),
+  }
+
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="max-w-4xl">
-          <SectionIntro eyebrow="Questions &amp; answers" title="Facebook Management FAQs">
+    <section className="border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replaceAll('<', '\\u003c') }}
+      />
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Header - Centered per Section 5.3 Standard */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Questions &amp; Answers
+            </span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About Facebook Management
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
             Straight answers about scope, pricing, content, and what a Page management engagement can
             realistically deliver.
-          </SectionIntro>
-
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <details
-                key={faq.question}
-                className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:p-6 md:text-base">
-                  <span className="flex items-baseline gap-3 md:gap-4">
-                    <span className="font-mono text-xs font-black text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>{faq.question}</span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
-                  >
-                    +
-                  </span>
-                </summary>
-                <div className="border-t-2 border-frame-border p-5 md:p-6">
-                  {faq.answer.split('\n\n').map((paragraph, pIdx) => (
-                    <p
-                      key={pIdx}
-                      className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
-                        pIdx > 0 ? 'mt-4' : ''
-                      }`}
-                    ><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/content-writing/content-strategy"]}>
-                      {paragraph}
-                    </AutoLinks></p>
-                  ))}
-                </div>
-              </details>
-            ))}
-          </div>
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            If your question is not covered here, ask directly during the audit call.
+        {/* Accordion List - Centered per Section 5.3 Standard */}
+        <div className="mx-auto max-w-4xl space-y-3">
+          {faqs.map((faq, index) => {
+            const q = faq.question || faq.q
+            const a = faq.answer || faq.a
+            return (
+              <details
+                key={q}
+                className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 open:border-white/[0.18] open:bg-[#151518]"
+              >
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 text-left text-base font-medium text-white transition-colors group-hover:text-violet-300 sm:p-6 sm:text-lg">
+                  <span className="flex items-baseline gap-3">
+                    <span className="font-mono text-xs font-semibold text-frame-accent">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span>{q}</span>
+                  </span>
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.05] text-white transition-transform duration-300 group-open:rotate-180">
+                    <svg
+                      className="h-3.5 w-3.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="border-t border-white/[0.06] px-5 pb-6 pt-4 text-sm leading-relaxed text-zinc-300 sm:px-6 sm:pb-8 sm:text-base">
+                  <p className="whitespace-pre-line">{a}</p>
+                </div>
+              </details>
+            )
+          })}
+        </div>
+
+        {/* Still Have Questions Box */}
+        <div className="mx-auto max-w-4xl mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 text-center sm:p-10">
+          <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+            Have a question not covered here?
+          </h3>
+          <p className="mt-2 text-sm text-zinc-400">
+            Send us a message or schedule a consultation with our social media team.
           </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Ask a Facebook Question &rarr;</PosterButton>
+          <div className="mt-6 flex justify-center">
+            <PosterButton href="/contact">Talk to Our Social Team</PosterButton>
           </div>
         </div>
       </div>

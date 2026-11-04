@@ -41,8 +41,8 @@ const ecosystem = [
 
 export default function ServiceEcosystem() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Creative Discipline Clarity"
           title="Where Graphic Design Fits With Our Other Creative Services"
@@ -50,40 +50,40 @@ export default function ServiceEcosystem() {
           Graphic design works alongside several creative disciplines, but each serves a distinct operational purpose. Keeping them clearly scoped eliminates overlap while ensuring seamless cross-discipline collaboration.
         </SectionIntro>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {ecosystem.map((item, idx) => (
             <div
               key={idx}
               className={`p-6 md:p-8 flex flex-col justify-between ${
                 item.highlight
-                  ? 'border-2 border-frame-accent bg-frame-accent/5 md:col-span-2 lg:col-span-1'
-                  : 'bg-frame-bg'
+                  ? 'border-2 border-[#A855F7]/40 bg-[#A855F7]/[0.05] md:col-span-2 lg:col-span-1'
+                  : 'bg-[#09090B]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
                   <span className={`text-xs font-black uppercase tracking-[0.2em] ${
-                    item.highlight ? 'text-frame-accent' : 'text-frame-muted-fg'
+                    item.highlight ? 'text-[#A855F7]' : 'text-[#A1A1AA]'
                   }`}>
                     {item.badge}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     Discipline
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.service}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
               </div>
 
               {item.link && (
-                <div className="mt-8 pt-4 border-t border-frame-border/60">
+                <div className="mt-8 pt-4 border-t border-white/[0.06]">
                   <Link
                     href={item.link.href}
-                    className="text-xs font-bold uppercase tracking-wider text-frame-accent hover:underline inline-flex items-center gap-1"
+                    className="text-xs font-bold uppercase tracking-wider text-[#A855F7] hover:underline inline-flex items-center gap-1"
                   >
                     {item.link.text} &rarr;
                   </Link>

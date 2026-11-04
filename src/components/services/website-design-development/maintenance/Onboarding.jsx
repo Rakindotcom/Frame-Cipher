@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const onboardingSteps = [
   {
@@ -35,23 +37,35 @@ const onboardingSteps = [
 
 export default function Onboarding() {
   return (
-    <section className="bg-frame-muted/20 px-4 py-16 sm:py-20 md:px-8 md:py-28 border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Onboarding Protocol" title="Website Health Audit & Maintenance Onboarding">
-          Before routine maintenance begins, we establish a clear picture of the website's current condition.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Website Health Audit &amp;{' '}
+            <span className="italic text-frame-accent">Maintenance Onboarding.</span>
+          </h2>
 
-        <div className="mt-12 grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Before routine maintenance begins, we establish a clear picture of the website&apos;s current condition.
+          </p>
+        </div>
+
+        {/* 6 Onboarding Steps Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {onboardingSteps.map((step, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 transition-colors duration-200 hover:border-white/[0.14] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Step {step.number}
+                <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl font-medium text-white">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   {step.description}
                 </p>
               </div>
@@ -59,8 +73,9 @@ export default function Onboarding() {
           ))}
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+        {/* Onboarding Callout */}
+        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
             This onboarding process helps prevent inherited problems from being mistaken for newly introduced maintenance issues.
           </p>
         </div>

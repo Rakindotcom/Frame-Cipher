@@ -5,11 +5,11 @@ import { SectionIntro } from '../../../Kinetic'
 const faqs = [
   {
     "question": "How much does an NGO documentary cost in Bangladesh?",
-    "answer": "At FrameCipher Studio, a 10–12 minute impact short is ৳1,85,000 and a 15–25 minute multi-location standard documentary is ৳3,60,000. Feature and series work is scoped from ৳7,80,000. Every quote is itemised in writing within 48 hours."
+    "answer": "At FrameCipher Studio, a 10 to 12 minute impact short is ৳1,85,000 and a 15 to 25 minute multi-location standard documentary is ৳3,60,000. Feature and series work is scoped from ৳7,80,000. Every quote is itemised in writing within 48 hours."
   },
   {
     "question": "How long does a short impact documentary take?",
-    "answer": "A 10–12 minute film typically runs 3 to 5 weeks from research sign-off to graded master. Standard multi-location films run 6 to 10 weeks, plus institutional review rounds."
+    "answer": "A 10 to 12 minute film typically runs 3 to 5 weeks from research sign-off to graded master. Standard multi-location films run 6 to 10 weeks, plus institutional review rounds."
   },
   {
     "question": "Do you handle field shoots in remote districts?",
@@ -21,11 +21,11 @@ const faqs = [
   },
   {
     "question": "Can you license and restore archival footage?",
-    "answer": "Yes. Archival research, licensing and restoration are handled as quoted line items, with rights cleared before the edit locks — essential for heritage and compliance stories."
+    "answer": "Yes. Archival research, licensing and restoration are handled as quoted line items, with rights cleared before the edit locks: essential for heritage and compliance stories."
   },
   {
     "question": "What masters and versions do we receive?",
-    "answer": "Festival DCP plus broadcast and web masters, a teaser trailer, social character cutdowns, Bangla and English subtitles and a documented asset register. Additional language versions run ৳25,000–45,000."
+    "answer": "Festival DCP plus broadcast and web masters, a teaser trailer, social character cutdowns, Bangla and English subtitles and a documented asset register. Additional language versions run ৳25,000 to 45,000."
   },
   {
     "question": "How do institutional review rounds work?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, timelines, field craft and booking — everything about documentary production at FrameCipher Studio.
+          Costs, timelines, field craft and booking: everything about documentary production at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

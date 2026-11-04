@@ -1,214 +1,284 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React, { useState } from 'react'
+import {
+  Settings,
+  Target,
+  Palette,
+  ShoppingBag,
+  Activity,
+  MousePointerClick,
+  Sliders,
+  Calendar,
+  CheckCircle2,
+  ChevronRight,
+} from 'lucide-react'
 
 const services = [
   {
-    title: 'Campaign Strategy & Account Setup',
-    body: [
-      'The right campaign structure starts with the business objective. We review your offer, market, audience, website, existing Pinterest presence, budget, and conversion path before deciding how the account should be structured.',
+    id: 'strategy',
+    icon: Settings,
+    name: 'Campaign Strategy & Setup',
+    subtitle: 'Account Architecture & Readiness',
+    desc: 'The right campaign structure starts with the business objective. We review your offer, market, audience, website, existing Pinterest presence, budget, and conversion path before deciding how the account should be structured.',
+    deliverables: [
+      'Campaign and ad-group structure aligned to business economics',
+      'Objective selection (Consideration, Leads, Sales, Brand Awareness)',
+      'Budget and schedule planning with realistic test pacing',
+      'Geographic targeting and product/service segmentation',
+      'Account setup, readiness checks, and billing validation',
+      'Landing-page alignment and destination experience review',
+      'Standardized campaign naming and organizational taxonomy',
+      'Pre-launch verification and structured initial testing plan',
     ],
-    label: 'What we do',
-    bullets: [
-      'Campaign and ad-group structure',
-      'Objective selection',
-      'Budget and schedule planning',
-      'Geographic targeting',
-      'Product or service segmentation',
-      'Account setup and readiness checks',
-      'Landing-page alignment',
-      'Campaign naming and organization',
-      'Pre-launch review',
-      'Initial testing plan',
-    ],
-    note: 'Pinterest\u2019s current Ads Manager structure supports objectives such as Consideration, Leads, and Sales, while older Conversions and Catalog Sales objectives are being phased into the updated framework. We build new campaigns around the current system rather than relying on outdated campaign structures.',
+    technicalNote:
+      "Pinterest's updated Ads Manager supports Consideration, Leads, and Sales objectives, replacing legacy Conversions and Catalog Sales buckets. We build campaigns on the current framework.",
   },
   {
-    title: 'Audience, Keyword & Performance+ Targeting',
-    body: [
-      'Pinterest combines search behavior, interests, audience data, and automated optimization. Our targeting strategy reflects how people search, save, and plan on the platform.',
+    id: 'targeting',
+    icon: Target,
+    name: 'Audience & Performance+',
+    subtitle: 'Search Intent & Interest Graph',
+    desc: 'Pinterest combines search behavior, interests, audience data, and automated optimization. We treat Pinterest search differently from a broad social audience—capturing both active search queries and broader visual inspiration.',
+    deliverables: [
+      'Keyword targeting built on active Pinterest search behavior',
+      'Interest targeting leveraging Pinterest visual discovery graph',
+      'Site visitor custom audiences and customer list matching',
+      'Engagement audiences from previous Pin interactions',
+      'Actalike audiences modeled on highest-value customers',
+      'Age, gender, language, and geographic parameter controls',
+      'Placement considerations (Browse vs. Search feeds)',
+      'Pinterest Performance+ evaluation and controlled integration',
     ],
-    label: 'Our targeting strategy can include',
-    bullets: [
-      'Keyword targeting',
-      'Interest targeting',
-      'Site visitor audiences',
-      'Customer lists',
-      'Engagement audiences',
-      'Actalike audiences',
-      'Geographic targeting',
-      'Age and language targeting',
-      'Placement considerations',
-      'Pinterest Performance+',
-    ],
-    note: 'We treat Pinterest search differently from a broad social audience. Keyword research helps us understand what people actively look for, while audience targeting can expand reach beyond direct search behavior. Pinterest Performance+ adds automation across targeting, bidding, and campaign setup. Its targeting can use additional visual and written signals, while audience lists such as customer lists, site visitors, engagement audiences, and Actalike audiences can be incorporated where supported. We use automation where it makes sense rather than assuming every campaign should be fully automated.',
+    technicalNote:
+      'Pinterest Performance+ introduces automation across targeting, bidding, and creative selection. We test automated algorithms while retaining strategic manual controls where data demands it.',
   },
   {
-    title: 'Pin Creative & Ad Formats',
-    body: [
-      'Pinterest advertising starts with the Pin. A user should understand the idea, product, benefit, or inspiration quickly enough to want to stop, save, explore, or click.',
+    id: 'creative',
+    icon: Palette,
+    name: 'Pin Creative & Ad Formats',
+    subtitle: 'Native High-Utility Visuals',
+    desc: 'Pinterest advertising starts with the Pin. A user should understand the idea, product, benefit, or inspiration quickly enough to want to stop, save, explore, or click. We never simply resize Facebook ads.',
+    deliverables: [
+      'Platform-native Static Pins with vertical 2:3 aspect ratio',
+      'Video Pins engineered for stopping power in the feed',
+      'Carousel Ads for multi-product or step-by-step showcase',
+      'Collection Ads combining hero video with product grids',
+      'Idea Ads and high-utility educational Pin formats',
+      'On-Pin text overlays and legible value propositions',
+      'Search-optimized Pin titles, rich descriptions, and clear CTAs',
+      'Seasonal creative variations testing different visual hooks',
     ],
-    label: 'We create and test',
-    bullets: [
-      'Static Pins',
-      'Video Pins',
-      'Carousel Ads',
-      'Collection Ads',
-      'Idea Ads',
-      'Product-led creative',
-      'On-Pin text and overlays',
-      'Pin titles and descriptions',
-      'Calls to action',
-      'Seasonal creative variations',
-    ],
-    note: 'We do not simply resize Facebook or Instagram ads for Pinterest. The creative needs to match the platform, the search or discovery intent, and the destination experience. We also build creative variations around different product benefits, use cases, visual hooks, and messages so testing produces useful learning rather than minor wording changes. For Performance+ campaigns, Pinterest recommends providing a variety of creative and says that around 10 ads per ad group can help the system identify stronger performers.',
+    technicalNote:
+      'For Performance+ campaigns, Pinterest recommends providing diverse creative options (~10 ads per ad group) to give the algorithmic auction sufficient material to identify winning variants.',
   },
   {
-    title: 'Shopping & Catalog Ads',
-    body: [
-      'For ecommerce brands, Pinterest can connect discovery with product consideration and purchase. We manage the product catalog as a campaign asset rather than a disconnected feed.',
+    id: 'shopping',
+    icon: ShoppingBag,
+    name: 'Shopping & Catalog Ads',
+    subtitle: 'Connecting Discovery with Commerce',
+    desc: 'For ecommerce brands, Pinterest seamlessly bridges product inspiration with purchase. We structure catalogs and Product Groups to turn passive saves into active checkouts.',
+    deliverables: [
+      'Product catalog setup and merchant feed preparation',
+      'Data source validation and catalog health monitoring',
+      'Product Group organization by category, margin, or season',
+      'Product titles, availability, and pricing data review',
+      'Shopping campaign architecture with dedicated bids',
+      'Collection campaigns pairing lifestyle imagery with products',
+      'Dynamic retargeting for site visitors and cart abandoners',
+      'Product-level ROAS and conversion performance tracking',
     ],
-    label: 'We help manage',
-    bullets: [
-      'Product catalog setup',
-      'Product feed preparation',
-      'Catalog health checks',
-      'Product Group organization',
-      'Product titles and data review',
-      'Shopping campaign setup',
-      'Collection campaigns',
-      'Dynamic retargeting',
-      'Product-focused creative',
-      'Catalog performance monitoring',
-    ],
-    note: 'Pinterest supports Product Catalog as a creative source for applicable Consideration and Sales campaigns. Product Groups can then organize products from the catalog for promotion. We can structure product groups around commercially meaningful categories such as product type, collection, season, price range, or other business priorities. The goal is to make the catalog useful for campaign management, not simply connected.',
+    technicalNote:
+      'Pinterest supports Product Catalog as an automated creative source for Consideration and Sales campaigns. Product Groups enable precise promotional control across inventory segments.',
   },
   {
-    title: 'Conversion Tracking & Measurement',
-    body: [
-      'Pinterest advertising needs reliable conversion data. Framecipher can help implement and validate the measurement foundation before using conversion data to make major optimization decisions.',
+    id: 'tracking',
+    icon: Activity,
+    name: 'Conversion Tracking & CAPI',
+    subtitle: 'Dual-Layer Measurement Infrastructure',
+    desc: 'Pinterest advertising needs reliable conversion data. We implement browser-based Pinterest Tag and server-side Conversions API to ensure signals are preserved despite privacy shifts.',
+    deliverables: [
+      'Pinterest Tag deployment across all website templates',
+      'Pinterest Conversions API (CAPI) server-side implementation',
+      'Standard event mapping (PageVisit, AddToCart, Checkout, Lead)',
+      'Custom event setup for bespoke business actions',
+      'Rigorous event deduplication between Tag and CAPI',
+      'Granular UTM tracking and Google Analytics 4 alignment',
+      'Test mode validation and data-quality health score audits',
+      'Server-side payload encryption and privacy compliance',
     ],
-    label: 'We can help implement and validate',
-    bullets: [
-      'Pinterest Tag',
-      'Pinterest Conversions API',
-      'Conversion events',
-      'Event mapping',
-      'Event testing',
-      'Event deduplication',
-      'UTM tracking',
-      'Google Analytics alignment',
-      'Conversion reporting',
-      'Data-quality checks',
-    ],
-    note: 'Pinterest supports both browser-based Tag tracking and server-side Conversions API measurement. When the same event is sent through both systems, appropriate deduplication is required. We establish the measurement foundation before using conversion data to make major optimization decisions. That gives you a clearer picture of what Pinterest traffic is actually doing after the click.',
+    technicalNote:
+      'Sending events via both Tag and Conversions API requires strict event_id deduplication to avoid double-counting conversions in Ads Manager and analytics.',
   },
   {
-    title: 'Landing Page & Conversion Alignment',
-    body: [
-      'The Pin gets the click. The landing page has to earn the conversion. We review the relationship between your creative, offer, destination page, and conversion action.',
+    id: 'landing',
+    icon: MousePointerClick,
+    name: 'Landing Page & Funnel Match',
+    subtitle: 'Frictionless Conversion Experience',
+    desc: 'The Pin earns the click; the landing page must earn the conversion. We audit and optimize the full post-click experience so visitors land exactly where their visual search intended.',
+    deliverables: [
+      'Message match review between Pin creative and landing page',
+      'Direct product page routing rather than generic homepages',
+      'Mobile UX, site speed, and responsive layout inspection',
+      'CTA visibility, pricing clarity, and trust signal validation',
+      'Checkout and enquiry form friction reduction',
+      'Visual consistency between Pin aesthetic and destination',
+      'Post-click conversion path audit and dropout diagnostics',
+      'Landing-page recommendations for higher conversion rates',
     ],
-    label: 'This can include',
-    bullets: [
-      'Message match',
-      'Product or service relevance',
-      'Mobile experience',
-      'CTA clarity',
-      'Offer visibility',
-      'Checkout or enquiry flow',
-      'Landing-page friction',
-      'Destination consistency',
-      'Conversion tracking',
-    ],
-    note: 'The experience should feel continuous. If a Pin promotes a product, the visitor should land on the relevant product rather than a generic homepage. If an ad promotes a service or offer, the destination should make the next step obvious.',
+    technicalNote:
+      'A continuous journey from Pin to product page drastically reduces bounce rates and increases Pinterest Relevance scores, lowering overall cost per outbound click.',
   },
   {
-    title: 'Campaign Management, Bidding & Optimization',
-    body: [
-      'Launching a campaign is only the start. We monitor performance and make controlled changes based on the campaign objective and available data.',
+    id: 'optimization',
+    icon: Sliders,
+    name: 'Bidding & Optimization',
+    subtitle: 'Disciplined Performance Scaling',
+    desc: 'Launching is only day one. We continuously analyze search queries, audience response, and ROAS data to make controlled adjustments without disrupting algorithmic learning.',
+    deliverables: [
+      'Budget pacing and reallocation to top-performing Product Groups',
+      'Audience refinement and negative keyword pruning',
+      'Systematic creative refreshing to prevent visual fatigue',
+      'Evaluation of Performance+ automated bidding vs. custom bids',
+      'Bid adjustments based on conversion volume and margin',
+      'Product-group segmentation based on return thresholds',
+      'Conversion rate optimization recommendations across the funnel',
+      'Controlled change management protecting active learning cycles',
     ],
-    label: 'Optimization can include',
-    bullets: [
-      'Budget adjustments',
-      'Audience refinement',
-      'Keyword refinement',
-      'Creative testing',
-      'Performance+ evaluation',
-      'Bid strategy review',
-      'Product-group optimization',
-      'Campaign structure changes',
-      'Landing-page recommendations',
-      'Conversion optimization',
-    ],
-    note: 'Pinterest currently supports Performance+ bidding as well as custom bidding options across eligible campaign objectives. Some conversion and ROAS optimization features require sufficient conversion data and appropriate event tracking. We do not make constant changes simply to show activity. The goal is to identify meaningful signals, protect useful learning, and scale what the data supports.',
+    technicalNote:
+      'Frequent early adjustments reset Pinterest learning phases. We adhere to Pinterest guidance by allowing campaigns at least 10 days of stable data collection before major revisions.',
   },
   {
-    title: 'Seasonal Campaign Planning',
-    body: [
-      'Seasonality can matter significantly on Pinterest. People often plan around occasions, seasons, projects, and purchases before the actual decision date.',
+    id: 'seasonal',
+    icon: Calendar,
+    name: 'Seasonal Campaign Planning',
+    subtitle: 'Capitalizing on Early Planning Windows',
+    desc: 'Seasonality matters profoundly on Pinterest. Users search and curate ideas months in advance of holidays, life milestones, and seasonal updates. We position your brand early in the journey.',
+    deliverables: [
+      'Seasonal demand forecasting leveraging Pinterest Trends data',
+      'Occasion-based campaign calendars (Weddings, Holidays, Summer)',
+      'Early planning window launches (building saves before peak buy)',
+      'Budget pacing scaled to peak intent and transaction weeks',
+      'Holiday-specific creative bundles and gift guides',
+      'Evergreen baseline campaigns paired with seasonal sprints',
+      'Post-season performance analysis and year-over-year benchmarks',
+      'Clear timelines protecting production and review lead times',
     ],
-    label: 'We build campaign calendars around',
-    bullets: [
-      'Seasonal demand',
-      'Pinterest Trends',
-      'Holidays and occasions',
-      'Product launches',
-      'Evergreen campaigns',
-      'Planning windows',
-      'Budget pacing',
-      'Post-season analysis',
-    ],
-    note: 'The aim is to enter the planning journey early enough to build awareness and consideration before peak demand. Pinterest also recommends allowing campaigns sufficient time to learn rather than making frequent early changes. Its Quick Create documentation, for example, recommends letting campaigns run for at least 10 days for optimal results.',
+    technicalNote:
+      'Pinterest Trends reveal that planning searches spike 60 to 90 days before peak holiday spending. Early campaign deployment builds high-intent consideration at lower initial CPMs.',
   },
 ]
 
 export default function Includes() {
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Capabilities & scope"
-          title="Our Pinterest Ads Management Services"
-        >
-          Pinterest Ads management covers strategy, targeting, Pin creative, catalog and Shopping
-          Ads, conversion tracking, landing-page alignment, optimization, and seasonal planning.
-          Each part is managed as one connected process.
-        </SectionIntro>
+  const [activeTab, setActiveTab] = useState(services[0].id)
+  const currentService = services.find((s) => s.id === activeTab) || services[0]
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          {services.map((item, index) => (
-            <div key={index} className="flex flex-col bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Service 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body.map((paragraph, pIdx) => (
-                  <p key={pIdx}>{paragraph}</p>
+  return (
+    <section id="services" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our Pinterest Ads Management{' '}
+            <span className="italic text-frame-accent">Services.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Full-spectrum campaign management from strategic account architecture, Pin creative production, and catalog feeds to server-side tracking, Performance+ automation, and seasonal scaling.
+          </p>
+        </div>
+
+        {/* Interactive Vertical Y-Axis Tabs Layout */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10 items-start">
+          {/* Left Column: Interactive Vertical Y-Axis Tab Buttons (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col space-y-2">
+            {services.map((service, index) => {
+              const Icon = service.icon
+              const isActive = service.id === activeTab
+              return (
+                <button
+                  key={service.id}
+                  type="button"
+                  onClick={() => setActiveTab(service.id)}
+                  className={`group flex w-full items-center justify-between rounded-xl border p-4 text-left transition-colors duration-200 ${
+                    isActive
+                      ? 'border-frame-accent/60 bg-[#18181B] text-white'
+                      : 'border-white/[0.06] bg-[#121214] hover:border-white/[0.14] hover:bg-[#18181B]/70 text-zinc-400'
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-xs font-mono transition-colors ${
+                        isActive
+                          ? 'border-frame-accent/40 bg-frame-accent/10 text-frame-accent'
+                          : 'border-white/[0.08] bg-white/[0.04] text-zinc-400 group-hover:text-white'
+                      }`}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <p
+                        className={`font-heading text-sm font-medium uppercase tracking-wide truncate ${
+                          isActive ? 'text-white' : 'text-zinc-300 group-hover:text-white'
+                        }`}
+                      >
+                        {service.name}
+                      </p>
+                      <p className="font-mono text-[10px] uppercase text-zinc-400 truncate">
+                        {service.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight
+                    className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                      isActive
+                        ? 'translate-x-1 text-frame-accent'
+                        : 'text-zinc-600 group-hover:translate-x-0.5 group-hover:text-zinc-400'
+                    }`}
+                  />
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Right Column: Active Tab Detailed Deliverables Panel (8 cols) */}
+          <div className="lg:col-span-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 lg:p-10 transition-colors duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-frame-accent/30 bg-frame-accent/10 text-frame-accent">
+                {React.createElement(currentService.icon, { className: 'h-5 w-5' })}
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+                  {currentService.name}
+                </h3>
+              </div>
+            </div>
+
+            <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed mb-6">
+              {currentService.desc}
+            </p>
+
+            <div className="border-t border-white/[0.08] pt-6 mb-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-4">
+                What We Deliver:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {currentService.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-zinc-300 leading-snug">
+                      {item}
+                    </span>
+                  </div>
                 ))}
               </div>
-              {item.bullets?.length > 0 && (
-                <div className="mt-5">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {item.label}:
-                  </span>
-                  <ul className="mt-3 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                    {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {item.note && (
-                <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.note}
-                </div>
-              )}
             </div>
-          ))}
+
+            {/* Technical Verification Note */}
+            <div className="rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs font-mono text-zinc-400">
+              <span className="text-frame-accent font-bold mr-1.5">TECHNICAL NOTE:</span>
+              <span>{currentService.technicalNote}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

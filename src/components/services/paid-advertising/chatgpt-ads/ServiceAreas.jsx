@@ -1,73 +1,86 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const areas = [
-  {
-    eyebrow: 'Eligibility first',
-    title: 'Advertising From Bangladesh',
-    body: 'OpenAI\u2019s Ads Manager is not yet available directly in Bangladesh. Bangladeshi businesses can still run ChatGPT Ads in specific supported cases, such as where they have access to an eligible advertiser setup like a business in an eligible country or an advertiser representative arrangement. We confirm eligibility before planning anything else.',
-    bullets: [
-      'Eligible advertiser account or representative setup',
-      'Campaign management for eligible Bangladeshi advertisers',
-      'Honest readiness assessment before commitment',
-    ],
-  },
-  {
-    eyebrow: 'Eligible markets',
-    title: 'Global Campaign Delivery',
-    body: 'We manage ChatGPT Ads for businesses targeting eligible international markets, including the US, UK, Canada, Australia, India, Saudi Arabia, UAE, and other markets where the advertiser setup qualifies under OpenAI\u2019s current requirements. Campaign strategy is adapted to the target market rather than copied from a single-region plan.',
-    bullets: [
-      'Single-country campaigns',
-      'Multi-market campaign structure',
-      'Market-specific creative and context',
-      'International conversion tracking',
-      'Market-level performance reporting',
-    ],
-  },
+import React from 'react'
+import { MapPin, Globe, CheckCircle2 } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+
+const marketsList = [
+  'Bangladesh (Eligibility Assessment)',
+  'United States',
+  'United Kingdom',
+  'Australia',
+  'Canada',
+  'United Arab Emirates (UAE)',
+  'India',
+  'Saudi Arabia',
+  'Other Eligible Markets',
 ]
 
 export default function ServiceAreas() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Where we work"
-          title="Service Areas"
-        >
-          ChatGPT Ads management is delivered from Dhaka, Bangladesh for advertisers in eligible
-          markets. Every engagement starts with a confirmation that the advertiser setup and
-          target market qualify under OpenAI&apos;s current requirements.
-        </SectionIntro>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          {areas.map((area, index) => (
-            <div key={index} className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                  {area.eyebrow}
-                </span>
-                <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                  {area.title}
-                </h3>
-                <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                  {area.body}
-                </p>
-                {area.bullets?.length > 0 && (
-                  <ul className="mt-5 grid gap-2 text-xs font-semibold text-frame-fg/90">
-                    {area.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            Service{' '}
+            <span className="italic text-frame-accent">Areas.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Framecipher is based in Dhaka, Bangladesh, and provides ChatGPT Ads management for businesses targeting eligible advertising markets.
+          </p>
         </div>
 
-        <div className="mt-10">
-          <PosterButton href="/contact">Check ChatGPT Ads Eligibility &rarr;</PosterButton>
+        {/* 2-Column Split: Narrative vs Covered Markets Grid */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+          {/* Left Column: Eligibility Protocols (6 cols) */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 space-y-4">
+              <div className="flex items-center gap-2.5">
+                <MapPin className="h-4 w-4 text-frame-accent" />
+                <h3 className="font-heading text-xl font-medium text-white">
+                  For Bangladesh-Based Businesses
+                </h3>
+              </div>
+              <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                Campaign availability depends on the advertiser entity and target market because OpenAI&apos;s Ads Manager availability is determined by the business or ad-account country. We verify the advertiser entity before planning media.
+              </p>
+            </div>
+
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 space-y-4">
+              <div className="flex items-center gap-2.5">
+                <Globe className="h-4 w-4 text-frame-accent" />
+                <h3 className="font-heading text-xl font-medium text-white">
+                  For International Campaigns
+                </h3>
+              </div>
+              <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                We assess market availability, targeting requirements, language, landing-page readiness, conversion goals, and campaign structure before launch.
+              </p>
+            </div>
+          </div>
+
+          {/* Right Column: Supported Markets Ledger (6 cols) */}
+          <div className="lg:col-span-6 rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 space-y-6">
+            <h3 className="font-heading text-xl font-medium text-white">
+              Broader Paid Advertising Service Coverage:
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {marketsList.map((m, idx) => (
+                <div key={idx} className="flex items-center gap-2.5 text-xs sm:text-sm text-zinc-300">
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent" />
+                  <span>{m}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4 border-t border-white/[0.06]">
+              <PosterButton href="/contact" variant="accent" className="w-full">
+                Check ChatGPT Ads Eligibility &rarr;
+              </PosterButton>
+            </div>
+          </div>
         </div>
       </div>
     </section>

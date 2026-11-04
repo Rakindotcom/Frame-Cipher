@@ -42,8 +42,8 @@ const portfolioAttributes = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Commercial Advantage"
           title="Why Businesses Choose Our Logo Design Service"
@@ -55,18 +55,18 @@ export default function WhyChoose() {
           {pillars.map((pillar, idx) => (
             <div
               key={idx}
-              className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+              className={`border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between ${
                 idx === 4 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}
             >
               <div>
-                <span className="font-mono text-xs font-black text-frame-accent">
+                <span className="font-mono text-xs font-black text-[#A855F7]">
                   PILLAR 0{pillar.num}
                 </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {pillar.desc}
                 </p>
               </div>
@@ -75,16 +75,16 @@ export default function WhyChoose() {
         </div>
 
         {/* SELECTED LOGO DESIGN WORK / PORTFOLIO TRIGGER */}
-        <div className="mt-16 border-2 border-frame-accent bg-frame-bg p-6 md:p-10">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-b border-frame-border/60 pb-6">
+        <div className="mt-16 border-2 border-[#A855F7]/40 bg-[#09090B] p-6 md:p-10">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 border-b border-white/[0.06] pb-6">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Proven Track Record
               </span>
-              <h3 className="mt-1 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-2xl md:text-4xl font-bold tracking-tight text-[#FAFAFA]">
                 Selected Logo Design Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl wide:text-lg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] max-w-2xl wide:text-lg">
                 Explore selected logo design projects covering new venture identities, corporate logo redesigns, product brand emblems, and multi-format visual marks.
               </p>
             </div>
@@ -96,12 +96,12 @@ export default function WhyChoose() {
           </div>
 
           <div className="mt-6">
-            <span className="text-[11px] font-black uppercase tracking-wider text-frame-muted-fg">
+            <span className="text-[11px] font-black uppercase tracking-wider text-[#A1A1AA]">
               Every Featured Case Study Highlights:
             </span>
             <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2.5">
               {portfolioAttributes.map((attr, idx) => (
-                <div key={idx} className="flex items-center gap-2 border border-frame-border/60 bg-frame-muted/30 px-3 py-2 text-[11px] font-bold uppercase tracking-tight text-frame-fg">
+                <div key={idx} className="flex items-center gap-2 border border-white/[0.06] bg-[#121214] px-3 py-2 text-[11px] font-bold uppercase tracking-tight text-[#FAFAFA]">
                   <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
                   <span className="truncate">{attr}</span>
                 </div>

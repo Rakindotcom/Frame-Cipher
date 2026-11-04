@@ -189,15 +189,29 @@ export async function getPublicBlogPosts(): Promise<BlogPostItem[]> {
       where("status", "==", "published"),
       where("visibility", "==", "public")
     ));
-    return snapshot.docs
+    const posts = snapshot.docs
       .map((entry) => normalizeFromFirestore(entry.data(), entry.id))
       .filter(isPubliclyVisible)
       .map(toPublicPost)
       .sort(sortByLatest);
-  } catch (error) {
-    console.error("Public Firestore blog read failed:", error);
-    return [];
+
+    if (posts.length > 0) {
+      return posts;
+    }
+  } catch (error: any) {
+    // In local dev, offline mode, or when socket permissions are restricted,
+    // gracefully fall back to local cached posts so the site remains functional.
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("Public Firestore read note (falling back to local cache):", error?.message || error);
+    } else {
+      console.error("Public Firestore blog read failed:", error);
+    }
   }
+
+  return readLocalFile()
+    .filter(isPubliclyVisible)
+    .map(toPublicPost)
+    .sort(sortByLatest);
 }
 
 export async function saveAllServerBlogPosts(

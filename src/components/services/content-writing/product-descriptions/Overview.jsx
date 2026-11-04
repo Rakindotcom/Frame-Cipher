@@ -14,8 +14,8 @@ const criteria = [
 
 export default function Overview() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Buyer clarity"
           title="Product Descriptions Built to Help Shoppers Understand, Trust, and Buy"
@@ -23,8 +23,8 @@ export default function Overview() {
           A product description should answer the questions that stand between a shopper and a purchase.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             <p>That means more than making the copy sound attractive.</p>
             <p>We structure product content around:</p>
             <p>
@@ -33,15 +33,15 @@ export default function Overview() {
             </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#09090B] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Product content should cover
             </span>
             <ul className="mt-5 space-y-2.5">
               {criteria.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
                   {item}
@@ -51,8 +51,8 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Tell us how many products you sell, where they are listed, and what needs to improve. We can help
             define a practical scope from there.
           </p>

@@ -1,4 +1,8 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Sparkles } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const plans = [
   {
@@ -6,7 +10,7 @@ const plans = [
     price: '$325',
     period: '+',
     scope: 'Single detailed review',
-    bestFor: 'Websites entering new markets',
+    bestFor: 'Existing international or multi-region website',
     features: [
       'International SEO audit',
       'Market research',
@@ -15,14 +19,14 @@ const plans = [
       'Hreflang checks',
       'Report and recommendations',
     ],
-    note: 'A detailed review of your website\u2019s current international setup.',
+    note: 'A detailed review of your website’s current international setup.',
   },
   {
     name: 'Single-Market Expansion',
     price: '$650',
     period: '+',
     scope: 'One priority market',
-    bestFor: 'First international expansion',
+    bestFor: 'Adding one new country or language market',
     features: [
       'Everything in the International SEO Audit',
       'Market-specific keyword research',
@@ -39,7 +43,7 @@ const plans = [
     price: '$1,225',
     period: '+',
     scope: 'Multiple markets',
-    bestFor: 'Scaling across countries',
+    bestFor: 'Launching or restructuring 2–4 markets',
     features: [
       'Everything in Single-Market Expansion',
       'Multi-market site architecture',
@@ -55,7 +59,7 @@ const plans = [
     price: 'Custom',
     period: '',
     scope: 'Custom scope',
-    bestFor: 'Complex or enterprise needs',
+    bestFor: '5+ markets, large sites, or complex migrations',
     features: [
       'Everything in Multi-Market SEO Setup',
       'Complex international migrations',
@@ -68,153 +72,149 @@ const plans = [
 ]
 
 const typicalScope = [
-  'International SEO audit',
-  'Market research and prioritization',
-  'Country-level keyword research',
-  'Country and language targeting',
-  'Site architecture recommendations',
+  'International market research',
+  'Competitor and SERP analysis',
+  'Site structure strategy',
   'Hreflang implementation',
-  'Content localization',
-  'Internal linking strategy',
-  'Authority building',
-  'Market-level tracking setup',
-  'Regular reporting',
+  'Technical SEO',
+  'Market-specific keyword research',
+  'Content localization strategy',
+  'International internal linking',
+  'Migration planning',
+  'Authority-building strategy',
+  'Performance reporting',
 ]
 
 const notes = [
-  'Final scope depends on the number of target markets, website structure, technical requirements, content and localization needs, and the amount of ongoing management required.',
-  'Complex structures, large content requirements, or technical migration work may require additional scoping.',
+  'Final pricing is confirmed after reviewing the website, target markets, technical setup, content requirements, and implementation scope.',
+  'Complex structures, large multi-language catalogs, or technical migrations may require customized scoping.',
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & Plans" title="International SEO Pricing">
-          International SEO pricing depends on the number of target markets, the structure of the
-          website, technical requirements, content and localization needs, and the amount of
-          ongoing management required.
-        </SectionIntro>
+    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Transparent Investment</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            International SEO{' '}
+            <span className="italic text-frame-accent">Pricing in Bangladesh</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            International SEO pricing depends on the number of markets, languages, URLs, technical complexity, localization requirements, migration scope, and ongoing SEO workload.
+          </p>
+        </div>
 
+        {/* 4 Pricing Tiers */}
         <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {plans.map((plan, index) => (
             <div
               key={plan.name}
-              className={`flex flex-col p-7 md:p-8 ${
+              className={`flex flex-col justify-between rounded-xl p-7 transition-colors duration-200 ${
                 plan.highlight
-                  ? 'border-2 border-frame-accent bg-frame-accent/10'
-                  : 'border-2 border-frame-border bg-frame-bg'
+                  ? 'border-2 border-frame-accent/80 bg-[#15121b] shadow-xl'
+                  : 'border border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Plan 0{index + 1}
-                </span>
-                {plan.highlight && (
-                  <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                    Most Popular
+              <div>
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    Tier // 0{index + 1}
                   </span>
-                )}
-              </div>
-
-              <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {plan.name}
-              </h3>
-
-              <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                <div className="flex items-end gap-1.5">
-                  <span className="font-heading text-3xl font-bold leading-none tracking-tight text-frame-fg">
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span className="pb-0.5 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                      {plan.period}
+                  {plan.highlight && (
+                    <span className="inline-flex items-center gap-1 rounded-full bg-frame-accent/20 px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-frame-accent border border-frame-accent/40">
+                      <Sparkles className="h-3 w-3" />
+                      Most Popular
                     </span>
                   )}
                 </div>
+
+                <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white">
+                  {plan.name}
+                </h3>
+
+                <div className="mt-5 border-y border-white/[0.08] py-4">
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
+                      {plan.price}
+                    </span>
+                    {plan.period && (
+                      <span className="font-mono text-xs text-zinc-400">
+                        {plan.period}
+                      </span>
+                    )}
+                  </div>
+                </div>
+
+                <div className="mt-5 space-y-2 text-xs">
+                  <div>
+                    <span className="font-mono uppercase tracking-wider text-frame-accent block">
+                      Best For
+                    </span>
+                    <p className="text-sm font-medium text-white mt-0.5">{plan.bestFor}</p>
+                  </div>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 block mb-3">
+                    Deliverables Included:
+                  </span>
+                  <ul className="space-y-2 text-xs text-zinc-300">
+                    {plan.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <dl className="mt-5 space-y-3 text-sm">
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Market Scope
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.scope}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Best For
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.bestFor}</dd>
-                </div>
-              </dl>
-
-              <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                {plan.features.map((feat, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                {plan.note}
-              </p>
-
-              <div className="mt-auto pt-8">
+              <div className="mt-8 pt-4 border-t border-white/[0.06]">
+                <p className="text-xs text-zinc-400 mb-4">{plan.note}</p>
                 <PosterButton
                   href="/contact"
                   variant={plan.highlight ? 'accent' : 'outline'}
-                  className="w-full whitespace-nowrap"
+                  className="w-full justify-center"
                 >
-                  Get Free Consultation
+                  Choose {plan.name} &rarr;
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Typical scope can include
-            </h3>
-            <ul className="mt-6 space-y-3 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-              {typicalScope.map((item, sIdx) => (
-                <li key={sIdx} className="flex items-start gap-2">
-                  <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                  <span className="leading-snug">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+        {/* Typical Scope Checklist */}
+        <div className="mt-14 rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-9">
+          <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Comprehensive Coverage // Standard Scope
+          </span>
+          <h3 className="mt-2 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
+            Typical Scope Can Include
+          </h3>
+          <ul className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 border-t border-white/[0.06] pt-5 text-sm text-zinc-300">
+            {typicalScope.map((item, idx) => (
+              <li key={idx} className="flex items-start gap-2">
+                <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
 
-          <div className="flex flex-col items-stretch justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Not sure which plan fits your business? Tell us about your target markets, current
-              website, and goals, and we will recommend the right starting point.
-            </p>
-            <PosterButton href="/contact" className="w-full whitespace-nowrap">
-              Get an International SEO Quote
+          <div className="mt-8 border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div className="space-y-1 text-xs text-zinc-400 max-w-2xl">
+              {notes.map((note, idx) => (
+                <p key={idx}>{note}</p>
+              ))}
+            </div>
+            <PosterButton href="/contact">
+              Get a Custom International SEO Quote &rarr;
             </PosterButton>
           </div>
-        </div>
-
-        <div className="mt-8 space-y-3.5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          <p className="flex items-start gap-3">
-            <span className="mt-0.5 text-frame-accent font-bold">*</span>
-            <span>
-              Pricing is indicative rather than fixed. Final pricing is confirmed after scoping
-              requirements.
-            </span>
-          </p>
-          {notes.map((note, nIdx) => (
-            <p key={nIdx} className="flex items-start gap-3">
-              <span className="mt-0.5 text-frame-accent font-bold">*</span>
-              <span>{note}</span>
-            </p>
-          ))}
         </div>
       </div>
     </section>

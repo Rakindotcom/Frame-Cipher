@@ -1,5 +1,3 @@
-import { SectionIntro, SectionLabel } from '../../../Kinetic'
-
 const storeFeatures = [
   {
     title: 'Product Catalog & Variations',
@@ -37,21 +35,35 @@ const storeFeatures = [
 
 export default function Features() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Store Functionality / Operational Workflows" title="E-commerce Features & Store Functionality">
-          A successful online store needs more than an attractive storefront. It needs the features that help customers shop easily and your team manage products, orders, payments, and day-to-day operations.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Centered Section Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            E-commerce Features &amp;{' '}
+            <span className="italic text-frame-accent">Store Functionality.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-4">
+          <p className="text-base text-zinc-300 sm:text-lg">
+            A successful online store needs more than an attractive storefront. It needs the features that help customers shop easily and your team manage products, orders, payments, and day-to-day operations.
+          </p>
+        </div>
+
+        {/* 4-Column Architectural Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {storeFeatures.map((feat, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <SectionLabel className="mb-2">Feature {String(index + 1).padStart(2, '0')}</SectionLabel>
-                <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Feature {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {feat.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {feat.desc}
                 </p>
               </div>
@@ -59,9 +71,12 @@ export default function Features() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          The exact functionality depends on your platform, catalog, integrations, and business workflow. We define the required features before development begins.
-        </p>
+        {/* Informative Workflow Note Banner */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 border-l-2 border-l-frame-accent">
+          <p className="text-sm font-medium text-zinc-300 sm:text-base">
+            The exact functionality depends on your platform, catalog, integrations, and business workflow. We define the required features before development begins.
+          </p>
+        </div>
       </div>
     </section>
   )

@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import Includes from './Includes'
@@ -15,23 +18,22 @@ import Guarantee from './Guarantee'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
-
-const marqueeItems = [
-  "Microsoft Search Network",
-  "LinkedIn Profile Targeting",
-  "Microsoft Shopping",
-  "Google Ads Migration",
-  "UET & Conversion Tracking",
-  "AI Max for Search",
-  "Remarketing & Audience Ads"
-]
-
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
 import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
+const marqueeItems = [
+  'Microsoft Search Network',
+  'LinkedIn Profile Targeting',
+  'Microsoft Shopping & Feeds',
+  'Google Ads Migration',
+  'UET & Conversion Tracking',
+  'Performance Max & AI Max',
+  'High-Income Desktop Reach',
+]
+
 export default function PaidAdvertisingMicrosoftAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -55,4 +57,4 @@ export default function PaidAdvertisingMicrosoftAdsService({ service }) {
   )
 }
 
-export { Hero, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Process, Pricing, FAQ, CTA }

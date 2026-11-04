@@ -1,110 +1,136 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Globe, MapPin, Building, Compass } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const bangladeshFactors = [
-  'Local seasonal campaigns',
-  'Bangladesh-specific offers',
-  'Bengali content',
-  'Local customer questions',
-  'Local creator opportunities',
-  'Dhaka-focused campaigns',
-  'Bangladesh audience behavior',
+  'Local seasonal & Eid campaigns',
+  'Bangladesh-specific pricing & offers',
+  'Bangla & English blended copy',
+  'Local customer question handling',
+  'Local creator & influencer collaborations',
+  'Dhaka, Chittagong & regional campaigns',
+  'Bangladeshi consumer shopping behavior',
 ]
 
 const internationalFactors = [
-  'Audience research',
-  'Content topics',
-  'Messaging',
-  'Language considerations',
-  'Cultural context',
-  'Publishing schedules',
-  'Competitor research',
-  'Content trends',
-  'Creator opportunities',
-  'Campaign planning',
+  'In-depth regional audience research',
+  'Market-specific content themes & angles',
+  'Localized brand messaging & tone',
+  'Language & phrasing considerations',
+  'Cultural context & holidays (US, UK, UAE, etc.)',
+  'Timezone-synchronized publishing schedules',
+  'International competitor benchmarking',
+  'Global short-form video & audio trends',
+  'International creator & UGC sourcing',
+  'Multi-country campaign rollout planning',
 ]
 
 export default function ServiceAreas() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Service areas"
-          title="Instagram Management Service Areas"
-        >
-          Framecipher provides Instagram management for businesses in Bangladesh and international
-          markets.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Regional Delivery · Service Areas
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Local
-              </span>
-              <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                Instagram Management In Bangladesh
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                For Bangladeshi businesses, we can adapt Instagram planning to local audiences,
-                customer behavior, language preferences, cultural context, seasonal campaigns, and
-                market-specific opportunities. Depending on the brand, content can be developed in
-                English, Bangla, or a suitable combination of both.
-              </p>
-            </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Instagram Management{' '}
+            <span className="italic text-frame-accent">Service Areas.</span>
+          </h2>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                For relevant businesses, we can also account for
-              </span>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {bangladeshFactors.map((factor) => (
-                  <li key={factor} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{factor}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
-
-          <article className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Global
-              </span>
-              <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                International Instagram Management
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We also support businesses targeting audiences outside Bangladesh. International
-                Instagram management can include market-specific planning across the following areas.
-              </p>
-            </div>
-
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                Market-specific
-              </span>
-              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                {internationalFactors.map((factor) => (
-                  <li key={factor} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{factor}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </article>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Framecipher provides Instagram management for businesses in Bangladesh and international markets, built around localized audience intent and cultural relevance.
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            The strategy is adapted to the target market rather than treating every audience as one
-            global group.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Discuss Your Instagram Strategy &rarr;</PosterButton>
-          </div>
+        {/* 2-Column Market Cards */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Market 01: Bangladesh */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Regional Delivery 01 · Local Hub
+                </span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-purple-400">
+                  <MapPin className="h-4 w-4" />
+                </div>
+              </div>
+
+              <h3 className="font-heading text-2xl font-medium tracking-tight text-white">
+                Instagram Management In Bangladesh
+              </h3>
+
+              <p className="mt-4 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                For Bangladeshi businesses, we adapt Instagram planning to local audiences, customer behavior, language preferences, cultural context, seasonal campaigns, and market-specific opportunities. Depending on the brand, content is crafted in English, Bangla, or an authentic blend that resonates naturally with Bangladeshi consumers.
+              </p>
+
+              <div className="mt-8 border-t border-white/[0.06] pt-5">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-3">
+                  Local Market Capabilities:
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-400">
+                  {bangladeshFactors.map((factor) => (
+                    <li key={factor} className="flex items-center gap-2">
+                      <Check className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                      <span>{factor}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs text-zinc-400">
+              <strong className="text-zinc-200">Delivery Base:</strong> In-house studio, production, and strategist team located at Matikata ECB Chattar, Dhaka 1206.
+            </div>
+          </article>
+
+          {/* Market 02: International */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Regional Delivery 02 · Global Markets
+                </span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-purple-400">
+                  <Globe className="h-4 w-4" />
+                </div>
+              </div>
+
+              <h3 className="font-heading text-2xl font-medium tracking-tight text-white">
+                International Instagram Management
+              </h3>
+
+              <p className="mt-4 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                For brands targeting international markets (US, UK, UAE, Australia, Canada, Europe), we conduct deep research into local consumer expectations, competitors, language nuances, and timezones. We build a disciplined content system calibrated to Western and Gulf digital landscapes rather than simply recycling domestic material.
+              </p>
+
+              <div className="mt-8 border-t border-white/[0.06] pt-5">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-3">
+                  International Market Capabilities:
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-400">
+                  {internationalFactors.map((factor) => (
+                    <li key={factor} className="flex items-center gap-2">
+                      <Check className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                      <span>{factor}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs text-zinc-400">
+              <strong className="text-zinc-200">Operating Model:</strong> Asynchronous collaboration via Slack/Teams, scheduled timezone overlaps, and weekly sprint reporting.
+            </div>
+          </article>
         </div>
       </div>
     </section>

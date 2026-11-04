@@ -1,92 +1,71 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
-
-const bangladeshItems = [
-  'Local search behavior',
-  'Geographic targeting',
-  'Bangla or English messaging',
-  'Local offers',
-  'Lead-generation goals',
-  'Website conversions',
-  'Ecommerce requirements',
-]
-
-const countries = [
-  {
-    name: 'United States',
-    body: 'For US campaigns, we adapt keyword strategy, audience targeting, creative, landing pages, conversion tracking, and campaign structure to the specific market and business model.',
-  },
-  {
-    name: 'United Kingdom',
-    body: 'For UK campaigns, we build market-specific search and audience strategies rather than simply reusing assets from another region.',
-  },
-  {
-    name: 'Australia',
-    body: 'We manage campaigns targeting Australian audiences with market-specific keywords, audience, location, and conversion strategies.',
-  },
-  {
-    name: 'Canada',
-    body: 'Canadian campaigns are structured around the actual customer segment, geography, search demand, and business objective.',
-  },
-  {
-    name: 'UAE',
-    body: 'For UAE campaigns, we consider location, audience, language, offer structure, and conversion requirements when building the account.',
-  },
-  {
-    name: 'Other International Markets',
-    body: 'We can support additional markets where Microsoft Advertising has meaningful reach and the required advertising features are available. Before launch, we evaluate the target market rather than assuming the same campaign economics apply everywhere.',
-  },
-]
+import React from 'react'
+import { MapPin, Globe, CheckCircle2 } from 'lucide-react'
 
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Markets" title="Microsoft Ads Management for Bangladesh and International Markets">
-          Campaign strategy is adapted to the market, audience, and available search demand rather
-          than copied from a single template.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Microsoft Ads for Bangladesh and{' '}
+            <span className="italic text-frame-accent">International Markets.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            From targeted search campaigns in Bangladesh to high-volume commercial campaigns scaled across North America, Europe, Australia, and the Middle East.
+          </p>
+        </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="border-2 border-frame-accent bg-frame-muted/10 p-8 md:p-10 xl:col-span-1">
-            <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Bangladesh
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Bangladesh Market Card */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]">
+            <h3 className="font-heading text-2xl font-medium text-white mb-3">
+              Bangladesh Domestic Search
             </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We manage Microsoft Ads for businesses targeting customers across Bangladesh where
-              sufficient search demand exists. Campaign planning can consider the local context
-              rather than a generic setup.
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              We manage Microsoft Ads for businesses targeting consumers and B2B professionals across Bangladesh where sufficient search demand exists. Because search volume varies by category, we conduct pre-flight search demand audits before allocating budget.
             </p>
-            <ul className="mt-6 grid gap-3 sm:grid-cols-2">
-              {bangladeshItems.map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                  <span>{item}</span>
-                </li>
+
+            <div className="space-y-3 pt-4 border-t border-white/[0.06]">
+              {[
+                'Local search query volume and commercial intent validation',
+                'Bangla or English ad copy tailored to urban business professionals',
+                'High-intent B2B and enterprise inquiry generation',
+                'Local landing-page and conversion tracking alignment',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
               ))}
-            </ul>
-            <p className="mt-6 border-l-2 border-frame-accent pl-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Because Microsoft search volume varies by market and category, we assess the available
-              opportunity before recommending a dedicated budget.
-            </p>
+            </div>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            {countries.map((country) => (
-              <div
-                key={country.name}
-                className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-              >
-                <div className="mb-4 h-1.5 w-10 bg-frame-accent" />
-                <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
-                  {country.name}
-                </h4>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/paid-advertising/microsoft-ads" allowed={["/services/website-design-development/landing-pages"]}>
-                  {country.body}
-                </AutoLinks></p>
-              </div>
-            ))}
+          {/* International Markets Card */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]">
+            <h3 className="font-heading text-2xl font-medium text-white mb-3">
+              US, UK, Canada, Australia &amp; UAE
+            </h3>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              In tier-1 markets, Microsoft Advertising accounts for a significant portion of high-income desktop search volume. We build localized keyword sets, currency routing, and LinkedIn overlays for international audiences.
+            </p>
+
+            <div className="space-y-3 pt-4 border-t border-white/[0.06]">
+              {[
+                'US & UK enterprise B2B search campaigns with LinkedIn profile targeting',
+                'Microsoft Shopping ads with automated localized currency feeds',
+                'Canada and Australia regional keyword localization and bid adjustments',
+                'UAE commercial search targeting with localized landing-page routing',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

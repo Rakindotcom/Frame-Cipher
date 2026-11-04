@@ -1,4 +1,5 @@
-import { PosterButton } from '../../../Kinetic'
+import { Check, Minus } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const packages = [
   {
@@ -42,7 +43,7 @@ const packages = [
     for: 'Corporate brands with complex stack integrations and custom requirements',
     price: '৳180,000+ ($1,999+) / Custom Quote',
     pages: 'Up to 40+ pages',
-    timeline: '~4–8 weeks',
+    timeline: '~4 to 8 weeks',
     features: [
       'Strategy & Consultation',
       'Enterprise Site Architecture',
@@ -62,17 +63,17 @@ const comparisonMatrix = [
   { feature: 'Best for', launch: 'New businesses needing a focused, conversion-ready foundational site', growth: 'Established SMEs needing CRM integration and deeper architecture', enterprise: 'Corporate brands with complex stack integrations and custom requirements' },
   { feature: 'Starting Price', launch: '৳45,000 ($499)', growth: '৳90,000 ($999)', enterprise: '৳180,000+ ($1,999+) / Custom Quote' },
   { feature: 'Page Count', launch: 'Up to 5 pages', growth: 'Up to 15 pages', enterprise: 'Up to 40+ pages' },
-  { feature: 'Delivery Time', launch: '~1 week', growth: '~2 weeks', enterprise: '~4–8 weeks' },
-  { feature: 'Strategy & Consultation', launch: '✅', growth: '✅', enterprise: '✅' },
-  { feature: 'Core Site Architecture', launch: '✅', growth: '✅ (advanced)', enterprise: '✅ (advanced)' },
-  { feature: 'UI/UX Design', launch: '✅', growth: '✅', enterprise: '✅' },
-  { feature: 'Responsive Development & Hosting Setup', launch: '✅', growth: '✅', enterprise: '✅' },
-  { feature: 'Basic Lead Capture Forms', launch: '✅', growth: '✅', enterprise: '✅' },
-  { feature: 'Speed & SEO Optimization', launch: '✅', growth: '✅', enterprise: '✅' },
+  { feature: 'Delivery Time', launch: '~1 week', growth: '~2 weeks', enterprise: '~4 to 8 weeks' },
+  { feature: 'Strategy & Consultation', launch: true, growth: true, enterprise: true },
+  { feature: 'Core Site Architecture', launch: true, growth: 'Included (advanced)', enterprise: 'Included (advanced)' },
+  { feature: 'UI/UX Design', launch: true, growth: true, enterprise: true },
+  { feature: 'Responsive Development & Hosting Setup', launch: true, growth: true, enterprise: true },
+  { feature: 'Basic Lead Capture Forms', launch: true, growth: true, enterprise: true },
+  { feature: 'Speed & SEO Optimization', launch: true, growth: true, enterprise: true },
   { feature: 'Revisions', launch: '3', growth: '5', enterprise: '10' },
-  { feature: 'CRM Integration', launch: '✗', growth: '✅', enterprise: '✅ (multi-system)' },
-  { feature: 'Analytics & Conversion Tracking Setup', launch: '✗', growth: '✅', enterprise: '✅' },
-  { feature: 'Custom Functionality', launch: '✗', growth: '✅ (as scoped)', enterprise: '✅ (full custom)' },
+  { feature: 'CRM Integration', launch: false, growth: true, enterprise: 'Included (multi-system)' },
+  { feature: 'Analytics & Conversion Tracking Setup', launch: false, growth: true, enterprise: true },
+  { feature: 'Custom Functionality', launch: false, growth: 'Included (as scoped)', enterprise: 'Included (full custom)' },
 ]
 
 const ownershipDeliverables = [
@@ -84,74 +85,96 @@ const ownershipDeliverables = [
   'Basic training for managing supported website content',
 ]
 
+function MatrixCell({ val, isHighlighted }) {
+  if (val === true || val === 'Included' || val === 'Yes') {
+    return (
+      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/15 text-frame-accent">
+        <Check className="h-3 w-3 stroke-[2.5]" />
+      </span>
+    )
+  }
+
+  if (val === false || val === '—' || val === 'None' || val === 'No') {
+    return (
+      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/10 bg-white/[0.03] text-zinc-600">
+        <Minus className="h-3 w-3 stroke-[2]" />
+      </span>
+    )
+  }
+
+  if (typeof val === 'string' && val.startsWith('Included ')) {
+    const detail = val.replace(/^Included\s*/, '')
+    return (
+      <div className="inline-flex items-center gap-2">
+        <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/15 text-frame-accent">
+          <Check className="h-3 w-3 stroke-[2.5]" />
+        </span>
+        <span className={isHighlighted ? "text-xs font-medium text-white" : "text-xs text-zinc-400"}>
+          {detail}
+        </span>
+      </div>
+    )
+  }
+
+  return <span>{val}</span>
+}
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        {/* SECTION HEADER */}
-        <div className="mb-14 md:mb-20 max-w-4xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Clear Investment / Transparent Estimates
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Business Website Development Pricing
+    <section id="pricing" className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Business Website{' '}
+            <span className="italic text-frame-accent">Development Pricing.</span>
           </h2>
-          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-base text-zinc-400 sm:text-lg">
             Business website development is custom-quoted based on engagement level, from a foundational Launch Kit for new businesses to a comprehensive Enterprise Tech Build for established SMEs and corporate brands. Pricing typically depends on site complexity, CRM/tool integrations, custom functionality, and timeline.
           </p>
         </div>
 
-        {/* 3 PACKAGE CARDS */}
-        <div className="grid gap-8 lg:grid-cols-3">
+        {/* 3 Package Cards */}
+        <div className="grid gap-6 lg:grid-cols-3">
           {packages.map((pkg, idx) => (
             <div
               key={idx}
-              className={`border-2 p-7 md:p-10 flex flex-col justify-between ${
+              className={`group relative flex flex-col justify-between rounded-xl border p-6 sm:p-8 transition-colors duration-200 ${
                 pkg.featured
-                  ? 'border-frame-accent bg-frame-accent/10 shadow-lg'
-                  : 'border-frame-border bg-frame-bg'
+                  ? 'border-frame-accent/50 bg-[#121214]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Package Tier 0{idx + 1}
-                  </span>
-                  {pkg.featured && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                      Most Popular
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
                   {pkg.for}
                 </p>
 
-                <div className="mt-6 border-y-2 border-frame-border/60 py-5">
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Starting Price</span>
-                  <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
+                <div className="mt-6 border-y border-white/[0.08] py-5">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">Starting Price</span>
+                  <div className="mt-1 font-mono text-2xl font-medium text-white sm:text-3xl">
                     {pkg.price}
                   </div>
-                  <div className="mt-3 text-xs font-semibold text-frame-muted-fg flex justify-between border-t border-frame-border/40 pt-2">
+                  <div className="mt-3 flex justify-between border-t border-white/[0.06] pt-2 font-mono text-xs text-zinc-400">
                     <span>Scope: {pkg.pages}</span>
                     <span>Timeline: {pkg.timeline}</span>
                   </div>
                 </div>
 
-                <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
+                <ul className="mt-6 space-y-2.5 text-xs sm:text-sm text-zinc-300">
                   {pkg.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span>{feat}</span>
+                    <li key={fIdx} className="flex items-start gap-2.5">
+                      <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                      <span className="leading-snug">{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-8 pt-4">
                 <PosterButton
                   href="/contact"
                   variant={pkg.featured ? 'accent' : 'outline'}
@@ -164,52 +187,53 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* COMPARISON MATRIX - STRICTLY H2 */}
-        <div className="mt-24">
-          <div className="mb-10 max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+        {/* COMPARISON MATRIX */}
+        <div className="mt-20">
+          <div className="mb-8 max-w-3xl space-y-3">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
               Side-by-Side Breakdown
-            </p>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Technical Architecture & Platform Comparison
-            </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
+            </span>
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
+              Technical Architecture &amp;{' '}
+              <span className="italic text-frame-accent">Platform Comparison.</span>
+            </h3>
+            <p className="text-sm sm:text-base text-zinc-400">
               Compare package deliverables, capabilities, and system integrations to find the right scope for your sales workflow.
             </p>
           </div>
 
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
-            <table className="w-full min-w-[700px] text-left border-collapse">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
+            <table className="w-full min-w-[700px] border-collapse text-left">
               <thead>
-                <tr className="border-b-2 border-frame-border bg-frame-muted/40">
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent w-1/4">
+                <tr className="border-b border-white/[0.08] bg-[#09090B]">
+                  <th className="w-1/4 p-4 md:p-5 font-mono text-xs uppercase tracking-wider text-zinc-400">
                     Deliverable / Feature
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg w-1/4">
+                  <th className="w-1/4 p-4 md:p-5 font-mono text-xs uppercase tracking-wider text-white">
                     Launch Kit
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent w-1/4 bg-frame-accent/10">
+                  <th className="w-1/4 p-4 md:p-5 font-mono text-xs uppercase tracking-wider text-frame-accent bg-white/[0.02]">
                     Growth Build
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg w-1/4">
+                  <th className="w-1/4 p-4 md:p-5 font-mono text-xs uppercase tracking-wider text-white">
                     Enterprise Tech Build
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-frame-border/60 text-xs md:text-sm font-medium">
+              <tbody className="divide-y divide-white/[0.08] text-xs sm:text-sm font-normal">
                 {comparisonMatrix.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                    <td className="p-4 md:p-5 font-bold text-frame-fg border-r border-frame-border/40">
+                  <tr key={rIdx} className="transition-colors hover:bg-white/[0.02]">
+                    <td className="border-r border-white/[0.08] p-4 font-medium text-white md:p-5">
                       {row.feature}
                     </td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg border-r border-frame-border/40">
-                      {row.launch}
+                    <td className="border-r border-white/[0.08] p-4 text-zinc-400 md:p-5">
+                      <MatrixCell val={row.launch} isHighlighted={false} />
                     </td>
-                    <td className="p-4 md:p-5 font-semibold text-frame-fg border-r border-frame-border/40 bg-frame-accent/5">
-                      {row.growth}
+                    <td className="border-r border-white/[0.08] bg-white/[0.02] p-4 text-white md:p-5">
+                      <MatrixCell val={row.growth} isHighlighted={true} />
                     </td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg">
-                      {row.enterprise}
+                    <td className="p-4 text-zinc-400 md:p-5">
+                      <MatrixCell val={row.enterprise} isHighlighted={false} />
                     </td>
                   </tr>
                 ))}
@@ -218,13 +242,15 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* TIMELINE / DURATION - STRICTLY H2 */}
-        <div className="mt-20 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
-          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Delivery Windows</span>
-          <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Timeline / Duration
-          </h2>
-          <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
+        {/* TIMELINE / DURATION */}
+        <div className="mt-16 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+            Delivery Windows
+          </span>
+          <h3 className="mt-3 font-heading text-2xl font-medium tracking-tight text-white">
+            Timeline &amp; <span className="italic text-frame-accent">Duration.</span>
+          </h3>
+          <div className="mt-4 max-w-4xl space-y-4 text-sm sm:text-base leading-relaxed text-zinc-300">
             <p>
               Business website development typically takes 4 to 8 weeks, depending on the complexity of the tech stack, custom animations, and CRM integrations required. A simpler, single-integration build moves toward the shorter end; a build involving multiple CRM connections or extensive custom functionality will run longer.
             </p>
@@ -234,40 +260,44 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* WEBSITE OWNERSHIP & POST-LAUNCH MAINTENANCE - STRICTLY H2 */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        {/* WEBSITE OWNERSHIP & POST-LAUNCH MAINTENANCE */}
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {/* Ownership */}
-          <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Governance & IP</span>
-              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                Website Ownership, Handover & Content Management
-              </h2>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+              <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                Governance &amp; IP
+              </span>
+              <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
+                Website Ownership, Handover &amp; Content Management
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                 Your website should remain a practical business asset after development is complete. The project agreement defines the ownership, access, deliverables, and handover terms for your website. Based on the platform and project scope, this may include:
               </p>
-              <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
+              <ul className="mt-5 space-y-2.5 text-xs sm:text-sm text-zinc-300">
                 {ownershipDeliverables.map((item, oIdx) => (
-                  <li key={oIdx} className="flex items-start gap-2">
-                    <span className="text-frame-accent font-bold">✓</span>
-                    <span>{item}</span>
+                  <li key={oIdx} className="flex items-start gap-2.5">
+                    <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                    <span className="leading-snug">{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <p className="mt-8 text-xs font-medium italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
-              We also explain what is included in ongoing maintenance and what falls outside the original development scope, so there are no unnecessary surprises after launch.
+            <p className="mt-6 border-t border-white/[0.08] pt-4 font-mono text-xs text-zinc-400">
+              We also explain what is included in ongoing maintenance and what falls outside the original development scope, so there are no surprises after launch.
             </p>
           </div>
 
           {/* Post-Launch Support & Maintenance */}
-          <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Quality Guarantee</span>
-              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                Post-Launch Support & Maintenance
-              </h2>
-              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+              <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                Quality Guarantee
+              </span>
+              <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
+                Post-Launch Support &amp; Maintenance
+              </h3>
+              <div className="mt-3 space-y-4 text-sm leading-relaxed text-zinc-300">
                 <p>
                   Every stage of the build architecture, design, development, and integration &mdash; goes through your review and approval before we proceed, so nothing reaches launch without your sign-off.
                 </p>
@@ -277,9 +307,9 @@ export default function Pricing() {
               </div>
             </div>
 
-            <div className="mt-8 border-t border-frame-border/60 pt-6">
-              <PosterButton href="/contact" className="w-full">
-                Discuss Your Build Requirements &rarr;
+            <div className="mt-8 border-t border-white/[0.08] pt-6">
+              <PosterButton href="/contact" variant="accent" className="w-full">
+                Discuss Your Build Requirements
               </PosterButton>
             </div>
           </div>

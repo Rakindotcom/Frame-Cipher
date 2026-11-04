@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const migrationTypes = [
   {
@@ -25,23 +27,34 @@ const migrationTypes = [
 
 export default function Migrations() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Replatforming" title="Next.js Migration &amp; Modernization">
-          Moving an existing website or application to Next.js requires more than rebuilding the frontend. We first review the current architecture, content, URLs, data, integrations, functionality, and technical limitations.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Next.js Migration &amp;{' '}
+            <span className="italic text-frame-accent">Modernization.</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Moving an existing website or application to Next.js requires more than rebuilding the frontend. We first review the current architecture, content, URLs, data, integrations, functionality, and technical limitations.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 border-2 border-frame-border">
+        {/* 5 Migration Types Grid */}
+        <div className="mt-12 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
           {migrationTypes.map((mig, idx) => (
-            <div key={idx} className="flex flex-col justify-between bg-frame-bg p-6 sm:p-7">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between gap-6 p-7 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02] lg:flex-row lg:items-start lg:gap-12"
+            >
               <div>
-                <span className="text-[11px] font-black uppercase tracking-wider text-frame-accent">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
                   Modernization 0{idx + 1}
                 </span>
-                <h3 className="mt-2 font-heading text-base sm:text-lg font-bold uppercase text-frame-fg">
+                <h3 className="mt-3 font-heading text-base sm:text-lg font-medium text-white">
                   {mig.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {mig.desc}
                 </p>
               </div>
@@ -49,7 +62,8 @@ export default function Migrations() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg border-l-2 border-frame-accent pl-3 py-1 wide:text-lg">
+        {/* Takeaway Footnote */}
+        <p className="mt-8 text-xs sm:text-sm italic text-zinc-400 border-l-2 border-frame-accent/60 pl-3 py-1">
           A migration plan should protect valuable content and functionality while giving the new architecture a clear path forward.
         </p>
       </div>

@@ -1,176 +1,289 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React, { useState } from 'react'
+import {
+  TrendingUp,
+  Target,
+  ShoppingBag,
+  Film,
+  RotateCcw,
+  MessageCircle,
+  CheckCircle2,
+  ArrowRight,
+  ChevronRight,
+} from 'lucide-react'
+import Link from 'next/link'
 
 const campaigns = [
   {
+    id: 'sales',
+    num: '01',
     title: 'Sales & Advantage+ Sales Campaigns',
-    label: 'Convert demand',
+    label: 'Ecommerce & Direct Response',
+    icon: ShoppingBag,
     body: [
       'For ecommerce and other businesses where the desired outcome is a purchase or measurable sales action, we build campaigns around conversion and value signals.',
-      "Meta's Advantage+ sales campaigns are designed as an automated solution that uses AI to optimize delivery toward people more likely to take action. Automation does not remove the need for strategy. It makes the quality of the inputs more important.",
+      'We use Advantage+ sales campaigns where the account and catalog structure support it, alongside structured testing for creative angles, product sets, and seasonal promotions.',
     ],
-    listLabel: 'Depending on the account, this can include',
+    listLabel: 'Sales & Advantage+ Core Capabilities:',
     bullets: [
-      'Sales campaigns',
-      'Advantage+ sales campaigns',
-      'Product and catalog campaigns',
-      'Dynamic product retargeting',
-      'Conversion-focused creative',
-      'Product-level performance analysis',
-      'Revenue and conversion-value measurement',
+      'Advantage+ shopping & manual sales campaigns',
+      'Catalog & dynamic product ads (DPA)',
+      'Multi-variant creative angle testing',
+      'High-intent purchase & value optimization',
+      'Target ROAS & cost-per-acquisition bidding',
+      'Seasonal sale & promotional event structures',
     ],
-    tail: 'We focus on the product offer, creative diversity, tracking quality, customer data, budget, and post-click experience that the system learns from.',
+    metric: 'Purchase ROAS / Cost per Acquisition',
+    tail: 'Structured specifically around high-value customer journeys and profitable return on ad spend.',
   },
   {
+    id: 'leads',
+    num: '02',
     title: 'Lead Generation Campaigns',
-    label: 'Generate qualified enquiries',
+    label: 'Qualified Inquiries & Pipeline',
+    icon: Target,
     body: [
-      'For service businesses, B2B companies, education providers, local businesses, and other lead-driven organizations, Meta can generate enquiries through website forms, instant forms, calls, messaging, or other lead flows.',
+      'When the goal is inquiries, consultation requests, quotes, or business leads, we focus on lead quality rather than raw volume alone.',
+      'We test Meta instant forms, landing-page lead funnels, qualification questions, and follow-up paths to reduce spam and keep the sales pipeline relevant.',
     ],
-    listLabel: 'We can manage',
+    listLabel: 'Lead Generation Core Capabilities:',
     bullets: [
-      'Website conversion campaigns',
-      'Instant forms',
-      'Lead qualification flows',
-      'Click-to-Messenger campaigns',
-      'Click-to-WhatsApp campaigns',
-      'Call-focused campaigns where supported',
-      'Lead-quality measurement',
-      'Retargeting for non-converted prospects',
+      'Meta Instant Forms with custom qualifying logic',
+      'Direct landing page lead capture funnels',
+      'Intent-filtering questionnaire workflows',
+      'CRM & Zapier instant webhook integrations',
+      'High-intent B2B & professional targeting',
+      'Low-quality lead disqualification rules',
     ],
-    tail: 'Where the sales process supports it, we also look beyond the initial lead and consider qualified leads, appointments, opportunities, or downstream sales.',
+    metric: 'Cost per Qualified Lead / Pipeline Velocity',
+    tail: 'Engineered to reduce tire-kickers and feed your sales team prospects ready for a commercial conversation.',
   },
   {
+    id: 'catalog',
+    num: '03',
     title: 'Catalog & Product Ads',
-    label: 'Product-level advertising',
+    label: 'Inventory Synchronization',
+    icon: TrendingUp,
     body: [
-      'Product advertising requires more than uploading a product catalog and switching on a campaign.',
+      'For businesses with a product catalog, catalog ads can automatically present relevant products to prospective buyers based on what they viewed, added to cart, or might be interested in.',
+      'We structure catalog campaigns around product categories, inventory priorities, and audience behavior to maintain relevance and efficiency.',
     ],
-    listLabel: 'We review',
+    listLabel: 'Catalog & Product Core Capabilities:',
     bullets: [
-      'Product catalog structure',
-      'Product information',
-      'Product sets',
-      'Pricing and availability',
-      'Product imagery',
-      'Product-page relevance',
-      'Catalog diagnostics',
-      'Product-level performance',
-      'Retargeting audiences',
+      'Real-time Meta Commerce Manager feed sync',
+      'Dynamic product sets categorized by margins',
+      'Automated out-of-stock product exclusions',
+      'Custom catalog creative overlays & frames',
+      'Viewed-not-purchased dynamic recovery',
+      'Cross-sell & up-sell algorithmic recommendations',
     ],
-    tail: 'For ecommerce brands, catalog-based campaigns can connect product discovery, prospecting, and remarketing inside the broader sales strategy.',
+    metric: 'Catalog Conversion Rate / Add-to-Cart Value',
+    tail: 'Ensures your entire inventory is represented dynamically without manual individual ad uploads.',
   },
   {
-    title: 'Reels, Stories & Feed Ads',
-    label: 'Placement-native creative',
+    id: 'creative',
+    num: '04',
+    title: 'Reels, Stories & Feed Creative Campaigns',
+    label: 'Attention & Visual Storytelling',
+    icon: Film,
     body: [
-      'Meta placements behave differently, and creativity needs to fit the environment where it appears.',
+      'Creative is one of the most important performance levers on Meta. We structure campaigns around assets designed for how users consume content across Feed, Stories, and Reels.',
+      'That includes static ads, carousels, short-form video concepts, benefit-led hooks, customer proof, and offer variations built for mobile attention.',
     ],
-    listLabel: 'We create and manage assets for formats such as',
+    listLabel: 'Creative Testing Core Capabilities:',
     bullets: [
-      'Facebook Feed',
-      'Instagram Feed',
-      'Instagram Stories',
-      'Facebook Stories',
-      'Instagram Reels',
-      'Facebook Reels',
-      'Carousel ads',
-      'Static image ads',
-      'Short-form video',
+      '9:16 vertical video & UGC style scripts',
+      'High-CTR 3-second hook variations',
+      'Carousel feature & product storyboards',
+      'Direct-response visual offer styling',
+      'Placement-tailored aspect ratio exports',
+      'Weekly creative fatigue & drop-off monitoring',
     ],
-    tail: 'For Reels and other vertical placements, creative should be designed for mobile viewing rather than simply resized from a desktop advertisement. Meta recommends vertical creative design for Reels and supports Advantage+ placements and creative optimization across its ecosystem.',
+    metric: '3-Sec Hook Rate / Hold Rate / Outbound CTR',
+    tail: 'Engineered to stop the endless scroll and communicate your unique value proposition in the first three seconds.',
   },
   {
-    title: 'Retargeting & Remarketing',
-    label: 'Reconnect with warm audiences',
+    id: 'retargeting',
+    num: '05',
+    title: 'Retargeting & Remarketing Campaigns',
+    label: 'First-Party Audience Recovery',
+    icon: RotateCcw,
     body: [
-      'Not every prospect converts on the first interaction.',
+      'People rarely buy the first time they see an ad. We build retargeting campaigns around website visits, video engagement, social interactions, cart abandonment, and customer lists.',
+      'The objective is not to show the same ad repeatedly, but to answer the objections that prevented someone from converting the first time.',
     ],
-    listLabel: 'We can build remarketing audiences from relevant signals such as',
+    listLabel: 'Retargeting Core Capabilities:',
     bullets: [
-      'Website visitors',
-      'Product viewers',
-      'Add-to-cart users',
-      'Initiated checkouts',
-      'Previous customers',
-      'Facebook or Instagram engagement',
-      'Video viewers',
-      'Lead interactions',
-      'Customer lists',
+      'Cart & checkout abandoner dynamic sequences',
+      'High-engagement video viewer follow-ups',
+      'Objection-handling & social proof creatives',
+      'Customer list VIP & win-back campaigns',
+      'Strict frequency capping to avoid burn-out',
+      'First-party server-side CAPI matched lists',
     ],
-    tail: 'The objective is not to show the same ad to everyone who visited the website. We build audience segments around what people actually did and what they still need before taking the next step.',
+    metric: 'Win-Back ROAS / Frequency / Re-Engagement',
+    tail: 'Delivers the exact missing proof needed to close hesitant visitors without annoying them.',
   },
   {
+    id: 'messaging',
+    num: '06',
     title: 'Messenger & WhatsApp Campaigns',
-    label: 'Close through conversations',
+    label: 'Conversational Commerce',
+    icon: MessageCircle,
     body: [
-      'For businesses that close sales or qualify enquiries through conversations, Meta can connect advertising directly with messaging.',
+      'In markets like Bangladesh and for many international service categories, direct conversations convert better than forms or web checkouts.',
+      'We build click-to-WhatsApp and click-to-Messenger campaigns with automated qualifying prompts and clear conversation flows.',
     ],
-    listLabel: 'We can structure campaigns around',
+    listLabel: 'Conversational Core Capabilities:',
     bullets: [
-      'Click-to-Messenger',
-      'Click-to-WhatsApp',
-      'Lead qualification',
-      'Product questions',
-      'Appointment enquiries',
-      'Sales conversations',
-      'Retargeting engaged users',
+      'Click-to-WhatsApp Business direct routing',
+      'Automated Messenger interactive icebreakers',
+      'Lead qualification conversational scripts',
+      'Local payment & cash-on-delivery flows',
+      'Team conversation tagging & handoff',
+      'Cost-per-messaging-conversation optimization',
     ],
-    tail: 'For Bangladesh businesses, messaging can be particularly useful where customers prefer to ask questions before ordering, especially for products or services with multiple purchase considerations.',
+    metric: 'Cost per Started Chat / Conversation-to-Sale %',
+    tail: 'Transforms social interactions into immediate two-way sales discussions directly on WhatsApp and Messenger.',
   },
 ]
 
 export default function Campaigns() {
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Campaign types"
-          title="Meta Ads Campaigns We Manage"
-        >
-          We select campaign types around your business objective rather than forcing every
-          account into the same structure.
-        </SectionIntro>
+  const [activeTab, setActiveTab] = useState(campaigns[0].id)
+  const currentCampaign = campaigns.find((c) => c.id === activeTab) || campaigns[0]
+  const IconComponent = currentCampaign.icon
 
-        <div className="space-y-6 border-t-2 border-frame-border pt-12">
-          {campaigns.map((campaign, index) => (
-            <div key={campaign.title} className="border-2 border-frame-border bg-frame-bg">
-              <div className="grid gap-8 p-7 md:p-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Campaign 0{index + 1} / {campaign.label}
-                  </span>
-                  <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                    {campaign.title}
-                  </h3>
-                  <div className="mt-5 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                    {campaign.body.map((paragraph, pIdx) => (
-                      <p key={pIdx}>{paragraph}</p>
-                    ))}
-                  </div>
-                </div>
-                <div className="border-t-2 border-frame-border/60 pt-6 lg:border-l-2 lg:border-t-0 lg:pl-10 lg:pt-0">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {campaign.listLabel}:
-                  </span>
-                  <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-semibold text-frame-fg/90">
-                    {campaign.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+  return (
+    <section id="campaigns" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Eyebrow & Headline */}
+        <div className="max-w-3xl space-y-4 mb-12">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Meta Ads Campaigns{' '}
+            <span className="italic text-frame-accent">We Manage.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            We select campaign types around your business objective rather than forcing every account into the same structure.
+          </p>
+        </div>
+
+        {/* Master Y-Axis Vertical Split Architecture (Tabs on Left, Content on Right) */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08]">
+            {/* Left Column: Vertical Y-Axis Tab Navigation (4 cols) */}
+            <div className="lg:col-span-4 bg-[#09090B] flex flex-col divide-y divide-white/[0.06]">
+              <div className="p-4 sm:p-5 border-b border-white/[0.08] bg-[#121214]/60">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent block">
+                  Select Campaign Structure
+                </span>
+                <span className="font-mono text-[11px] text-zinc-500">
+                  {campaigns.length} Specialized Architectures
+                </span>
+              </div>
+
+              {campaigns.map((camp) => {
+                const isActive = camp.id === activeTab
+                const TabIcon = camp.icon
+                return (
+                  <button
+                    key={camp.id}
+                    type="button"
+                    onClick={() => setActiveTab(camp.id)}
+                    className={`w-full text-left p-5 sm:p-6 transition-colors duration-200 cursor-pointer select-none group relative ${
+                      isActive
+                        ? 'bg-[#121214] border-l-4 border-l-frame-accent'
+                        : 'bg-transparent hover:bg-white/[0.02] border-l-4 border-l-transparent'
+                    }`}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <span className={`font-mono text-xs ${isActive ? 'text-frame-accent font-semibold' : 'text-zinc-500'}`}>
+                        {camp.num} · {camp.label}
+                      </span>
+                      <ChevronRight className={`h-4 w-4 transition-transform duration-200 ${isActive ? 'text-frame-accent translate-x-1' : 'text-zinc-600 group-hover:text-zinc-400'}`} />
+                    </div>
+
+                    <div className="flex items-center gap-3">
+                      <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-colors ${
+                        isActive
+                          ? 'border-white/[0.08] bg-purple-500/10 text-frame-accent'
+                          : 'border-white/[0.08] bg-[#18181B] text-zinc-400 group-hover:text-white'
+                      }`}>
+                        <TabIcon className="h-4 w-4" />
+                      </div>
+                      <h3 className={`font-heading text-sm sm:text-base font-medium uppercase tracking-tight leading-snug transition-colors ${
+                        isActive ? 'text-white' : 'text-zinc-300 group-hover:text-white'
+                      }`}>
+                        {camp.title}
+                      </h3>
+                    </div>
+                  </button>
+                )
+              })}
+            </div>
+
+            {/* Right Column: Active Campaign Detail Content Stage (8 cols) */}
+            <div className="lg:col-span-8 p-6 sm:p-10 lg:p-12 space-y-8 bg-[#121214]">
+              {/* Active Header Badge & Title */}
+              <div className="space-y-4">
+                <h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
+                  {currentCampaign.title}
+                </h3>
+
+                <div className="space-y-4 text-base font-normal leading-relaxed text-zinc-300">
+                  {currentCampaign.body.map((p, pIdx) => (
+                    <p key={pIdx}>{p}</p>
+                  ))}
                 </div>
               </div>
-              {campaign.tail && (
-                <div className="border-t-2 border-frame-border bg-frame-muted/10 px-7 py-5 md:px-10">
-                  <p className="text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
-                    {campaign.tail}
-                  </p>
+
+              {/* Strategic Focus Box */}
+              <div className="rounded-xl border border-white/[0.08] bg-[#09090B] p-5 sm:p-6 space-y-2">
+                <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider text-frame-accent">
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                  <span>Strategic Execution Focus</span>
                 </div>
-              )}
+                <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                  {currentCampaign.tail}
+                </p>
+              </div>
+
+              {/* Execution Checklist Grid */}
+              <div className="rounded-xl border border-white/[0.08] bg-[#09090B] p-6 sm:p-8 space-y-5">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                    {currentCampaign.listLabel}
+                  </span>
+                  <span className="font-mono text-[11px] text-zinc-500">
+                    {currentCampaign.bullets.length} Core Levers
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {currentCampaign.bullets.map((bullet, bIdx) => (
+                    <div
+                      key={bIdx}
+                      className="flex items-start gap-2.5 rounded-lg border border-white/[0.04] bg-[#121214] p-3 text-xs font-medium text-zinc-200"
+                    >
+                      <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                      <span className="leading-snug">{bullet}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="pt-3 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-t border-white/[0.08] text-xs font-mono text-zinc-400">
+                  <span>Channel Focus: <strong className="text-white">{currentCampaign.metric}</strong></span>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-1.5 text-frame-accent hover:text-white transition-colors"
+                  >
+                    <span>Audit this campaign</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </Link>
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

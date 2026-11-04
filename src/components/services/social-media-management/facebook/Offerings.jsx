@@ -1,4 +1,4 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
 const offerings = [
   {
@@ -116,7 +116,7 @@ const offerings = [
   {
     title: 'Messenger Workflow & Inquiry Management',
     description:
-      'Messenger can become an important part of the customer journey for many Facebook-led businesses. We help establish a practical workflow.',
+      'Messenger can become an important part of the customer journey for many Facebook-led businesses. We help establish a practical workflow for inquiries and support.',
     bullets: [
       'Common customer questions',
       'Product or service inquiries',
@@ -151,7 +151,7 @@ const offerings = [
   {
     title: 'Facebook Page Moderation',
     description:
-      'Active Pages need moderation. We can monitor and manage content that falls within your agreed moderation policy.',
+      'Active Pages need moderation. We can monitor and manage content that falls within your agreed moderation policy to protect your brand community.',
     bullets: [
       'Spam',
       'Promotional spam',
@@ -192,87 +192,111 @@ const offerings = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Services explained"
-          title="What Our Facebook Management Service Includes"
-        >
-          Every plan is built from the same in-house team, so Page optimization, content, community
-          care, moderation, and reporting stay coordinated rather than split across vendors.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            What Our Facebook Management Service Includes
+          </div>
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Everything your Facebook Page needs, handled by one in-house team.
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Every plan is built from the same in-house team, so Page optimization, content, community care,
+            moderation, and reporting stay coordinated rather than split across vendors.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
+        {/* Offerings Grid */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {offerings.map((item, index) => (
             <article
               key={item.title}
-              className="flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-muted/20 md:p-8"
+              className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-300 hover:border-white/[0.18] hover:bg-[#151518]"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Service {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs font-medium text-frame-accent">
+                    Service {String(index + 1).padStart(2, '0')}
+                  </span>
+                  <div className="h-2 w-2 rounded-full bg-white/[0.12] transition-colors group-hover:bg-frame-accent" />
+                </div>
+                <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
                   {item.description}
                 </p>
-              </div>
 
-              <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs font-medium text-frame-fg/90 md:text-sm">
-                {item.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span className="leading-snug">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {item.creative?.length > 0 && (
-                <div className="mt-6 border-2 border-frame-border bg-frame-muted/10 p-5">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Creative we can develop
+                {/* Bullets */}
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A]">
+                    Key Deliverables
                   </span>
-                  <ul className="mt-3 space-y-2 text-xs font-medium text-frame-fg/90">
-                    {item.creative.map((asset, cIdx) => (
-                      <li key={cIdx} className="flex items-center gap-2">
-                        <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{asset}</span>
+                  <ul className="mt-3 space-y-2">
+                    {item.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
+                        <svg
+                          className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="leading-snug">{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              )}
 
+                {/* Creative Assets If Present */}
+                {item.creative && item.creative.length > 0 && (
+                  <div className="mt-5 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-frame-accent">
+                      Creative we can develop
+                    </span>
+                    <ul className="mt-2.5 grid grid-cols-1 gap-1.5 text-xs text-[#A1A1AA]">
+                      {item.creative.map((asset, cIdx) => (
+                        <li key={cIdx} className="flex items-center gap-2">
+                          <span className="h-1 w-1 rounded-full bg-frame-accent" />
+                          <span>{asset}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+
+              {/* Note Callout */}
               {item.note && (
-                <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
-                  {item.note}
-                </p>
+                <div className="mt-6 rounded-xl border border-white/[0.06] bg-[#09090B]/60 p-4 text-xs leading-relaxed text-[#A1A1AA]">
+                  <p>{item.note}</p>
+                </div>
               )}
             </article>
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        {/* Audit Callout Banner */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="max-w-2xl">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-frame-accent">
               Not sure what your Page needs?
             </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-              Start with a free Facebook Page audit
+            <h3 className="mt-2 font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
+              Start with a free Facebook Page audit.
             </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA] sm:text-base">
               We review the actual Page and tell you which improvements matter most before any
               management work begins.
             </p>
           </div>
           <div className="mt-6 shrink-0 lg:mt-0">
-            <PosterButton href="/contact">Request a Monthly Management Plan &rarr;</PosterButton>
+            <PosterButton href="/contact">Request a Monthly Management Plan</PosterButton>
           </div>
         </div>
       </div>

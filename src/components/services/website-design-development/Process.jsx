@@ -1,4 +1,4 @@
-import { SectionIntro } from '../../Kinetic'
+import React from 'react'
 
 const steps = [
   {
@@ -40,49 +40,51 @@ const steps = [
 ]
 
 const timelines = [
-  { type: 'Landing Page', time: '1–2 weeks', note: 'Single-offer campaign page with conversion tracking setup' },
-  { type: 'Business Website', time: '3–5 weeks', note: 'Multi-page conversion website with CMS and lead forms' },
-  { type: 'eCommerce Website', time: '6–10 weeks', note: 'Full store build with payment gateways, inventory, and logistics' },
-  { type: 'Website Redesign', time: '4–8 weeks', note: 'Rebuilding underperforming sites while preserving valuable SEO rankings' },
+  { type: 'Landing Page', time: '1 to 2 weeks', note: 'Single-offer campaign page with conversion tracking setup' },
+  { type: 'Business Website', time: '3 to 5 weeks', note: 'Multi-page conversion website with CMS and lead forms' },
+  { type: 'eCommerce Website', time: '6 to 10 weeks', note: 'Full store build with payment gateways, inventory, and logistics' },
+  { type: 'Website Redesign', time: '4 to 8 weeks', note: 'Rebuilding underperforming sites while preserving valuable SEO rankings' },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="Our 6-Step Website Process"
-        >
-          We follow a clear process from the first consultation to launch and handover. The exact timeline depends on project scope, content readiness, and feedback.
-        </SectionIntro>
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Our 6-step website{' '}
+              <span className="italic text-frame-accent">process.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
+            We follow a structured engineering process from initial consultation to final launch and handover. Exact timelines depend on scope and content readiness.
+          </p>
+        </div>
 
-        {/* STEP CARDS WITH WATERMARK */}
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* Modality 3 Blueprint Matrix (2x3 Structured Grid) */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
-            <div key={step.number} className="relative overflow-hidden bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
-              <span 
-                className="pointer-events-none absolute -right-2 -bottom-6 font-heading text-[7rem] md:text-[8rem] font-bold leading-none tracking-tighter text-frame-muted/30 select-none"
-                aria-hidden="true"
-              >
-                {step.number}
-              </span>
-              <div className="relative z-10">
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                  Phase {step.number}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <div
+              key={step.number}
+              className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-8 sm:p-10 transition-colors duration-200 hover:bg-white/[0.02]"
+            >
+              <div>
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+
+                <p className="mt-3.5 text-sm font-normal leading-relaxed text-zinc-300">
                   {step.description}
                 </p>
               </div>
-              <div className="relative z-10 mt-6 border-t-2 border-frame-border/60 pt-4">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+
+              <div className="mt-8 border-t border-white/[0.08] pt-4">
+                <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-zinc-500 block">
                   Deliverable
                 </span>
-                <span className="text-xs md:text-sm font-semibold text-frame-fg">
+                <span className="mt-1 font-heading text-xs text-zinc-200 block">
                   {step.deliverable}
                 </span>
               </div>
@@ -90,39 +92,28 @@ export default function Process() {
           ))}
         </div>
 
-        {/* TIMELINE TABLE */}
-        <div className="mt-20">
-          <div className="mb-8 max-w-3xl">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Delivery Expectations
-            </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Typical Delivery Timelines
+        {/* Production Timelines Architectural Ledger */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h3 className="font-mono text-xs tracking-[1.1px] text-frame-accent">
+              Typical Turnaround Timelines
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
-              Timelines commence once initial content, creative assets, and technical access are confirmed.
-            </p>
           </div>
-
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
-            <table className="w-full min-w-[640px] text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
-                <tr>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Project Type</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Estimated Timeline</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Scope Context</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
-                {timelines.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-6 font-bold text-frame-fg">{item.type}</td>
-                    <td className="p-4 md:p-6 font-bold text-frame-accent">{item.time}</td>
-                    <td className="p-4 md:p-6 text-frame-muted-fg">{item.note}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08]">
+            {timelines.map((item, i) => (
+              <div key={i} className="pt-3 sm:pt-0 sm:px-4 first:pl-0 last:pr-0 space-y-1">
+                <span className="font-heading text-sm font-medium text-white block">
+                  {item.type}
+                </span>
+                <span className="font-mono text-xs text-frame-accent block">
+                  {item.time}
+                </span>
+                <p className="text-xs text-zinc-400 leading-normal">
+                  {item.note}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

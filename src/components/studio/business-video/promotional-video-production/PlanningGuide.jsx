@@ -7,7 +7,7 @@ const guideBlocks = [
     title: 'What Promotional Video Production Covers',
     body: [
       'Promotional production means one team owns the conversion from brief to export: offer definition, hook-first scripting, product staging, studio or field filming, kinetic motion graphics, sound design and platform-specific masters. At FrameCipher Studio this happens under one roof at Matikata ECB Chattar, so the crew that stages your product works in the same place as the editor who animates the offer.',
-      'That matters because promos live or die on clarity. A single call to action, a visible price or deadline, and framing that survives every feed — these are agreed in writing before the shoot, so filming and editing both serve the response you need: awareness, leads, flash sales or announcements.',
+      'That matters because promos live or die on clarity. A single call to action, a visible price or deadline, and framing that survives every feed: these are agreed in writing before the shoot, so filming and editing both serve the response you need: awareness, leads, flash sales or announcements.',
     ],
   },
   {
@@ -22,7 +22,7 @@ const guideBlocks = [
     title: 'Which Tier to Choose',
     list: [
       'Launch Cut (৳28,000): one punchy 30 to 60 second promo with a hook, demo, kinetic price tag and hard call to action. Best for a single offer.',
-      'Campaign Pack (৳58,000): a coordinated set — hero video, two hook variants and teaser cuts sized for every feed. Best for launches that must run across placements.',
+      'Campaign Pack (৳58,000): a coordinated set: hero video, two hook variants and teaser cuts sized for every feed. Best for launches that must run across placements.',
       'Seasonal Blitz (৳1,25,000): full seasonal coverage with up to 4 product promos, daily story drops and retail-screen versions. Best for Eid, Puja and 11.11 peaks.',
     ],
   },
@@ -46,7 +46,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -58,7 +58,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

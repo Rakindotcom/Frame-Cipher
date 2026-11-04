@@ -1,115 +1,113 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
-const commitments = [
-  {
-    title: 'Clear Scope',
-    body: 'The agreed services, deliverables, and channels are documented before work begins, so there is no ambiguity about what is included.',
-  },
-  {
-    title: 'Consistent Execution',
-    body: 'Once the strategy is agreed, content, publishing, and community handling follow it consistently rather than changing month to month without reason.',
-  },
-  {
-    title: 'Human Review',
-    body: 'Automation may assist with routine tasks, but content and responses are reviewed by people against your brand voice and business context.',
-  },
-  {
-    title: 'Regular Reporting',
-    body: 'You receive reporting around the agreed metrics so you can see what was published, what happened, and what is recommended next.',
-  },
-  {
-    title: 'No Guaranteed Results',
-    body: 'We do not promise followers, engagement levels, leads, sales, or specific business outcomes. Facebook reach and performance depend on factors outside anyone’s control.',
-  },
-  {
-    title: 'No Fake Reviews or Engagement',
-    body: 'We do not buy followers, use fake reviews, or manufacture engagement. Sustainable presence work is the goal.',
-  },
-  {
-    title: 'No Guaranteed Meta Approvals',
-    body: 'We cannot guarantee Meta approvals, appeal outcomes, Page restriction removals, or platform decisions. We can only follow the correct process.',
-  },
-  {
-    title: 'Clear Escalation',
-    body: 'Matters requiring your authority, sensitive complaints, legal questions, or issues outside the agreed scope are escalated to you rather than guessed at.',
-  },
+const weControl = [
+  'Content planning & calendar structure',
+  'High-quality content creation & copy',
+  'Timely, consistent publishing',
+  'Facebook Page optimization & hygiene',
+  'Community management & audience interaction',
+  'Comment management & spam cleanup',
+  'Review monitoring & response workflows',
+  'Brand moderation & policy enforcement',
+  'Clear monthly performance reporting',
+  'Iterative strategy refinement',
+  'Communication within agreed workflows',
+]
+
+const weDoNotGuarantee = [
+  'A specific number of followers',
+  'Guaranteed organic reach numbers',
+  'Guaranteed engagement metrics',
+  'Viral posts or instant fame',
+  'Guaranteed leads or inquiries',
+  'Guaranteed sales or revenue',
+  'Specific search ranking positions',
+  'Algorithmic distribution preferences',
+  'Approval of Meta appeals',
+  'Removal of platform restrictions',
 ]
 
 export default function Guarantee() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Service commitments"
-          title="What We Commit To &amp; What We Do Not"
-        >
-          Clear boundaries matter more than bold promises. This is what the engagement includes, and
-          what no one can honestly guarantee on a platform you do not control.
-        </SectionIntro>
-
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
-          {commitments.map((item, index) => (
-            <article key={item.title} className="flex flex-col justify-between bg-frame-bg p-6 md:p-7">
-              <div>
-                <span
-                  className={`flex h-9 w-9 items-center justify-center border-2 text-xs font-black ${
-                    item.title.startsWith('No ')
-                      ? 'border-frame-border bg-frame-muted/20 text-frame-muted-fg'
-                      : 'border-frame-accent bg-frame-accent/10 text-frame-accent'
-                  }`}
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
-                  {item.body}
-                </p>
-              </div>
-            </article>
-          ))}
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            Service Commitments
+          </div>
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What We Can and Cannot Guarantee
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Good Facebook management requires a clear distinction between what your team controls
+            and what the platform controls.
+          </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <div className="border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              What we commit to
-            </span>
-            <ul className="mt-4 space-y-2.5 text-sm font-semibold text-frame-fg">
-              {['Documented scope', 'Consistent execution', 'Human-reviewed content and responses', 'Regular reporting', 'Clear escalation paths'].map(
-                (item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/20 text-frame-accent">
-                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                )
-              )}
+        {/* 2-Column Comparison Grid */}
+        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+          {/* What We Control */}
+          <div className=" rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-frame-accent/10 text-frame-accent">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                What We Control
+              </h3>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-[#A1A1AA]">
+              We control the quality and consistency of agreed work across every operational phase:
+            </p>
+            <ul className="mt-6 space-y-3">
+              {weControl.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-[#D4D4D8]">
+                  <svg
+                    className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
             </ul>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/20 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
-              What we never promise
-            </span>
-            <ul className="mt-4 space-y-2.5 text-sm font-semibold text-frame-fg">
-              {[
-                'Specific follower or engagement numbers',
-                'Guaranteiced leads, sales, or revenue',
-                'Guaranteed Meta approvals or appeal outcomes',
-                'Page restriction removal',
-                'Fake reviews or purchased engagement',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-border bg-frame-bg text-frame-muted-fg">
-                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 6l12 12M18 6L6 18" />
-                    </svg>
-                  </span>
+          {/* What We Do Not Guarantee */}
+          <div className=" rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10">
+            <div className="flex items-center gap-3">
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white/[0.05] text-[#A1A1AA]">
+                <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </span>
+              <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                What We Do Not Guarantee
+              </h3>
+            </div>
+            <p className="mt-4 text-sm leading-relaxed text-[#A1A1AA]">
+              We do not make false promises on metrics outside an agency’s direct control:
+            </p>
+            <ul className="mt-6 space-y-3">
+              {weDoNotGuarantee.map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm text-[#A1A1AA]">
+                  <svg
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[#71717A]"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2.5}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
                   <span>{item}</span>
                 </li>
               ))}
@@ -117,10 +115,24 @@ export default function Guarantee() {
           </div>
         </div>
 
-        <div className="mt-8">
-          <PosterButton href="/contact" variant="outline">
-            Review the Full Scope With Us &rarr;
-          </PosterButton>
+        {/* Closing Note Banner */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-frame-accent">
+              The Framecipher Philosophy
+            </span>
+            <p className="mt-2 text-sm leading-relaxed text-[#A1A1AA] sm:text-base">
+              Facebook distribution and platform enforcement are outside an agency's direct control.
+              Meta has its own policies and enforcement systems for Pages and content. Our job is to
+              build and manage the parts we can control, measure performance honestly, and improve
+              the strategy over time.
+            </p>
+          </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact" variant="outline">
+              Review the Full Scope With Us 
+         </PosterButton>
+          </div>
         </div>
       </div>
     </section>

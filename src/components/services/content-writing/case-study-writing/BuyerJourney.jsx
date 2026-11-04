@@ -34,28 +34,28 @@ const stages = [
 
 export default function BuyerJourney() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Buyer journey" title="How Case Studies Support the Buyer Journey">
           A case study becomes more valuable when it answers the questions prospects actually have.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {stages.map((stage) => (
-            <article key={stage.number} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+            <article key={stage.number} className="flex flex-col bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-[#A855F7]">
                 {stage.number}
               </span>
-              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {stage.title}
               </h3>
 
               {stage.lead && (
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{stage.lead}</p>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">{stage.lead}</p>
               )}
 
               {stage.text && (
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{stage.text}</p>
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">{stage.text}</p>
               )}
 
               {stage.items && (
@@ -63,9 +63,9 @@ export default function BuyerJourney() {
                   {stage.items.map((item) => (
                     <li
                       key={item}
-                      className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                      className="flex items-start gap-2 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                     >
-                      <span aria-hidden="true" className="mt-1 text-frame-accent">
+                      <span aria-hidden="true" className="mt-1 text-[#A855F7]">
                         &bull;
                       </span>
                       {item}
@@ -77,8 +77,8 @@ export default function BuyerJourney() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             The strongest case study is therefore not simply a marketing story. It is a piece of evidence that
             supports the buying decision.
           </p>

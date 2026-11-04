@@ -37,23 +37,23 @@ const nonGuarantees = [
 
 export default function QualityStandard() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Quality standard" title="Our Content Quality Standard">
           Content can support search visibility, engagement, leads, and sales, but writing alone does not
           control the final outcome.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-          <article className="bg-frame-accent/10 p-7 md:p-8">
-            <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
+          <article className="bg-[#A855F7]/10 p-7 md:p-8">
+            <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               What We Control
             </h3>
             <ul className="mt-5 space-y-3">
               {controls.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                  className="flex items-start gap-2.5 border-b border-white/[0.06] pb-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] last:border-b-0 md:text-base"
                 >
                   <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
                   {item}
@@ -61,14 +61,14 @@ export default function QualityStandard() {
               ))}
             </ul>
 
-            <p className="mt-7 font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-fg md:text-base">
+            <p className="mt-7 font-heading text-sm font-bold uppercase leading-snug tracking-tight text-[#FAFAFA] md:text-base">
               We aim to deliver content that is
             </p>
             <ul className="mt-4 flex flex-wrap gap-2">
               {aims.map((aim) => (
                 <li
                   key={aim}
-                  className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                  className="border border-white/[0.08] bg-[#09090B] px-2.5 py-1 text-[11px] font-semibold text-[#FAFAFA]"
                 >
                   {aim}
                 </li>
@@ -76,26 +76,26 @@ export default function QualityStandard() {
             </ul>
           </article>
 
-          <article className="bg-frame-bg p-7 md:p-8">
-            <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+          <article className="bg-[#09090B] p-7 md:p-8">
+            <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               What We Don&rsquo;t Guarantee
             </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
               We do not guarantee:
             </p>
             <ul className="mt-4 space-y-3">
               {nonGuarantees.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg last:border-b-0 md:text-base"
+                  className="flex items-start gap-2.5 border-b border-white/[0.06] pb-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] last:border-b-0 md:text-base"
                 >
-                  <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-muted" />
+                  <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-[#121214]" />
                   {item}
                 </li>
               ))}
             </ul>
 
-            <p className="mt-7 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-7 border-l-2 border-[#A855F7]/40 bg-[#121214] p-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
               Those outcomes can also depend on website quality, technical SEO, competition, authority,
               backlinks, offer strength, design, distribution, advertising, tracking, market conditions, and
               many other factors.
@@ -103,7 +103,7 @@ export default function QualityStandard() {
           </article>
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-semibold leading-relaxed text-frame-fg">
+        <p className="mt-8 border-l-2 border-[#A855F7]/40 bg-[#121214] p-4 text-sm font-semibold leading-relaxed text-[#FAFAFA]">
           Our commitment is to produce content according to the agreed brief, scope, quality standards, and
           revision process.
         </p>

@@ -72,9 +72,10 @@ export default function AdsCalculatorSuite() {
   }, [searchParams])
 
   return (
-    <main className="bg-frame-bg text-frame-fg min-h-screen w-full min-w-0 max-w-full overflow-x-hidden">
+    <main className="calculator-page bg-frame-bg text-frame-fg min-h-screen w-full min-w-0 max-w-full overflow-x-hidden">
       {/* Hero Section with Kinetic Styling */}
       <PageHero
+        className="compact-hero"
         eyebrow="Growth Intelligence & Media Science"
         meta="Interactive Advertising Econometrics"
         number="ADS"
@@ -86,8 +87,8 @@ export default function AdsCalculatorSuite() {
       </PageHero>
 
       {/* Quick Jump Bar */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/20 px-4 py-4 md:px-8 w-full min-w-0 max-w-full overflow-hidden">
-        <div className="mx-auto flex w-full max-w-[95vw] min-w-0 flex-wrap items-center justify-between gap-4 text-xs">
+      <section className="border-b border-white/[0.08] bg-frame-muted/20 px-4 py-4 md:px-8 w-full min-w-0 max-w-full overflow-hidden">
+        <div className="mx-auto flex w-full max-w-7xl min-w-0 flex-wrap items-center justify-between gap-4 text-xs">
           <div className="flex items-center gap-2">
             <span className="h-2 w-2 rounded-full bg-frame-accent" />
             <span className="font-mono font-bold uppercase text-frame-accent">Quick Jumps:</span>
@@ -114,7 +115,7 @@ export default function AdsCalculatorSuite() {
       </section>
 
       {/* Main Suite Container */}
-      <div className="mx-auto w-full max-w-[95vw] min-w-0 px-4 py-12 md:px-8 md:py-20 space-y-16">
+      <div className="mx-auto w-full max-w-7xl min-w-0 px-4 py-12 md:px-8 md:py-20 space-y-16">
         {/* SECTION 1: Platform Switcher & Calculator Wizards */}
         <section id="platform-calculators" className="space-y-8 scroll-mt-24 w-full min-w-0 max-w-full overflow-hidden">
           <SectionIntro
@@ -157,7 +158,7 @@ export default function AdsCalculatorSuite() {
                       </span>
                     </div>
 
-                    <h4 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg break-words">
+                    <h4 className="mt-4 font-heading text-xl font-medium tracking-tight text-frame-fg break-words">
                       {platform.name}
                     </h4>
                     <span className="text-xs font-semibold text-frame-muted-fg block">

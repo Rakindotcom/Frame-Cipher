@@ -47,24 +47,24 @@ const deliverables = [
 
 export default function Deliverables() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Deliverables" title="What You Receive With Your Landing Page Copy">
           The final scope depends on the package, but the standard deliverables are designed to be handed
           directly to a designer or developer.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {deliverables.map((item) => (
-            <article key={item.number} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={item.number} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                 {item.number}
               </span>
               <h3
-                className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg"
+                className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg"
                 dangerouslySetInnerHTML={{ __html: item.title }}
               />
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.body[0]}</p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">{item.body[0]}</p>
             </article>
           ))}
         </div>

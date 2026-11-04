@@ -14,50 +14,49 @@ export default function ProjectsDesignSection({
     <section
       ref={imageSectionRef}
       id="branding-work"
-      className="scroll-mt-36 px-4 py-14 md:px-8 md:py-20"
+      className="relative isolate scroll-mt-36 border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white md:px-8 md:py-24"
     >
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionHeading
           number="06"
           title="Creative visual archive"
           count={`${designWorks.length} selected visuals`}
         />
 
-        <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border">
-          <aside className="grid gap-8 bg-frame-bg p-6 md:grid-cols-[0.82fr_1fr] md:p-8">
+        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden">
+          <aside className="grid gap-8 p-6 md:grid-cols-[0.82fr_1fr] md:p-10 border-b border-white/[0.08] bg-white/[0.01]">
             <div>
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Auto carousel
-              </p>
-              <h4 className="mt-4 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-5xl">
-                Moving through the archive.
+              <h4 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-tight tracking-tight text-white">
+                Moving through the{' '}
+                <span className="italic text-frame-accent">archive.</span>
               </h4>
             </div>
             <div className="md:max-w-2xl">
-              <p className="mt-5 text-base font-medium leading-tight text-frame-muted-fg md:text-lg">
+              <p className="text-sm md:text-base font-normal leading-relaxed text-zinc-400">
                 The carousel cycles through selected visual work automatically. Open the archive when you want the full grid for closer browsing.
               </p>
               <div className="mt-6 grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
-                <div className="border-t-2 border-frame-border pt-5">
-                  <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <div className="border-t border-white/[0.08] pt-4">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-wider text-violet-400">
                     Archive depth
                   </p>
-                  <p className="mt-2 text-sm font-bold uppercase leading-tight text-frame-muted-fg">
+                  <p className="mt-1 font-mono text-xs font-medium uppercase text-zinc-400">
                     {designWorks.length} selected visuals in rotation
                   </p>
                 </div>
                 <button
                   type="button"
                   onClick={onOpenArchive}
-                  className="min-h-14 border-2 border-frame-accent bg-frame-accent px-5 py-4 text-sm font-black uppercase tracking-tighter text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
+                  className="group inline-flex h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.06] px-6 text-sm font-medium tracking-wide text-white transition-all duration-200 hover:border-white/40 hover:bg-white/10 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500"
                 >
-                  View more
+                  <span>View full archive</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
                 </button>
               </div>
             </div>
           </aside>
 
-          <div className="bg-frame-bg p-4 md:p-6">
+          <div className="p-4 md:p-8">
             <div
               ref={carouselRef}
               className="overflow-hidden"
@@ -73,10 +72,10 @@ export default function ProjectsDesignSection({
                       type="button"
                       data-carousel-card={work.number}
                       onClick={() => onSelectWork(work)}
-                      className={`group relative block aspect-[4/3] min-w-[82vw] overflow-hidden border-2 bg-white text-left transition duration-500 focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent sm:min-w-[48%] lg:min-w-[31%] ${
+                      className={`group relative block aspect-[4/3] min-w-[82vw] overflow-hidden rounded-2xl border text-left transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 sm:min-w-[48%] lg:min-w-[31%] ${
                         isActive
-                          ? 'scale-[1.02] border-frame-accent opacity-100 shadow-[0_24px_80px_rgba(168,85,247,0.18)]'
-                          : 'border-frame-border opacity-55 hover:opacity-90'
+                          ? 'scale-[1.02] border-violet-500/70 opacity-100 shadow-[0_16px_36px_rgba(139,92,246,0.18)] bg-[#18181B]'
+                          : 'border-white/[0.08] opacity-60 hover:opacity-95 bg-[#141416] hover:border-white/20'
                       }`}
                       aria-label={`View full image ${work.number}`}
                     >
@@ -86,31 +85,23 @@ export default function ProjectsDesignSection({
                         fill
                         sizes="(max-width: 639px) 78vw, (max-width: 1023px) 44vw, 31vw"
                         quality={80}
-                        className="object-contain transition duration-300 group-hover:scale-95"
+                        className="object-contain transition duration-300 group-hover:scale-105"
                       />
-                      {isActive && (
-                        <span className="absolute left-4 top-4 bg-frame-accent px-3 py-2 text-xs font-black uppercase tracking-[0.22em] text-frame-accent-fg">
-                          Now showing
-                        </span>
-                      )}
-                      <span className="absolute inset-x-4 bottom-4 border-2 border-frame-border bg-frame-bg px-4 py-3 text-center text-xs font-black uppercase tracking-[0.18em] text-frame-fg opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                        Open preview
-                      </span>
                     </button>
                   )
                 })}
               </div>
             </div>
 
-            <div className="mt-5 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
-              <div className="h-2 bg-frame-border" aria-hidden="true">
+            <div className="mt-6 grid gap-3 sm:grid-cols-[1fr_auto] sm:items-center">
+              <div className="h-1.5 rounded-full overflow-hidden bg-white/[0.08]" aria-hidden="true">
                 <div
-                  className="h-full bg-frame-accent transition-all duration-500"
+                  className="h-full bg-violet-400 transition-all duration-500 rounded-full"
                   style={{ width: `${((currentWorkIndex + 1) / designWorks.length) * 100}%` }}
                 />
               </div>
-              <p className="text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                Auto rotating
+              <p className="text-xs font-mono font-medium uppercase tracking-wider text-zinc-400">
+                Auto rotating &bull; #{currentWork.number} of {designWorks.length}
               </p>
             </div>
           </div>

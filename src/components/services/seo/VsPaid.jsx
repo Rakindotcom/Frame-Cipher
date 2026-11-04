@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const comparisonRows = [
   {
@@ -29,50 +31,67 @@ const comparisonRows = [
 
 export default function VsPaid() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Choosing the right channel"
-          title="SEO vs Paid Search: What's the Difference?"
-        >
-          SEO and paid search use different approaches to gaining visibility and can also support
-          one another.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Channel Architecture // Strategic Allocation
+            </span>
+          </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-              <tr>
-                <th className="p-4 border-r-2 border-frame-border w-1/2">SEO</th>
-                <th className="p-4 w-1/2">Paid Search</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-              {comparisonRows.map((row, rIdx) => (
-                <tr key={rIdx} className="align-top transition-colors hover:bg-frame-muted/20">
-                  <td className="p-4 border-r-2 border-frame-border font-medium text-frame-fg">
-                    {row.seo}
-                  </td>
-                  <td className="p-4 font-medium text-frame-accent">
-                    {row.paid}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            SEO vs Paid Search:{' '}
+            <span className="italic text-frame-accent">What&apos;s the Difference?</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            SEO and paid search use different approaches to gaining visibility and can also support one another.
+          </p>
         </div>
 
-        <div className="mt-8 grid gap-8 lg:grid-cols-2">
-          <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-              The appropriate mix depends on your goals, timeline, budget, competition, and
-              customer journey.
+        {/* Architectural Comparison Table */}
+        <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214]">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-white/[0.08] bg-white/[0.02] font-mono text-xs uppercase tracking-wider">
+                <tr>
+                  <th className="p-5 border-r border-white/[0.08] w-1/2 text-white">
+                    Organic Search (SEO)
+                  </th>
+                  <th className="p-5 w-1/2 text-frame-accent">
+                    Paid Search (SEM / PPC)
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.08] text-zinc-300">
+                {comparisonRows.map((row, rIdx) => (
+                  <tr key={rIdx} className="align-top transition-colors hover:bg-white/[0.02]">
+                    <td className="p-5 border-r border-white/[0.08] font-normal leading-relaxed text-white">
+                      {row.seo}
+                    </td>
+                    <td className="p-5 font-normal leading-relaxed text-zinc-300">
+                      {row.paid}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Strategic Allocation Takeaways */}
+        <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7">
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              The appropriate mix depends on your goals, timeline, budget, competition, and customer journey.
             </p>
           </div>
-          <div className="border-l-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-              Some businesses use SEO as a long-term search foundation while paid search supports
-              launches, promotions, or specific commercial campaigns.
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7">
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              Some businesses use SEO as a long-term search foundation while paid search supports launches, promotions, or specific commercial campaigns.
             </p>
           </div>
         </div>

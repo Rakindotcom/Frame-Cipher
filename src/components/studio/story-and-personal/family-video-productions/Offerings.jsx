@@ -5,7 +5,7 @@ import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const productionStandards = [
   "Family story consultation designing questions around your elders’ lives",
-  "Gentle unhurried interview pacing — dignity sets the schedule, never the clock",
+  "Gentle unhurried interview pacing: dignity sets the schedule, never the clock",
   "Home or studio sessions with soft lighting and quiet broadcast audio",
   "High-resolution scanning with dust cleanup and colour restoration",
   "Family-tree graphics with chaptered documentary structuring",
@@ -22,7 +22,7 @@ const confirmedDeliverables = [
 export default function Offerings() {
   return (
     <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Scope & Standards"
           title="What Our Family Video Service Includes"
@@ -37,7 +37,7 @@ export default function Offerings() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Production Standards
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 Unhurried, Respectful and Thorough
               </h3>
               <ul className="mt-6 space-y-3 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -56,7 +56,7 @@ export default function Offerings() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Confirmed Deliverables
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 Films, Boxes and Vaults
               </h3>
               <ul className="mt-6 space-y-3 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -76,7 +76,7 @@ export default function Offerings() {
             <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
               Single Team Accountability
             </span>
-            <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="mt-1 font-heading text-xl font-bold tracking-tight text-frame-fg">
               One team interviews, restores, edits and archives your story.
             </h4>
             <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">

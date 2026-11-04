@@ -22,13 +22,7 @@ export default function AdsFormulasBreakdown() {
     <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="mathematical-derivations">
       {/* Header */}
       <div className="border-b border-frame-border pb-6">
-        <div className="flex items-center gap-2">
-          <Cpu className="h-4 w-4 text-frame-accent" />
-          <span className="text-xs font-mono font-bold uppercase tracking-[0.24em] text-frame-accent">
-            Under the Hood // Mathematical Derivations
-          </span>
-        </div>
-        <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+        <h3 className="font-heading text-2xl md:text-4xl font-medium tracking-tight text-frame-fg">
           How the Performance Math Works
         </h3>
         <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
@@ -62,7 +56,7 @@ export default function AdsFormulasBreakdown() {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
             {activeFormula.subtitle}
           </span>
-          <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="mt-1 font-heading text-xl md:text-2xl font-medium tracking-tight text-frame-fg">
             {activeFormula.title}
           </h4>
           <p className="mt-2 text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">

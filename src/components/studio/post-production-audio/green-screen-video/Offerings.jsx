@@ -9,7 +9,7 @@ const productionStandards = [
   "Real-time hardware key preview on floor monitors, so presenters see the composite while recording",
   "Wardrobe and prop checks against green-spill risks before the first take, plus teleprompter support",
   "Flat-profile 4K capture for maximum keying latitude, with correctly distanced framing by an operator",
-  "In-house keying, spill suppression, tracking and colour matching — no outside compositing vendor"
+  "In-house keying, spill suppression, tracking and colour matching: no outside compositing vendor"
 ]
 const confirmedDeliverables = [
   "High-bitrate flat-profile raw footage, ready to key",
@@ -22,7 +22,7 @@ const confirmedDeliverables = [
 export default function Offerings() {
   return (
     <section id="offerings" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Scope & Standards"
           title="What Our Green Screen Studio Service Includes"
@@ -37,7 +37,7 @@ export default function Offerings() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Production Standards
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 Lit, Keyed & Composited In-House
               </h3>
               <ul className="mt-6 space-y-3 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -56,7 +56,7 @@ export default function Offerings() {
               <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
                 Confirmed Deliverables
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 Raw Keys, Composites & Masters
               </h3>
               <ul className="mt-6 space-y-3 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -76,7 +76,7 @@ export default function Offerings() {
             <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
               Single Team Accountability
             </span>
-            <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="mt-1 font-heading text-xl font-bold tracking-tight text-frame-fg">
               One team lights the wall, operates the shoot and keys the composite.
             </h4>
             <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">

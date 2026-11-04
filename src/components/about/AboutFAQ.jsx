@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
 
 const aboutFaqs = [
   {
@@ -67,58 +68,62 @@ export default function AboutFAQ() {
   }
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       {/* Schema.org FAQPage Injection */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <div className="mx-auto max-w-[95vw]">
-        {/* Section Header */}
-        <div className="mb-16 max-w-3xl">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-            Due Diligence / Frequently Asked Questions
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-            Everything You Need to Know.
+      <div className="mx-auto max-w-7xl">
+        {/* Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            Everything You Need{' '}
+            <span className="italic text-frame-accent">
+              to Know.
+            </span>
           </h2>
-          <p className="mt-6 text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+          <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg mx-auto max-w-2xl">
             Direct, transparent answers regarding our multinational operational structure, engineering standards, global client collaboration, and company vision.
           </p>
         </div>
 
-        {/* Accordion FAQ Grid */}
-        <div className="space-y-4">
+        {/* Centered Accordion Container */}
+        <div className="mx-auto max-w-4xl space-y-3">
           {aboutFaqs.map((faq, index) => {
             const isOpen = openIndex === index
             return (
               <div
                 key={faq.question}
-                className="border-2 border-frame-border bg-frame-card transition-colors duration-200 hover:border-frame-accent"
+                className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors duration-200 hover:border-white/[0.14]"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="flex w-full items-center justify-between p-6 text-left sm:p-8"
+                  className="flex w-full items-center justify-between p-5 sm:p-6 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-inset cursor-pointer touch-manipulation select-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="flex items-center gap-4 pr-4">
-                    <span className="font-mono text-xs font-bold text-frame-accent sm:text-sm">
+                  <span className="flex items-center gap-3.5 pr-4">
+                    <span className="font-mono text-xs text-frame-accent tabular-nums">
                       0{index + 1}
                     </span>
-                    <span className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg sm:text-xl md:text-2xl">
+                    <span className="font-medium text-sm sm:text-base text-white">
                       {faq.question}
                     </span>
                   </span>
-                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-frame-border bg-frame-bg font-mono text-sm font-bold text-frame-fg transition-transform duration-200">
-                    {isOpen ? '−' : '+'}
+                  <span className="shrink-0 text-zinc-400">
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
                   </span>
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-frame-border/80 px-6 pb-6 pt-4 sm:px-8 sm:pb-8">
-                    <p className="max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base">
+                  <div className="border-t border-white/[0.08] px-5 pb-6 pt-3 sm:px-6">
+                    <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
                       {faq.answer}
                     </p>
                   </div>

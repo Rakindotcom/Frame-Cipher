@@ -5,20 +5,20 @@ import { SectionIntro } from '../../../Kinetic'
 const glanceRows = [
   ['Half-day cover', '৳25,000, up to 4 hours, single crew'],
   ['Full-day crew', '৳48,000, up to 9 hours, two cameras'],
-  ['Multi-day summit', '৳1,25,000+, 2–3 days, 3-person crew'],
+  ['Multi-day summit', '৳1,25,000+, 2 to 3 days, 3-person crew'],
   ['Drone aerial slot', '৳25,000, permission liaised'],
   ['24-hour teaser', 'Standard on full-day tiers, not a surcharge'],
   ['Same-day edit', 'Evening delivery, +30%'],
   ['Raw recordings', 'Full sessions within 24 hours'],
-  ['Quote and payment', 'Itemised within 48 hours — 50% advance, VAT invoices'],
-  ['Studio and field', '6th Floor, Eurasia Building, Matikata ECB Chattar, Dhaka 1206 — shoots on-location across Bangladesh'],
-  ['Phone and hours', '+880 1768-146650 — Open 24 hours, sessions by advance reservation'],
+  ['Quote and payment', 'Itemised within 48 hours: 50% advance, VAT invoices'],
+  ['Studio and field', '6th Floor, Eurasia Building, Matikata ECB Chattar, Dhaka 1206: shoots on-location across Bangladesh'],
+  ['Phone and hours', '+880 1768-146650: Open 24 hours, sessions by advance reservation'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Event Videography Essentials"

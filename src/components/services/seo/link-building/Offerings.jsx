@@ -1,185 +1,235 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Search,
+  Users,
+  FileText,
+  Megaphone,
+  Link2,
+  AtSign,
+  MapPin,
+  ShieldAlert,
+  CheckCircle2,
+} from 'lucide-react'
 
 const offerings = [
   {
+    icon: Search,
     title: 'Backlink Prospecting & Competitor Link Gap Analysis',
-    description: 'Internal linking helps search engines understand the relationships between pages. We build contextual links that pass relevance and authority where they matter.',
-    micro: 'We start by understanding where your website stands and where relevant opportunities already exist. This is the research layer that keeps outreach from becoming guesswork.',
+    description:
+      'We start by understanding where your website stands and where relevant opportunities already exist. We review your current backlink profile and compare it with competitors that are genuinely relevant to your market. The purpose is not to copy every link they have. Instead, we identify patterns and opportunities that may make sense for your business.',
     bullets: [
-      'Relevant referring domains that already cite your space',
-      'Competitor link sources you have not yet pursued',
+      'Relevant referring domains',
+      'Competitor link sources',
       'Links pointing to competitor content but not yours',
-      'Industry publications and resource pages worth targeting',
-      'Local and regional websites relevant to your audience',
-      'Publisher categories genuinely related to your market',
-      'Unlinked brand mentions that could become links',
-      'Broken or lost backlinks worth reclaiming',
+      'Industry publications and resource pages',
+      'Local and regional websites',
+      'Publisher categories worth pursuing',
+      'Unlinked brand mentions',
+      'Broken or lost backlink opportunities',
       'Content assets that could attract references',
     ],
+    footerNote:
+      'We separate realistic opportunities from low-value sources so outreach effort stays focused.',
   },
   {
+    icon: Users,
     title: 'Manual Outreach & Relationship Building',
-    description: 'Finding the right sites to pursue matters as much as the pitch itself. Good outreach begins before the first email is ever sent.',
-    micro: 'We research each publisher, understand what they cover, and write pitches that make sense to their editors rather than mail-merged templates.',
+    description:
+      'Good outreach begins before the first email. We research the publication, understand its audience, review its existing content, and identify a reason our contribution or resource would be relevant.',
     bullets: [
-      'Publication-specific research before contact',
-      'Personalized pitch development for each target',
-      'Relevant topic selection for every publisher',
+      'Publication-specific research',
+      'Personalized pitch development',
+      'Relevant topic selection',
       'Relationship-focused communication',
       'Follow-up without excessive messaging',
-      'Clear placement expectations from the start',
+      'Clear placement expectations',
       'Ongoing publisher relationships where appropriate',
     ],
+    footerNote:
+      'We do not rely on generic templates sent to hundreds of unrelated sites. The objective is to make outreach relevant enough that publishers have a genuine reason to consider it.',
   },
   {
+    icon: FileText,
     title: 'Guest Content & Editorial Placements',
-    description: 'Contributing genuinely useful content to sites your target audience already reads, not content built only to house a link.',
-    micro: 'We develop topics that fit each publication, write original articles, and place links contextually and naturally within them.',
+    description:
+      'Guest content can be useful when the publication, subject, audience, and contribution all make sense. We develop article ideas around the publisher’s readers rather than creating thin posts solely to insert links. Where content creation is part of the campaign, the article should have value even without considering the backlink.',
     bullets: [
-      'Topic research aligned with publisher and audience',
+      'Topic research',
       'Publisher-specific content ideas',
       'Editorial pitch development',
       'Original article writing',
       'Contextual link placement',
       'Natural anchor selection',
-      'Editorial revisions and approvals',
+      'Editorial revisions',
       'Final placement verification',
     ],
-    note: 'Google\u2019s spam policies discourage paid or manipulative guest-post links. We only pursue guest content that contributes real value to the target publication.',
+    footerNote:
+      'Google’s spam policies specifically address paid or manipulative guest-post links. Our approach prioritizes genuine editorial value and appropriate qualification where required.',
   },
   {
+    icon: Megaphone,
     title: 'Digital PR & Linkable Asset Promotion',
-    description: 'Pitching original research, data, or genuinely newsworthy content that earns coverage instead of requiring placement.',
-    micro: 'We build and promote the kinds of assets publishers naturally reference, turning owned research into earned links.',
+    description:
+      'Some of the strongest outreach opportunities begin with something worth talking about. Digital PR campaigns can promote original information, useful research, expert commentary, proprietary data, tools, visual resources, or other assets that publications naturally want to reference.',
     bullets: [
-      'Original research and industry statistics',
-      'Data studies and surveys',
-      'Expert insights and commentary',
-      'Useful guides and tools',
+      'Original research',
+      'Industry statistics',
+      'Data studies',
+      'Expert insights',
+      'Surveys',
+      'Expert-led guides',
+      'Useful tools or calculators',
       'Original visual resources',
       'Proprietary business findings',
     ],
+    footerNote:
+      'The campaign is built around the asset first. Outreach comes after we identify why that asset deserves attention, creating brand exposure beyond direct SEO value.',
   },
   {
+    icon: Link2,
     title: 'Broken Link Building & Link Reclamation',
-    description: 'Finding existing opportunities where a link to your content genuinely improves someone else\u2019s page, solving a publisher problem first.',
-    micro: 'We find dead links and outdated references, then show publishers how your resource improves their page \u2014 the referral earns itself.',
+    description:
+      'Broken link building finds relevant pages where an existing outbound link no longer works and where your content provides a useful replacement. Link reclamation recovers links or mentions that once existed but are no longer delivering their original value.',
     bullets: [
-      'Broken external link identification',
-      'Lost or removed backlink tracking',
+      'Broken external links on relevant pages',
+      'Lost backlinks',
       'Links pointing to outdated URLs',
       'Redirected or changed destinations',
       'Missing links from relevant brand mentions',
       'Older references that could be updated',
-      'Resource pages with outdated sources',
+      'Relevant resource pages with outdated sources',
     ],
+    footerNote:
+      'The opportunity is strongest when the replacement is genuinely useful to the publisher’s readers.',
   },
   {
+    icon: AtSign,
     title: 'Unlinked Brand Mention Outreach',
-    description: 'Finding relevant mentions of your brand across the web that do not yet link to your site, and turning them into references.',
-    micro: 'When a publisher already talks about your business, connecting that mention to the right page benefits both sides.',
+    description:
+      'Not every authority-building opportunity starts with a new piece of content. A publication may already mention your brand, product, founder, research, or business contribution without linking to your website.',
     bullets: [
-      'Relevant brand mentions without links',
-      'Publisher contact with clear context',
-      'Link addition where it genuinely improves the page',
-      'Placement verification after changes',
+      'Identification of unlinked brand mentions',
+      'Evaluation of link contextual relevance',
+      'Simple, polite publisher outreach requests',
+      'Conversion of mentions into source citations',
     ],
+    footerNote:
+      'This turns existing brand visibility into a potential link opportunity without forcing an unrelated placement.',
   },
   {
+    icon: MapPin,
     title: 'Local & Industry Citation Building',
-    description: 'The foundational authority that supports both rankings and trust, built through consistent, relevant listings.',
-    micro: 'We build citations in directories and industry sources that matter, not mass submissions to hundreds of low-quality ones.',
+    description:
+      'Relevant business directories and industry listings provide useful foundational references, especially for businesses that depend on local or sector-specific discovery. We focus on accuracy and relevance rather than mass submission.',
     bullets: [
       'Local business directory research',
-      'Industry-specific directory submissions',
+      'Industry-specific directories',
       'Organization and association listings',
-      'Consistent business profile details',
+      'Business profile consistency',
+      'NAP consistency checks',
       'Duplicate listing identification',
       'Relevant regional references',
     ],
+    footerNote:
+      'Citation work supports the foundation of a local presence, but is not treated as a replacement for broader authority-building work.',
   },
   {
+    icon: ShieldAlert,
     title: 'Backlink Monitoring & Risk Review',
-    description: 'Protecting the authority you have built and catching issues before they compound across your profile.',
-    micro: 'New links keep appearing whether you are actively building or not. We monitor the change and flag anything potentially harmful.',
+    description:
+      'Your backlink profile changes even when you are not actively building links. We monitor new and lost backlinks, review unusual patterns, and identify links that may require attention.',
     bullets: [
-      'New referring domain tracking',
-      'Lost or removed backlink detection',
-      'Linking page change monitoring',
-      'Anchor text pattern review',
+      'New referring domains',
+      'Lost backlinks',
+      'Linking page changes',
+      'Anchor text patterns',
       'Target pages receiving external links',
-      'Potentially manipulative pattern flags',
-      'Directive-level review for genuinely warranted disavow',
+      'Relevant versus unrelated domains',
+      'Potentially manipulative patterns',
+      'Links that may warrant further review',
     ],
+    footerNote:
+      'Google says most sites do not need the disavow tool. We only recommend disavow guidance where genuine artificial or spam patterns warrant it.',
   },
 ]
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Services explained"
-          title="Our Off-Page SEO & Link Building Services"
-        >
-          Authority gets built through several different channels, each with its own approach.
-          The right mix depends on your industry, existing reputation, content assets, and goals.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Outreach Methods &amp; Capabilities
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 xl:grid-cols-4">
-          {offerings.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-muted/10 md:p-8"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Service {String(index + 1).padStart(2, '0')}
-                  </span>
-                </div>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.micro}
-                </p>
-              </div>
-              {item.bullets?.length > 0 && (
-                <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {item.note && (
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                  {item.note}
-                </p>
-              )}
-            </div>
-          ))}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Our Off-Page SEO &amp;{' '}
+            <span className="italic text-frame-accent">Link Building Services</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            We combine several link acquisition methods because different businesses need different authority-building strategies. The exact mix depends on your industry, competitors, existing backlink profile, target market, content assets, and business goals.
+          </p>
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure which methods fit your business?
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              We review your industry, competitors, and profile first
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We recommend the off-page work most likely to move your business forward, then
-              confirm scope and pricing before any outreach begins.
-            </p>
-          </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Get a Custom Link Building Quote &rarr;</PosterButton>
-          </div>
+        {/* 8 Offerings Grid */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {offerings.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-frame-accent/15 text-frame-accent border border-frame-accent/30">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <span className="font-mono text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                        Method 0{index + 1}
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm sm:text-base text-zinc-300 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-6 space-y-2.5">
+                    <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                      Scope &amp; Coverage:
+                    </span>
+                    <ul className="space-y-2">
+                      {item.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-400">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {item.footerNote && (
+                  <div className="mt-6 pt-4 border-t border-white/[0.06] text-xs text-zinc-400 italic">
+                    {item.footerNote}
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

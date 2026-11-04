@@ -4,25 +4,25 @@ const markets = ['United States', 'United Kingdom', 'Australia', 'Canada', 'Unit
 
 export default function ServiceAreas() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Coverage" title="Service Areas">
           Framecipher provides case study writing services from Dhaka for businesses across Bangladesh and
           international clients in the US, UK, Australia, Canada, UAE, and other markets.
         </SectionIntro>
 
-        <ul className="mt-10 flex flex-wrap gap-2 border-t-2 border-frame-border pt-8">
+        <ul className="mt-10 flex flex-wrap gap-2 border-t border-white/[0.08] pt-8">
           {markets.map((market) => (
             <li
               key={market}
-              className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+              className="border border-white/[0.08] bg-[#121214] px-2.5 py-1 text-[11px] font-semibold text-[#FAFAFA]"
             >
               {market}
             </li>
           ))}
         </ul>
 
-        <div className="mt-10 space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="mt-10 space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
           <p>
             Our process can accommodate remote interviews, different time zones, and different communication
             preferences.
@@ -33,8 +33,8 @@ export default function ServiceAreas() {
           </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Interview scheduling and client communication norms vary by region, and coordination accounts for that
             instead of applying one market&rsquo;s process everywhere.
           </p>

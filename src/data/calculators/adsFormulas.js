@@ -47,7 +47,7 @@ export const ADS_FORMULAS_EXPLAINED = [
         'Conversions = 3,760 * 3.0% = 112.8 completed orders',
         'Gross Revenue = 112.8 * $110 = $12,408',
         'ROAS = $12,408 / $2,500 = 4.96x',
-        'Gross Profit = $12,408 * 40% margin - $2,500 ad spend = $4,963 - $2,500 = $2,463 Net Profit (98.5% ROI)',
+        'Gross Profit = $12,408 * 40% margin - $2,500 ad spend = $4,963 to $2,500 = $2,463 Net Profit (98.5% ROI)',
       ],
     },
   },

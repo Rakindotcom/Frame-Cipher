@@ -1,119 +1,145 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Search,
+  Filter,
+  ShieldCheck,
+  Rocket,
+  Gauge,
+  TrendingUp,
+  CheckCircle2,
+} from 'lucide-react'
 
 const steps = [
   {
+    step: '01',
+    icon: Search,
     title: 'Tracking & Data Audit',
-    body: 'We review the existing tracking and data infrastructure before building campaigns on top of it.',
-    items: [
-      'Pixels',
-      'Tags',
-      'Events',
-      'Server-side tracking',
-      'CRM data',
-      'Conversion signals',
-      'Audience lists',
-      'Exclusions',
+    desc: 'Auditing existing pixels, server-side Conversion APIs, tag health, CRM data hygiene, and active conversion events to identify tracking blind spots before building campaigns.',
+    deliverables: [
+      'Pixel and server-side tracking health diagnostic',
+      'Event payload and parameters verification (value, currency, IDs)',
+      'CRM contact list readiness and consent compliance review',
     ],
   },
   {
-    title: 'Segmentation Strategy',
-    body: 'We map the customer journey and define the audience structure before touching the ad account.',
-    items: [
-      'Audience stages',
-      'Recency windows',
-      'Conversion exclusions',
-      'Customer segments',
-      'Funnel movement',
-      'Messaging requirements',
+    step: '02',
+    icon: Filter,
+    title: 'Segmentation & Journey Mapping',
+    desc: 'Mapping customer buying cycles into distinct behavioral stages, defining recency tiers (1d, 7d, 14d, 30d, 90d), and designing audience flow rules.',
+    deliverables: [
+      'Customer buying cycle duration & velocity modeling',
+      'Recency window tiers and exclusion hierarchy blueprint',
+      'Cross-platform audience definition specifications',
     ],
   },
   {
-    title: 'Audience & Suppression Setup',
-    body: 'We build the required audiences and exclusion logic across the relevant platforms. The exact implementation depends on platform capabilities, traffic volume, consent requirements, and available data.',
-  },
-  {
-    title: 'Campaign & Creative Setup',
-    body: 'We build the campaigns, assign the appropriate audiences, prepare creative, configure available frequency controls, and establish the reporting framework.',
-  },
-  {
-    title: 'Launch & Exposure Tuning',
-    body: 'After launch, we monitor the evidence and adjust exposure and messaging based on it.',
-    label: 'After launch, we monitor',
-    items: [
-      'Audience size',
-      'Frequency',
-      'Creative response',
-      'Conversion rate',
-      'CPA',
-      'Revenue',
-      'Campaign overlap',
-      'Audience movement',
+    step: '03',
+    icon: ShieldCheck,
+    title: 'Audience & Suppression Build',
+    desc: 'Creating custom audiences, customer match lists, and negative exclusion logic across target ad platforms with automated refresh cycles.',
+    deliverables: [
+      'Custom audience generation across Google, Meta, TikTok, and Pinterest',
+      'Instant purchaser and converted lead negative exclusion lists',
+      'Audience overlap minimization and suppression verification',
     ],
   },
   {
-    title: 'Ongoing Optimization & Reporting',
-    body: 'Reporting is structured around meaningful audience and business segments rather than one blended remarketing number.',
-    label: 'We continuously review',
-    items: [
-      'Audience performance',
-      'Recency',
-      'Creative fatigue',
-      'Suppression',
-      'Budget allocation',
-      'Conversion quality',
-      'Cross-platform performance',
+    step: '04',
+    icon: Rocket,
+    title: 'Campaign Architecture & Creative Setup',
+    desc: 'Building multi-tier campaign structures, dynamic catalog ad feeds, sequential creative rotations, and frequency guardrails.',
+    deliverables: [
+      'Multi-tiered campaign build with dedicated budget caps',
+      'Dynamic product catalog ads configuration for ecommerce',
+      'Pre-launch quality assurance and attribution tracking check',
+    ],
+  },
+  {
+    step: '05',
+    icon: Gauge,
+    title: 'Launch & Exposure Calibration',
+    desc: 'Controlled campaign activation followed by immediate monitoring of audience size accumulation, impression frequency, and early CTR response.',
+    deliverables: [
+      'Daily frequency cap surveillance and exposure pacing',
+      'Audience accumulation velocity and match rate validation',
+      'Immediate budget reallocation to highest-converting tiers',
+    ],
+  },
+  {
+    step: '06',
+    icon: TrendingUp,
+    title: 'Ongoing Optimization & Executive Reporting',
+    desc: 'Systematic weekly creative fatigue monitoring, recency window adjustments, suppression hygiene, and executive business reporting.',
+    deliverables: [
+      'Weekly creative fatigue audits and visual variant refreshes',
+      'Audience-level CPA, ROAS, and conversion rate reporting',
+      'Incremental conversion lift and multi-touch attribution analysis',
     ],
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Process" title="Our Remarketing Process">
-          We apply the same structured method to every remarketing program, with the specific
-          implementation adapted to each business.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our Remarketing{' '}
+            <span className="italic text-frame-accent">Process.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            A disciplined, 6-stage engineering framework that transforms raw website traffic and CRM contacts into high-converting customer retention pipelines.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {steps.map((step, index) => (
-            <div key={step.title} className="border-2 border-frame-border bg-frame-bg p-8 md:p-12">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="font-heading text-3xl font-bold text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
+        <div className="space-y-4">
+          {steps.map((s) => {
+            const Icon = s.icon
+            return (
+              <div
+                key={s.step}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14]"
+              >
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8 items-start">
+                  <div className="lg:col-span-5 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm uppercase tracking-wider text-frame-accent font-bold">
+                        Stage {s.step}
+                      </span>
+                      <div className="h-px flex-1 bg-white/[0.08]" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-lg border border-white/[0.08] bg-white/[0.03] flex items-center justify-center text-frame-accent">
+                        <Icon className="h-4.5 w-4.5" />
+                      </div>
+                      <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                        {s.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                      {s.desc}
+                    </p>
                   </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {step.body}
-                  </p>
-                </div>
 
-                {step.items && (
-                  <div className="lg:w-1/2">
-                    {step.label && (
-                      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                        {step.label}
-                      </p>
-                    )}
-                    <ul className="grid gap-3 md:grid-cols-2">
-                      {step.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                          <span>{item}</span>
-                        </li>
+                  <div className="lg:col-span-7 rounded-lg border border-white/[0.06] bg-black/40 p-5">
+                    <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-3">
+                      Key Deliverables &amp; Milestones:
+                    </p>
+                    <div className="space-y-2">
+                      {s.deliverables.map((d) => (
+                        <div key={d} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                          <span>{d}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

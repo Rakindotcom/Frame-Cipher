@@ -1,80 +1,68 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const phases = [
   {
     phase: 'Phase 1',
-    window: 'Weeks 1\u20132',
     title: 'Discovery & Readiness',
-    body: 'We review your goals, offer, target markets, landing pages, and measurement setup. We also confirm that the advertiser setup and market are eligible for ChatGPT Ads before committing budget or time.',
-    bullets: ['Confirmation of eligibility', 'Campaign scope confirmed', 'Measurement plan defined'],
+    body: 'Business, market, offer, tracking, and advertising assessment.',
   },
   {
     phase: 'Phase 2',
-    window: 'Weeks 2\u20133',
     title: 'Campaign Preparation',
-    body: 'Tracking, creative, and structure are prepared before launch. Conversion events are planned, campaign settings are organized, and everything is documented so the campaign is ready to launch cleanly.',
-    bullets: ['Tracking setup', 'Creative and context development', 'Campaign structured and documented'],
+    body: 'Account structure, ad groups, context hints, creative, landing-page alignment, and conversion setup.',
   },
   {
     phase: 'Phase 3',
-    window: 'Weeks 3\u20134',
     title: 'Launch & Initial Learning',
-    body: 'The campaign launches in a structured way. We monitor early delivery for tracking or delivery problems and collect the initial data needed before drawing conclusions.',
-    bullets: ['Campaign live and verified', 'Initial data collection', 'Early issue detection'],
+    body: 'Campaign launch, monitoring, and early data collection.',
   },
   {
     phase: 'Phase 4',
-    window: 'Weeks 4+',
     title: 'Optimization',
-    body: 'Ongoing refinement of context, creative, and budgets is guided by data. A testing roadmap is maintained and performance reporting connects results back to the original business objectives.',
-    bullets: ['Ongoing optimization', 'Creative and context testing', 'Performance reporting cadence established'],
+    body: 'Creative testing, context refinement, budget management, conversion optimization, and reporting.',
   },
 ]
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="How planning unfolds"
-          title="Timeline & Engagement"
-        >
-          ChatGPT Ads generally move through four phases, from discovery to ongoing optimization.
-          Timelines depend on advertiser eligibility, campaign scope, and the data needed to make
-          decisions.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            Timeline &amp;{' '}
+            <span className="italic text-frame-accent">Engagement.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            ChatGPT Ads campaign timelines depend on account eligibility, tracking requirements, creative production, campaign complexity, and current platform requirements.
+          </p>
+        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {phases.map((phase, index) => (
-            <div key={index} className="flex flex-col border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                {phase.phase} <span className="text-frame-muted-fg">/ {phase.window}</span>
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {phase.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {phase.body}
-              </p>
-              {phase.bullets?.length > 0 && (
-                <ul className="mt-4 border-t border-frame-border/60 pt-4 space-y-2 text-xs font-semibold text-frame-fg/90">
-                  {phase.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+        {/* 4-Phase Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {phases.map((item, index) => (
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+            >
+              <div className="space-y-3">
+                <h3 className="font-heading text-lg font-medium text-white group-hover:text-frame-accent transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                  {item.body}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            Engagements generally begin with a readiness assessment so neither budget nor time is
-            committed to a channel the advertiser cannot currently use. Where eligibility is
-            already confirmed, we move directly into campaign preparation.
+        {/* Footnote Context */}
+        <div className="mt-8 border-l-2 border-frame-accent bg-frame-accent/10 p-5 rounded-r-lg">
+          <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+            Simple campaigns may move through these stages faster. International, ecommerce, multi-market, or advanced tracking projects may require additional preparation. We provide the expected timeline after reviewing the actual campaign requirements.
           </p>
         </div>
       </div>

@@ -1,8 +1,9 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const coreServices = [
   {
-    tag: 'Service 01',
+    tag: '01',
     title: 'Webflow CMS & Component Architecture',
     subtitle: 'Every Webflow build starts with a content model that makes future updates easier rather than more fragile.',
     description: 'We structure the CMS and reusable components around how your team will actually create, manage, and reuse content after launch.',
@@ -21,9 +22,9 @@ const coreServices = [
     note: 'The goal is a CMS that your marketing team can understand and use without needing to understand the underlying development.',
   },
   {
-    tag: 'Service 02',
+    tag: '02',
     title: 'Custom Design & Interactions',
-    subtitle: 'We use Webflow\'s visual development environment to create interfaces that match the approved design while remaining practical to maintain.',
+    subtitle: "We use Webflow's visual development environment to create interfaces that match the approved design while remaining practical to maintain.",
     description: 'Webflow interactions are powerful, but animation should support the user experience rather than become the reason a page feels slow or distracting.',
     bullets: [
       'Pixel-accurate Webflow development',
@@ -39,7 +40,7 @@ const coreServices = [
     note: 'Where native Webflow interactions are not enough, advanced animation libraries or custom code can be considered based on the project requirements.',
   },
   {
-    tag: 'Service 03',
+    tag: '03',
     title: 'Figma to Webflow Development',
     subtitle: 'When the visual design already exists in Figma, we translate the approved design into a responsive Webflow implementation rather than rebuilding the design as a generic template.',
     description: 'Our Figma-to-Webflow workflow bridges pixel precision with robust responsive code:',
@@ -58,7 +59,7 @@ const coreServices = [
     note: 'We also review the design before development to identify interactions, responsive states, CMS requirements, and reusable components that need to be planned differently for Webflow.',
   },
   {
-    tag: 'Service 04',
+    tag: '04',
     title: 'Webflow Apps, APIs & Integrations',
     subtitle: 'Webflow can handle many website requirements natively, while apps, integrations, APIs, and custom code can extend the platform when a project needs additional functionality.',
     description: 'Custom code is used only when it solves a genuine requirement to keep the project maintainable.',
@@ -80,7 +81,7 @@ const coreServices = [
     note: 'Custom code is used only when it solves a genuine requirement. The goal is to keep the Webflow project understandable and maintainable rather than turning every feature into a custom workaround.',
   },
   {
-    tag: 'Service 05',
+    tag: '05',
     title: 'Webflow Migration & Replatforming',
     subtitle: 'Moving an existing website to Webflow requires more than rebuilding the visual design.',
     description: 'We plan migrations around the content, URLs, SEO signals, functionality, and publishing workflow that need to survive the move.',
@@ -103,7 +104,7 @@ const coreServices = [
     note: 'We treat migration as both a development project and an SEO preservation project.',
   },
   {
-    tag: 'Service 06',
+    tag: '06',
     title: 'Webflow Localization & Multilingual Websites',
     subtitle: 'Webflow can support websites serving different languages or regional audiences through localized content and publishing workflows.',
     description: 'We structure localization around the actual markets and languages a business needs rather than simply duplicating every page.',
@@ -122,7 +123,7 @@ const coreServices = [
     note: 'We structure localization around the actual markets and languages a business needs rather than simply duplicating every page.',
   },
   {
-    tag: 'Service 07',
+    tag: '07',
     title: 'Webflow Ecommerce Development',
     subtitle: 'For brands that need a design-focused storefront with a suitable product catalog, we can build ecommerce experiences within Webflow.',
     description: 'Depending on the project, our Webflow ecommerce setup includes:',
@@ -141,7 +142,7 @@ const coreServices = [
     note: 'For larger catalogs, complex inventory, or advanced ecommerce operations, we may recommend Shopify, WooCommerce, Magento, or another platform when those systems are a better fit.',
   },
   {
-    tag: 'Service 08',
+    tag: '08',
     title: 'Performance & SEO Setup',
     subtitle: 'Making sure a visually rich site still loads efficiently and provides a strong technical foundation for search.',
     description: 'Design-heavy sites can become slow when animations, images, fonts, and third-party scripts are not managed carefully.',
@@ -164,9 +165,9 @@ const coreServices = [
     note: 'Design-heavy sites can become slow when animations, images, fonts, and third-party scripts are not managed carefully. We treat performance and SEO as part of the build rather than an afterthought.',
   },
   {
-    tag: 'Service 09',
+    tag: '09',
     title: 'Ongoing Support & Maintenance',
-    subtitle: 'A Webflow site\'s work does not end at launch. CMS content grows, design requirements change, and connected services occasionally need attention.',
+    subtitle: "A Webflow site's work does not end at launch. CMS content grows, design requirements change, and connected services occasionally need attention.",
     description: 'We keep your Webflow ecosystem pristine, secure, and technologically up-to-date:',
     bullets: [
       'CMS content support',
@@ -187,46 +188,56 @@ const coreServices = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Core Capabilities" title="Our Webflow Development Services" index="08">
-          We provide end-to-end Webflow development for businesses that need design precision, structured content, and a manageable publishing workflow.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Heading: STRICTLY LEFT-ALIGNED */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Our Webflow Development{' '}
+            <span className="italic text-frame-accent">Services.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            We provide end-to-end Webflow development for businesses that need design precision, structured content, and a manageable publishing workflow.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* 9 Core Service Cards */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {coreServices.map((service, index) => (
             <article
               key={index}
-              className="group flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30"
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
                   {service.tag}
                 </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-frame-accent">
+                <p className="mt-2 font-mono text-xs uppercase tracking-wider text-frame-accent">
                   {service.subtitle}
                 </p>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
                   {service.description}
                 </p>
 
                 {service.supportedSources && (
-                  <p className="mt-3 text-xs font-semibold text-frame-fg/80 border-l-2 border-frame-accent pl-3 py-1">
+                  <p className="mt-3 text-xs font-normal text-zinc-300 border-l-2 border-purple-500/60 pl-3 py-1">
                     {service.supportedSources}
                   </p>
                 )}
 
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-6">
-                  <p className="text-xs font-black uppercase tracking-wider text-frame-accent mb-3">
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <p className="font-mono text-xs uppercase tracking-wider text-frame-accent mb-3">
                     What We Do
                   </p>
-                  <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-frame-fg/90">
+                  <ul className="space-y-2.5 text-xs sm:text-sm font-normal text-zinc-300">
                     {service.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2.5">
-                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent mt-0.5">
+                          <Check className="h-3 w-3 stroke-[2.5]" />
+                        </span>
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -234,7 +245,7 @@ export default function Offerings() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t-2 border-frame-border/60 pt-5 text-xs font-medium italic text-frame-muted-fg leading-relaxed">
+              <div className="mt-6 border-t border-white/[0.08] pt-4 text-xs font-normal italic text-zinc-500 leading-relaxed">
                 {service.note}
               </div>
             </article>

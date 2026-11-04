@@ -31,17 +31,17 @@ export default function Hero({ service }) {
   const subtitle = service?.shortDesc || "Some ideas cannot be filmed. A software workflow, data trend, product interface, abstract concept, or internal process may have no physical scene for a camera to capture. That is where motion graphics and animation become useful."
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="bg-[#09090B] text-[#FAFAFA]">
       {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
+      <nav aria-label="Breadcrumb" className="border-b border-white/[0.06] bg-[#09090B]/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA] md:px-8">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
+          <Link href="/" className="transition hover:text-[#FAFAFA]">Home</Link>
           <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
+          <Link href="/services" className="transition hover:text-[#FAFAFA]">Services</Link>
           <span>/</span>
-          <Link href="/services/content-creation" className="transition hover:text-frame-fg">Content Creation</Link>
+          <Link href="/services/content-creation" className="transition hover:text-[#FAFAFA]">Content Creation</Link>
           <span>/</span>
-          <span className="text-frame-accent">Motion Graphics & Animation</span>
+          <span className="text-[#A855F7]">Motion Graphics & Animation</span>
         </div>
       </nav>
 
@@ -63,43 +63,43 @@ export default function Hero({ service }) {
         }
       >
         {subtitle}
-        <span className="mt-4 block text-xs md:text-sm font-normal text-frame-muted-fg leading-relaxed wide:text-lg">
+        <span className="mt-4 block text-xs md:text-sm font-normal text-[#A1A1AA] leading-relaxed wide:text-lg">
           Framecipher creates motion graphics and animation that turn complex ideas into clear visual stories. We produce explainers, kinetic typography, animated brand assets, data visualizations, product and UI animation, social content, and 2D/3D animation for businesses in Bangladesh and international markets.
         </span>
       </PageHero>
 
       {/* VALUE PROPOSITION SECTION */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-[95vw]">
+      <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-4xl text-center">
-            <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent mb-4">
+            <p className="text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7] mb-4">
               Motion With Purpose
             </p>
-            <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium font-medium leading-[0.96] tracking-[-0.03em] text-[#FAFAFA]">
               Motion Graphics Built to Explain, Demonstrate & Move Ideas
             </h2>
-            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg"><AutoLinks currentPath="/services/content-creation/motion-graphics-animation" allowed={["/services/content-creation/graphic-design"]}>
+            <p className="mx-auto mt-6 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-[#A1A1AA] wide:text-lg"><AutoLinks currentPath="/services/content-creation/motion-graphics-animation" allowed={["/services/content-creation/graphic-design"]}>
               Motion graphics combines graphic design, typography, illustration, visual elements, timing, movement, and sound to communicate something through motion. The goal is not simply to make a graphic move. The goal is to help the audience understand, remember, or act on a message.
             </AutoLinks></p>
           </div>
 
           {/* 4 PILLARS GRID */}
-          <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
             {coreCapabilities.map((item) => (
-              <div key={item.num} className="bg-frame-bg p-6 flex flex-col justify-between">
+              <div key={item.num} className="bg-[#09090B] p-6 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-black text-frame-accent">
+                    <span className="font-mono text-xs font-black text-[#A855F7]">
                       {item.num}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                       Core Domain
                     </span>
                   </div>
-                  <h3 className="mt-4 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+                  <h3 className="mt-4 font-heading text-base md:text-lg font-bold tracking-tight text-[#FAFAFA]">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                     {item.desc}
                   </p>
                 </div>
@@ -107,12 +107,12 @@ export default function Hero({ service }) {
             ))}
           </div>
 
-          <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center justify-between gap-4 border-2 border-frame-accent/40 bg-frame-bg p-6 sm:flex-row text-center sm:text-left">
+          <div className="mx-auto mt-10 flex max-w-4xl flex-col items-center justify-between gap-4 border-2 border-[#A855F7]/30 bg-[#09090B] p-6 sm:flex-row text-center sm:text-left">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
                 Visual Problem Solving
               </span>
-              <p className="mt-1 text-xs sm:text-sm font-medium text-frame-fg">
+              <p className="mt-1 text-xs sm:text-sm font-medium text-[#FAFAFA]">
                 We start with what your audience needs to understand, then choose the visual style, pacing, and format around that objective.
               </p>
             </div>

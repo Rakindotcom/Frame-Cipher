@@ -12,7 +12,7 @@ function PrimaryLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-violet-500 px-6 text-sm font-bold text-white shadow-[0_14px_45px_rgba(139,92,246,0.28)] transition hover:-translate-y-0.5 hover:bg-violet-400"
+      className="sw-btn sw-btn-primary"
     >
       {children}<ArrowIcon />
     </Link>
@@ -22,15 +22,15 @@ function PrimaryLink({ href, children }) {
 export default function ServiceExperienceCTA({ serviceName, primaryCta }) {
   return (
     <section className="px-5 py-20 sm:px-8 md:py-28">
-      <div className="mx-auto max-w-7xl overflow-hidden rounded-[2rem] border border-violet-400/25 bg-[radial-gradient(circle_at_85%_10%,rgba(167,139,250,.24),transparent_35%),#18131f] p-8 md:p-14">
-        <p className="text-xs font-bold uppercase tracking-[0.22em] text-violet-300">Start a conversation</p>
+      <div className="fc-laser-card mx-auto max-w-7xl overflow-hidden rounded-2xl p-8 md:p-14">
+
         <div className="mt-4 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <h2 className="max-w-4xl font-heading text-3xl font-semibold leading-tight tracking-tight text-white md:text-5xl">
               Ready to move your {serviceName.toLowerCase()} project forward?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-zinc-300">
-              Tell us what you are trying to achieve. We will review the scope and recommend a practical next step without sales pressure, or explore our verified <Link href="/case-studies" className="text-white underline decoration-violet-400 hover:text-violet-300 transition-colors">case studies</Link> to see documented results.
+              Tell us what you are trying to achieve. We will review the scope and recommend a practical next step without sales pressure, or explore our verified <Link href="/case-studies" className="text-white underline decoration-[#A855F7] hover:text-[#C084FC] transition-colors">case studies</Link> to see documented results.
             </p>
           </div>
           <PrimaryLink href="/contact">{primaryCta || 'Request a consultation'}</PrimaryLink>

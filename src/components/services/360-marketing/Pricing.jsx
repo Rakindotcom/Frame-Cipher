@@ -57,56 +57,62 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Engagement Models"
-          title="Predictable, Transparent Collaboration Tiers."
+          title={
+            <>
+              Predictable, Transparent{' '}
+              <span className="italic text-frame-accent">Collaboration Tiers.</span>
+            </>
+          }
         >
           No surprise bills, no bloated markups, and no hourly nickel-and-diming. Choose the partnership
           model that matches your growth ambitions.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px lg:grid-cols-3">
-          {tiers.map((tier) => (
+        <div className="grid gap-6 lg:grid-cols-3">
+          {tiers.map((tier, idx) => (
             <article
               key={tier.name}
-              className={`flex flex-col justify-between bg-frame-bg p-7 md:p-10 transition-colors duration-300 ${
-                tier.popular ? 'bg-neutral-900/90 border-2 border-frame-accent relative' : 'hover:bg-neutral-900/40'
+              className={`flex flex-col justify-between rounded-xl border p-7 md:p-9 transition-colors duration-300 ${
+                tier.popular
+                  ? 'border-frame-accent/40 bg-[#121214]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
-                    {tier.eyebrow}
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    0{idx + 1} &middot; {tier.eyebrow}
                   </span>
                   <span
-                    className={`inline-block px-2.5 py-1 text-[11px] font-black uppercase tracking-wider ${
+                    className={`inline-block rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wider ${
                       tier.popular
-                        ? 'bg-frame-accent text-frame-accent-fg'
-                        : 'border border-frame-border text-frame-muted-fg'
+                        ? 'bg-frame-accent text-white font-medium'
+                        : 'border border-white/[0.12] bg-[#18181B] text-zinc-400'
                     }`}
                   >
                     {tier.badge}
                   </span>
                 </div>
 
-                <h3 className="mt-5 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium leading-tight tracking-tight text-white">
                   {tier.name}
                 </h3>
 
-                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {tier.description}
                 </p>
 
-                <div className="mt-8 border-t border-frame-border/60 pt-6">
-                  <p className="text-xs font-bold uppercase tracking-wider text-frame-fg mb-4">
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-4">
                     What Is Included:
                   </p>
                   <ul className="space-y-3">
                     {tier.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                        <span className="text-frame-accent font-bold mt-0.5">✓</span>
+                      <li key={f} className="flex items-start gap-2.5 text-xs sm:text-sm font-normal text-zinc-300">
+                        <span className="text-emerald-400 font-bold mt-0.5">✓</span>
                         <span>{f}</span>
                       </li>
                     ))}
@@ -114,7 +120,7 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <div className="mt-10 border-t border-frame-border/60 pt-6">
+              <div className="mt-8 border-t border-white/[0.08] pt-6">
                 <PosterButton
                   href="/contact"
                   variant={tier.popular ? 'accent' : 'outline'}

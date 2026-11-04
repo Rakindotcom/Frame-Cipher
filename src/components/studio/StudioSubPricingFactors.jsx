@@ -18,7 +18,7 @@ function SubPackageTiers({ service }) {
                 <span className="border border-frame-accent bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-frame-accent-fg">Recommended</span>
               )}
             </div>
-            <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">{pkg.name}</h3>
+            <h3 className="mt-4 font-heading text-2xl font-medium tracking-tight text-frame-fg">{pkg.name}</h3>
             <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg">{pkg.description}</p>
             <div className="mt-6 border-b-2 border-frame-border/60 pb-6">
               <span className="font-heading text-3xl font-bold text-frame-fg md:text-4xl">{pkg.price}</span>
@@ -57,7 +57,7 @@ function SubPricingFactors({ service }) {
       {factors.map((factor, i) => (
         <div key={i} className="border-2 border-frame-border bg-frame-muted/15 p-6 md:p-8">
           <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">FACTOR 0{i + 1}</span>
-          <h3 className="mt-3 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">
+          <h3 className="mt-3 font-heading text-lg font-medium tracking-tight text-frame-fg md:text-xl">
             {typeof factor === 'string' ? factor : factor.title}
           </h3>
           {typeof factor === 'object' && factor.desc && (
@@ -75,7 +75,7 @@ function SubPricingTerms() {
       <div className="flex items-start gap-4 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
         <Clock className="mt-1 h-6 w-6 shrink-0 text-frame-accent" />
         <div>
-          <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg md:text-lg">Turnaround & Production Timelines</h4>
+          <h4 className="font-heading text-base font-medium tracking-tight text-frame-fg md:text-lg">Turnaround & Production Timelines</h4>
           <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Raw studio captures are available within 24 hours. Full post-production edits are typically completed within
             3 to 7 business days, with express same-day turnaround available on request.
@@ -85,7 +85,7 @@ function SubPricingTerms() {
       <div className="flex items-start gap-4 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
         <RefreshCw className="mt-1 h-6 w-6 shrink-0 text-frame-accent" />
         <div>
-          <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg md:text-lg">Structured Revision Policy</h4>
+          <h4 className="font-heading text-base font-medium tracking-tight text-frame-fg md:text-lg">Structured Revision Policy</h4>
           <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
             Every editing quote includes 2 structured revision rounds covering cuts, pacing, subtitles, color, and
             audio balance. Substantial brief changes or reshoots are quoted transparently.
@@ -99,9 +99,9 @@ function SubPricingTerms() {
 export default function StudioSubPricingFactors({ service }) {
   return (
     <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Investment structure" title="Packages, rates & scope factors." index="05">
-          Fixed-scope BDT packages with itemised crew, studio time and deliverables — quoted in writing within 48
+          Fixed-scope BDT packages with itemised crew, studio time and deliverables, quoted in writing within 48
           hours. Below: what each tier includes and what moves a quote.
         </SectionIntro>
         <SubPackageTiers service={service} />

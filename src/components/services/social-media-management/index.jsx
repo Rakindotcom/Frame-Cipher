@@ -1,5 +1,11 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
+import CaseStudies from './CaseStudies'
+import ServiceSubServices from '../ServiceSubServices'
+import VideoPortfolioPreview from '../../projects/VideoPortfolioPreview'
 import Offerings from './Offerings'
 import Platforms from './Platforms'
 import ContentStrategy from './ContentStrategy'
@@ -16,8 +22,6 @@ import FAQ from './FAQ'
 import GettingStarted from './GettingStarted'
 import CTA from './CTA'
 import { TypeMarquee } from '../../Kinetic'
-import VideoPortfolioPreview from '../../projects/VideoPortfolioPreview'
-import ServiceSubServices from '../ServiceSubServices'
 
 const marqueeItems = [
   'Social Media Strategy',
@@ -32,19 +36,20 @@ const marqueeItems = [
 
 export default function SocialMediaManagementService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen selection:bg-frame-accent selection:text-black">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
+      <Overview />
+      <ServiceSubServices service={service} />
+      <CaseStudies />
       <VideoPortfolioPreview
         category="short"
         eyebrow="Social Content Work"
         title="Social Media Content Portfolio"
         description="Vertical reels, shorts, and platform-native edits produced consistently for brands, creators, and campaigns."
-        buttonText="Explore Social Content →"
+        buttonText="Explore Social Content"
         buttonHref="/projects#short-video-work"
       />
-      <Overview />
-      <ServiceSubServices service={service} />
       <Offerings />
       <Platforms />
       <ContentStrategy />

@@ -1,6 +1,5 @@
-
+import React from 'react'
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
 
 const marketBlocks = [
   {
@@ -19,30 +18,36 @@ const marketBlocks = [
 
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Markets we serve" title="Bangladesh & International Markets">
-          Recovery work should reflect where the site actually operates. We investigate manual
-          actions, traffic drops, and technical problems for both Bangladeshi and international
-          websites.
-        </SectionIntro>
-
-        <div className="grid gap-6 lg:grid-cols-2">
+    <section className="border-t border-b border-white/[0.08] bg-[#09090B]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 divide-y divide-white/[0.08] lg:grid-cols-2 lg:divide-y-0 lg:divide-x divide-white/[0.08]">
           {marketBlocks.map((item, index) => (
-            <div key={item.title} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Market 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/penalty-recovery" allowed={["/services/website-design-development/ecommerce-website"]}>
-                {item.body}
-              </AutoLinks></p>
-              <p className="mt-5 border-l-2 border-frame-accent p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.closing}
-              </p>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
+            <div
+              key={item.title}
+              className="group relative flex flex-col justify-between p-8 sm:p-12 transition-colors duration-300 hover:bg-[#121214]"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                    Market // 0{index + 1}
+                  </span>
+                  <span className="h-2 w-2 rounded-full bg-white/10 transition-colors duration-300 group-hover:bg-frame-accent" />
+                </div>
+
+                <h3 className="text-2xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
+                  <AutoLinks currentPath="/services/seo/penalty-recovery" allowed={['/services/website-design-development/ecommerce-website']}>
+                    {item.body}
+                  </AutoLinks>
+                </p>
+
+                <p className="mt-4 border-l-2 border-frame-accent pl-4 text-xs leading-relaxed text-zinc-400">
+                  {item.closing}
+                </p>
+              </div>
             </div>
           ))}
         </div>

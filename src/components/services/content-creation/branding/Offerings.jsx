@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -84,8 +84,8 @@ const offerings = [
 
 export default function Offerings({ service }) {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Comprehensive Architecture"
           title="What Our Branding Services Include"
@@ -97,40 +97,40 @@ export default function Offerings({ service }) {
           {offerings.map((item, idx) => (
             <div
               key={idx}
-              className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+              className={`border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col justify-between ${
                 idx === 4 ? 'lg:col-span-2' : ''
               }`}
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     PILLAR 0{item.num}
                   </span>
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     Core Discipline
                   </span>
                 </div>
 
-                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
 
-                <div className="mt-4 border-l-2 border-frame-accent/40 pl-3">
-                  <span className="text-[10px] font-black uppercase tracking-wider text-frame-muted-fg">
+                <div className="mt-4 border-l-2 border-[#A855F7]/30 pl-3">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-[#A1A1AA]">
                     Best For:
                   </span>
-                  <p className="text-xs font-semibold text-frame-fg mt-0.5">
+                  <p className="text-xs font-semibold text-[#FAFAFA] mt-0.5">
                     {item.bestFor}
                   </p>
                 </div>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
                   <ul className="space-y-2">
                     {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90">
+                      <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-zinc-200">
                         <CheckIcon />
                         <span>{bullet}</span>
                       </li>
@@ -140,10 +140,10 @@ export default function Offerings({ service }) {
               </div>
 
               {item.action && (
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
                   <Link
                     href={item.action.href}
-                    className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-frame-accent hover:underline"
+                    className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#A855F7] hover:underline"
                   >
                     <span>{item.action.text}</span>
                     <span>&rarr;</span>

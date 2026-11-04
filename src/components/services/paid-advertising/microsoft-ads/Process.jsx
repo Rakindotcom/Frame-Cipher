@@ -1,61 +1,80 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Search, Calendar, ArrowRightLeft, Activity, Rocket, Sliders } from 'lucide-react'
 
 const steps = [
   {
+    num: '01',
+    icon: Search,
     title: 'Audit & Opportunity Assessment',
-    body: 'We begin by reviewing your business, market, current advertising activity, search demand, website or ecommerce setup, tracking, and conversion goals. If you already use Google Ads, we also assess which campaigns are worth importing and which should be rebuilt or excluded.',
+    desc: 'Reviewing your business offer, target search volume on Bing, existing Google Ads account structures, competitor landscape, and conversion goals to validate channel viability.',
   },
   {
+    num: '02',
+    icon: Calendar,
     title: 'Strategy & Campaign Planning',
-    body: 'We define campaign objectives, market and location targeting, keyword structure, audience strategy, budget allocation, conversion goals, network settings, measurement requirements, and the reporting framework.',
+    desc: 'Defining campaign objectives, geographic locations, commercial keyword tiers, LinkedIn profile audience layers, budget pacing, and conversion goal blueprints.',
   },
   {
-    title: 'Setup or Migration',
-    body: 'We either build the account from the ground up or use Microsoft\u2019s Google Ads import workflow as a starting point. Imported campaigns are reviewed before launch.',
+    num: '03',
+    icon: ArrowRightLeft,
+    title: 'Setup or Deliberate Migration',
+    desc: 'Building fresh campaign architectures or executing a structured Google Ads import—followed by rigorous keyword cleanup, bid recalibration, and network setting audits.',
   },
   {
-    title: 'Tracking & QA',
-    body: 'Before launch, we verify UET, conversion goals, event tracking, URLs, ad assets, product feeds where applicable, audience settings, campaign budgets, and network settings.',
+    num: '04',
+    icon: Activity,
+    title: 'Tracking & UET Quality Assurance',
+    desc: 'Installing and validating UET tags, enhanced conversion parameters, conversion goals, Merchant Center feeds, and destination URL tracking prior to launch.',
   },
   {
+    num: '05',
+    icon: Rocket,
     title: 'Launch & Early Optimization',
-    body: 'We launch the agreed campaign structure and monitor early delivery closely. Early data is used to identify search-term patterns, conversion issues, audience opportunities, traffic-quality concerns, budget inefficiencies, and creative or landing-page problems.',
+    desc: 'Deploying campaigns under controlled bidding. Monitoring early search-term reports, impression shares, and click-through rates to eliminate irrelevant queries immediately.',
   },
   {
+    num: '06',
+    icon: Sliders,
     title: 'Ongoing Management & Scaling',
-    body: 'Once the account produces reliable signals, we optimize budgets, bids, audiences, keywords, search terms, assets, and campaign structure based on evidence. Scaling is based on repeatable performance rather than simply increasing spend.',
+    desc: 'Continuous search-term pruning, audience bid adjustments, AI Max evaluation, Merchant Center feed optimization, and transparent weekly reporting.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Process" title="Our Microsoft Ads Management Process">
-          A structured path from audit to ongoing management, with every stage tied to the actual
-          business objective.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our Microsoft Ads Management{' '}
+            <span className="italic text-frame-accent">Process.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            From search demand validation and clean account migration to rigorous UET tracking verification and ongoing ROAS scaling.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 flex items-center gap-4">
-                <span className="font-heading text-4xl font-bold text-frame-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <div className="h-1.5 flex-1 bg-frame-accent" />
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step) => {
+            const Icon = step.icon
+            return (
+              <div
+                key={step.num}
+                className="flex flex-col justify-between bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white mb-2.5">
+                    {step.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
               </div>
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {step.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {step.body}
-              </p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

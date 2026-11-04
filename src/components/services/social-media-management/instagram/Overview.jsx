@@ -1,5 +1,9 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { Check, ArrowRight } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const objectives = [
   'Increase brand visibility and content discovery',
@@ -14,92 +18,120 @@ const objectives = [
 ]
 
 const approach = [
-  'Instagram strategy and audience research',
-  'Competitor and content-gap analysis',
-  'Profile optimization and Instagram SEO',
+  'Instagram strategy, audience & competitor research',
+  'Profile optimization & Instagram SEO',
   'Multi-format content strategy',
-  'Reels concept, production, and optimization',
-  'Feed posts and Carousels',
-  'Stories and Highlight organization',
-  'Community, comment, and DM management',
-  'UGC and creator collaboration management',
-  'Ecommerce and product content',
-  'Publishing and content calendar management',
-  'Performance tracking and optimization',
+  'Reels strategy, production & optimization',
+  'Feed, Carousel & visual branded assets',
+  'Stories & Highlights management',
+  'Community & direct message (DM) management',
+  'UGC, creator & collaboration management',
+  'Instagram ecommerce & product content',
+  'Publishing & content calendar management',
+  'Performance tracking & monthly optimization',
 ]
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Strategic approach"
-          title="Instagram Management Built Around Your Business Goals"
-        >
-          Your Instagram account should have a clear role in your customer journey. Framecipher
-          builds your Instagram management strategy around those objectives rather than applying the
-          same posting formula to every business.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               STRATEGIC ROLE · CUSTOMER JOURNEY 
+            </p>
+          </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Depending on your business, Instagram may need to
-            </span>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {objectives.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 border-2 border-frame-border bg-frame-muted/10 p-4 transition-colors hover:border-frame-accent"
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Instagram Management Built Around{' '}
+            <span className="italic text-[#A855F7]">Your Business Goals.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Your Instagram account should have a clear role in your customer journey. Framecipher builds your Instagram management strategy around defined business objectives rather than applying the same posting formula to every account.
+          </p>
+        </div>
+
+        {/* 2-Column Strategic Matrix Layout */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+          {/* Left Column: Depending on your business, Instagram may need to (7 cols) */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                Core Account Objectives
+              </span>
+              <span className="font-mono text-[11px] uppercase text-[#A855F7]">
+                09 Pillars
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+              {objectives.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-start gap-3 rounded-xl border border-white/[0.08] bg-[#121214] p-4 transition-colors duration-200 hover:border-white/[0.16]"
                 >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
+                  <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-[#A855F7]/30 bg-[#A855F7]/10 text-[#A855F7] mt-0.5">
+                    <Check className="h-3 w-3 stroke-[2.5]" />
                   </span>
-                  <span className="text-sm font-semibold leading-snug text-frame-fg">{item}</span>
-                </li>
+                  <span className="text-xs sm:text-sm font-medium leading-relaxed text-zinc-200">
+                    {item}
+                  </span>
+                </div>
               ))}
-            </ul>
+            </div>
 
-            <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6">
-              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                That means using the right format for the right objective instead of forcing every
-                idea into the same type of post. Our team connects strategy, content, Reels, profile
-                optimization, publishing, community management, and performance analysis, which gives
-                every part of your Instagram presence a defined purpose.
+            {/* Strategic Differentiation Callout */}
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-2">
+              <p className="font-mono text-[11px] uppercase tracking-wider text-[#A855F7]">
+                Purpose-Driven Architecture
+              </p>
+              <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                That means using the right format for the right objective instead of forcing every idea into the same type of post. Our team connects strategy, content, Reels, profile optimization, publishing, community management, and performance analysis, giving every piece of content a clear commercial function.
               </p>
             </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Our approach combines
-            </span>
-            <ul className="mt-5 space-y-2.5">
-              {approach.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                  <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                  <span>{item}</span>
+          {/* Right Column: Approach Overview Card (5 cols) */}
+          <div className="lg:col-span-5 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                Coordinated Management Scope
+              </span>
+              <span className="font-mono text-[11px] uppercase text-[#A855F7]">
+                In-House Team
+              </span>
+            </div>
+
+            <ul className="space-y-3">
+              {approach.map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7] shrink-0 mt-2" />
+                  <span className="leading-snug">{item}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-7 space-y-3">
-              <PosterButton href="/contact">Get Your Instagram Account Audited &rarr;</PosterButton>
-              <PosterButton href="/contact" variant="outline" className="w-full">
+            <div className="pt-2 flex flex-col gap-3">
+              <PosterButton href="/contact">
                 Discuss Your Instagram Strategy
               </PosterButton>
+              <PosterButton href="/contact" variant="outline">
+                Get Your Free Account Audit
+              </PosterButton>
             </div>
-            <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              Looking for the full service?{' '}
+
+            <p className="text-xs text-zinc-500 pt-2 border-t border-white/[0.06] flex items-center justify-between">
+              <span>Looking for broad social coverage?</span>
               <Link
                 href="/services/social-media-management"
-                className="font-bold text-frame-accent underline underline-offset-4 transition hover:text-frame-fg"
+                className="text-[#A855F7] hover:text-white transition-colors inline-flex items-center gap-1 font-mono uppercase text-[11px]"
               >
-                Social media management
-              </Link>{' '}
-              covers Instagram as part of a coordinated cross-platform presence.
+                <span>Full Social Suite</span>
+                <ArrowRight className="h-3 w-3" />
+              </Link>
             </p>
           </div>
         </div>

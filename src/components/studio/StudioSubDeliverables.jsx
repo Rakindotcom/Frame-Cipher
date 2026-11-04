@@ -15,7 +15,7 @@ function DeliverablesGrid({ deliverables }) {
               </span>
               <span className="font-mono text-xs font-bold text-frame-muted-fg">ITEM {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}</span>
             </div>
-            <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">
+            <h3 className="font-heading text-lg font-medium tracking-tight text-frame-fg md:text-xl">
               {typeof item === 'string' ? item : item.title}
             </h3>
             {typeof item === 'object' && item.desc && (
@@ -66,7 +66,7 @@ export default function StudioSubDeliverables({ service }) {
 
   return (
     <section className="border-b-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Final outputs" title="Confirmed deliverables & file formats." index="03">
           No ambiguous handoffs. Every deliverable is specified before production, color-calibrated, and exported per
           your target platforms.

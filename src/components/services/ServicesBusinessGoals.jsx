@@ -1,4 +1,5 @@
-import { SectionLabel, SectionIntro } from '../Kinetic'
+import Link from 'next/link'
+import { Check } from 'lucide-react'
 
 const goals = [
   {
@@ -35,53 +36,82 @@ const goals = [
 
 export default function ServicesBusinessGoals() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Business goals / pick your outcome"
-          title="Solutions built around what you want to achieve."
-          index="03"
-        >
-          Tell us your goal, and we&apos;ll line up the right mix of services, without forcing you to
-          buy everything at once.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-4xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Solutions built around what you want to{' '}
+            <span className="italic text-frame-accent">
+              achieve.
+            </span>
+          </h2>
+          <p className="mt-5 max-w-3xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            Tell us your goal, and we&apos;ll line up the right mix of services, without forcing you to
+            buy everything at once.
+          </p>
+        </div>
 
-        <div className="mt-14 grid gap-px overflow-hidden border border-frame-border bg-frame-border">
+        {/* Editorial Divided Rows (Modality 1) */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] divide-y divide-white/[0.08] overflow-hidden">
           {goals.map((goal) => (
             <article
               key={goal.number}
-              className="group grid gap-6 bg-frame-bg p-7 transition-colors duration-300 hover:bg-frame-accent md:grid-cols-[0.7fr_1.3fr] md:items-center md:p-9"
+              className="group grid gap-6 p-6 transition-colors duration-200 hover:bg-[#151518] sm:p-8 lg:grid-cols-[280px_1fr_auto] lg:items-center"
             >
-              <div className="flex items-start gap-5">
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/70 md:text-5xl">
-                  {goal.number}
+              {/* Column 1: Number & Title */}
+              <div className="flex items-start gap-4">
+                <span className="font-mono text-sm text-zinc-500 font-medium pt-1">
+                  /{goal.number}
                 </span>
                 <div>
-                  <h3 className="font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg md:text-3xl">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                     {goal.title}
                   </h3>
-                  <p className="mt-3 text-base font-medium leading-snug text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">
+                  <p className="mt-1.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                     {goal.description}
                   </p>
                 </div>
               </div>
 
-              <div className="flex flex-wrap content-center gap-2">
+              {/* Column 2: Service Tags with Checkbox Indicator */}
+              <div className="flex flex-wrap items-center gap-2">
                 {goal.services.map((service) => (
                   <span
                     key={service}
-                    className="border border-frame-border px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-frame-fg transition-colors duration-300 group-hover:border-frame-accent-fg/30 group-hover:text-frame-accent-fg"
+                    className="inline-flex items-center gap-1.5 rounded-md border border-white/[0.08] bg-[#18181B] px-3 py-1 font-mono text-xs text-zinc-300 transition-colors group-hover:border-white/[0.14]"
                   >
-                    {service}
+                    <Check className="h-3 w-3 text-emerald-400 shrink-0" />
+                    <span>{service}</span>
                   </span>
                 ))}
+              </div>
+
+              {/* Column 3: Subtle Action Arrow */}
+              <div className="hidden lg:flex items-center justify-end">
+                <span
+                  aria-hidden="true"
+                  className="font-mono text-sm text-zinc-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white"
+                >
+                  &rarr;
+                </span>
               </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <SectionLabel>Not sure which goal fits first? Start with a strategy call.</SectionLabel>
+        {/* Bottom Helper Bar */}
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-white/[0.08] bg-[#121214] p-5 rounded-xl">
+          <p className="font-mono text-xs text-zinc-400">
+            Not sure which goal fits first? Start with a strategy call.
+          </p>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[1.1px] text-frame-accent hover:text-white transition-colors"
+          >
+            <span>Book Strategy Call</span>
+            <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>

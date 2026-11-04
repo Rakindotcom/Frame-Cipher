@@ -43,8 +43,8 @@ const marketingStages = [
 
 export default function MarketingStages() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Multi-Channel Impact"
           title="Content for Every Stage of Your Marketing"
@@ -53,29 +53,29 @@ export default function MarketingStages() {
           Content creation is not limited to social media posts. The same production system can support multiple areas of your marketing.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
           {marketingStages.map((stage) => (
             <div
               key={stage.number}
-              className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between"
+              className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <span className="font-heading text-3xl md:text-4xl font-black text-frame-accent">
+                <span className="font-heading text-3xl md:text-4xl font-black text-[#A855F7]">
                   {stage.number}
                 </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {stage.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-creation" allowed={["/services/website-design-development/landing-pages"]}>
                   {stage.description}
                 </AutoLinks></p>
               </div>
 
-              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+              <div className="mt-6 border-t border-white/[0.08]/60 pt-4">
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-1">
                   Primary Outcome
                 </span>
-                <span className="text-xs font-semibold text-frame-fg">
+                <span className="text-xs font-semibold text-[#FAFAFA]">
                   {stage.focus}
                 </span>
               </div>
@@ -84,15 +84,15 @@ export default function MarketingStages() {
         </div>
 
         {/* BOTTOM CALLOUT */}
-        <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8">
+        <div className="mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border border-white/[0.08] bg-[#121214] p-6 md:p-8">
           <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Holistic Creative Strategy
             </span>
-            <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="mt-1 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
               Need a coordinated campaign or complete marketing asset package?
             </h4>
-            <p className="mt-1 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <p className="mt-1 text-xs md:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               We align video, photography, ads, and web visuals under one cohesive visual direction.
             </p>
           </div>

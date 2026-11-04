@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const factors = [
   {
@@ -111,51 +114,65 @@ const factors = [
 
 export default function WhatsDifferent() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Why it&apos;s different" title="What Makes International SEO Different">
-          International SEO introduces challenges that a single-market website may never face. One
-          website can serve different countries, languages, currencies, search behaviors, and
-          competitive environments at the same time.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Market Dynamics</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            What Makes{' '}
+            <span className="italic text-frame-accent">International SEO Different</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            International SEO introduces challenges that a single-market website may never face. One website can serve different countries, languages, currencies, search behaviors, and competitive environments at the same time.
+          </p>
+        </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        {/* 4 Multi-Market Factors Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
           {factors.map((factor, index) => (
             <div
               key={factor.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] md:p-8"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Factor 0{index + 1}
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Factor // 0{index + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
                   {factor.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <div className="mt-4 space-y-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   {factor.body.map((paragraph, pIdx) => (
                     <p key={pIdx}>{paragraph}</p>
                   ))}
                 </div>
+
                 {factor.groups.map((group, gIdx) => (
-                  <div key={gIdx} className="mt-4">
+                  <div key={gIdx} className="mt-5">
                     {group.label && (
-                      <p className="text-sm font-bold text-frame-fg">{group.label}</p>
+                      <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                        {group.label}
+                      </p>
                     )}
-                    <ul className="mt-2.5 space-y-2 border-t-2 border-frame-border/60 pt-3 text-xs md:text-sm font-medium text-frame-fg/90">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.06] pt-3 text-xs sm:text-sm text-zinc-300">
                       {group.points.map((point, bIdx) => (
                         <li key={bIdx} className="flex items-start gap-2">
-                          <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+                          <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
                           <span className="leading-snug">{point}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                 ))}
+
                 {factor.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {factor.note}
-                  </p>
+                  <div className="mt-6 rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs sm:text-sm text-zinc-300">
+                    <p className="leading-relaxed">{factor.note}</p>
+                  </div>
                 )}
               </div>
             </div>

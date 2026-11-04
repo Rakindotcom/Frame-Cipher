@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import PosterButton from '../../../home/PosterButton'
 
 const rightTeamPoints = [
   {
@@ -25,28 +28,63 @@ const rightTeamPoints = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Core Expertise" title="Why We're the Right Website Redesign Team" align="center">
-          A successful redesign needs more than a designer and a new visual concept. It needs someone to understand what the existing website is doing, what is failing, and what should happen after the redesign.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Sticky Left Column (5 cols) */}
+          <div className="lg:col-span-5">
+            <div className="sticky top-28 space-y-6">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+                Why We&apos;re the Right{' '}
+                <span className="italic text-frame-accent">Website Redesign Team.</span>
+              </h2>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {rightTeamPoints.map((point, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Advantage 0{idx + 1}
-                </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {point.title}
-                </h3>
-                <p className="mt-4 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                  {point.description}
+              <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+                A successful redesign needs more than a designer and a new visual concept. It needs someone to understand what the existing website is doing, what is failing, and what should happen after the redesign.
+              </p>
+
+              {/* Stat Card */}
+              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-2">
+                <p className="font-mono text-3xl font-medium text-white">100%</p>
+                <p className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Organic SEO Equity Protected
+                </p>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  We preserve your valuable search rankings, URLs, backlinks, and traffic so you never lose the equity you spent years building.
                 </p>
               </div>
+
+              <div>
+                <PosterButton href="/contact" variant="accent" className="w-full sm:w-auto">
+                  Start Your Redesign Project
+                </PosterButton>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Right Column: Divided Numbered Rows (7 cols) */}
+          <div className="lg:col-span-7">
+            <div className="divide-y divide-white/[0.08] rounded-xl border border-white/[0.08] bg-[#121214]">
+              {rightTeamPoints.map((point, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 sm:p-8 transition-colors hover:bg-white/[0.02]"
+                >
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-mono text-xs tabular-nums tracking-wider text-frame-accent">
+                      0{idx + 1}
+                    </span>
+                    <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
+                      {point.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 pl-8">
+                    {point.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

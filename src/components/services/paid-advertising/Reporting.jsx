@@ -45,11 +45,10 @@ const dataSources = [
 
 export default function Reporting() {
   return (
-    <div className="border-t-2 border-frame-border bg-frame-bg text-frame-fg">
+    <div className="border-t border-white/[0.08] bg-[#09090B] text-white">
       <section className="px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
+        <div className="mx-auto max-w-7xl">
           <SectionIntro
-            eyebrow="Transparent tracking"
             title="Performance Reporting & Optimization"
           >
             Reporting should lead to decisions, not simply display numbers. We monitor the
@@ -59,25 +58,25 @@ export default function Reporting() {
 
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {reportItems.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 border-2 border-frame-border bg-frame-muted/10 p-4">
+              <div key={index} className="flex items-center gap-3 border border-white/[0.08] bg-[#121214] p-4">
                 <span className="text-xs font-black text-frame-accent font-mono">
                   {String(index + 1).padStart(2, '0')}.
                 </span>
-                <span className="text-sm font-semibold text-frame-fg">{item}</span>
+                <span className="text-sm font-semibold text-white">{item}</span>
               </div>
             ))}
           </div>
 
           <div className="mt-12 grid gap-8 lg:grid-cols-2 lg:items-start">
-            <div className="border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+            <div className="border-l-2 border-frame-accent bg-[#121214] p-6 md:p-7">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-zinc-300 wide:text-lg">
                 Reporting is built around what each campaign was set up to produce, whether that
                 is leads, sales, bookings, sign-ups, or revenue, rather than an unfiltered dump
                 of every platform metric.
               </p>
             </div>
-            <div className="border-l-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-              <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+            <div className="border-l border-white/[0.08] bg-[#121214] p-6 md:p-7">
+              <p className="text-sm md:text-base font-medium leading-relaxed text-zinc-300 wide:text-lg">
                 The goal is to explain what happened, why it happened, and what should happen
                 next. Budget changes follow an agreed approval process rather than arbitrary shifts.
               </p>
@@ -86,10 +85,9 @@ export default function Reporting() {
         </div>
       </section>
 
-      <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
+      <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
           <SectionIntro
-            eyebrow="Conversion measurement"
             title="What Every Campaign Tracks"
           >
             You cannot optimize what you cannot measure reliably. We establish the conversion
@@ -99,15 +97,12 @@ export default function Reporting() {
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {dataSources.map((source, index) => (
-              <div key={index} className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8 transition-colors hover:border-frame-accent">
+              <div key={index} className="relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.14] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Tracking 0{index + 1}
-                  </span>
-                  <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                  <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
                     {source.title}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-4 text-sm text-zinc-300 font-normal leading-relaxed">
                     {source.body}
                   </p>
                 </div>
@@ -115,8 +110,8 @@ export default function Reporting() {
             ))}
           </div>
 
-          <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+          <div className="mt-8 border-l-2 border-frame-accent bg-[#121214] p-6 md:p-7">
+            <p className="text-sm md:text-base font-medium leading-relaxed text-zinc-300 wide:text-lg">
               Where included in scope, tracking setup is reviewed before launch so campaign
               optimization is based on conversion data instead of clicks alone.
             </p>

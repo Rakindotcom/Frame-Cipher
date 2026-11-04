@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     "question": "How fast do we get the highlight video after the event?",
-    "answer": "A 60-second social teaser delivers within 24 hours of event close on full-day tiers — standard, not a surcharge. The full cinematic aftermovie follows in 5 to 10 working days."
+    "answer": "A 60-second social teaser delivers within 24 hours of event close on full-day tiers: standard, not a surcharge. The full cinematic aftermovie follows in 5 to 10 working days."
   },
   {
     "question": "Do you cover multi-day conferences outside Dhaka?",
@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     "question": "How do you record clean speech in noisy halls?",
-    "answer": "We take a direct balanced XLR feed from the venue soundboard for master speech, backed by wireless lavaliers on VIPs and shotgun mics for ambience — agreed with the AV desk during the recce."
+    "answer": "We take a direct balanced XLR feed from the venue soundboard for master speech, backed by wireless lavaliers on VIPs and shotgun mics for ambience: agreed with the AV desk during the recce."
   },
   {
     "question": "Do we get full session recordings as well as highlights?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, teasers, travel and booking — everything about event videography at FrameCipher Studio.
+          Costs, teasers, travel and booking: everything about event videography at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

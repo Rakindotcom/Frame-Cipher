@@ -1,50 +1,99 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { PageHero, PosterButton } from '../../../Kinetic'
+import { ChevronRight, ShieldCheck, CheckCircle2, Zap } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import AiSearchVisual from './AiSearchVisual'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || 'Best AI Search Optimization (AEO/GEO) Service in Bangladesh'
   const subtitle =
+    service?.shortDesc ||
     'Get your brand discovered, understood, and referenced across AI-powered search. Framecipher helps businesses improve visibility across ChatGPT, Gemini, Perplexity, Google AI search, and other answer experiences through AEO, GEO, entity optimization, content strategy, technical SEO, and AI visibility tracking. We turn real customer queries into clearer answers, stronger brand signals, and a measurable AI search strategy.'
-  const isPillar = service?.pageType === 'Pillar Service'
-  const isSubService = service?.pageType === 'Sub Service'
-  const pillarParent = service?.pillarParent
 
   return (
-    <div className="border-b-2 border-frame-border bg-frame-bg">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
-          <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <span className="text-frame-muted-fg">{pillarParent}</span>
-            </>
-          )}
-          <span>/</span>
-          <span className="text-frame-accent">AI Search Optimization (AEO/GEO)</span>
-        </div>
-      </nav>
+    <div className="relative isolate bg-[#09090B] text-white">
+      {/* HERO SECTION */}
+      <section className="relative isolate overflow-hidden border-b border-white/[0.08] px-4 pt-28 pb-16 sm:px-6 md:px-8 md:pt-32 md:pb-24">
+        <div className="mx-auto max-w-7xl">
+          {/* Breadcrumbs */}
+          <nav
+            aria-label="Breadcrumbs"
+            className="mb-8 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none py-1 font-mono text-[11px] sm:text-xs text-zinc-400"
+          >
+            <Link href="/" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              Home
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <Link href="/services" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              Services
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <Link href="/services/seo" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              SEO
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <span className="shrink-0 whitespace-nowrap text-frame-accent">AI Search Optimization</span>
+          </nav>
 
-      {/* HERO */}
-      <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : isSubService ? 'Specialized Capability' : 'Specialized Capability'}
-        meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
-        actions={
-          <>
-            <PosterButton href="/contact">Request an AI Search Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
-            </PosterButton>
-          </>
-        }
-      >
-        {subtitle}
-      </PageHero>
+          {/* Grid Layout: Left Content, Right Visual */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left Column (5 cols) */}
+            <div className="lg:col-span-6 space-y-6">
+              {/* Eyebrow Pill */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                  AEO &amp; GEO Strategy // Citations &amp; Entities
+                </span>
+              </div>
+
+              {/* Display H1 */}
+              <h1 className="font-heading text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-medium leading-[1.0] tracking-tight text-white break-normal hyphens-none">
+                Best AI Search{' '}
+                <span className="italic text-frame-accent">Optimization Service</span>{' '}
+                in Bangladesh
+              </h1>
+
+              {/* Subtitle / Lead Paragraph */}
+              <p className="max-w-xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+                {subtitle}
+              </p>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-mono text-xs text-zinc-400">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent" />
+                  <span>ChatGPT, Gemini &amp; Perplexity Citations</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-frame-accent" />
+                  <span>Knowledge Graph &amp; Entity Clarity</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-frame-accent" />
+                  <span>Google AI Overview Positioning</span>
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-3">
+                <PosterButton href="/contact">
+                  Request an AI Search Consultation &rarr;
+                </PosterButton>
+                <PosterButton href="/services/seo" variant="outline">
+                  Explore All SEO Services &rarr;
+                </PosterButton>
+              </div>
+            </div>
+
+            {/* Right Column (7 cols) with Interactive AI Search Visual */}
+            <div className="lg:col-span-6 flex justify-center w-full">
+              <AiSearchVisual />
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   )
 }

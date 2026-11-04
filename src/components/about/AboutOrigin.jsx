@@ -1,7 +1,6 @@
 import Link from 'next/link'
-import { InversionCard, SectionIntro } from '../Kinetic'
 
-const inlineLinkClass = "underline decoration-frame-accent/40 hover:decoration-frame-accent hover:text-frame-accent transition-colors font-semibold"
+const inlineLinkClass = "text-white underline underline-offset-4 decoration-purple-400/50 hover:text-purple-300 transition-colors font-medium"
 
 const storyBlocks = [
   {
@@ -44,17 +43,48 @@ const storyBlocks = [
 
 export default function AboutOrigin() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Origin Story / The Thesis" title="The agency is the operating system.">
-          We do not treat brand, content, software engineering, search visibility, and paid advertising like disconnected lanes. The true commercial breakthrough happens at the exact point where those lanes collide.
-        </SectionIntro>
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro */}
+        <div className="mb-14 max-w-4xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            The agency is the{' '}
+            <span className="italic text-frame-accent">
+              operating system.
+            </span>
+          </h2>
+          <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            We do not treat brand, content, software engineering, search visibility, and paid advertising like disconnected lanes. The true commercial breakthrough happens at the exact point where those lanes collide.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
-          {storyBlocks.map((item, index) => (
-            <InversionCard key={item.title} eyebrow={item.eyebrow} title={item.title} number={`0${index + 1}`}>
-              <p>{item.description}</p>
-            </InversionCard>
+        {/* Modality 1: Editorial Divided Rows (Anti-Card Fatigue) */}
+        <div className="border-t border-b border-white/[0.08] divide-y divide-white/[0.08]">
+          {storyBlocks.map((item, idx) => (
+            <article
+              key={item.title}
+              className="py-10 md:py-12 grid grid-cols-1 md:grid-cols-12 md:items-baseline md:gap-8 gap-4 transition-colors duration-200 hover:bg-white/[0.015]"
+            >
+              {/* Col-span-2: Monospace Identifier */}
+              <div className="md:col-span-2">
+                <span className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent flex items-center gap-2 tabular-nums">
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                  <span>0{idx + 1}</span>
+                </span>
+              </div>
+
+              {/* Col-span-4: Stage Headline */}
+              <div className="md:col-span-4">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug text-white">
+                  {item.title}
+                </h3>
+              </div>
+
+              {/* Col-span-6: Narrative Description */}
+              <div className="md:col-span-6 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                {item.description}
+              </div>
+            </article>
           ))}
         </div>
       </div>

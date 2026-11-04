@@ -13,8 +13,8 @@ const considerations = [
 
 export default function SearchLandscape() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="SEO, AEO & AI search"
           title="Content Strategy for SEO, AEO &amp; AI Search"
@@ -23,18 +23,18 @@ export default function SearchLandscape() {
           account for traditional search, answer-focused experiences, and emerging AI-driven discovery.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               Where relevant, we incorporate
             </h3>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {considerations.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border border-frame-border bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 border border-white/[0.08] bg-[#09090B] p-4 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
-                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                     ✓
                   </span>
                   <span>{item}</span>
@@ -44,11 +44,11 @@ export default function SearchLandscape() {
           </div>
 
           <div className="space-y-5">
-            <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+            <p className="text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
               The objective is not to chase every new search feature. It is to build useful, well-structured content
               that can serve people across changing discovery environments.
             </p>
-            <p className="border-l-2 border-frame-accent bg-frame-bg p-5 text-sm font-medium leading-relaxed text-frame-fg md:text-base">
+            <p className="border-l-2 border-[#A855F7]/40 bg-[#09090B] p-5 text-sm font-medium leading-relaxed text-[#FAFAFA] md:text-base">
               Answer-engine and AI-discovery visibility depends on the same fundamentals as traditional search:
               clear answers, genuine expertise, accurate entities, and useful coverage of the topic. Those are
               strategy decisions, not publishing tricks.

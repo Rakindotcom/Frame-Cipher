@@ -1,167 +1,238 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const packages = [
+import React from 'react'
+import { Check, ShieldCheck, Zap, Sparkles, Building2 } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+
+const planTableRows = [
   {
-    name: "Essential",
-    fullName: "Essential Maintenance Plan",
-    price: "৳15,000",
-    period: "/month",
-    bestFor: "Simple apps and lower-maintenance requirements",
-    coverage: "OS checks, monthly crash review, basic monitoring",
-    description: "Designed for simpler applications that require regular technical attention without extensive feature development.",
-    featured: false,
-    includes: [
-      "OS compatibility checks",
-      "Monthly crash report review",
-      "Basic application monitoring",
-      "Routine maintenance review",
-      "Technical support within the agreed scope"
-    ]
+    plan: 'Essential',
+    price: '৳15,000/month',
+    bestFor: 'Simple apps and lower-maintenance requirements',
+    coverage: 'OS checks, monthly crash review, basic monitoring',
   },
   {
-    name: "Standard",
-    fullName: "Standard Maintenance Plan",
-    price: "৳30,000",
-    period: "/month",
-    bestFor: "Native Android, iOS, and cross-platform apps",
-    coverage: "Bug fixes, regular monitoring, monthly reporting, minor feature updates",
-    description: "Suitable for applications that require regular bug-fix support and ongoing technical maintenance.",
+    plan: 'Standard',
+    price: '৳30,000/month',
+    bestFor: 'Native Android, iOS, and cross-platform apps',
+    coverage: 'Bug fixes, regular monitoring, monthly reporting, minor feature updates',
     featured: true,
-    includes: [
-      "Regular bug fixes",
-      "Continuous monitoring",
-      "OS and dependency maintenance",
-      "Monthly reporting",
-      "Minor feature updates",
-      "Technical support"
-    ]
   },
   {
-    name: "Growth",
-    fullName: "Growth Maintenance Plan",
-    price: "৳50,000",
-    period: "/month",
-    bestFor: "SaaS, ecommerce, and growing applications",
-    coverage: "Priority support, security patching, integration monitoring, expanded feature support",
-    description: "Designed for applications with more active users, integrations, or ongoing product requirements.",
-    featured: false,
-    includes: [
-      "Priority support",
-      "Security patching",
-      "Integration monitoring",
-      "Expanded feature support",
-      "Performance maintenance",
-      "Regular technical review",
-      "Monthly reporting"
-    ]
+    plan: 'Growth',
+    price: '৳50,000/month',
+    bestFor: 'SaaS, ecommerce, and growing applications',
+    coverage: 'Priority support, security patching, integration monitoring, expanded feature support',
   },
   {
-    name: "Enterprise",
-    fullName: "Enterprise Maintenance Plan",
-    price: "Custom",
-    period: " Pricing",
-    bestFor: "Complex applications and enterprise requirements",
-    coverage: "Custom maintenance scope, dedicated support structure, complex integrations, compliance-focused requirements",
-    description: "Enterprise applications often require a maintenance model based on their architecture, integrations, security requirements, user volume, and operational processes.",
-    featured: false,
+    plan: 'Enterprise',
+    price: 'Custom Pricing',
+    bestFor: 'Complex applications and enterprise requirements',
+    coverage: 'Custom maintenance scope, dedicated support structure, complex integrations, compliance-focused requirements',
+  },
+]
+
+const detailedPlans = [
+  {
+    name: 'Essential Maintenance Plan',
+    price: '৳15,000',
+    cadence: '/month',
+    badge: 'BASELINE SUPPORT',
+    desc: 'Designed for simpler applications that require regular technical attention without extensive feature development.',
     includes: [
-      "Dedicated maintenance capacity",
-      "Complex integration monitoring",
-      "Advanced infrastructure requirements",
-      "Compliance-related maintenance",
-      "Custom support workflows",
-      "Planned feature development",
-      "Custom reporting requirements"
+      'OS compatibility checks',
+      'Monthly crash report review',
+      'Basic application monitoring',
+      'Routine maintenance review',
+      'Technical support within the agreed scope',
     ],
-    footnote: "The final scope and pricing are defined after an application assessment."
-  }
+    ctaText: 'Choose Essential',
+    featured: false,
+  },
+  {
+    name: 'Standard Maintenance Plan',
+    price: '৳30,000',
+    cadence: '/month',
+    badge: 'Most Popular',
+    desc: 'Suitable for applications that require regular bug-fix support and ongoing technical maintenance.',
+    includes: [
+      'Regular bug fixes',
+      'Continuous monitoring',
+      'OS and dependency maintenance',
+      'Monthly reporting',
+      'Minor feature updates',
+      'Technical support',
+    ],
+    ctaText: 'Choose Standard',
+    featured: true,
+  },
+  {
+    name: 'Growth Maintenance Plan',
+    price: '৳50,000',
+    cadence: '/month',
+    badge: 'High Activity',
+    desc: 'Designed for applications with more active users, integrations, or ongoing product requirements.',
+    includes: [
+      'Priority support',
+      'Security patching',
+      'Integration monitoring',
+      'Expanded feature support',
+      'Performance maintenance',
+      'Regular technical review',
+      'Monthly reporting',
+    ],
+    ctaText: 'Choose Growth',
+    featured: false,
+  },
+  {
+    name: 'Enterprise Maintenance Plan',
+    price: 'Custom',
+    cadence: 'Pricing',
+    badge: 'DEDICATED SQUAD',
+    desc: 'Enterprise applications often require a maintenance model based on their architecture, integrations, security requirements, user volume, and operational processes.',
+    includes: [
+      'Dedicated maintenance capacity',
+      'Complex integration monitoring',
+      'Advanced infrastructure requirements',
+      'Compliance-related maintenance',
+      'Custom support workflows',
+      'Planned feature development',
+      'Custom reporting requirements',
+      'Final scope & pricing defined after assessment',
+    ],
+    ctaText: 'Request Enterprise Scope',
+    featured: false,
+  },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Predictable Support Tiers"
-          title="App Maintenance Pricing"
-        >
-          The cost of app maintenance depends on the platform, codebase condition, application complexity, integrations, support scope, and required development capacity. Our current maintenance plans are structured for different levels of ongoing support.
-        </SectionIntro>
+    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mb-16 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            App Maintenance{' '}
+            <span className="italic text-frame-accent">Pricing &amp; Plans.</span>
+          </h2>
 
-        {/* 4 CARDS GRID */}
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            The cost of app maintenance depends on the platform, codebase condition, application complexity, integrations, support scope, and required development capacity. Our current maintenance plans are structured for different levels of ongoing support.
+          </p>
+        </div>
+
+        {/* 1. Comparison Summary Table on #121214 */}
+        <div className="mb-14 overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="border-b border-white/[0.08] bg-black/40 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  <th className="p-4 sm:p-5">Plan</th>
+                  <th className="p-4 sm:p-5">Price</th>
+                  <th className="p-4 sm:p-5">Best For</th>
+                  <th className="p-4 sm:p-5">Core Coverage</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06] text-sm">
+                {planTableRows.map((row, idx) => (
+                  <tr
+                    key={idx}
+                    className={`transition-colors ${
+                      row.featured ? 'bg-frame-accent/[0.06]' : 'hover:bg-white/[0.02]'
+                    }`}
+                  >
+                    <td className="p-4 sm:p-5 font-mono font-medium text-white">
+                      {row.plan}
+                    </td>
+                    <td className="p-4 sm:p-5 font-mono text-xs font-semibold text-frame-accent whitespace-nowrap">
+                      {row.price}
+                    </td>
+                    <td className="p-4 sm:p-5 text-zinc-300 text-xs sm:text-sm">
+                      {row.bestFor}
+                    </td>
+                    <td className="p-4 sm:p-5 text-zinc-400 text-xs sm:text-sm">
+                      {row.coverage}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* 2. Detailed Plan Cards (4 Cards) */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {packages.map((pkg, i) => (
+          {detailedPlans.map((plan, idx) => (
             <div
-              key={i}
-              className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
-                pkg.featured
-                  ? 'border-frame-accent bg-frame-accent/5'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+              key={idx}
+              className={`flex flex-col justify-between rounded-xl border p-6 sm:p-7 transition-colors duration-300 ${
+                plan.featured
+                  ? 'border-frame-accent/40 bg-[#161619] shadow-[0_20px_50px_rgba(168,85,247,0.15)] '
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
               }`}
             >
               <div>
-                {pkg.featured && (
-                  <span className="mb-4 inline-block border border-frame-accent bg-frame-accent/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-frame-accent">
-                    Recommended
+                <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+                  <span
+                    className={`font-mono text-[10px] uppercase tracking-wider ${
+                      plan.featured ? 'text-frame-accent' : 'text-zinc-500'
+                    }`}
+                  >
+                    {plan.badge}
                   </span>
-                )}
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.fullName}
+                  {plan.featured && (
+                    <span className="h-2 w-2 rounded-full bg-frame-accent animate-pulse" />
+                  )}
+                </div>
+
+                <h3 className="mt-4 font-heading text-lg font-medium tracking-tight text-white">
+                  {plan.name}
                 </h3>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-frame-accent">
-                  Best for: {pkg.bestFor}
-                </p>
-                <div className="mt-4 flex items-baseline gap-1 border-b-2 border-frame-border pb-4">
-                  <span className="font-heading text-3xl md:text-4xl font-bold text-frame-fg">
-                    {pkg.price}
+
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="font-mono text-3xl font-semibold tracking-tight text-white">
+                    {plan.price}
                   </span>
-                  <span className="text-xs font-semibold uppercase tracking-wider text-frame-muted-fg">
-                    {pkg.period}
+                  <span className="font-mono text-xs text-zinc-400">
+                    {plan.cadence}
                   </span>
                 </div>
-                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {pkg.description}
+
+                <p className="mt-3 text-xs text-zinc-400 leading-relaxed min-h-[48px]">
+                  {plan.desc}
                 </p>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <p className="text-xs font-black uppercase tracking-[0.2em] text-frame-fg mb-3">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 block mb-3">
                     Includes:
-                  </p>
-                  <ul className="space-y-2">
-                    {pkg.includes.map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span>{item}</span>
+                  </span>
+                  <ul className="space-y-2 text-xs text-zinc-300">
+                    {plan.includes.map((inc, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                        <span>{inc}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-8 border-t-2 border-frame-border pt-6">
-                {pkg.footnote && (
-                  <p className="mb-4 text-[11px] font-medium text-frame-muted-fg italic">
-                    {pkg.footnote}
-                  </p>
-                )}
+              <div className="mt-8 pt-6 border-t border-white/[0.06]">
                 <PosterButton
                   href="/contact"
-                  variant={pkg.featured ? 'accent' : 'outline'}
-                  className="w-full text-center justify-center"
+                  variant={plan.featured ? 'accent' : 'outline'}
+                  className="w-full justify-center"
                 >
-                  Choose {pkg.name} &rarr;
+                  {plan.ctaText}
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-4 text-xs font-medium text-frame-muted-fg italic">
-          The final scope and pricing are defined after an application assessment.
+        {/* Footer Note */}
+        <p className="mt-8 text-center font-mono text-xs text-zinc-500">
+          * Final scope, SLA response times, and monthly pricing are confirmed after an initial application codebase assessment.
         </p>
       </div>
     </section>

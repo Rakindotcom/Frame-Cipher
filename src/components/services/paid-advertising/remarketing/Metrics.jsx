@@ -1,119 +1,89 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const audienceItems = [
-  'Site visitors',
-  'Product viewers',
-  'Cart abandoners',
-  'Lead audiences',
-  'Customers',
-  'Engaged audiences',
-  'Recency segments',
-]
+import React from 'react'
+import { BarChart3, TrendingUp, Layers, CheckCircle2 } from 'lucide-react'
 
-const conversionItems = [
-  'Clicks',
-  'CTR',
-  'Conversions',
-  'Conversion rate',
-  'CPA',
-  'Purchases',
-  'Leads',
-  'Qualified leads',
-  'Revenue',
-  'ROAS',
-]
-
-const incrementalItems = [
-  'Conversion lift',
-  'Audience comparisons',
-  'Exclusion tests',
-  'Holdout approaches',
-  'Blended business metrics',
-]
-
-const blocks = [
+const dimensions = [
   {
+    icon: Layers,
     title: 'Audience-Level Performance',
-    body: 'We can compare audience performance so budget flows to the segments that matter.',
-    label: 'We can compare',
-    items: audienceItems,
+    desc: 'Evaluating CPA, conversion rate, and revenue contribution segmented across specific behavioral tiers rather than one blended account figure.',
+    items: [
+      'Cart & checkout abandoners vs. product viewers CPA comparison',
+      'Lead form starters vs. general site visitor conversion rate lift',
+      '1-day vs. 7-day vs. 30-day recency window efficiency benchmarks',
+      'Past purchaser repeat order rate and cross-sell velocity',
+    ],
   },
   {
-    title: 'Conversion Metrics',
-    body: 'Reporting can include the conversion and business metrics that fit the campaign type.',
-    label: 'Depending on the campaign, reporting can include',
-    items: conversionItems,
+    icon: BarChart3,
+    title: 'True Conversion & Pipeline Metrics',
+    desc: 'Tracking concrete business outcomes tied directly to commercial revenue rather than vanity impression or click totals.',
+    items: [
+      'Cost per acquisition (CPA) & return on ad spend (ROAS)',
+      'Verified sales revenue & customer average order value (AOV)',
+      'Marketing qualified leads (MQL) and sales accepted opportunities',
+      'Lead-to-customer close rate across remarketing cohorts',
+    ],
   },
   {
-    title: 'Attribution',
-    body: 'Platform attribution can differ across Google, Meta, TikTok, Pinterest, LinkedIn, Amazon, and analytics systems. We therefore interpret reported conversions within the broader measurement setup rather than assuming every platform-reported conversion is independently incremental.',
-  },
-  {
-    title: 'Incremental Impact',
-    body: 'A person who was already highly likely to purchase may also be the person most likely to see and convert from a remarketing ad. That means attributed conversions and incremental conversions are not always the same.',
-    label: 'Where the available data supports it, we consider',
-    items: incrementalItems,
+    icon: TrendingUp,
+    title: 'Attribution & Incremental Lift',
+    desc: 'Distinguishing true incremental lift from conversions that would have occurred organically without ad intervention.',
+    items: [
+      'Multi-touch cross-platform attribution de-duplication',
+      'Holdout group testing measuring true incremental conversion lift',
+      'First-click vs. last-click vs. data-driven attribution models',
+      'Blended customer acquisition cost (CAC) impact across channels',
+    ],
   },
 ]
 
 export default function Metrics() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Measurement" title="Measuring Remarketing Performance">
-          Remarketing should not be judged by one platform-reported number.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          We evaluate performance using campaign, audience, funnel, and business metrics together.
-        </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Measuring Remarketing{' '}
+            <span className="italic text-frame-accent">Performance.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Remarketing should never be judged by one platform-reported number in a vacuum. We evaluate performance across audience segments, conversion depth, attribution frameworks, and incremental business revenue.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {blocks.map((block, index) => (
-            <div
-              key={block.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 md:p-12"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="font-heading text-3xl font-bold text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {dimensions.map((d) => {
+            const Icon = d.icon
+            return (
+              <div
+                key={d.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                    {block.title}
+                  <h3 className="font-heading text-xl font-medium text-white mb-2">
+                    {d.title}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {block.body}
+                  <p className="text-sm text-zinc-400 font-normal leading-relaxed mb-6">
+                    {d.desc}
                   </p>
                 </div>
 
-                {block.items && (
-                  <div className="lg:w-1/2">
-                    <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                      {block.label}
-                    </p>
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {block.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+                <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                  {d.items.map((item) => (
+                    <div key={item} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            The goal is to understand whether remarketing is creating additional business value, not
-            simply collecting attributed conversions.
-          </p>
+            )
+          })}
         </div>
       </div>
     </section>

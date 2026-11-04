@@ -38,7 +38,7 @@ export default function PortfolioService({ service }) {
         limit={8}
         eyebrow="Studio Work & Deployments"
         title="Studio Production Portfolio"
-        description="Browse real productions completed at FrameCipher Studio — commercials, brand films, podcasts, and product content filmed on our 6th-floor stage in Dhaka."
+        description="Browse real productions completed at FrameCipher Studio: commercials, brand films, podcasts, and product content filmed on our 6th-floor stage in Dhaka."
         buttonText="View All Video Work →"
         buttonHref="/projects#video-work"
       />
@@ -47,7 +47,7 @@ export default function PortfolioService({ service }) {
         type="video"
         eyebrow="Script writing samples"
         title="Scripts behind the work."
-        description="The scripts that came before the shoots — product videos, brand films, motion ads, documentaries, and shorts."
+        description="The scripts that came before the shoots: product videos, brand films, motion ads, documentaries, and shorts."
         archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
         archiveLabel="Browse Script Archive →"
       />

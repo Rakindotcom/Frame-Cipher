@@ -1,8 +1,11 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const coreServices = [
   {
-    tag: 'Service 01',
+    tag: '01',
     title: 'Technical Discovery & Architecture',
     subtitle: 'Every custom project starts with understanding what the system actually needs to do.',
     description: 'We review your business model, users, workflows, existing software, data, integrations, performance requirements, and future plans before defining the technical direction.',
@@ -19,7 +22,7 @@ const coreServices = [
     note: 'Good architecture reduces unnecessary complexity and gives future development a stronger foundation.',
   },
   {
-    tag: 'Service 02',
+    tag: '02',
     title: 'UI/UX Design for Custom Applications',
     subtitle: 'Custom applications need interfaces built around tasks, not templates.',
     description: 'We design user experiences around real workflows, user roles, content, actions, and business requirements.',
@@ -36,7 +39,7 @@ const coreServices = [
     note: 'Every screen should support a specific user task or business goal.',
   },
   {
-    tag: 'Service 03',
+    tag: '03',
     title: 'Next.js App Router & Modern Architecture',
     subtitle: 'For new projects, we use modern Next.js architecture where it fits the application requirements.',
     description: 'We choose the architecture based on how your application handles content, data, users, and interactions.',
@@ -55,7 +58,7 @@ const coreServices = [
     note: 'The goal is not to use every feature simply because it exists. We choose the architecture based on how your application handles content, data, users, and interactions.',
   },
   {
-    tag: 'Service 04',
+    tag: '04',
     title: 'Full-Stack Next.js Development',
     subtitle: 'We develop the frontend and application logic as a connected system.',
     description: 'This approach keeps the application\'s frontend, backend, data, and business logic aligned.',
@@ -75,7 +78,7 @@ const coreServices = [
     note: 'This approach keeps the application\'s frontend, backend, data, and business logic aligned.',
   },
   {
-    tag: 'Service 05',
+    tag: '05',
     title: 'API & Backend Development',
     subtitle: 'Custom applications often need their own APIs and backend logic.',
     description: 'Where an external platform already provides the required API, we integrate with it instead of rebuilding functionality unnecessarily.',
@@ -92,7 +95,7 @@ const coreServices = [
     note: 'Where an external platform already provides the required API, we integrate with it instead of rebuilding functionality unnecessarily.',
   },
   {
-    tag: 'Service 06',
+    tag: '06',
     title: 'Authentication & User Management',
     subtitle: 'Applications with multiple user types need clear access rules and secure account workflows.',
     description: 'Authentication and authorization are designed around the actual users and responsibilities within your application.',
@@ -110,7 +113,7 @@ const coreServices = [
     note: 'Authentication and authorization are designed around the actual users and responsibilities within your application.',
   },
   {
-    tag: 'Service 07',
+    tag: '07',
     title: 'Performance, Security & Scalability',
     subtitle: 'Performance and security are considered during architecture rather than left until the end.',
     description: 'The right architecture depends on expected traffic, data volume, application complexity, and business requirements.',
@@ -129,7 +132,7 @@ const coreServices = [
     note: 'The right architecture depends on expected traffic, data volume, application complexity, and business requirements.',
   },
   {
-    tag: 'Service 08',
+    tag: '08',
     title: 'Testing & Quality Assurance',
     subtitle: 'Custom software needs structured testing before launch.',
     description: 'Testing is introduced throughout development instead of being treated only as a final launch task.',
@@ -148,7 +151,7 @@ const coreServices = [
     note: 'Testing is introduced throughout development instead of being treated only as a final launch task.',
   },
   {
-    tag: 'Service 09',
+    tag: '09',
     title: 'Ongoing Custom Development',
     subtitle: 'Your product may continue to change after launch.',
     description: 'Ongoing development is scoped around your product roadmap and changing business requirements.',
@@ -169,48 +172,58 @@ const coreServices = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Core Capabilities" title="Our Custom / Next.js Development Services" index="10">
-          We build custom Next.js websites and applications around your business requirements, technical needs, users, content, integrations, and long-term plans.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Our Custom / Next.js Development{' '}
+            <span className="italic text-frame-accent">Services.</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We build custom Next.js websites and applications around your business requirements, technical needs, users, content, integrations, and long-term plans.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* 9 Services Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {coreServices.map((service, index) => (
             <article
               key={index}
-              className="group flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30"
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
                   {service.tag}
                 </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm font-semibold uppercase tracking-wider text-frame-accent">
+                <p className="mt-2 text-xs sm:text-sm font-medium uppercase tracking-wider text-frame-accent">
                   {service.subtitle}
                 </p>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {service.description}
                 </p>
 
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-6">
-                  <p className="text-xs font-black uppercase tracking-wider text-frame-accent mb-3">
+                <div className="mt-6 border-t border-white/[0.08] pt-6">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-3">
                     What We Do
                   </p>
-                  <ul className="space-y-2.5 text-xs sm:text-sm font-medium text-frame-fg/90">
+                  <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-300">
                     {service.bullets.map((bullet, bIdx) => (
                       <li key={bIdx} className="flex items-start gap-2.5">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span>{bullet}</span>
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent">
+                          <Check className="h-3 w-3 stroke-[2.5]" />
+                        </span>
+                        <span className="leading-snug">{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-8 border-t-2 border-frame-border/60 pt-5 text-xs font-medium italic text-frame-muted-fg leading-relaxed">
+              <div className="mt-8 border-t border-white/[0.08] pt-4 text-xs font-normal italic text-zinc-400 leading-relaxed">
                 {service.note}
               </div>
             </article>

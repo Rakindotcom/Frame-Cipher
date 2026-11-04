@@ -14,7 +14,7 @@ export { default as ServicesWhy } from './ServicesWhy'
 export { default as ServicesFAQ } from './ServicesFAQ'
 export { default as ServicesCTA } from './ServicesCTA'
 
-// Services overview page components kept for reference (not rendered on the overview page)
+// Additional Services overview architecture components
 export { default as ServicesStats } from './ServicesStats'
 export { default as ServicesPillarsGrid } from './ServicesPillarsGrid'
 export { default as ServicesComparison } from './ServicesComparison'

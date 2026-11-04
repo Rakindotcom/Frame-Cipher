@@ -1,266 +1,297 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const packages = [
+import React from 'react'
+import { Check, ShieldCheck, Clock, Layers, FileCode, Cpu } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+
+const pricingTiers = [
   {
-    name: "Minimal MVP",
-    price: "৳180,000",
-    timeline: "~4–6 weeks",
+    name: 'Minimal MVP',
+    price: '৳180,000',
+    timeline: '~4–6 weeks',
+    scope: 'Single core workflow, basic backend, one platform',
     featured: false,
     includes: [
-      "Single core workflow",
-      "Basic backend",
-      "One platform",
-      "Standard UI/UX",
-      "Core testing"
-    ]
+      'Core hypothesis & user journey mapping',
+      'Single-flow UI/UX wireframes & design',
+      'Frontend & focused backend engineering',
+      'User authentication & account setup',
+      'Essential database schema & basic API',
+      'Basic event telemetry & analytics',
+      'Cloud production deployment & handoff',
+    ],
   },
   {
-    name: "Standard MVP",
-    price: "৳300,000",
-    timeline: "~6–10 weeks",
+    name: 'Standard MVP',
+    price: '৳300,000',
+    timeline: '~6–10 weeks',
+    scope: 'Multiple core features, standard backend, single platform',
     featured: true,
     includes: [
-      "Multiple core features",
-      "Standard backend",
-      "Single platform",
-      "Custom UI/UX",
-      "API integrations",
-      "Launch support"
-    ]
+      'Multiple core business workflows',
+      'Clickable UI/UX interactive prototype',
+      'Standard backend & modular database architecture',
+      'Payment gateway integration (bKash / Nagad / Stripe)',
+      'User profiles, notifications & admin controls',
+      'PostHog / Mixpanel funnel measurement setup',
+      'Comprehensive functional QA & cloud deployment',
+    ],
   },
   {
-    name: "Multi-Platform MVP",
-    price: "৳450,000",
-    timeline: "~10–14 weeks",
+    name: 'Multi-Platform MVP',
+    price: '৳450,000',
+    timeline: '~10–14 weeks',
+    scope: 'Core functionality across web and mobile, moderate backend',
     featured: false,
     includes: [
-      "Core functionality on web & mobile",
-      "Moderate backend",
-      "Shared codebase",
-      "Payment or API integration",
-      "Cross-device testing"
-    ]
+      'Unified web application + iOS & Android mobile apps',
+      'Shared business logic layer (Flutter / React Native)',
+      'Third-party API connectivity & webhook endpoints',
+      'Push notifications, real-time sync & location features',
+      'Multi-role permissions & administrative portal',
+      'Dual store release prep (App Store + Google Play)',
+      'Complete staging & production environment handoff',
+    ],
   },
   {
-    name: "Complex MVP",
-    price: "Custom Quote",
-    timeline: "~14+ weeks",
+    name: 'Complex MVP',
+    price: 'Custom Quote',
+    timeline: '~14+ weeks',
+    scope: 'Multiple core workflows, advanced backend, extensive integrations',
     featured: false,
     includes: [
-      "Multiple core workflows",
-      "Advanced backend",
-      "Extensive integrations",
-      "Real-time functionality",
-      "Dedicated architecture",
-      "Ongoing support arrangement"
-    ]
-  }
+      'Advanced backend with streaming or event pipelines',
+      'AI model workflows or proprietary algorithm execution',
+      'Enterprise SSO, custom compliance & security controls',
+      'Legacy system connectivity or IoT integrations',
+      'Dedicated multi-disciplinary agile sprint squad',
+      'Comprehensive SLA & post-launch pilot iteration support',
+    ],
+  },
 ]
 
 const timelineFactors = [
-  "Multiple platforms",
-  "Complex user workflows",
-  "Advanced backend requirements",
-  "Payment systems",
-  "Multiple third-party APIs",
-  "Real-time functionality",
-  "Complex authentication",
-  "Large data requirements",
-  "Extensive testing",
-  "Advanced analytics",
-  "Legacy-system integration",
-  "Complex administrative functionality"
+  {
+    title: 'Multiple Platforms',
+    desc: 'Building across web, iOS, and Android expands development, device testing, and dual-store submission requirements.',
+  },
+  {
+    title: 'Complex User Workflows',
+    desc: 'Multi-step transactions, booking flows, or algorithmic calculations require careful business logic mapping.',
+  },
+  {
+    title: 'Advanced Backend Needs',
+    desc: 'Event-driven architectures, real-time WebSockets, and asynchronous background queues require specialized infrastructure.',
+  },
+  {
+    title: 'Payment & API Integrations',
+    desc: 'Connecting multiple payment gateways (bKash, Nagad, Stripe), CRM, ERP, and delivery logistics APIs increases integration testing.',
+  },
+  {
+    title: 'Complex Authentication',
+    desc: 'Multi-tenant isolation, enterprise SSO, role hierarchies, and granular permission matrices add architectural layers.',
+  },
+  {
+    title: 'Legacy System Integration',
+    desc: 'Connecting with older, undocumented internal databases or on-premise systems requires custom adapter layers.',
+  },
 ]
 
 const handoverItems = [
-  "Source code",
-  "Repository access",
-  "Project documentation",
-  "API documentation where applicable",
-  "Database information",
-  "Deployment information",
-  "Design files where included",
-  "Third-party integration details",
-  "Environment and configuration information",
-  "Basic technical handoff",
-  "Development guidance for the next phase"
+  { title: '100% Source Code Ownership', desc: 'Full intellectual property transfer with complete git repository commit history.' },
+  { title: 'Repository & Environment Access', desc: 'Full administrative credentials for GitHub/GitLab, hosting, and cloud consoles.' },
+  { title: 'Technical Architecture Documentation', desc: 'Clear system diagrams, database ERDs, API specs, and setup instructions.' },
+  { title: 'Database & Infrastructure Config', desc: 'Migration scripts, environment variables, Dockerfiles, and CI/CD pipelines.' },
+  { title: 'Figma UI/UX Design System', desc: 'Editable design files, clickable component library, and design tokens.' },
+  { title: 'Phase 2 Scale Guidance', desc: 'Technical roadmap and architectural recommendations for the next growth phase.' },
 ]
 
 const governancePoints = [
   {
-    title: "Project Scope",
-    desc: "Before development begins, we define the agreed functionality, platforms, integrations, deliverables, responsibilities, and expected timeline. Features outside that scope can be considered for a later phase or handled through an approved change request."
+    title: 'Project Scope Control',
+    desc: 'Before development begins, we define the agreed functionality, platforms, integrations, deliverables, responsibilities, and expected timeline. Features outside that scope can be considered for a later phase or handled through an approved change request.',
   },
   {
-    title: "Review & Approval",
-    desc: "Design and development stages include review points where applicable. You can review the agreed work before the project moves into the next stage. This keeps decisions visible and helps prevent major scope changes late in development."
+    title: 'Review & Approval Gates',
+    desc: 'Design and development stages include milestone review points. You review and sign off on agreed work before moving to the next stage, keeping decisions visible and eliminating surprises.',
   },
   {
-    title: "Third-Party Dependencies",
-    desc: "MVPs may depend on payment providers, APIs, cloud services, app stores, analytics platforms, or other external systems. We can build and test the integration within the agreed scope, but we cannot control outages, policy changes, API changes, approval delays, or service restrictions imposed by third-party providers."
+    title: 'Third-Party Dependencies',
+    desc: 'We integrate and test payment providers, APIs, and cloud services within agreed scope, while monitoring any third-party downtime or policy shifts to ensure resilient failure handling.',
   },
   {
-    title: "Change Requests",
-    desc: "New features or major changes after scope approval may affect the project cost and timeline. Significant changes should be reviewed before implementation so their impact is clear."
+    title: 'Change Request Clarity',
+    desc: 'New features or major changes after scope approval are evaluated transparently with clear timeline and cost impacts before implementation.',
   },
   {
-    title: "Post-Launch Support",
-    desc: "Launch support can include deployment checks, agreed issue resolution, and confirmation that the core functionality is working as expected. Ongoing maintenance and additional product development can be provided separately when required."
+    title: 'Post-Launch Support',
+    desc: 'Launch support includes production deployment checks, initial telemetry verification, and bug resolution to ensure smooth user validation.',
   },
   {
-    title: "Workmanship Warranty",
-    desc: "Any workmanship warranty should follow the period and terms stated in the final proposal or project agreement. The warranty should apply to qualifying development defects within the agreed scope. Third-party outages, provider-side changes, new requirements, user-generated content, and functionality outside the approved scope should be handled separately."
-  }
+    title: 'Workmanship Warranty',
+    desc: 'All custom MVP code is covered under a structured workmanship warranty against defects within the approved scope, backed by our dedicated in-house engineering squad.',
+  },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Scope Guidelines"
-          title="MVP Development Pricing & Timeline"
-        >
-          MVP development pricing depends on the number of platforms, core workflows, backend complexity, integrations, authentication, payment requirements, testing needs, and overall scope.
-        </SectionIntro>
+    <section id="pricing" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            MVP Development <span className="italic text-frame-accent">Pricing &amp; Timeline.</span>
+          </h2>
 
-        {/* PACKAGES GRID */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {packages.map((pkg, i) => (
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            MVP development pricing depends on the number of platforms, core workflows, backend complexity, integrations, authentication, payment requirements, testing needs, and overall scope.
+          </p>
+        </div>
+
+        {/* 4-Tier Pricing Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 items-stretch">
+          {pricingTiers.map((tier, idx) => (
             <div
-              key={i}
-              className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
-                pkg.featured
-                  ? 'border-frame-accent bg-frame-accent/5'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+              key={idx}
+              className={`relative flex flex-col justify-between rounded-xl border p-6 sm:p-7 transition-colors duration-300 ${
+                tier.featured
+                  ? 'border-frame-accent/60 bg-[#121214] shadow-[0_0_50px_rgba(168,85,247,0.12)] ring-1 ring-frame-accent/30'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
               }`}
             >
+              {tier.featured && (
+                <div className="absolute -top-3 left-6 rounded-full bg-frame-accent px-3 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-white shadow-md">
+                  Most Popular
+                </div>
+              )}
+
               <div>
-                {pkg.featured && (
-                  <span className="mb-4 inline-block border border-frame-accent bg-frame-accent/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-frame-accent">
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.name}
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
+                </span>
+
+                <h3 className="mt-2 font-heading text-xl font-medium text-white">
+                  {tier.name}
                 </h3>
-                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
-                  {pkg.price}
+
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="font-mono text-3xl sm:text-4xl font-medium text-white">
+                    {tier.price}
+                  </span>
+                </div>
+
+                <div className="mt-2 flex items-center gap-1.5 text-xs text-zinc-400 font-mono">
+                  <Clock className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                  <span>{tier.timeline}</span>
+                </div>
+
+                <p className="mt-3 text-xs text-frame-accent font-mono border-t border-white/[0.06] pt-2.5">
+                  {tier.scope}
                 </p>
-                {pkg.timeline && (
-                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
-                    Typical Delivery: {pkg.timeline}
-                  </p>
-                )}
-                {pkg.includes && (
-                  <div className="mt-4 border-t border-frame-border/60 pt-4">
-                    <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
-                      What&apos;s Included:
-                    </p>
-                    <ul className="mt-3 space-y-2">
-                      {pkg.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
+
+                <div className="mt-5 border-t border-white/[0.08] pt-4">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-500 block mb-2.5">
+                    What is Included:
+                  </span>
+                  <ul className="space-y-2 text-xs text-zinc-300">
+                    {tier.includes.map((inc, iIdx) => (
+                      <li key={iIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span>{inc}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-frame-border/60">
-                <PosterButton href="/contact" variant={pkg.featured ? 'accent' : 'outline'} className="w-full text-xs">
-                  Request Quote &rarr;
+              <div className="mt-8 border-t border-white/[0.08] pt-5">
+                <PosterButton
+                  href="/contact"
+                  variant={tier.featured ? 'accent' : 'outline'}
+                  className="w-full justify-center"
+                >
+                  Choose {tier.name}
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        {/* WHAT AFFECTS COST & TIMELINE AND MVP OWNERSHIP */}
-        <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* WHAT AFFECTS TIMELINE */}
-          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+        {/* What Affects MVP Cost & Timeline */}
+        <div className="mt-20 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+          <div className="max-w-2xl space-y-2 mb-8">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+              Engineering Cost Drivers
+            </span>
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
               What Affects MVP Cost &amp; Timeline?
-            </h2>
-            <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Most MVPs can take approximately 4–14+ weeks, depending on scope. Projects can take longer when they involve:
+            </h3>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Most MVPs can take approximately 4–14+ weeks depending on scope. Projects move faster when the core hypothesis, design assets, API credentials, and approvals are ready early.
             </p>
-            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-              {timelineFactors.map((factor, fIdx) => (
-                <li key={fIdx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                  <span>{factor}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 border-t border-frame-border/60 pt-4 space-y-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-              <p className="font-semibold text-frame-fg">
-                Projects can move faster when the core hypothesis, scope, content, design requirements, third-party documentation, credentials, and approvals are available early.
-              </p>
-              <p className="italic">
-                The final timeline should be confirmed after reviewing the actual product requirements.
-              </p>
-            </div>
           </div>
 
-          {/* MVP OWNERSHIP & HANDOVER */}
-          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              MVP Ownership &amp; Handover
-            </h2>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-              Your MVP should remain usable after the development engagement ends. The exact handover package depends on the project agreement, but an MVP handover can include:
-            </p>
-            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-              {handoverItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 border-t border-frame-border/60 pt-4">
-              <p className="text-xs md:text-sm font-semibold text-frame-fg">
-                Ownership, access, documentation, and handover responsibilities should be clearly defined in the final project agreement.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {timelineFactors.map((f, fIdx) => (
+              <div key={fIdx} className="rounded-xl border border-white/[0.06] bg-[#18181b]/40 p-5">
+                <span className="font-mono text-xs text-frame-accent block mb-1">0{fIdx + 1}</span>
+                <h4 className="font-heading text-base font-medium text-white">{f.title}</h4>
+                <p className="mt-2 text-xs text-zinc-400 leading-relaxed">{f.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* PROJECT SCOPE, REVIEW & SUPPORT */}
-        <div className="mt-16">
-          <div className="mb-8 items-end gap-8 border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8 lg:grid lg:grid-cols-[1.5fr_1fr]">
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
-              Project Scope, Review &amp; Support
-            </h2>
-            <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base lg:mt-0 wide:text-lg">
-              Clear scope helps keep MVP development focused and prevents the first release from expanding into the entire product roadmap.
+        {/* MVP Ownership & Handover */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+          <div className="max-w-2xl space-y-2 mb-8">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+              IP &amp; Handover Package
+            </span>
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+              MVP Ownership &amp; Complete Handover
+            </h3>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Your MVP should remain usable and evolvable after our engagement ends. You retain 100% intellectual property ownership with complete documentation.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {handoverItems.map((h, hIdx) => (
+              <div key={hIdx} className="rounded-xl border border-white/[0.06] bg-[#18181b]/40 p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <FileCode className="h-4 w-4 text-frame-accent" />
+                  <h4 className="font-heading text-sm font-medium text-white">{h.title}</h4>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">{h.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Project Scope, Review & Support Protocol */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+          <div className="max-w-2xl space-y-2 mb-8">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+              Governance &amp; Warranty
+            </span>
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+              Project Scope, Review &amp; Workmanship Warranty
+            </h3>
+            <p className="text-sm text-zinc-400 leading-relaxed">
+              Clear scope keeps MVP development focused and prevents the first release from expanding into the entire product roadmap.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {governancePoints.map((gov, gIdx) => (
-              <div key={gIdx} className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-                <span className="font-heading text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Checkpoint 0{gIdx + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {gov.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {gov.desc}
-                </p>
+              <div key={gIdx} className="rounded-xl border border-white/[0.06] bg-[#18181b]/40 p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                  <h4 className="font-heading text-base font-medium text-white">{gov.title}</h4>
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">{gov.desc}</p>
               </div>
             ))}
           </div>

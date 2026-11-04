@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const seoFoundations = [
   {
     title: 'Product & Category Architecture',
@@ -37,21 +35,35 @@ const seoFoundations = [
 
 export default function SeoReady() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Product Indexation & Schema / Organic Commerce" title="SEO-Ready E-commerce Website Development">
-          Ecommerce SEO requires more than adding keywords to product descriptions. Product catalogs create unique technical challenges around categories, variants, filters, duplicate URLs, structured data, and indexation. We build the store with an SEO-ready foundation so future search and content campaigns have a stronger technical base.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Centered Section Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            SEO-Ready E-commerce{' '}
+            <span className="italic text-frame-accent">Website Development.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-4">
+          <p className="text-base text-zinc-300 sm:text-lg">
+            Ecommerce SEO requires more than adding keywords to product descriptions. Product catalogs create unique technical challenges around categories, variants, filters, duplicate URLs, structured data, and indexation. We build the store with an SEO-ready foundation so future search and content campaigns have a stronger technical base.
+          </p>
+        </div>
+
+        {/* 4-Column Architectural Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {seoFoundations.map((pillar, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">SEO Pillar 0{idx + 1}</span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  SEO 0{idx + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {pillar.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {pillar.desc}
                 </p>
               </div>
@@ -59,9 +71,13 @@ export default function SeoReady() {
           ))}
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6">
-          <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-            <strong className="text-frame-fg uppercase tracking-wider">Please Note:</strong> A technically strong ecommerce website does not guarantee rankings or sales. Search visibility depends on content quality, competition, authority, user experience, and ongoing SEO work.
+        {/* Informative Legal / SEO Disclaimer Box */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7">
+          <p className="text-sm font-medium leading-relaxed text-zinc-300 sm:text-base">
+            <strong className="text-white uppercase tracking-wider font-mono text-xs block mb-1">
+              Please Note:
+            </strong>
+            A technically strong ecommerce website does not guarantee rankings or sales. Search visibility depends on content quality, competition, authority, user experience, and ongoing SEO work.
           </p>
         </div>
       </div>

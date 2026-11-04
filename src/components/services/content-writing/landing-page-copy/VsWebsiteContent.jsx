@@ -53,8 +53,8 @@ const related = [
 
 export default function VsWebsiteContent() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Comparison"
           title="What Makes Landing Page Copy Different From Website Content"
@@ -63,15 +63,15 @@ export default function VsWebsiteContent() {
           a different job.
         </SectionIntro>
 
-        <div className="border-2 border-frame-border">
-          <div className="hidden grid-cols-3 gap-px border-b-2 border-frame-border bg-frame-border md:grid">
-            <span className="bg-frame-muted/40 px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-frame-fg">
+        <div className="border border-white/[0.08]">
+          <div className="hidden grid-cols-3 gap-px border-b border-white/[0.08] bg-frame-border md:grid">
+            <span className="bg-[#121214]/40 px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-[#FAFAFA]">
               Content Type
             </span>
-            <span className="bg-frame-muted/40 px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-frame-fg">
+            <span className="bg-[#121214]/40 px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-[#FAFAFA]">
               Primary Purpose
             </span>
-            <span className="bg-frame-muted/40 px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-frame-fg">
+            <span className="bg-[#121214]/40 px-5 py-4 text-xs font-black uppercase tracking-[0.2em] text-[#FAFAFA]">
               Typical Focus
             </span>
           </div>
@@ -82,23 +82,23 @@ export default function VsWebsiteContent() {
                 key={row.type}
                 className={
                   row.highlight
-                    ? 'grid gap-1 bg-frame-accent/10 p-5 md:grid-cols-3 md:gap-px md:gap-4'
-                    : 'grid gap-1 bg-frame-bg p-5 md:grid-cols-3 md:gap-px md:gap-4'
+                    ? 'grid gap-1 bg-[#A855F7]/10 p-5 md:grid-cols-3 md:gap-px md:gap-4'
+                    : 'grid gap-1 bg-[#09090B] p-5 md:grid-cols-3 md:gap-px md:gap-4'
                 }
               >
                 <span
                   className={
                     row.highlight
-                      ? 'font-heading text-sm font-bold uppercase tracking-tight text-frame-accent md:text-base'
-                      : 'font-heading text-sm font-bold uppercase tracking-tight text-frame-fg md:text-base'
+                      ? 'font-heading text-sm font-bold uppercase tracking-tight text-[#A855F7] md:text-base'
+                      : 'font-heading text-sm font-bold uppercase tracking-tight text-[#FAFAFA] md:text-base'
                   }
                 >
                   {row.type}
                 </span>
-                <span className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <span className="text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                   {row.purpose}
                 </span>
-                <span className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <span className="text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                   {row.focus}
                 </span>
               </div>
@@ -106,7 +106,7 @@ export default function VsWebsiteContent() {
           </div>
         </div>
 
-        <div className="mt-10 space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="mt-10 space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
           <p><AutoLinks currentPath="/services/content-writing/landing-page-copy" allowed={["/services/content-writing/website-content"]}>
             Landing page copy is usually more focused, more campaign-specific, and more direct than general
             website content. A landing page may be shorter, but it still needs to answer questions, build enough
@@ -118,8 +118,8 @@ export default function VsWebsiteContent() {
           </p>
         </div>
 
-        <div className="mt-10 border-t-2 border-frame-border pt-8">
-          <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-10 border-t border-white/[0.08] pt-8">
+          <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
             Related content services
           </span>
           <div className="mt-5 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">

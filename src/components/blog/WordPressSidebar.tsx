@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { FolderOpen, BookOpen, Mail, CheckCircle2, ArrowRight } from "lucide-react";
+import { FolderOpen, BookOpen, Mail, CheckCircle2 } from "lucide-react";
 import { blogCategorySlug } from "@/lib/blog/getBlogPosts";
 
 export function WordPressSidebar({
@@ -30,14 +30,14 @@ export function WordPressSidebar({
 
   return (
     <aside className="space-y-6">
-      {/* WIDGET 2: Strategic Disciplines (Side Categories) */}
-      <div className="border-2 border-frame-border bg-[#121214] p-6 shadow-sm space-y-4 text-frame-fg rounded-2xl">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-frame-accent font-heading">
-            <FolderOpen className="h-4 w-4" />
+      {/* WIDGET 1: Blog Categories */}
+      <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14] space-y-4 text-white">
+        <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+          <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300">
+            <FolderOpen className="h-3.5 w-3.5 text-frame-accent" />
             <span>Blog Categories</span>
           </div>
-          <span className="text-[10px] font-mono text-frame-muted-fg uppercase">{categories.length} Topics</span>
+          <span className="font-mono text-[10px] text-zinc-500 uppercase">{categories.length} Topics</span>
         </div>
 
         <div className="space-y-1">
@@ -48,32 +48,22 @@ export function WordPressSidebar({
                 ? recentPosts.length
                 : recentPosts.filter((p) => {
                     const catNorm = cat.toLowerCase().trim();
-                    const pNorm = (p.category || "").toLowerCase().trim();
-                    if (pNorm === catNorm) return true;
-                    if (Array.isArray(p.categories)) {
-                      return p.categories.some((c) => (c || "").toLowerCase().trim() === catNorm);
-                    }
-                    return false;
+                    const pCatNorm = (p.category || "").toLowerCase().trim();
+                    return pCatNorm === catNorm;
                   }).length;
+
+            const className = `w-full flex items-center justify-between px-3 py-2 rounded-lg text-xs font-mono uppercase tracking-wider transition-colors duration-150 ${
+              isSelected
+                ? "bg-purple-500/10 text-purple-300 border border-purple-500/30 font-medium"
+                : "text-zinc-400 hover:text-white hover:bg-white/[0.02]"
+            }`;
 
             const content = (
               <>
                 <span className="truncate pr-2">{cat}</span>
-                <span
-                  className={`text-[10px] px-2 py-0.5 rounded-full shrink-0 font-mono ${
-                    isSelected ? "bg-white/20 text-white" : "bg-frame-muted text-frame-muted-fg"
-                  }`}
-                >
-                  {count}
-                </span>
+                <span className="font-mono text-[10px] text-zinc-500">({count})</span>
               </>
             );
-
-            const className = `w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-semibold font-body transition-all text-left ${
-              isSelected
-                ? "bg-frame-accent text-white shadow-xs font-bold"
-                : "text-frame-muted-fg hover:bg-[#1C1C1F] hover:text-white"
-            }`;
 
             if (onSelectCategory) {
               return (
@@ -102,20 +92,20 @@ export function WordPressSidebar({
         </div>
       </div>
 
-      {/* WIDGET 3: Latest Posts with Featured Image Thumbnail */}
+      {/* WIDGET 2: Latest Posts with Featured Image Thumbnail */}
       {filteredRecent.length > 0 && (
-        <div className="border-2 border-frame-border bg-[#121214] p-6 shadow-sm space-y-4 text-frame-fg rounded-2xl">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-frame-accent font-heading">
-              <BookOpen className="h-4 w-4" />
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14] space-y-4 text-white">
+          <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+            <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300">
+              <BookOpen className="h-3.5 w-3.5 text-frame-accent" />
               <span>Latest Posts ({filteredRecent.length})</span>
             </div>
-            <span className="text-[10px] font-mono text-emerald-400 font-bold bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-500/30">
+            <span className="font-mono text-[10px] text-emerald-300 font-medium bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20">
               Fresh
             </span>
           </div>
 
-          <div className="divide-y divide-frame-border space-y-3 pt-1">
+          <div className="divide-y divide-white/[0.08] space-y-3 pt-1">
             {filteredRecent.map((p) => {
               const imgUrl = p.featuredImage?.url || "/logo.png";
               return (
@@ -123,12 +113,12 @@ export function WordPressSidebar({
                   {/* Featured Thumbnail */}
                   <Link
                     href={`/blog/${p.slug}`}
-                    className="w-16 h-16 rounded-xl overflow-hidden bg-slate-900 border border-frame-border shrink-0 block relative group-hover:border-frame-accent transition-colors"
+                    className="w-14 h-14 rounded-lg overflow-hidden bg-[#09090B] border border-white/[0.08] shrink-0 block relative group-hover:border-white/[0.16] transition-colors"
                   >
                     <img
                       src={imgUrl}
                       alt={p.featuredImage?.alt || p.title}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       onError={(e) => {
                         e.currentTarget.src = "/logo.png";
                       }}
@@ -136,16 +126,16 @@ export function WordPressSidebar({
                   </Link>
 
                   <div className="min-w-0 flex-1 space-y-1">
-                    <span className="text-[10px] font-mono font-bold uppercase text-frame-accent tracking-wider block truncate">
+                    <span className="text-[10px] font-mono uppercase text-frame-accent tracking-wider block truncate">
                       {p.category}
                     </span>
                     <Link
                       href={`/blog/${p.slug}`}
-                      className="font-bold font-heading text-xs uppercase text-frame-fg group-hover:text-frame-accent transition-colors line-clamp-2 leading-snug block"
+                      className="font-heading font-medium text-xs sm:text-sm text-white group-hover:text-purple-300 transition-colors line-clamp-2 leading-snug block"
                     >
                       {p.title}
                     </Link>
-                    <div className="text-[10px] text-frame-muted-fg font-body flex items-center gap-2">
+                    <div className="text-[10px] text-zinc-500 font-mono flex items-center gap-2">
                       <span>{p.publishDate}</span>
                       <span>&bull;</span>
                       <span>{p.readTime}</span>
@@ -158,40 +148,40 @@ export function WordPressSidebar({
         </div>
       )}
 
-      {/* WIDGET 4: Newsletter / 360 Growth Audit CTA */}
-      <div className="border-2 border-frame-accent/40 bg-linear-to-br from-[#1E112A] to-[#121214] p-6 shadow-sm space-y-4 text-frame-fg">
-        <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-frame-accent font-heading">
-          <Mail className="h-4 w-4" />
+      {/* WIDGET 3: Newsletter / Growth Dispatch */}
+      <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14] space-y-4 text-white">
+        <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300 border-b border-white/[0.08] pb-3.5">
+          <Mail className="h-3.5 w-3.5 text-frame-accent" />
           <span>Growth Dispatch</span>
         </div>
 
-        <div className="space-y-1">
-          <h4 className="font-heading font-bold uppercase text-sm text-frame-fg">Get practical growth playbooks</h4>
-          <p className="text-xs font-body text-frame-muted-fg leading-relaxed">
+        <div className="space-y-1.5">
+          <h4 className="font-heading font-medium text-base text-white">Get practical growth playbooks</h4>
+          <p className="text-xs font-normal text-zinc-400 leading-relaxed">
             Bi-weekly strategy notes on connected growth systems, offer messaging, and technical conversion infrastructure.
           </p>
         </div>
 
         {subscribed ? (
-          <div className="p-3 rounded-lg bg-[#064E3B] text-[#A7F3D0] text-xs font-bold font-body flex items-center gap-2">
-            <CheckCircle2 className="h-4 w-4 shrink-0" />
+          <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-medium flex items-center gap-2">
+            <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
             <span>You are subscribed to the dispatch!</span>
           </div>
         ) : (
-          <form onSubmit={handleSubscribe} className="space-y-2">
+          <form onSubmit={handleSubscribe} className="space-y-3 pt-1">
             <input
               type="email"
               placeholder="Your business email..."
               value={emailInput}
               onChange={(e) => setEmailInput(e.target.value)}
-              className="w-full px-3 py-2.5 rounded-lg text-xs bg-frame-bg border border-frame-border text-frame-fg font-body focus:outline-hidden focus:border-frame-accent"
+              className="w-full px-3.5 py-2.5 rounded-lg text-xs bg-[#18181B] border border-white/[0.08] text-white placeholder-zinc-500 font-mono focus:outline-none focus:border-purple-400"
               required
             />
             <button
               type="submit"
-              className="w-full py-3 bg-frame-accent hover:bg-[#9333EA] text-white rounded-lg text-xs font-heading font-black uppercase tracking-wider transition-all shadow-xs"
+              className="sw-btn sw-btn-primary w-full justify-center text-xs"
             >
-              Subscribe Free
+              <span>Subscribe Free</span>
             </button>
           </form>
         )}

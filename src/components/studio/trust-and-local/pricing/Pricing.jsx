@@ -2,15 +2,15 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for pricing — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for pricing: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
-  "pricingTitle": "Master Rate Card — Dhaka 2026",
-  "pricingIntro": "The complete FrameCipher rate framework in one table: hourly hire from ৳2,000, sessions from ৳7,500, signature productions ৳45,000–1,85,000, flagship campaigns scoped past ৳5,00,000. VAT-compliant invoices; 50% advance confirms booking.",
+  "pricingTitle": "Master Rate Card: Dhaka 2026",
+  "pricingIntro": "The complete FrameCipher rate framework in one table: hourly hire from ৳2,000, sessions from ৳7,500, signature productions ৳45,000 to 1,85,000, flagship campaigns scoped past ৳5,00,000. VAT-compliant invoices; 50% advance confirms booking.",
   "tiers": [
     {
       "name": "Hourly & Session Hire",
-      "price": "৳2,000–4,500/hr",
+      "price": "৳2,000 to 4,500/hr",
       "priceNote": "facility rates",
       "tag": "Studios & Booths",
       "cta": "Book Hourly Hire",
@@ -18,15 +18,15 @@ const DATA = {
       "features": [
         "Studio room-only with own gear: ৳2,000/hr (min 2h)",
         "Operated with camera + crew: ৳2,500/hr (min 2h)",
-        "Podcast Gold/Platinum bands: ৳2,500–4,500/hr",
+        "Podcast Gold/Platinum bands: ৳2,500 to 4,500/hr",
         "Vocal booth + engineer: ৳1,500/hr",
-        "Half-day blocks ৳12,000–14,000; full days ৳22,000–25,000",
+        "Half-day blocks ৳12,000 to 14,000; full days ৳22,000 to 25,000",
         "Weekend and overnight at standard rates"
       ]
     },
     {
       "name": "Signature Productions",
-      "price": "৳45,000–1,85,000",
+      "price": "৳45,000 to 1,85,000",
       "priceNote": "fixed scopes",
       "tag": "Most Popular",
       "cta": "Scope a Signature Production",
@@ -51,7 +51,7 @@ const DATA = {
       "features": [
         "Broadcast TVC from ৳3,60,000; campaigns ৳12,50,000+",
         "Enterprise AV suites from ৳2,60,000",
-        "Documentaries ৳1,85,000–7,80,000+ by scope",
+        "Documentaries ৳1,85,000 to 7,80,000+ by scope",
         "Multi-day summits from ৳1,25,000",
         "Dedicated producers, priority lanes, archives",
         "48-hour written quotes from completed briefs"
@@ -66,7 +66,7 @@ const DATA = {
     "Deliverable count, ratios and subtitle languages",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Cross-checked July 2026: corporate profiles ৳30k–80k (Brandtics) and AV ৳2.5L–6L (Libanza); OVC from ৳80k–1.5L, TVC ৳3.5L–10L+; wedding ৳8k–1.4L per event bands to ৳2.5L–5L signature houses; podcast ৳2.5k–4.5k/hr; product ৳1k–1.5k/unit; rental ৳1k–3k/hr; editing ৳500–25k by complexity; VO ৳3k–5k short reads. Our card sits at the equipped middle of every band — never the cheapest quote in Dhaka, always itemised so you can see what the cheaper quote omitted.",
+  "marketNote": "Cross-checked July 2026: corporate profiles ৳30k to 80k (Brandtics) and AV ৳2.5L to 6L (Libanza); OVC from ৳80k to 1.5L, TVC ৳3.5L to 10L+; wedding ৳8k to 1.4L per event bands to ৳2.5L to 5L signature houses; podcast ৳2.5k to 4.5k/hr; product ৳1k to 1.5k/unit; rental ৳1k to 3k/hr; editing ৳500 to 25k by complexity; VO ৳3k to 5k short reads. Our card sits at the equipped middle of every band: never the cheapest quote in Dhaka, always itemised so you can see what the cheaper quote omitted.",
   "costRows": [
     [
       "Studio hire: room-only / operated",
@@ -82,11 +82,11 @@ const DATA = {
     ],
     [
       "Signature productions band",
-      "৳45,000–1,85,000"
+      "৳45,000 to 1,85,000"
     ],
     [
       "Flagship campaigns",
-      "৳2,60,000–12,50,000+"
+      "৳2,60,000 to 12,50,000+"
     ]
   ]
 }
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Studio Production Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

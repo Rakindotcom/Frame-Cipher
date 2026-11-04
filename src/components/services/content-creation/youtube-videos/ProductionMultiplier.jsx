@@ -76,7 +76,7 @@ const deliverables = [
   }
 ]
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -86,8 +86,8 @@ function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) 
 
 export default function ProductionMultiplier() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Asset Multiplication"
           title="One Shoot, Multiple YouTube & Social Assets"
@@ -96,9 +96,9 @@ export default function ProductionMultiplier() {
         </SectionIntro>
 
         {/* ASSET MULTIPLIER PIPELINE */}
-        <div className="mt-12 border-2 border-frame-accent bg-frame-accent/5 p-6 md:p-10">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-frame-accent/40 pb-4">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-12 border-2 border-[#A855F7]/40 bg-[#A855F7]/[0.05] p-6 md:p-10">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-[#A855F7]/30 pb-4">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Shoot Architecture Example: Founder or Expert Interview
             </span>
             <span className="rounded bg-frame-accent px-2.5 py-1 text-[11px] font-black uppercase text-frame-bg">
@@ -106,22 +106,22 @@ export default function ProductionMultiplier() {
             </span>
           </div>
 
-          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-8 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-5">
             {assets.map((item) => (
-              <div key={item.num} className="bg-frame-bg p-5 flex flex-col justify-between">
+              <div key={item.num} className="bg-[#09090B] p-5 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-black text-frame-accent">
+                    <span className="font-mono text-xs font-black text-[#A855F7]">
                       {item.num}
                     </span>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                       {item.format}
                     </span>
                   </div>
-                  <h4 className="mt-3 font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="mt-3 font-heading text-base font-bold tracking-tight text-[#FAFAFA]">
                     {item.name}
                   </h4>
-                  <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                     {item.desc}
                   </p>
                 </div>
@@ -130,7 +130,7 @@ export default function ProductionMultiplier() {
           </div>
 
           <div className="mt-8 flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <p className="text-xs sm:text-sm font-medium text-frame-fg">
+            <p className="text-xs sm:text-sm font-medium text-[#FAFAFA]">
               Batch production maximizes your return on crew setup time, presenter availability, and studio staging.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
@@ -142,28 +142,28 @@ export default function ProductionMultiplier() {
         {/* DELIVERABLES BREAKDOWN: WHAT YOU RECEIVE */}
         <div className="mt-20">
           <div className="text-center max-w-3xl mx-auto">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
               Comprehensive Output
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold tracking-tight text-[#FAFAFA]">
               What You Receive
             </h3>
-            <p className="mt-3 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <p className="mt-3 text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               Your exact deliverable scope is customized and confirmed before production begins, ensuring zero surprises upon project completion.
             </p>
           </div>
 
-          <div className="mt-10 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
             {deliverables.map((col, idx) => (
-              <div key={idx} className="bg-frame-bg p-6 flex flex-col justify-between">
+              <div key={idx} className="bg-[#09090B] p-6 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     Category 0{idx + 1}
                   </span>
-                  <h4 className="mt-2 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="mt-2 font-heading text-base md:text-lg font-bold tracking-tight text-[#FAFAFA]">
                     {col.category}
                   </h4>
-                  <ul className="mt-5 space-y-2.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
+                  <ul className="mt-5 space-y-2.5 border-t border-white/[0.06] pt-4 text-xs font-medium text-zinc-200">
                     {col.items.map((it, iIdx) => (
                       <li key={iIdx} className="flex items-start gap-2">
                         <CheckIcon />

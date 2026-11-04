@@ -1,6 +1,6 @@
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -87,8 +87,8 @@ export default function Offerings({ service }) {
   const offerings = service?.offerings?.length ? service.offerings : defaultOfferings
 
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Specialized Capabilities"
           title="Logo Design Services"
@@ -96,33 +96,33 @@ export default function Offerings({ service }) {
           From strategic discovery to production-ready vector master packages, we engineer distinctive marks that scale across every modern brand touchpoint.
         </SectionIntro>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {offerings.map((item, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={index} className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     SCOPE 0{index + 1}
                   </span>
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     Core Capability
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
                 {item.description && (
-                  <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                     {item.description}
                   </p>
                 )}
               </div>
 
               {item.bullets?.length > 0 && (
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
                   <ul className="space-y-2">
                     {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90">
+                      <li key={bIdx} className="flex items-start gap-2 text-xs font-medium text-zinc-200">
                         <CheckIcon />
                         <span>{bullet}</span>
                       </li>

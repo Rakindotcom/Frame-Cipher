@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const businessModels = [
   {
     title: 'B2C E-commerce',
@@ -29,21 +27,35 @@ const businessModels = [
 
 export default function Models() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Business Models / Adaptive Commerce Setup" title="E-commerce Solutions for Different Business Models">
-          Not every online store works the same way. The right website structure depends on what you sell, who you sell to, and how customers purchase from you.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Centered Section Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            E-commerce Solutions for{' '}
+            <span className="italic text-frame-accent">Different Business Models.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <p className="text-base text-zinc-300 sm:text-lg">
+            Not every online store works the same way. The right website structure depends on what you sell, who you sell to, and how customers purchase from you.
+          </p>
+        </div>
+
+        {/* 3-Column Architectural Cards Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {businessModels.map((model, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Model 0{index + 1}</span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {model.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {model.desc}
                 </p>
               </div>
@@ -51,9 +63,12 @@ export default function Models() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          We recommend the platform and architecture based on your business model rather than forcing every store into the same ecommerce setup.
-        </p>
+        {/* Bottom Platform Strategy Note */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 border-l-2 border-l-frame-accent">
+          <p className="text-sm font-medium text-zinc-300 sm:text-base">
+            We recommend the platform and architecture based on your business model rather than forcing every store into the same ecommerce setup.
+          </p>
+        </div>
       </div>
     </section>
   )

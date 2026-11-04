@@ -22,8 +22,8 @@ const cards = [
 
 export default function Timeline() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Timeline, revisions & support"
           title="Timeline, Revisions &amp; Ongoing Support"
@@ -31,22 +31,22 @@ export default function Timeline() {
           The timeline depends on the size of your existing content library and the depth of research required.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-2 lg:items-start">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-2 lg:items-start">
           <div>
-            <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               Typical timeline
             </h3>
             <ul className="mt-5 space-y-2.5">
               {[
-                'Content audit: 1–2 weeks',
-                'Full strategy development: 1–2 additional weeks',
+                'Content audit: 1 to 2 weeks',
+                'Full strategy development: 1 to 2 additional weeks',
                 'Ongoing strategy: reviewed according to the agreed engagement schedule',
               ].map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 border border-frame-border bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 border border-white/[0.08] bg-[#09090B] p-4 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
-                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                     ✓
                   </span>
                   <span>{item}</span>
@@ -54,34 +54,34 @@ export default function Timeline() {
               ))}
             </ul>
 
-            <h3 className="mt-8 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <h3 className="mt-8 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               The exact timeline depends on
             </h3>
             <ul className="mt-5 flex flex-wrap gap-2">
               {factors.map((item) => (
                 <li
                   key={item}
-                  className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                  className="border border-white/[0.08] bg-[#09090B] px-2.5 py-1 text-[11px] font-semibold text-[#FAFAFA]"
                 >
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="mt-6 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
               A larger website, multiple markets, or a complex content operation may require additional time.
             </p>
           </div>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border">
+          <div className="grid gap-px border border-white/[0.08] bg-frame-border">
             {cards.map((card) => (
               <article
                 key={card.title}
-                className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40"
+                className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40"
               >
-                <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                   {card.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                   {card.text}
                 </p>
               </article>
@@ -89,8 +89,8 @@ export default function Timeline() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Tell us the size of your library and how many markets you cover, and we will give you a realistic range
             rather than a generic estimate.
           </p>

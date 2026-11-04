@@ -66,7 +66,7 @@ function convertFromUsd(usdValue, currency) {
   return usdValue * rate
 }
 
-export default function TikTokAdsCalculator({ onLeadSubmit }) {
+export default function TikTokAdsCalculator({ onLeadSubmit: _onLeadSubmit }) {
   const [step, setStep] = useState(1)
 
   // Step 1
@@ -95,8 +95,8 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
   const [vvrOverride, setVvrOverride] = useState('')
 
   // Report
-  const [clientName, setClientName] = useState('')
-  const [preparedBy, setPreparedBy] = useState('Frame Cipher Media Team')
+  const [clientName, _setClientName] = useState('')
+  const [preparedBy, _setPreparedBy] = useState('Frame Cipher Media Team')
   const [downloading, setDownloading] = useState(false)
 
   const n = (v) => {
@@ -217,7 +217,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
     }
 
     recommendations.push(
-      `TikTok creative fatigue sets in 3x faster than Meta. Refresh your top video creative variations every 10–14 days to keep CPA stable.`
+      `TikTok creative fatigue sets in 3x faster than Meta. Refresh your top video creative variations every 10 to 14 days to keep CPA stable.`
     )
 
     recommendations.push(
@@ -372,7 +372,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 01 // Geographic Market & Industry
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               TikTok Advertising Region & Niche
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -475,7 +475,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 02 // Creative Format & Placements
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Select Ad Format & Bidding Style
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -611,7 +611,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 03 // Revenue Goal & Margin Economics
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Revenue Target & Unit Economics
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -706,7 +706,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 04 // 6-Second Retention & Metric Overrides
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Video View Rate & Performance Overrides
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -800,7 +800,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
                   TikTok Video Simulation Computed
                 </span>
               </div>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
                 TikTok Ads Performance & Retention Model
               </h3>
             </div>
@@ -874,7 +874,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
 
           {/* Video Retention Funnel Bar */}
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
-            <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
               TikTok Creative Retention Funnel
             </h4>
             <p className="text-xs text-frame-muted-fg mt-1">
@@ -912,7 +912,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                 Scale Horizons
               </span>
-              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 3 Scenarios for Your TikTok Budget
               </h4>
             </div>
@@ -991,7 +991,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <div className="flex items-center gap-2 text-frame-accent">
               <Sparkles className="h-5 w-5" />
-              <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
                 TikTok Algorithmic Creative Guidance
               </h4>
             </div>
@@ -1022,7 +1022,7 @@ export default function TikTokAdsCalculator({ onLeadSubmit }) {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                   Creative & Scaling Engine
                 </span>
-                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                   Need High-Converting TikTok Creatives & UGC That Scale?
                 </h4>
                 <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">

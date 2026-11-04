@@ -1,4 +1,4 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
 
 const businessSolutions = [
   {
@@ -50,23 +50,34 @@ const businessSolutions = [
 
 export default function Solutions() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Versatility / Specific Niches" title="Wix Solutions for Different Business Needs">
-          Wix can support different website models when the platform matches the business requirements. We tailor the structure, content, functionality, and editing experience around what each business needs.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Heading: STRICTLY LEFT-ALIGNED */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Wix Solutions for{' '}
+            <span className="italic text-frame-accent">Different Business Needs.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Wix can support different website models when the platform matches the business requirements. We tailor the structure, content, functionality, and editing experience around what each business needs.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* 9 Solution Cards */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {businessSolutions.map((item, index) => (
-            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 min-h-[200px]">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent block mb-2">
-                  Solution {item.number}
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent block mb-2">
+                  {item.number}
                 </span>
-                <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
                   {item.description}
                 </p>
               </div>

@@ -4,11 +4,11 @@
 import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for green-screen-video — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for green-screen-video: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Green Screen Studio Packages and Prices in Dhaka (BDT)",
-  "pricingIntro": "Fixed-scope chroma sessions with stage, crew, keying and deliverables itemised in writing — shot and composited in one building.",
+  "pricingIntro": "Fixed-scope chroma sessions with stage, crew, keying and deliverables itemised in writing: shot and composited in one building.",
   "tiers": [
     {
       "name": "Chroma Session",
@@ -56,7 +56,7 @@ const DATA = {
         "3D virtual environments and camera tracking",
         "Rotoscoping for difficult edges (hair, glass)",
         "Colour matching subjects to virtual light",
-        "Priority compositing lane, 5–7 day delivery"
+        "Priority compositing lane, 5 to 7 day delivery"
       ]
     }
   ],
@@ -66,9 +66,9 @@ const DATA = {
     "Multi-subject keys, moving cameras and 3D tracking",
     "Rotoscoping for difficult edges like hair and glass",
     "Slide compositing, graphics and aspect-ratio versions",
-    "Turnaround: 48–72 hour priority adds 30%"
+    "Turnaround: 48 to 72 hour priority adds 30%"
   ],
-  "marketNote": "Dhaka studio rental with green screen runs ৳1,500–3,000/hour room-only (Agdum, Studio89, Space Mirpur), with operated sessions at ৳2,500/hour and keying/compositing billed as post-production (৳5,000–25,000 by complexity). Bad green screens — uneven light, spill, ragged edges — cost more in rescue compositing than a proper stage saves. Our pre-lit grid exists to make keying a non-event.",
+  "marketNote": "Dhaka studio rental with green screen runs ৳1,500 to 3,000/hour room-only (Agdum, Studio89, Space Mirpur), with operated sessions at ৳2,500/hour and keying/compositing billed as post-production (৳5,000 to 25,000 by complexity). Bad green screens: uneven light, spill, ragged edges: cost more in rescue compositing than a proper stage saves. Our pre-lit grid exists to make keying a non-event.",
   "costRows": [
     [
       "Chroma session, operated (2h minimum)",
@@ -96,7 +96,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -127,7 +127,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed"><AutoLinks currentPath="/studio/green-screen-video" allowed={["/studio/rental"]}>
@@ -174,7 +174,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -188,7 +188,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Green Screen Studio Time Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

@@ -6,19 +6,19 @@ const glanceRows = [
   ['Digital OVC', '৳88,000 per commercial, with cutdowns'],
   ['Broadcast TVC', 'From ৳3,60,000 per commercial, scoped quote'],
   ['National campaign', '৳12,50,000 and up, multi-film scoped quote'],
-  ['Standard delivery', '7–10 working days from storyboard approval'],
-  ['Priority delivery', '+30% for 48–72 hour express turnaround'],
+  ['Standard delivery', '7 to 10 working days from storyboard approval'],
+  ['Priority delivery', '+30% for 48 to 72 hour express turnaround'],
   ['Quote', 'Itemised, in writing, within 48 hours'],
   ['Payment', '50% advance confirms dates, balance on final sign-off, VAT-compliant invoices'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
   ['Phone and WhatsApp', '+880 1768-146650'],
-  ['Hours', 'Open 24 hours — sessions by advance reservation'],
+  ['Hours', 'Open 24 hours (sessions by advance reservation)'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Commercial Video Essentials"

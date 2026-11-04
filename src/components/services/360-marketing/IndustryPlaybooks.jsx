@@ -17,7 +17,7 @@ const playbooks = [
   },
   {
     sector: 'B2B Companies & Enterprise Tech',
-    problem: 'Long 3–9 month sales cycles where decision-makers cannot be reached through generic social ads.',
+    problem: 'Long 3 to 9 month sales cycles where decision-makers cannot be reached through generic social ads.',
     solution:
       'We execute LinkedIn Account-Based Marketing (ABM), founder executive thought-leadership videos, programmatic technical SEO rankings, and gated high-value case studies to build unmatched category trust with enterprise buyers.',
     deliverables: ['Executive personal branding', 'High-intent B2B SEO clusters', 'LinkedIn ABM ads', 'Case study tear-downs'],
@@ -33,54 +33,61 @@ const playbooks = [
 
 export default function IndustryPlaybooks() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Sector Solutions"
-          title="Tailored 360 Playbooks for Your Industry."
+          title={
+            <>
+              Tailored 360 Playbooks{' '}
+              <span className="italic text-frame-accent">for Your Industry.</span>
+            </>
+          }
         >
           Different business models require fundamentally different growth architectures. Here is how
           our integrated 360 marketing system adapts to your specific market dynamics.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-2">
-          {playbooks.map((playbook) => (
+        <div className="grid border-t border-l border-white/[0.08] md:grid-cols-2 bg-[#09090B]">
+          {playbooks.map((playbook, idx) => (
             <article
               key={playbook.sector}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-10 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-7 md:p-10 transition-colors duration-200 hover:bg-[#121214]"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
-                  Industry Framework
-                </span>
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    0{idx + 1}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                </div>
+                <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium leading-tight tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {playbook.sector}
                 </h3>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <p className="text-xs font-bold uppercase tracking-wider text-red-400">The Primary Hurdle:</p>
-                  <p className="mt-1 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
+                <div className="mt-6 border-t border-white/[0.08] pt-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-red-400">The Primary Hurdle:</p>
+                  <p className="mt-1.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                     {playbook.problem}
                   </p>
                 </div>
 
-                <div className="mt-4 border-t border-frame-border/60 pt-4">
-                  <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">The 360 Solution:</p>
-                  <p className="mt-1 text-xs font-medium leading-relaxed text-frame-fg md:text-sm">
+                <div className="mt-4 border-t border-white/[0.08] pt-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">The 360 Solution:</p>
+                  <p className="mt-1.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-200">
                     {playbook.solution}
                   </p>
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-frame-border/60 pt-5">
-                <p className="text-xs font-bold uppercase tracking-wider text-frame-muted-fg mb-3">
+              <div className="mt-8 border-t border-white/[0.08] pt-5">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 mb-3">
                   Core Tactical Deliverables:
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {playbook.deliverables.map((item) => (
                     <span
                       key={item}
-                      className="inline-block border border-frame-border bg-neutral-900 px-3 py-1 text-xs font-semibold text-frame-fg"
+                      className="inline-block rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 text-xs font-medium text-zinc-300"
                     >
                       {item}
                     </span>

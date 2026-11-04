@@ -1,161 +1,285 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  FileText,
+  Compass,
+  FileCode,
+  Network,
+  Image as ImageIcon,
+  Sparkles,
+  Link,
+  SlidersHorizontal,
+  RefreshCw,
+} from 'lucide-react'
 
 const offerings = [
   {
+    num: '01',
+    icon: FileText,
     title: 'Content Optimization',
-    description: 'We match existing content to the query\u2019s real search intent: what should be covered, what should be cut, what needs depth, and what belongs on the page. This goes beyond keyword counts to topic coverage, structure, and value to the reader.',
+    description:
+      'Content is the foundation of on-page SEO. A page needs enough useful information to satisfy its search intent without adding unnecessary text simply to increase word count. We review existing content and identify where it can be clearer, more complete, more relevant, or better structured.',
     bullets: [
-      'Existing content reviewed against search intent',
-      'Topic coverage and content gaps identified',
-      'Heading structure and section order improved',
-      'Readability, clarity, and usefulness increased',
-      'Duplicate or weak sections pruned or consolidated',
+      'Search intent alignment',
+      'Existing content review',
+      'Content depth and topical coverage analysis',
+      'Content gap identification',
+      'Keyword placement and contextual usage',
+      'Supporting topic and concept coverage',
+      'Readability and content structure improvements',
+      'Duplicate or unnecessary content review',
+      'Content consolidation recommendations where appropriate',
+      'Content updates for outdated information',
+      'New content recommendations where genuine gaps exist',
     ],
+    footnote:
+      'We do not use a fixed word-count formula for every page. The appropriate content depth depends on the topic, search intent, competition, and information users need to make a decision. A service page does not need to become a long article to rank. A product page does not need hundreds of words of filler. Each page should contain the information required to satisfy its specific intent.',
   },
   {
+    num: '02',
+    icon: Compass,
     title: 'Keyword Mapping & Cannibalization Control',
-    description: 'We decide which page should target which query so important terms are not left orphaned or fought over by competing URLs of your own website.',
+    description:
+      'Targeting keywords without deciding which page should rank for them can create unnecessary competition between your own URLs. We map important search terms to the pages that should target them based on search intent, topic relevance, business importance, and the existing structure of the website.',
     bullets: [
-      'Keywords grouped by page and search intent',
-      'Primary and secondary keyword assignment',
-      'Conflicting or overlapping pages identified',
-      'Consolidation or differentiation recommendations',
+      'Primary keyword selection',
+      'Secondary and supporting keyword mapping',
+      'Keyword-to-page assignment',
+      'Search-intent mapping',
+      'Existing URL and keyword relationship review',
+      'Keyword cannibalization analysis',
+      'Competing-page identification',
+      'Content consolidation recommendations',
+      'Page differentiation recommendations',
+      'Redirect or consolidation recommendations where appropriate',
     ],
+    footnote:
+      'For example, if three pages target nearly the same search intent, creating more content for all three may not solve the problem. One page may need to become the primary resource while the others are repositioned, consolidated, or redirected where appropriate. This approach helps create clearer relationships between keywords, pages, and search intent.',
   },
   {
+    num: '03',
+    icon: FileCode,
     title: 'Metadata & Heading Optimization',
-    description: 'Titles, descriptions, and headings are the first and most direct on-page signals of what a page covers. We write them to reflect the query, the page\u2019s value, and what a searcher actually needs to know.',
+    description:
+      'Search results need a clear description of what each page offers. Page titles, meta descriptions, and headings help communicate that purpose. We optimize metadata and heading structures based on the page\'s target intent rather than inserting keywords mechanically.',
     bullets: [
-      'Title tags written for relevance and click-through',
-      'Meta descriptions that summarize real value',
-      'H1/H2/H3 hierarchy that reflects content order',
-      'Open Graph and social sharing metadata',
+      'Title tag optimization',
+      'Meta description writing',
+      'H1 optimization',
+      'H2 and H3 hierarchy',
+      'Keyword placement in relevant headings',
+      'Search-result messaging',
+      'Open Graph and social metadata where relevant',
+      'Heading consistency',
+      'Duplicate title and metadata review',
+      'Image alt text recommendations',
     ],
+    footnote:
+      'A title should describe the page accurately while giving searchers a reason to consider it. A meta description should reinforce the page\'s value rather than simply repeat keywords. Heading structures also help users scan the page and understand how the information is organized. We keep the structure meaningful instead of forcing keywords into every heading.',
   },
   {
+    num: '04',
+    icon: Network,
     title: 'Internal Linking & Site Structure',
-    description: 'Internal links help visitors navigate and help search engines understand the relationships between pages. We build contextual links that pass relevance and authority where they matter.',
+    description:
+      'Internal links connect related pages and help users move through your website. They also provide search engines with additional context about the relationships between pages. We review your internal linking structure to identify opportunities to strengthen important pages and improve navigation.',
     bullets: [
-      'Contextual anchors on important pages',
-      'Links from supporting content to key pages',
-      'Site structure and page hierarchy review',
-      'Opportunities to recover reach for older content',
+      'Strategic internal-link placement',
+      'Contextual link recommendations',
+      'Anchor text optimization',
+      'Supporting-page relationships',
+      'Pillar and cluster connections',
+      'Service-to-service linking',
+      'Blog-to-service linking',
+      'Product-to-category linking',
+      'Orphan-page identification',
+      'Important-page discovery paths',
+      'Internal-link opportunities from existing content',
     ],
+    footnote:
+      'We avoid repetitive exact-match anchor text when it does not read naturally. Instead, internal links should help users discover relevant information while making the relationship between pages clear. For example, an article about website speed may naturally link to a technical SEO service, while a guide about ecommerce platforms may link to a relevant ecommerce development or ecommerce SEO page.',
   },
   {
-    title: 'Image, URL & On-Page Technical Elements',
-    description: 'The on-page environment extends beyond text. Images, URLs, and small technical details affect how a page performs and how clearly search engines understand it.',
+    num: '05',
+    icon: ImageIcon,
+    title: 'Image & Media SEO',
+    description:
+      'Images can support both user experience and search visibility when they are relevant, descriptive, and technically appropriate.',
     bullets: [
-      'Alt text and image filename optimization',
-      'File compression for faster loading',
-      'Clean, readable URL structures',
-      'Page-level structured data where relevant',
+      'Descriptive image filenames',
+      'Relevant alt text',
+      'Image dimensions',
+      'Image compression recommendations',
+      'Responsive image considerations',
+      'Image placement and contextual relevance',
+      'Captions where useful',
+      'Image-search opportunities',
+      'Media accessibility considerations',
+      'Recommendations for unnecessary or oversized media',
     ],
+    footnote:
+      'Alt text is written primarily to describe meaningful images for accessibility. We do not fill alt attributes with repeated keywords when those keywords do not accurately describe the image. Where image performance requires deeper technical work, such as advanced delivery or server-level optimization, we coordinate that work with the technical SEO or development scope rather than treating every performance issue as an on-page issue.',
   },
   {
-    title: 'Semantic SEO & Topic Relevance',
-    description: 'Search engines evaluate a page\u2019s meaning, not only its exact keyword matches. We build supporting topics, entities, and related concepts so a page covers the subject a query actually involves.',
+    num: '06',
+    icon: Sparkles,
+    title: 'Semantic SEO & Entity Optimization',
+    description:
+      'Search engines evaluate more than the exact keyword appearing on a page. They also use the surrounding concepts, entities, relationships, and context to understand what a page is about. We improve topical clarity by reviewing the concepts and entities that naturally belong to the subject.',
     bullets: [
-      'Supporting topics and related entities included',
-      'Natural keyword variations and synonyms',
-      'Answers incorporated for real question patterns',
-      'Consistent relevance at every level of the page',
+      'Related concepts and terminology',
+      'Important entities',
+      'Topic relationships',
+      'Supporting subtopics',
+      'Contextual relevance',
+      'Entity consistency',
+      'Missing topical concepts',
+      'Natural use of related search terms',
+      'Content relationships across the website',
     ],
+    footnote:
+      'For example, a page about ecommerce website development may naturally need to address products, catalogs, checkout, payment gateways, order management, shipping, mobile experience, and ecommerce platforms. The goal is not to insert a predetermined list of “LSI keywords.” Instead, we make sure the content covers the concepts users reasonably expect when searching for that topic.',
   },
   {
-    title: 'Conversion-Focused Content Layout',
-    description: 'A page that ranks is worth little if it does not move the visitor forward. We shape content and calls to action so each page supports the business outcome it is meant to drive.',
+    num: '07',
+    icon: Link,
+    title: 'URL & On-Page Technical Elements',
+    description:
+      'Page-level technical elements can support clearer search-engine understanding when implemented correctly.',
     bullets: [
-      'Clear next steps and calls to action',
-      'Content arranged around the buyer\u2019s decision',
-      'Trust and proof elements positioned well',
-      'Page experience aligned with the offer',
+      'URL structure',
+      'Descriptive URL recommendations',
+      'Canonical recommendations where relevant',
+      'Structured data review',
+      'Breadcrumb implementation recommendations',
+      'Article, Product, Organization, LocalBusiness, or other relevant schema',
+      'Mobile content formatting',
+      'Content accessibility',
+      'Search-friendly page structure',
+      'Duplicate page-element review',
     ],
+    footnote:
+      'Structured data is implemented only when it accurately represents the visible content and is appropriate for the page. We also keep the boundary clear between on-page and technical SEO. Broader issues involving crawling, indexation, JavaScript rendering, server performance, or site-wide technical architecture are handled within our technical SEO scope.',
   },
   {
-    title: 'On-Page Audit & Reporting',
-    description: 'We document the current state of important pages, what was changed, and how performance shifts afterward. Every recommendation is tied to evidence rather than a generic checklist.',
+    num: '08',
+    icon: SlidersHorizontal,
+    title: 'Conversion-Focused On-Page UX',
+    description:
+      'Ranking is only part of the job. A page also needs to help visitors understand the offer and take an appropriate next step. We review important on-page conversion elements without turning every SEO project into a full conversion-rate optimization engagement.',
     bullets: [
-      'Before and after page structure documentation',
-      'Search Console data used to guide priorities',
-      'Tracking weak points before and after changes',
-      'Clear explanation of what changed and why',
+      'CTA placement',
+      'Clear content hierarchy',
+      'Service or product value communication',
+      'Trust signals',
+      'Supporting information',
+      'Navigation paths',
+      'Lead-generation elements',
+      'Contact or inquiry opportunities',
+      'Product decision information',
+      'Friction reduction',
+      'Alignment between search intent and page CTA',
     ],
+    footnote:
+      'A user searching for an informational answer may need a different next step from someone searching for a service. We therefore align the CTA and page structure with the visitor\'s stage and intent instead of placing the same sales message on every page.',
   },
   {
-    title: 'Ongoing On-Page Optimization',
-    description: 'Search intent and competitor content change. Ongoing optimization keeps important pages aligned as queries evolve, new topics appear, and older content loses freshness.',
+    num: '09',
+    icon: RefreshCw,
+    title: 'Ongoing Content Optimization',
+    description:
+      'Search results change, competitors publish new content, business information becomes outdated, and previously strong pages can lose visibility. Ongoing on-page optimization helps identify those changes and determine whether a page needs improvement.',
     bullets: [
-      'Regular re-review of target pages',
-      'Content refresh when intent or competition shifts',
-      'New internal linking opportunities captured',
-      'Performance monitoring against pre-change baselines',
+      'Content freshness reviews',
+      'Ranking-performance analysis',
+      'Search Console data review',
+      'Content updates',
+      'Competitor content monitoring',
+      'Search-intent changes',
+      'Internal-link opportunities',
+      'Metadata refinements',
+      'Content-gap identification',
+      'Declining-page analysis',
+      'Optimization recommendations',
     ],
+    footnote:
+      'We use performance data to decide what needs attention rather than rewriting pages simply because they have reached a certain age.',
   },
 ]
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Services explained"
-          title="Our On-Page SEO Services"
-        >
-          Our on-page SEO services cover the content, structure, metadata, and page-level
-          elements that determine how well a page matches the query it targets. The exact scope
-          depends on your website, page types, content quality, and goals.
-        </SectionIntro>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3">
-          {offerings.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Service 0{String(index + 1).padStart(1, '0')}
-                  </span>
-                </div>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.description}
-                </p>
-              </div>
-              {item.bullets?.length > 0 && (
-                <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+    <section className="relative isolate bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro */}
+        <div className="mb-12 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3 py-1 text-xs text-zinc-300 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Core Deliverables // On-Page Disciplines
+            </span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+            Our On-Page <span className="italic text-frame-accent">SEO Services</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Our on-page SEO services cover the content and page-level elements that influence how search engines understand a page and how users interact with it. The exact scope depends on your website, page type, target market, existing content, and business goals.
+          </p>
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure what your pages need?
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Start with a free consultation
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We review how your important pages stand against the queries they target and tell
-              you which on-page changes would help most.
-            </p>
-          </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
-          </div>
+        {/* 9 Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {offerings.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.num}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-all duration-300 hover:border-frame-accent/40 hover:bg-[#151518]"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-frame-accent/10 border border-frame-accent/20 text-frame-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="font-mono text-xs font-semibold text-zinc-500 group-hover:text-frame-accent transition-colors">
+                      SVC_{item.num}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm text-zinc-300 font-normal leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-4 border-t border-white/[0.06] pt-3">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      Scope Checklist:
+                    </span>
+                    <ul className="mt-2 space-y-1.5">
+                      {item.bullets.map((bullet, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2 text-xs text-zinc-400 font-normal">
+                          <span className="h-1.5 w-1.5 rounded-full bg-frame-accent/60 mt-1.5 shrink-0" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {item.footnote && (
+                  <div className="mt-5 border-t border-white/[0.06] pt-3">
+                    <p className="text-xs text-zinc-400 font-normal leading-relaxed italic border-l-2 border-white/[0.1] pl-2.5">
+                      {item.footnote}
+                    </p>
+                  </div>
+                )}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -62,8 +62,8 @@ const multiOutputs = [
 
 export default function Deliverables() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Turnkey Deliverables"
           title="What We Deliver"
@@ -72,21 +72,21 @@ export default function Deliverables() {
         </SectionIntro>
 
         {/* 3 DELIVERABLES COLUMNS */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border lg:grid-cols-3">
           {deliverableGroups.map((group, idx) => (
-            <div key={idx} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+            <div key={idx} className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Package Group 0{idx + 1}
                 </span>
-                <h3 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-2 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {group.category}
                 </h3>
-                <p className="mt-1 text-xs font-medium text-frame-muted-fg">
+                <p className="mt-1 text-xs font-medium text-[#A1A1AA]">
                   {group.subtitle}
                 </p>
 
-                <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-4 text-xs sm:text-sm font-medium text-frame-fg/90">
+                <ul className="mt-6 space-y-2.5 border-t border-white/[0.06] pt-4 text-xs sm:text-sm font-medium text-zinc-200">
                   {group.items.map((item, iIdx) => (
                     <li key={iIdx} className="flex items-start gap-2">
                       <CheckIcon />
@@ -100,13 +100,13 @@ export default function Deliverables() {
         </div>
 
         {/* ONE ANIMATION MULTIPLE FORMATS */}
-        <div className="mt-20 border-2 border-frame-accent bg-frame-accent/5 p-6 md:p-10">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-frame-accent/40 pb-4">
+        <div className="mt-20 border-2 border-[#A855F7]/40 bg-[#A855F7]/[0.05] p-6 md:p-10">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-[#A855F7]/30 pb-4">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Asset Multiplication Pipeline
               </span>
-              <h3 className="mt-1 font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 One Animation, Multiple Formats & Uses
               </h3>
             </div>
@@ -115,21 +115,21 @@ export default function Deliverables() {
             </span>
           </div>
 
-          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-3xl">
+          <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] max-w-3xl">
             A well-planned animation does not need to become a single file for a single platform. We plan aspect ratios, text safe-zones, and cut points upfront so one master creative concept generates an entire cross-channel content library.
           </p>
 
-          <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
             {multiOutputs.map((item, idx) => (
-              <div key={idx} className="bg-frame-bg p-5 flex flex-col justify-between">
+              <div key={idx} className="bg-[#09090B] p-5 flex flex-col justify-between">
                 <div>
-                  <span className="text-[10px] font-mono font-bold text-frame-accent">
+                  <span className="text-[10px] font-mono font-bold text-[#A855F7]">
                     Asset 0{idx + 1}
                   </span>
-                  <h4 className="mt-2 font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="mt-2 font-heading text-base font-bold tracking-tight text-[#FAFAFA]">
                     {item.name}
                   </h4>
-                  <p className="mt-1 text-xs font-medium text-frame-muted-fg leading-relaxed">
+                  <p className="mt-1 text-xs font-medium text-[#A1A1AA] leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
@@ -137,8 +137,8 @@ export default function Deliverables() {
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-frame-accent/40 pt-6 sm:flex-row">
-            <p className="text-xs font-medium text-frame-fg">
+          <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-[#A855F7]/30 pt-6 sm:flex-row">
+            <p className="text-xs font-medium text-[#FAFAFA]">
               Keep your visual identity 100% unified across website, social, ads, and investor presentations.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">

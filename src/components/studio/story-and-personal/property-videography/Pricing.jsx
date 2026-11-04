@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for property-videography — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for property-videography: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Property Videography Rates in Dhaka",
@@ -14,14 +14,14 @@ const DATA = {
       "priceNote": "per property",
       "tag": "Listings That Move",
       "cta": "Book Apartment Tour",
-      "description": "A polished 2–3 minute walkthrough with balanced interiors, gimbal flow and vertical reels for portals and social.",
+      "description": "A polished 2 to 3 minute walkthrough with balanced interiors, gimbal flow and vertical reels for portals and social.",
       "features": [
         "Half-day on-site with ultra-wide cinema lenses",
         "Motorised gimbal walkthrough mimicking real visits",
         "Window-balancing exposure (no blown-out skies)",
         "Vertical 9:16 reels for Facebook and Instagram ads",
         "Architectural still captures for listings",
-        "Delivery in 3–4 business days"
+        "Delivery in 3 to 4 business days"
       ]
     },
     {
@@ -66,7 +66,7 @@ const DATA = {
     "Deliverable count: tours, reels, stills and loops",
     "Turnaround: 48-hour listing lane adds 25%"
   ],
-  "marketNote": "Dhaka property marketing typically separates interior walkthroughs (৳25,000–40,000), drone aerial slots (৳25,000 standalone, or ৳40,000–80,000 as part of larger shoots; dedicated drone days from ৳1,50,000) and luxury presentation films that double those bands with hosting and grading. Our ৳28,000 apartment tier exists because gimbal-and-grade walkthroughs — without drone or host — cover most resale and rental listings completely.",
+  "marketNote": "Dhaka property marketing typically separates interior walkthroughs (৳25,000 to 40,000), drone aerial slots (৳25,000 standalone, or ৳40,000 to 80,000 as part of larger shoots; dedicated drone days from ৳1,50,000) and luxury presentation films that double those bands with hosting and grading. Our ৳28,000 apartment tier exists because gimbal-and-grade walkthroughs: without drone or host: cover most resale and rental listings completely.",
   "costRows": [
     [
       "Apartment walkthrough + vertical reels",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Property Videography Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
@@ -203,8 +203,8 @@ export default function Pricing() {
             </dl>
           )}
           <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-            Property shoots happen on-location across Dhaka — Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and
-            beyond — with the studio at ECB Chattar as base for editing, grading and backup power on every booking.
+            Property shoots happen on-location across Dhaka: Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and
+            beyond, with the studio at ECB Chattar as base for editing, grading and backup power on every booking.
           </p>
         </div>
       </div>

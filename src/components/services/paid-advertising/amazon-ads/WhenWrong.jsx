@@ -1,106 +1,109 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { AlertCircle, CheckCircle2 } from 'lucide-react'
 
 const mistakes = [
   {
+    num: '01',
     title: 'The Product Detail Page Is Part of the Ad Strategy',
-    body: 'For Sponsored Products, shoppers can be taken directly to the advertised product detail page. If the listing does not communicate the product value clearly, the campaign can generate expensive traffic without enough conversions.',
-    items: [
-      'Product images',
-      'Product title',
-      'Bullet points',
-      'Product description',
-      'A+ Content where eligible',
-      'Reviews and ratings',
-      'Pricing',
-      'Featured Offer eligibility',
-      'Product availability',
-    ],
-    label: 'We review factors such as',
-  },
-  {
-    title: 'Advertising and Organic Visibility Should Be Measured Separately',
-    body: 'Advertising and organic sales can influence the same overall business performance, but Amazon\u2019s complete organic ranking system is proprietary.',
-    items: [
-      'We do not promise that advertising will automatically improve organic rankings',
-      'We monitor paid sales, total sales, conversion performance, marketplace visibility, and product-level economics together',
+    desc: 'For Sponsored Products, shoppers land directly on the product detail page. If images, copy, reviews, or A+ content fail to communicate value clearly, ad budgets produce expensive visits without sufficient conversion.',
+    factors: [
+      'Product images & gallery quality',
+      'Optimized product titles',
+      'Benefit-driven bullet points',
+      'A+ Content and brand story',
+      'Review volume & rating threshold',
+      'Competitive price vs. category alternatives',
+      'Featured Offer (Buy Box) eligibility',
+      'In-stock availability and delivery speed',
     ],
   },
   {
-    title: 'Featured Offer Eligibility Matters',
-    body: 'Amazon states that products must be Featured Offer eligible to run sponsored advertising campaigns. Eligibility can depend on factors such as price competitiveness, inventory, shipping, and customer-service performance.',
-    items: ['A bid increase cannot solve every retail-readiness problem'],
-  },
-  {
-    title: 'Competitors Are Visible Alongside Your Product',
-    body: 'Amazon shoppers can compare competing products within the same marketplace experience.',
-    items: [
-      'Product positioning',
-      'Pricing',
-      'Reviews',
-      'Images',
-      'Offer quality',
+    num: '02',
+    title: 'Advertising and Organic Visibility Must Be Measured Separately',
+    desc: "Amazon's organic ranking algorithm (A9/Cosmo) is proprietary. While strong sales velocity from ads can assist ranking signals, advertising does not guarantee automated organic positioning. We track paid velocity and total marketplace sales in clean parallel.",
+    factors: [
+      'No unverified promises of automatic organic rank jumps',
+      'Monitoring blended TACOS to assess true organic momentum',
+      'Isolating paid keyword volume from organic discovery keywords',
     ],
-    label: 'That makes these important parts of advertising performance',
   },
   {
-    title: 'Inventory Can Affect Advertising Performance',
-    body: 'Out-of-stock products can become ineligible for advertising and create missed sales opportunities. Amazon recommends maintaining sufficient inventory when preparing products for advertising.',
-    items: ['We therefore consider stock availability when planning and scaling campaigns'],
+    num: '03',
+    title: 'Featured Offer (Buy Box) Eligibility Dictates Ad Delivery',
+    desc: 'Amazon requires products to hold Featured Offer eligibility to serve sponsored ads. Eligibility is determined by price competitiveness, stock levels, fulfillment speed, and seller metrics. A bid increase cannot compensate for retail readiness issues.',
+    factors: [
+      'Continuous monitoring of Buy Box win percentage',
+      'Automated suppression alerts when Buy Box is lost to competitors',
+      'FBA vs. FBM fulfillment and dispatch reliability audits',
+    ],
+  },
+  {
+    num: '04',
+    title: 'Competitors Are Displayed Directly on Your Product Detail Page',
+    desc: 'Amazon shoppers compare alternatives within seconds on the exact same page. Competitor Sponsored Products appear right beneath your bullets and buy box. Your advertising defense and conquesting strategy must account for proximity.',
+    factors: [
+      'Defensive ASIN targeting on your own product detail pages',
+      'Strategic offensive conquesting on vulnerable competitor ASINs',
+      'Price-to-feature ratio comparisons against adjacent category leaders',
+    ],
+  },
+  {
+    num: '05',
+    title: 'Inventory Stock-Outs Permanently Damage Momentum',
+    desc: 'Running out of stock halts advertising instantly, suppresses search history, and hands market share to competitors. Rebuilding ranking momentum after an out-of-stock event costs significantly more than maintaining steady stock.',
+    factors: [
+      'Inventory forecasting coordinated with promotional ad spend',
+      'Pacing budgets to avoid accelerating stock depletion prematurely',
+      'Re-launch protocols for newly restocked inventory batches',
+    ],
   },
 ]
 
 export default function WhenWrong() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Context" title="Where Amazon Ad Accounts Commonly Go Wrong">
-          One of the most common mistakes is treating Amazon like a pure traffic source.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          Amazon is a marketplace. The customer sees your product, competing products, pricing,
-          reviews, availability, and other purchase signals in the same shopping environment. That
-          changes how advertising should be managed.
-        </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Where Amazon Ad Accounts{' '}
+            <span className="italic text-frame-accent">Commonly Go Wrong.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            One of the most frequent mistakes is treating Amazon like a pure traffic source. Amazon is a live marketplace where competing products, pricing, reviews, and stock velocity interact in real time.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {mistakes.map((mistake, index) => (
+        <div className="space-y-4">
+          {mistakes.map((mistake) => (
             <div
-              key={mistake.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent md:p-12"
+              key={mistake.num}
+              className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14]"
             >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="font-heading text-3xl font-bold text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
-                  </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+              <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8">
+                <div className="lg:col-span-5 space-y-3">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
                     {mistake.title}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {mistake.body}
+                  <p className="text-sm text-zinc-400 leading-relaxed font-normal">
+                    {mistake.desc}
                   </p>
                 </div>
 
-                {mistake.items.length > 0 && (
-                  <div className="lg:w-1/2">
-                    {mistake.label && (
-                      <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                        {mistake.label}
-                      </p>
-                    )}
-                    <ul className="grid gap-3 sm:grid-cols-2">
-                      {mistake.items.map((item) => (
-                        <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="lg:col-span-7 rounded-lg border border-white/[0.06] bg-black/40 p-5">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-3">
+                    Critical Factors We Audit &amp; Manage:
+                  </p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {mistake.factors.map((factor) => (
+                      <div key={factor} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-300">
+                        <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                        <span>{factor}</span>
+                      </div>
+                    ))}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           ))}

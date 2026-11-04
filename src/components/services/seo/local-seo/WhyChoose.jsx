@@ -1,53 +1,89 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Users2,
+  Workflow,
+  Globe,
+  FileCheck,
+} from 'lucide-react'
 
 const reasons = [
   {
+    icon: Users2,
     title: 'One In-House Team',
-    body: 'Your local SEO strategy stays with one team instead of moving between multiple outsourced providers. Our work can connect SEO strategy with website development, content, design, and digital marketing when the project requires it.',
+    desc: 'Your local SEO strategy stays with one integrated team instead of passing between disconnected freelancers. We unify technical web development, copywriting, citation building, and GBP management under one roof.',
   },
   {
-    title: 'Connected Local SEO Strategy',
-    body: 'We do not treat your Google Business Profile, website, content, citations, and reputation as isolated tasks. Each part has a specific role within the wider local search strategy. This helps create a more consistent customer journey from search discovery to enquiry.',
+    icon: Workflow,
+    title: 'Connected Local Strategy',
+    desc: 'We never treat your Google Business Profile, website, local citations, and customer reviews as siloed tasks. Every signal is harmonized to build an airtight local customer journey from Map discovery to booking.',
   },
   {
+    icon: Globe,
     title: 'Bangladesh & International Experience',
-    body: 'We work with businesses targeting customers in Bangladesh and international markets. Our approach can adapt to local market conditions, city-level competition, service areas, and different geographic targets.',
+    desc: 'Based in Dhaka, we manage campaigns across major Bangladeshi urban centers as well as competitive multi-location international markets across the US, UK, Australia, Canada, and UAE.',
   },
   {
+    icon: FileCheck,
     title: 'Transparent Reporting',
-    body: 'You should understand what work was completed and what changed. Our reporting focuses on relevant activities, visibility, customer actions, and business outcomes. We aim to make performance understandable rather than filling reports with unnecessary metrics.',
+    desc: 'You receive clear, actionable reporting focused on real metrics that matter: geo-grid ranking movements, phone calls, direction requests, and verified customer inquiries, free of vanity metrics.',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="The Framecipher standard"
-          title="Why Choose Framecipher for Local SEO"
-        >
-          Local SEO works best when the different parts of your digital presence support one
-          another.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              The Framecipher Standard
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
-          {reasons.map((reason, index) => (
-            <div key={reason.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Standard 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {reason.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {reason.body}
-                </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Why Choose Framecipher for{' '}
+            <span className="italic text-frame-accent">Local SEO</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Local SEO works best when every layer of your digital presence works in unison. We deliver integrated local dominance designed to outlast algorithmic volatility.
+          </p>
+        </div>
+
+        {/* 4 Pillars Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {reasons.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 flex flex-col justify-between hover:border-white/20 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                    <span className="font-mono text-xs font-semibold text-frame-accent">
+                      Standard 0{index + 1}
+                    </span>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] text-frame-accent border border-white/[0.06]">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

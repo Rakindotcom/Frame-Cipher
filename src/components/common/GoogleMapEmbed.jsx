@@ -7,7 +7,7 @@ export default function GoogleMapEmbed({
   title = 'FrameCipher Studio Location',
   description = '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206',
   className = '',
-  height = '450px',
+  height = '480px',
   showDetails = true,
   mapQuery = contact.studioCoords,
   zoom = 16,
@@ -16,16 +16,27 @@ export default function GoogleMapEmbed({
   const mapSrc = `https://maps.google.com/maps?q=${mapQuery}&t=&z=${zoom}&ie=UTF8&output=embed`
 
   return (
-    <div className={`border-2 border-frame-border bg-frame-bg overflow-hidden ${className}`}>
-      {/* Map Header */}
-      <div className="border-b-2 border-frame-border bg-frame-muted/20 px-6 py-4 flex flex-wrap items-center justify-between gap-4">
-        <div className="flex items-center gap-2 text-frame-accent">
-          <MapPin className="h-5 w-5 shrink-0" />
+    <div className={`relative isolate overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] ${className}`}>
+      {/* Map Header Bar */}
+      <div className="relative z-10 border-b border-white/[0.08] bg-[#18181B] px-6 py-4.5 flex flex-wrap items-center justify-between gap-4">
+        <div className="flex items-center gap-3.5">
+          <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-[#121214] text-frame-accent">
+            <MapPin className="h-5 w-5" />
+            <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+            </span>
+          </div>
           <div>
-            <h4 className="font-heading text-sm md:text-base font-bold uppercase tracking-tight text-frame-fg">
-              {title}
-            </h4>
-            <p className="text-xs text-frame-muted-fg">{description}</p>
+            <div className="flex flex-wrap items-center gap-2">
+              <h4 className="font-heading text-sm md:text-base font-medium tracking-tight text-white">
+                {title}
+              </h4>
+              <span className="inline-flex items-center rounded-full border border-white/[0.08] bg-[#121214] px-2.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-frame-accent">
+                Live GPS
+              </span>
+            </div>
+            <p className="text-xs text-zinc-400 mt-0.5 line-clamp-1">{description}</p>
           </div>
         </div>
 
@@ -33,69 +44,82 @@ export default function GoogleMapEmbed({
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 border border-frame-accent bg-frame-accent px-4 py-2 text-xs font-black uppercase text-frame-bg hover:opacity-90 transition-opacity"
+          className="group inline-flex min-h-[44px] h-[44px] items-center gap-2 rounded-full border border-white/[0.14] bg-[#18181B] px-5 text-xs font-medium uppercase tracking-wider text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-[#1f1f23]"
         >
           <span>Open in Google Maps</span>
-          <ArrowUpRight className="h-3.5 w-3.5" />
+          <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
         </a>
       </div>
 
-      {/* Map surface — intentionally non-interactive.
-          Google's keyless `output=embed` map renders tiles + pin but cannot fetch
-          Place Details, which is why clicking the pin showed "Place info couldn't
-          load". So the iframe is inert and the whole surface opens the real map. */}
-      <div className="relative w-full bg-frame-muted/40" style={{ height }}>
+      {/* Map surface with Cyber-Luxury Dark Shader */}
+      <div className="relative w-full bg-[#09090B]" style={{ height }}>
         <iframe
           src={mapSrc}
           title={title}
           width="100%"
           height="100%"
-          style={{ border: 0, filter: 'contrast(1.05)' }}
+          style={{
+            border: 0,
+            filter: 'invert(90%) hue-rotate(180deg) contrast(1.18) brightness(0.92) saturate(0.85)',
+          }}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="pointer-events-none h-full w-full"
-          tabIndex={-1}
-          aria-hidden="true"
+          className="h-full w-full"
         />
+
+        {/* Ambient Map Vignette Overlay */}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#121214]/80 via-transparent to-transparent z-10" />
+
+        {/* Floating Location Badge */}
+        <div className="pointer-events-none absolute top-4 left-4 z-20 flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#09090B]/90 px-3.5 py-1.5 font-mono text-[11px] text-zinc-300 backdrop-blur-md">
+          <span className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Matikata ECB Chattar &bull; Dhaka 1206</span>
+        </div>
+
+        {/* Floating Quick Action Button */}
         <a
           href={directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`Open ${title} in Google Maps`}
-          className="group absolute inset-0 flex items-end justify-end p-3"
+          className="group absolute bottom-4 right-4 z-20 flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#09090B]/90 px-4 py-2.5 font-mono text-xs uppercase tracking-wider text-white backdrop-blur-md transition-colors hover:border-white/[0.2] hover:bg-[#18181B]"
         >
-          <span className="inline-flex items-center gap-1.5 border-2 border-frame-border bg-frame-bg/95 px-3 py-1.5 text-[11px] font-black uppercase tracking-wider text-frame-fg shadow-md backdrop-blur transition-colors group-hover:border-frame-accent group-hover:bg-frame-accent group-hover:text-frame-accent-fg">
-            <MapPin className="h-3.5 w-3.5" />
-            <span>Open in Google Maps</span>
-            <ArrowUpRight className="h-3.5 w-3.5" />
-          </span>
+          <Navigation className="h-3.5 w-3.5 text-frame-accent" />
+          <span>Navigate with Maps</span>
+          <ArrowUpRight className="h-3.5 w-3.5 opacity-70 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
         </a>
       </div>
 
-      {/* Optional Details Bar */}
+      {/* Details Bar */}
       {showDetails && (
-        <div className="border-t-2 border-frame-border bg-frame-muted/10 p-6 grid gap-4 sm:grid-cols-3 text-xs font-medium text-frame-muted-fg">
-          <div className="flex items-start gap-2.5">
-            <Navigation className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+        <div className="relative z-10 border-t border-white/[0.08] bg-[#18181B] p-5 md:p-6 grid gap-4 sm:grid-cols-3">
+          <div className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-[#121214] p-4 transition-colors hover:border-white/[0.14]">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/[0.08] bg-[#18181B] text-frame-accent">
+              <Navigation className="h-4 w-4" />
+            </div>
             <div>
-              <p className="font-bold uppercase text-frame-fg">Transit & Directions</p>
-              <p className="mt-0.5">Off Mirpur DOHS - Banani flyover road at Matikata ECB Chattar.</p>
+              <p className="font-mono text-xs uppercase tracking-wider text-white">Transit &amp; Directions</p>
+              <p className="text-xs text-zinc-400 mt-1 leading-relaxed">Off Mirpur DOHS to Banani flyover road at Matikata ECB Chattar.</p>
             </div>
           </div>
 
-          <div className="flex items-start gap-2.5">
-            <Clock className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+          <div className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-[#121214] p-4 transition-colors hover:border-white/[0.14]">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/[0.08] bg-[#18181B] text-frame-accent">
+              <Clock className="h-4 w-4" />
+            </div>
             <div>
-              <p className="font-bold uppercase text-frame-fg">Opening Hours</p>
-              <p className="mt-0.5">Open 24 Hours • Sessions by advance reservation.</p>
+              <p className="font-mono text-xs uppercase tracking-wider text-white">Opening Hours</p>
+              <p className="text-xs text-zinc-400 mt-1 leading-relaxed">Open 24 Hours &bull; Sessions by advance reservation.</p>
             </div>
           </div>
 
-          <div className="flex items-start gap-2.5">
-            <Phone className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+          <div className="flex items-start gap-3 rounded-lg border border-white/[0.08] bg-[#121214] p-4 transition-colors hover:border-white/[0.14]">
+            <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md border border-white/[0.08] bg-[#18181B] text-frame-accent">
+              <Phone className="h-4 w-4" />
+            </div>
             <div>
-              <p className="font-bold uppercase text-frame-fg">Hotline & WhatsApp</p>
-              <a href="tel:+8801768146650" className="text-frame-fg hover:text-frame-accent font-mono">
+              <p className="font-mono text-xs uppercase tracking-wider text-white">Hotline &amp; WhatsApp</p>
+              <a href="tel:+8801768146650" className="inline-block text-xs font-mono font-medium text-frame-accent hover:text-white mt-1 transition-colors">
                 +880 1768-146650
               </a>
             </div>

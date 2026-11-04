@@ -1,104 +1,100 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Search,
+  FileCheck2,
+  Activity,
+  Wrench,
+  CloudUpload,
+  BarChart3,
+} from 'lucide-react'
 
 const processSteps = [
   {
-    step: "01",
-    title: "Initial App Assessment",
-    desc: "We begin by reviewing the current application and its technical environment. This can include the codebase, dependencies, application health, crash history, performance, security, backend, APIs, integrations, deployment process, and known issues.",
-    footer: "We then identify the areas that need immediate attention and those that can be planned later."
+    icon: Search,
+    step: '01',
+    title: 'Initial App Assessment',
+    desc: 'We begin by reviewing the current application and its technical environment. This can include the codebase, dependencies, application health, crash history, performance, security, backend, APIs, integrations, deployment process, and known issues. We then identify the areas that need immediate attention and those that can be planned later.',
   },
   {
-    step: "02",
-    title: "Maintenance Plan & SLA Scoping",
-    desc: "We define the maintenance scope around the application's actual requirements.",
-    bullets: [
-      "Supported platforms",
-      "Maintenance coverage",
-      "Issue priorities",
-      "Monitoring requirements",
-      "Bug-fix scope",
-      "Security responsibilities",
-      "Feature support",
-      "Communication process",
-      "Response expectations"
-    ],
-    footer: "Where an SLA is required, response and support terms should be defined before the engagement begins."
+    icon: FileCheck2,
+    step: '02',
+    title: 'Maintenance Plan & SLA Scoping',
+    desc: 'We define the maintenance scope around the application\'s actual requirements. This can include supported platforms, maintenance coverage, issue priorities, monitoring requirements, bug-fix scope, security responsibilities, feature support, communication process, and response expectations. Where an SLA is required, response and support terms should be defined before the engagement begins.',
   },
   {
-    step: "03",
-    title: "Monitoring & Maintenance Setup",
-    desc: "We establish the relevant monitoring and maintenance workflow for the application.",
-    footer: "Depending on the system, this may include application health monitoring, crash and error tracking, performance checks, integration monitoring, security reviews, and issue tracking."
+    icon: Activity,
+    step: '03',
+    title: 'Monitoring & Maintenance Setup',
+    desc: 'We establish the relevant monitoring and maintenance workflow for the application. Depending on the system, this may include application health monitoring, crash and error tracking, performance checks, integration monitoring, security reviews, and issue tracking.',
   },
   {
-    step: "04",
-    title: "Ongoing Updates & Issue Resolution",
-    desc: "Once maintenance begins, we handle planned updates and reported issues according to their priority and scope.",
-    footer: "This can include bug fixes, dependency updates, OS compatibility work, security patches, performance improvements, and integration fixes."
+    icon: Wrench,
+    step: '04',
+    title: 'Ongoing Updates & Issue Resolution',
+    desc: 'Once maintenance begins, we handle planned updates and reported issues according to their priority and scope. This can include bug fixes, dependency updates, OS compatibility work, security patches, performance improvements, and integration fixes.',
   },
   {
-    step: "05",
-    title: "Release & Deployment Support",
-    desc: "Before production releases, we review the relevant changes and perform appropriate testing.",
-    footer: "After deployment, we verify the updated application and monitor for issues that require attention."
+    icon: CloudUpload,
+    step: '05',
+    title: 'Release & Deployment Support',
+    desc: 'Before production releases, we review the relevant changes and perform appropriate testing. After deployment, we verify the updated application and monitor for issues that require attention.',
   },
   {
-    step: "06",
-    title: "Regular Reporting & Review",
-    desc: "We provide regular updates on completed work, current issues, maintenance activities, and recommended next steps.",
-    footer: "This keeps your team informed about the application's technical condition without requiring them to manage every engineering detail."
-  }
+    icon: BarChart3,
+    step: '06',
+    title: 'Regular Reporting & Review',
+    desc: 'We provide regular updates on completed work, current issues, maintenance activities, and recommended next steps. This keeps your team informed about the application\'s technical condition without requiring them to manage every engineering detail.',
+  },
 ]
 
 export default function Process() {
   return (
-    <section id="process" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Lifecycle Methodology"
-          title="How We Approach App Maintenance & Support"
-        >
-          Our maintenance process starts with understanding the application before making changes. The exact workflow depends on the platform, codebase, infrastructure, and support requirements.
-        </SectionIntro>
+    <section id="process" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Header */}
+        <div className="mb-16 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            How We Approach{' '}
+            <span className="italic text-frame-accent">App Maintenance &amp; Support.</span>
+          </h2>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
-                  {step.step}
-                </span>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {step.desc}
-                </p>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Our maintenance process starts with understanding the application before making changes. The exact workflow depends on the platform, codebase, infrastructure, and support requirements.
+          </p>
+        </div>
 
-                {step.bullets && (
-                  <ul className="mt-4 space-y-1.5 border-t border-frame-border/60 pt-3 text-xs text-frame-muted-fg">
-                    {step.bullets.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-center gap-2">
-                        <span className="h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
+        {/* 6-Stage Process Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {processSteps.map((step) => {
+            const Icon = step.icon
+            return (
+              <div
+                key={step.step}
+                className="group flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-300 hover:border-frame-accent/40 hover:bg-[#161619]"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-5 border-b border-white/[0.06]">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.03] text-frame-accent group-hover:border-frame-accent/40">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <span className="font-mono text-xs text-zinc-500">
+                      {step.step}
+                    </span>
+                  </div>
 
-              {step.footer && (
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <p className="text-xs font-semibold text-frame-fg">
-                    {step.footer}
+                  <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    {step.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    {step.desc}
                   </p>
                 </div>
-              )}
-            </div>
-          ))}
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

@@ -31,20 +31,20 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher">
           Product copy is only useful if it is accurate, original, and written for the platform it will be
           published on.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {reasons.map((reason) => (
-            <article key={reason.title} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <article key={reason.title} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/product-descriptions" allowed={["/services/paid-advertising"]}>{reason.text}</AutoLinks></p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-writing/product-descriptions" allowed={["/services/paid-advertising"]}>{reason.text}</AutoLinks></p>
             </article>
           ))}
         </div>

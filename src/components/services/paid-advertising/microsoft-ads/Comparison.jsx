@@ -1,95 +1,96 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const rows = [
+import React from 'react'
+
+const comparisons = [
   {
-    factor: 'Search ecosystem',
-    ms: 'Bing plus Microsoft search partnerships',
-    g: 'Google plus its search and partner ecosystem',
+    factor: 'Search Ecosystem',
+    microsoft: 'Bing, Yahoo, DuckDuckGo, and syndicated search partner distribution',
+    google: 'Google Search, Google Maps, and Google Search Network partners',
   },
   {
-    factor: 'Search volume',
-    ms: 'Often smaller in many markets',
-    g: 'Generally broader search demand',
+    factor: 'Search Volume',
+    microsoft: 'Concentrated desktop search share (often 15%–25% in US/UK/CA/AU)',
+    google: 'Dominant global search query volume across desktop and mobile',
   },
   {
     factor: 'LinkedIn Profile Targeting',
-    ms: 'Available through Microsoft Advertising',
-    g: 'No direct equivalent within Google Search',
+    microsoft: 'Directly overlays company, industry, job function, and seniority onto search',
+    google: 'No direct native LinkedIn professional profile targeting capability',
   },
   {
-    factor: 'Shopping',
-    ms: 'Available',
-    g: 'Available',
+    factor: 'Shopping Ads',
+    microsoft: 'Available with Microsoft Merchant Center and Edge browser shopping hub',
+    google: 'Available via Google Merchant Center and Performance Max campaigns',
   },
   {
-    factor: 'Audience advertising',
-    ms: 'Available across Microsoft properties and partner inventory',
-    g: 'Broad Google audience ecosystem',
+    factor: 'Audience Advertising',
+    microsoft: 'MSN, Microsoft Edge, Outlook, and native syndicated partner inventory',
+    google: 'Google Display Network (GDN), YouTube, Discover, and Gmail placements',
   },
   {
-    factor: 'Automation',
-    ms: 'Performance Max and other automated solutions',
-    g: 'Performance Max and other automated solutions',
+    factor: 'Automation Solutions',
+    microsoft: 'Performance Max and AI Max for Search (search-term matching & URL expansion)',
+    google: 'Performance Max, Broad Match Smart Bidding, and Demand Gen',
   },
   {
-    factor: 'Best role',
-    ms: 'Incremental search, audience, and retail reach',
-    g: 'Broad search and acquisition coverage',
+    factor: 'Average Click Cost (CPC)',
+    microsoft: 'Typically 20% to 35% lower CPCs with higher desktop purchasing power',
+    google: 'Higher CPCs driven by broader commercial auction competition',
   },
   {
-    factor: 'Strategy',
-    ms: 'Can complement Google',
-    g: 'Often serves as the main search platform',
+    factor: 'Strategic Role',
+    microsoft: 'High-margin incremental demand capture and targeted B2B acquisition',
+    google: 'Foundational baseline paid search and comprehensive market coverage',
   },
 ]
 
 export default function Comparison() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Side by side" title="Microsoft Ads vs Google Ads">
-          Microsoft Ads and Google Ads can complement each other, but they are not identical.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Microsoft Ads vs.{' '}
+            <span className="italic text-frame-accent">Google Ads.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Microsoft Ads and Google Ads can complement each other effectively, but their search audiences, auction economics, and professional targeting capabilities differ substantially.
+          </p>
+        </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
-          <table className="w-full min-w-[640px] border-collapse text-left">
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
+          <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b-2 border-frame-border">
-                <th className="p-5 text-sm font-bold uppercase tracking-widest text-frame-fg">
-                  Factor
+              <tr className="border-b border-white/[0.08] bg-white/[0.02]">
+                <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Strategic Factor
                 </th>
-                <th className="p-5 text-sm font-bold uppercase tracking-widest text-frame-accent">
+                <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-frame-accent">
                   Microsoft Ads
                 </th>
-                <th className="p-5 text-sm font-bold uppercase tracking-widest text-frame-fg">
+                <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-300">
                   Google Ads
                 </th>
               </tr>
             </thead>
-            <tbody>
-              {rows.map((row, index) => (
-                <tr
-                  key={row.factor}
-                  className={
-                    index % 2 === 0
-                      ? 'border-b border-frame-border bg-frame-muted/10'
-                      : 'border-b border-frame-border bg-frame-bg'
-                  }
-                >
-                  <td className="p-5 text-sm font-bold text-frame-fg">{row.factor}</td>
-                  <td className="p-5 text-sm font-medium text-frame-muted-fg wide:text-lg">{row.ms}</td>
-                  <td className="p-5 text-sm font-medium text-frame-muted-fg wide:text-lg">{row.g}</td>
+            <tbody className="divide-y divide-white/[0.06] text-xs sm:text-sm">
+              {comparisons.map((c, idx) => (
+                <tr key={idx} className="hover:bg-[#18181B]/50 transition-colors">
+                  <td className="p-4 sm:p-5 font-heading text-white font-medium whitespace-nowrap">
+                    {c.factor}
+                  </td>
+                  <td className="p-4 sm:p-5 text-zinc-300 leading-relaxed">
+                    {c.microsoft}
+                  </td>
+                  <td className="p-4 sm:p-5 text-zinc-400 leading-relaxed">
+                    {c.google}
+                  </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-
-        <p className="mt-8 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          The right approach depends on the market, audience, search demand, budget, offer, and
-          existing acquisition strategy. For many businesses, the platforms can work together rather
-          than being treated as mutually exclusive.
-        </p>
       </div>
     </section>
   )

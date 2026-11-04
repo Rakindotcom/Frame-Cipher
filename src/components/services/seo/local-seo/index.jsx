@@ -17,18 +17,21 @@ import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "Local SEO",
-  "Google Business Profile",
-  "Google Maps Visibility",
-  "Citations & Reviews",
-  "Service-Area Pages",
-  "Geo-Grid Tracking",
-  "Local Authority"
+  'Local SEO',
+  'Google Business Profile',
+  'Google Maps 3-Pack',
+  'Geo-Grid Tracking',
+  'Dhaka to Chattogram',
+  'NAP Citation Consistency',
+  'Local Schema JSON-LD',
+  'Review Management',
+  'Service Area Coverage',
+  'Proximity Dominance',
 ]
 
 export default function SeoLocalSeoService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -45,7 +48,7 @@ export default function SeoLocalSeoService({ service }) {
       <Timeline />
       <Guarantee />
       <FAQ service={service} />
-      <CTA />
+      <CTA service={service} />
     </main>
   )
 }

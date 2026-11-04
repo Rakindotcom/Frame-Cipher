@@ -247,7 +247,7 @@ export const FONT_SIZE_PRESETS = [
 
 export const FONT_FAMILY_PRESETS = [
   { id: "default", label: "Default Font", value: "" },
-  { id: "heading", label: "Space Grotesk (Heading)", value: "'Space Grotesk', sans-serif" },
+  { id: "heading", label: "Geist (Heading)", value: "'Geist', sans-serif" },
   { id: "serif", label: "Merriweather (Serif)", value: "Merriweather, Georgia, serif" },
   { id: "mono", label: "Monospace (Code)", value: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" },
 ];
@@ -2982,7 +2982,7 @@ export function WordPressEditor({ post, onSave, onClose, saveError }: WordPressE
                       title="Font Family"
                     >
                       <option value="default">Font: Default</option>
-                      <option value="heading">Font: Space Grotesk</option>
+                      <option value="heading">Font: Geist</option>
                       <option value="serif">Font: Merriweather</option>
                       <option value="mono">Font: Monospace</option>
                     </select>

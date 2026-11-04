@@ -46,7 +46,7 @@ export default function VideoProductionService({ service }) {
         type="video"
         eyebrow="Script writing samples"
         title="Video script writing portfolio."
-        description="A sample of scripts written for our studio productions — product videos, brand films, motion ads, and documentaries."
+        description="A sample of scripts written for our studio productions: product videos, brand films, motion ads, and documentaries."
         archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
         archiveLabel="Browse Script Archive →"
       />

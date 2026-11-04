@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const steps = [
   {
@@ -84,6 +87,7 @@ const steps = [
   {
     title: 'Measurement & Iteration',
     body: 'AI search is evolving, so the strategy needs to evolve with it.',
+    points: [],
     closing:
       'We repeat relevant prompt testing, monitor citations and mentions, compare competitors, review performance data, and refine the content and source strategy based on observed results.',
   },
@@ -91,52 +95,67 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="How we work" title="How We Approach AI Search Optimization">
-          Our process combines business context, prompt research, SEO fundamentals, content
-          analysis, entity work, source evaluation, and ongoing measurement.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Workflow Protocol // Execution Blueprint</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            How We Approach{' '}
+            <span className="italic text-frame-accent">AI Search Optimization</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our process combines business context, prompt research, SEO fundamentals, content
+            analysis, entity work, source evaluation, and ongoing measurement.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
-            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+        {/* 6 Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {steps.map((item, index) => (
+            <div
+              key={item.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
+            >
               <div>
-                <span className="font-heading text-3xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Phase 0{index + 1}
                 </span>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                  {item.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {step.body}
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                  {item.body}
                 </p>
-                {step.lead && (
-                  <p className="mt-3 text-sm font-semibold leading-relaxed text-frame-fg">
-                    {step.lead}
+
+                {item.lead && (
+                  <p className="mt-4 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                    {item.lead}
                   </p>
                 )}
-                <ul className="mt-4 space-y-2 text-xs font-medium leading-snug text-frame-fg/90">
-                  {step.points?.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span>{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                {step.closing && (
-                  <p className="mt-4 border-l-2 border-frame-accent pl-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                    {step.closing}
-                  </p>
+
+                {item.points.length > 0 && (
+                  <ul className="mt-4 space-y-2 border-t border-white/[0.06] pt-4 text-xs sm:text-sm text-zinc-300">
+                    {item.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2.5">
+                        <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 )}
+              </div>
+
+              <div className="mt-6 border-t border-white/[0.06] pt-4">
+                <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                  {item.closing}
+                </p>
               </div>
             </div>
           ))}
-          <div className="flex flex-col justify-center border-2 border-frame-accent bg-frame-accent p-7 md:p-8">
-            <p className="text-sm md:text-base font-black uppercase leading-tight tracking-tight text-frame-accent-fg">
-              Measurable AI visibility built on clear, credible, and structured search foundations.
-            </p>
-          </div>
         </div>
       </div>
     </section>

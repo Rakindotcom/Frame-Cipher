@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { cleanServiceText as cleanText } from '../../data/serviceContent'
 
-const surface = 'border border-white/10 bg-white/[0.035]'
+const surface = 'rounded-xl border border-white/[0.08] bg-white/[0.035]'
 
 function ArrowIcon() {
   return (
@@ -23,7 +23,7 @@ function PrimaryLink({ href, children }) {
   return (
     <Link
       href={href}
-      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-violet-500 px-6 text-sm font-bold text-white shadow-[0_14px_45px_rgba(139,92,246,0.28)] transition hover:-translate-y-0.5 hover:bg-violet-400"
+      className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-violet-500 px-6 text-sm font-bold text-white shadow-[0_14px_45px_rgba(139,92,246,0.28)] transition-colors duration-200 hover:bg-violet-400"
     >
       {children}<ArrowIcon />
     </Link>
@@ -33,7 +33,7 @@ function PrimaryLink({ href, children }) {
 function SectionHeading({ eyebrow, title, children }) {
   return (
     <div className="mb-10 max-w-3xl md:mb-14">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-violet-300">{eyebrow}</p>
+
       <h2 className="font-heading text-3xl font-semibold leading-tight tracking-[-0.035em] text-white sm:text-4xl md:text-5xl">{title}</h2>
       {children && <p className="mt-5 text-base leading-7 text-zinc-400 md:text-lg">{children}</p>}
     </div>
@@ -62,7 +62,7 @@ export default function ServiceExperiencePricing({ service, pricing }) {
     }))
 
   return (
-    <section id="pricing" className="scroll-mt-24 border-y border-white/10 bg-white/[0.02] px-5 py-20 sm:px-8 md:py-28">
+    <section id="pricing" className="scroll-mt-24 border-y border-white/[0.08] bg-white/[0.02] px-5 py-20 sm:px-8 md:py-28">
       <div className="mx-auto min-w-0 max-w-7xl">
         <SectionHeading eyebrow="Pricing guide" title="Clear scope before commitment">
           {service.pricing?.intro === packages[0]?.name
@@ -72,7 +72,7 @@ export default function ServiceExperiencePricing({ service, pricing }) {
         {packages.length > 0 && (
           <div className="mb-8 grid gap-4 lg:grid-cols-3">
             {packages.map((pkg) => (
-              <article key={pkg.name} className={`${surface} min-w-0 rounded-3xl p-7`}>
+              <article key={pkg.name} className={`${surface} min-w-0 rounded-xl p-7`}>
                 <h3 className="font-heading text-2xl font-semibold text-white">{pkg.name}</h3>
                 <p className="mt-5 text-2xl font-bold text-violet-300">{pkg.price}</p>
                 {pkg.description && <p className="mt-3 text-sm leading-6 text-zinc-400">{pkg.description}</p>}
@@ -104,7 +104,7 @@ export default function ServiceExperiencePricing({ service, pricing }) {
                 </article>
               ))}
             </div>
-            <div className={`${surface} hidden overflow-hidden rounded-3xl md:block`}>
+            <div className={`${surface} hidden overflow-hidden rounded-xl md:block`}>
               <table className="w-full table-fixed text-left text-sm">
                 <caption className="sr-only">Scope and pricing for {cleanName(service.sheetTitle)}</caption>
                 <thead className="bg-white/[0.05]">
@@ -118,7 +118,7 @@ export default function ServiceExperiencePricing({ service, pricing }) {
                 </thead>
                 <tbody className="divide-y divide-white/10">
                   {pricing.rows.map((row) => (
-                    <tr key={row[0]} className="transition hover:bg-white/[0.025]">
+                    <tr key={row[0]} className="transition-colors duration-200 hover:bg-white/[0.025]">
                       <th scope="row" className="break-words px-5 py-4 align-top font-semibold leading-6 text-zinc-200">
                         {row[0]}
                       </th>

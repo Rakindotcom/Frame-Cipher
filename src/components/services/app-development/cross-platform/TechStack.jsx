@@ -1,61 +1,68 @@
+'use client'
+
+import React from 'react'
+
 const techStack = [
-  { layer: "Cross-Platform", tech: "Flutter, React Native" },
-  { layer: "Languages", tech: "Dart, JavaScript, TypeScript" },
-  { layer: "Android", tech: "Android SDK, Kotlin for native modules" },
-  { layer: "iOS", tech: "iOS SDK, Swift for native modules" },
-  { layer: "UI", tech: "Flutter widgets, React Native, platform-specific UI" },
-  { layer: "Networking", tech: "REST APIs, JSON, GraphQL where required" },
-  { layer: "Backend", tech: "Node.js, PHP/Laravel, or existing client backend" },
-  { layer: "Database", tech: "MySQL, PostgreSQL, Firebase, SQLite/local storage" },
-  { layer: "Services", tech: "Firebase, push notifications, analytics, crash monitoring" },
-  { layer: "Development", tech: "Xcode, Android Studio, Git" },
-  { layer: "Testing", tech: "Unit, integration, UI, device, regression testing" },
-  { layer: "Release", tech: "TestFlight, App Store Connect, Google Play Console" }
+  { layer: 'Cross-Platform', tech: 'Flutter, React Native' },
+  { layer: 'Languages', tech: 'Dart, JavaScript, TypeScript' },
+  { layer: 'Android', tech: 'Android SDK, Kotlin for native modules' },
+  { layer: 'iOS', tech: 'iOS SDK, Swift for native modules' },
+  { layer: 'UI', tech: 'Flutter widgets, React Native, platform-specific UI' },
+  { layer: 'Networking', tech: 'REST APIs, JSON, GraphQL where required' },
+  { layer: 'Backend', tech: 'Node.js, PHP/Laravel, or existing client backend' },
+  { layer: 'Database', tech: 'MySQL, PostgreSQL, Firebase, SQLite/local storage' },
+  { layer: 'Services', tech: 'Firebase, push notifications, analytics, crash monitoring' },
+  { layer: 'Development', tech: 'Xcode, Android Studio, Git' },
+  { layer: 'Testing', tech: 'Unit, integration, UI, device, regression testing' },
+  { layer: 'Release', tech: 'TestFlight, App Store Connect, Google Play Console' },
 ]
 
 export default function TechStack() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Engineering Stack
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          Cross-Platform App Technology Stack
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          We choose technologies based on the application rather than forcing every project into one fixed stack.
-        </p>
-      </div>
+    <section id="tech-stack" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Cross-Platform App{' '}
+            <span className="italic text-frame-accent">Technology Stack.</span>
+          </h2>
 
-      <div className="overflow-x-auto border-2 border-frame-border">
-        <table className="w-full text-left text-sm">
-          <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-            <tr>
-              <th className="p-4 border-r-2 border-frame-border w-1/4">Layer</th>
-              <th className="p-4">Technologies</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-            {techStack.map((row, rIdx) => (
-              <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                <td className="p-4 font-semibold text-frame-fg border-r-2 border-frame-border">
-                  {row.layer}
-                </td>
-                <td className="p-4 font-medium text-frame-accent">
-                  {row.tech}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We choose technologies based on the application rather than forcing every project into one fixed stack.
+          </p>
+        </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          The final stack depends on the product, existing systems, project scope, and long-term maintenance requirements.
-        </p>
+        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-xl">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-white/[0.08] bg-[#18181b]/50 font-mono text-xs uppercase tracking-wider text-zinc-300">
+                <tr>
+                  <th className="p-4 sm:p-5 border-r border-white/[0.08] text-white">Layer</th>
+                  <th className="p-4 sm:p-5 text-frame-accent">Technologies</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06] font-sans">
+                {techStack.map((row, idx) => (
+                  <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
+                    <td className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-400 border-r border-white/[0.08]">
+                      {row.layer}
+                    </td>
+                    <td className="p-4 sm:p-5 font-normal text-white">
+                      {row.tech}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-xl border border-white/[0.06] bg-[#121214] p-6 text-center">
+          <p className="text-xs sm:text-sm text-zinc-400">
+            The final stack depends on the product, existing systems, project scope, and long-term maintenance requirements.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

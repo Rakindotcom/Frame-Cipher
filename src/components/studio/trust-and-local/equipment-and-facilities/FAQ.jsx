@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     "question": "Can we visit and test the stage before booking?",
-    "answer": "Yes. Walkthroughs run same-day or next-day by appointment — clap-test the acoustics, inspect the grid and power, and record test clips on your own media, free of charge."
+    "answer": "Yes. Walkthroughs run same-day or next-day by appointment: clap-test the acoustics, inspect the grid and power, and record test clips on your own media, free of charge."
   },
   {
     "question": "Is there a dressing room, makeup mirror and client lounge?",
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     "question": "Where is the studio and where do crews park?",
-    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with dedicated parking beside the building and elevator access to the stage."
+    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206, with dedicated parking beside the building and elevator access to the stage."
   },
   {
     "question": "How do I book and pay?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Kit, room, power and booking — everything about our facilities at FrameCipher Studio.
+          Kit, room, power and booking: everything about our facilities at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

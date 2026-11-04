@@ -113,27 +113,27 @@ const blocks = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Capabilities &amp; scope" title="What Our Content Writing Services Include">
           From search-focused articles to conversion-focused copy, every deliverable is written around the job
           it needs to perform.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border lg:grid-cols-2">
           {blocks.map((block) => (
-            <article key={block.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <article key={block.number} className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                   {block.number}
                 </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                <h3 className="mt-5 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                   {block.title}
                 </h3>
                 {block.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                   ><AutoLinks currentPath="/services/content-writing" allowed={["/services/content-writing/website-content"]}>
                     {paragraph}
                   </AutoLinks></p>
@@ -142,7 +142,7 @@ export default function Offerings() {
                   block.extra.map((paragraph) => (
                     <p
                       key={paragraph}
-                      className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                      className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                     >
                       {paragraph}
                     </p>
@@ -150,7 +150,7 @@ export default function Offerings() {
               </div>
 
               {block.note && (
-                <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 border-l-2 border-[#A855F7]/40 bg-[#121214] p-3 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {block.note}
                 </p>
               )}

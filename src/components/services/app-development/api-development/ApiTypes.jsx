@@ -1,3 +1,7 @@
+'use client'
+
+import React from 'react'
+
 const apiTypes = [
   {
     title: "REST API Development",
@@ -14,7 +18,8 @@ const apiTypes = [
   {
     title: "Internal APIs",
     desc: "Internal APIs connect different applications or services within the same organization. They can help separate systems while maintaining controlled communication between them.",
-    examples: [
+    label: "Examples include:",
+    bullets: [
       "Website to ERP",
       "Ecommerce platform to inventory system",
       "CRM to internal application",
@@ -25,12 +30,13 @@ const apiTypes = [
   {
     title: "Public & Partner APIs",
     desc: "If your customers, vendors, developers, or business partners need controlled access to your platform, we can design APIs around that requirement.",
-    capabilities: [
-      "Authentication & authorization",
+    label: "Partner API features:",
+    bullets: [
+      "Authentication and authorization",
       "API keys or tokens",
-      "Access scopes & rate limits",
-      "Versioning & documentation",
-      "Usage controls & partner onboarding"
+      "Access scopes and rate limits",
+      "API versioning and documentation",
+      "Usage controls and onboarding process"
     ]
   },
   {
@@ -40,92 +46,62 @@ const apiTypes = [
   {
     title: "Microservice APIs",
     desc: "For applications using multiple services, APIs can provide controlled communication between independent components. We can design service-to-service APIs around the application's architecture, data requirements, authentication model, and scaling needs."
-  },
-  {
-    title: "Event-Driven & Streaming APIs",
-    desc: "We build real-time event pipelines and streaming APIs using WebSockets, Server-Sent Events (SSE), and message brokers (Kafka, RabbitMQ) for live chats, telemetry, bidding, and low-latency status updates."
-  },
-  {
-    title: "B2B & Partner Integration APIs",
-    desc: "High-throughput, authenticated endpoints architected for third-party vendors, suppliers, and enterprise partners with dedicated token scoping, IP whitelisting, custom rate tiers, and rigorous SLAs."
   }
 ]
 
-const checkIcon = (
-  <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-  </svg>
-)
-
 export default function ApiTypes() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Architecture Styles
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          API Types We Build
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          Different applications need different API architectures. We select the approach based on how your systems exchange and consume data.
-        </p>
-      </div>
+    <section id="api-types" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            API Types <span className="italic text-frame-accent">We Build.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {apiTypes.map((type, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              Type 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {type.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {type.desc}
-            </p>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Different applications need different API architectures. We select the approach based on how your systems exchange and consume data.
+          </p>
+        </div>
 
-            {type.examples && (
-              <div className="mt-4 border-t border-frame-border/60 pt-3">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-frame-fg">
-                  Examples:
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+          {apiTypes.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col justify-between bg-[#0f1011] p-6 sm:p-7 transition-colors hover:bg-[#141516]"
+            >
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-2.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  {item.desc}
                 </p>
-                <ul className="mt-2 space-y-1.5 text-xs text-frame-fg">
-                  {type.examples.map((ex, exIdx) => (
-                    <li key={exIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                        {checkIcon}
-                      </span>
-                      <span>{ex}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
 
-            {type.capabilities && (
-              <div className="mt-4 border-t border-frame-border/60 pt-3">
-                <p className="text-[11px] font-bold uppercase tracking-wider text-frame-fg">
-                  Includes:
-                </p>
-                <ul className="mt-2 space-y-1.5 text-xs text-frame-fg">
-                  {type.capabilities.map((cap, capIdx) => (
-                    <li key={capIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                        {checkIcon}
+                {item.bullets && item.bullets.length > 0 && (
+                  <div className="mt-4 border-t border-white/[0.06] pt-3">
+                    {item.label && (
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-zinc-500 block mb-2">
+                        {item.label}
                       </span>
-                      <span>{cap}</span>
-                    </li>
-                  ))}
-                </ul>
+                    )}
+                    <ul className="space-y-1.5 text-xs text-zinc-300">
+                      {item.bullets.map((b, bIdx) => (
+                        <li key={bIdx} className="flex items-start gap-2">
+                          <span className="h-1 w-1 rounded-full bg-frame-accent shrink-0 mt-1.5" />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

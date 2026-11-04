@@ -53,21 +53,21 @@ const pages = [
 
 export default function PagesWeWrite() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Page types" title="Landing Pages We Write">
           The structure and depth of each page depend on the offer, the audience, and the conversion goal.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-4">
           {pages.map((page) => (
-            <article key={page.title} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={page.title} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <h3
-                className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg"
+                className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg"
                 dangerouslySetInnerHTML={{ __html: page.title }}
               />
               {page.body.map((paragraph) => (
-                <p key={paragraph} className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p key={paragraph} className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {paragraph}
                 </p>
               ))}

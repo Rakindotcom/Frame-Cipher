@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Clock, CheckCircle2, AlertCircle } from 'lucide-react'
 
 const timelineFactors = [
   'Website size and URL count',
@@ -12,50 +15,73 @@ const timelineFactors = [
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Realistic expectations"
-          title="How Long Does Technical SEO Take?"
-        >
-          Implementation time depends on the size and complexity of the website rather than one
-          fixed schedule.
-        </SectionIntro>
+    <section className="relative isolate bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro */}
+        <div className="mb-12 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3 py-1 text-xs text-zinc-300 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Realistic Expectations // Milestone Forecast
+            </span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+            How Long Does{' '}
+            <span className="italic text-frame-accent">Technical SEO</span> Take?
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Implementation time depends on the size and complexity of the website rather than one fixed schedule.
+          </p>
+        </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-          <div className="space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-            <p>
-              A technical SEO audit can typically be completed within about one week once the
-              required access and information are available.
-            </p>
-            <p>
-              Implementation time depends on the size and complexity of the website. A standard
-              technical project may take around 2–3 weeks, while larger technical cleanups can take
-              4–6 weeks or longer.
-            </p>
-            <p className="border-l-2 border-frame-accent bg-frame-muted/10 p-4 md:p-5">
-              Technical fixes can sometimes produce measurable changes within weeks, but there is
-              no fixed timeline for ranking improvements.
-            </p>
+        {/* 2-Column Layout */}
+        <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+          {/* Left Column (7 cols): Timeframes & Measurable Changes */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-5">
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+                <Clock className="h-4 w-4" />
+                <span>Typical Implementation Horizons</span>
+              </div>
+              <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+                A technical SEO audit can typically be completed within about one week once the required access and information are available.
+              </p>
+              <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+                Implementation time depends on the size and complexity of the website. A standard technical project may take around 2–3 weeks, while larger technical cleanups can take 4–6 weeks or longer.
+              </p>
+            </div>
+
+            {/* Closing observation */}
+            <div className="rounded-2xl border border-white/[0.08] bg-[#121214]/60 p-6 sm:p-7 flex items-start gap-4">
+              <AlertCircle className="h-5 w-5 shrink-0 text-frame-accent mt-0.5" />
+              <p className="text-sm sm:text-base text-zinc-300 font-normal leading-relaxed">
+                Technical fixes can sometimes produce measurable changes within weeks, but there is no fixed timeline for ranking improvements.
+              </p>
+            </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Timeline drivers
-            </span>
-            <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+          {/* Right Column (5 cols): Factors */}
+          <div className="lg:col-span-5 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+            <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white mb-2">
               The time required can depend on:
             </h3>
-            <ul className="mt-6 space-y-2.5">
-              {timelineFactors.map((factor, index) => (
-                <li key={index} className="flex items-start gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg">
-                  <span className="font-mono text-xs font-black text-frame-accent">
-                    {String(index + 1).padStart(2, '0')}
+            <p className="text-xs text-zinc-400 mb-6 font-mono">
+              Key variables influencing engineering turnaround
+            </p>
+
+            <div className="space-y-3">
+              {timelineFactors.map((factor, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 border-b border-white/[0.06] pb-3 text-sm text-zinc-300 font-normal"
+                >
+                  <span className="font-mono text-xs font-semibold text-frame-accent">
+                    0{idx + 1}
                   </span>
                   <span>{factor}</span>
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>

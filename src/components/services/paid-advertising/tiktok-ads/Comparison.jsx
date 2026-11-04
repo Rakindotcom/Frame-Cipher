@@ -1,94 +1,90 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const rows = [
+import React from 'react'
+
+const comparisons = [
   {
-    factor: 'Creative environment',
-    tiktok: 'Short-form, discovery-led content',
-    meta: 'Broad social and visual advertising ecosystem',
+    factor: 'Creative Environment',
+    tiktok: 'Fast-paced, sound-on vertical video with high visual hook priority',
+    meta: 'Broad social and visual ecosystem spanning feed, stories, and reels',
   },
   {
-    factor: 'Creative testing',
-    tiktok: 'Strong emphasis on native video variations',
-    meta: 'Broad mix of video, image, carousel and other formats',
+    factor: 'Creative Testing',
+    tiktok: 'Strong emphasis on rapid native short-form video iterations',
+    meta: 'Broad mix of static images, carousels, videos, and catalog assets',
   },
   {
-    factor: 'Creator content',
-    tiktok: 'Strong Spark Ads use case',
-    meta: 'Strong UGC and creator ecosystem',
+    factor: 'Creator Content',
+    tiktok: 'Unmatched Spark Ads capability amplifying authentic organic posts',
+    meta: 'Robust Partnership Ads and creator collaboration tools',
   },
   {
-    factor: 'Audience strategy',
-    tiktok: 'Broad, interest, behavior, custom and automated approaches',
-    meta: 'Broad, interest, custom, lookalike and automated approaches',
+    factor: 'Audience Strategy',
+    tiktok: 'Broad delivery, video engagement custom audiences, and Smart+',
+    meta: 'Mature Advantage+ targeting, deep lookalike modeling, and pixel data',
   },
   {
-    factor: 'Ecommerce',
-    tiktok: 'Strong where supported and configured correctly',
-    meta: 'Mature ecommerce advertising ecosystem',
+    factor: 'Ecommerce Integration',
+    tiktok: 'Direct TikTok Shop (in supported markets) and Smart+ Catalog Ads',
+    meta: 'Advantage+ Shopping Campaigns (ASC) and highly mature checkout',
   },
   {
-    factor: 'Search intent',
-    tiktok: 'More limited than search advertising',
-    meta: 'More social-discovery focused',
+    factor: 'Search Intent',
+    tiktok: 'Growing search intent, primarily visual and discovery-oriented',
+    meta: 'Primarily social discovery and remarketing-focused',
   },
   {
-    factor: 'Best fit',
-    tiktok: 'Creative-led discovery and performance campaigns',
-    meta: 'Broad social acquisition, remarketing and conversion campaigns',
+    factor: 'Optimal Fit',
+    tiktok: 'High-energy discovery, rapid product proof, and creator-led commerce',
+    meta: 'Evergreen acquisition, full-funnel retargeting, and scalable conversion',
   },
 ]
 
 export default function Comparison() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Head to head"
-          title="TikTok Ads vs Meta Ads"
-        >
-          TikTok and Meta can both support paid social campaigns, but they are not identical
-          advertising environments.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Ads vs.{' '}
+            <span className="italic text-frame-accent">Meta Ads.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            TikTok and Meta both support paid social acquisition, but their creative formats and delivery mechanics differ significantly. We help you choose the right mix.
+          </p>
+        </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
-          <table className="w-full border-collapse text-left text-sm">
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
+          <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="border-b-2 border-frame-border">
-                <th className="bg-frame-muted/10 p-5 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                  Factor
+              <tr className="border-b border-white/[0.08] bg-white/[0.02]">
+                <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Strategic Factor
                 </th>
-                <th className="bg-frame-muted/10 p-5 text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-frame-accent">
                   TikTok Ads
                 </th>
-                <th className="bg-frame-muted/10 p-5 text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-300">
                   Meta Ads
                 </th>
               </tr>
             </thead>
-            <tbody>
-              {rows.map((row) => (
-                <tr key={row.factor} className="border-b border-frame-border/60 last:border-b-0">
-                  <th scope="row" className="p-5 text-xs md:text-sm font-black uppercase text-frame-fg">
-                    {row.factor}
-                  </th>
-                  <td className="p-5 align-top text-xs md:text-sm font-medium leading-relaxed text-frame-fg/90">
-                    {row.tiktok}
+            <tbody className="divide-y divide-white/[0.06] text-xs sm:text-sm">
+              {comparisons.map((c, idx) => (
+                <tr key={idx} className="hover:bg-[#18181B]/50 transition-colors">
+                  <td className="p-4 sm:p-5 font-heading text-white font-medium whitespace-nowrap">
+                    {c.factor}
                   </td>
-                  <td className="p-5 align-top text-xs md:text-sm font-medium leading-relaxed text-frame-fg/90">
-                    {row.meta}
+                  <td className="p-4 sm:p-5 text-zinc-300 leading-relaxed">
+                    {c.tiktok}
+                  </td>
+                  <td className="p-4 sm:p-5 text-zinc-400 leading-relaxed">
+                    {c.meta}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-        </div>
-
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            The right choice depends on your audience, offer, creative resources, funnel, market,
-            and business objective. Framecipher can also manage TikTok and Meta together when a
-            multi-channel paid strategy makes sense.
-          </p>
         </div>
       </div>
     </section>

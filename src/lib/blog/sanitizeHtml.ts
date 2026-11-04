@@ -37,8 +37,8 @@ export function extractYouTubeVideoId(input: string): string | null {
 export function isValidFontSize(value: string): boolean {
   if (!value) return false;
   const clean = value.trim().toLowerCase();
-  // Validates px, rem, em, %, pt, or plain integer between 8 and 120
-  return /^(?:[8-9]|[1-9][0-9]|1[0-1][0-9]|120)(?:\.[0-9]+)?(?:px|rem|em|pt|%)?$/i.test(clean);
+  // Validates px, rem, em, %, pt, or plain integer between 8 and 120, or rem/em between 0.5 and 10
+  return /^(?:(?:[8-9]|[1-9][0-9]|1[0-1][0-9]|120)(?:\.[0-9]+)?(?:px|pt|%)?|(?:0?\.[5-9]|[1-9](?:\.[0-9]+)?|10)(?:rem|em))$/i.test(clean);
 }
 
 export function normalizeFontSize(value: string | number): string {
@@ -129,8 +129,6 @@ export function sanitizeBlogHtml(html: string): string {
       let cleanedStyle = styleContent
         .replace(/color\s*:\s*(?:rgb\(\s*0\s*,\s*0\s*,\s*0\s*\)|rgba\(\s*0\s*,\s*0\s*,\s*0\s*,\s*[^)]+\)|#000(?:000)?\b|black\b|rgb\(\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*,\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*,\s*(?:[0-9]|[1-4][0-9]|5[0-9])\s*\))\s*;?/gi, "")
         .replace(/background(?:-color)?\s*:\s*(?:transparent|#fff(?:fff)?\b|white\b|rgb\(\s*255\s*,\s*255\s*,\s*255\s*\))\s*;?/gi, "")
-        .replace(/font-family\s*:\s*[^;]+;?/gi, "")
-        .replace(/font-size\s*:\s*(?:[0-9.]+pt|[0-9.]+px)\s*;?/gi, "")
         .replace(/line-height\s*:\s*[^;]+;?/gi, "")
         .replace(/text-align\s*:\s*justify\s*;?/gi, "")
         .replace(/margin-(?:top|bottom|left|right)\s*:\s*[^;]+;?/gi, "")
@@ -147,7 +145,7 @@ export function sanitizeBlogHtml(html: string): string {
       cleanedStyle = cleanedStyle.replace(/^;+|;+$/g, "").trim();
 
       if (!cleanedStyle) return "";
-      return ` style="${cleanedStyle}"`;
+      return ` style="${cleanedStyle};"`;
     })
     .replace(ALLOWED_TAGS, "")
     .replace(/javascript:/gi, "")

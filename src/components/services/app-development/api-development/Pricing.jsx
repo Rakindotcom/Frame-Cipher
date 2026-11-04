@@ -1,260 +1,239 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const packages = [
+import React from 'react'
+import PosterButton from '../../../home/PosterButton'
+
+const pricingTiers = [
   {
-    name: "Single Integration",
-    price: "৳60,000",
-    timeline: "~1–2 weeks",
+    name: 'Single Integration',
+    price: '৳60,000',
+    timeline: '~1–2 weeks',
     featured: false,
+    drivers: 'One third-party service, standard authentication, basic testing',
     includes: [
-      "One third-party service",
-      "Standard authentication",
-      "Basic testing",
-      "Error handling",
-      "Launch support"
-    ]
+      'One third-party service connection',
+      'Standard authentication & token setup',
+      'Request & response data mapping',
+      'Basic error handling & status callbacks',
+      'Integration testing & launch verification',
+    ],
   },
   {
-    name: "Custom API (Standard)",
-    price: "৳150,000",
-    timeline: "~3–5 weeks",
+    name: 'Custom API (Standard)',
+    price: '৳150,000',
+    timeline: '~3–5 weeks',
     featured: true,
+    drivers: 'REST or GraphQL API, moderate endpoint count, documentation included',
     includes: [
-      "REST or GraphQL API",
-      "Moderate endpoint count",
-      "Documentation included",
-      "Authentication & validation",
-      "Integration testing",
-      "Monitoring & alerting"
-    ]
+      'Contract-first REST or GraphQL API',
+      'Authentication & role authorization',
+      'Request validation & response formatting',
+      'Pagination, filtering & error standards',
+      'OpenAPI & Swagger documentation',
+      'Production deployment & testing',
+    ],
   },
   {
-    name: "Multi-System Integration",
-    price: "৳280,000",
-    timeline: "~5–8 weeks",
+    name: 'Multi-System Integration',
+    price: '৳280,000',
+    timeline: '~5–8 weeks',
     featured: false,
+    drivers: 'Multiple third-party systems, webhook handling, retry logic',
     includes: [
-      "Multiple third-party systems",
-      "Webhook handling",
-      "Retry logic",
-      "Data mapping",
-      "Load or performance testing",
-      "Error & queue handling"
-    ]
+      'Multiple external system integrations',
+      'Webhook handling & signature verification',
+      'Idempotency & retry backoff queues',
+      'Cross-system data synchronization',
+      'Automated error alerts & monitoring',
+      'Staging & production deployment',
+    ],
   },
   {
-    name: "Complex / Enterprise Integration",
-    price: "Custom Quote",
-    timeline: "~8+ weeks",
+    name: 'Complex / Enterprise Integration',
+    price: 'Custom Quote',
+    timeline: '~8+ weeks',
     featured: false,
+    drivers: 'High-volume data sync, multiple legacy systems, compliance-related technical requirements',
     includes: [
-      "High-volume data sync",
-      "Multiple legacy systems",
-      "Compliance-related requirements",
-      "Custom authentication",
-      "Dedicated architecture",
-      "Ongoing support arrangement"
-    ]
-  }
+      'High-concurrency data pipelines',
+      'Multiple legacy databases & ERP connectors',
+      'API gateway setup (Kong / AWS API Gateway)',
+      'Enterprise rate limiting & mTLS security',
+      'Full load, stress & penetration testing',
+      'Dedicated SLA & custom maintenance',
+    ],
+  },
 ]
 
-const includedItems = [
-  "Strategy and architecture",
-  "API development",
-  "Third-party integration",
-  "Authentication and authorization",
-  "API documentation",
-  "Integration testing",
-  "Load or performance testing",
-  "Error handling",
-  "Webhook implementation",
-  "Retry handling",
-  "Monitoring and alerting",
-  "Launch support"
+const includedFeatures = [
+  'Strategy and architecture',
+  'API development',
+  'Third-party integration',
+  'Authentication and authorization',
+  'API documentation',
+  'Integration testing',
+  'Load or performance testing',
+  'Error handling',
+  'Webhook implementation',
+  'Retry handling',
+  'Monitoring and alerting',
+  'Launch support',
 ]
 
-const timelineFactors = [
-  "Multiple systems",
-  "Complex data mapping",
-  "Legacy infrastructure",
-  "Custom authentication",
-  "High-volume synchronization",
-  "Extensive testing",
-  "Compliance requirements",
-  "Limited third-party documentation"
-]
-
-const governancePoints = [
+const scopeCheckpoints = [
   {
-    title: "Project Scope",
-    desc: "Before development starts, we define the agreed functionality, integrations, deliverables, timeline, and responsibilities."
+    title: 'Project Scope',
+    desc: 'Before development starts, we define the agreed functionality, integrations, deliverables, timeline, and responsibilities.',
   },
   {
-    title: "Stakeholder Reviews",
-    desc: "Architecture, development, and testing stages include review points where applicable. Your approval helps ensure the project continues in the agreed direction."
+    title: 'Stakeholder Reviews',
+    desc: 'Architecture, development, and testing stages include review points where applicable. Your approval helps ensure the project continues in the agreed direction.',
   },
   {
-    title: "Third-Party Dependencies",
-    desc: "Some API behavior depends on external providers. We cannot guarantee that a third-party service will never experience an outage, change its API, reject requests, or introduce new requirements. We can, however, build agreed error handling, retry logic, monitoring, and recovery mechanisms around those dependencies."
+    title: 'Third-Party Dependencies',
+    desc: 'Some API behavior depends on external providers. We cannot guarantee that a third-party service will never experience an outage, change its API, reject requests, or introduce new requirements. We can, however, build agreed error handling, retry logic, monitoring, and recovery mechanisms around those dependencies.',
   },
   {
-    title: "Change Requests",
-    desc: "Requests outside the agreed scope may require additional development time and cost. Any significant scope change should be reviewed before implementation."
+    title: 'Change Requests',
+    desc: 'Requests outside the agreed scope may require additional development time and cost. Any significant scope change should be reviewed before implementation.',
   },
   {
-    title: "Post-Launch Support",
-    desc: "Launch support can include checking the deployed integration, confirming expected data flow, and addressing agreed launch issues. Ongoing API maintenance is available separately."
+    title: 'Post-Launch Support',
+    desc: 'Launch support can include checking the deployed integration, confirming expected data flow, and addressing agreed launch issues. Ongoing API maintenance is available separately.',
   },
   {
-    title: "Workmanship Warranty",
-    desc: "Any workmanship warranty should follow the warranty period and terms stated in the final proposal or project agreement. Third-party outages, provider-side API changes, new requirements, and functionality outside the approved scope are not treated as development defects."
-  }
+    title: 'Workmanship Warranty',
+    desc: 'Any workmanship warranty should follow the warranty period and terms stated in the final proposal or project agreement. Third-party outages, provider-side API changes, new requirements, and functionality outside the approved scope are not treated as development defects.',
+  },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Scope Guidelines"
-          title="API Development Pricing & Timeline"
-        >
-          API development pricing depends on the number of systems, endpoint complexity, authentication requirements, data flow, third-party dependencies, and testing requirements.
-        </SectionIntro>
+    <section id="pricing" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            API Development{' '}
+            <span className="italic text-frame-accent">Pricing &amp; Timeline.</span>
+          </h2>
 
-        {/* PACKAGES GRID */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {packages.map((pkg, i) => (
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            API development pricing depends on the number of systems, endpoint complexity, authentication requirements, data flow, third-party dependencies, and testing requirements. Prices shown are starting guidelines; the final proposal confirms the project scope, fee, deliverables, and delivery schedule before work begins.
+          </p>
+        </div>
+
+        {/* 4 Tier Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {pricingTiers.map((tier, i) => (
             <div
               key={i}
-              className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
-                pkg.featured
-                  ? 'border-frame-accent bg-frame-accent/5'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+              className={`relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 transition-colors ${
+                tier.featured
+                  ? 'border-frame-accent/40 bg-[#18181B]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
               <div>
-                {pkg.featured && (
-                  <span className="mb-4 inline-block border border-frame-accent bg-frame-accent/10 px-3 py-1 text-xs font-black uppercase tracking-wider text-frame-accent">
-                    Most Popular
-                  </span>
-                )}
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.name}
-                </h3>
-                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
-                  {pkg.price}
-                </p>
-                {pkg.timeline && (
-                  <p className="mt-1 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
-                    Typical Delivery: {pkg.timeline}
-                  </p>
-                )}
-                {pkg.includes && (
-                  <div className="mt-4 border-t border-frame-border/60 pt-4">
-                    <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">
-                      What&apos;s Included:
-                    </p>
-                    <ul className="mt-3 space-y-2">
-                      {pkg.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                          <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                            <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                            </svg>
-                          </span>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                <div className="flex items-center justify-between gap-2">
+                  <div>
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      Project Type
+                    </span>
+                    <h3 className="font-heading text-lg font-medium tracking-tight text-white mt-1">
+                      {tier.name}
+                    </h3>
                   </div>
-                )}
+                  {tier.featured && (
+                    <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      Popular
+                    </span>
+                  )}
+                </div>
+
+                <div className="mt-4">
+                  <span className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
+                    {tier.price}
+                  </span>
+                  <p className="mt-1 font-mono text-xs text-zinc-400">
+                    Typical Delivery: {tier.timeline}
+                  </p>
+                  <p className="mt-2 text-[11px] text-zinc-400 font-mono">
+                    {tier.drivers}
+                  </p>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-3">
+                    What&apos;s Included:
+                  </p>
+                  <ul className="space-y-2.5">
+                    {tier.includes.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-normal text-zinc-300">
+                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className="mt-8 pt-4 border-t border-frame-border/60">
-                <PosterButton href="/contact" variant={pkg.featured ? 'accent' : 'outline'} className="w-full text-xs">
-                  Request Quote &rarr;
+              <div className="mt-8 border-t border-white/[0.08] pt-5">
+                <PosterButton
+                  href="/contact"
+                  variant={tier.featured ? 'accent' : 'outline'}
+                  className="w-full px-4 text-xs sm:text-sm justify-center"
+                >
+                  Get Free Consultation
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        {/* WHAT IS INCLUDED & WHAT CAN AFFECT TIMELINE */}
-        <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          {/* WHAT IS INCLUDED */}
-          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              What Is Included
-            </h2>
-            <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-              Depending on the selected scope, projects can include:
-            </p>
-            <ul className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {includedItems.map((item, idx) => (
-                <li key={idx} className="flex items-start gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 border-t border-frame-border/60 pt-4">
-              <p className="text-xs md:text-sm font-medium text-frame-muted-fg italic wide:text-lg">
-                Prices shown are starting guidelines. The final proposal confirms the project scope, fee, deliverables, and delivery schedule before work begins.
-              </p>
-            </div>
+        {/* What Is Included Card */}
+        <div className="mt-12 rounded-xl border border-white/[0.06] bg-[#121214] p-6 sm:p-8 space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h4 className="font-heading text-base font-medium text-white">
+              Standard Delivery Scope
+            </h4>
           </div>
-
-          {/* WHAT CAN AFFECT THE TIMELINE */}
-          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-            <h2 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              What Can Affect the Timeline?
-            </h2>
-            <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Most API and integration projects take 1–8+ weeks. A single third-party integration usually moves faster than a multi-system integration. Projects can take longer when they involve:
-            </p>
-            <ul className="mt-4 grid grid-cols-1 gap-2.5 sm:grid-cols-2">
-              {timelineFactors.map((factor, fIdx) => (
-                <li key={fIdx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                  <span>{factor}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 border-t border-frame-border/60 pt-4">
-              <p className="text-xs md:text-sm font-semibold text-frame-fg">
-                Projects also move faster when third-party documentation, credentials, API access, and required approvals are available early.
-              </p>
-            </div>
+          <p className="text-xs sm:text-sm text-zinc-400">
+            Depending on the selected scope, projects can include the following engineering components:
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 pt-2">
+            {includedFeatures.map((feat, idx) => (
+              <div key={idx} className="flex items-center gap-2 rounded-lg border border-white/[0.04] bg-white/[0.02] p-2.5 text-xs text-zinc-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                <span>{feat}</span>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* PROJECT SCOPE, REVIEW & SUPPORT */}
-        <div className="mt-16">
-          <div className="mb-8 items-end gap-8 border-2 border-frame-border bg-frame-muted/30 p-6 md:p-8 lg:grid lg:grid-cols-[1.5fr_1fr]">
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-3xl">
+        {/* Project Scope, Review & Support Checkpoints */}
+        <div className="mt-14">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h4 className="font-heading text-xl font-medium text-white">
               Project Scope, Review &amp; Support
-            </h2>
-            <p className="mt-2 text-sm font-medium text-frame-muted-fg md:text-base lg:mt-0 wide:text-lg">
-              Clear scope helps prevent unexpected development changes.
-            </p>
+            </h4>
           </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {governancePoints.map((gov, gIdx) => (
-              <div key={gIdx} className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-                <span className="font-heading text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Checkpoint 0{gIdx + 1}
+          <p className="mb-6 text-sm text-zinc-400">
+            Clear scope helps prevent unexpected development changes and establishes dependable release governance.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {scopeCheckpoints.map((item, idx) => (
+              <div key={idx} className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14]">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
                 </span>
-                <h3 className="mt-2 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {gov.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {gov.desc}
+                <h5 className="mt-2 font-heading text-base font-medium text-white">
+                  {item.title}
+                </h5>
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
+                  {item.desc}
                 </p>
               </div>
             ))}
@@ -264,4 +243,3 @@ export default function Pricing() {
     </section>
   )
 }
-

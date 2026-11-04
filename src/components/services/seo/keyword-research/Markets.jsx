@@ -1,109 +1,145 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { MapPin, Globe2, Network, Check } from 'lucide-react'
 
 const marketBlocks = [
   {
+    number: '01',
+    icon: MapPin,
     title: 'Keyword Research for Bangladeshi Businesses',
-    body: 'We support Bangladeshi ecommerce brands, service businesses, B2B companies, startups, exporters, and established organizations. Research can account for:',
+    description:
+      'We support Bangladeshi ecommerce brands, professional service firms, B2B exporters, tech startups, and enterprise organizations.',
     points: [
-      'Bangladesh-specific terminology',
-      'Local commercial intent',
-      'City and regional modifiers',
-      'English search behavior',
-      'Bangla search behavior',
-      'Banglish variations',
-      'Local competitors',
-      'Mobile-focused search behavior',
-      'National versus local search demand',
+      'Bangladesh-specific local terminology & search habits',
+      'Local commercial intent & metropolitan city modifiers',
+      'English search behavior across corporate sectors',
+      'Bangla script search behavior & phonetics',
+      'Banglish spelling variations & conversational colloquialisms',
+      'Local competitors & mobile-first device query dynamics',
+      'National broad search demand vs. divisional local intent',
     ],
-    note: 'The goal is to identify how the target audience actually searches rather than assuming that the terminology used on the website is the terminology customers use.',
+    note: 'The objective is identifying how real Bangladeshi consumers actually formulate queries on mobile devices, rather than assuming standard corporate website copy mirrors search behavior.',
   },
   {
+    number: '02',
+    icon: Globe2,
     title: 'International Keyword Research',
-    body: 'For businesses targeting international markets, we research each market according to its own search environment. This can include:',
+    description:
+      'For Bangladeshi exporters and overseas businesses targeting Tier-1 markets (USA, UK, Australia, Canada, UAE, Europe), we research each country in its native context.',
     points: [
-      'Country-specific terminology',
-      'Language variations',
-      'Regional spelling',
-      'Local search intent',
-      'Market-level competitors',
-      'Search demand',
-      'Commercial modifiers',
-      'Localized product or service terms',
-      'SERP differences',
+      'Country-specific terminology & localized product phrasing',
+      'Regional spelling variants (e.g., US vs UK English)',
+      'Local commercial intent modifiers & buyer expectations',
+      'Market-level SERP competitors & local domain authority',
+      'Regional search volume, seasonality, and CPC dynamics',
+      'Localized product or service taxonomy & legal terminology',
     ],
-    note: "We avoid treating direct translation as keyword research. The strategy is built around how users actually search in each target market.",
+    note: 'We strictly avoid treating direct Google Translate translation as keyword research. The strategy is built around how native buyers in each territory search.',
   },
   {
+    number: '03',
+    icon: Network,
     title: 'Multi-Market Keyword Mapping',
-    body: 'Businesses targeting several countries need keyword strategies that remain organized as the website expands. We can map:',
+    description:
+      'Businesses serving multiple countries need keyword architectures that scale cleanly without cross-border cannibalization.',
     points: [
-      'Country-specific keywords',
-      'Language versions',
-      'Regional landing pages',
-      'Market-specific products or services',
-      'Country-level supporting content',
-      'International content clusters',
+      'Country-specific keyword mapping per target domain/subfolder',
+      'Language version & hreflang intent separation',
+      'Regional landing page keyword assignment',
+      'Market-specific product/service catalog variations',
+      'Country-level supporting content & localized SILO clusters',
+      'Scalable framework preventing international keyword collisions',
     ],
-    note: 'This helps prevent multiple markets from competing for the same search intent and creates a clearer structure for future expansion.',
+    note: 'Prevents multiple regional folders from competing against each other for identical global search queries.',
   },
 ]
 
-const tokens = [
+const marketTokens = [
   'Bangladesh',
-  'Dhaka',
-  'Bangla',
-  'Banglish',
-  'English search',
-  'International markets',
-  'Multi-market mapping',
+  'Dhaka HQ',
+  'Bangla Script',
+  'Banglish Queries',
+  'United States',
+  'United Kingdom',
+  'Australia & Canada',
+  'United Arab Emirates',
+  'Multi-Market Mapping',
 ]
 
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Markets we research" title="Bangladesh & International Markets">
-          Keyword research must reflect the market where the search actually happens. Search
-          terminology, language, competitors, search demand, and buying behavior can vary between
-          Bangladesh and international markets. Framecipher researches these differences before
-          finalizing a keyword strategy.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Header Block */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400">
+              Markets We Research
+            </span>
+          </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {marketBlocks.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Market 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                {item.points.map((point, pIdx) => (
-                  <li key={pIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.note}
-              </p>
-            </div>
-          ))}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white">
+            Bangladesh &amp; <span className="italic text-frame-accent">International Markets</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-400">
+            Keyword research must reflect the exact market where the search happens. Search terminology, language, competitors, search demand, and buying behavior vary between Bangladesh and international territories. Framecipher researches these nuances before finalizing any targeting strategy.
+          </p>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-2">
-          {tokens.map((token) => (
+        {/* 3 Market Cards Grid */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          {marketBlocks.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.number}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-all duration-300 hover:border-frame-accent/40 hover:bg-[#151518] md:p-8"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-semibold tracking-wider text-frame-accent">
+                      Market 0{item.number}
+                    </span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-frame-accent/30 group-hover:text-frame-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                    {item.description}
+                  </p>
+
+                  <ul className="mt-5 space-y-2 border-t border-white/[0.06] pt-4 text-xs text-zinc-300">
+                    {item.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5 text-xs text-zinc-400 font-normal leading-relaxed">
+                  {item.note}
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Geo Market Pills */}
+        <div className="mt-10 flex flex-wrap items-center gap-2">
+          {marketTokens.map((token) => (
             <span
               key={token}
-              className="border-2 border-frame-border bg-frame-bg px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-frame-accent"
+              className="rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 font-mono text-xs text-zinc-300"
             >
               {token}
             </span>

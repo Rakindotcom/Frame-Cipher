@@ -1,73 +1,81 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const objectives = [
-  'Brand Awareness',
-  'Video Completion',
-  'Consideration',
-  'Leads',
-  'Sales',
+import React from 'react'
+import { Sparkles, Compass, Eye, TrendingUp, Layers, Target } from 'lucide-react'
+
+const pillars = [
+  {
+    icon: Compass,
+    title: 'Discovery & Planning Intent',
+    desc: 'People use Pinterest weeks or months before a purchase to research, save ideas, and build shortlists for home, fashion, weddings, or projects.',
+  },
+  {
+    icon: Layers,
+    title: 'Pin-Native Creative',
+    desc: 'We craft creative specifically for the Pinterest aesthetic—vertical formats, clear value hooks, high-utility overlays, and inspirational storytelling.',
+  },
+  {
+    icon: Target,
+    title: 'Performance+ & Search Targeting',
+    desc: 'Combining active keyword search with visual interest graph signals, custom audience lists, and automated Performance+ optimization.',
+  },
+  {
+    icon: TrendingUp,
+    title: 'Server-Side Tag & CAPI Tracking',
+    desc: 'Complete dual-tracking implementation with Pinterest Tag and Conversions API deduplication to protect conversion signal accuracy.',
+  },
 ]
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Our approach"
-          title="Pinterest Ads Built for Discovery, Planning & Purchase Intent"
-        >
-          Pinterest is not just another social platform.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* SoftWebGrove 2-Column Master Layout */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column: Strategic Thesis & Context (6 cols) */}
+          <div className="lg:col-span-6 space-y-6">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Pinterest Ads Built for Discovery, Planning &amp;{' '}
+              <span className="italic text-frame-accent">Purchase Intent.</span>
+            </h2>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-            <p>
-              People use Pinterest to collect ideas, compare possibilities, plan occasions,
-              discover products, and prepare for purchases. A wedding, home renovation, seasonal
-              wardrobe, recipe, room makeover, or product shortlist can begin on Pinterest long
-              before the final transaction.
-            </p>
-            <p>
-              <span className="font-bold text-frame-fg">That changes how advertising should work.</span>
-              {' '}
-              A strong Pinterest campaign needs more than reach. The creative needs to fit the
-              platform. The targeting needs to reflect what people are searching for and
-              planning. The landing page needs to continue the same experience after the click.
-            </p>
-            <p>
-              <span className="font-bold text-frame-fg">Framecipher builds Pinterest campaigns around that journey.</span>
-              {' '}
-              We align the campaign objective, targeting, creative, catalog, landing page,
-              tracking, and optimization around a defined business outcome. Depending on the
-              campaign, that may be relevant website traffic, leads, purchases, or another
-              measurable conversion.
-            </p>
+            <div className="space-y-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+              <p>
+                Pinterest is not just another social platform. People use it to collect ideas, compare possibilities, plan occasions, discover products, and prepare for purchases.
+              </p>
+              <p className="text-sm sm:text-base text-zinc-400">
+                A wedding, home renovation, seasonal wardrobe, recipe, room makeover, or product shortlist can begin on Pinterest long before the final transaction. That changes how advertising should work.
+              </p>
+              <p className="text-sm sm:text-base text-zinc-400">
+                A strong Pinterest campaign needs more than reach. The creative needs to fit the platform. The targeting needs to reflect what people are searching for and planning. The landing page needs to continue the same experience after the click.
+              </p>
+              <p className="text-xs sm:text-sm font-mono text-zinc-300">
+                <span className="text-frame-accent font-bold mr-1.5">✓</span> Framecipher builds Pinterest campaigns around that full journey—aligning campaign objective, targeting, creative, catalog, landing page, tracking, and optimization around a defined business outcome.
+              </p>
+            </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Campaign objectives today
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Objectives Pinterest currently offers
-            </h3>
-            <ul className="mt-6 space-y-2.5">
-              {objectives.map((item, index) => (
-                <li key={index} className="flex items-center gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg">
-                  <span className="font-mono text-xs font-black text-frame-accent">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t border-frame-border/60 pt-5 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Bidding and creative options vary by objective. We match the objective to the
-              business outcome before structuring the campaign around it.
-            </p>
-            <div className="mt-7">
-              <PosterButton href="/contact">Request a Consultation &rarr;</PosterButton>
-            </div>
+          {/* Right Column: 4 Architecture Alignment Vectors (6 cols) */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={pillar.title}
+                  className="rounded-xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+                >
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-base font-medium text-white mb-2">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {pillar.desc}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import PosterButton from '../../../home/PosterButton'
 
 const deliverables = [
   {
@@ -29,31 +30,51 @@ const deliverables = [
 
 export default function WhatYouGet() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Deliverables" title="What You Get With Framecipher">
-          Our deliverables are designed to move from an unclear loss to a documented diagnosis,
-          prioritized action, and measurable recovery.
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {deliverables.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Deliverable 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
+    <section className="border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Sticky Left Column (5 cols) */}
+          <div className="lg:col-span-5">
+            <div className="lg:sticky lg:top-32 space-y-6">
+              <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#A855F7]">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+                <span>Deliverables &amp; Outcomes</span>
+              </div>
+              <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl leading-[1.05]">
+                What You Get With Framecipher
+              </h2>
+              <p className="text-base leading-relaxed text-zinc-300 sm:text-lg">
+                Our deliverables are designed to move from an unclear traffic loss to a documented diagnosis, prioritized action, and measurable recovery.
               </p>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
+              <div className="pt-2">
+                <PosterButton href="/contact">
+                  Start Your Recovery &rarr;
+                </PosterButton>
+              </div>
             </div>
-          ))}
+          </div>
+
+          {/* Scrolling Right Column (7 cols) with Modality 1 Divided Rows */}
+          <div className="divide-y divide-white/[0.08] border-y border-white/[0.08] lg:col-span-7">
+            {deliverables.map((item, index) => (
+              <div
+                key={item.title}
+                className="group py-8 transition-colors duration-200 hover:bg-white/[0.02]"
+              >
+                <div className="flex items-center gap-4">
+                  <span className="font-mono text-xs text-frame-accent">
+                    0{index + 1}
+                  </span>
+                  <h3 className="text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent">
+                    {item.title}
+                  </h3>
+                </div>
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300 sm:text-base pl-8">
+                  {item.body}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for rental — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for rental: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Studio Rental Rates in Dhaka",
@@ -66,7 +66,7 @@ const DATA = {
     "After-hours, weekend and overnight scheduling",
     "Overtime past the agreed wrap time"
   ],
-  "marketNote": "Dhaka studio rental runs ৳1,000–1,500/hour basic (Space Mirpur, Agdum, minimum 2 hours), ৳2,000/hour room-only and ৳2,500/hour with camera and operator (Black Box, Dhaka Digital), ৳3,000/hour premium (Studio89), half-days ৳6,000–14,000 and full days ৳15,000–25,000. Power backup, acoustic isolation and elevator access separate real studios from rooms with lights — our ECB Chattar facility prices at the equipped middle with backup genuinely included.",
+  "marketNote": "Dhaka studio rental runs ৳1,000 to 1,500/hour basic (Space Mirpur, Agdum, minimum 2 hours), ৳2,000/hour room-only and ৳2,500/hour with camera and operator (Black Box, Dhaka Digital), ৳3,000/hour premium (Studio89), half-days ৳6,000 to 14,000 and full days ৳15,000 to 25,000. Power backup, acoustic isolation and elevator access separate real studios from rooms with lights: our ECB Chattar facility prices at the equipped middle with backup genuinely included.",
   "costRows": [
     [
       "Room-only, own gear (2h minimum)",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Studio Rental Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

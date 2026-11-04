@@ -27,7 +27,7 @@ const marqueeItems = [
 
 export default function ContentCreationShortFormVideoService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-[#FAFAFA] min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
       <VideoPortfolioPreview

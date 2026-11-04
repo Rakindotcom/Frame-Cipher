@@ -45,8 +45,8 @@ const platforms = [
 
 export default function Platforms() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Publishing environments"
           title="Product Description Writing for Different Platforms"
@@ -55,17 +55,17 @@ export default function Platforms() {
           where it will be published.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {platforms.map((platform) => (
-            <article key={platform.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={platform.title} className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <div>
-                <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                <h3 className="font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                   {platform.title}
                 </h3>
                 {platform.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                   >
                     {paragraph}
                   </p>
@@ -76,9 +76,9 @@ export default function Platforms() {
                     {platform.bullets.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                       >
-                        <span aria-hidden="true" className="mt-1 text-frame-accent">
+                        <span aria-hidden="true" className="mt-1 text-[#A855F7]">
                           &bull;
                         </span>
                         {item}

@@ -1,65 +1,75 @@
+'use client'
+
+import React from 'react'
+
 const mvpStages = [
   {
-    title: "Idea & Feature Prioritization",
-    desc: "We identify the core problem, target audience, and features required for the first usable product."
+    title: 'Idea & Feature Prioritization',
+    desc: 'We identify the core problem, target audience, and features required for the first usable product.',
   },
   {
-    title: "UX & Product Structure",
-    desc: "We design the essential flows and screens around the main user tasks."
+    title: 'UX & Product Structure',
+    desc: 'We design the essential flows and screens around the main user tasks.',
   },
   {
-    title: "Focused Development",
-    desc: "We build the agreed core functionality without adding unnecessary features that delay validation."
+    title: 'Focused Development',
+    desc: 'We build the agreed core functionality without adding unnecessary features that delay validation.',
   },
   {
-    title: "Testing & Launch",
-    desc: "The MVP is tested and prepared for real-world use so the team can begin collecting feedback."
+    title: 'Testing & Launch',
+    desc: 'The MVP is tested and prepared for real-world use so the team can begin collecting feedback.',
   },
   {
-    title: "Iteration",
-    desc: "User feedback can then inform the next development phase instead of committing the entire budget before the product is validated."
-  }
+    title: 'Iteration',
+    desc: 'User feedback can then inform the next development phase instead of committing the entire budget before the product is validated.',
+  },
 ]
 
 export default function MvpStartups() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Lean Validation
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          MVP App Development for Startups
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          Not every product needs its complete feature set on the first release. An MVP focuses on the smallest practical version needed to test the core idea with real users.
-        </p>
-      </div>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            MVP App Development{' '}
+            <span className="italic text-frame-accent">for Startups.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {mvpStages.map((stage, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              Phase 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {stage.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {stage.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Not every product needs its complete feature set on the first release. An MVP focuses on the smallest practical version needed to test the core idea with real users.
+          </p>
+        </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-semibold italic text-frame-fg">
-          An MVP should be focused, not carelessly incomplete. The goal is to learn from a usable product.
-        </p>
+        {/* Modality 2: Architectural 5-Column Divided Band */}
+        <div className="grid grid-cols-1 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] sm:grid-cols-2 lg:grid-cols-5 lg:divide-y-0 lg:divide-x">
+          {mvpStages.map((stage, i) => (
+            <div
+              key={i}
+              className="flex flex-col justify-between p-6 sm:p-7 transition-colors duration-200 hover:bg-white/[0.02]"
+            >
+              <div>
+                <span className="font-mono text-xs text-frame-accent tabular-nums">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg font-medium text-white">
+                  {stage.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  {stage.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Takeaway Callout */}
+        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+            An MVP should be focused, not carelessly incomplete. The goal is to learn from a usable product.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

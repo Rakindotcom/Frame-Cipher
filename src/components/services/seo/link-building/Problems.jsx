@@ -1,81 +1,112 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Compass,
+  FileText,
+  Eye,
+  Globe,
+  Anchor,
+  ShieldAlert,
+} from 'lucide-react'
 
 const criteria = [
   {
+    icon: Compass,
     title: 'Topical Relevance',
-    body: 'A link is worth pursuing when the source site discusses topics your business genuinely relates to, not merely when the platform itself has a high authority score. Yet several considerations matter before you commit to a target. The publication, the section, and the article all play a part in whether a reference is genuinely useful.',
+    body: 'The linking website should have a meaningful relationship with your industry, subject, audience, or a closely related topic. Relevance can come from the publication itself, the specific section, or the article where the link appears. The important question is whether the relationship makes sense to a real reader.',
   },
   {
+    icon: FileText,
     title: 'Editorial Context',
-    body: 'The environment around the link matters as much as the site itself. A reference placed inside genuinely useful, well-published content signals that a real person considered the resource worth mentioning, which is exactly the signal search engines look for when distinguishing earned links from manufactured ones.',
+    body: 'We look at how a website publishes and links to content. A useful editorial environment typically has clear content standards, recognizable authorship, meaningful articles, and a reason for linking to external sources. A placement should look like part of a real publication, not an artificial page created to host a backlink.',
   },
   {
+    icon: Eye,
     title: 'Real Audience & Organic Visibility',
-    body: 'A site that draws real organic and direct traffic has readers who can actually discover your business, and its links reflect genuine editorial decisions. We prefer placements on sites where a real audience exists rather than sites whose value exists only inside an SEO tool.',
+    body: 'Third-party metrics can be useful for initial research, but they are not enough on their own. We consider organic visibility, search traffic patterns, content activity, audience relevance, geographic audience, existing editorial coverage, and referral potential to confirm a real audience exists.',
   },
   {
+    icon: Globe,
     title: 'Geographic Relevance',
-    body: 'Where your customers sit changes which publishers deserve pursuit. For local businesses, links from publications and directories in their market matter more than links from anywhere in the world. For international operations, the target publications shift to the markets the business actually serves.',
+    body: 'A backlink from a relevant publication in your target market may be more useful than a random link from another country. For a Bangladeshi business, this includes local publications, associations, and directories. For an international campaign, publisher selection adapts to the specific target market.',
   },
   {
+    icon: Anchor,
     title: 'Natural Anchor & Destination Fit',
-    body: 'We use the anchor text a publisher would naturally write and steer each link toward the page that genuinely helps the reader: a service, product, research resource, or guide. Forced anchor patterns and links dropped onto irrelevant pages are among the clearest signs of manufactured placement.',
+    body: 'The wording around a link should make sense in normal editorial language. We avoid forcing exact-match commercial keywords into every placement. We also map the link to the appropriate destination (homepage, service, product, research asset, or guide) that actually supports the subject.',
   },
   {
+    icon: ShieldAlert,
     title: 'Spam & Manipulation Screening',
-    body: 'Before any outreach, we screen for patterns that indicate a site exists primarily to sell links: link farms, excessive unrelated guest-post sections, large volumes of cheap sponsored articles, automated publishing, keyword-stuffed outbound anchors, irrelevant directories, and manipulative cross-linking networks.',
+    body: 'Before pursuing a site, we screen for patterns that make the opportunity unsuitable: obvious link farms, excessive unrelated guest-posts, cheap sponsored articles, automated publishing, keyword-stuffed outbound anchors, and manipulative cross-linking networks identified in Google’s spam policies.',
   },
 ]
 
 export default function Problems() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Quality screening"
-          title="What Makes a Backlink Worth Pursuing?"
-        >
-          Not every link is worth chasing, and not every high-&ldquo;authority&rdquo;
-          site is worth risking a pitch on. We evaluate every prospect against a clear
-          set of criteria before any outreach begins.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Prospect Evaluation Framework
+            </span>
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {criteria.map((criterion, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {criterion.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {criterion.body}
-                </p>
-              </div>
-            </div>
-          ))}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            What Makes a Backlink{' '}
+            <span className="italic text-frame-accent">Worth Pursuing?</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            A backlink is not valuable simply because the source website has a high third-party authority score. We evaluate the broader context before deciding whether a placement is worth pursuing.
+          </p>
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure which links are worth pursuing?
+        {/* 6 Criteria Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {criteria.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                    <span className="font-mono text-3xl font-light text-zinc-600">
+                      0{index + 1}
+                    </span>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] text-frame-accent border border-white/[0.06]">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                    {item.body}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Screening Banner */}
+        <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              Proactive Quality Screening
             </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              We screen prospects before any outreach starts
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              A relevance-first screening keeps effort off unrelated targets and keeps your
-              profile clear of placements that could become a problem later.
+            <p className="text-sm sm:text-base text-zinc-300">
+              Our screening process is designed to avoid manipulative patterns rather than trying to scale them, safeguarding your domain against future algorithmic penalties.
             </p>
-          </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Start a Backlink Review &rarr;</PosterButton>
           </div>
         </div>
       </div>

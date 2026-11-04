@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for post-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for post-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Post-Production Packages and Prices in Dhaka (BDT)",
@@ -64,9 +64,9 @@ const DATA = {
     "Motion graphics, VFX cleanup and custom sound design",
     "Number of deliverables, aspect ratios and subtitle languages",
     "Revision rounds beyond the included structured cycles",
-    "Turnaround: 48–72 hour priority adds 30%"
+    "Turnaround: 48 to 72 hour priority adds 30%"
   ],
-  "marketNote": "Dhaka post-production splits by complexity: corporate profile edits ৳5,000–25,000, heavy-graphics YouTube work ৳5,000–15,000, per-minute editing benchmarks ৳2,000 basic to ৳20,000+ for commercial finishing (Nexteio 2026; MultimediaGen; Bangladhol). The premium reflects calibrated monitoring, LOG colour science and sound restoration that laptop edits cannot replicate. Sending externally shot footage for professional finishing typically costs less than reshooting it.",
+  "marketNote": "Dhaka post-production splits by complexity: corporate profile edits ৳5,000 to 25,000, heavy-graphics YouTube work ৳5,000 to 15,000, per-minute editing benchmarks ৳2,000 basic to ৳20,000+ for commercial finishing (Nexteio 2026; MultimediaGen; Bangladhol). The premium reflects calibrated monitoring, LOG colour science and sound restoration that laptop edits cannot replicate. Sending externally shot footage for professional finishing typically costs less than reshooting it.",
   "costRows": [
     [
       "Essential finish, up to 5 minutes",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Post-Production Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

@@ -1,208 +1,186 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import React from 'react'
+import { CheckCircle2, Clock } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const plans = [
   {
     name: 'Diagnostic Review',
-    price: '\u09F325,000',
-    period: '+',
-    type: 'One-time',
+    price: '৳25,000+',
+    type: 'Starting Price',
     delivery: '~1 week',
-    bestFor: 'Websites that lost traffic or rankings but where the exact cause is not yet clear',
+    description: 'Full investigation and documented determination of the likely cause.',
     features: [
+      'Search Console and analytics evidence audit',
       'Manual Action and Security Issues report check',
-      'Search Console and analytics evidence review',
       'Timing correlation with relevant Google updates',
       'Affected pages and queries assessment',
       'Basic technical and migration signal checks',
-      'Written root cause diagnosis',
-      'Prioritized recovery plan',
+      'Written root cause diagnosis report',
+      'Prioritized recovery plan roadmap',
     ],
-    note: 'A defined diagnostic base: you understand the actual cause and the exact work needed before committing to remediation.',
   },
   {
     name: 'Manual Action Recovery',
-    price: '\u09F360,000',
-    period: '+',
-    type: 'One-time',
-    delivery: '~2\u20134 weeks',
-    bestFor: 'Websites with a confirmed manual action in Google Search Console',
-    features: [
-      'Everything in Diagnostic Review',
-      'Violation-specific remediation planning',
-      'Content, technical, or link-related fixes as required',
-      'Remediation implementation where included in scope',
-      'Unnatural link investigation and disavow guidance where appropriate',
-      'Reconsideration request documentation',
-      'Recovery monitoring of affected pages and queries',
-    ],
-    note: 'Structured around addressing the specific violation Google identified instead of a generic cleanup.',
+    price: '৳60,000+',
+    type: 'Starting Price',
+    delivery: '~2–4 weeks of prep',
     highlight: true,
+    description: 'Diagnosis, violation-specific remediation, documentation, and reconsideration support.',
+    features: [
+      'Everything included in Diagnostic Review',
+      'Violation-specific remediation planning & execution',
+      'Content, technical, or link-related fixes as required',
+      'Unnatural link investigation and disavow guidance',
+      'Reconsideration request documentation & submission prep',
+      'Pre-submission compliance review',
+      'Post-submission review monitoring',
+    ],
   },
   {
     name: 'Google Update / Algorithmic Recovery',
-    price: '\u09F380,000',
-    period: '+',
-    type: 'One-time',
-    delivery: '~6\u201312+ weeks',
-    bestFor: 'Websites facing update-related ranking and traffic declines rather than a manual action',
+    price: '৳80,000+',
+    type: 'Starting Price',
+    delivery: '~6–12+ weeks',
+    description: 'Diagnosis, content/technical improvements, competitive analysis, and monitoring.',
     features: [
-      'Everything in Diagnostic Review',
-      'Content quality and people-first assessment',
-      'Page and query-level improvement plan',
-      'SERP and competitor reassessment',
-      'Technical and UX validation',
-      'Recovery monitoring over multiple weeks',
-      'Reassessment as new data becomes available',
+      'Everything included in Diagnostic Review',
+      'People-first content quality & depth assessment',
+      'Page-level and query-level improvement plan',
+      'SERP and competitive gap reassessment',
+      'Technical SEO, crawlability, and UX validation',
+      'Sustained multi-week recovery monitoring',
+      'Reassessment as new Google data becomes available',
     ],
-    note: 'Algorithmic recovery is measured through sustained trends, so this scope includes ongoing reassessment.',
   },
   {
     name: 'Complex / Multi-Issue Recovery',
     price: 'Custom Quote',
-    period: '',
-    type: 'Scope dependent',
-    delivery: 'Varies by issue set',
-    bestFor: 'Websites with multiple problems at once, such as security issues plus manual actions plus technical problems',
+    type: 'Tailored Scope',
+    delivery: 'Scope dependent',
+    description: 'Large websites, multiple causes, migrations, or combined recovery work.',
     features: [
-      'Combined diagnosis across all suspected causes',
-      'Security and hacked-page cleanup support',
-      'Coordinated manual action and technical remediation',
-      'Content and must-be-fixed priority sequencing',
-      'Documentation for every remediation step',
-      'Ongoing monitoring and prevention controls',
+      'Multi-domain or large enterprise site architecture',
+      'Combined manual action + core update decline',
+      'Complex failed migration reversal & restructure',
+      'Hacked content & security violation cleanup',
+      'Dedicated engineering and editorial squad',
+      'Executive reporting and SLA monitoring',
     ],
-    note: 'Scoped after diagnosis so you only pay for the investigation and work your situation actually requires.',
   },
 ]
 
-const includedAcross = [
-  'Evidence-based diagnosis',
-  'Google Search Console analysis',
-  'Documentation of findings',
-  'Prioritized recovery roadmap',
-  'Monitoring of affected pages and queries',
-  'Progress updates throughout the engagement',
+const includedItems = [
+  'Diagnostic investigation',
+  'Written findings report',
+  'Prioritized recovery plan',
+  'Remediation documentation',
+  'Pre-submission review for manual actions',
+  'Recovery monitoring based on the selected scope',
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & timeline" title="Google Penalty Recovery Pricing & Packages">
-          Pricing depends on the cause, the scope of the investigation, and the amount of
-          remediation required. Every engagement starts with understanding the real problem before
-          any recovery work.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-3">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-rose-500" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Investment &amp; Timelines
+            </span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+            Google Penalty Recovery Pricing &amp; Timeline
+          </h2>
+          <p className="text-base sm:text-lg text-zinc-400 leading-relaxed">
+            Pricing depends on the type of issue, the number of affected pages, the level of remediation required, site size, and whether reconsideration support is necessary.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {plans.map((plan, index) => (
+        {/* 4 Pricing Cards Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`flex flex-col p-7 md:p-8 ${
+              className={`flex flex-col justify-between rounded-2xl border p-6 sm:p-7 transition-colors ${
                 plan.highlight
-                  ? 'border-2 border-frame-accent bg-frame-accent/10'
-                  : 'border-2 border-frame-border bg-frame-bg'
+                  ? 'border-frame-accent/60 bg-[#151518] shadow-lg ring-1 ring-frame-accent/20'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
               }`}
             >
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Package 0{index + 1}
-                </span>
+              <div>
                 {plan.highlight && (
-                  <span className="bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                    Most Popular
+                  <span className="inline-block mb-3 rounded-full bg-frame-accent/15 border border-frame-accent/30 px-2.5 py-0.5 font-mono text-[10px] font-semibold text-frame-accent uppercase tracking-wider">
+                    Most Requested
                   </span>
                 )}
-              </div>
 
-              <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {plan.name}
-              </h3>
+                <h3 className="font-heading text-xl font-semibold text-white">
+                  {plan.name}
+                </h3>
 
-              <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                <div className="flex items-end gap-1.5">
-                  <span className="font-heading text-3xl font-bold leading-none tracking-tight text-frame-fg">
+                <div className="mt-4 flex items-baseline gap-1">
+                  <span className="font-heading text-3xl sm:text-4xl font-bold text-white tracking-tight">
                     {plan.price}
                   </span>
-                  <span className="pb-0.5 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                    {plan.period}
-                  </span>
+                </div>
+
+                <div className="mt-2 flex items-center gap-1.5 font-mono text-xs text-zinc-400">
+                  <Clock className="h-3.5 w-3.5 text-frame-accent" />
+                  <span>Typical timeline: {plan.delivery}</span>
+                </div>
+
+                <p className="mt-4 text-xs text-zinc-300 leading-relaxed border-t border-white/[0.06] pt-4">
+                  {plan.description}
+                </p>
+
+                <div className="mt-5 space-y-2.5 text-xs text-zinc-300">
+                  {plan.features.map((feature, fIdx) => (
+                    <div key={fIdx} className="flex items-start gap-2">
+                      <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
 
-              <dl className="mt-5 space-y-3 text-sm">
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Engagement
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.type}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Typical Delivery
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.delivery}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Best For
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.bestFor}</dd>
-                </div>
-              </dl>
-
-              <p className="mt-5 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                Included
-              </p>
-              <ul className="mt-3 space-y-2.5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                {plan.note}
-              </p>
-
-              <div className="mt-auto pt-8">
-                <PosterButton href="/contact" className="w-full whitespace-nowrap">
-                  Request This Package
+              <div className="mt-8 pt-6 border-t border-white/[0.08]">
+                <PosterButton
+                  href="/contact"
+                  variant={plan.highlight ? 'primary' : 'outline'}
+                  className="w-full justify-center"
+                >
+                  Get Started &rarr;
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            {includedAcross.map((item, iIdx) => (
-              <li key={iIdx} className="flex items-start gap-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+        {/* Included Where Applicable Box */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <h4 className="font-heading text-base sm:text-lg font-semibold text-white mb-4">
+            Included where applicable across all engagements:
+          </h4>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-xs sm:text-sm text-zinc-300">
+            {includedItems.map((item, idx) => (
+              <div key={idx} className="flex items-center gap-2.5">
+                <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0" />
                 <span>{item}</span>
-              </li>
+              </div>
             ))}
-          </ul>
+          </div>
 
-          <div className="flex flex-col items-center justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg max-w-2xl text-center">
-              Not sure whether your situation needs a manual action recovery, an algorithmic
-              recovery, or a different type of diagnosis? Tell us what happened, and we will
-              recommend the right starting package.
-            </p>
-            <PosterButton href="/contact" className="w-full whitespace-nowrap">
-              Get a Custom Quote
+          <div className="mt-8 pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
+            <span className="text-xs sm:text-sm text-zinc-400 text-center sm:text-left">
+              Need a custom scope for enterprise or multi-country recovery?
+            </span>
+            <PosterButton href="/contact">
+              Get a Custom Quote &rarr;
             </PosterButton>
           </div>
         </div>
-
-        <p className="mt-8 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          Final pricing depends on the website, the scope of the investigation, and the amount of
-          remediation required. Some recovery paths cannot be meaningfully priced until the root
-          cause is known.
-        </p>
       </div>
     </section>
   )

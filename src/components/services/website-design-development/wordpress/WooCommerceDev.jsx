@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const woocommerceFeatures = [
   {
     tag: 'WooCommerce 01',
@@ -35,21 +33,35 @@ const woocommerceFeatures = [
 
 export default function WooCommerceDev() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Ecommerce & Online Retail" title="WooCommerce Development">
-          Build a WordPress-powered online store around your products, customers, payment methods, and fulfillment workflow. WooCommerce can be a strong fit for businesses that want ecommerce and content management within the same WordPress environment.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Left-Aligned Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            WooCommerce{' '}
+            <span className="italic text-frame-accent">Development.</span>
+          </h2>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px md:grid-cols-2 lg:grid-cols-3">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Build a WordPress-powered online store around your products, customers, payment methods, and fulfillment workflow. WooCommerce can be a strong fit for businesses that want ecommerce and content management within the same WordPress environment.
+          </p>
+        </div>
+
+        {/* 3-Column Grid of Features */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {woocommerceFeatures.map((feat, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between min-h-[220px]">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">{feat.tag}</span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                  {feat.tag}
+                </span>
+                <h3 className="mt-3 font-heading text-xl font-medium tracking-tight text-white">
                   {feat.title}
                 </h3>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {feat.description}
                 </p>
               </div>
@@ -57,8 +69,9 @@ export default function WooCommerceDev() {
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+        {/* Bottom Context Callout */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 border-l-2 border-l-frame-accent">
+          <p className="text-sm sm:text-base leading-relaxed text-zinc-300">
             We recommend WooCommerce when its flexibility and WordPress content ecosystem provide a clear advantage for the business.
           </p>
         </div>

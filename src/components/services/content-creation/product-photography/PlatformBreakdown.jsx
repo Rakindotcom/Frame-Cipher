@@ -2,7 +2,7 @@
 import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -83,8 +83,8 @@ const platforms = [
 
 export default function PlatformBreakdown() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/20 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Channel Compliance"
           title="Product Photography for Amazon, Daraz, Shopify & Social Media"
@@ -98,31 +98,31 @@ export default function PlatformBreakdown() {
           {platforms.map((platform, idx) => (
             <div
               key={idx}
-              className={`border-2 border-frame-border bg-frame-bg p-7 md:p-9 flex flex-col justify-between transition-colors ${platform.accent}`}
+              className={`border border-white/[0.08] bg-[#09090B] p-7 md:p-9 flex flex-col justify-between transition-colors ${platform.accent}`}
             >
               <div>
-                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-frame-border/60 pb-4 mb-5">
-                  <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/[0.06] pb-4 mb-5">
+                  <h3 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                     {platform.name}
                   </h3>
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-frame-accent border border-frame-accent px-2 py-0.5 whitespace-nowrap">
+                  <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-[#A855F7] border border-[#A855F7]/40 px-2 py-0.5 whitespace-nowrap">
                     {platform.badge}
                   </span>
                 </div>
 
-                <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/product-photography" allowed={["/services/paid-advertising"]}>
+                <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-creation/product-photography" allowed={["/services/paid-advertising"]}>
                   {platform.overview}
                 </AutoLinks></p>
 
-                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-frame-fg border-l-2 border-frame-accent pl-3">
+                <p className="mt-3 text-xs sm:text-sm font-medium leading-relaxed text-[#FAFAFA] border-l-2 border-[#A855F7]/40 pl-3">
                   {platform.approach}
                 </p>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-3">
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <span className="font-mono text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-3">
                     Deliverables For {platform.channelLabel}
                   </span>
-                  <ul className="space-y-2 text-xs sm:text-sm font-medium text-frame-fg">
+                  <ul className="space-y-2 text-xs sm:text-sm font-medium text-[#FAFAFA]">
                     {platform.deliverables.map((item, dIdx) => (
                       <li key={dIdx} className="flex items-start gap-2">
                         <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
@@ -133,20 +133,20 @@ export default function PlatformBreakdown() {
                 </div>
               </div>
 
-              <div className="mt-6 border-t border-frame-border/60 pt-3 text-[11px] font-mono text-frame-muted-fg">
-                <strong className="text-frame-fg">Specification Note:</strong> {platform.note}
+              <div className="mt-6 border-t border-white/[0.06] pt-3 text-[11px] font-mono text-[#A1A1AA]">
+                <strong className="text-[#FAFAFA]">Specification Note:</strong> {platform.note}
               </div>
             </div>
           ))}
         </div>
 
         {/* MULTI-PLATFORM CTA */}
-        <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="mt-12 border border-white/[0.08] bg-[#09090B] p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-1 text-center sm:text-left">
-            <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="font-heading text-lg font-bold tracking-tight text-[#FAFAFA]">
               Selling Across Multiple Marketplaces Simultaneously?
             </h4>
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <p className="text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               We deliver organized multi-platform export folders so your listings go live instantly on Amazon, Daraz, and Shopify.
             </p>
           </div>

@@ -1,4 +1,4 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
 
 const comparisonData = [
   {
@@ -88,57 +88,65 @@ const platformRecommendations = [
 
 export default function Comparison() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Decision Framework" title="Webflow vs WordPress vs Wix">
-          The right website platform depends on design requirements, content workflows, editing needs, integrations, ecommerce complexity, and long-term technical requirements.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Heading: STRICTLY LEFT-ALIGNED */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Webflow vs WordPress vs{' '}
+            <span className="italic text-frame-accent">Wix.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            The right website platform depends on design requirements, content workflows, editing needs, integrations, ecommerce complexity, and long-term technical requirements.
+          </p>
+        </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+        {/* Comparison Table */}
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
           <table className="w-full text-left min-w-[700px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/40">
+            <thead className="border-b border-white/[0.08] bg-white/[0.02]">
               <tr>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Webflow</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WordPress</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Wix</th>
+                <th className="p-4 sm:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent">Factor</th>
+                <th className="p-4 sm:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent">Webflow</th>
+                <th className="p-4 sm:p-6 font-mono text-xs uppercase tracking-wider text-zinc-400">WordPress</th>
+                <th className="p-4 sm:p-6 font-mono text-xs uppercase tracking-wider text-zinc-400">Wix</th>
               </tr>
             </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm font-medium">
+            <tbody className="divide-y divide-white/[0.08] text-sm sm:text-base font-normal">
               {comparisonData.map((row, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-6 font-bold text-frame-fg">{row.factor}</td>
-                  <td className={`p-5 md:p-6 ${row.highlight === 'webflow' ? 'font-bold text-frame-accent' : 'text-frame-fg'}`}>
+                <tr key={idx} className="hover:bg-white/[0.02] transition-colors">
+                  <td className="p-4 sm:p-6 font-medium text-white">{row.factor}</td>
+                  <td className={`p-4 sm:p-6 ${row.highlight === 'webflow' ? 'font-medium text-frame-accent' : 'text-white'}`}>
                     {row.webflow}
                   </td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.wordpress}</td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.wix}</td>
+                  <td className="p-4 sm:p-6 text-zinc-400">{row.wordpress}</td>
+                  <td className="p-4 sm:p-6 text-zinc-400">{row.wix}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* RECOMMENDATION SCENARIOS */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        {/* Recommendation Scenarios */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
           {platformRecommendations.map((card, i) => (
             <div
               key={i}
-              className={`border-2 p-6 sm:p-8 bg-frame-bg ${
-                card.accent ? 'border-frame-accent' : 'border-frame-border'
+              className={`rounded-xl border p-6 sm:p-8 bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] ${
+                card.accent ? 'border-frame-accent/40' : 'border-white/[0.08]'
               }`}
             >
-              <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-frame-fg">
+              <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
                 {card.platform}
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
                 {card.desc}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
+        <p className="mt-8 text-xs sm:text-sm italic text-zinc-400">
           We recommend the platform based on the actual requirements rather than forcing every project into Webflow.
         </p>
       </div>

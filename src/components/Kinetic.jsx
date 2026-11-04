@@ -10,41 +10,87 @@ function humanizeServiceCopy(value = '') {
     .replace(/View Full Pillar/gi, 'View complete solution')
 }
 
-export function PageHero({ eyebrow, title, children, meta, number = '360', actions = null, className = '' }) {
+const LONG_TITLE_LENGTH = 48
+const HYBRID_TITLE_LENGTH = 30
+
+export function PageHero({ eyebrow, title, children, meta, number = '360', actions = null, className = '', ambientVisual = null }) {
+  const isCompactHero = className.includes('compact-hero')
+  const titleLength = typeof title === 'string' ? title.length : 0
+  const isLongTitle = titleLength > LONG_TITLE_LENGTH
+  const isLikelyMultiline = Boolean(typeof title === 'string' && title.split(/\s+/).length > 8)
+  const headlineScale =
+    'font-heading text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-medium leading-[1.0] tracking-tight text-white [text-wrap:balance]'
   const hasCustomPadding = /(^|\s)(p[xty]?|md:p[xty]?)-/.test(className)
-  const padding = hasCustomPadding ? '' : 'pb-20 pt-28 md:pb-28 md:pt-36'
+  const padding = hasCustomPadding ? '' : 'pb-16 pt-28 sm:pt-36 md:pb-24 md:pt-40 lg:pt-44'
   return (
-    <section className={`relative isolate overflow-hidden border-b-2 border-frame-border px-4 md:px-8 ${padding} ${className}`}>
+    <section className={`relative isolate overflow-hidden border-b border-white/[0.08] bg-[#09090B] px-4 text-white sm:px-6 md:px-8 ${padding} ${className}`}>
+      {/* Background radial ambient glow (identical to HomeHero) */}
       <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_75%_55%_at_50%_-10%,rgba(168,85,247,0.22),transparent)]"
         aria-hidden="true"
-        className="pointer-events-none absolute left-0 top-24 z-0 h-24 w-1.5 bg-gradient-to-b from-frame-accent via-frame-accent/60 to-transparent md:top-16"
       />
+
+      {/* Cyber-luxury grid overlay (identical to HomeHero) */}
       <div
+        className="pointer-events-none absolute inset-0 -z-10 fc-grid-pattern opacity-40 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_10%,#000_60%,transparent_100%)]"
         aria-hidden="true"
-        className="pointer-events-none absolute right-0 top-24 z-0 h-24 w-1.5 bg-gradient-to-b from-frame-accent/60 to-transparent md:top-16"
       />
-      <div className="pointer-events-none absolute -right-6 top-24 -z-10 select-none font-heading text-[36vw] font-bold leading-none tracking-tighter text-frame-muted/70 md:top-8 md:text-[24vw]" aria-hidden="true">
+
+      {/* Modern Background Watermark with smooth fade */}
+      <div
+        className="pointer-events-none absolute right-0 top-6 -z-10 select-none font-heading text-[48vw] font-bold leading-none tracking-[-0.045em] text-white/[0.02] md:-right-6 md:top-10 md:text-[24vw]"
+        aria-hidden="true"
+      >
         {number}
       </div>
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-10 flex flex-wrap items-center justify-center gap-4 border-b-2 border-frame-border pb-5 md:gap-8">
-          <SectionLabel>{humanizeServiceCopy(eyebrow)}</SectionLabel>
-          {meta && <span className="text-frame-muted-fg opacity-50">/</span>}
-          {meta && <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-muted-fg md:text-base">{humanizeServiceCopy(meta)}</p>}
+
+      {/* Floating 3D Ambient Canvas Visual */}
+      {ambientVisual && (
+        <div
+          className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center lg:justify-end lg:pr-8 xl:pr-24 select-none overflow-hidden"
+          aria-hidden="true"
+        >
+          {ambientVisual}
         </div>
-        
+      )}
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl">
+        {/* Top Status Row */}
+        <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between md:mb-12 border-b border-white/10 pb-5">
+          <div className="flex flex-wrap items-center gap-3">
+            {eyebrow ? (
+              <span className="rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 font-mono text-[11px] font-medium uppercase tracking-widest text-frame-accent">
+                {humanizeServiceCopy(eyebrow)}
+              </span>
+            ) : (
+              <span className="rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 font-mono text-[11px] font-medium uppercase tracking-widest text-frame-accent">
+                Dhaka Studio · Integrated System
+              </span>
+            )}
+            {meta && <span className="hidden text-xs text-zinc-600 sm:inline">|</span>}
+            {meta && (
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+                {humanizeServiceCopy(meta)}
+              </p>
+            )}
+          </div>
+          <div className="hidden sm:flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-[11px] font-semibold text-emerald-300 backdrop-blur-md">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <span>Operating Worldwide</span>
+          </div>
+        </div>
+
         <div className="flex w-full flex-col items-center text-center">
-          {/* Only render the heading when a title is supplied. Pages that pass
-              their own <h1> further down the section (several paid-advertising
-              service pages) would otherwise emit an empty H1 above the real
-              one, producing two H1s per document. */}
           {title && (
-            <h1 className="w-full max-w-6xl [overflow-wrap:anywhere] font-heading text-[clamp(2.45rem,7.8vw,7.8rem)] font-bold uppercase leading-[0.84] tracking-tighter text-frame-fg">
+            <h1 className={`w-full max-w-5xl [overflow-wrap:anywhere] ${headlineScale}`}>
               {title}
             </h1>
           )}
-          <div className="mt-8 flex max-w-4xl flex-col items-center gap-8">
-            {children && <p className="text-lg font-medium leading-snug text-frame-muted-fg md:text-2xl">{children}</p>}
+          <div className="mt-8 flex max-w-3xl flex-col items-center gap-8">
+            {children && <div className="text-base font-normal leading-relaxed text-zinc-300 sm:text-lg">{children}</div>}
             {actions && <div className="flex flex-wrap justify-center gap-4">{actions}</div>}
           </div>
         </div>
@@ -55,37 +101,23 @@ export function PageHero({ eyebrow, title, children, meta, number = '360', actio
 
 export function SectionLabel({ children, className = '' }) {
   return (
-    <p className={`text-sm font-black uppercase tracking-[0.28em] text-frame-accent ${className}`}>
+    <p className={`font-mono text-[11px] font-medium uppercase tracking-widest text-frame-accent ${className}`}>
       {children}
     </p>
   )
 }
 
-export function SectionIntro({ eyebrow, title, children, className = '', index, align = 'left' }) {
+export function SectionIntro({ eyebrow, title, children = null, className = '', index = null, align = 'left' }) {
   const center = align === 'center'
   return (
     <div className={`mb-14 md:mb-20 max-w-4xl ${center ? 'mx-auto text-center md:max-w-5xl' : ''} ${className}`}>
-      <div className={`flex flex-wrap items-center gap-4 ${center ? 'justify-center' : ''}`}>
-        {index && (
-          <span
-            aria-hidden="true"
-            className={`select-none font-heading text-4xl font-bold leading-none tracking-tighter md:text-6xl ${center ? 'text-frame-accent' : 'text-frame-muted/60'}`}
-          >
-            {index}
-          </span>
-        )}
-        <span
-          aria-hidden="true"
-          className={`h-0.5 w-10 flex-none bg-frame-accent md:w-16 ${center ? 'hidden' : ''}`}
-        />
-        <SectionLabel className="min-w-0 [overflow-wrap:anywhere]">{eyebrow}</SectionLabel>
-        {center && <span aria-hidden="true" className="h-0.5 w-10 flex-none bg-frame-accent md:w-16" />}
-      </div>
-      <h2 className={`mt-4 font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg ${center ? 'mx-auto' : ''}`}>
+      <h2
+        className={`font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white [text-wrap:balance] ${center ? 'mx-auto' : ''}`}
+      >
         {title}
       </h2>
       {children && (
-        <p className={`mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl ${center ? 'mx-auto' : ''}`}>
+        <p className={`mt-5 max-w-3xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300 ${center ? 'mx-auto' : ''}`}>
           {children}
         </p>
       )}
@@ -98,38 +130,41 @@ export function PosterButton({ href, children, variant = 'accent', className = '
   const isNowrap = className.includes('whitespace-nowrap')
   const widthClasses = isFullWidth ? 'w-full' : isNowrap ? 'w-auto max-w-full' : 'w-full sm:w-auto'
   const hPad = isNowrap ? 'px-4' : 'px-6 md:px-8'
-  const hasExplicitTextSize = /(^|\s)!?-?text-(xs|sm|base|lg|xl|2xl|3xl|4xl|\[)/.test(className)
-  const defaultSize = hasExplicitTextSize ? '' : isNowrap ? 'text-xs' : 'text-sm md:text-base'
   const base =
-    `inline-flex min-h-14 ${widthClasses} items-center justify-center border-2 ${hPad} py-4 text-center ${defaultSize} font-black uppercase leading-tight tracking-tighter transition-all duration-200 active:scale-95 overflow-hidden md:min-h-16`
+    `group sw-btn min-h-[52px] h-[52px] ${widthClasses} items-center justify-center ${hPad} text-center text-[15px] font-medium leading-none transition-colors duration-200`
   const variants = {
-    accent: 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:scale-[1.02] hover:bg-transparent hover:text-frame-fg',
-    outline:
-      'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg hover:scale-[1.02]',
-    dark: 'border-frame-accent-fg bg-frame-accent-fg text-frame-accent hover:bg-frame-bg hover:text-frame-fg hover:scale-[1.02]',
+    accent: 'sw-btn-primary',
+    outline: 'sw-btn-outline',
+    dark: 'sw-btn-primary',
+    luxury: 'sw-btn-primary',
   }
   const classes = `${base} ${variants[variant]} ${className}`
+  let cleanChildren = children
+  if (typeof children === 'string') {
+    cleanChildren = children.replace(/\s*(?:&rarr;|→|â†’|->|\u2192)\s*$/u, '').trim()
+  }
+  const content = <><span className="min-w-0 truncate">{cleanChildren}</span><span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-hover:translate-x-1">&rarr;</span></>
 
   if (href) {
     const isExternal = href.startsWith('http') || href.startsWith('mailto:') || href.startsWith('tel:')
     if (isExternal) {
       return (
         <a href={href} className={classes}>
-          {children}
+          {content}
         </a>
       )
     }
 
     return (
       <Link href={href} className={classes}>
-        {children}
+        {content}
       </Link>
     )
   }
 
   return (
     <button type={type || 'button'} onClick={onClick} className={classes}>
-      {children}
+      {content}
     </button>
   )
 }
@@ -137,24 +172,23 @@ export function PosterButton({ href, children, variant = 'accent', className = '
 export function TypeMarquee({ items, reverse = false, slow = false }) {
   if (!items || items.length === 0) return null
 
-  // Ensure enough items to fill wide displays, then duplicate base exactly once for a 50% seamless infinite loop
   const count = items.length
   const multiplier = count >= 6 ? 1 : Math.ceil(6 / count)
   const base = Array(multiplier).fill(items).flat()
   const repeated = [...base, ...base]
 
   return (
-    <section className="kinetic-marquee border-y-2 border-frame-border bg-frame-accent py-6 text-frame-accent-fg">
+    <section className="kinetic-marquee relative isolate overflow-hidden border-y border-white/[0.08] bg-[#09090B] py-8 text-white">
       <div
-        className={`kinetic-marquee-track ${slow ? 'kinetic-marquee-track-slow' : ''} ${reverse ? 'kinetic-marquee-track-rtl' : ''}`}
+        className={`kinetic-marquee-track hover:[animation-play-state:paused] ${slow ? 'kinetic-marquee-track-slow' : ''} ${reverse ? 'kinetic-marquee-track-rtl' : ''}`}
         aria-hidden="true"
       >
         {repeated.map((item, index) => (
           <div key={`${item}-${index}`} className="flex shrink-0 items-center gap-8 px-6">
-            <span className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-none tracking-tighter text-frame-accent-fg">
+            <span className="font-heading text-2xl sm:text-4xl md:text-5xl font-medium leading-none tracking-tight text-white">
               {item}
             </span>
-            <span className="h-4 w-4 shrink-0 bg-frame-accent-fg" />
+            <span className="text-zinc-500">&middot;</span>
           </div>
         ))}
       </div>
@@ -166,7 +200,7 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
   const titleClasses = [
     number ? 'mt-6' : 'mt-4',
     href ? '' : 'relative z-10',
-    'font-heading text-xl font-bold uppercase leading-tight tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-2xl md:text-3xl',
+    'font-heading text-xl font-medium leading-tight tracking-tight text-white transition-colors duration-300 group-hover:text-frame-accent sm:text-2xl',
   ]
     .filter(Boolean)
     .join(' ')
@@ -174,11 +208,10 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
   const content = (
     <>
       {number && (
-        <p className="relative z-0 font-heading text-5xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-300 group-hover:text-frame-accent-fg sm:text-6xl" aria-hidden="true">
+        <p className="relative z-0 font-mono text-xs font-medium tracking-wider text-frame-accent tabular-nums" aria-hidden="true">
           {number}
         </p>
       )}
-      {eyebrow && <p className="text-xs font-black uppercase tracking-[0.26em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg/70">{eyebrow}</p>}
       <h3 className={titleClasses}>
         {href ? (
           <Link href={href} className="after:absolute after:inset-0 after:content-['']">
@@ -188,29 +221,41 @@ export function InversionCard({ eyebrow, title, children, number, href }) {
           title
         )}
       </h3>
-      {children && <div className="mt-5 text-base font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">{children}</div>}
+      {children && <div className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-200">{children}</div>}
     </>
   )
 
-  const classes = `group min-h-72 bg-frame-bg p-7 transition-colors duration-300 hover:bg-frame-accent${href ? ' relative' : ''}`
+  const classes = `group min-h-72 border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#151518]${href ? ' relative' : ''}`
 
   return <article className={classes}>{content}</article>
 }
 
-export function CTASection({ eyebrow = 'Next move', title = 'Ready to build what comes next?', children = null, primaryText = 'Book a strategy call', secondaryText = 'Send a brief' }) {
+export function CTASection({ eyebrow = 'Strategy', title = 'Ready to build what comes next?', children = null, primaryText = 'Book a strategy call', secondaryText = 'Send a brief' }) {
   return (
-    <section className="border-t-2 border-frame-border px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-12">
-          <SectionLabel className="mb-5">{eyebrow}</SectionLabel>
-          <h2 className="font-heading text-[clamp(2rem,6vw,4.5rem)] font-bold uppercase leading-[0.82] tracking-tighter text-frame-fg">
-            {title}
-          </h2>
-          <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_0.7fr] lg:items-end">
-            {children && <p className="max-w-4xl text-base font-medium leading-snug text-frame-muted-fg md:text-xl">{children}</p>}
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-10 md:p-16">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+              {title}
+            </h2>
+            <span
+              aria-hidden="true"
+              className="hidden lg:block select-none font-heading text-7xl xl:text-8xl font-medium leading-none tracking-tight text-white/20 shrink-0"
+            >
+              &rarr;
+            </span>
+          </div>
+
+          <div className="mt-10 grid gap-8 border-t border-white/[0.08] pt-8 lg:grid-cols-[1fr_0.65fr] lg:items-end lg:gap-12">
+            <p className="max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+              {children || 'Tell us what you are building, selling, launching, or fixing. We will shape the strategy, content, technology, and marketing path around it.'}
+            </p>
+            <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
               <PosterButton href="/contact">{primaryText}</PosterButton>
-              <PosterButton href="/contact" variant="outline">{secondaryText}</PosterButton>
+              <PosterButton href="/contact" variant="outline">
+                {secondaryText}
+              </PosterButton>
             </div>
           </div>
         </div>

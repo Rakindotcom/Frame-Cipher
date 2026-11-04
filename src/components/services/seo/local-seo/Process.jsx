@@ -1,59 +1,87 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
 
-const processSteps = [
+const steps = [
   {
+    number: '01',
     title: 'Local Search Audit',
-    description: 'We first review the current local search presence. The audit can examine your Google Business Profile, website, local landing pages, business information, citations, reviews, local competitors, search visibility, and technical SEO factors. This gives us a starting point before implementation begins.',
+    desc: 'We examine your existing Google Business Profile, website landing pages, citations, NAP consistency, review health, local competitors, and technical crawlability to establish an empirical performance baseline.',
   },
   {
+    number: '02',
     title: 'Keyword & Competitor Analysis',
-    description: 'We identify the searches that matter to your business and study the competitive landscape. We connect search terms with services, products, locations, customer intent, and relevant website pages, then identify gaps that can support the next stage of optimization.',
+    desc: 'We identify neighborhood and service search terms that matter to your business, map commercial intent to specific assets, and analyze top local 3-Pack competitors to find exploitable visibility gaps.',
   },
   {
+    number: '03',
     title: 'GBP & Website Optimization',
-    description: 'Once the research is complete, we optimize the relevant business and website assets. This stage may include profile improvements, website updates, service pages, location pages, internal linking, content improvements, and conversion elements. The objective is to create a clear connection between what your business offers and what local customers search for.',
+    desc: 'We optimize primary/secondary categories, service catalogues, descriptions, and media on your GBP, while optimizing on-page service/location landing pages, schema markup, and conversion paths on your site.',
   },
   {
+    number: '04',
     title: 'Citation & Reputation Work',
-    description: 'We improve important business information and establish a cleaner local presence across relevant platforms. We also help create a sustainable process for collecting and responding to genuine customer feedback. This stage supports trust and information consistency without relying on mass directory submissions.',
+    desc: 'We clean up inaccurate and duplicate citations across premier local and industry platforms, and implement policy-compliant customer feedback and review generation systems.',
   },
   {
+    number: '05',
     title: 'Local Authority Development',
-    description: 'Local authority develops over time. Depending on the business, this can involve relevant local links, industry references, local partnerships, business mentions, community involvement, useful local content, and digital PR opportunities. The focus stays on relevance and genuine business relationships.',
+    desc: 'We earn localized backlinks through relevant local publications, trade associations, chamber of commerce listings, community sponsorships, and local digital PR.',
   },
   {
+    number: '06',
     title: 'Geo-Grid Tracking & Refinement',
-    description: 'After implementation, we examine how local visibility changes across the target geographic area. We compare visibility patterns and identify areas that need additional attention. The findings can influence future content, profile improvements, authority work, or location targeting.',
+    desc: 'We continuously monitor geographic Map Pack rank movements across multi-kilometer geo-grids, analyzing drop-offs to refine local content, categories, and authority outreach.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution Framework"
-          title="How We Approach Local SEO"
-        >
-          Our process moves from research and diagnosis to implementation, authority development,
-          and ongoing refinement.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Execution Methodology // Systematic Local Growth
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {processSteps.map((step, index) => (
-            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            How We Approach{' '}
+            <span className="italic text-frame-accent">Local SEO</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Our process moves systematically from research and diagnosis to on-site implementation, citation authority, geo-grid tracking, and iterative local refinement.
+          </p>
+        </div>
+
+        {/* 6 Steps Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step, index) => (
+            <div
+              key={index}
+              className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 flex flex-col justify-between hover:border-white/20 transition-colors"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
+                <span className="font-mono text-3xl font-light text-frame-accent">
+                  {step.number}
                 </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+
+                <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/local-seo" allowed={["/services/website-design-development/landing-pages"]}>
-                  {step.description}
-                </AutoLinks></p>
+
+                <p className="mt-3 text-sm text-zinc-300 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between font-mono text-[11px] text-zinc-500">
+                <span>Phase {step.number}</span>
+                <span className="text-frame-accent">Verified</span>
               </div>
             </div>
           ))}

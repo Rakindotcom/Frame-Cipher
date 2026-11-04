@@ -43,7 +43,7 @@ export const videoScriptSamples = [
     url: doc('1d24Y3r-W_KiKBnXEAcFNF49pNJiy_jRngP_Q64qH4A0'),
   },
   {
-    title: 'Motion Video Script — Video Editing Service',
+    title: 'Motion Video Script: Video Editing Service',
     category: 'Motion & Ads',
     client: 'Video editing service',
     url: doc('1zQEuORlBC3IbScgP0GsqqmcHLq--E8955Fw9-f5OJY8'),
@@ -109,7 +109,7 @@ export const videoScriptSamples = [
     url: doc('1sbeMqw3QCj5ZUlMGYgfU1kcIg_AnV4yQOWPlhsvRYUo'),
   },
   {
-    title: 'নড়াইল সুইটস — Video Script (1 min)',
+    title: 'নড়াইল সুইটস: Video Script (1 min)',
     category: 'Brand Film',
     client: 'নড়াইল সুইটস',
     url: doc('15vVzF0XjSdvjqP6G81TSzEqg-FJzEDem52NWGEQRK9k'),
@@ -121,13 +121,13 @@ export const videoScriptSamples = [
     url: doc('1A66MXAp8SFvNd-UkyUYHvxGEAHMwq0JurS4akX7YDmk'),
   },
   {
-    title: 'Serbia Campaign Video Script — Happy Tours & Travels',
+    title: 'Serbia Campaign Video Script: Happy Tours & Travels',
     category: 'Brand Film',
     client: 'Happy Tours & Travels',
     url: doc('1DgilUqCPwWogQT7xv-AYT84CcMldos136rwu1KTlFYE'),
   },
   {
-    title: 'Health Visa Video Script — Green Way Visa & Travels',
+    title: 'Health Visa Video Script: Green Way Visa & Travels',
     category: 'Brand Film',
     client: 'Green Way Visa & Travels',
     url: doc('1K5wchP1liElzr-vfQgrzx93tiIe7YBqNgehVX0vg-G4'),
@@ -157,19 +157,19 @@ export const videoScriptSamples = [
     url: doc('1WH-MIguzsu-QF7a7yBxS4y3djZMFo-gZ1GzkNXDT0TY'),
   },
   {
-    title: 'Property Video Script — Elegant Properties',
+    title: 'Property Video Script: Elegant Properties',
     category: 'Real Estate',
     client: 'Elegant Properties',
     url: doc('1VwmM6SnQzYpHdGpEBaEEYd5fwPsIgTMpBBdOkQ4GqYA'),
   },
   {
-    title: 'Property Video Script — Elegant Properties (Part 2)',
+    title: 'Property Video Script: Elegant Properties (Part 2)',
     category: 'Real Estate',
     client: 'Elegant Properties',
     url: doc('1EmMpMISPxf4emJr4LjgOVQpsd4_5fdOeF5Ks-PeyRhM'),
   },
   {
-    title: 'Voice-Over Script — Graphic Design Promo',
+    title: 'Voice-Over Script: Graphic Design Promo',
     category: 'Voiceover',
     client: 'Riha WebTech',
     url: doc('1wdkffbC0LThxsJJhqiEyPNJuoaPer3b5IIs7iO1iYTQ'),
@@ -273,13 +273,13 @@ export const contentWritingSamples = [
 
   // Product & e-commerce copy
   {
-    title: 'Ecommerce Photo Editing Services — Product Copy',
+    title: 'Ecommerce Photo Editing Services: Product Copy',
     category: 'Product & E-commerce Copy',
     client: 'PixcRetouch',
     url: doc('10LmByxDD4ph-R-dcW_cKORbh55_GglBGGYpKLzEw1_w'),
   },
   {
-    title: 'AI Photo Re-editing Services — Product Copy',
+    title: 'AI Photo Re-editing Services: Product Copy',
     category: 'Product & E-commerce Copy',
     client: 'PixcRetouch',
     url: doc('1xE1CNPuCZ7xXdpnUoK1RuRnXWWrusex1iG6NE3cb6fM'),
@@ -303,7 +303,7 @@ export const contentWritingSamples = [
     url: doc('1J1TrKPmKq0lUkzwRqc-yRROFH86BEYAMG4GcuAuQGm0'),
   },
   {
-    title: 'What Is Product Photography — Category Page',
+    title: 'What Is Product Photography: Category Page',
     category: 'Product & E-commerce Copy',
     client: 'PixcRetouch',
     url: doc('1j-QaaaoTILP0mHbZ3pIMGuAZFU2gc0UIxL54kz1rznM'),

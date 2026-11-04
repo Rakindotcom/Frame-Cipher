@@ -6,26 +6,31 @@ import Process from './Process'
 import Platforms from './Platforms'
 import WhyChoose from './WhyChoose'
 import Results from './Results'
+import CaseStudies from './CaseStudies'
 import Pricing from './Pricing'
 import Timeline from './Timeline'
 import ServiceAreas from './ServiceAreas'
-import FAQ from './FAQ'
 import GettingStarted from './GettingStarted'
+import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "On-Page SEO",
-  "Search Intent",
-  "Content Optimization",
-  "Metadata",
-  "Internal Linking",
-  "Keyword Mapping"
+  'On-Page SEO',
+  'Search Intent',
+  'Content Optimization',
+  'Keyword Mapping',
+  'Cannibalization Control',
+  'Semantic Relevance',
+  'Internal Linking',
+  'Metadata Optimization',
+  'Entity SEO',
+  'Conversion Focused UX',
 ]
 
 export default function SeoOnPageSeoService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero service={service} />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -33,16 +38,32 @@ export default function SeoOnPageSeoService({ service }) {
       <Offerings />
       <Process />
       <Platforms />
+      <ServiceAreas />
       <WhyChoose />
       <Results />
+      <CaseStudies />
       <Pricing />
       <Timeline />
-      <ServiceAreas />
-      <FAQ service={service} />
       <GettingStarted />
-      <CTA />
+      <FAQ service={service} />
+      <CTA service={service} />
     </main>
   )
 }
 
-export { Hero, Overview, Problems, Offerings, Process, Platforms, WhyChoose, Results, Pricing, Timeline, ServiceAreas, FAQ, GettingStarted, CTA }
+export {
+  Hero,
+  Overview,
+  Problems,
+  Offerings,
+  Process,
+  Platforms,
+  WhyChoose,
+  Results,
+  Pricing,
+  Timeline,
+  ServiceAreas,
+  GettingStarted,
+  FAQ,
+  CTA,
+}

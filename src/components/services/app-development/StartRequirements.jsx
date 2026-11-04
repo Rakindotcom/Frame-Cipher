@@ -1,52 +1,61 @@
+'use client'
+
+import React from 'react'
+
 const startRequirements = [
-  "Business or product idea",
-  "Target users",
-  "Core features",
-  "Preferred platforms, if known",
-  "Existing website or software",
-  "Required integrations",
-  "Backend or API requirements",
-  "Brand assets or design references",
-  "Existing application access, if this is a modernization project",
-  "App Store or Google Play account details when required"
+  'Business or product idea',
+  'Target users',
+  'Core features',
+  'Preferred platforms, if known',
+  'Existing website or software',
+  'Required integrations',
+  'Backend or API requirements',
+  'Brand assets or design references',
+  'Existing application access, if this is a modernization project',
+  'App Store or Google Play account details when required',
 ]
 
 export default function StartRequirements() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Onboarding Checklist
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          What We Need to Start Your App Project
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          You do not need to have the complete technical architecture figured out before contacting us. We can help define the right approach during discovery. We may need:
-        </p>
-      </div>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What We Need to Start{' '}
+            <span className="italic text-frame-accent">Your App Project.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-        {startRequirements.map((req, idx) => (
-          <div
-            key={idx}
-            className="flex items-center gap-3 border-2 border-frame-border bg-frame-muted/10 p-4"
-          >
-            <span className="text-xs font-black text-frame-accent font-mono">
-              {(idx + 1).toString().padStart(2, '0')}.
-            </span>
-            <span className="text-sm font-semibold text-frame-fg">
-              {req}
-            </span>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            You do not need to have the complete technical architecture figured out before contacting us. We can help define the right approach during discovery. We may need:
+          </p>
+        </div>
+
+        {/* 10 Items Card on #121214 */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {startRequirements.map((req, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 transition-colors hover:border-white/[0.14]"
+              >
+                <span className="font-mono text-xs text-frame-accent font-medium">
+                  {(idx + 1).toString().padStart(2, '0')}.
+                </span>
+                <span className="text-xs sm:text-sm font-normal text-zinc-200">
+                  {req}
+                </span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          The clearer the initial requirements, the easier it is to recommend the right scope and technology.
-        </p>
+          <div className="mt-8 border-t border-white/[0.08] pt-6">
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              The clearer the initial requirements, the easier it is to recommend the right scope and technology.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

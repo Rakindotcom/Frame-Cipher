@@ -1,7 +1,10 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import React, { useState } from 'react'
+import { ChevronDown, HelpCircle, MessageSquare } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 import { resolveFaqs } from '../../../../lib/seo/faq'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const fallbackFaqs = [
   {
@@ -103,61 +106,128 @@ const fallbackFaqs = [
 
 export default function FAQ({ service }) {
   const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="max-w-4xl">
-          <SectionIntro
-            eyebrow="Questions &amp; answers"
-            title="Frequently Asked Questions About LinkedIn Management"
-          >
-            Straight answers about scope, pricing, executive ghostwriting, company pages, and what
-            LinkedIn management can realistically deliver.
-          </SectionIntro>
+  const [openIndex, setOpenIndex] = useState(null)
 
-          <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <details
-                key={faq.question}
-                className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
-              >
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-5 font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:p-6 md:text-base">
-                  <span className="flex items-baseline gap-3 md:gap-4">
-                    <span className="font-mono text-xs font-black text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>{faq.question}</span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
-                  >
-                    +
-                  </span>
-                </summary>
-                <div className="border-t-2 border-frame-border p-5 md:p-6">
-                  {faq.answer.split('\n\n').map((paragraph, pIdx) => (
-                    <p
-                      key={pIdx}
-                      className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
-                        pIdx > 0 ? 'mt-4' : ''
-                      }`}
-                    ><AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/social-media-management/community-management"]}>
-                      {paragraph}
-                    </AutoLinks></p>
-                  ))}
-                </div>
-              </details>
-            ))}
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx)
+  }
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer.replace(/\n\n/g, '<br/><br/>'),
+      },
+    })),
+  }
+
+  return (
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      {/* Schema.org Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
+      <div className="mx-auto max-w-5xl">
+        {/* Section Intro */}
+        <div className="mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Knowledge Base · FAQs
+            </span>
           </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About{' '}
+            <span className="italic text-frame-accent">LinkedIn Management.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Straight answers about scope, pricing, executive ghostwriting, company pages, and what
+            organic LinkedIn management can realistically deliver.
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            If your question is not covered here, ask directly during the audit call.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Request Your Custom LinkedIn Management Plan &rarr;</PosterButton>
+        {/* 19 Accordion Items */}
+        <div className="space-y-3.5">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div
+                key={faq.question}
+                className={`overflow-hidden rounded-2xl border transition-colors ${
+                  isOpen
+                    ? 'border-purple-500/40 bg-[#15121c]'
+                    : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  className="flex w-full items-center justify-between gap-4 p-5 sm:p-6 text-left transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <span className="flex items-center gap-3.5 sm:gap-4">
+                    <span className="font-mono text-xs font-semibold text-frame-accent shrink-0">
+                      Q{String(index + 1).padStart(2, '0')} · </span>
+                    <span className="font-heading text-base sm:text-lg font-medium uppercase tracking-tight text-white">
+                      {faq.question}
+                    </span>
+                  </span>
+                  <div
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-zinc-300 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 text-frame-accent border-purple-500/40' : ''
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.06] p-5 sm:p-6 pt-3 sm:pt-4">
+                    {faq.answer.split('\n\n').map((paragraph, pIdx) => (
+                      <p
+                        key={pIdx}
+                        className={`text-xs sm:text-sm font-normal leading-relaxed text-zinc-300 ${
+                          pIdx > 0 ? 'mt-3' : ''
+                        }`}
+                      >
+                        <AutoLinks currentPath="/services/social-media-management/linkedin" allowed={["/services/social-media-management/community-management", "/services/paid-advertising"]}>
+                          {paragraph}
+                        </AutoLinks>
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Additional Questions Strip */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Have a Specific Question About Your LinkedIn Presence?
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400">
+              Speak directly with our B2B LinkedIn strategists to review your company page or executive profiles.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto"
+            >
+              Request Custom Strategy Call
+            </PosterButton>
           </div>
         </div>
       </div>

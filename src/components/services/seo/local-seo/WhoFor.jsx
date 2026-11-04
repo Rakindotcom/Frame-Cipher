@@ -1,88 +1,126 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Store, Truck, Building2, CheckCircle2 } from 'lucide-react'
 
 const businessModels = [
   {
-    eyebrow: 'Storefront Businesses',
-    body: 'Storefront businesses serve customers from a physical location. These businesses can use local search to help nearby customers discover their location, services, opening hours, contact details, and other useful information.',
+    icon: Store,
+    title: 'Storefront Businesses',
+    subtitle: 'Physical Locations Serving In-Person Walk-ins',
+    description:
+      'Storefront businesses operate from a designated physical address where customers visit directly. Local search helps nearby buyers discover your exact street address, opening hours, photos, reviews, and turn-by-turn driving directions.',
     examples: [
-      'Retail stores',
-      'Restaurants',
-      'Salons',
-      'Clinics',
-      'Gyms',
-      'Showrooms',
-      'Offices',
-      'Local professional services',
+      'Retail stores & showrooms',
+      'Restaurants & cafes',
+      'Salons, spas & barbershops',
+      'Medical clinics & dental practices',
+      'Gyms & fitness studios',
+      'Law firms, accountants & local offices',
     ],
   },
   {
-    eyebrow: 'Service-Area Businesses',
-    body: 'Service-area businesses travel to customers instead of relying on customers visiting a storefront. Their local presence needs to communicate where they provide services while following Google\u2019s eligibility and profile guidelines.',
+    icon: Truck,
+    title: 'Service-Area Businesses (SABs)',
+    subtitle: 'Mobile Providers Visiting Customer Homes & Sites',
+    description:
+      'Service-area businesses travel to clients rather than welcoming visitors to a commercial office. Their local strategy communicates verified geographic coverage radiuses while strictly adhering to Google’s SAB address-hiding and verification guidelines.',
     examples: [
-      'Plumbers',
-      'Electricians',
-      'Cleaning companies',
-      'Home repair services',
-      'Pest control businesses',
-      'Moving companies',
-      'Appliance repair services',
+      'Plumbing & electrical contractors',
+      'Commercial & home cleaning services',
+      'Pest control & exterminators',
+      'Home repair, roofing & HVAC',
+      'Moving, packing & logistics',
+      'Appliance repair technicians',
     ],
   },
   {
-    eyebrow: 'Multi-Location Businesses',
-    body: 'Multi-location businesses operate from several branches or locations. Each location can have different customers, competitors, search patterns, and local requirements. A multi-location strategy therefore needs consistent management without treating every branch as identical.',
+    icon: Building2,
+    title: 'Multi-Location & Franchise Brands',
+    subtitle: 'Multi-Branch Networks Competing Across Cities',
+    description:
+      'Multi-location enterprises operate across dozens of branches, each with distinct local competitors, proximity radiuses, and neighborhood dynamics. We implement centralized brand governance paired with hyper-localized landing page optimization.',
     examples: [
-      'Retail chains',
-      'Restaurant groups',
-      'Clinics',
-      'Education providers',
-      'Franchise businesses',
-      'Service companies with multiple branches',
+      'Retail chains & franchise networks',
+      'Restaurant groups & food franchises',
+      'Diagnostic & hospital branch networks',
+      'Coaching centers & education institutes',
+      'Bank branches & financial services',
+      'Regional multi-facility operations',
     ],
   },
 ]
 
 export default function WhoFor() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Who we help"
-          title="Who Is Local SEO For?"
-        >
-          Local SEO can support several business models. The right approach depends on how
-          customers find and interact with your business.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Commercial Alignment // Tailored By Operating Model
+            </span>
+          </div>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {businessModels.map((model, index) => (
-            <div
-              key={model.eyebrow}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Business Model 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {model.eyebrow}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {model.body}
-                </p>
-                <div className="mt-6 flex flex-wrap gap-1.5 border-t-2 border-frame-border/60 pt-5">
-                  {model.examples.map((example) => (
-                    <span
-                      key={example}
-                      className="border border-frame-border/80 bg-frame-bg px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-frame-muted-fg"
-                    >
-                      {example}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Who Is Local{' '}
+            <span className="italic text-frame-accent">SEO For?</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Local SEO supports three distinct operational business models. The strategy adapts directly to how your customers discover, evaluate, and transact with your business.
+          </p>
+        </div>
+
+        {/* 3 Business Model Cards Grid */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {businessModels.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                    <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                      Model 0{index + 1}
                     </span>
-                  ))}
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-frame-accent/15 text-frame-accent border border-frame-accent/30">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+                  <p className="font-mono text-xs text-zinc-400 mt-0.5">
+                    {item.subtitle}
+                  </p>
+
+                  <p className="mt-4 text-sm text-zinc-300 leading-relaxed">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-6 space-y-2.5">
+                    <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                      Typical Businesses:
+                    </span>
+                    <ul className="space-y-1.5">
+                      {item.examples.map((ex, eIdx) => (
+                        <li key={eIdx} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-400">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                          <span>{ex}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

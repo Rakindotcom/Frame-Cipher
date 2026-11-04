@@ -1,60 +1,68 @@
+'use client'
+
+import React from 'react'
+
 const techStackTable = [
-  { layer: "Frontend", technologies: "React, Next.js, Vue, or another suitable framework" },
-  { layer: "Backend", technologies: "Node.js, Laravel/PHP, Python, or an existing backend" },
-  { layer: "Database", technologies: "PostgreSQL, MySQL, MongoDB, or another suitable database" },
-  { layer: "Cache", technologies: "Redis or another suitable caching layer" },
-  { layer: "Authentication", technologies: "Session-based authentication, JWT, OAuth, SSO" },
-  { layer: "Payments", technologies: "Stripe, Paddle, local gateways, or another required provider" },
-  { layer: "APIs", technologies: "REST, GraphQL where appropriate" },
-  { layer: "Storage", technologies: "Cloud object storage or another suitable solution" },
-  { layer: "Background Processing", technologies: "Queues, workers, scheduled jobs" },
-  { layer: "Infrastructure", technologies: "AWS, cloud platforms, containers, or project-specific hosting" },
-  { layer: "Development", technologies: "Git, GitHub/GitLab, CI/CD workflows" },
-  { layer: "Monitoring", technologies: "Logs, error tracking, analytics, uptime monitoring" },
-  { layer: "Testing", technologies: "Unit, integration, API, UI, regression, load testing" },
+  { layer: 'Frontend', technologies: 'React, Next.js, Vue, or another suitable framework' },
+  { layer: 'Backend', technologies: 'Node.js, Laravel/PHP, Python, or an existing backend' },
+  { layer: 'Database', technologies: 'PostgreSQL, MySQL, MongoDB, or another suitable database' },
+  { layer: 'Cache', technologies: 'Redis or another suitable caching layer' },
+  { layer: 'Authentication', technologies: 'Session-based authentication, JWT, OAuth, SSO' },
+  { layer: 'Payments', technologies: 'Stripe, Paddle, local gateways, or another required provider' },
+  { layer: 'APIs', technologies: 'REST, GraphQL where appropriate' },
+  { layer: 'Storage', technologies: 'Cloud object storage or another suitable solution' },
+  { layer: 'Background Processing', technologies: 'Queues, workers, scheduled jobs' },
+  { layer: 'Infrastructure', technologies: 'AWS, cloud platforms, containers, or project-specific hosting' },
+  { layer: 'Development', technologies: 'Git, GitHub/GitLab, CI/CD workflows' },
+  { layer: 'Monitoring', technologies: 'Logs, error tracking, analytics, uptime monitoring' },
+  { layer: 'Testing', technologies: 'Unit, integration, API, UI, regression, load testing' },
 ]
 
 export default function TechnologyStack() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Architecture &amp; Frameworks
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          SaaS Technology Stack
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          We choose technologies based on the application&apos;s requirements rather than forcing every SaaS product into one fixed stack.
-        </p>
-      </div>
+    <section id="tech-stack" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            SaaS Technology <span className="italic text-frame-accent">Stack.</span>
+          </h2>
 
-      <div className="overflow-x-auto border-2 border-frame-border">
-        <table className="w-full text-left text-sm">
-          <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-            <tr>
-              <th className="p-4 border-r-2 border-frame-border w-1/3">Layer</th>
-              <th className="p-4">Technologies</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-            {techStackTable.map((row, rIdx) => (
-              <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                <td className="p-4 font-semibold text-frame-fg border-r-2 border-frame-border">
-                  {row.layer}
-                </td>
-                <td className="p-4 font-medium text-frame-fg">
-                  {row.technologies}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We choose technologies based on the application&apos;s requirements rather than forcing every SaaS product into one fixed stack.
+          </p>
+        </div>
 
-      <p className="mt-6 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
-        The final stack depends on the product, expected usage, existing systems, security requirements, and long-term roadmap.
-      </p>
-    </div>
+        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-xl">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-white/[0.08] bg-[#18181b]/50 font-mono text-xs uppercase tracking-wider text-zinc-300">
+                <tr>
+                  <th className="p-4 sm:p-5 border-r border-white/[0.08] text-white">Layer</th>
+                  <th className="p-4 sm:p-5 text-frame-accent">Technologies</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06] font-sans">
+                {techStackTable.map((item, idx) => (
+                  <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
+                    <td className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-400 border-r border-white/[0.08] whitespace-nowrap">
+                      {item.layer}
+                    </td>
+                    <td className="p-4 sm:p-5 font-normal text-white">
+                      {item.technologies}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="mt-8 rounded-xl border border-white/[0.06] bg-[#121214] p-6 text-center">
+          <p className="text-xs sm:text-sm text-zinc-400">
+            The final stack depends on the product, expected usage, existing systems, security requirements, and long-term roadmap.
+          </p>
+        </div>
+      </div>
+    </section>
   )
 }

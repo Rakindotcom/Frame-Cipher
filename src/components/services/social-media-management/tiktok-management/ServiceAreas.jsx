@@ -1,14 +1,17 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { MapPin, Globe, Check } from 'lucide-react'
 
 const bangladeshAdaptation = [
-  'Bangla',
-  'English',
+  'Bangla & professional corporate tone',
+  'English language messaging',
   'Natural Banglish where appropriate',
-  'Local audience behavior',
-  'Local cultural context',
-  'Seasonal campaigns',
-  'Local offers',
-  'Location-specific content',
+  'Local audience purchasing behavior',
+  'Local cultural & celebratory context',
+  'Seasonal & festive campaign pacing',
+  'Hyper-local promotional offers',
+  'Dhaka & nationwide location content',
   'Bangladesh-specific customer questions',
 ]
 
@@ -18,110 +21,137 @@ const internationalMarkets = [
   'Australia',
   'Canada',
   'United Arab Emirates',
-  'Other agreed markets',
+  'European Union',
 ]
 
 const internationalAdaptation = [
-  'Local language',
-  'Terminology',
-  'Cultural references',
-  'Audience expectations',
-  'Local trends',
-  'Publishing windows',
-  'Product positioning',
-  'Calls to action',
-  'Business objectives',
+  'Target-market language & vernacular',
+  'Regional industry terminology',
+  'Local cultural references & humor',
+  'Western & Gulf audience expectations',
+  'Local sound & format trends',
+  'Timezone-synchronized publishing',
+  'Region-specific product positioning',
+  'Localized conversion calls to action',
+  'International commercial objectives',
 ]
 
 export default function ServiceAreas() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Coverage" title="TikTok Management Service Areas" />
-
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          <div className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                TikTok Management in Bangladesh
-              </span>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                Framecipher provides TikTok management for businesses in Bangladesh, including businesses
-                targeting Dhaka and other markets across the country.
-              </p>
-              <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg/90 md:text-base">
-                For Bangladesh campaigns, content can be adapted to:
-              </p>
-            </div>
-
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {bangladeshAdaptation.map((item) => (
-                <li
-                  key={item}
-                  className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              The objective is to create content that feels natural to the intended Bangladeshi audience.
-            </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Regional Delivery · Markets
+            </span>
           </div>
 
-          <div className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                International TikTok Management
-              </span>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We also support businesses targeting international audiences.
-              </p>
-              <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg/90 md:text-base">
-                Our international TikTok management can support markets including:
-              </p>
-            </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Management{' '}
+            <span className="italic text-frame-accent">Service Areas.</span>
+          </h2>
 
-            <ul className="mt-6 flex flex-wrap gap-2">
-              {internationalMarkets.map((item) => (
-                <li
-                  key={item}
-                  className="border border-frame-accent/50 bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-5">
-              <p className="text-sm font-semibold leading-relaxed text-frame-fg/90 md:text-base">
-                International content can be adapted around:
-              </p>
-              <ul className="mt-4 flex flex-wrap gap-2">
-                {internationalAdaptation.map((item) => (
-                  <li
-                    key={item}
-                    className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Framecipher provides TikTok management for businesses in Bangladesh and international markets, adapted to the cultural norms, humor, and commercial habits of each audience.
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            The strategy is adapted market by market rather than simply publishing the same
-            Bangladesh-focused content everywhere.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact" variant="outline">
-              Get Your Free TikTok Audit &rarr;
-            </PosterButton>
-          </div>
+        {/* 2-Column Market Cards */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Market 01: Bangladesh */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Regional Delivery 01 · Domestic Hub
+                </span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <MapPin className="h-4 w-4" />
+                </div>
+              </div>
+
+              <h3 className="font-heading text-2xl font-medium tracking-tight text-white">
+                TikTok Management in Bangladesh
+              </h3>
+
+              <p className="mt-4 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                For Bangladeshi businesses, we adapt TikTok strategy to local audience habits, Dhaka commercial culture, festive seasons, and natural linguistic nuances.
+              </p>
+
+              <div className="mt-8 border-t border-white/[0.06] pt-5">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-3">
+                  Local Market Capabilities:
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-400">
+                  {bangladeshAdaptation.map((factor) => (
+                    <li key={factor} className="flex items-center gap-2">
+                      <Check className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                      <span>{factor}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs text-zinc-400">
+              <strong className="text-zinc-200">Delivery Base:</strong> In-house short-form video editors, scriptwriters, and strategists located at Dhaka 1206.
+            </div>
+          </article>
+
+          {/* Market 02: International */}
+          <article className="flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#15121c] p-7 md:p-8 shadow-xl">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Regional Delivery 02 · Global Markets
+                </span>
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-purple-500/30 bg-purple-500/10 text-frame-accent">
+                  <Globe className="h-4 w-4" />
+                </div>
+              </div>
+
+              <h3 className="font-heading text-2xl font-medium tracking-tight text-white">
+                International TikTok Management
+              </h3>
+
+              <p className="mt-4 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                For businesses targeting global buyers, we adapt content to Western and Gulf consumer expectations rather than applying a single generic content calendar everywhere.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-1.5">
+                {internationalMarkets.map((market) => (
+                  <span
+                    key={market}
+                    className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[10px] text-purple-200"
+                  >
+                    {market}
+                  </span>
+                ))}
+              </div>
+
+              <div className="mt-8 border-t border-purple-500/20 pt-5">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-purple-300 mb-3">
+                  International Market Capabilities:
+                </p>
+                <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-purple-200/90">
+                  {internationalAdaptation.map((factor) => (
+                    <li key={factor} className="flex items-center gap-2">
+                      <Check className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                      <span>{factor}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-purple-500/20 bg-purple-500/10 p-4 text-xs text-purple-200/90">
+              <strong className="text-white">Delivery Model: </strong>
+              Asynchronous production sprints, synchronized creative approvals, and cloud-based asset handoffs.
+            </div>
+          </article>
         </div>
       </div>
     </section>

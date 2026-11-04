@@ -9,7 +9,7 @@ const comparisons = [
   },
   {
     criteria: 'Speed of Execution & Agile Sprints',
-    frameCipher: 'Rapid weekly agile sprints. New ad creative, landing page split tests, and video cutdowns go live in 24–48 hours.',
+    frameCipher: 'Rapid weekly agile sprints. New ad creative, landing page split tests, and video cutdowns go live in 24 to 48 hours.',
     freelancers: 'Endless scheduling bottlenecks, ghosting, conflicting client priorities, and projects delayed by weeks.',
     traditional: 'Months of committee sign-offs, rigid retainer scopes, and sluggish delivery that misses real-time market trends.',
   },
@@ -29,55 +29,59 @@ const comparisons = [
     criteria: 'Cost & Operational Efficiency',
     frameCipher: 'One predictable, all-inclusive monthly investment covering senior strategists, filmmakers, ad buyers, coders & analysts.',
     freelancers: 'Fragmented invoices that quietly compound into huge costs while consuming 20+ hours of your weekly management time.',
-    traditional: 'Expensive monthly retainers plus separate 15–20% agency media markups, billing for every single revision.',
+    traditional: 'Expensive monthly retainers plus separate 15 to 20% agency media markups, billing for every single revision.',
   },
 ]
 
 export default function VsFragmented() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="The Comparison"
-          title="Frame Cipher 360 vs. The Alternatives."
+          title={
+            <>
+              Frame Cipher 360 vs.{' '}
+              <span className="italic text-frame-accent">The Alternatives.</span>
+            </>
+          }
         >
           See why ambitious founders and marketing leaders in Bangladesh are moving away from managing
           a chaotic mess of disconnected freelancers and traditional advertising agencies.
         </SectionIntro>
 
-        <div className="overflow-x-auto border-2 border-frame-border">
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
           <table className="w-full min-w-[750px] text-left border-collapse">
             <thead>
-              <tr className="border-b-2 border-frame-border bg-neutral-900/80">
-                <th className="p-5 font-heading text-sm font-bold uppercase tracking-wider text-frame-muted-fg w-1/4">
+              <tr className="border-b border-white/[0.08] bg-[#18181B]">
+                <th className="p-5 font-heading text-sm font-medium tracking-tight text-zinc-400 w-1/4">
                   Growth Factor
                 </th>
-                <th className="p-5 font-heading text-base font-bold uppercase tracking-wider text-frame-accent border-x-2 border-frame-border bg-frame-accent/10 w-1/3">
+                <th className="p-5 font-heading text-base font-medium tracking-tight text-frame-accent border-x border-white/[0.08] bg-purple-950/20 w-1/3">
                   Frame Cipher 360 Engine
                 </th>
-                <th className="p-5 font-heading text-sm font-bold uppercase tracking-wider text-frame-muted-fg w-1/5">
+                <th className="p-5 font-heading text-sm font-medium tracking-tight text-zinc-400 w-1/5">
                   Hiring 4-5 Freelancers
                 </th>
-                <th className="p-5 font-heading text-sm font-bold uppercase tracking-wider text-frame-muted-fg w-1/5">
+                <th className="p-5 font-heading text-sm font-medium tracking-tight text-zinc-400 w-1/5">
                   Traditional Agency
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-frame-border/60 text-xs md:text-sm">
+            <tbody className="divide-y divide-white/[0.08] text-xs md:text-sm">
               {comparisons.map((row) => (
-                <tr key={row.criteria} className="hover:bg-neutral-900/30 transition-colors">
-                  <td className="p-5 font-heading text-sm font-bold uppercase text-frame-fg">
+                <tr key={row.criteria} className="hover:bg-[#151518] transition-colors">
+                  <td className="p-5 font-heading text-sm font-medium text-white">
                     {row.criteria}
                   </td>
-                  <td className="p-5 font-semibold text-frame-fg border-x-2 border-frame-border bg-frame-accent/5 leading-relaxed">
-                    <span className="inline-block text-frame-accent font-bold mr-2">✓</span>
+                  <td className="p-5 font-normal text-white border-x border-white/[0.08] bg-purple-950/10 leading-relaxed">
+                    <span className="inline-block text-emerald-400 font-bold mr-2">✓</span>
                     {row.frameCipher}
                   </td>
-                  <td className="p-5 text-frame-muted-fg leading-relaxed">
+                  <td className="p-5 text-zinc-400 leading-relaxed">
                     <span className="inline-block text-red-400 font-bold mr-2">✕</span>
                     {row.freelancers}
                   </td>
-                  <td className="p-5 text-frame-muted-fg leading-relaxed">
+                  <td className="p-5 text-zinc-400 leading-relaxed">
                     <span className="inline-block text-amber-400 font-bold mr-2">△</span>
                     {row.traditional}
                   </td>

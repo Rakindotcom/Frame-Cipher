@@ -6,7 +6,7 @@ const guideBlocks = [
   {
     title: 'What Green Screen Production Covers',
     body: [
-      'Green screen production is a lit stage, a directed shoot and a keyed composite in one booking: we light the chroma wall evenly, frame and record presenters with live key preview, then replace the green with virtual sets, slides or 3D environments — colour-matched so subjects sit inside the background instead of floating on it.',
+      'Green screen production is a lit stage, a directed shoot and a keyed composite in one booking: we light the chroma wall evenly, frame and record presenters with live key preview, then replace the green with virtual sets, slides or 3D environments: colour-matched so subjects sit inside the background instead of floating on it.',
       'That matters because compositing quality is decided on the shoot day, not in post. Even light, correct wall distance and spill control at capture are what make edges crisp. We check all three before the first take, which is why our keys rarely need rescue work.',
     ],
   },
@@ -20,9 +20,9 @@ const guideBlocks = [
   {
     title: 'Which Tier to Choose',
     list: [
-      'Chroma Session: you need clean keyable footage fast — walk in, present to teleprompter, leave with flat-profile 4K the same day and composite elsewhere or with us later.',
-      'Virtual Half-Day: presentations needing finished backgrounds — newsroom, classroom or brand sets with slides, lower thirds and chapter graphics composited in-house.',
-      'VFX Production Day: effects-heavy work — multi-subject keys, moving cameras, 3D environments, tracking and rotoscoping for difficult edges.',
+      'Chroma Session: you need clean keyable footage fast: walk in, present to teleprompter, leave with flat-profile 4K the same day and composite elsewhere or with us later.',
+      'Virtual Half-Day: presentations needing finished backgrounds: newsroom, classroom or brand sets with slides, lower thirds and chapter graphics composited in-house.',
+      'VFX Production Day: effects-heavy work: multi-subject keys, moving cameras, 3D environments, tracking and rotoscoping for difficult edges.',
     ],
   },
   {
@@ -36,8 +36,8 @@ const guideBlocks = [
   {
     title: 'Timelines, Revisions and After Delivery',
     body: [
-      'Raw keyable footage hands over the same day. Finished composites deliver in 5–7 working days on standard tiers. Review runs through a timestamped cloud link with 2 structured revision rounds on full scopes, followed by final colour matching and multi-ratio masters.',
-      'Express 48–72 hour compositing is available at a 30% priority fee. Masters and transparent ProRes files are archived for 60 days with free re-exports to new aspect ratios. Confirm backgrounds, slides and graphics at the brief stage, because new sets after delivery mean re-compositing.',
+      'Raw keyable footage hands over the same day. Finished composites deliver in 5 to 7 working days on standard tiers. Review runs through a timestamped cloud link with 2 structured revision rounds on full scopes, followed by final colour matching and multi-ratio masters.',
+      'Express 48 to 72 hour compositing is available at a 30% priority fee. Masters and transparent ProRes files are archived for 60 days with free re-exports to new aspect ratios. Confirm backgrounds, slides and graphics at the brief stage, because new sets after delivery mean re-compositing.',
     ],
   },
 ]
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

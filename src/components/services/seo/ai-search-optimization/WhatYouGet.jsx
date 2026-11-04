@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const deliverables = [
   {
@@ -103,42 +106,59 @@ const deliverables = [
 
 export default function WhatYouGet() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Deliverables" title="What You Get With Framecipher">
-          Our deliverables are designed to turn AI-search research into a practical optimization
-          plan.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Artifacts &amp; Assets // Deliverables</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            What You Get With <span className="italic text-frame-accent">Framecipher</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our deliverables are designed to turn AI-search research into a practical optimization
+            plan.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {/* 8 Deliverables Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {deliverables.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
             >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Deliverable 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              {item.points.length > 0 && (
-                <ul className="mt-5 space-y-2.5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {item.closing && (
-                <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                  {item.closing}
+              <div>
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Item 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-base sm:text-lg font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                  {item.body}
                 </p>
+
+                {item.points.length > 0 && (
+                  <ul className="mt-4 space-y-2 border-t border-white/[0.06] pt-4 text-xs text-zinc-300">
+                    {item.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <Check className="h-3 w-3 mt-0.5 text-frame-accent shrink-0" />
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {item.closing && (
+                <div className="mt-4 pt-3 border-t border-white/[0.06]">
+                  <p className="text-xs text-zinc-400">
+                    {item.closing}
+                  </p>
+                </div>
               )}
             </div>
           ))}

@@ -1,3 +1,4 @@
+import { createElement } from 'react'
 import { notFound } from 'next/navigation'
 import { getStudioServiceBySlug, getAllStudioServiceSlugs, studioServices } from '../../../src/data/studioServices'
 import { siteUrl, contact } from '../../../src/data/agency'
@@ -155,7 +156,7 @@ export default async function Page({ params }) {
       <JsonLd data={serviceSchema} />
 
       {SpecificService ? (
-        <SpecificService service={service} />
+        createElement(SpecificService, { service })
       ) : (
         <main className="bg-frame-bg text-frame-fg">
           {/* 1. Sub-Hero Section with Breadcrumb, H1, Eyebrow & Badges */}

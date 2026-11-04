@@ -1,115 +1,139 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import {
+  UtensilsCrossed,
+  Stethoscope,
+  Wrench,
+  Network,
+  CheckCircle2,
+} from 'lucide-react'
 
 const strategies = [
   {
-    title: 'Retail, Restaurants & Physical Locations',
-    body: 'Customers often need quick information before visiting a physical business. The strategy can focus on location discovery, opening hours, products or services, directions, photos, customer reviews, nearby search intent, local landing pages, and store-specific information.',
-    bullets: [
-      'For restaurants, relevant searches may also include cuisine, menu items, dining occasions, and nearby locations.',
-      'For retail businesses, product categories and local shopping intent can become important parts of the website and search strategy.',
-    ],
-    focus: [
-      'Location discovery',
-      'Opening hours',
-      'Products or services',
-      'Directions',
-      'Customer reviews',
-      'Nearby search intent',
+    icon: UtensilsCrossed,
+    title: 'Retail, Restaurants & Physical Storefronts',
+    focus: 'Immediate Discovery & High-Frequency Walk-ins',
+    desc: 'Customers often need immediate information before walking in: opening hours, live directions, high-resolution food/store photos, menus, and recent reviews.',
+    points: [
+      'Cuisine, menu items & dining occasion optimization',
+      'In-store product category and local inventory schema',
+      'Real-time opening hours and holiday schedule updates',
+      'Store-specific localized landing pages',
     ],
   },
   {
+    icon: Stethoscope,
     title: 'Clinics, Professional Services & Offices',
-    body: 'Professional services often involve stronger research before a customer makes contact. The strategy needs clear service information, location relevance, trust signals, and useful content. Service pages should explain what the business provides while location pages should help customers understand where the service is available.',
-    bullets: [
-      'Medical practices and dental clinics',
-      'Law firms, accounting firms, and consulting businesses',
-      'Financial services and real estate offices',
-    ],
-    focus: [
-      'Service pages',
-      'Location relevance',
-      'Trust signals',
-      'Useful content',
+    focus: 'High-Trust Research & Qualified Bookings',
+    desc: 'Professional practices require deeper customer research before booking: doctor credentials, patient testimonials, case histories, and transparent service details.',
+    points: [
+      'Comprehensive medical / legal / financial service pages',
+      'Practitioner schema and specialized board certifications',
+      'Strict HIPAA / medical advertising policy adherence',
+      'Direct appointment booking widget integrations',
     ],
   },
   {
-    title: 'Service-Area Businesses',
-    body: 'Service-area businesses need to reach customers across defined geographic areas. The strategy can include service-location mapping, service pages, relevant location pages, local search intent, Google Business Profile configuration, geographic visibility tracking, and local authority development.',
-    bullets: [
-      'We avoid creating location pages that provide little value. Each target area should have a genuine reason to exist.',
-    ],
-    focus: [
-      'Service-location mapping',
-      'Relevant location pages',
-      'Google Business Profile configuration',
-      'Geographic visibility tracking',
+    icon: Wrench,
+    title: 'Service-Area Businesses (SABs)',
+    focus: 'Territory Coverage & Mobile Inquiries',
+    desc: 'Contractors traveling to clients need explicit service-territory clarity without falling into low-value, duplicate "city page" traps.',
+    points: [
+      'Service-to-location mapping based on verified travel radiuses',
+      'Compliant address-hidden Google Business Profile setup',
+      'Emergency / urgent 24/7 localized search targeting',
+      'Real job photos and neighborhood case studies',
     ],
   },
   {
-    title: 'Multi-Location & Franchise Businesses',
-    body: 'Multi-location businesses need consistency at scale. The strategy can include location-specific landing pages, branch information, location-level keyword mapping, profile management, review workflows, local competitor research, branch-level performance tracking, and centralized reporting.',
-    bullets: [
-      'Each location receives the relevant local treatment while following the broader brand structure.',
-    ],
-    focus: [
-      'Location-specific landing pages',
-      'Location-level keyword mapping',
-      'Review workflows',
-      'Centralized reporting',
+    icon: Network,
+    title: 'Multi-Location & Franchise Brands',
+    focus: 'Centralized Governance & Scaled Local Authority',
+    desc: 'Enterprises managing dozens of branches need central brand consistency paired with distinct, hyper-local community authority for each outlet.',
+    points: [
+      'Dedicated branch landing pages with unique local NAP & staff',
+      'Bulk Google Business Profile verification & centralized governance',
+      'Individual branch geo-grid rank tracking & call attribution',
+      'Automated multi-location review collection workflows',
     ],
   },
 ]
 
 export default function Strategies() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Strategy by business"
-          title="Local SEO Strategies by Business Type"
-        >
-          Different businesses compete in different local search environments. We adapt the
-          strategy to the way customers discover and buy from each business.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Sector Playbooks // Customized By Business Type
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
-          {strategies.map((item, index) => (
-            <div key={item.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Strategy 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/local-seo" allowed={["/services/website-design-development/landing-pages"]}>
-                  {item.body}
-                </AutoLinks></p>
-                <div className="mt-5 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.bullets.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-              <div className="mt-6 border-t-2 border-frame-border/60 pt-5">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-3">
-                  Strategic Focus
-                </span>
-                <div className="flex flex-wrap gap-1.5">
-                  {item.focus.map((focus) => (
-                    <span
-                      key={focus}
-                      className="border border-frame-border/80 bg-frame-muted/20 px-2.5 py-1 text-[0.65rem] font-bold uppercase tracking-wider text-frame-muted-fg"
-                    >
-                      {focus}
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Local SEO Strategies by{' '}
+            <span className="italic text-frame-accent">Business Type</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Different businesses compete in vastly different local search environments. We tailor your optimization playbook to how buyers actually research, evaluate, and purchase in your sector.
+          </p>
+        </div>
+
+        {/* 4 Strategy Cards Grid */}
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {strategies.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-frame-accent/15 text-frame-accent border border-frame-accent/30">
+                        <Icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                          Playbook 0{index + 1}
+                        </span>
+                        <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
+                          {item.title}
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+
+                  <p className="mt-4 text-xs font-mono uppercase tracking-wider text-emerald-400">
+                    Target: {item.focus}
+                  </p>
+
+                  <p className="mt-2 text-sm text-zinc-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+
+                  <div className="mt-5 space-y-2">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                      Implementation Focus:
                     </span>
-                  ))}
+                    <ul className="space-y-1.5">
+                      {item.points.map((pt, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm text-zinc-400">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                          <span>{pt}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

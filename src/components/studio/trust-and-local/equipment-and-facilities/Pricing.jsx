@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for equipment-and-facilities — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for equipment-and-facilities: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Facility & Operator Rates",
@@ -14,7 +14,7 @@ const DATA = {
       "priceNote": "min 2 hours",
       "tag": "Your Kit, Our Room",
       "cta": "Book Room-Only Access",
-      "description": "The isolated stage with grid, backdrops, power and internet — for crews arriving fully equipped.",
+      "description": "The isolated stage with grid, backdrops, power and internet: for crews arriving fully equipped.",
       "features": [
         "Acoustic-isolated stage, 6th floor elevator access",
         "Overhead softbox grid with dimming control",
@@ -31,7 +31,7 @@ const DATA = {
       "tag": "Most Popular",
       "cta": "Book Operated Session",
       "popular": true,
-      "description": "Stage plus camera, operator and technical setup — arrive with ideas, leave with footage.",
+      "description": "Stage plus camera, operator and technical setup: arrive with ideas, leave with footage.",
       "features": [
         "4K cinema camera with operator and audio kit",
         "Lighting design for your format and backdrop",
@@ -66,7 +66,7 @@ const DATA = {
     "Specialist operators: drone, keying, teleprompter",
     "After-hours and weekend scheduling"
   ],
-  "marketNote": "Dhaka facility benchmarks: basic rooms ৳1,000–1,500/hour, equipped stages ৳2,000–3,000/hour, camera-plus-operator bundles at ৳2,500/hour, white-set half/full days ৳8,000–25,000. Equipment verification visits are standard practice among serious hirers — ceiling height, grid load, acoustic behaviour, power conditioning and backup cannot be judged from photos. Our 6th-floor ECB Chattar stage welcomes inspection with test recordings.",
+  "marketNote": "Dhaka facility benchmarks: basic rooms ৳1,000 to 1,500/hour, equipped stages ৳2,000 to 3,000/hour, camera-plus-operator bundles at ৳2,500/hour, white-set half/full days ৳8,000 to 25,000. Equipment verification visits are standard practice among serious hirers: ceiling height, grid load, acoustic behaviour, power conditioning and backup cannot be judged from photos. Our 6th-floor ECB Chattar stage welcomes inspection with test recordings.",
   "costRows": [
     [
       "Room-only stage hire",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Equipped Stage Hire Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

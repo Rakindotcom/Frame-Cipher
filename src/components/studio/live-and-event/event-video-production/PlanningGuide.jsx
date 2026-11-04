@@ -21,7 +21,7 @@ const guideBlocks = [
   {
     title: 'Which Tier to Choose',
     list: [
-      'Half-Day Cover: one launch, panel or awards evening up to 4 hours. Single crew, full recordings and a 24-hour teaser — capture plus a fast PR asset.',
+      'Half-Day Cover: one launch, panel or awards evening up to 4 hours. Single crew, full recordings and a 24-hour teaser: capture plus a fast PR asset.',
       'Full-Day Crew: conferences up to 9 hours needing stage plus audience coverage, an interview corner and a cinematic aftermovie alongside the teaser.',
       'Multi-Day Summit: expos and summits across halls and days, with daily social drops during the event and a flagship recap plus the full archive.',
     ],
@@ -31,7 +31,7 @@ const guideBlocks = [
     list: [
       'Audio: hall echo and crowd noise ruin speeches. Direct board feeds plus lavaliers keep dialogue clean in noisy convention centres.',
       'Power: load-shedding hits mid-keynote. Battery-backed cameras and IPS-protected ingest keep recording continuous.',
-      'Access: venue loading rules, parking and Dhaka traffic decide call times — we confirm setup windows with the venue in writing, and travel crews reach Chattogram, Sylhet and Cox’s Bazar.',
+      'Access: venue loading rules, parking and Dhaka traffic decide call times: we confirm setup windows with the venue in writing, and travel crews reach Chattogram, Sylhet and Cox’s Bazar.',
     ],
   },
   {
@@ -46,7 +46,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -58,7 +58,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

@@ -1,3 +1,7 @@
+'use client'
+
+import React from 'react'
+
 const steps = [
   {
     number: '01',
@@ -43,43 +47,44 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        {/* SECTION HEADER */}
-        <div className="mb-14 md:mb-20 max-w-4xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Workflow &amp; Delivery
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Next.js Development Process
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Next.js Development{' '}
+            <span className="italic text-frame-accent">Process.</span>
           </h2>
-          <p className="mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
             Our process is designed to reduce uncertainty before expensive development decisions are made.
           </p>
         </div>
 
-        {/* STEPS GRID WITH UNIFORM ALIGNMENT */}
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
+        {/* 8 Steps Grid */}
+        <div className="mt-12 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
           {steps.map((step) => (
             <article
               key={step.number}
-              className="group relative flex min-h-[300px] flex-col justify-between overflow-hidden bg-frame-bg p-7 sm:p-8 transition-all duration-300 hover:bg-frame-accent"
+              className="group relative flex min-h-[280px] flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors hover:border-white/[0.14]"
             >
-              <p
-                className="absolute -right-2 -top-4 select-none font-heading text-[7.5rem] sm:text-[9rem] font-bold leading-none tracking-tighter text-frame-muted/30 transition-colors duration-300 group-hover:text-frame-accent-fg/20"
+              {/* Watermark Numeral */}
+              <span
+                className="absolute right-4 top-2 select-none font-mono text-7xl font-light text-white/[0.03] transition-colors group-hover:text-white/[0.06]"
                 aria-hidden="true"
               >
                 {step.number}
-              </p>
+              </span>
+
               <div className="relative z-10">
-                <span className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
-                  Phase {step.number}
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                  {step.number}
                 </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase leading-snug tracking-tight text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium text-white">
                   {step.title}
                 </h3>
               </div>
-              <p className="relative z-10 mt-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/90">
+
+              <p className="relative z-10 mt-6 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                 {step.description}
               </p>
             </article>

@@ -7,32 +7,32 @@ const seoProjects = growthPortfolio.filter((project) => project.category === 'SE
 
 export default function GrowthPortfolioSection() {
   return (
-    <section id="performance-work" className="scroll-mt-28 border-t-2 border-frame-border px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
-        <header className="grid gap-7 border-b-2 border-frame-border pb-9 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.7fr)] lg:items-end">
+    <section id="performance-work" className="relative isolate scroll-mt-28 border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <header className="grid gap-7 border-b border-white/[0.08] pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.7fr)] lg:items-end">
           <div>
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              Paid media + organic search
-            </p>
-            <h2 className="mt-4 max-w-5xl font-heading text-[clamp(2.7rem,6vw,6rem)] font-bold uppercase leading-[0.84] tracking-tighter text-frame-fg">
-              Performance work, curated.
+            <h2 className="max-w-5xl font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Performance work,{' '}
+              <span className="italic text-frame-accent">
+                curated.
+              </span>
             </h2>
           </div>
-          <p className="max-w-3xl text-base font-medium leading-snug text-frame-muted-fg md:text-xl">
+          <p className="max-w-3xl text-sm font-normal leading-relaxed text-zinc-300 md:text-base">
             A focused view of the campaigns and search programs we have shipped. Scan the
             outcomes here, then open a case study for the complete strategy and evidence.
           </p>
         </header>
 
-        <dl className="grid gap-px border-x-2 border-b-2 border-frame-border bg-frame-border sm:grid-cols-3">
+        <dl className="mt-8 grid gap-4 sm:grid-cols-3">
           <PortfolioStat value="334" label="Paid campaigns represented" />
           <PortfolioStat value="$9.98K" label="Tracked media spend" />
           <PortfolioStat value="03" label="SEO growth programs" />
         </dl>
 
-        <div className="pt-14 md:pt-20">
+        <div className="pt-16 md:pt-20">
           <SectionHeading number="01" title="Paid advertising" count="07 projects" />
-          <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-12">
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-12">
             {paidAds.map((project, index) => (
               <ProjectCard
                 key={project.slug}
@@ -44,9 +44,9 @@ export default function GrowthPortfolioSection() {
           </div>
         </div>
 
-        <div className="pt-16 md:pt-24">
+        <div className="pt-20 md:pt-24">
           <SectionHeading number="02" title="Search growth" count="03 projects" />
-          <div className="mt-7 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {seoProjects.map((project, index) => (
               <ProjectCard key={project.slug} project={project} number={index + 1} showSummary />
             ))}
@@ -59,9 +59,9 @@ export default function GrowthPortfolioSection() {
 
 export function PortfolioStat({ value, label }) {
   return (
-    <div className="bg-frame-muted px-5 py-6 md:px-7 md:py-8">
-      <dt className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-frame-muted-fg">{label}</dt>
-      <dd className="mt-3 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-accent md:text-5xl">
+    <div className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:bg-white/[0.06] hover:shadow-[0_12px_28px_rgba(168,85,247,0.15)] md:p-8">
+      <dt className="text-xs font-bold uppercase tracking-wider text-purple-400">{label}</dt>
+      <dd className="mt-3 font-heading text-4xl sm:text-5xl font-bold uppercase leading-none tracking-tight text-white transition-colors duration-300 group-hover:text-frame-accent md:text-5xl">
         {value}
       </dd>
     </div>
@@ -70,24 +70,24 @@ export function PortfolioStat({ value, label }) {
 
 export function SectionHeading({ number, title, count }) {
   return (
-    <div className="flex flex-col gap-4 border-b-2 border-frame-border pb-5 sm:flex-row sm:items-end sm:justify-between">
-      <div className="flex items-end gap-4">
-        <span className="font-heading text-2xl font-bold leading-none text-frame-accent">{number}</span>
-        <h3 className="font-heading text-4xl font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg md:text-6xl">
+    <div className="flex flex-col gap-3 border-b border-white/[0.08] pb-5 sm:flex-row sm:items-end sm:justify-between">
+      <div className="flex items-baseline gap-3">
+        <span className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">/{number}</span>
+        <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-white">
           {title}
         </h3>
       </div>
-      <p className="text-xs font-black uppercase tracking-[0.22em] text-frame-muted-fg">{count}</p>
+      <p className="font-mono text-xs uppercase tracking-wider text-zinc-500">{count}</p>
     </div>
   )
 }
 
 export function ProjectCard({ project, number, showSummary = false, className = '' }) {
   return (
-    <article className={`group flex min-w-0 flex-col overflow-hidden border-2 border-frame-border bg-frame-bg transition-colors duration-300 hover:border-frame-accent ${className}`}>
+    <article className={`group flex min-w-0 flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] ${className}`}>
       <Link
         href={`/case-studies/${project.slug}`}
-        className="relative block aspect-[16/9] overflow-hidden border-b-2 border-frame-border bg-frame-muted focus:outline-none focus-visible:ring-4 focus-visible:ring-inset focus-visible:ring-frame-accent"
+        className="relative block aspect-[16/9] overflow-hidden border-b border-white/[0.08] bg-zinc-950 focus:outline-none"
         aria-label={`Read ${project.client} case study`}
       >
         <Image
@@ -95,53 +95,57 @@ export function ProjectCard({ project, number, showSummary = false, className = 
           alt={`${project.client} ${project.category.toLowerCase()} results`}
           fill
           sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.025]"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
-        <span className="absolute right-3 top-3 border-2 border-frame-border bg-frame-bg px-2.5 py-1.5 font-heading text-lg font-bold leading-none text-frame-accent">
-          {String(number).padStart(2, '0')}
-        </span>
       </Link>
 
-      <div className="flex flex-1 flex-col p-5 md:p-6">
-        <p className="text-[0.65rem] font-black uppercase tracking-[0.22em] text-frame-accent">
-          {project.category === 'Paid Ads' ? 'Meta advertising' : project.tags[0]}
-        </p>
-        <h4 className="mt-3 font-heading text-3xl font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+      <div className="flex flex-1 flex-col p-6 md:p-7">
+        <div className="flex items-center justify-between gap-2">
+          <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+            {project.category === 'Paid Ads' ? 'Meta advertising' : project.tags[0]}
+          </p>
+          <span className="font-mono text-[11px] text-zinc-500 tabular-nums">
+            #{String(number).padStart(2, '0')}
+          </span>
+        </div>
+        <h4 className="mt-2 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
           <Link href={`/case-studies/${project.slug}`} className="hover:text-frame-accent transition-colors">
             {project.client}
           </Link>
         </h4>
         {showSummary && (
-          <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400 line-clamp-2">
             {project.summary}
           </p>
         )}
 
-        <div className="mt-auto pt-5">
+        <div className="mt-auto pt-6">
           <MetricPair metrics={project.metrics} className="" />
         </div>
 
-        <Link
-          href={`/case-studies/${project.slug}`}
-          className="mt-5 inline-flex items-center justify-between border-t-2 border-frame-border pt-4 text-xs font-black uppercase tracking-[0.16em] text-frame-fg transition-colors hover:text-frame-accent focus:outline-none focus-visible:ring-4 focus-visible:ring-frame-accent"
-        >
-          View case study
-          <svg className="h-5 w-5 text-frame-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg>
-        </Link>
+        <div className="mt-6 border-t border-white/[0.08] pt-4">
+          <Link
+            href={`/case-studies/${project.slug}`}
+            className="group/btn inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08]"
+          >
+            <span>View case study</span>
+            <span aria-hidden="true" className="ml-2 text-base transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
+          </Link>
+        </div>
       </div>
     </article>
   )
 }
 
-export function MetricPair({ metrics, className = 'mt-8' }) {
+export function MetricPair({ metrics, className = 'mt-6' }) {
   return (
-    <dl className={`grid grid-cols-[repeat(auto-fit,minmax(min(100%,9rem),1fr))] gap-px border border-frame-border bg-frame-border ${className}`}>
+    <dl className={`grid grid-cols-[repeat(auto-fit,minmax(min(100%,8rem),1fr))] gap-2 rounded-lg border border-white/[0.08] bg-[#18181B] p-3 ${className}`}>
       {metrics.map(([value, label]) => (
-        <div key={label} className="bg-frame-muted p-3.5">
-          <dt className="text-[0.6rem] font-black uppercase tracking-[0.16em] text-frame-muted-fg">
+        <div key={label} className="border-l-2 border-frame-accent pl-3 py-0.5">
+          <dt className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">
             {label}
           </dt>
-          <dd className="mt-2 font-heading text-xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-2xl">
+          <dd className="mt-1 font-heading text-lg font-medium uppercase leading-none tracking-tight text-white md:text-xl">
             {value}
           </dd>
         </div>

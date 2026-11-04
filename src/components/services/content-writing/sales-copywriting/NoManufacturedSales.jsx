@@ -37,21 +37,21 @@ const principles = [
 
 export default function NoManufacturedSales() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Our limits" title="What We Won’t Use to Manufacture a Sale">
           Persuasion does not require misleading the buyer.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {principles.map((item) => (
-            <article key={item.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={item.number} className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <div>
                 <div className="flex items-baseline gap-4">
                   <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                     {item.number}
                   </span>
-                  <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                  <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                     {item.title}
                   </h3>
                 </div>
@@ -59,14 +59,14 @@ export default function NoManufacturedSales() {
                 {item.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                   >
                     {paragraph}
                   </p>
                 ))}
               </div>
 
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-accent/5 p-3 text-xs font-semibold leading-relaxed text-frame-fg">
+              <p className="mt-5 border-l-2 border-[#A855F7]/40 bg-[#A855F7]/[0.05] p-3 text-xs font-semibold leading-relaxed text-[#FAFAFA]">
                 {item.rule}
               </p>
             </article>

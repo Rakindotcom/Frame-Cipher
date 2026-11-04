@@ -1,67 +1,75 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
 
 const reasons = [
   {
-    title: 'In-House Team, Zero Outsourcing',
-    body: 'Framecipher is a single in-house team handling your recovery work from start to finish. There is no white-label agency, no external subcontractor, and no mystery about who is doing the work.',
-    closing: 'You deal directly with the people who own the result.',
-    action: 'Work With One Team',
+    title: 'Diagnosis Before Action',
+    body: 'We do not start by removing content, deleting backlinks, or making large-scale changes simply because traffic dropped.',
+    closing: 'We first establish what happened and why.',
   },
   {
-    title: 'SEO + Technical + Content + Data',
-    body: 'Penalty recovery is not an isolated task. Our team combines SEO strategy, technical SEO, content quality work, and data analysis in one process.',
-    closing: 'Diagnosis and remediation stay coordinated instead of fragmented across separate vendors.',
-    action: 'Combined Specialists',
+    title: 'One In-House SEO, Content & Development Team',
+    body: 'Penalty and traffic-drop recovery can cross several disciplines.',
+    closing:
+      'Our in-house SEO, content, technical, and development capabilities allow us to investigate the website as a whole rather than treating every problem as a backlink or content issue.',
   },
   {
-    title: 'Evidence & Documentation, Not Guesswork',
-    body: 'We focus on what the data and Google\u2019s own policies actually say. Every recovery decision is documented and tied to a finding.',
-    closing: 'That makes the process explainable to your team and, where relevant, to Google.',
-    action: 'Documented Approach',
+    title: 'Evidence-Based Remediation',
+    body: 'Every major recommendation should have a reason behind it.',
+    closing:
+      'We connect findings to affected pages, data, Search Console evidence, policy requirements, technical conditions, or SERP observations so you understand what is being changed and why.',
   },
   {
-    title: 'Real-World Outcomes Over Dashboards',
-    body: 'We treat recovered traffic as the starting point, not the finish line. The work is measured by real visits, leads, and clients for your business.',
-    closing: 'Recovery exists to serve the site\u2019s actual goals, not vanity metrics.',
-    action: 'Results-Focused',
+    title: 'Bangladesh & International Experience',
+    body: 'Framecipher is based in Bangladesh and supports businesses serving both local and international markets.',
+    closing:
+      'That includes websites targeting Bangladesh, English-speaking markets, multilingual audiences, and multi-country search demand.',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher for Penalty Recovery">
-          The quality of a recovery depends on who structures the diagnosis and who does the work.
-          Four reasons to trust ours.
-        </SectionIntro>
+    <section className="border-t border-b border-white/[0.08] bg-[#09090B]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="pt-20 pb-12 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#A855F7]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span>The Framecipher Advantage</span>
+          </div>
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
+            Why Choose Framecipher for Google Penalty Recovery
+          </h2>
+          <p className="text-base leading-relaxed text-zinc-300 sm:text-lg">
+            The quality of a recovery depends on who structures the diagnosis and who executes the work. Four reasons clients trust ours.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+        {/* Modality 2: Architectural Divided Column Band */}
+        <div className="grid grid-cols-1 divide-y divide-white/[0.08] md:grid-cols-2 md:divide-y-0 md:divide-x lg:grid-cols-4 pb-20">
           {reasons.map((item, index) => (
-            <div key={item.title} className="flex flex-col justify-between bg-frame-bg p-7">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Reason 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <div
+              key={item.title}
+              className="group relative flex flex-col justify-between p-6 transition-colors duration-300 hover:bg-[#121214] sm:p-8"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                    Pillar // 0{index + 1}
+                  </span>
+                  <span className="h-2 w-2 rounded-full bg-white/10 transition-colors duration-300 group-hover:bg-frame-accent" />
+                </div>
+
+                <h3 className="text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="text-sm leading-relaxed text-zinc-300">
                   {item.body}
                 </p>
-                {item.closing && (
-                  <p className="mt-4 border-l-2 border-frame-accent pl-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                    {item.closing}
-                  </p>
-                )}
-              </div>
-              <div className="mt-6 flex items-center justify-between border-t-2 border-frame-border/60 pt-5">
-                <span className="text-xs font-bold uppercase tracking-wider text-frame-fg/80">
-                  {item.action}
-                </span>
-                <span aria-hidden="true" className="text-frame-accent">
-                  →
-                </span>
+
+                <p className="border-l-2 border-frame-accent pl-3 text-xs leading-relaxed text-zinc-400">
+                  {item.closing}
+                </p>
               </div>
             </div>
           ))}

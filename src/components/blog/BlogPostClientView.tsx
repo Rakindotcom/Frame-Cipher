@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { DetailedBlogPost } from "@/lib/blog/canonicalPosts";
-import { BLOG_CATEGORIES, getMergedPostsFromStorage } from "@/lib/blog/getBlogPosts";
+import { BLOG_CATEGORIES, blogCategorySlug, getMergedPostsFromStorage } from "@/lib/blog/getBlogPosts";
 import { getAuthorBySlug } from "@/lib/authors/getAuthors";
 import { AuthorProfile } from "@/types/author";
 import { WordPressSidebar } from "./WordPressSidebar";
@@ -22,7 +21,7 @@ import {
   ChevronUp,
   Sparkles,
   ShieldCheck,
-  ExternalLink,
+  ArrowRight,
 } from "lucide-react";
 
 interface BlogPostClientViewProps {
@@ -244,13 +243,11 @@ export function BlogPostClientView({
     }
   };
 
-  // Schema.org Graph injection adhering to Specification Points 14, 19, 27, 28, 35
+  // Schema.org Graph injection adhering to Specification
   const articleUrl = (post.canonicalUrl || `${BASE_URL}/blog/${post.slug}`).replace(/\/$/, "");
   const authorSlug = authorSlugOf(authorProfile, post.author);
   const authorId = `${BASE_URL}/authors/${authorSlug}#person`;
-  // CMS titles can arrive with a trailing newline or doubled spaces; the same
-  // string feeds <title>, the BlogPosting headline and the breadcrumb, so
-  // normalise it once here instead of leaking "\n" into structured data.
+
   const cleanTitle = String(post.title ?? "").replace(/\s+/g, " ").trim();
 
   const schemaJson = {
@@ -348,8 +345,20 @@ export function BlogPostClientView({
     ],
   };
 
+  // Curate related articles
+  const relatedPosts = useMemo(() => {
+    const sameCat = allPosts.filter(
+      (p) => p.slug !== post.slug && p.category?.toLowerCase() === post.category?.toLowerCase()
+    );
+    if (sameCat.length >= 2) return sameCat.slice(0, 2);
+    const others = allPosts.filter(
+      (p) => p.slug !== post.slug && !sameCat.some((sc) => sc.slug === p.slug)
+    );
+    return [...sameCat, ...others].slice(0, 2);
+  }, [allPosts, post.slug, post.category]);
+
   return (
-    <article className="min-h-screen bg-frame-bg text-frame-fg font-body relative overflow-x-hidden">
+    <article className="min-h-screen bg-[#09090B] text-[#FAFAFA] relative overflow-x-hidden">
       {/* Schema.org Injection */}
       <script
         type="application/ld+json"
@@ -360,53 +369,61 @@ export function BlogPostClientView({
 
       {/* Reading Progress Bar (Fixed Top) */}
       <div
-        className="fixed top-0 left-0 right-0 h-1 bg-frame-accent z-50 transition-all duration-75"
+        className="fixed top-0 left-0 right-0 h-0.5 bg-frame-accent z-50 transition-all duration-75"
         style={{ width: `${readingProgress}%` }}
       />
 
-      {/* ARTICLE HEADER & BREADCRUMBS */}
-      <div className="border-b-2 border-frame-border bg-[#0D0D11] pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+      {/* ARTICLE EDITORIAL HEADER */}
+      <header className="relative border-b border-white/[0.08] bg-[#09090B] pt-28 pb-14 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto space-y-6">
-          <nav className="flex items-center gap-2 text-xs font-heading uppercase tracking-[0.2em] text-frame-muted-fg">
-            <Link href="/" className="hover:text-frame-fg transition-colors">
+          {/* Breadcrumbs */}
+          <nav aria-label="Breadcrumbs" className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 flex-wrap">
+            <Link href="/" className="hover:text-white transition-colors">
               Home
             </Link>
-            <ChevronRight className="h-3 w-3 text-frame-muted-fg/60" />
-            <Link href="/blog" className="hover:text-frame-fg transition-colors">
+            <ChevronRight className="h-3 w-3 text-zinc-600" />
+            <Link href="/blog" className="hover:text-white transition-colors">
               Blog
             </Link>
-            <ChevronRight className="h-3 w-3 text-frame-muted-fg/60" />
-            <span className="text-frame-accent font-bold">{post.category}</span>
+            <ChevronRight className="h-3 w-3 text-zinc-600" />
+            <Link
+              href={`/blog/category/${blogCategorySlug(post.category)}`}
+              className="text-frame-accent hover:underline"
+            >
+              {post.category}
+            </Link>
           </nav>
 
           <div className="space-y-4 max-w-4xl">
-            <div className="flex flex-wrap items-center gap-3">
-              <span className="inline-block px-3.5 py-1 text-xs font-heading font-black uppercase tracking-[0.2em] bg-frame-accent/15 text-frame-accent border border-frame-accent/30">
+            <div className="flex flex-wrap items-center gap-2.5">
+              <span className="font-mono text-[11px] uppercase tracking-[1.1px] px-3 py-1 rounded-full bg-[#18181B] text-frame-accent border border-white/[0.08]">
                 {post.category}
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-body font-semibold text-emerald-400 bg-emerald-950/40 border border-emerald-500/30">
+              <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-[1.1px] px-3 py-1 rounded-full bg-[#18181B] text-emerald-400 border border-emerald-500/20">
                 <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
                 <span>Executive Strategy Perspective</span>
               </span>
             </div>
 
-            <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase leading-[1.02] sm:leading-[0.96] tracking-tighter text-frame-fg">
+            <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
               {post.title}
             </h1>
 
-            <p className="font-body text-base sm:text-xl font-medium text-frame-muted-fg leading-relaxed">
-              {post.excerpt}
-            </p>
+            {post.excerpt && (
+              <p className="text-base sm:text-lg text-zinc-300 leading-relaxed font-normal max-w-3xl">
+                {post.excerpt}
+              </p>
+            )}
           </div>
 
           {/* Author Metadata Bar */}
-          <div className="pt-6 border-t border-frame-border flex flex-wrap items-center justify-between gap-4">
+          <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center justify-between gap-4">
             <Link
               href={`/authors/${authorSlugOf(profile, post.author)}`}
-              className="flex items-center gap-3 group hover:opacity-90 transition-opacity"
+              className="flex items-center gap-3.5 group hover:opacity-90 transition-opacity"
             >
               {profile?.image?.url ? (
-                <div className="w-12 h-12 rounded-xl overflow-hidden bg-frame-muted border border-frame-border shrink-0">
+                <div className="w-11 h-11 rounded-xl overflow-hidden bg-[#18181B] border border-white/[0.08] shrink-0">
                   <img
                     src={profile.image.url}
                     alt={profile.image.alt || profile.name}
@@ -417,135 +434,153 @@ export function BlogPostClientView({
                   />
                 </div>
               ) : (
-                <div className="w-12 h-12 rounded-xl bg-frame-accent text-white flex items-center justify-center font-heading font-bold text-lg shadow-xs border border-purple-400 shrink-0">
+                <div className="w-11 h-11 rounded-xl bg-[#18181B] text-frame-accent flex items-center justify-center font-mono font-medium text-sm border border-white/[0.08] shrink-0">
                   {initialsOf(profile?.name || post.author)}
                 </div>
               )}
               <div>
-                <div className="text-xs font-heading font-bold uppercase tracking-wider text-frame-fg flex items-center gap-1.5">
+                <div className="text-xs font-mono font-medium uppercase tracking-[1px] text-white flex items-center gap-2">
                   <span>{profile?.name || post.author}</span>
-                  <span className="text-[10px] px-1.5 py-0.5 bg-frame-muted text-frame-accent border border-frame-border">
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#18181B] text-frame-accent border border-white/[0.08]">
                     {profile?.worksFor || "FrameCipher"}
                   </span>
                 </div>
-                <div className="text-[11px] font-body text-frame-muted-fg mt-0.5">
+                <div className="text-[11px] font-mono text-zinc-400 mt-0.5">
                   {profile?.jobTitle || post.authorRole || "Founder & Lead Strategist"} &bull; {post.publishDate}
                 </div>
               </div>
             </Link>
 
-            <div className="flex items-center gap-4 text-xs font-body text-frame-muted-fg">
+            <div className="flex items-center gap-3 text-xs font-mono text-zinc-400">
               <span className="flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5 text-frame-muted-fg/70" />
+                <Clock className="h-3.5 w-3.5 text-zinc-500" />
                 <span>{post.readTime}</span>
               </span>
               <span>&bull;</span>
               <span className="flex items-center gap-1.5">
-                <Eye className="h-3.5 w-3.5 text-frame-muted-fg/70" />
+                <Eye className="h-3.5 w-3.5 text-zinc-500" />
                 <span>
                   {post.views > 0
                     ? `${post.views.toLocaleString()} ${post.views === 1 ? "read" : "reads"}`
-                    : "View count not tracked"}
+                    : "Verified"}
                 </span>
               </span>
               <button
                 onClick={handleShare}
-                className="px-4 py-2 border-2 border-frame-border bg-[#18181B] hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg text-frame-fg text-xs font-heading font-bold uppercase tracking-wider flex items-center gap-1.5 transition-all"
+                className="ml-2 px-3.5 py-1.5 rounded-full border border-white/[0.08] bg-[#18181B] hover:bg-[#202024] hover:border-white/[0.2] text-white text-xs font-mono uppercase tracking-[1px] flex items-center gap-1.5 transition-colors cursor-pointer"
+                title="Copy link to clipboard"
               >
-                {copiedUrl ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Share2 className="h-3.5 w-3.5" />}
-                <span>{copiedUrl ? "Link Copied" : "Share"}</span>
+                {copiedUrl ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Share2 className="h-3.5 w-3.5 text-zinc-400" />}
+                <span>{copiedUrl ? "Copied" : "Share"}</span>
               </button>
             </div>
           </div>
         </div>
-      </div>
+      </header>
 
       {/* ARTICLE BODY & SIDEBAR */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Main Content (8 Cols) */}
           <main className="lg:col-span-8 space-y-10 min-w-0 max-w-full overflow-hidden">
             {/* Prominent Featured Image */}
             {post.featuredImage?.url && (
-              <div className="relative w-full aspect-16/9 rounded-3xl overflow-hidden border-2 border-frame-border bg-[#09090B] shadow-2xl group">
-                <img
-                  src={post.featuredImage.url}
-                  alt={post.featuredImage.alt || post.title}
-                  className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-500"
-                  onError={(e) => {
-                    e.currentTarget.src = "/logo.png";
-                  }}
-                />
+              <figure className="space-y-2.5">
+                <div className="relative w-full aspect-16/9 rounded-xl overflow-hidden border border-white/[0.08] bg-[#121214] group">
+                  <img
+                    src={post.featuredImage.url}
+                    alt={post.featuredImage.alt || post.title}
+                    className="w-full h-full object-cover group-hover:scale-[1.01] transition-transform duration-500"
+                    onError={(e) => {
+                      e.currentTarget.src = "/logo.png";
+                    }}
+                  />
+                </div>
                 {post.featuredImage.caption && (
-                  <div className="absolute bottom-0 inset-x-0 bg-black/85 backdrop-blur-md px-5 py-2.5 text-xs text-frame-muted-fg border-t border-frame-border flex items-center justify-between">
+                  <figcaption className="flex items-center justify-between px-1 text-xs text-zinc-400">
                     <span>{post.featuredImage.caption}</span>
-                    <span className="text-[10px] font-mono text-frame-accent uppercase">FrameCipher Media</span>
-                  </div>
+                    <span className="font-mono text-[10px] text-frame-accent uppercase">FrameCipher Media</span>
+                  </figcaption>
                 )}
-              </div>
+              </figure>
             )}
 
             {/* Table of Contents */}
             {post.tableOfContents && post.tableOfContents.length > 0 && (
-              <div className="border-2 border-frame-border bg-[#121214] p-6 sm:p-8 space-y-4">
-                <div className="text-xs font-heading font-black uppercase tracking-[0.2em] text-frame-accent flex items-center gap-2">
-                  <FileText className="h-4 w-4" />
-                  <span>Executive Table of Contents</span>
+              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 space-y-4 transition-colors duration-200 hover:border-white/[0.14]">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                  <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300">
+                    <FileText className="h-3.5 w-3.5 text-frame-accent" />
+                    <span>Executive Table of Contents</span>
+                  </div>
+                  <span className="font-mono text-[10px] text-zinc-500 uppercase">{post.tableOfContents.length} Sections</span>
                 </div>
-                <div className="space-y-2 pt-2 border-t border-frame-border">
-                  {post.tableOfContents.map((item) => (
-                    <a
-                      key={item.id}
-                      href={`#${item.id}`}
-                      className="block text-xs sm:text-sm font-heading uppercase text-frame-muted-fg hover:text-frame-accent transition-colors leading-snug tracking-wider"
-                    >
-                      {item.title}
-                    </a>
+                <ol className="space-y-2.5 pt-1">
+                  {post.tableOfContents.map((item, idx) => (
+                    <li key={item.id} className="flex items-baseline gap-2.5">
+                      <span className="font-mono text-xs text-frame-accent/80 shrink-0">
+                        {String(idx + 1).padStart(2, "0")}.
+                      </span>
+                      <a
+                        href={`#${item.id}`}
+                        className="text-xs sm:text-sm font-normal text-zinc-300 hover:text-white transition-colors leading-snug"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
                   ))}
-                </div>
+                </ol>
               </div>
             )}
 
-            {/* Sections */}
+            {/* Structured Sections */}
             {post.sections && post.sections.length > 0 ? (
               <div className="space-y-10">
                 {post.sections.map((section) => (
                   <section key={section.id} id={section.id} className="space-y-5 scroll-mt-24">
-                    <h2 className="font-heading text-2xl sm:text-3xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
+                    <h2 className="font-heading text-2xl sm:text-3xl font-medium leading-tight tracking-[-0.02em] text-white">
                       {section.heading}
                     </h2>
 
                     {section.paragraphs?.map((p, idx) => (
-                      <p key={idx} className="font-body text-base sm:text-lg text-frame-muted-fg leading-relaxed break-words max-w-full">
+                      <p key={idx} className="text-base sm:text-lg text-zinc-300 leading-relaxed break-words max-w-full font-normal">
                         {p}
                       </p>
                     ))}
 
                     {section.callout && (
-                      <div className="border-l-4 border-frame-accent bg-[#181124] p-6 space-y-2">
-                        <div className="font-heading text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                      <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-2 border-l-2 border-l-purple-500 transition-colors duration-200 hover:border-white/[0.14]">
+                        <div className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
                           {section.callout.title}
                         </div>
-                        <p className="font-quote text-base sm:text-lg text-frame-fg italic leading-relaxed break-words max-w-full">
-                          "{section.callout.message}"
+                        <p className="text-base sm:text-lg text-white font-normal leading-relaxed break-words max-w-full">
+                          {section.callout.message}
                         </p>
                       </div>
                     )}
 
                     {section.formula && (
-                      <div className="border-2 border-frame-border bg-[#121214] p-6 space-y-3 max-w-full">
-                        <div className="font-mono text-sm sm:text-base text-frame-accent bg-black/80 p-4 border border-frame-border overflow-x-auto max-w-full">
+                      <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-3 max-w-full transition-colors duration-200 hover:border-white/[0.14]">
+                        <div className="flex items-center justify-between border-b border-white/[0.08] pb-2.5">
+                          <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                            Mathematical Formulation
+                          </span>
+                          <span className="font-mono text-[10px] text-zinc-500 uppercase">LaTeX Spec</span>
+                        </div>
+                        <div className="font-mono text-sm sm:text-base text-purple-300 bg-[#09090B] p-4 rounded-lg border border-white/[0.08] overflow-x-auto max-w-full">
                           {section.formula.latex}
                         </div>
-                        <p className="font-body text-xs sm:text-sm text-frame-muted-fg leading-relaxed break-words wide:text-lg">
-                          {section.formula.description}
-                        </p>
+                        {section.formula.description && (
+                          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed break-words">
+                            {section.formula.description}
+                          </p>
+                        )}
                         {section.formula.variables && (
-                          <div className="pt-3 border-t border-frame-border grid grid-cols-1 gap-2 text-xs">
+                          <div className="pt-3 border-t border-white/[0.08] grid grid-cols-1 gap-2 text-xs">
                             {section.formula.variables.map((v, i) => (
                               <div key={i} className="flex items-baseline gap-2">
-                                <span className="font-mono font-bold text-frame-accent">{v.symbol}:</span>
-                                <span className="text-frame-muted-fg break-words">{v.label}</span>
+                                <span className="font-mono font-medium text-purple-400">{v.symbol}:</span>
+                                <span className="text-zinc-400 break-words">{v.label}</span>
                               </div>
                             ))}
                           </div>
@@ -557,7 +592,7 @@ export function BlogPostClientView({
               </div>
             ) : (post.content || (post.blocks && post.blocks.length > 0)) ? (
               <div
-                className="blog-article-content font-body text-base leading-relaxed space-y-4 prose prose-invert max-w-full break-words text-[#D4D4D8] overflow-hidden"
+                className="blog-article-content text-base leading-relaxed space-y-4 prose prose-invert max-w-full break-words text-[#D4D4D8] overflow-hidden"
                 dangerouslySetInnerHTML={{
                   __html: sanitizeBlogHtml(post.content || blocksToHtml(post.blocks || [])),
                 }}
@@ -566,38 +601,36 @@ export function BlogPostClientView({
 
             {/* FAQ Section */}
             {post.faqs && post.faqs.length > 0 && (
-              <div className="pt-10 border-t-2 border-frame-border space-y-6">
-                <div className="flex items-center gap-2 font-heading text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  <Sparkles className="h-4 w-4" />
-                  <span>Frequently Asked Questions</span>
+              <div className="pt-10 border-t border-white/[0.08] space-y-6">
+                <div className="space-y-2">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-[-0.03em] text-white">
+                    Common Strategic Inquiries
+                  </h3>
                 </div>
-                <h3 className="font-heading text-2xl sm:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                  Common Strategic Inquiries
-                </h3>
 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {post.faqs.map((faq) => {
                     const isOpen = openFaqIds.has(faq.id);
                     return (
                       <div
                         key={faq.id}
-                        className="border-2 border-frame-border bg-[#121214] transition-colors"
+                        className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors duration-200 hover:border-white/[0.14]"
                       >
                         <button
                           onClick={() => toggleFaq(faq.id)}
-                          className="w-full p-5 sm:p-6 flex items-center justify-between text-left gap-4 hover:bg-[#18181B] transition-colors"
+                          className="w-full p-5 sm:p-6 flex items-center justify-between text-left gap-4 transition-colors cursor-pointer"
                         >
-                          <span className="font-heading text-sm sm:text-base font-bold uppercase tracking-wider text-frame-fg">
+                          <span className="font-medium text-sm sm:text-base text-white">
                             {faq.question}
                           </span>
                           {isOpen ? (
                             <ChevronUp className="h-4 w-4 text-frame-accent shrink-0" />
                           ) : (
-                            <ChevronDown className="h-4 w-4 text-frame-muted-fg shrink-0" />
+                            <ChevronDown className="h-4 w-4 text-zinc-400 shrink-0" />
                           )}
                         </button>
                         {isOpen && (
-                          <div className="px-5 sm:px-6 pb-6 pt-2 font-body text-sm sm:text-base text-frame-muted-fg leading-relaxed border-t border-frame-border wide:text-lg">
+                          <div className="px-5 sm:px-6 pb-6 pt-1 text-sm sm:text-base text-zinc-400 leading-relaxed border-t border-white/[0.08]">
                             {faq.answer}
                           </div>
                         )}
@@ -610,11 +643,11 @@ export function BlogPostClientView({
 
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (
-              <div className="pt-8 border-t-2 border-frame-border flex flex-wrap gap-2">
+              <div className="pt-8 border-t border-white/[0.08] flex flex-wrap gap-2">
                 {post.tags.map((tag, idx) => (
                   <span
                     key={idx}
-                    className="px-3.5 py-1 text-xs font-heading font-bold uppercase tracking-wider bg-frame-muted border border-frame-border text-frame-muted-fg"
+                    className="font-mono text-[11px] uppercase tracking-wider px-3 py-1.5 rounded-full bg-[#18181B] border border-white/[0.08] text-zinc-400 hover:border-white/[0.2] hover:text-white transition-colors"
                   >
                     #{tag}
                   </span>
@@ -623,13 +656,13 @@ export function BlogPostClientView({
             )}
 
             {/* Bottom Author Card */}
-            <div className="border-2 border-frame-border bg-linear-to-br from-[#181124] to-[#121214] p-8 flex flex-col sm:flex-row items-center gap-6">
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col sm:flex-row items-center sm:items-start gap-6 transition-colors duration-200 hover:border-white/[0.14]">
               <Link
                 href={`/authors/${authorSlugOf(profile, post.author)}`}
-                className="shrink-0 block"
+                className="shrink-0 block group"
               >
                 {profile?.image?.url ? (
-                  <div className="w-18 h-18 rounded-2xl overflow-hidden bg-frame-muted border border-frame-border shrink-0">
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-xl overflow-hidden bg-[#18181B] border border-white/[0.08] shrink-0">
                     <img
                       src={profile.image.url}
                       alt={profile.image.alt || profile.name}
@@ -640,22 +673,27 @@ export function BlogPostClientView({
                     />
                   </div>
                 ) : (
-                  <div className="w-18 h-18 rounded-2xl bg-frame-accent text-white flex items-center justify-center font-heading font-bold text-3xl shrink-0 shadow-sm border border-purple-400">
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-xl bg-[#18181B] text-frame-accent flex items-center justify-center font-mono font-bold text-2xl shrink-0 border border-white/[0.08]">
                     {initialsOf(profile?.name || post.author)}
                   </div>
                 )}
               </Link>
-              <div className="space-y-2 text-center sm:text-left">
-                <Link
-                  href={`/authors/${authorSlugOf(profile, post.author)}`}
-                  className="font-heading font-bold uppercase text-lg text-frame-fg tracking-tight hover:text-frame-accent transition-colors"
-                >
-                  Authored by {profile?.name || post.author}
-                </Link>
-                <div className="text-xs font-body font-semibold text-frame-accent uppercase tracking-wider">
-                  {profile?.jobTitle || post.authorRole || "Founder & Lead Strategist"}
+              <div className="space-y-2.5 text-center sm:text-left flex-1 min-w-0">
+                <div className="space-y-1">
+                  <p className="font-mono text-[10px] uppercase tracking-[1.1px] text-zinc-500">
+                    Author / Strategist
+                  </p>
+                  <Link
+                    href={`/authors/${authorSlugOf(profile, post.author)}`}
+                    className="font-heading font-medium text-lg sm:text-xl text-white tracking-[-0.02em] hover:text-frame-accent transition-colors block"
+                  >
+                    {profile?.name || post.author}
+                  </Link>
+                  <div className="font-mono text-xs text-frame-accent">
+                    {profile?.jobTitle || post.authorRole || "Founder & Lead Strategist"}
+                  </div>
                 </div>
-                <p className="text-xs font-body text-frame-muted-fg leading-relaxed">
+                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
                   {profile?.bio || profile?.shortBio ||
                     "Strategist and contributor at FrameCipher, architecting high-converting digital systems, growth funnels, and technical marketing infrastructure."}
                 </p>
@@ -670,24 +708,74 @@ export function BlogPostClientView({
                           href={value}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[11px] font-semibold uppercase tracking-wider px-3 py-1.5 rounded-lg border border-frame-border text-frame-muted-fg hover:text-frame-fg hover:border-frame-accent/60 transition-colors"
+                          className="text-[11px] font-mono uppercase tracking-wider px-3 py-1.5 rounded-lg border border-white/[0.08] bg-[#18181B] text-zinc-400 hover:text-white hover:border-white/[0.2] transition-colors inline-flex items-center gap-1.5"
                           aria-label={key}
                         >
                           <SocialIcon name={key} className="h-3.5 w-3.5" />
-                          {SOCIAL_LABELS[key] || key}
+                          <span>{SOCIAL_LABELS[key] || key}</span>
                         </a>
                       ))}
                   </div>
                 ) : null}
 
-                <Link
-                  href={`/authors/${authorSlugOf(profile, post.author)}`}
-                  className="inline-block mt-2 font-heading text-xs font-bold uppercase tracking-wider text-frame-accent border border-frame-accent/40 px-4 py-2 rounded-lg hover:bg-frame-accent hover:text-frame-fg transition-colors"
-                >
-                  View Full Profile
-                </Link>
+                <div className="pt-2">
+                  <Link
+                    href={`/authors/${authorSlugOf(profile, post.author)}`}
+                    className="sw-btn sw-btn-outline text-xs inline-flex"
+                  >
+                    <span>View Full Profile</span>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
               </div>
             </div>
+
+            {/* Related Strategic Articles */}
+            {relatedPosts.length > 0 && (
+              <section className="pt-12 border-t border-white/[0.08] space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="space-y-1">
+                    <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-[-0.03em] text-white">
+                      Related Intelligence
+                    </h3>
+                  </div>
+                  <Link
+                    href="/blog"
+                    className="font-mono text-xs uppercase tracking-[1px] text-zinc-400 hover:text-white flex items-center gap-1 transition-colors"
+                  >
+                    <span>View all</span>
+                    <ChevronRight className="h-3.5 w-3.5" />
+                  </Link>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {relatedPosts.map((rel) => (
+                    <Link
+                      key={rel.slug}
+                      href={`/blog/${rel.slug}`}
+                      className="group rounded-xl border border-white/[0.08] bg-[#121214] p-5 transition-colors duration-200 hover:border-white/[0.14] flex flex-col justify-between space-y-4"
+                    >
+                      <div className="space-y-3">
+                        <div className="flex items-center justify-between font-mono text-[10px] uppercase text-zinc-400">
+                          <span className="text-frame-accent">{rel.category}</span>
+                          <span>{rel.readTime}</span>
+                        </div>
+                        <h4 className="font-heading text-base font-medium leading-snug tracking-[-0.02em] text-white group-hover:text-purple-300 transition-colors">
+                          {rel.title}
+                        </h4>
+                        <p className="text-xs text-zinc-400 line-clamp-2 leading-relaxed">
+                          {rel.excerpt}
+                        </p>
+                      </div>
+                      <div className="pt-3 border-t border-white/[0.08] flex items-center justify-between font-mono text-[11px] text-zinc-500 group-hover:text-white transition-colors">
+                        <span>Read dispatch</span>
+                        <ArrowRight className="h-3.5 w-3.5 text-frame-accent group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </section>
+            )}
           </main>
 
           {/* Sticky Sidebar (4 Cols) */}
@@ -701,6 +789,44 @@ export function BlogPostClientView({
           </div>
         </div>
       </div>
+
+      {/* Signature Bottom Master CTA */}
+      <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-10 md:p-16">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
+                Bring us the brief.
+                <br />
+                <span className="italic text-frame-accent">
+                  We will bring the system.
+                </span>
+              </h2>
+              <span
+                aria-hidden="true"
+                className="hidden lg:block select-none font-heading text-7xl xl:text-8xl font-medium leading-none tracking-tight text-white/20 shrink-0"
+              >
+                &rarr;
+              </span>
+            </div>
+
+            <div className="mt-10 grid gap-8 border-t border-white/[0.08] pt-8 lg:grid-cols-[1fr_0.65fr] lg:items-end lg:gap-12">
+              <p className="max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+                Tell us what you are building, selling, launching, or fixing. We will shape the
+                strategy, content, technology, and marketing path around it.
+              </p>
+              <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
+                <Link href="/contact" className="sw-btn sw-btn-primary justify-center">
+                  Book a strategy call
+                </Link>
+                <Link href="/contact" className="sw-btn sw-btn-outline justify-center">
+                  Send a brief
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </article>
   );
 }

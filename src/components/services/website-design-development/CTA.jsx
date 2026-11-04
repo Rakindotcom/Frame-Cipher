@@ -1,4 +1,5 @@
-import { PosterButton } from '../../Kinetic'
+import React from 'react'
+import PosterButton from '../../home/PosterButton'
 
 const onboardingSteps = [
   {
@@ -35,33 +36,34 @@ const onboardingSteps = [
 
 export default function CTA() {
   return (
-    <section id="cta" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        {/* WHAT HAPPENS NEXT SECTION HEADER */}
-        <div className="mb-14 md:mb-20 max-w-4xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Simple & Transparent Onboarding
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            What Happens Next After You Contact Us?
-          </h2>
-          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Getting started is simple and transparent. Here is what you can expect from your first inquiry to final launch and handover:
+    <section id="cta" className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-20 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              What happens next after{' '}
+              <span className="italic text-frame-accent">you contact us?</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
+            Getting started is simple and transparent. Here is what you can expect from your first inquiry to final launch and handover.
           </p>
         </div>
 
-        {/* 6 ONBOARDING STEPS GRID */}
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
+        {/* Modality 3 Blueprint Matrix (2x3 Structured Grid) */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {onboardingSteps.map((item) => (
-            <div key={item.step} className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+            <div
+              key={item.step}
+              className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-8 sm:p-10 transition-colors duration-200 hover:bg-white/[0.02]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                  Step {item.step}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+
+                <p className="mt-3.5 text-sm font-normal leading-relaxed text-zinc-300">
                   {item.description}
                 </p>
               </div>
@@ -69,23 +71,20 @@ export default function CTA() {
           ))}
         </div>
 
-        {/* FINAL CONVERSION BANNER */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-muted/30 p-8 md:p-16 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-          <div className="max-w-2xl">
-            <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Start Your Journey
-            </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+        {/* Final Conversion Master Banner */}
+        <div className="mt-14 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="max-w-2xl space-y-3">
+            <h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
               Ready to build your next website?
             </h3>
-            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+            <p className="text-base font-normal leading-relaxed text-zinc-300">
               Get a free consultation and see what we would build for you. Straight answers, clear estimates, and zero sales pressure.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4 shrink-0">
-            <PosterButton href="/contact">
-              Get a Free Website Quote &rarr;
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 shrink-0">
+            <PosterButton href="/contact" variant="accent">
+              Get a Free Website Quote
             </PosterButton>
             <PosterButton href="/contact" variant="outline">
               Talk to Our Dev Team

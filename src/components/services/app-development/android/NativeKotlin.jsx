@@ -1,69 +1,109 @@
+'use client'
+
+import React from 'react'
+import {
+  Code2,
+  Layers,
+  Database,
+  Bell,
+  Cpu,
+  Smartphone,
+  CheckCircle2,
+} from 'lucide-react'
+
 const nativeKotlinPoints = [
   {
-    title: "Kotlin Development",
-    desc: "Modern native Android development focused on maintainability, platform compatibility, and the application's actual requirements."
+    num: '01',
+    title: 'Kotlin Development',
+    desc: 'Modern native Android development focused on maintainability, platform compatibility, and the application\'s actual requirements.',
+    icon: Code2,
   },
   {
-    title: "Android SDK Integration",
-    desc: "Using Android platform APIs and services directly for the features and behaviors your application requires."
+    num: '02',
+    title: 'Android SDK Integration',
+    desc: 'Using Android platform APIs and services directly for the features and behaviors your application requires.',
+    icon: Layers,
   },
   {
-    title: "Local Data & Offline Support",
-    desc: "Supporting local persistence, caching, and synchronization where the product requires offline or low-connectivity workflows."
+    num: '03',
+    title: 'Local Data & Offline Support',
+    desc: 'Supporting local persistence, caching, and synchronization where the product requires offline or low-connectivity workflows.',
+    icon: Database,
   },
   {
-    title: "Push Notification Setup",
-    desc: "Integrating Firebase Cloud Messaging and related notification workflows where applicable."
+    num: '04',
+    title: 'Push Notification Setup',
+    desc: 'Integrating Firebase Cloud Messaging and related notification workflows where applicable.',
+    icon: Bell,
   },
   {
-    title: "Background Processing",
-    desc: "Supporting background tasks and scheduled work where the application's functionality requires them."
+    num: '05',
+    title: 'Background Processing',
+    desc: 'Supporting background tasks and scheduled work where the application\'s functionality requires them.',
+    icon: Cpu,
   },
   {
-    title: "Device & Hardware Integration",
-    desc: "Working with relevant Android features such as camera, GPS, biometrics, Bluetooth, media, and other supported device capabilities."
-  }
+    num: '06',
+    title: 'Device & Hardware Integration',
+    desc: 'Working with relevant Android features such as camera, GPS, biometrics, Bluetooth, media, and other supported device capabilities.',
+    icon: Smartphone,
+  },
 ]
 
 export default function NativeKotlin() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Platform Native
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          Native Android Development With Kotlin
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          We build native Android applications in Kotlin when the project requires direct access to Android capabilities, platform-specific behavior, or tighter control over the Android experience.
-        </p>
-      </div>
+    <section
+      id="native-kotlin"
+      className="border-b border-white/[0.08] py-20 md:py-28 bg-[#09090B] text-white"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Native Android Development{' '}
+            <span className="italic text-frame-accent">With Kotlin.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {nativeKotlinPoints.map((item, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              Capability 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {item.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            We build native Android applications in Kotlin when the project requires direct access to Android capabilities, platform-specific behavior, or tighter control over the Android experience.
+          </p>
+        </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-semibold italic text-frame-fg">
-          Native development gives the application direct access to Android capabilities rather than relying on a shared abstraction for every platform feature.
-        </p>
+        {/* 6-Card Grid */}
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {nativeKotlinPoints.map((item, i) => (
+            <div
+              key={i}
+              className="group rounded-xl border border-white/[0.08] bg-[#121214] p-8 transition-colors duration-200 hover:border-white/[0.14] hover:bg-[#18181B]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  {item.num}
+                </span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                  <item.icon className="h-5 w-5" />
+                </div>
+              </div>
+
+              <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Direct Access Takeaway Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex items-start gap-4">
+          <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
+          <p className="font-mono text-sm leading-relaxed text-zinc-300">
+            <strong className="text-white">Native Advantage:</strong> Native development gives the application direct access to Android capabilities rather than relying on a shared abstraction for every platform feature.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

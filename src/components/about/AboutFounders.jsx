@@ -1,84 +1,80 @@
 import Image from 'next/image'
 import { founders } from '../../data/founders'
-import { SectionIntro } from '../Kinetic'
 
 export default function AboutFounders() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Intro */}
-        <SectionIntro eyebrow="Leadership / Founders" title="The operators building the multinational machine.">
-          Frame Cipher is founded and led by hands-on technical and creative operators who design, engineer, shoot, and scale directly alongside our global enterprise partners. From our Dhaka headquarters, our leadership ensures zero passive bureaucracy, strict adherence to global engineering standards, and direct executive accountability.
-        </SectionIntro>
+        <div className="mb-14 max-w-4xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            The operators building the{' '}
+            <span className="italic text-frame-accent">
+              multinational machine.
+            </span>
+          </h2>
+          <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            Frame Cipher is founded and led by hands-on technical and creative operators who design, engineer, shoot, and scale directly alongside our global enterprise partners. From our Dhaka headquarters, our leadership ensures zero passive bureaucracy, strict adherence to global engineering standards, and direct executive accountability.
+          </p>
+        </div>
 
         {/* Founders Grid */}
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {founders.map((founder, index) => (
             <article
               key={founder.name}
-              className="group relative flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 transition-all duration-300 hover:border-frame-accent hover:shadow-[0_20px_40px_rgba(168,85,247,0.14)]"
+              className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
             >
-              {/* Corner brutalist accents */}
-              <span className="absolute -left-1 -top-1 h-2 w-2 bg-frame-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
-              <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-frame-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true" />
-
               <div>
-                {/* Image Frame */}
-                <div className="relative aspect-[4/5] w-full overflow-hidden border-b-2 border-frame-border bg-zinc-950">
+                {/* Pure Image Frame (Unobstructed Portrait) */}
+                <div className="relative aspect-[4/5] w-full overflow-hidden border-b border-white/[0.08] bg-[#18181B]">
                   <Image
                     src={founder.image}
                     alt={founder.name}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    className={`transition-transform duration-700 ease-out group-hover:scale-105 ${founder.name === 'Mahedi Hasan'
-                      ? 'object-cover object-top bg-gradient-to-b from-zinc-900 to-black'
-                      : 'object-cover object-top'
-                      }`}
+                    className={`transition-transform duration-500 ease-out group-hover:scale-[1.02] ${
+                      founder.name === 'Mahedi Hasan'
+                        ? 'object-cover object-top bg-gradient-to-b from-zinc-900 to-black'
+                        : 'object-cover object-top'
+                    }`}
                   />
-                  {/* Subtle vignette gradient */}
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-frame-bg via-transparent to-transparent opacity-60" />
-
-                  {/* Top Badge */}
-                  <div className="absolute left-4 top-4 flex items-center gap-2 border border-frame-border/80 bg-frame-bg/90 px-3 py-1 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent backdrop-blur-sm">
-                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
-                    <span>0{index + 1} / Founder</span>
-                  </div>
-
-                  {/* Portfolio link quick tag if available */}
-                  {founder.portfolio && (
-                    <a
-                      href={founder.portfolio}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="absolute bottom-4 right-4 flex items-center gap-1.5 border border-frame-accent/40 bg-frame-accent/90 px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.16em] text-frame-accent-fg shadow-lg backdrop-blur-sm transition-all duration-300 hover:bg-frame-accent hover:scale-105"
-                    >
-                      <span>Portfolio</span>
-                      <span className="text-xs">↗</span>
-                    </a>
-                  )}
                 </div>
 
                 {/* Content */}
-                <div className="p-6 sm:p-8">
-                  <p className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    {founder.role}
-                  </p>
-                  <h3 className="mt-1 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg sm:text-3xl">
+                <div className="p-6 sm:p-7 space-y-3">
+                  <div className="flex items-center justify-between">
+                    <p className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent">
+                      {founder.role}
+                    </p>
+                    {founder.portfolio && (
+                      <a
+                        href={founder.portfolio}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.12] bg-[#18181B] px-3 py-1 text-[11px] font-medium text-white transition-all duration-200 hover:border-frame-accent/60 hover:bg-frame-accent hover:text-white"
+                      >
+                        <span>Portfolio</span>
+                        <span aria-hidden="true">&rarr;</span>
+                      </a>
+                    )}
+                  </div>
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium leading-tight text-white group-hover:text-frame-accent transition-colors">
                     {founder.name}
                   </h3>
-                  <p className="mt-2 text-xs font-bold uppercase tracking-[0.16em] text-frame-muted-fg">
+                  <p className="font-mono text-xs text-zinc-400">
                     {founder.focus}
                   </p>
-                  <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg sm:text-sm wide:text-lg">
+                  <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300 pt-1">
                     {founder.bio}
                   </p>
                 </div>
               </div>
 
               {/* Footer / Social links */}
-              <div className="border-t border-frame-border/80 bg-frame-bg/60 px-6 py-4 sm:px-8">
+              <div className="border-t border-white/[0.08] bg-[#18181B]/50 px-6 py-3.5 sm:px-7">
                 <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                     Connect
                   </span>
                   <div className="flex items-center gap-2">
@@ -89,7 +85,7 @@ export default function AboutFounders() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${founder.name} on ${social.platform}`}
-                        className="flex h-8 w-8 items-center justify-center border border-frame-border bg-frame-bg text-frame-muted-fg transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+                        className="flex h-9 w-9 sm:h-8 sm:w-8 min-h-[36px] min-w-[36px] items-center justify-center rounded-lg border border-white/[0.08] bg-[#18181B] text-zinc-400 transition-colors hover:border-white/[0.2] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent touch-manipulation"
                       >
                         {social.icon}
                         <span className="sr-only">{founder.name} on {social.platform}</span>

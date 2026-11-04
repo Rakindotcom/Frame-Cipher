@@ -5,26 +5,26 @@ const markets = ['US', 'UK', 'Australia', 'Canada', 'UAE']
 
 export default function Hero() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
+    <div className="bg-[#09090B] text-[#FAFAFA]">
       {/* BREADCRUMB */}
       <nav
         aria-label="Breadcrumb"
-        className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8"
+        className="border-b border-white/[0.06] bg-[#09090B]/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-[#A1A1AA] md:px-8"
       >
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
+          <Link href="/" className="transition hover:text-[#FAFAFA]">
             Home
           </Link>
           <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">
+          <Link href="/services" className="transition hover:text-[#FAFAFA]">
             Services
           </Link>
           <span>/</span>
-          <Link href="/services/content-writing" className="transition hover:text-frame-fg">
+          <Link href="/services/content-writing" className="transition hover:text-[#FAFAFA]">
             Content Writing
           </Link>
           <span>/</span>
-          <span className="text-frame-accent">Content Strategy</span>
+          <span className="text-[#A855F7]">Content Strategy</span>
         </div>
       </nav>
 
@@ -47,39 +47,39 @@ export default function Hero() {
       </PageHero>
 
       {/* CALLOUT BANNER */}
-      <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24">
+      <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-frame-accent md:text-sm">
+          <p className="mb-4 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7] md:text-sm">
             Strategy First. Content Second. Every Piece Has a Purpose.
           </p>
 
-          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Framecipher provides Content Strategy Service for businesses in Bangladesh and clients across the US,
             UK, Australia, Canada, UAE, and other international markets.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             We decide what content to create, who it is for, why it matters, where it fits, and what should happen
             next before production begins.
           </p>
-          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+          <p className="mx-auto mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Our approach combines content audits, audience research, search intent, competitive gaps, topic
             architecture, content priorities, editorial planning, and performance measurement.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-frame-fg md:gap-3 md:text-sm">
-            <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">Dhaka &amp; Bangladesh</span>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-xs font-black uppercase tracking-wider text-[#FAFAFA] md:gap-3 md:text-sm">
+            <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Dhaka &amp; Bangladesh</span>
             {markets.map((market) => (
               <span key={market} className="flex items-center gap-2">
-                <span aria-hidden="true" className="font-bold text-frame-accent">
+                <span aria-hidden="true" className="font-bold text-[#A855F7]">
                   &rarr;
                 </span>
-                <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5">{market}</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">{market}</span>
               </span>
             ))}
           </div>
 
-          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
-            <p className="text-sm font-medium leading-relaxed text-frame-fg sm:text-base">
+          <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-[#A855F7]/40 bg-[#09090B] p-6 sm:flex-row sm:justify-between">
+            <p className="text-sm font-medium leading-relaxed text-[#FAFAFA] sm:text-base">
               Tell us what you publish today and what you want content to achieve. We will start from there.
             </p>
             <PosterButton href="/contact" className="shrink-0">

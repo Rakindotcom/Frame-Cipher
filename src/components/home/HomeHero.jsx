@@ -1,88 +1,62 @@
 import Link from 'next/link'
-
-function PosterButton({ href, children, variant = 'accent' }) {
-  const classes =
-    variant === 'accent'
-      ? 'border-frame-accent bg-frame-accent text-frame-accent-fg hover:bg-transparent hover:text-frame-fg'
-      : 'border-frame-border bg-transparent text-frame-fg hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg'
-
-  return (
-    <Link
-      href={href}
-      className={`group inline-flex min-h-14 w-full sm:w-auto items-center justify-center gap-3 border-2 px-7 py-4 text-sm font-black uppercase tracking-tighter transition-all duration-200 active:scale-95 md:min-h-18 md:px-10 md:text-base ${classes}`}
-    >
-      <span>{children}</span>
-      <span
-        aria-hidden="true"
-        className="transition-transform duration-200 group-hover:translate-x-1"
-      >
-        &rarr;
-      </span>
-    </Link>
-  )
-}
+import PosterButton from './PosterButton'
 
 export default function HomeHero() {
   return (
-    <section className="relative isolate overflow-hidden border-b-2 border-frame-border px-4 pb-14 pt-28 sm:px-6 sm:pt-36 md:px-8 md:pb-20 md:pt-36 lg:pt-40">
-      {/* Ambient subtle accent glow behind 360 */}
+    <section className="relative isolate overflow-hidden border-b border-white/[0.08] bg-[#09090B] px-4 pb-16 pt-28 sm:px-6 sm:pt-36 md:px-8 md:pb-24 md:pt-40 lg:pt-44">
+      {/* Linear / Raycast Atmospheric Ambient Radial Glow */}
       <div
-        className="pointer-events-none absolute -right-10 top-10 -z-10 h-72 w-72 rounded-full bg-frame-accent/10 blur-[100px] md:h-[500px] md:w-[500px] md:blur-[140px]"
+        className="pointer-events-none absolute -top-40 left-1/2 -z-10 h-[520px] w-[900px] -translate-x-1/2 rounded-full bg-[radial-gradient(ellipse_at_center,rgba(168,85,247,0.18),transparent_70%)] blur-[90px]"
+        aria-hidden="true"
+      />
+      {/* Precision Architectural Grid Pattern */}
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"
         aria-hidden="true"
       />
 
-      {/* Background 360 Watermark */}
+      {/* The 360 mark watermark */}
       <div
-        className="pointer-events-none absolute right-0 top-4 -z-10 select-none font-heading text-[48vw] font-bold leading-none tracking-tighter text-frame-muted opacity-25 md:-right-6 md:top-8 md:text-[25vw] md:opacity-100"
+        className="pointer-events-none absolute right-0 top-6 -z-10 select-none font-heading text-[48vw] font-medium leading-none text-white/[0.02] md:-right-6 md:top-10 md:text-[24vw]"
         aria-hidden="true"
       >
         360
       </div>
 
-      <div className="mx-auto w-full max-w-8xl">
-        {/* Top Eyebrow & Status Row */}
-        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between md:mb-10">
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="inline-flex items-center gap-2 border-2 border-frame-border bg-frame-bg/90 px-3 py-1 backdrop-blur-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <span className="text-[10px] font-black uppercase tracking-[0.22em] text-frame-fg md:text-xs">
-                Accepting Growth Engagements
-              </span>
-            </div>
-
-            <span className="hidden text-xs text-frame-border md:inline">|</span>
-
-            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent md:text-xs">
-              Bangladesh / Worldwide
+      <div className="mx-auto w-full max-w-7xl">
+        {/* Raycast-style Capsule Eyebrow Bar */}
+        <div className="mb-8 flex flex-col gap-4 border-b border-white/[0.08] pb-6 sm:flex-row sm:items-center sm:justify-between md:mb-12">
+          <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300">
+              Dhaka Studio · Built for brands moving worldwide
             </p>
           </div>
-
-          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg md:text-xs">
-            Brand + Media + Tech + Performance
+          <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 sm:text-right">
+            Brand · Content · Tech · Growth
           </p>
         </div>
 
-        {/* Main H1 Headline */}
-        <div className="mb-10 max-w-[95vw] md:mb-14">
-          <h1 className="font-heading text-[clamp(2.45rem,7.8vw,7.8rem)] font-bold uppercase leading-[0.84] tracking-tighter text-frame-fg">
-            We build the system
-            <br />
-            <span className="text-frame-accent">that makes</span>
-            <br />
-            brands move.
+        {/* Main H1 Headline: Crisp Pure White with Italic Signature Accent */}
+        <div className="mb-12 max-w-7xl md:mb-16">
+          <h1 className="fc-h-display max-w-6xl font-heading font-medium tracking-tight text-white">
+            We build the system that makes brands{' '}
+            <span className="italic text-frame-accent">
+              move.
+            </span>
           </h1>
         </div>
 
         {/* Bottom split: details + CTA + Stats */}
-        <div className="grid gap-8 border-t-2 border-frame-border pt-8 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-12 lg:pt-12">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-10 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:gap-14 lg:pt-14">
           <div>
-            <p className="max-w-2xl text-base font-semibold leading-snug text-frame-muted-fg md:text-2xl">
-              Frame Cipher brings brand positioning, <Link href="/studio" className="text-frame-fg hover:text-frame-accent underline decoration-frame-accent/40 transition-colors">commercial video</Link>, <Link href="/services/website-design-development" className="text-frame-fg hover:text-frame-accent underline decoration-frame-accent/40 transition-colors">high-converting websites</Link>, <Link href="/services/paid-advertising" className="text-frame-fg hover:text-frame-accent underline decoration-frame-accent/40 transition-colors">paid media</Link>, and automation into one disciplined growth machine. No fragmented agencies. One accountable partner.
+            <p className="max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+              Frame Cipher brings brand positioning, <Link href="/studio" className="text-white underline decoration-frame-accent/50 underline-offset-4 transition-colors hover:text-frame-accent">commercial video</Link>, <Link href="/services/website-design-development" className="text-white underline decoration-frame-accent/50 underline-offset-4 transition-colors hover:text-frame-accent">high-converting websites</Link>, <Link href="/services/paid-advertising" className="text-white underline decoration-frame-accent/50 underline-offset-4 transition-colors hover:text-frame-accent">paid media</Link>, and automation into one disciplined growth machine. No fragmented agencies. One accountable partner.
             </p>
-            <div className="mt-8 flex flex-col gap-3.5 sm:flex-row sm:items-center sm:gap-4">
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <PosterButton href="/contact">Book a strategy call</PosterButton>
               <PosterButton href="/projects" variant="outline">
                 Explore our work
@@ -90,44 +64,42 @@ export default function HomeHero() {
             </div>
           </div>
 
-          {/* Industrial Stats Box */}
-          <div className="relative border-2 border-frame-border bg-frame-muted/70 p-6 backdrop-blur-sm md:p-8">
-            {/* Brutalist corner notches */}
-            <span className="absolute -left-1 -top-1 h-2 w-2 bg-frame-accent" aria-hidden="true" />
-            <span className="absolute -bottom-1 -right-1 h-2 w-2 bg-frame-accent" aria-hidden="true" />
-
-            <div className="grid grid-cols-2 gap-6 border-b border-frame-border/80 pb-6">
+          {/* Linear-grade Elevated Hardware Stats Card with Illuminated Top Hairline */}
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.1] bg-[#121214]/90 p-7 backdrop-blur-xl transition-colors duration-300 hover:border-white/[0.2] hover:bg-[#151518] md:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/50 before:to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
+            <div className="grid grid-cols-2 gap-6 border-b border-white/[0.08] pb-6">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent">
-                  01 / Scale
+                <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Scale
                 </p>
-                <p className="mt-1 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-6xl">
+                <p className="mt-2 font-heading text-4xl font-medium leading-none text-white md:text-6xl tabular-nums tracking-tight">
                   74+
                 </p>
-                <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
+                <p className="mt-2 text-xs font-medium text-zinc-400">
                   Services Integrated
                 </p>
               </div>
 
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-frame-accent">
-                  02 / Loop
+                <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Loop
                 </p>
-                <p className="mt-1 font-heading text-4xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-6xl">
+                <p className="mt-2 font-heading text-4xl font-medium leading-none text-white md:text-6xl tabular-nums tracking-tight">
                   360°
                 </p>
-                <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-frame-muted-fg">
+                <p className="mt-2 text-xs font-medium text-zinc-400">
                   Full Operating System
                 </p>
               </div>
             </div>
 
-            <div className="mt-5 flex items-center justify-between gap-3 text-[10px] font-black uppercase tracking-[0.18em] text-frame-muted-fg md:text-xs">
-              <span className="flex items-center gap-1.5 text-frame-fg">
-                <span className="h-1.5 w-1.5 bg-frame-accent" />
+            <div className="mt-5 flex items-center justify-between gap-3 text-xs font-medium text-zinc-400">
+              <span className="flex items-center gap-2 text-white">
+                <span className="h-2 w-2 rounded-full bg-frame-accent" />
                 100% In-House Team
               </span>
-              <span>Audit to Scale</span>
+              <span className="rounded-full border border-white/[0.1] bg-white/[0.04] px-3 py-1 font-mono text-[11px] text-zinc-300">
+                Audit to Scale
+              </span>
             </div>
           </div>
         </div>

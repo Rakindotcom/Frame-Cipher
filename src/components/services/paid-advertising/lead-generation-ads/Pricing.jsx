@@ -1,171 +1,150 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ArrowRight, Sparkles } from 'lucide-react'
 
 const packages = [
   {
     name: 'Single Platform',
-    tag: 'Focused Start',
-    fee: '\u09F318,000',
-    feeNote: 'per month',
-    adSpend: '\u09F330,000+/month',
-    bestFor: 'Businesses testing lead generation on one platform',
+    tag: 'Focused Channel Testing',
+    fee: '৳18,000',
+    feeNote: 'per month + ad spend',
+    adSpend: 'Recommended starting ad spend: ৳30,000+/mo',
+    bestFor: 'Businesses testing lead generation on a single primary platform (e.g. Google Search or Meta Lead Ads).',
     included: [
-      'Campaign strategy and setup',
-      'Lead destination strategy',
-      'Form and qualification planning',
-      'Tracking setup',
-      'CRM connection where supported',
-      'Lead routing',
-      'Campaign optimization',
-      'Quality-focused reporting',
+      'Single-platform campaign strategy & account setup',
+      'Lead destination strategy (landing page or native form)',
+      'Basic qualification field & form planning',
+      'Tracking pixel and conversion event configuration',
+      'Basic CRM webhook connection or email routing',
+      'Negative keyword and audience exclusion lists',
+      'Weekly bid and ad copy optimization',
+      'Monthly lead volume & CPL performance reporting',
     ],
-    cta: 'Request This Plan',
+    cta: 'Start Single Platform',
+    popular: false,
   },
   {
     name: 'Multi-Platform',
-    tag: 'Multiple Channels',
-    fee: '\u09F335,000',
-    feeNote: 'per month',
-    adSpend: '\u09F360,000+/month',
-    bestFor: 'Businesses running multiple lead-generation channels',
+    tag: 'Omnichannel Lead Capture',
+    fee: '৳35,000',
+    feeNote: 'per month + ad spend',
+    adSpend: 'Recommended starting ad spend: ৳60,000+/mo',
+    bestFor: 'Growing companies scaling qualified inquiries across multiple networks (e.g. Google Search + Meta or LinkedIn).',
     included: [
       'Everything in Single Platform',
-      'Multiple lead-generation channels',
-      'Cross-platform audience strategy',
-      'Platform-specific campaign structure',
-      'Cross-platform reporting',
+      'Multi-channel strategy (Google + Meta + LinkedIn)',
+      'Advanced multi-tier qualification form design',
+      'Real-time automated CRM lead routing & notifications',
+      'Server-side Conversion API (CAPI) implementation',
+      'A/B testing of lead hooks, offers, and creative',
+      'Cost Per Qualified Lead (CPQL) reporting',
+      'Bi-weekly sales pipeline strategy reviews',
     ],
-    cta: 'Request This Plan',
+    cta: 'Start Multi-Platform',
     popular: true,
   },
   {
     name: 'CRM-Integrated Growth',
-    tag: 'Sales-Connected',
-    fee: '\u09F350,000',
-    feeNote: 'per month',
-    adSpend: '\u09F390,000+/month',
-    bestFor: 'Businesses needing deeper CRM, qualification, and sales feedback',
+    tag: 'Full Pipeline & Offline Feedback',
+    fee: '৳50,000',
+    feeNote: 'per month + ad spend',
+    adSpend: 'Recommended starting ad spend: ৳90,000+/mo',
+    bestFor: 'Established B2B and high-ticket service companies requiring deep CRM automation, qualification, and closed-loop offline sales feedback.',
     included: [
-      'Everything in Multi-Platform',
-      'Deeper CRM integration',
-      'Qualification workflows',
-      'Lead-quality tracking',
-      'Offline conversion feedback where supported',
-      'Sales-aligned reporting',
+      'Everything in Multi-Platform Plan',
+      'Deep CRM integration (HubSpot, Salesforce, Zoho)',
+      'Offline conversion feedback (Google Data Manager / Meta)',
+      'Enhanced Conversions for Leads configuration',
+      'Opportunity-stage tracking & sales feedback loop',
+      'Automated sales rep round-robin lead distribution',
+      'Customer Acquisition Cost (CAC) and revenue reporting',
+      'Dedicated senior growth director & weekly reviews',
     ],
-    cta: 'Request This Plan',
-  },
-  {
-    name: 'Enterprise',
-    tag: 'Multi-Market Programs',
-    fee: 'Custom',
-    feeNote: 'assessed per account',
-    adSpend: 'Custom',
-    bestFor: 'Large-scale or multi-market lead-generation programs',
-    included: [
-      'Everything in CRM-Integrated Growth',
-      'Multi-market campaign structure',
-      'Custom integration requirements',
-      'Extended reporting and analytics',
-    ],
-    cta: 'Get a Custom Quote',
+    cta: 'Start CRM Growth Plan',
+    popular: false,
   },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment & plans" title="Lead Generation Ads Pricing">
-          Pricing depends on the number of platforms, campaign complexity, CRM requirements,
-          reporting needs, and monthly advertising scope.
-        </SectionIntro>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {packages.map((pkg, i) => (
-            <div
-              key={pkg.name}
-              className={
-                pkg.popular
-                  ? 'relative flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/5 p-6 md:p-7'
-                  : 'relative flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-7'
-              }
-            >
-              {pkg.popular && (
-                <span className="absolute right-4 top-4 border border-frame-accent bg-frame-accent px-2 py-0.5 text-[9px] font-black uppercase tracking-[0.18em] text-frame-bg">
-                  Most Popular
-                </span>
-              )}
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                  Plan 0{i + 1}
-                </span>
-                <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.name}
-                </h3>
-                <p className="mt-1 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
-                  {pkg.tag}
-                </p>
-                <p className="mt-4 font-heading text-2xl md:text-3xl font-black text-frame-accent">
-                  {pkg.fee}
-                  <span className="block text-[11px] font-bold uppercase tracking-[0.18em] text-frame-muted-fg">
-                    {pkg.feeNote}
-                  </span>
-                </p>
-                <div className="mt-4 border border-frame-accent/40 bg-frame-muted/10 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Recommended Ad Spend
-                  </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
-                    {pkg.adSpend}
-                  </p>
-                </div>
-                <div className="mt-3 border border-frame-accent/50 bg-frame-accent/5 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Best For
-                  </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
-                    {pkg.bestFor}
-                  </p>
-                </div>
-
-                <p className="mt-5 text-[10px] font-black uppercase tracking-[0.22em] text-frame-muted-fg">
-                  What&apos;s included
-                </p>
-                <ul className="mt-3 space-y-2.5 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
-                  {pkg.included.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2">
-                      <span className="font-bold text-frame-accent">&#10003;</span>
-                      <span className="leading-snug">{feat}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="mt-6 border-t border-frame-border/60 pt-4">
-                <PosterButton href="/contact" className="w-full text-xs">
-                  {pkg.cta}
-                </PosterButton>
-              </div>
-            </div>
-          ))}
+    <section id="pricing" className="scroll-mt-20 relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Lead Generation Ads{' '}
+            <span className="italic text-frame-accent">Pricing.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Transparent, monthly retainer pricing based on platform count, CRM depth, qualification requirements, and reporting scope. Zero media spend markups.
+          </p>
         </div>
 
-        <div className="mt-8 flex flex-col gap-8 border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-9 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl space-y-3 text-sm md:text-base font-medium leading-relaxed">
-            <p className="text-frame-fg">
-              <span className="font-black uppercase tracking-[0.18em] text-frame-accent">Important: </span>
-              Ad spend is separate from management fees. Your advertising spend is paid through the
-              advertising account and remains under your control.
-            </p>
-            <p className="text-frame-muted-fg">
-              Advanced CRM development, custom integrations, landing-page development, creative
-              production, and third-party software can be scoped separately where required. Final
-              pricing is confirmed in a written proposal.
-            </p>
-          </div>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get a Custom Lead Generation Quote &rarr;</PosterButton>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {packages.map((pkg) => (
+            <div
+              key={pkg.name}
+              className={`relative rounded-2xl border p-7 sm:p-8 flex flex-col justify-between transition-colors duration-300 ${
+                pkg.popular
+                  ? 'border-frame-accent bg-[#141218]'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+              }`}
+            >
+              {pkg.popular && (
+                <div className="absolute -top-3 right-6 inline-flex items-center gap-1 rounded-full bg-frame-accent px-3 py-0.5 font-mono text-[10px] uppercase font-bold tracking-wider text-black">
+                  <Sparkles className="h-3 w-3" />
+                  <span>Most Popular</span>
+                </div>
+              )}
+
+              <div>
+                <h3 className="font-heading text-2xl font-medium text-white mt-1">
+                  {pkg.name}
+                </h3>
+                <div className="mt-4 mb-2">
+                  <span className="font-heading text-3xl sm:text-4xl font-bold text-white">
+                    {pkg.fee}
+                  </span>
+                  <span className="block font-mono text-xs text-zinc-400 mt-1">
+                    {pkg.feeNote}
+                  </span>
+                </div>
+
+                <div className="rounded-lg border border-white/[0.06] bg-black/40 px-3 py-1.5 font-mono text-[11px] text-frame-accent mb-4">
+                  {pkg.adSpend}
+                </div>
+
+                <div className="rounded-lg border border-white/[0.06] bg-black/30 p-3.5 mb-6 text-xs text-zinc-300 leading-relaxed font-normal">
+                  <span className="font-semibold text-frame-accent block mb-0.5">Best For:</span>
+                  {pkg.bestFor}
+                </div>
+
+                <div className="space-y-2.5 mb-8">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                    What&apos;s Included:
+                  </p>
+                  {pkg.included.map((feature) => (
+                    <div key={feature} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href="/contact"
+                className={`w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 px-6 font-mono text-xs font-semibold uppercase tracking-wider transition-colors duration-200 ${
+                  pkg.popular
+                    ? 'bg-frame-accent text-black hover:bg-white hover:text-black'
+                    : 'border border-white/[0.12] bg-white/[0.04] text-white hover:border-frame-accent hover:bg-frame-accent hover:text-black'
+                }`}
+              >
+                <span>{pkg.cta}</span>
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </section>

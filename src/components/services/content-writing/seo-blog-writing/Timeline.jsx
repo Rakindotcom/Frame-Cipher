@@ -4,7 +4,7 @@ const phases = [
   {
     number: '01',
     title: 'Individual Articles',
-    body: 'A standard article commonly takes 3–7 business days from confirmed brief to final draft, depending on research depth and topic complexity.',
+    body: 'A standard article commonly takes 3 to 7 business days from confirmed brief to final draft, depending on research depth and topic complexity.',
   },
   {
     number: '02',
@@ -26,8 +26,8 @@ const phases = [
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Timeline &amp; delivery"
           title="SEO Content Timeline &amp; Publishing Cadence"
@@ -36,26 +36,26 @@ export default function Timeline() {
           both before a project starts.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-4">
           {phases.map((phase) => (
             <article
               key={phase.number}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40"
+              className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40"
             >
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                   {phase.number}
                 </span>
-                <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                <h3 className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                   {phase.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                   {phase.body}
                 </p>
               </div>
 
               {phase.note && (
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-5 border-l-2 border-[#A855F7]/40 bg-[#121214] p-3 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {phase.note}
                 </p>
               )}

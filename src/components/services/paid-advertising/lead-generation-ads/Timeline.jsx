@@ -1,93 +1,96 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Clock, CheckCircle2 } from 'lucide-react'
 
 const phases = [
   {
-    label: 'Week 1',
-    title: 'Discovery & planning',
+    phase: 'Week 1',
+    title: 'Discovery, Offer & CRM Audit',
+    desc: 'Deep discovery into your ideal customer profile, qualification criteria, sales follow-up velocity, and existing CRM tech stack.',
     items: [
-      'Discovery',
-      'Qualification review',
-      'Platform strategy',
-      'Offer planning',
-      'Tracking review',
-      'CRM assessment',
+      'Ideal customer profile (ICP) & qualification criteria review',
+      'High-intent commercial offer & lead hook planning',
+      'Multi-channel platform strategy and budget allocation',
+      'CRM integration & sales notification workflow audit',
+      'Tracking pixel and server-side CAPI diagnostic',
     ],
   },
   {
-    label: 'Week 1\u20132',
-    title: 'Build & launch',
+    phase: 'Week 1–2',
+    title: 'Funnel Build, Integration & QA',
+    desc: 'Constructing landing pages or native forms, embedding qualification questions, wiring real-time CRM webhooks, and client review.',
     items: [
-      'Campaign build',
-      'Form or landing-page setup',
-      'CRM connection',
-      'Lead routing',
-      'Tracking implementation',
-      'QA',
-      'Client approval',
-      'Launch',
+      'Native in-app lead forms or landing page destination build',
+      'CRM field mapping & automated round-robin lead routing',
+      'Instant SMS/Slack/email alerts configured for sales reps',
+      'End-to-end test lead submission and data payload validation',
+      'Client review, sign-off, and controlled campaign rollout',
     ],
   },
-]
-
-const factors = [
-  'Lead volume',
-  'Sales cycle',
-  'Deal value',
-  'Qualification requirements',
-  'CRM data availability',
-  'Conversion volume',
+  {
+    phase: 'Days 15–30',
+    title: 'Initial Leads & Quality Calibration',
+    desc: 'Reviewing early lead quality with your sales team, analyzing contact rates, and adjusting qualification fields or negative keywords.',
+    items: [
+      'Early lead volume & contact rate velocity benchmarking',
+      'Sales rep feedback loop on lead qualification readiness',
+      'Form qualification field adjustment to filter low-intent submissions',
+      'Negative keyword and audience exclusion refinement',
+    ],
+  },
+  {
+    phase: 'Month 2+',
+    title: 'Downstream Feedback & Scaling',
+    desc: 'Uploading offline sales conversion milestones back to Google and Meta, optimizing for pipeline revenue, and scaling winning channels.',
+    items: [
+      'Offline conversion upload (Enhanced Conversions for Leads)',
+      'Cost Per Qualified Lead (CPQL) and Cost Per Opportunity analysis',
+      'A/B testing of fresh offers, headlines, and landing page angles',
+      'Scaling ad budgets toward highest-closing campaign cohorts',
+    ],
+  },
 ]
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Timeline" title="Timeline: How Long Does Lead Generation Setup Take?">
-          Initial campaign setup typically takes one to two weeks, depending on the platforms,
-          creative requirements, lead destination, CRM configuration, tracking, and client
-          approvals.
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {phases.map((phase) => (
-            <div
-              key={phase.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 md:p-10 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 flex items-center gap-4">
-                <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                  {phase.label}
-                </span>
-                <div className="h-1.5 flex-1 bg-frame-accent" />
-              </div>
-              <h3 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {phase.title}
-              </h3>
-              <ul className="mt-6 grid gap-3">
-                {phase.items.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Timeline: How Long Does{' '}
+            <span className="italic text-frame-accent">Lead Gen Setup Take?</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Initial setup, CRM integration, and campaign launch typically complete within 7 to 14 business days, followed by systematic weekly sales feedback loops.
+          </p>
         </div>
 
-        <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-10">
-          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Initial lead data can appear soon after launch, but meaningful lead-quality analysis
-            usually requires enough leads to move through your sales process. The timeline therefore
-            depends on the factors below.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-2">
-            {factors.map((item) => (
-              <span key={item} className="border border-frame-border px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
-                {item}
-              </span>
-            ))}
-          </div>
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-4">
+          {phases.map((p) => (
+            <div
+              key={p.phase}
+              className="bg-[#121214] p-6 flex flex-col justify-between transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+            >
+              <div>
+                <h3 className="font-heading text-xl font-medium text-white mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed mb-6">
+                  {p.desc}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                {p.items.map((item) => (
+                  <div key={item} className="flex items-start gap-2 text-xs text-zinc-300">
+                    <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -82,7 +82,7 @@ function valueLabel(objective) {
   }
 }
 
-export default function GoogleAdsCalculator({ onLeadSubmit }) {
+export default function GoogleAdsCalculator({ onLeadSubmit: _onLeadSubmit }) {
   const [step, setStep] = useState(1)
 
   // Step 1
@@ -94,7 +94,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
   const [objectiveId, setObjectiveId] = useState('sales')
   const [adFormatId, setAdFormatId] = useState('search')
   const [placementId, setPlacementId] = useState('phrase')
-  const [networkId, setNetworkId] = useState('search-only')
+  const [networkId, _setNetworkId] = useState('search-only')
   const [bidStrategyId, setBidStrategyId] = useState('max-conversions')
   const [competitionId, setCompetitionId] = useState('medium')
   const [seasonId, setSeasonId] = useState('normal')
@@ -112,8 +112,8 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
   const [qsOverride, setQsOverride] = useState('')
 
   // Report & Lead Capture
-  const [clientName, setClientName] = useState('')
-  const [preparedBy, setPreparedBy] = useState('Frame Cipher Media Team')
+  const [clientName, _setClientName] = useState('')
+  const [preparedBy, _setPreparedBy] = useState('Frame Cipher Media Team')
   const [downloading, setDownloading] = useState(false)
 
   const n = (v) => {
@@ -238,7 +238,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
     const recommendations = []
     if (effectiveQs < baseQs * 0.85) {
       recommendations.push(
-        `Quality Score assumption (${effectiveQs.toFixed(1)}/10) is below the ${industry.label} benchmark (${baseQs.toFixed(1)}/10). In Google Ads, Ad Rank = Bid x Quality Score. Tightening single-theme keyword ad groups and matching landing page copy will slash CPC by 15%–30%.`
+        `Quality Score assumption (${effectiveQs.toFixed(1)}/10) is below the ${industry.label} benchmark (${baseQs.toFixed(1)}/10). In Google Ads, Ad Rank = Bid x Quality Score. Tightening single-theme keyword ad groups and matching landing page copy will slash CPC by 15% to 30%.`
       )
     } else {
       recommendations.push(
@@ -314,7 +314,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
     isSearch,
   ])
 
-  const maxLog = Math.log10(Math.max(calc.main.impressions, 10) + 1)
+  const _maxLog = Math.log10(Math.max(calc.main.impressions, 10) + 1)
 
   const handleDownloadPdf = async () => {
     setDownloading(true)
@@ -440,7 +440,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 01 // Geographic Region & Industry
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Target Geography & Industry Vertical
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -543,7 +543,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 02 // Format, Networks & Bid Architecture
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Select Ad Format & Bidding Strategy
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -681,7 +681,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 03 // Revenue Target & Unit Economics
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Revenue Goal & Profit Margin
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -776,7 +776,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 04 // Google Quality Score & Metric Overrides
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Quality Score (1-10) & Auction Discount
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -873,7 +873,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
                   Google Auction Simulation Ready
                 </span>
               </div>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
                 Google Ads Performance & Impression Share
               </h3>
             </div>
@@ -947,7 +947,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
 
           {/* Search Impression Share Meter */}
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
-            <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
               Search Auction Dominance (Impression Share Breakdown)
             </h4>
             <p className="text-xs text-frame-muted-fg mt-1">
@@ -1002,7 +1002,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                 Auction Pacing Scenarios
               </span>
-              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 3 Scenarios for Your Google Search Spend
               </h4>
             </div>
@@ -1081,7 +1081,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <div className="flex items-center gap-2 text-frame-accent">
               <Sparkles className="h-5 w-5" />
-              <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
                 Google Ads Algorithmic Recommendations
               </h4>
             </div>
@@ -1112,7 +1112,7 @@ export default function GoogleAdsCalculator({ onLeadSubmit }) {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                   Strategic Execution
                 </span>
-                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                   Want Frame Cipher to Engineer Your Google Ads Campaigns?
                 </h4>
                 <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">

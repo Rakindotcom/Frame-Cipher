@@ -1,201 +1,128 @@
+'use client'
 
-import { AutoLinks } from '../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../Kinetic'
-
-const areas = [
-  {
-    eyebrow: 'Domestic reach',
-    title: 'Social Media Management Services in Bangladesh',
-    body: 'Framecipher provides social media management for businesses across Bangladesh, including Dhaka and other major markets.',
-    points: [
-      'Platform-specific strategy for the Bangladeshi market',
-      'Bangla, English, or bilingual content depending on the audience and brand',
-      'Local discovery, community engagement, and customer communication',
-    ],
-  },
-  {
-    eyebrow: 'Global delivery',
-    title: 'International Social Media Management',
-    body: 'We also work with international clients across the US, UK, Australia, Canada, UAE, and other markets.',
-    points: [
-      'Content planned around market-specific audiences and cultural context',
-      'Language and platform behavior considered per market',
-      'One regional content style is never applied to every market',
-    ],
-  },
-]
-
-const timelineFactors = [
-  'Platform selection',
-  'Industry and audience',
-  'Starting position of your profiles',
-  'Content quality and production capacity',
-  'Posting frequency and platform mix',
-  'Community volume and response requirements',
-  'Business goals and approval process',
-]
-
-const milestones = [
-  {
-    label: 'Social audit',
-    timing: 'Within a few business days',
-    detail: 'The initial social audit is typically completed within a few business days.',
-  },
-  {
-    label: 'Strategy & first calendar',
-    timing: 'One to two weeks',
-    detail: 'Your initial content strategy and first monthly calendar are usually prepared within one to two weeks after the engagement begins, depending on scope and the approval process.',
-  },
-  {
-    label: 'Publishing & community management',
-    timing: 'Once approved',
-    detail: 'Once the strategy and content are approved, regular publishing and community management begin.',
-  },
-  {
-    label: 'Meaningful outcomes',
-    timing: 'Several months of consistent management',
-    detail: 'Social media growth is cumulative. Early performance signals may appear within the first few weeks, while meaningful audience and business outcomes generally require consistent management over several months.',
-  },
-]
+import React from 'react'
+import { MapPin, Globe, CheckCircle2 } from 'lucide-react'
+import PosterButton from '../../home/PosterButton'
 
 export default function ServiceAreas() {
   return (
-    <div className="border-t-2 border-frame-border bg-frame-muted/30 text-frame-fg">
-      <section className="px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Where we work"
-            title="Social Media Management Services in Bangladesh &amp; Worldwide"
-          >
-            Our approach considers the audience and market instead of applying one regional
-            content style everywhere.
-          </SectionIntro>
-
-          <div className="grid gap-6 lg:grid-cols-2">
-            {areas.map((area) => (
-              <div key={area.title} className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-10">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                    {area.eyebrow}
-                  </span>
-                  <h3 className="mt-3 font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-3xl">
-                    {area.title}
-                  </h3>
-                  <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management" allowed={["/services/content-writing/content-strategy"]}>
-                    {area.body}
-                  </AutoLinks></p>
-                  <ul className="mt-5 space-y-2.5">
-                    {area.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2 text-xs font-medium text-frame-fg/90 md:text-sm">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span className="leading-snug">{point}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               GEOGRAPHIC REACH 
+            </p>
           </div>
+
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Social Media Management Services in{' '}
+            <span className="italic text-[#A855F7]">Bangladesh &amp; Worldwide.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our approach considers the audience and market instead of applying one regional content style everywhere.
+          </p>
         </div>
-      </section>
 
-      <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Realistic expectations"
-            title="Timeline &amp; What to Expect"
-          >
-            The timeline varies by platform, industry, audience, starting position, content
-            quality, posting frequency, and business goals.
-          </SectionIntro>
+        {/* 2 Regional Focus Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {/* Bangladesh Focus */}
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-9 space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                  Domestic Market
+                </span>
+                <MapPin className="h-5 w-5 text-[#A855F7]" />
+              </div>
 
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-            <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
-              <table className="w-full min-w-[560px] text-left">
-                <caption className="sr-only">
-                  Expected timing for the social audit, strategy, publishing, and business outcomes
-                </caption>
-                <thead className="border-b-2 border-frame-border bg-frame-muted/40">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="w-1/3 border-r border-frame-border/40 p-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent md:p-5 md:text-sm"
-                    >
-                      Milestone
-                    </th>
-                    <th
-                      scope="col"
-                      className="w-1/3 border-r border-frame-border/40 p-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent md:p-5 md:text-sm"
-                    >
-                      Typical Timing
-                    </th>
-                    <th scope="col" className="p-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent md:p-5 md:text-sm">
-                      What Happens
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y-2 divide-frame-border text-sm font-medium md:text-base">
-                  {milestones.map((milestone, mIdx) => (
-                    <tr key={milestone.label} className="align-top transition-colors hover:bg-frame-muted/20">
-                      <th
-                        scope="row"
-                        className="border-r border-frame-border/40 p-4 font-heading text-base font-bold uppercase tracking-tight text-frame-fg md:p-5"
-                      >
-                        <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                          Stage {String(mIdx + 1).padStart(2, '0')}
-                        </span>
-                        <span className="mt-1 block">{milestone.label}</span>
-                      </th>
-                      <td className="border-r border-frame-border/40 p-4 font-bold text-frame-accent md:p-5">
-                        {milestone.timing}
-                      </td>
-                      <td className="p-4 leading-relaxed text-frame-muted-fg md:p-5">
-                        {milestone.detail}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Timeline drivers
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                The timeline can depend on:
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white leading-snug">
+                Bangladesh &amp; Local Markets
               </h3>
-              <ul className="mt-6 space-y-2.5">
-                {timelineFactors.map((factor, index) => (
-                  <li
-                    key={factor}
-                    className="flex items-start gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg"
-                  >
-                    <span className="font-mono text-xs font-black text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>{factor}</span>
-                  </li>
-                ))}
+
+              <p className="text-sm font-normal text-zinc-300 leading-relaxed">
+                Framecipher provides social media management for businesses across Bangladesh, including Dhaka and other major markets.
+              </p>
+
+              <p className="text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
+                For Bangladesh-focused businesses, we can support Bangla, English, or bilingual content depending on the audience and brand strategy.
+              </p>
+
+              <ul className="space-y-2.5 pt-2 border-t border-white/[0.06] text-xs font-mono text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span>Platform-specific strategy for Bangladesh audience behavior</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span>Bangla, English, or bilingual content creation</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span>Local discovery, customer service, and community engagement</span>
+                </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-              Social growth is cumulative. We set expectations clearly at the start rather than
-              promising a specific follower count, engagement rate, or viral result.
-            </p>
-            <div className="shrink-0">
-              <PosterButton href="/contact">Start Your Social Media Management &rarr;</PosterButton>
+          {/* International Focus */}
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-9 space-y-6">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                  Global Delivery
+                </span>
+                <Globe className="h-5 w-5 text-[#A855F7]" />
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white leading-snug">
+                International Markets
+              </h3>
+
+              <p className="text-sm font-normal text-zinc-300 leading-relaxed">
+                We also work with international clients across the US, UK, Australia, Canada, UAE, and other markets.
+              </p>
+
+              <p className="text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
+                For international businesses, content can be planned around market-specific audiences, cultural context, language, and platform behavior.
+              </p>
+
+              <ul className="space-y-2.5 pt-2 border-t border-white/[0.06] text-xs font-mono text-zinc-300">
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span>Market-specific cultural context and audience expectations</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span>Nuanced language and platform usage per territory</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span>Zero generic copy — one regional style is never forced everywhere</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
-    </div>
+
+        {/* Free Consultation Banner */}
+        <div className="flex flex-col gap-6 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+              Audience-Centric Strategy
+            </span>
+            <p className="text-sm sm:text-base text-zinc-300 max-w-2xl font-normal leading-relaxed">
+              Our approach considers the audience and market instead of applying one regional content style everywhere.
+            </p>
+          </div>
+          <PosterButton href="/contact" variant="accent" className="shrink-0">
+            Get Your Free Social Audit
+          </PosterButton>
+        </div>
+      </div>
+    </section>
   )
 }

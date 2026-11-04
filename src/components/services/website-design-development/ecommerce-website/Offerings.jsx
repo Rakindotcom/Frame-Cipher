@@ -1,10 +1,10 @@
+import { Check } from 'lucide-react'
 import Link from 'next/link'
-import { SectionIntro } from '../../../Kinetic'
 
 const coreServices = [
   {
     title: 'STORE STRATEGY & ARCHITECTURE',
-    tag: 'Track 01',
+    tag: '01',
     description: 'Every store starts with a plan built around your catalog and buyer journey, not a generic template layout.',
     bullets: [
       'Catalog Structure Planning: Category and product hierarchy built for how customers actually browse.',
@@ -17,7 +17,7 @@ const coreServices = [
   },
   {
     title: 'PRODUCT & UI/UX DESIGN',
-    tag: 'Track 02',
+    tag: '02',
     description: 'Store design that looks professional while guiding shoppers toward checkout, not just browsing.',
     bullets: [
       'Product Page Design: Layouts built to convert clear pricing, imagery, and calls-to-action.',
@@ -30,7 +30,7 @@ const coreServices = [
   },
   {
     title: 'DEVELOPMENT & PAYMENT INTEGRATION',
-    tag: 'Track 03',
+    tag: '03',
     description: 'The technical build that connects your store to the payment and logistics tools you actually need.',
     bullets: [
       'Platform Development: Shopify, WooCommerce, or Magento builds matched to your catalog complexity.',
@@ -43,7 +43,7 @@ const coreServices = [
   },
   {
     title: 'TECHNICAL PERFORMANCE & SCHEMA',
-    tag: 'Track 04',
+    tag: '04',
     description: 'Speed and structured data that keep shoppers on the page and help products surface in search.',
     bullets: [
       'Speed Optimization: Fast load times across large product catalogs.',
@@ -58,30 +58,46 @@ const coreServices = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Core Capabilities / Specialized Engineering" title="Our Ecommerce Website Development Services" index="03">
-          We offer end-to-end store development tailored to your catalog size and platform.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Centered Section Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Our E-commerce Website{' '}
+            <span className="italic text-frame-accent">Development Services.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2">
+          <p className="text-base text-zinc-300 sm:text-lg">
+            We offer end-to-end store development tailored to your catalog size and platform.
+          </p>
+        </div>
+
+        {/* 2-Column Architectural Cards Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
           {coreServices.map((service, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-8"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">{service.tag}</span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+
+                <p className="mt-3 text-sm sm:text-base leading-relaxed text-zinc-300">
                   {service.description}
                 </p>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-5">
-                  <span className="text-xs font-black uppercase tracking-widest text-frame-accent">What We Do</span>
-                  <ul className="mt-3 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
+                <div className="mt-6 border-t border-white/[0.06] pt-5">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                    What We Do
+                  </span>
+                  <ul className="mt-3 space-y-2.5 text-sm text-zinc-300">
                     {service.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
+                      <li key={bIdx} className="flex items-start gap-2.5">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/10 text-frame-accent mt-0.5">
+                          <Check className="h-3 w-3 stroke-[2.5]" />
+                        </span>
                         <span>{bullet}</span>
                       </li>
                     ))}
@@ -89,15 +105,16 @@ export default function Offerings() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-frame-border/60 pt-5">
-                <p className="text-xs font-medium italic leading-relaxed text-frame-muted-fg mb-4">
-                  {service.takeaway}
+              <div className="mt-8 border-t border-white/[0.06] pt-5">
+                <p className="text-xs italic leading-relaxed text-zinc-400 mb-4">
+                  &ldquo;{service.takeaway}&rdquo;
                 </p>
                 <Link
                   href={service.link}
-                  className="inline-flex items-center text-xs font-black uppercase tracking-wider text-frame-accent hover:underline"
+                  className="inline-flex items-center gap-1 font-mono text-xs uppercase tracking-wider text-frame-accent hover:text-white transition-colors"
                 >
-                  Learn More &rarr;
+                  <span>Learn More</span>
+                  <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </div>

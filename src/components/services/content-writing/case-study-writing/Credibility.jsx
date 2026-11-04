@@ -25,20 +25,20 @@ const principles = [
 
 export default function Credibility() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Credibility standard" title="What Makes a Case Study Credible">
           Good case studies are not credible because they use polished language. They are credible because the
           story contains enough specific evidence for the reader to understand what happened.
         </SectionIntro>
 
-        <ul className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <ul className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {principles.map((item) => (
-            <li key={item.title} className="flex flex-col bg-frame-bg p-7 md:p-8">
-              <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <li key={item.title} className="flex flex-col bg-[#09090B] p-7 md:p-8">
+              <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {item.title}
               </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.text}</p>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">{item.text}</p>
             </li>
           ))}
         </ul>

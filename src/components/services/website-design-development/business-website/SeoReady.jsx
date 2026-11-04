@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const seoFoundations = [
   {
     title: 'Search-Friendly Website Structure',
@@ -29,31 +27,54 @@ const seoFoundations = [
 
 export default function SeoReady() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/20 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Built-In Technical Foundations / Long-Term Growth" title="SEO-Ready Business Website Development">
-          Your website should give future SEO campaigns a strong technical foundation from the day it launches. We build important on-page and technical elements into the development process instead of treating SEO as something to consider after launch.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            SEO-Ready Business{' '}
+            <span className="italic text-frame-accent">Website Development.</span>
+          </h2>
+          <p className="text-base text-zinc-400 sm:text-lg">
+            Your website should give future SEO campaigns a strong technical foundation from the day it launches. We build important on-page and technical elements into the development process instead of treating SEO as something to consider after launch.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border md:grid-cols-2 lg:grid-cols-3">
+        {/* Modality 1: Editorial Divided Rows */}
+        <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
           {seoFoundations.map((pillar, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">SEO Pillar 0{idx + 1}</span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pillar.title}
-                </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {pillar.desc}
-                </p>
+            <div
+              key={idx}
+              className="group py-8 transition-colors duration-200 hover:bg-white/[0.02]"
+            >
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-baseline md:gap-8">
+                {/* Col 1-3: Number and Category */}
+                <div className="md:col-span-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                    SEO 0{idx + 1}
+                  </span>
+                </div>
+                {/* Col 4-6: Headline */}
+                <div className="md:col-span-4">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                    {pillar.title}
+                  </h3>
+                </div>
+                {/* Col 7-12: Description */}
+                <div className="md:col-span-5">
+                  <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
+                    {pillar.desc}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6">
-          <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-            <strong className="text-frame-fg uppercase tracking-wider">Please Note:</strong> A technically sound website does not guarantee rankings. Search visibility also depends on content quality, competition, authority, technical performance, and ongoing SEO work.
+        {/* Disclaimer Callout Box */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8">
+          <p className="text-xs sm:text-sm font-medium leading-relaxed text-zinc-300 border-l-2 border-frame-accent pl-4">
+            <strong className="text-white uppercase tracking-wider font-mono">Please Note:</strong> A technically sound website does not guarantee rankings. Search visibility also depends on content quality, competition, authority, technical performance, and ongoing SEO work.
           </p>
         </div>
       </div>

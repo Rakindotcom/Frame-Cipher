@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for commercial-video-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for commercial-video-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Commercial Video Packages and Prices in Dhaka (BDT)",
@@ -47,7 +47,7 @@ const DATA = {
       "priceNote": "scoped quote",
       "tag": "Multi-Film",
       "cta": "Request National Campaign",
-      "description": "Multi-film campaign universe: hero TVC, OVC series, retail cutdowns and stills — one art direction across everything.",
+      "description": "Multi-film campaign universe: hero TVC, OVC series, retail cutdowns and stills, all under one art direction across everything.",
       "features": [
         "Campaign creative platform and multi-script development",
         "Multi-day production with specialty rigs and locations",
@@ -64,9 +64,9 @@ const DATA = {
     "Number of shoot days and locations",
     "Number of cutdowns, hooks and aspect ratios",
     "Motion graphics, sound design and licensed music",
-    "Turnaround: 48–72 hour express adds 30%"
+    "Turnaround: 48 to 72 hour express adds 30%"
   ],
-  "marketNote": "Bangladesh TVC production starts at ৳3,50,000 and runs past ৳10,00,000 before airtime, while lean social-first OVCs run ৳60,000–2,50,000 and shoot-based OVCs from ৳1,50,000 (Libanza 2026 guides). Premium story-driven OVCs reach ৳8,00,000–25,00,000. Our ৳88,000 OVC tier targets the proven middle: real shoot, real grade, engineered for ROAS.",
+  "marketNote": "Bangladesh TVC production starts at ৳3,50,000 and runs past ৳10,00,000 before airtime, while lean social-first OVCs run ৳60,000 to 2,50,000 and shoot-based OVCs from ৳1,50,000 (Libanza 2026 guides). Premium story-driven OVCs reach ৳8,00,000 to 25,00,000. Our ৳88,000 OVC tier targets the proven middle: real shoot, real grade, engineered for ROAS.",
   "costRows": [
     [
       "Digital OVC with 15s/30s/60s + verticals",
@@ -82,11 +82,11 @@ const DATA = {
     ],
     [
       "Celebrity/influencer talent handling",
-      "৳50,000–2,00,000"
+      "৳50,000 to 2,00,000"
     ],
     [
       "Additional language VO + versioning",
-      "৳18,000–30,000"
+      "৳18,000 to 30,000"
     ]
   ]
 }
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Commercial Video Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

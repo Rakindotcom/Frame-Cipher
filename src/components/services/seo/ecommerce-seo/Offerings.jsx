@@ -1,8 +1,26 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Compass,
+  Package,
+  Layers,
+  Server,
+  Network,
+  Code2,
+  GitFork,
+  FileEdit,
+  TrendingUp,
+  Link2,
+  ShoppingBag,
+  Clock,
+  Check,
+} from 'lucide-react'
 
 const services = [
   {
     title: 'Ecommerce Keyword & Search Intent Mapping',
+    icon: Compass,
     description: 'We research keywords based on search demand, competition, commercial intent, and your product catalog. Then we map those keywords to the pages best suited to rank.',
     points: [
       'Product keywords',
@@ -19,6 +37,7 @@ const services = [
   },
   {
     title: 'Product Page Optimization',
+    icon: Package,
     description: 'We optimize priority product pages around search intent and customer needs.',
     points: [
       'Product titles',
@@ -38,6 +57,7 @@ const services = [
   },
   {
     title: 'Category Page Optimization',
+    icon: Layers,
     description: 'Category pages often target broader commercial searches and help customers discover relevant products.',
     points: [
       'Category keyword targeting',
@@ -55,6 +75,7 @@ const services = [
   },
   {
     title: 'Ecommerce Technical SEO',
+    icon: Server,
     description: 'Technical problems can prevent search engines from properly discovering, crawling, or indexing ecommerce pages.',
     points: [
       'Crawlability',
@@ -64,8 +85,8 @@ const services = [
       'XML sitemaps',
       'Robots directives',
       'Redirects',
-      'Broken links / 404s',
-      'Pagination / load-more',
+      'Broken links',
+      'Pagination',
       'JavaScript rendering',
       'Site speed',
       'Core Web Vitals',
@@ -76,6 +97,7 @@ const services = [
   },
   {
     title: 'Site Architecture for Large Catalogs',
+    icon: Network,
     description: 'Your ecommerce structure should make it easy for customers and search engines to understand where products belong.',
     points: [
       'Category hierarchy',
@@ -93,6 +115,7 @@ const services = [
   },
   {
     title: 'Product Schema & Rich Results',
+    icon: Code2,
     description: 'Structured data helps search engines understand important product information.',
     points: [
       'Products',
@@ -107,6 +130,7 @@ const services = [
   },
   {
     title: 'Internal Linking & Crawl Optimization',
+    icon: GitFork,
     description: 'Internal links connect related pages and help distribute authority throughout your ecommerce site.',
     points: [
       'Categories and subcategories',
@@ -120,12 +144,13 @@ const services = [
   },
   {
     title: 'Ecommerce Content Strategy',
-    description: 'Ecommerce content should support your products and customer journey.',
+    icon: FileEdit,
+    description: 'Ecommerce content should support your products and customer journey. We identify content opportunities around real customer questions and commercial research.',
     points: [
       'Buying guides',
       'Product comparisons',
       'Product education',
-      '\u201CBest\u201D product content',
+      '“Best” product content',
       'How-to guides',
       'FAQs',
       'Gift guides',
@@ -136,7 +161,8 @@ const services = [
   },
   {
     title: 'Ecommerce Conversion Optimization',
-    description: 'Organic traffic only creates value when visitors can move easily toward the next step.',
+    icon: TrendingUp,
+    description: 'Organic traffic only creates value when visitors can move easily toward the next step. We review SEO-related conversion barriers on important organic landing pages.',
     points: [
       'Product page clarity',
       'Calls to action',
@@ -152,6 +178,7 @@ const services = [
   },
   {
     title: 'Ecommerce Authority & Link Building',
+    icon: Link2,
     description: 'Competitive ecommerce pages may need external authority to compete for valuable searches.',
     points: [
       'Relevant industry links',
@@ -167,7 +194,8 @@ const services = [
   },
   {
     title: 'Google Merchant Center & Shopping Feed Optimization',
-    description: 'Search SEO and product feeds serve different purposes, but both depend on accurate product information.',
+    icon: ShoppingBag,
+    description: 'Search SEO and product feeds serve different purposes, but both depend on accurate product information. Where Merchant Center support is included in your engagement, we review product feed data:',
     points: [
       'Product titles',
       'Descriptions',
@@ -180,11 +208,12 @@ const services = [
       'Feed errors',
       'Product data consistency',
     ],
-    note: 'Where Merchant Center support is included in your engagement, we review the product feed data that Google relies on across its shopping ecosystem.',
+    note: 'This helps maintain accurate product information across Google\'s shopping ecosystem.',
   },
   {
     title: 'Ongoing Ecommerce SEO Management',
-    description: 'Ecommerce stores change constantly. New products, new categories, inventory shifts, seasonal demand, and market changes all call for continuous optimization.',
+    icon: Clock,
+    description: 'Ecommerce stores change constantly. Products are added and removed. Categories expand. Competitors publish new content. Seasonal demand changes. Search behavior evolves.',
     points: [
       'New product optimization',
       'New category optimization',
@@ -202,190 +231,67 @@ const services = [
   },
 ]
 
-const platforms = [
-  {
-    title: 'Shopify SEO',
-    description: 'We optimize Shopify stores around their product, collection, theme, app, and URL structures.',
-    points: [
-      'Product and collection optimization',
-      'Shopify metadata',
-      'Canonical review',
-      'Duplicate URL management',
-      'Collection structure',
-      'Internal linking',
-      'XML sitemap review',
-      'Theme performance',
-      'App-related SEO issues',
-      'Product structured data',
-      'Indexation controls',
-    ],
-  },
-  {
-    title: 'WooCommerce SEO',
-    description: 'WooCommerce provides extensive flexibility, but plugins, taxonomies, attributes, filters, and themes can create SEO complexity.',
-    points: [
-      'Product and category optimization',
-      'WooCommerce taxonomy structure',
-      'SEO plugin configuration',
-      'Product attributes',
-      'Faceted navigation',
-      'Canonicals',
-      'XML sitemaps',
-      'Schema',
-      'Performance',
-      'Internal linking',
-      'Indexation management',
-    ],
-  },
-  {
-    title: 'Custom Ecommerce SEO',
-    description: 'Custom ecommerce platforms often require SEO and development to work together.',
-    points: [
-      'Product URLs',
-      'Category structures',
-      'Rendering',
-      'JavaScript',
-      'Pagination',
-      'Filters',
-      'Search functionality',
-      'Canonicals',
-      'Structured data',
-      'XML sitemaps',
-      'Redirects',
-      'Indexation controls',
-    ],
-    note: 'This approach is useful when important SEO improvements require development-level changes.',
-  },
-]
-
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Capabilities & Scope" title="Our Ecommerce SEO Services">
-          Our ecommerce SEO services cover the areas that influence how products and categories
-          are discovered, crawled, indexed, ranked, and converted.
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Capability 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.description}
-                </p>
-                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-
-          <div className="flex flex-col border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Capability 13
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                Platform-Specific Ecommerce SEO
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                We optimize across the platforms we build on: Shopify, WooCommerce, and custom
-                ecommerce builds.
-              </p>
-              <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                {['Shopify SEO', 'WooCommerce SEO', 'Custom Ecommerce SEO'].map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Capabilities // 12-Pillar Execution
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Our Ecommerce{' '}
+            <span className="italic text-frame-accent">SEO Services</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            Our ecommerce SEO services cover the areas that influence how products and categories are discovered, crawled, indexed, ranked, and converted.
+          </p>
         </div>
 
-        <div className="mt-10 border-2 border-frame-border bg-frame-bg">
-          <div className="border-b-2 border-frame-border p-7 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Built for your platform
-            </span>
-            <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-              Platform-Specific Ecommerce SEO
-            </h3>
-            <p className="mt-4 max-w-4xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Different ecommerce platforms create different technical structures and SEO
-              challenges. We adapt the strategy to your platform instead of applying the same
-              checklist to every store.
-            </p>
-          </div>
-          <div className="grid gap-6 p-7 lg:grid-cols-3 md:p-10">
-            {platforms.map((platform) => (
+        {/* 12 Service Cards Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((item, idx) => {
+            const Icon = item.icon
+            return (
               <div
-                key={platform.title}
-                className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent"
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-colors hover:border-white/[0.16] hover:bg-[#151518]"
               >
                 <div>
-                  <h4 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                    {platform.title}
-                  </h4>
-                  <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {platform.description}
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">Pillar {String(idx + 1).padStart(2, '0')}</span>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-lg sm:text-xl font-semibold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.description}
                   </p>
-                  <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                    {platform.points.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
+
+                  <ul className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
                       </li>
                     ))}
                   </ul>
-                  {platform.note && (
-                    <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                      {platform.note}
-                    </p>
-                  )}
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] text-zinc-400 leading-relaxed italic">
+                    &rarr; {item.note}
+                  </p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure where to start?
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Start with a free consultation
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We review your store and recommend which ecommerce SEO services will have the most
-              impact first.
-            </p>
-          </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
-          </div>
+            )
+          })}
         </div>
       </div>
     </section>

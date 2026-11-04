@@ -1,7 +1,7 @@
 'use client'
 
-import { MessageSquare, FileCheck2, CalendarCheck, Clapperboard, CheckCheck } from 'lucide-react'
-import { SectionIntro, PosterButton } from '../Kinetic'
+import React from 'react'
+import { MessageSquare, FileCheck2, CalendarCheck, Clapperboard, CheckCheck, ArrowRight } from 'lucide-react'
 
 const steps = [
   { step: '01', title: 'Discuss your project', icon: MessageSquare, description: 'Tell us what to produce, who it is for and where it will publish. Share references or scripts.', action: 'Brief & format lock' },
@@ -13,38 +13,77 @@ const steps = [
 
 export default function StudioProcess() {
   return (
-    <section id="process" className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="How booking works" title="Studio booking in 5 steps." index="06">
-          To start, send three WhatsApp messages to +880 1768-146650: your date, your setup and your goal. Then
-          expect an itemised quote within 48 hours.
-        </SectionIntro>
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-5">
+    <section id="process" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Studio booking in{' '}
+              <span className="italic text-frame-accent">five steps.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
+            To start, send three WhatsApp messages to +880 1768-146650: your date, your setup, and your goal. Receive an itemised quote within 48 hours.
+          </p>
+        </div>
+
+        {/* Modality 2 Architectural Divided Band (5-Column Continuum) */}
+        <div className="grid grid-cols-1 border border-white/[0.08] rounded-xl bg-[#121214] overflow-hidden divide-y md:divide-y-0 md:divide-x divide-white/[0.08] md:grid-cols-5">
           {steps.map((st) => {
             const Icon = st.icon
             return (
-              <div key={st.step} className="group relative flex flex-col justify-between overflow-hidden bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-muted/30 md:p-7">
-                <span className="pointer-events-none absolute -bottom-6 -right-2 select-none font-heading text-[6rem] font-bold leading-none tracking-tighter text-frame-muted/25 md:text-[7rem]" aria-hidden="true">
-                  {st.step}
-                </span>
-                <div className="relative z-10">
-                  <div className="flex items-center justify-between border-b border-frame-border/60 pb-4">
-                    <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Step {st.step}</span>
-                    <Icon className="h-5 w-5 text-frame-muted-fg transition-colors group-hover:text-frame-accent" />
+              <div
+                key={st.step}
+                className="p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-colors duration-200 hover:bg-white/[0.02]"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                    <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                      Step {st.step}
+                    </span>
+                    <Icon className="h-4 w-4 text-zinc-500" />
                   </div>
-                  <h3 className="mt-5 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">{st.title}</h3>
-                  <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">{st.description}</p>
+
+                  <h3 className="mt-5 font-heading text-lg font-medium text-white leading-snug">
+                    {st.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                    {st.description}
+                  </p>
                 </div>
-                <div className="relative z-10 mt-6 border-t border-frame-border/60 pt-4">
-                  <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-frame-accent">{st.action} &rarr;</span>
+
+                <div className="border-t border-white/[0.08] pt-4">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                    <span>{st.action}</span>
+                    <ArrowRight className="h-3 w-3" />
+                  </span>
                 </div>
               </div>
             )
           })}
         </div>
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border border-frame-border bg-frame-muted/20 p-6 sm:flex-row">
-          <p className="text-sm font-medium text-frame-muted-fg wide:text-lg">Your date, your setup, your goal — three messages and we take it from there.</p>
-          <PosterButton href="https://wa.me/8801768146650" className="shrink-0 text-xs">Start on WhatsApp</PosterButton>
+
+        {/* WhatsApp Consultation Action Strip */}
+        <div className="mt-10 flex flex-col items-center justify-between gap-6 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 sm:flex-row">
+          <p className="text-sm sm:text-base font-normal text-zinc-300 max-w-xl">
+            Your date, your setup, your goal: three quick messages on WhatsApp, and we take sovereign ownership from there.
+          </p>
+          <a
+            href="https://wa.me/8801768146650"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group inline-flex h-[52px] items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 font-mono text-xs uppercase tracking-wider text-white transition-all hover:border-white/40 hover:bg-white/10 shrink-0"
+          >
+            <span>Start on WhatsApp</span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-200 group-hover:translate-x-1"
+            >
+              &rarr;
+            </span>
+          </a>
         </div>
       </div>
     </section>

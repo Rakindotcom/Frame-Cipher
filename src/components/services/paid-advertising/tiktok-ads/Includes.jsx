@@ -1,295 +1,306 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React, { useState } from 'react'
+import {
+  Settings,
+  Palette,
+  Users,
+  Flame,
+  Target,
+  Sparkles,
+  ShoppingBag,
+  Store,
+  Layers,
+  Activity,
+  BarChart2,
+  CheckCircle2,
+  ChevronRight,
+} from 'lucide-react'
 
 const services = [
   {
-    title: 'Campaign Strategy & Account Setup',
-    body: [
-      'Every campaign starts with the business goal rather than the ad format. We review your offer, audience, sales funnel, landing pages, conversion events, budget, and market before deciding how the account should be structured.',
-    ],
-    label: 'What we do',
-    bullets: [
+    id: 'strategy',
+    icon: Settings,
+    name: 'Campaign Strategy & Setup',
+    subtitle: 'Account Architecture & Setup',
+    desc: 'Every campaign starts with the business goal rather than the ad format. We review your offer, audience, sales funnel, landing pages, conversion events, budget, and market before deciding how the account should be structured.',
+    deliverables: [
       'Campaign objective and conversion goal selection',
       'TikTok Ads Manager setup and account configuration',
-      'Business Center and advertising asset setup where required',
-      'Campaign and ad group structure',
-      'Budget and bidding strategy',
-      'Geographic and audience planning',
-      'Landing-page and funnel review',
-      'Competitor and creative research',
-      'Initial measurement plan',
+      'Business Center and advertising asset coordination',
+      'Campaign and ad group hierarchy taxonomy',
+      'Budget pacing and bidding strategy calibration',
+      'Geographic and audience tier segmentation',
+      'Landing-page and funnel conversion review',
+      'Competitor creative analysis and benchmark research',
     ],
-    note: 'The objective may differ by business. A campaign designed to generate website traffic needs a different optimization approach from one designed to generate purchases or qualified leads.',
+    technicalNote:
+      'A campaign designed to generate website traffic needs a fundamentally different optimization approach from one designed to generate high-value checkouts or qualified B2B inquiries.',
   },
   {
-    title: 'TikTok Ads Creative Strategy',
-    body: [
-      'TikTok users scroll through a continuous stream of content, so the creative needs to earn attention quickly. We develop creative concepts around the audience, offer, product, and campaign objective rather than simply resizing existing advertisements from another platform.',
+    id: 'creative',
+    icon: Palette,
+    name: 'Creative Strategy & Testing',
+    subtitle: 'Hook Architecture & Video Scripts',
+    desc: 'TikTok users scroll through an endless stream of content, so creative needs to earn attention in the first 2 seconds. We build meaningful variations testing hooks, messages, angles, and formats.',
+    deliverables: [
+      'Creative concept development tailored to platform culture',
+      'Hook testing across the crucial opening 2–3 seconds',
+      'Short-form video scripting with high-pacing storytelling',
+      'Native-style ad concepts (demonstrations & problem-solution)',
+      'Product-in-use showcases and testimonial angles',
+      'Offer-led creative variants and seasonal messaging',
+      'Multi-angle testing matrices (visuals, copy, audio)',
+      'Performance-based creative refresh cycles',
     ],
-    label: 'What we do',
-    bullets: [
-      'Creative concept development',
-      'Hook and opening-frame testing',
-      'Short-form video scripting',
-      'Native-style ad concepts',
-      'Product demonstrations',
-      'Problem\u2013solution videos',
-      'Testimonial and UGC concepts',
-      'Offer-led creative',
-      'Creative variation planning',
-      'Performance-based creative refreshes',
-    ],
-    note: 'The goal is not to make every ad look the same. We build enough meaningful variation to learn which messages, hooks, formats, and offers resonate with the target audience.',
+    technicalNote:
+      'We do not resize Instagram ads for TikTok. Creative is engineered natively with 9:16 vertical formatting, safe-zone awareness, and sound-on narrative structure.',
   },
   {
-    title: 'UGC & Creator Content',
-    body: [
-      'User-generated and creator-led content can help brands communicate in a more natural format. Framecipher can help plan creator briefs, content requirements, scripts, hooks, and paid usage requirements. We focus on finding content that supports the campaign objective rather than selecting creators based only on follower count.',
+    id: 'ugc',
+    icon: Users,
+    name: 'UGC & Creator Content',
+    subtitle: 'Authentic Peer-to-Peer Storytelling',
+    desc: 'User-generated and creator-led content helps brands communicate in a more natural format. We coordinate briefs, hooks, scripts, and paid usage requirements built around conversion performance.',
+    deliverables: [
+      'UGC concept development and conversion angle planning',
+      'Structured creator briefing with specific hook requirements',
+      'Product demonstration guides and unboxing scripting',
+      'Creator content quality review and revision rounds',
+      'Paid media usage rights coordination and contract terms',
+      'Paid advertising adaptation with clear text overlays and CTAs',
+      'Performance-based creator selection and roster scaling',
+      'Direct integration into Spark Ads distribution',
     ],
-    label: 'What we do',
-    bullets: [
-      'UGC concept development',
-      'Creator briefing',
-      'Script and hook guidance',
-      'Product demonstration briefs',
-      'Creator content review',
-      'Usage-rights coordination',
-      'Paid media adaptation',
-      'Performance-based creative selection',
-    ],
-    note: 'Creator content should still be evaluated as advertising creative. A large audience does not automatically mean a creator\u2019s content will produce qualified traffic or conversions.',
+    technicalNote:
+      'A large follower count does not guarantee advertising conversion. We select and evaluate creators based on authentic communication, narrative clarity, and audience resonance.',
   },
   {
-    title: 'Spark Ads',
-    body: [
-      'Spark Ads allow eligible organic TikTok content to be used in advertising while retaining the original post identity and engagement elements. We use Spark Ads when existing organic or creator content provides a strong foundation for paid distribution.',
+    id: 'spark',
+    icon: Flame,
+    name: 'Spark Ads Management',
+    subtitle: 'Amplifying Organic Social Proof',
+    desc: 'Spark Ads allow eligible organic TikTok content from your brand or creators to be deployed as paid ads while retaining the original post identity, comments, shares, and music attribution.',
+    deliverables: [
+      'Spark Ads campaign configuration in Ads Manager',
+      'High-performing organic content selection and auditing',
+      'Creator authorization workflows and Spark code collection',
+      'Creator content A/B testing in paid advertising auctions',
+      'Paid amplification of viral organic reach and social proof',
+      'Real-time comment sentiment monitoring and response guidance',
+      'Creative scaling and refresh schedules for fatigue prevention',
+      'Attribution tracking for organic profile lift and direct conversions',
     ],
-    label: 'What we do',
-    bullets: [
-      'Spark Ads campaign setup',
-      'Organic-content selection',
-      'Creator authorization coordination',
-      'Spark code and authorization workflow support',
-      'Creator content testing',
-      'Paid amplification',
-      'Performance monitoring',
-      'Creative scaling and refresh',
-    ],
-    note: 'The decision to scale a Spark Ad is based on campaign performance, creative quality, audience response, and business results rather than engagement alone.',
+    technicalNote:
+      'Spark Ads preserve all organic interaction metrics (likes, comments, profile visits) directly on the post, generating compound brand equity alongside direct response conversions.',
   },
   {
-    title: 'Audience Strategy & Retargeting',
-    body: [
-      'TikTok audience strategy can combine broad delivery, interest and behavior signals, custom audiences, lookalike audiences, and automated optimization. We build the audience strategy around the campaign objective and available first-party data.',
+    id: 'targeting',
+    icon: Target,
+    name: 'Audience Strategy & Retargeting',
+    subtitle: 'First-Party Signals & Lookalikes',
+    desc: 'TikTok audience strategy combines broad delivery, interest and behavior signals, custom audiences, lookalike audiences, and automated optimization based on real conversion feedback.',
+    deliverables: [
+      'Geographic, language, and demographic parameter controls',
+      'Interest and category-specific behavioral targeting',
+      'Custom audience creation from customer lists and CRM exports',
+      'Website visitor segmentation and product-view retargeting',
+      'Video engagement custom audiences (watched 25%, 50%, 100%)',
+      'Lookalike audience modeling on top 5% revenue customers',
+      'Multi-step retargeting sequences moving prospects to checkout',
+      'Audience exclusion lists to prevent wasted media spend',
     ],
-    label: 'What we do',
-    bullets: [
-      'Geographic targeting',
-      'Interest and behavior targeting',
-      'Custom audiences',
-      'Website visitor audiences',
-      'Customer-list audiences',
-      'Video engagement audiences',
-      'Lookalike audiences',
-      'Retargeting sequences',
-      'Broad audience testing',
-      'Audience exclusions where appropriate',
-    ],
-    note: 'We do not assume that narrower targeting is always better. In some campaigns, broader delivery can give TikTok more room to identify potential customers. In others, first-party audience signals can provide useful direction.',
+    technicalNote:
+      'We test both broad targeting—giving TikTok’s algorithm room to locate high-intent buyers—and focused first-party retargeting layers to capture warmer demand.',
   },
   {
-    title: 'Smart+ Campaign Management',
-    body: [
-      'TikTok\u2019s Smart+ solutions use automation to simplify campaign setup and optimize parts of delivery across performance objectives. TikTok currently supports Smart+ workflows across areas including Traffic, App Promotion, Lead Generation, and Sales. Framecipher can evaluate when Smart+ makes sense and when more manual control is useful.',
+    id: 'smartplus',
+    icon: Sparkles,
+    name: 'Smart+ Campaign Management',
+    subtitle: 'Automated Auction Intelligence',
+    desc: 'TikTok’s Smart+ solutions leverage advanced machine learning to streamline campaign setup and optimize creative delivery across Traffic, App Promotion, Lead Gen, and Sales objectives.',
+    deliverables: [
+      'Smart+ campaign configuration and objective setup',
+      'Automated creative asset combination and testing matrices',
+      'Audience signal planning and seed list integration',
+      'Automated budget allocation and real-time bid adjustments',
+      'Comprehensive performance monitoring and anomaly alerts',
+      'A/B evaluation between Smart+ and manual campaign structures',
+      'Controlled budget scaling based on downstream ROAS evidence',
+      'Strategic manual overrides where data justifies control',
     ],
-    label: 'What we do',
-    bullets: [
-      'Smart+ campaign setup',
-      'Objective and conversion configuration',
-      'Creative selection and testing',
-      'Audience signal planning',
-      'Budget and bidding configuration',
-      'Performance monitoring',
-      'Manual-versus-automated campaign evaluation',
-      'Scaling and optimization',
-    ],
-    note: 'Automation does not remove the need for strategy. The quality of the conversion signals, creative assets, offer, landing page, and measurement setup still matters.',
+    technicalNote:
+      'Automation does not eliminate strategy. The quality of conversion signals, creative variety, offer strength, and landing-page speed dictates Smart+ algorithmic success.',
   },
   {
-    title: 'TikTok Catalog & Ecommerce Ads',
-    body: [
-      'For ecommerce brands, TikTok can connect product information and catalog data with advertising campaigns. We help businesses structure product catalogs, connect ecommerce data, and build campaigns around product discovery, consideration, and conversion.',
+    id: 'catalog',
+    icon: ShoppingBag,
+    name: 'Catalog & Ecommerce Ads',
+    subtitle: 'Dynamic Merchant Feed Integration',
+    desc: 'For ecommerce brands, TikTok connects dynamic product information and catalog feeds directly with video ads for seamless product discovery, consideration, and purchase.',
+    deliverables: [
+      'Product catalog setup and merchant feed integration',
+      'Data source health checks and inventory sync validation',
+      'Product-set organization by category, margin, or bestsellers',
+      'Dynamic product advertising with custom video card overlays',
+      'Catalog-based retargeting for cart abandoners and viewers',
+      'Website sales campaign setup with value-optimized bidding',
+      'Product-level creative testing and performance monitoring',
+      'Multi-currency and international catalog localization',
     ],
-    label: 'What we do',
-    bullets: [
-      'Product catalog setup',
-      'Catalog connection',
-      'Product-set organization',
-      'Ecommerce event tracking',
-      'Dynamic product advertising',
-      'Catalog-based retargeting',
-      'Product creative testing',
-      'Website sales campaigns',
-    ],
-    note: 'TikTok currently supports catalog-based advertising and Smart+ Catalog workflows, including ecommerce and app-retargeting use cases.',
+    technicalNote:
+      'TikTok supports Smart+ Catalog workflows, dynamically pairing catalog item cards with video creative to serve personalized product recommendations to users.',
   },
   {
-    title: 'TikTok Shop Advertising Where Available',
-    body: [
-      'TikTok Shop provides an in-platform shopping experience where eligible businesses can sell products through TikTok. However, TikTok Shop is not available in every market. TikTok currently lists specific supported markets, including the United States, United Kingdom, and several Southeast Asian and European markets. Bangladesh is not currently listed among the supported TikTok Shop markets.',
+    id: 'shop',
+    icon: Store,
+    name: 'TikTok Shop (Where Supported)',
+    subtitle: 'In-Platform Social Commerce',
+    desc: 'TikTok Shop provides a frictionless in-app shopping experience in eligible international markets (US, UK, select Southeast Asian and European markets).',
+    deliverables: [
+      'TikTok Shop advertising setup and account linking',
+      'GMV Max campaign management (TikTok default standard)',
+      'Video Shopping Ads with direct product anchor tags',
+      'Product Shopping Ads across TikTok Shop tab placements',
+      'LIVE Shopping Ads strategy and real-time event support',
+      'Creator-led affiliate commerce and campaign amplification',
+      'Shop-focused inventory and conversion rate optimization',
+      'Alternative website/lead funnels for ineligible territories',
     ],
-    label: 'For eligible international clients, we can support',
-    bullets: [
-      'TikTok Shop advertising setup',
-      'Product and catalog coordination',
-      'Video Shopping Ads',
-      'LIVE Shopping Ads',
-      'Product Shopping Ads',
-      'Creator-led commerce campaigns',
-      'Shop-focused performance optimization',
-    ],
-    note: 'For Bangladesh-based businesses without TikTok Shop eligibility, we can instead structure campaigns around supported websites, catalog, lead, or app destinations.',
+    technicalNote:
+      'TikTok Shop is not currently available for Bangladesh-based entity accounts. For clients targeting supported international markets, we manage full in-platform GMV Max campaigns.',
   },
   {
-    title: 'Lead Generation & App Campaigns',
-    body: [
-      'TikTok Ads can support more than ecommerce. We manage campaigns for businesses that need leads, app installs, app re-engagement, or other measurable acquisition actions.',
+    id: 'tracking',
+    icon: Activity,
+    name: 'Pixel & Events API (CAPI)',
+    subtitle: 'Dual-Layer Signal Infrastructure',
+    desc: 'Reliable measurement begins with a resilient data connection. We configure both the browser-based TikTok Pixel and the server-side Events API for complete signal preservation.',
+    deliverables: [
+      'TikTok Pixel deployment across all website page templates',
+      'Server-side Events API implementation and cloud setup',
+      'Standard event configuration (ViewContent, AddToCart, Purchase)',
+      'Custom event mapping for multi-step conversion funnels',
+      'Browser and server event deduplication via event_id',
+      'Enhanced data sharing with advanced customer matching',
+      'Server-side payload encryption and privacy compliance',
+      'Event quality health score audits and diagnostics',
     ],
-    groups: [
-      {
-        label: 'Lead generation',
-        bullets: [
-          'Lead campaign setup',
-          'Lead form configuration',
-          'Lead qualification strategy',
-          'CRM handoff planning',
-          'Lead-quality measurement',
-          'Retargeting',
-        ],
-      },
-      {
-        label: 'App promotion',
-        bullets: [
-          'App acquisition campaigns',
-          'App retargeting',
-          'Conversion event setup',
-          'Mobile measurement integration',
-          'Creative testing',
-          'Cost-per-acquisition monitoring',
-        ],
-      },
-    ],
-    note: 'TikTok currently supports Smart+ App campaigns and app-retargeting workflows, including catalog-based app campaigns.',
-  },
-  {
-    title: 'TikTok Pixel & Events API',
-    body: [
-      'Reliable measurement starts with a reliable data connection. We configure TikTok Pixel and Events API based on the website, app, CRM, and conversion setup.',
-    ],
-    label: 'What we do',
-    bullets: [
-      'TikTok Pixel installation',
-      'Standard event configuration',
-      'Event parameter setup',
-      'Events API implementation',
-      'Event deduplication',
-      'Purchase and revenue tracking',
-      'Lead conversion tracking',
-      'Data connection testing',
-    ],
-    note: 'TikTok recommends Pixel and Events API together where appropriate because the combination can improve data reliability, measurement, audience creation, and optimization. Events API can also connect web, app, and offline or CRM data sources.',
-  },
-  {
-    title: 'Conversion Tracking & Attribution',
-    body: [
-      'Ad-platform metrics are only part of the picture. We connect TikTok campaign data with the broader conversion journey so you can understand what happens after the click.',
-    ],
-    label: 'What we track',
-    bullets: [
-      'Landing-page visits',
-      'Product views',
-      'Add-to-cart actions',
-      'Checkout activity',
-      'Purchases',
-      'Lead submissions',
-      'App events',
-      'Revenue',
-      'Cost per acquisition',
-      'ROAS where sufficient data exists',
-    ],
-    note: 'Where appropriate, we also use UTM parameters, GA4, CRM data, and other available first-party signals to improve campaign analysis.',
+    technicalNote:
+      'Deploying Pixel and Events API together prevents conversion loss caused by browser ad blockers, iOS privacy policies, and cookie expiration, dramatically improving algorithmic optimization.',
   },
 ]
 
 export default function Includes() {
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Capabilities & scope"
-          title="What TikTok Ads Management Includes"
-        >
-          TikTok Ads management covers strategy, native creative, UGC and creator content, Spark
-          Ads, audience strategy, Smart+ automation, catalog and ecommerce advertising, TikTok
-          Shop where available, tracking, and ongoing optimization.
-        </SectionIntro>
+  const [activeTab, setActiveTab] = useState(services[0].id)
+  const currentService = services.find((s) => s.id === activeTab) || services[0]
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          {services.map((item, index) => (
-            <div key={index} className="flex flex-col bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Service 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body.map((paragraph, pIdx) => (
-                  <p key={pIdx}><AutoLinks currentPath="/services/paid-advertising/tiktok-ads" allowed={["/services/website-design-development/landing-pages"]}>{paragraph}</AutoLinks></p>
+  return (
+    <section id="services" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What TikTok Ads Management{' '}
+            <span className="italic text-frame-accent">Includes.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            From creative scripting and Spark Ads coordination to server-side Events API tracking, Smart+ automated bidding, and international TikTok Shop execution.
+          </p>
+        </div>
+
+        {/* Interactive Vertical Y-Axis Tabs Layout */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:gap-10 items-start">
+          {/* Left Column: Interactive Vertical Y-Axis Tab Buttons (4 cols) */}
+          <div className="lg:col-span-4 flex flex-col space-y-2">
+            {services.map((service) => {
+              const Icon = service.icon
+              const isActive = service.id === activeTab
+              return (
+                <button
+                  key={service.id}
+                  type="button"
+                  onClick={() => setActiveTab(service.id)}
+                  className={`group flex w-full items-center justify-between rounded-xl border p-4 text-left transition-colors duration-200 ${
+                    isActive
+                      ? 'border-frame-accent/60 bg-[#18181B] text-white'
+                      : 'border-white/[0.06] bg-[#121214] hover:border-white/[0.14] hover:bg-[#18181B]/70 text-zinc-400'
+                  }`}
+                >
+                  <div className="flex items-center gap-3.5 min-w-0">
+                    <span
+                      className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border text-xs font-mono transition-colors ${
+                        isActive
+                          ? 'border-frame-accent/40 bg-frame-accent/10 text-frame-accent'
+                          : 'border-white/[0.08] bg-white/[0.04] text-zinc-400 group-hover:text-white'
+                      }`}
+                    >
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <div className="min-w-0">
+                      <p
+                        className={`font-heading text-sm font-medium uppercase tracking-wide truncate ${
+                          isActive ? 'text-white' : 'text-zinc-300 group-hover:text-white'
+                        }`}
+                      >
+                        {service.name}
+                      </p>
+                      <p className="font-mono text-[10px] uppercase text-zinc-400 truncate">
+                        {service.subtitle}
+                      </p>
+                    </div>
+                  </div>
+                  <ChevronRight
+                    className={`h-4 w-4 shrink-0 transition-transform duration-200 ${
+                      isActive
+                        ? 'translate-x-1 text-frame-accent'
+                        : 'text-zinc-600 group-hover:translate-x-0.5 group-hover:text-zinc-400'
+                    }`}
+                  />
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Right Column: Active Tab Detailed Deliverables Panel (8 cols) */}
+          <div className="lg:col-span-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 lg:p-10 transition-colors duration-300">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-frame-accent/30 bg-frame-accent/10 text-frame-accent">
+                {React.createElement(currentService.icon, { className: 'h-5 w-5' })}
+              </div>
+              <div>
+                <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+                  {currentService.name}
+                </h3>
+              </div>
+            </div>
+
+            <p className="text-base sm:text-lg text-zinc-300 font-normal leading-relaxed mb-6">
+              {currentService.desc}
+            </p>
+
+            <div className="border-t border-white/[0.08] pt-6 mb-6">
+              <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-4">
+                What We Deliver:
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {currentService.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                    <span className="text-xs sm:text-sm text-zinc-300 leading-snug">
+                      {item}
+                    </span>
+                  </div>
                 ))}
               </div>
-              {item.bullets?.length > 0 && (
-                <div className="mt-5">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {item.label}:
-                  </span>
-                  <ul className="mt-3 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                    {item.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {item.groups?.length > 0 && (
-                <div className="mt-5 grid gap-5 sm:grid-cols-2">
-                  {item.groups.map((group, gIdx) => (
-                    <div key={gIdx}>
-                      <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                        {group.label}:
-                      </span>
-                      <ul className="mt-3 space-y-2 text-xs font-semibold text-frame-fg/90">
-                        {group.bullets.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2">
-                            <span className="text-frame-accent font-bold">✓</span>
-                            <span className="leading-snug">{bullet}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {item.note && (
-                <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.note}
-                </div>
-              )}
             </div>
-          ))}
+
+            {/* Technical Verification Note */}
+            <div className="rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs font-mono text-zinc-400">
+              <span className="text-frame-accent font-bold mr-1.5">TECHNICAL NOTE:</span>
+              <span>{currentService.technicalNote}</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

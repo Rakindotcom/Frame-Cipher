@@ -9,7 +9,6 @@ import {
 } from "@/lib/blog/getBlogPosts";
 import { DetailedBlogPost } from "@/lib/blog/canonicalPosts";
 import { WordPressSidebar } from "@/components/blog/WordPressSidebar";
-import { PageHero, CTASection } from "@/components/Kinetic";
 import {
   Search,
   BookOpen,
@@ -17,9 +16,7 @@ import {
   Eye,
   Calendar,
   ArrowRight,
-  SlidersHorizontal,
   ChevronRight,
-  Sparkles,
 } from "lucide-react";
 
 import { resolveAuthorImage } from "@/lib/authors/getAuthors";
@@ -205,54 +202,50 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
   const regularPosts = filteredPosts.filter((p) => p.id !== featuredPost?.id);
 
   return (
-    <div className="min-h-screen bg-frame-bg text-frame-fg font-body relative overflow-x-hidden">
-      {/* 1. Kinetic Hero Header */}
-      <PageHero
-        number="03"
-        eyebrow="FrameCipher Blog"
-        meta="Strategic Dispatches & Playbooks"
-        title="FRAME CIPHER BLOG & GROWTH PLAYBOOKS"
-      >
-        Proprietary frameworks, front-end architecture benchmarks, and conversion engineering from our senior strategy team.
-      </PageHero>
+    <div className="blog-page min-h-screen bg-[#09090B] text-white font-sans relative overflow-x-hidden">
+      {/* 1. Master Editorial Blog Hero */}
+      <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 pt-32 pb-16 text-white sm:px-6 md:px-8 md:pt-40 md:pb-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+              Strategic Dispatches &amp; Playbooks
+            </span>
+          </div>
 
-      {/* 2. Kinetic Category Ticker / Marquee */}
-      <div className="border-b-2 border-frame-border bg-frame-muted/30 py-3 overflow-hidden">
-        <div className="flex items-center gap-8 whitespace-nowrap animate-marquee font-heading text-xs font-bold uppercase tracking-[0.25em] text-frame-muted-fg">
-          <span>// WEBFLOW ENTERPRISE ARCHITECTURE</span>
-          <span className="text-frame-accent">★</span>
-          <span>FULL-FUNNEL GROWTH SYSTEMS</span>
-          <span className="text-frame-accent">★</span>
-          <span>KINETIC UI/UX DESIGN LANGUAGE</span>
-          <span className="text-frame-accent">★</span>
-          <span>PROGRAMMATIC B2B SEO</span>
-          <span className="text-frame-accent">★</span>
-          <span>CONVERSION RATE VELOCITY</span>
-          <span className="text-frame-accent">★</span>
-          <span>MULTI-LOCALE CMS SCHEMAS</span>
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.02] tracking-[-0.03em] text-white">
+            Blog &amp; Growth{' '}
+            <span className="italic text-frame-accent">
+              Playbooks.
+            </span>
+          </h1>
+
+          <p className="mt-6 max-w-3xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Proprietary frameworks, front-end architecture benchmarks, and conversion engineering from our senior strategy team.
+          </p>
         </div>
-      </div>
+      </section>
 
-      {/* 3. Main Content Container */}
+      {/* 2. Main Content Container */}
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-10">
-        {/* Search & Category Filter Toolbar */}
-        <div className="rounded-2xl border-2 border-frame-border bg-[#121216]/90 backdrop-blur-md p-5 sm:p-6 shadow-xl space-y-5">
+        {/* Search Toolbar */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-4 sm:p-5">
           <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
             {/* Search Input */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-frame-muted-fg" />
+            <div className="relative flex-1 max-w-lg">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-zinc-500" />
               <input
                 type="text"
-                placeholder="Search blog articles, playbooks, Webflow..."
+                placeholder="Search blog articles, playbooks..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#18181B] border border-frame-border text-sm text-frame-fg placeholder:text-frame-muted-fg focus:outline-hidden focus:border-frame-accent focus:ring-1 focus:ring-frame-accent transition-all font-body wide:text-lg"
+                className="w-full pl-11 pr-10 py-3 rounded-lg bg-[#18181B] border border-white/[0.08] text-sm text-white placeholder:text-zinc-500 focus:outline-none focus:border-purple-400 font-mono transition-colors"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-frame-muted-fg hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-mono text-zinc-400 hover:text-white"
                 >
                   Clear
                 </button>
@@ -260,46 +253,24 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
             </div>
 
             {/* Results count pill */}
-            <div className="flex items-center gap-2 text-xs font-mono text-frame-muted-fg self-end md:self-auto">
-              <span className="h-2 w-2 rounded-full bg-frame-accent animate-pulse" />
+            <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 self-end md:self-auto">
+              <span className="h-2 w-2 rounded-full bg-purple-400 animate-pulse" />
               <span>{filteredPosts.length} Articles Published</span>
             </div>
           </div>
-
-          {/* Category Filter Pills (Horizontal Top Quick Filter) */}
-          <div className="pt-3 border-t border-frame-border flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
-            <SlidersHorizontal className="h-4 w-4 text-frame-muted-fg shrink-0 mr-1 hidden sm:block" />
-            {categoriesList.map((cat) => {
-              const isActive = selectedCategory === cat;
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-heading font-bold uppercase tracking-wider whitespace-nowrap transition-all duration-200 border ${
-                    isActive
-                      ? "bg-frame-accent text-white border-frame-accent shadow-md shadow-purple-500/25"
-                      : "bg-[#18181B] text-frame-muted-fg border-frame-border hover:border-frame-accent hover:text-white"
-                  }`}
-                >
-                  {cat}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
-        {/* 4. Two-Column Layout (8 Col Articles + 4 Col WordPress Sidebar) */}
+        {/* 3. Two-Column Layout (8 Col Articles + 4 Col WordPress Sidebar) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Main Column */}
           <div className="lg:col-span-8 space-y-10 min-w-0">
             {filteredPosts.length === 0 ? (
-              <div className="rounded-2xl border-2 border-frame-border bg-[#121216] p-12 text-center space-y-4">
-                <BookOpen className="h-10 w-10 text-frame-muted-fg mx-auto opacity-50" />
-                <h3 className="font-heading text-xl font-bold uppercase text-white">
+              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-12 text-center space-y-4">
+                <BookOpen className="h-10 w-10 text-zinc-500 mx-auto opacity-50" />
+                <h3 className="font-heading text-xl font-medium text-white">
                   {searchQuery ? "No Articles Found" : "No Articles Published Yet"}
                 </h3>
-                <p className="text-sm text-frame-muted-fg max-w-md mx-auto wide:text-lg">
+                <p className="text-sm text-zinc-400 max-w-md mx-auto">
                   {searchQuery
                     ? `No published articles match "${searchQuery}". Try selecting another strategic category or clearing your search.`
                     : "Strategic playbooks and dispatches created in the FrameCipher Admin Portal will be published here automatically."}
@@ -311,7 +282,7 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                       setSelectedCategory("All Articles");
                       setSearchQuery("");
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-frame-accent text-white font-heading text-xs font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
+                    className="sw-btn sw-btn-primary"
                   >
                     Reset Filters
                   </button>
@@ -321,15 +292,9 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
               <>
                 {/* Featured Post Spotlight Card with Prominent Featured Image */}
                 {featuredPost && (
-                  <article className="relative overflow-hidden rounded-3xl border-2 border-frame-border bg-linear-to-b from-[#18181B] via-[#121216] to-[#09090B] p-6 sm:p-8 hover:border-frame-accent transition-all duration-300 group shadow-2xl space-y-6">
-                    {/* Top ambient glow */}
-                    <div
-                      aria-hidden="true"
-                      className="pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-frame-accent/15 blur-3xl group-hover:bg-frame-accent/25 transition-all duration-500"
-                    />
-
+                  <article className="group relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 transition-colors duration-200 hover:border-white/[0.14] space-y-6">
                     {/* FEATURED IMAGE DISPLAY */}
-                    <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-frame-border bg-[#09090B]">
+                    <div className="relative w-full h-64 sm:h-80 md:h-[400px] rounded-lg overflow-hidden border border-white/[0.08] bg-[#09090B]">
                       <img
                         src={featuredPost.featuredImage?.url || "/logo.png"}
                         alt={featuredPost.featuredImage?.alt || featuredPost.title}
@@ -338,41 +303,23 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                           e.currentTarget.src = "/logo.png";
                         }}
                       />
-                      <div className="absolute inset-0 bg-linear-to-t from-[#09090B] via-transparent to-transparent opacity-80" />
-
-                      {/* Spotlight Badge Overlay */}
-                      <div className="absolute top-4 left-4 flex items-center gap-2">
-                        <span className="px-3.5 py-1.5 rounded-xl bg-frame-accent/90 backdrop-blur-md text-white font-heading font-black text-xs uppercase tracking-wider shadow-lg flex items-center gap-1.5">
-                          <Sparkles className="h-3.5 w-3.5 text-amber-300" />
-                          <span>Featured Blueprint</span>
-                        </span>
-                      </div>
-
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-slate-300 font-mono">
-                        <span className="bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md border border-white/10">
-                          {featuredPost.category}
-                        </span>
-                        <span className="bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded-md border border-white/10">
-                          {featuredPost.readTime}
-                        </span>
-                      </div>
                     </div>
 
                     <div className="relative z-10 space-y-5">
                       {/* Meta Pills */}
                       <div className="flex flex-wrap items-center gap-3 text-xs">
-                        <span className="px-3 py-1 rounded-full bg-frame-accent/20 text-frame-accent border border-frame-accent/40 font-heading font-bold uppercase tracking-wider">
+                        <span className="px-2.5 py-0.5 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20 font-mono text-[11px] uppercase tracking-wider">
                           {featuredPost.category}
                         </span>
-                        <div className="flex items-center gap-1.5 text-frame-muted-fg font-body">
+                        <div className="flex items-center gap-1.5 text-zinc-400 font-mono text-xs">
                           <Clock className="h-3.5 w-3.5 text-frame-accent" />
                           <span>{featuredPost.readTime}</span>
                         </div>
-                        <div className="flex items-center gap-1.5 text-frame-muted-fg font-body">
+                        <div className="flex items-center gap-1.5 text-zinc-400 font-mono text-xs">
                           <Calendar className="h-3.5 w-3.5" />
                           <span>{featuredPost.publishDate}</span>
                         </div>
-                        <div className="flex items-center gap-1.5 text-frame-muted-fg font-body">
+                        <div className="flex items-center gap-1.5 text-zinc-400 font-mono text-xs">
                           <Eye className="h-3.5 w-3.5" />
                           <span>{featuredPost.views > 0 ? `${featuredPost.views.toLocaleString()} reads` : "Live Blueprint"}</span>
                         </div>
@@ -380,20 +327,20 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
 
                       {/* Title */}
                       <Link href={`/blog/${featuredPost.slug}`} className="block">
-                        <h2 className="font-heading text-2xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-tighter text-frame-fg group-hover:text-frame-accent transition-colors leading-[1.0] sm:leading-[0.94]">
+                        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium leading-[1.06] tracking-tight text-white group-hover:text-purple-300 transition-colors">
                           {featuredPost.title}
                         </h2>
                       </Link>
 
-                      {/* Excerpt — first paragraph of the post, capped for the spotlight card */}
-                      <p className="font-body text-base sm:text-lg font-medium text-frame-muted-fg leading-relaxed line-clamp-3">
+                      {/* Excerpt: first paragraph of the post */}
+                      <p className="text-base sm:text-lg font-normal text-zinc-300 leading-relaxed line-clamp-3">
                         {getCardExcerpt(featuredPost, 28)}
                       </p>
 
                       {/* Author & CTA Button */}
-                      <div className="pt-6 border-t border-frame-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                      <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
-                          <div className="relative w-11 h-11 rounded-xl overflow-hidden bg-frame-accent/20 border-2 border-purple-400 shrink-0 shadow-md">
+                          <div className="relative w-10 h-10 rounded-full overflow-hidden bg-[#18181B] border border-white/[0.08] shrink-0">
                             <img
                               src={resolveAuthorImage(featuredPost.author, featuredPost.authorImage)}
                               alt={featuredPost.author}
@@ -406,16 +353,16 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                             />
                             <div
                               style={{ display: "none" }}
-                              className="avatar-fallback w-full h-full bg-frame-accent text-white items-center justify-center font-heading font-bold text-xs"
+                              className="avatar-fallback w-full h-full bg-frame-accent text-white items-center justify-center font-mono font-medium text-xs"
                             >
                               {featuredPost.author.slice(0, 2).toUpperCase()}
                             </div>
                           </div>
                           <div>
-                            <div className="font-heading font-bold text-xs uppercase text-white">
+                            <div className="font-medium text-xs uppercase text-white">
                               {featuredPost.author}
                             </div>
-                            <div className="text-[11px] text-frame-muted-fg font-body">
+                            <div className="text-[11px] text-zinc-400 font-mono">
                               {featuredPost.authorRole}
                             </div>
                           </div>
@@ -423,9 +370,9 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
 
                         <Link
                           href={`/blog/${featuredPost.slug}`}
-                          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-frame-accent hover:bg-purple-600 text-white font-heading text-xs font-bold uppercase tracking-wider shadow-lg shadow-purple-500/20 group-hover:scale-105 transition-all self-start sm:self-auto"
+                          className="sw-btn sw-btn-primary self-start sm:self-auto"
                         >
-                          <span>Read More</span>
+                          <span>Read Article</span>
                           <ArrowRight className="h-3.5 w-3.5" />
                         </Link>
                       </div>
@@ -436,23 +383,22 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                 {/* Regular Posts Grid with Featured Images */}
                 {regularPosts.length > 0 && (
                   <div className="space-y-6 pt-4">
-                    <div className="flex items-center gap-3">
-                      <span className="h-0.5 w-8 bg-frame-accent" />
-                      <h3 className="font-heading text-sm font-bold uppercase tracking-[0.2em] text-frame-accent">
+                    <div className="flex items-center gap-3 border-b border-white/[0.08] pb-3">
+                      <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400">
                         Archived Strategic Dispatches
-                      </h3>
+                      </span>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {regularPosts.map((post) => (
                         <article
                           key={post.id}
-                          className="rounded-2xl border-2 border-frame-border bg-[#121216]/80 backdrop-blur-xs p-5 flex flex-col justify-between hover:border-frame-accent hover:-translate-y-1 transition-all duration-300 group shadow-md space-y-4"
+                          className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14] space-y-4"
                         >
                           {/* Card Featured Image */}
                           <Link
                             href={`/blog/${post.slug}`}
-                            className="block w-full h-48 rounded-xl overflow-hidden bg-[#09090B] border border-frame-border relative"
+                            className="block w-full h-48 rounded-lg overflow-hidden bg-[#09090B] border border-white/[0.08] relative aspect-video"
                           >
                             <img
                               src={post.featuredImage?.url || "/logo.png"}
@@ -462,19 +408,14 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
                                 e.currentTarget.src = "/logo.png";
                               }}
                             />
-                            <div className="absolute top-2.5 left-2.5">
-                              <span className="font-heading font-bold text-[10px] uppercase tracking-wider text-white bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
-                                {post.category}
-                              </span>
-                            </div>
                           </Link>
 
                           <div className="space-y-2.5 flex-1">
                             <div className="flex items-center justify-between text-xs">
-                              <span className="text-[11px] text-frame-muted-fg font-body">
-                                {post.publishDate}
+                              <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                                {post.category}
                               </span>
-                              <div className="flex items-center gap-1 text-[11px] text-frame-muted-fg">
+                              <div className="flex items-center gap-1 text-[11px] text-zinc-400 font-mono">
                                 <Clock className="h-3 w-3 text-frame-accent" />
                                 <span>{post.readTime}</span>
                               </div>
@@ -482,38 +423,38 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
 
                             {/* Title */}
                             <Link href={`/blog/${post.slug}`}>
-                              <h4 className="font-heading text-lg sm:text-xl md:text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg group-hover:text-frame-accent transition-colors line-clamp-2">
+                              <h4 className="font-heading text-xl font-medium tracking-tight text-white group-hover:text-purple-300 transition-colors line-clamp-2">
                                 {post.title}
                               </h4>
                             </Link>
 
-                            {/* Excerpt — first paragraph of the post, capped at ~20 words */}
-                            <p className="font-body text-sm font-medium text-frame-muted-fg leading-relaxed line-clamp-3 wide:text-lg">
+                            {/* Excerpt */}
+                            <p className="text-sm font-normal text-zinc-400 leading-relaxed line-clamp-3">
                               {getCardExcerpt(post)}
                             </p>
                           </div>
 
                           {/* Footer */}
-                          <div className="pt-3 border-t border-frame-border flex items-center justify-between text-xs">
+                          <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
                             <div className="flex items-center gap-2 min-w-0">
                               <img
                                 src={resolveAuthorImage(post.author, post.authorImage)}
                                 alt={post.author}
-                                className="w-5 h-5 rounded-full object-cover border border-purple-400/40 shrink-0"
+                                className="w-5 h-5 rounded-full object-cover border border-white/[0.08] shrink-0"
                                 onError={(e) => {
                                   e.currentTarget.style.display = "none";
                                 }}
                               />
-                              <span className="text-[11px] text-frame-muted-fg font-body truncate">
+                              <span className="text-[11px] text-zinc-400 font-mono truncate">
                                 By {post.author.split(" ")[0]}
                               </span>
                             </div>
                             <Link
                               href={`/blog/${post.slug}`}
-                              className="font-heading font-bold uppercase tracking-wider text-xs text-frame-accent flex items-center gap-1 group-hover:translate-x-1 transition-transform shrink-0"
+                              className="inline-flex items-center gap-1.5 text-xs font-medium uppercase tracking-wider text-white transition-colors duration-200 group-hover:text-frame-accent shrink-0"
                             >
-                              <span>Read More</span>
-                              <ChevronRight className="h-3.5 w-3.5" />
+                              <span>Read Article</span>
+                              <ChevronRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                             </Link>
                           </div>
                         </article>
@@ -537,8 +478,43 @@ export function BlogPageClient({ initialPosts = [], initialCategories = [] }: Bl
         </div>
       </main>
 
-      {/* 5. Bottom Kinetic CTA Section */}
-      <CTASection />
+      {/* 4. Bottom Master CTA Section */}
+      <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+        <div className="mx-auto max-w-7xl">
+          <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-10 md:p-16">
+            <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
+                Bring us the brief.
+                <br />
+                <span className="italic text-frame-accent">
+                  We will bring the system.
+                </span>
+              </h2>
+              <span
+                aria-hidden="true"
+                className="hidden lg:block select-none font-heading text-7xl xl:text-8xl font-medium leading-none tracking-tight text-white/20 shrink-0"
+              >
+                &rarr;
+              </span>
+            </div>
+
+            <div className="mt-10 grid gap-8 border-t border-white/[0.08] pt-8 lg:grid-cols-[1fr_0.65fr] lg:items-end lg:gap-12">
+              <p className="max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+                Tell us what you are building, selling, launching, or fixing. We will shape the
+                strategy, content, technology, and marketing path around it.
+              </p>
+              <div className="flex flex-col gap-3.5 sm:flex-row sm:items-center lg:flex-col lg:items-stretch">
+                <Link href="/contact" className="sw-btn sw-btn-primary justify-center">
+                  Book a strategy call
+                </Link>
+                <Link href="/contact" className="sw-btn sw-btn-outline justify-center">
+                  Send a brief
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

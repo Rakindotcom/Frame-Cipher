@@ -1,78 +1,100 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Clock, CheckCircle2 } from 'lucide-react'
 
 const phases = [
   {
-    window: 'Week 1',
-    title: 'Discovery',
-    body: 'The week begins with the audit and strategy foundation that every later decision depends on.',
-    bullets: [
-      'Account audit',
-      'Tracking review',
-      'Strategy',
-      'Creative planning',
+    phase: '01',
+    duration: 'Week 01',
+    title: 'Audit & Strategy',
+    desc: 'Discovery, Business Center audit, Pixel health assessment, target market verification, competitor research, and creative testing blueprint.',
+    deliverables: [
+      'Account & Business Center readiness check',
+      'Target audience & competitor research',
+      'Pixel & Events API technical audit',
+      'Initial creative testing matrix & briefs',
     ],
   },
   {
-    window: 'Week 1\u20132',
-    title: 'Production & Launch',
-    body: 'Assets and configuration are finalized, approved, and launched with the agreed settings.',
-    bullets: [
-      'Creative production',
-      'Tracking implementation',
-      'Campaign setup',
-      'QA',
-      'Client approval',
-      'Launch',
+    phase: '02',
+    duration: 'Weeks 01 – 02',
+    title: 'Production & Setup',
+    desc: 'Scripting, filming, and editing native short-form video assets, deploying tracking, configuring catalogs, and setting up campaign structures.',
+    deliverables: [
+      'Native vertical video editing & text overlays',
+      'Pixel & server-side Events API verification',
+      'Merchant catalog feed integration (if ecommerce)',
+      'Pre-launch campaign QA and client approval',
+    ],
+  },
+  {
+    phase: '03',
+    duration: 'Weeks 02 – 03',
+    title: 'Launch & Discovery',
+    desc: 'Deploying campaigns under controlled bid pacing. Gathering baseline delivery patterns across hooks, audiences, and creative variations.',
+    deliverables: [
+      'Paced spend rollout across ad groups',
+      'Opening hook & 6-second retention analysis',
+      'Outbound click-through & bounce rate checks',
+      'Early conversion signal verification',
+    ],
+  },
+  {
+    phase: '04',
+    duration: 'Ongoing',
+    title: 'Optimization & Scaling',
+    desc: 'Scaling winning creative variants, cycling in fresh angles to prevent ad fatigue, pruning low-efficiency audiences, and maximizing ROAS.',
+    deliverables: [
+      'Budget migration to top-converting ads',
+      'Bi-weekly creative refresh cycles',
+      'Smart+ automated bidding calibration',
+      'Transparent weekly reporting & strategy sync',
     ],
   },
 ]
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="How planning unfolds"
-          title="Timeline: How Long Does TikTok Ads Management Take?"
-        >
-          Initial setup typically takes one to two weeks, depending on the account, tracking,
-          creative requirements, website or app setup, and client approvals. A typical launch
-          process includes:
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {phases.map((phase, index) => (
-            <div key={index} className="flex flex-col border-2 border-frame-border bg-frame-muted/10 p-7 md:p-9">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                {phase.window}
-              </span>
-              <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                {phase.title}
-              </h3>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {phase.body}
-              </p>
-              {phase.bullets?.length > 0 && (
-                <ul className="mt-4 border-t border-frame-border/60 pt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                  {phase.bullets.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Timeline &amp; Deployment{' '}
+            <span className="italic text-frame-accent">Process.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Initial setup typically takes one to two weeks, transitioning immediately into structured creative experimentation and scaling.
+          </p>
         </div>
 
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            After launch, early data can help identify creative and delivery patterns, but early
-            results should not automatically be treated as a final performance benchmark. Campaign
-            evaluation depends on factors such as conversion volume, budget, sales cycle, creative
-            volume, and objective.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {phases.map((p) => (
+            <div
+              key={p.phase}
+              className="relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+            >
+              <div>
+                <h3 className="font-heading text-lg font-medium text-white mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-6">
+                  {p.desc}
+                </p>
+              </div>
+
+              <div className="border-t border-white/[0.06] pt-4 space-y-2">
+                {p.deliverables.map((item, idx) => (
+                  <div key={idx} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                    <span className="font-mono text-xs text-zinc-300 leading-snug">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

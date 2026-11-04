@@ -1,64 +1,70 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Calendar, Check, ArrowRight, Clock, ShieldCheck } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const phases = [
   {
     number: '01',
-    label: 'Initial Audit',
-    title: 'Initial Audit',
-    lead: 'We review:',
-    groups: [
-      {
-        items: [
-          'TikTok account',
-          'Business',
-          'Audience',
-          'Competitors',
-          'Existing content',
-          'Performance',
-          'Goals',
-        ],
-      },
+    phase: 'Phase 01 · Discovery',
+    title: 'Initial Audit & Baseline',
+    lead: 'We conduct a comprehensive audit across your brand and TikTok presence:',
+    bullets: [
+      'Existing TikTok account analysis',
+      'Target audience & demographic fit',
+      'Competitor account benchmarks',
+      'Content performance history',
+      'Commercial goals & conversion paths',
+      'Collection of essential brand assets',
     ],
-    notes: ['We also collect the information required to build the first strategy.'],
+    note: 'We collect all strategic inputs to establish a high-conviction creative roadmap.',
   },
   {
     number: '02',
-    label: 'Strategy & Content Setup',
+    phase: 'Phase 02 · Architecture',
     title: 'Strategy & Content Setup',
-    lead: 'We establish:',
-    groups: [
-      {
-        items: [
-          'Content pillars',
-          'Brand voice',
-          'Creative direction',
-          'Content calendar',
-          'Initial topics',
-          'Production requirements',
-          'Approval workflow',
-          'Reporting framework',
-        ],
-      },
+    lead: 'We formulate the foundational operational system for ongoing execution:',
+    bullets: [
+      'Strategic content pillars definition',
+      'Brand messaging voice & visual style',
+      'Creative direction & format selection',
+      'Publishing calendar & initial topics',
+      'Production requirements & asset briefs',
+      'Review & approval workflow setup',
     ],
+    note: 'Establishes clear criteria for batch production and weekly cadence.',
   },
   {
     number: '03',
-    label: 'First Content Cycle',
+    phase: 'Phase 03 · Activation',
     title: 'First Content Cycle',
-    lead: 'We create, review, approve, and publish the first batch of content.',
-    notes: [
-      'This establishes an initial performance baseline and gives the team early information about content response.',
+    lead: 'We create, review, approve, and publish the debut batch of videos:',
+    bullets: [
+      'Concepting & opening hook scripting',
+      'Short-form editing & dynamic text',
+      'Client review & formal sign-off',
+      'Peak-hour publishing & hashtag tagging',
+      'Early comment monitoring & triage',
+      'Establishment of initial baseline data',
     ],
+    note: 'Generates early viewer signals to calibrate upcoming content batches.',
   },
   {
     number: '04',
-    label: 'Ongoing Management & Optimization',
+    phase: 'Phase 04 · Compounding',
     title: 'Ongoing Management & Optimization',
-    lead: 'We continue with:',
+    lead: 'We run a continuous, evidence-based flywheel to compound growth:',
     flow: ['Create', 'Publish', 'Measure', 'Learn', 'Improve'],
-    notes: [
-      'Performance patterns inform future topics, formats, hooks, creative directions, and content priorities.',
+    bullets: [
+      'Weekly batch production & publishing',
+      'Continuous TikTok SEO optimization',
+      'Active community care & escalation',
+      'Trend adaptation within brand voice',
+      'Monthly performance retrospectives',
+      'Creative testing on hooks and formats',
     ],
+    note: 'Performance patterns directly inform future topics, creative angles, and priorities.',
   },
 ]
 
@@ -71,112 +77,118 @@ const workflow = [
 
 export default function Timeline() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Onboarding &amp; delivery" title="TikTok Management Timeline">
-          TikTok management is an ongoing process rather than a one-time setup.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Engagement Lifecycle · 4 Phases
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          {phases.map((phase, index) => (
-            <article key={phase.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Management{' '}
+            <span className="italic text-frame-accent">Timeline &amp; Onboarding.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            TikTok management is an ongoing process rather than a one-time setup. The exact timeline depends on content volume, approval speed, production requirements, and account complexity.
+          </p>
+        </div>
+
+        {/* 4 Phases Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {phases.map((phase) => (
+            <article
+              key={phase.number}
+              className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
+            >
               <div>
-                <div className="flex items-center gap-3">
-                  <span className="border-2 border-frame-accent bg-frame-accent/10 px-2.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {phase.label}
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    {phase.phase}
                   </span>
-                  <span aria-hidden="true" className="font-heading text-lg font-bold text-frame-muted">
-                    {String(index + 1).padStart(2, '0')}
+                  <span className="font-mono text-xs text-zinc-500">
+                    Phase {phase.number} of 04
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+
+                <h3 className="font-heading text-xl font-medium tracking-tight text-white">
                   {phase.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {phase.lead}
                 </p>
+
+                {phase.flow && (
+                  <div className="mt-4 rounded-xl border border-purple-500/20 bg-purple-500/5 p-3">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {phase.flow.map((entry, fIdx) => (
+                        <React.Fragment key={entry}>
+                          <span className="rounded-md border border-white/[0.08] bg-[#18181B] px-2 py-0.5 font-mono text-[10px] text-purple-200">
+                            {entry}
+                          </span>
+                          {fIdx < phase.flow.length - 1 && (
+                            <span aria-hidden="true" className="text-frame-accent text-xs">
+                              &rarr;
+                            </span>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <ul className="space-y-2 text-xs text-zinc-400">
+                    {phase.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              {phase.groups && (
-                <ul className="mt-6 grid gap-2 border-t-2 border-frame-border/60 pt-4 sm:grid-cols-2">
-                  {phase.groups[0].items.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg"
-                    >
-                      <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {phase.flow && (
-                <ul className="mt-6 flex flex-wrap items-center gap-1.5 border-t-2 border-frame-border/60 pt-4">
-                  {phase.flow.map((entry, fIdx) => (
-                    <li key={entry} className="flex items-center gap-1.5">
-                      <span className="border border-frame-accent/50 bg-frame-bg px-2 py-0.5 text-[10px] font-bold text-frame-fg">
-                        {entry}
-                      </span>
-                      {fIdx < phase.flow.length - 1 && (
-                        <span aria-hidden="true" className="text-frame-accent">
-                          &rarr;
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {phase.notes &&
-                phase.notes.map((note) => (
-                  <p
-                    key={note}
-                    className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg"
-                  >
-                    {note}
-                  </p>
-                ))}
+              <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-[11px] text-zinc-400 leading-relaxed">
+                <strong className="text-zinc-200">Milestone: </strong>
+                {phase.note}
+              </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 border-t-2 border-frame-border pt-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Typical Initial Workflow
-            </span>
-            <div className="mt-6 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 xl:grid-cols-4">
-              {workflow.map((item) => (
-                <div key={item.when} className="bg-frame-bg p-5">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {item.when}
-                  </span>
-                  <p className="mt-2 text-xs font-semibold leading-relaxed text-frame-fg md:text-sm">
-                    {item.what}
-                  </p>
-                </div>
-              ))}
-            </div>
-            <p className="mt-5 max-w-4xl text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-              The exact timeline depends on content volume, approval speed, production requirements, and
-              account complexity.
+        {/* Typical Initial Workflow Ledger */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+          <div className="max-w-3xl space-y-2 mb-6">
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              Execution Cadence · </span>
+            <h4 className="font-heading text-xl font-medium tracking-tight text-white">
+              Typical Initial Onboarding Cadence
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              A structured progression from audit to ongoing monthly management:
             </p>
           </div>
 
-          <div className="flex flex-col justify-center border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Start with a consultation
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              We will review your account, your goals, and your production capacity before proposing a
-              scope.
-            </p>
-            <div className="mt-6">
-              <PosterButton href="/contact" variant="outline">
-                Get Your Free TikTok Audit &rarr;
-              </PosterButton>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4 border-t border-white/[0.06]">
+            {workflow.map((item, idx) => (
+              <div key={idx} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <Clock className="h-3.5 w-3.5 text-frame-accent" />
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent font-semibold">
+                    {item.when}
+                  </span>
+                </div>
+                <p className="text-xs text-zinc-300 leading-relaxed">
+                  {item.what}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

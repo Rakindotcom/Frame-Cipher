@@ -25,6 +25,40 @@ function formatDate(dateStr) {
   }
 }
 
+function extract20WordExcerpt(post) {
+  const metaDesc = (post.metaDescription || '').trim()
+  const excerptRaw = (post.excerpt || '').trim()
+  const title = (post.title || '').trim()
+
+  const isExcerptTrivial =
+    !excerptRaw ||
+    excerptRaw.toLowerCase() === title.toLowerCase() ||
+    excerptRaw.split(/\s+/).length < 12
+
+  let sourceText = ''
+  if (metaDesc && metaDesc.split(/\s+/).length >= 14) {
+    sourceText = metaDesc
+  } else if (!isExcerptTrivial && excerptRaw && excerptRaw.split(/\s+/).length >= 14) {
+    sourceText = excerptRaw
+  } else if (post.content) {
+    sourceText = post.content
+      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+      .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/g, ' ')
+      .replace(/&[a-z]+;/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+  } else {
+    sourceText = metaDesc || excerptRaw || post.description || ''
+  }
+
+  const words = sourceText.split(/\s+/).filter(Boolean)
+  if (words.length === 0) return ''
+  if (words.length <= 25) return words.join(' ')
+  return words.slice(0, 22).join(' ') + '...'
+}
+
 export default function HomeRecentInsights({ initialPosts = [] }) {
   const [posts, setPosts] = useState(() => {
     if (Array.isArray(initialPosts) && initialPosts.length > 0) {
@@ -48,13 +82,11 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
       .catch(() => {})
   }, [])
 
-  // If live blog posts exist, show top 3 latest. Otherwise fall back to canonical agency insight posts.
   const displayItems =
     posts.length > 0
       ? posts.map((p) => ({
           title: p.title,
-          description: p.excerpt || p.metaDescription || '',
-          category: p.category || 'Strategy',
+          description: extract20WordExcerpt(p),
           publishDate: p.publishDate,
           imageUrl: p.featuredImage?.url || null,
           imageAlt: p.featuredImage?.alt || p.title,
@@ -64,8 +96,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
         }))
       : insightPosts.slice(0, 3).map((p) => ({
           title: p.title,
-          description: p.description || '',
-          category: p.category || 'Strategy',
+          description: extract20WordExcerpt(p),
           publishDate: '',
           imageUrl: null,
           imageAlt: p.title,
@@ -75,34 +106,36 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
         }))
 
   return (
-    <section className="px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              Blog / Dispatches
-            </p>
-            <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-              Our Latest Blogs
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Our Latest{' '}
+              <span className="italic text-frame-accent">
+                Blogs
+              </span>
             </h2>
-            <p className="mt-4 max-w-2xl text-base sm:text-lg font-medium text-frame-muted-fg leading-relaxed">
+            <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
               Actionable frameworks, front-end architecture benchmarks, and conversion engineering from our senior strategy team.
             </p>
           </div>
-          <SectionButton href="/blog">View all blog posts</SectionButton>
+          <div className="shrink-0">
+            <SectionButton href="/blog">View all blog posts</SectionButton>
+          </div>
         </div>
 
         {/* 3-Blog Grid */}
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {displayItems.map((post, index) => (
             <article
               key={post.title + index}
-              className="group relative flex flex-col justify-between bg-frame-bg transition-colors duration-300 hover:bg-[#121216]"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
             >
               <div>
-                {/* Featured Image Banner */}
-                <div className="relative aspect-[16/10] w-full overflow-hidden border-b-2 border-frame-border bg-linear-to-br from-[#181124] to-[#121214]">
+                {/* Featured Image Banner (100% Pure Imagery — Zero Overlays) */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-white/[0.08] bg-[#18181B]">
                   {post.imageUrl ? (
                     <img
                       src={post.imageUrl}
@@ -115,51 +148,46 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center p-6 text-center">
-                      <span className="font-heading text-lg font-bold uppercase tracking-wider text-frame-muted-fg/40">
-                        {post.category}
+                      <span className="text-xs text-zinc-500">
+                        FrameCipher Insight
                       </span>
                     </div>
-                  )}
-
-                  {/* Category Pill Overlay */}
-                  <span className="absolute left-3 top-3 z-10 bg-frame-accent px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg shadow-lg sm:left-4 sm:top-4 sm:text-xs">
-                    {post.category}
-                  </span>
-
-                  {/* Date Badge Overlay */}
-                  {post.publishDate && (
-                    <span className="absolute right-3 top-3 z-10 rounded-xs border border-white/10 bg-black/80 px-2.5 py-1 text-[10px] font-mono font-medium text-frame-muted-fg backdrop-blur-md sm:right-4 sm:top-4 sm:text-xs">
-                      {formatDate(post.publishDate)}
-                    </span>
                   )}
                 </div>
 
                 {/* Card Text Content */}
                 <div className="p-6 sm:p-7">
-                  <h3 className="font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl md:text-2xl">
+                  <div className="mb-3 flex items-center justify-between text-xs">
+                    <span className="font-medium text-frame-accent truncate max-w-[60%]">
+                      {post.author}
+                    </span>
+                    {post.publishDate && (
+                      <span className="font-mono text-[11px] text-zinc-500 tabular-nums">
+                        {formatDate(post.publishDate)}
+                      </span>
+                    )}
+                  </div>
+                  <h3 className="font-heading text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl">
                     <Link href={post.href} className="after:absolute after:inset-0 after:content-['']">
                       {post.title}
                     </Link>
                   </h3>
                   {post.description && (
-                    <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base line-clamp-3">
+                    <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-400 transition-colors duration-200 group-hover:text-zinc-200 line-clamp-3">
                       {post.description}
                     </p>
                   )}
                 </div>
               </div>
 
-              {/* Card Footer / Author & CTA */}
-              <div className="border-t border-frame-border/70 p-6 pt-4 sm:p-7 sm:pt-4 flex items-center justify-between text-xs">
-                <span className="font-heading text-[11px] font-bold uppercase tracking-wider text-frame-muted-fg truncate max-w-[60%]">
-                  {post.author}
-                </span>
-                <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-frame-accent transition-colors duration-300 group-hover:text-frame-accent-fg">
+              {/* Card Footer CTA */}
+              <div className="border-t border-white/[0.08] p-6 pt-4 sm:p-7 sm:pt-4">
+                <Link href={post.href} className="group/read relative z-10 inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08] active:scale-[0.98]">
                   <span>{post.anchor}</span>
-                  <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
+                  <span aria-hidden="true" className="ml-2 text-base transition-transform duration-200 group-hover/read:translate-x-1">
                     &rarr;
                   </span>
-                </div>
+                </Link>
               </div>
             </article>
           ))}

@@ -45,8 +45,8 @@ const pillars = [
 
 export default function RetentionStrategy() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/20 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Retention Engineering"
           title="YouTube Videos Built for Long-Form Retention"
@@ -54,29 +54,29 @@ export default function RetentionStrategy() {
           Long-form retention is not about making every edit frantic. It is about keeping content clear, relevant, beautifully produced, and visually dynamic from start to finish.
         </SectionIntro>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {pillars.map((item) => (
-            <div key={item.num} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+            <div key={item.num} className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between">
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     Pillar {item.num}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     Watch-Time Driver
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.description}
                 </p>
 
-                <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-4 text-xs sm:text-sm font-medium text-frame-fg/90">
+                <ul className="mt-6 space-y-2 border-t border-white/[0.06] pt-4 text-xs sm:text-sm font-medium text-zinc-200">
                   {item.takeaways.map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">&rarr;</span>
+                      <span className="text-[#A855F7] font-bold">&rarr;</span>
                       <span>{point}</span>
                     </li>
                   ))}

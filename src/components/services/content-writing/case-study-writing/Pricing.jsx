@@ -6,7 +6,7 @@ const packages = [
     price: '৳12,000',
     for: 'One customer success story',
     scope: 'Research, interview, long-form case study, revisions and approval coordination',
-    timeline: 'About 2–3 weeks',
+    timeline: 'About 2 to 3 weeks',
     cta: 'Request a Case Study Quote',
   },
   {
@@ -14,14 +14,14 @@ const packages = [
     price: '৳18,000',
     for: 'Sales and marketing teams',
     scope: 'Full case study plus short-form and additional marketing adaptations',
-    timeline: 'About 2–3 weeks',
+    timeline: 'About 2 to 3 weeks',
     cta: 'Discuss Multi-Format Delivery',
   },
   {
     name: 'Case Study Library',
     price: '৳45,000',
     for: 'Businesses building a proof library',
-    scope: '3–5 case studies with story prioritization and coordinated research',
+    scope: '3 to 5 case studies with story prioritization and coordinated research',
     timeline: 'Custom schedule',
     cta: 'Request a Library Quote',
   },
@@ -50,58 +50,58 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-20"
+      className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-20"
     >
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Suggested pricing structure" title="Case Study Writing Pricing">
           Case study pricing depends on the amount of research, interview requirements, complexity of the project,
           number of stakeholders, formats required, and whether you need one case study or an ongoing program.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 xl:grid-cols-4">
           {packages.map((pkg, index) => (
             <article
               key={pkg.name}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40"
+              className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40"
             >
               <div>
                 <div className="mb-3 flex min-h-[22px] items-center justify-between gap-2">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     Tier 0{index + 1}
                   </span>
                   {pkg.tag && (
-                    <span className="border-2 border-frame-border px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                    <span className="border border-white/[0.08] px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#A1A1AA]">
                       {pkg.tag}
                     </span>
                   )}
                 </div>
 
-                <h3 className="font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                <h3 className="font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-[#A1A1AA] md:text-sm wide:text-lg">
                   {pkg.for}
                 </p>
 
-                <div className="mt-6 border-y-2 border-frame-border/60 py-5">
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                <div className="mt-6 border-y border-white/[0.08]/60 py-5">
+                  <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     Starting Price
                   </span>
-                  <div className="mt-1 font-heading text-xl font-bold tracking-tight text-frame-fg md:text-2xl">
+                  <div className="mt-1 font-heading text-xl font-bold tracking-tight text-[#FAFAFA] md:text-2xl">
                     {pkg.price}
                   </div>
                 </div>
 
-                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-fg md:text-sm">
+                <p className="mt-4 text-xs font-medium leading-relaxed text-[#FAFAFA] md:text-sm">
                   {pkg.scope}
                 </p>
               </div>
 
-              <div className="mt-7 border-t-2 border-frame-border pt-4">
-                <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+              <div className="mt-7 border-t border-white/[0.08] pt-4">
+                <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-[#A1A1AA]">
                   Typical Timeline
                 </span>
-                <span className="mt-1 block text-xs font-semibold leading-relaxed text-frame-fg md:text-sm">
+                <span className="mt-1 block text-xs font-semibold leading-relaxed text-[#FAFAFA] md:text-sm">
                   {pkg.timeline}
                 </span>
                 <div className="mt-5">
@@ -114,21 +114,21 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-[1.4fr_0.6fr]">
-          <div className="bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border lg:grid-cols-[1.4fr_0.6fr]">
+          <div className="bg-[#09090B] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Included in the standard scope
             </span>
-            <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+            <h3 className="mt-3 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
               What Every Engagement Starts With
             </h3>
             <ul className="mt-5 grid gap-2.5 sm:grid-cols-2">
               {included.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
-                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                  <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                     ✓
                   </span>
                   <span>{item}</span>
@@ -137,8 +137,8 @@ export default function Pricing() {
             </ul>
           </div>
 
-          <div className="flex flex-col justify-between gap-6 bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm font-medium leading-relaxed text-frame-fg">
+          <div className="flex flex-col justify-between gap-6 bg-[#A855F7]/10 p-7 md:p-8">
+            <p className="text-sm font-medium leading-relaxed text-[#FAFAFA]">
               Tell us which result you want documented and how many formats you need from it. We will confirm the
               scope.
             </p>

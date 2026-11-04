@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     "question": "Do you fly drones over the property?",
-    "answer": "Yes, with licensed operators where permissions allow — a standalone aerial slot is ৳25,000 and we liaise the permission. Restricted zones use elevated gimbal and rooftop coverage instead."
+    "answer": "Yes, with licensed operators where permissions allow: a standalone aerial slot is ৳25,000 and we liaise the permission. Restricted zones use elevated gimbal and rooftop coverage instead."
   },
   {
     "question": "How should we prepare the property before the shoot?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "Which areas of Dhaka do you cover?",
-    "answer": "All of Dhaka — Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and beyond — plus projects outside the city quoted with travel days. Parking, access and management permissions are confirmed beforehand."
+    "answer": "All of Dhaka: Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and beyond: plus projects outside the city quoted with travel days. Parking, access and management permissions are confirmed beforehand."
   },
   {
     "question": "How do we book and pay?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, staging, drones and booking — everything about property videography at FrameCipher Studio.
+          Costs, staging, drones and booking: everything about property videography at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

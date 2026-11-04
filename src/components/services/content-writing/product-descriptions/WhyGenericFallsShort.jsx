@@ -11,8 +11,8 @@ const results = [
 
 export default function WhyGenericFallsShort() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="The manufacturer-copy problem"
           title="Why Generic Manufacturer Copy Falls Short"
@@ -22,18 +22,18 @@ export default function WhyGenericFallsShort() {
           across multiple retailer websites.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-2 lg:gap-8">
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-2 lg:gap-8">
+          <div className="border border-white/[0.08] bg-[#09090B] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               The result can be
             </span>
             <ul className="mt-5 space-y-2.5">
               {results.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                  className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                 >
-                  <span aria-hidden="true" className="mt-1 shrink-0 font-bold text-frame-accent">
+                  <span aria-hidden="true" className="mt-1 shrink-0 font-bold text-[#A855F7]">
                     &times;
                   </span>
                   {item}
@@ -42,7 +42,7 @@ export default function WhyGenericFallsShort() {
             </ul>
           </div>
 
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             <p>
               This does not mean Google automatically applies a &ldquo;duplicate content penalty.&rdquo; Similar
               or syndicated content can exist without triggering a manual penalty.

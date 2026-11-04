@@ -1,14 +1,53 @@
-import { CTASection } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import PosterButton from '../../../home/PosterButton'
 
 export default function CTA() {
   return (
-    <CTASection
-      eyebrow="Next Move"
-      title="Ready to Turn Your Website Into a Better Business Asset?"
-      primaryText="Request Your Website Redesign Consultation"
-      secondaryText="Talk to Our Team"
-    >
-      Your website should support your growth, not slow it down. Let&apos;s audit what&apos;s holding your current site back, keep what works, and redesign what needs to change. Get a clear direction for your redesign, including what to keep, what to improve, and what needs to be rebuilt.
-    </CTASection>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="relative overflow-hidden rounded-3xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12 md:p-16">
+          {/* Eyebrow */}
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+              Next Move · Strategy &amp; Execution
+            </p>
+          </div>
+
+          {/* Heading with Oversized Arrow */}
+          <div className="mt-6 flex items-baseline justify-between gap-6 border-b border-white/[0.08] pb-10">
+            <h2 className="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-medium leading-[0.92] tracking-[-0.03em] text-white">
+              Ready to Turn Your Website{' '}
+              <span className="italic text-frame-accent">Into a Better Business Asset?</span>
+            </h2>
+            <span
+              className="hidden lg:block select-none font-mono text-7xl xl:text-8xl font-light text-white/20"
+              aria-hidden="true"
+            >
+              &rarr;
+            </span>
+          </div>
+
+          {/* Bottom Split: Running Description & Actions Stack */}
+          <div className="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-end">
+            <div className="lg:col-span-8">
+              <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl">
+                Your website should support your growth, not slow it down. Let&apos;s audit what&apos;s holding your current site back, keep what works, and redesign what needs to change. Get a clear direction for your redesign, including what to keep, what to improve, and what needs to be rebuilt.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-4">
+              <PosterButton href="/contact" variant="accent" className="w-full">
+                Request Your Website Redesign Consultation
+              </PosterButton>
+              <PosterButton href="/contact" variant="outline" className="w-full">
+                Talk to Our Team
+              </PosterButton>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   )
 }

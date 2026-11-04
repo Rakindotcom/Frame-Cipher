@@ -6,7 +6,7 @@ const guideBlocks = [
   {
     title: 'Three Free Ways to Start',
     body: [
-      'WhatsApp quoting is fastest: send the brief, references and deadline to +880 1768-146650 and receive scoping questions within hours plus an itemised quote within 48. Walkthrough visits run same or next day — test the acoustics, inspect the grid, meet the team and record test clips, free of charge.',
+      'WhatsApp quoting is fastest: send the brief, references and deadline to +880 1768-146650 and receive scoping questions within hours plus an itemised quote within 48. Walkthrough visits run same or next day: test the acoustics, inspect the grid, meet the team and record test clips, free of charge.',
       'Technical scouts suit agencies and corporates: vendor documentation, feasibility verdicts and budget-band guidance in writing before procurement moves. All three routes converge on the same written scope and locked calendar.',
     ],
   },
@@ -14,7 +14,7 @@ const guideBlocks = [
     title: 'What to Include in Your First Message',
     body: [
       'The content type, the publishing destination, the preferred date and the hard deadline. Reference reels or storyboards over WhatsApp let directors assess feasibility immediately.',
-      'Budget-band guidance follows before you commit: hourly hire from ৳2,000, sessions from ৳7,500, signature productions ৳45,000–1,85,000, flagship campaigns scoped past ৳5,00,000.',
+      'Budget-band guidance follows before you commit: hourly hire from ৳2,000, sessions from ৳7,500, signature productions ৳45,000 to 1,85,000, flagship campaigns scoped past ৳5,00,000.',
     ],
   },
   {
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

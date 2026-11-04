@@ -29,29 +29,39 @@ const techCategories = [
 
 export default function TechStack() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="The Infrastructure"
-          title="Modern Growth Technology &amp; Tooling."
+          title={
+            <>
+              Modern Growth Technology{' '}
+              <span className="italic text-frame-accent">&amp; Tooling.</span>
+            </>
+          }
         >
           We do not rely on outdated spreadsheets or amateur shortcuts. Our team builds upon the
           world&apos;s leading enterprise marketing, advertising, analytics, and development frameworks.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-2 lg:grid-cols-3">
-          {techCategories.map((cat) => (
+        <div className="grid border-t border-l border-white/[0.08] md:grid-cols-2 lg:grid-cols-3 bg-[#09090B]">
+          {techCategories.map((cat, idx) => (
             <article
               key={cat.category}
-              className="bg-frame-bg p-7 md:p-8 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group border-r border-b border-white/[0.08] bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]"
             >
-              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-accent">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                <span className="font-mono text-xs text-frame-accent tabular-nums">
+                  0{idx + 1}
+                </span>
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              </div>
+              <h3 className="mt-5 font-heading text-lg sm:text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                 {cat.category}
               </h3>
               <ul className="mt-5 space-y-2.5">
                 {cat.tools.map((t) => (
-                  <li key={t} className="flex items-center gap-2.5 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                    <span className="h-1.5 w-1.5 bg-frame-accent flex-none" />
+                  <li key={t} className="flex items-center gap-2.5 text-xs sm:text-sm font-normal text-zinc-400">
+                    <span className="h-1.5 w-1.5 rounded-full bg-frame-accent flex-none" />
                     <span>{t}</span>
                   </li>
                 ))}

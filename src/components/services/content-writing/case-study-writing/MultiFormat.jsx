@@ -37,8 +37,8 @@ const formats = [
 
 export default function MultiFormat() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Content repurposing"
           title="Turn One Customer Story Into Multiple Marketing Assets"
@@ -47,26 +47,26 @@ export default function MultiFormat() {
           can become a content source for multiple channels.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {formats.map((format) => (
-            <article key={format.number} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+            <article key={format.number} className="flex flex-col bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-[#A855F7]">
                 {format.number}
               </span>
-              <h3 className="mt-5 font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="mt-5 font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {format.title}
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-writing/case-study-writing" allowed={["/services/website-design-development/landing-pages"]}>{format.text}</AutoLinks></p>
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-writing/case-study-writing" allowed={["/services/website-design-development/landing-pages"]}>{format.text}</AutoLinks></p>
             </article>
           ))}
         </div>
 
-        <p className="mt-8 max-w-4xl border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm font-medium leading-relaxed text-frame-fg">
+        <p className="mt-8 max-w-4xl border-l-2 border-[#A855F7]/40 bg-[#121214] p-4 text-sm font-medium leading-relaxed text-[#FAFAFA]">
           The exact formats depend on the original story, available evidence, and your marketing needs.
         </p>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             One interview can support the page, the deck, and the follow-up email.
           </p>
           <div className="flex shrink-0 flex-col gap-4 sm:flex-row">

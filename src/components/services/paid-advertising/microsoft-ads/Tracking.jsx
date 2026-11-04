@@ -1,61 +1,72 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const methods = [
+import React from 'react'
+import { Activity, Target, LineChart, ShieldCheck, CheckCircle2 } from 'lucide-react'
+
+const trackingComponents = [
   {
-    title: 'UET',
-    body: 'Universal Event Tracking provides the website activity data needed for Microsoft Advertising conversion tracking and remarketing workflows. We configure and test the relevant events rather than assuming the tag is working simply because it has been installed.',
+    icon: Activity,
+    title: 'Universal Event Tracking (UET)',
+    desc: 'The technical foundation of Microsoft Advertising. We deploy and validate UET tags to collect real-time website interaction data, dynamic revenue values, and user behavior.',
   },
   {
-    title: 'Conversion Goals',
-    body: 'Microsoft Advertising supports conversion goals for actions such as purchases, leads, events, and other measurable outcomes. We align conversion goals with the actual business objective.',
+    icon: Target,
+    title: 'Granular Conversion Goals',
+    desc: 'Configuring precise conversion goals aligned with real business value—purchases, multi-step lead forms, phone calls, demo bookings, and high-intent resource downloads.',
   },
   {
-    title: 'GA4 & UTM Tracking',
-    body: 'We use consistent UTM structures where appropriate so Microsoft Ads traffic can be reviewed alongside other acquisition channels. This helps identify differences between platform reporting and broader analytics.',
+    icon: LineChart,
+    title: 'GA4 & UTM Attribution',
+    desc: 'Enforcing uniform UTM parameter taxonomy so Microsoft Ads sessions, assisted conversions, and bounce rates can be analyzed transparently inside Google Analytics 4.',
   },
   {
-    title: 'CRM & Lead Quality Tracking',
-    body: 'For lead-generation campaigns, a lead is only the beginning of the sales process. Where CRM data is available, we can help evaluate leads, qualified leads, opportunities, customers, revenue, cost per qualified lead, and cost per acquisition.',
-  },
-  {
-    title: 'Revenue & ROAS Measurement',
-    body: 'For ecommerce and measurable sales campaigns, we monitor revenue and acquisition costs where the available data supports meaningful analysis. ROAS can be useful, but it should be interpreted alongside conversion volume, sales cycle, attribution, margins, and customer value.',
+    icon: ShieldCheck,
+    title: 'CRM Offline Conversion Import',
+    desc: 'Connecting lead generation campaigns with CRM pipeline milestones to evaluate cost per qualified lead (SQL) and closed revenue rather than shallow form fills.',
   },
 ]
 
 export default function Tracking() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Measurement" title="Tracking Microsoft Ads From Click to Conversion">
-          Reliable measurement connects advertising spend to actual business outcomes rather than
-          platform metrics alone.
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {methods.map((method) => (
-            <div
-              key={method.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {method.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {method.body}
-              </p>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Tracking Microsoft Ads From{' '}
+            <span className="italic text-frame-accent">Click to Conversion.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Reliable tracking is essential for optimizing Microsoft Advertising campaigns against real business outcomes, cash flow, and client acquisition economics.
+          </p>
         </div>
 
-        <div className="mt-6 border-2 border-frame-border bg-frame-bg p-8 md:p-12">
-          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Microsoft Ads and Google Ads can complement each other, but they are not identical. The
-            right approach depends on the market, audience, search demand, budget, offer, and
-            existing acquisition strategy. For many businesses, the two platforms can work together
-            rather than being treated as mutually exclusive.
-          </p>
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-4">
+          {trackingComponents.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.title}
+                className="flex flex-col justify-between bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        <div className="mt-8 rounded-lg border border-white/[0.06] bg-[#121214] p-4 text-xs font-mono text-zinc-400 flex items-center gap-2">
+          <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0" />
+          <span>We audit and test all UET tags and enhanced conversion parameters prior to campaign launch to protect bidding algorithm integrity.</span>
         </div>
       </div>
     </section>

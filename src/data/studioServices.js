@@ -574,7 +574,7 @@ export const studioServices = [
       },
       {
         q: "Is it better to stream from your studio or our venue?",
-        a: "The studio suits webinars, talks and launches with controlled sound, bonded fibre and backup power already in place. Venue streaming suits conferences and events where the gathering is the content — we recce the hall and coordinate with the AV desk beforehand.",
+        a: "The studio suits webinars, talks and launches with controlled sound, bonded fibre and backup power already in place. Venue streaming suits conferences and events where the gathering is the content: we recce the hall and coordinate with the AV desk beforehand.",
       },
       {
         q: "What audio setup do you bring?",
@@ -634,7 +634,7 @@ export const studioServices = [
       },
       {
         q: "How fast do we get the highlight video after the event?",
-        a: "A 60-second social teaser delivers within 24 hours of event close on full-day tiers — standard, not a surcharge. The full cinematic aftermovie follows in 5 to 10 working days.",
+        a: "A 60-second social teaser delivers within 24 hours of event close on full-day tiers: standard, not a surcharge. The full cinematic aftermovie follows in 5 to 10 working days.",
       },
       {
         q: "Do you cover multi-day conferences outside Dhaka?",
@@ -642,7 +642,7 @@ export const studioServices = [
       },
       {
         q: "How do you record clean speech in noisy halls?",
-        a: "We take a direct balanced XLR feed from the venue soundboard for master speech, backed by wireless lavaliers on VIPs and shotgun mics for ambience — agreed with the AV desk during the recce.",
+        a: "We take a direct balanced XLR feed from the venue soundboard for master speech, backed by wireless lavaliers on VIPs and shotgun mics for ambience: agreed with the AV desk during the recce.",
       },
       {
         q: "Do we get full session recordings as well as highlights?",
@@ -702,11 +702,11 @@ export const studioServices = [
         faqs: [
       {
         q: "How much does an NGO documentary cost in Bangladesh?",
-        a: "At FrameCipher Studio, a 10–12 minute impact short is ৳1,85,000 and a 15–25 minute multi-location standard documentary is ৳3,60,000. Feature and series work is scoped from ৳7,80,000. Every quote is itemised in writing within 48 hours.",
+        a: "At FrameCipher Studio, a 10 to 12 minute impact short is ৳1,85,000 and a 15 to 25 minute multi-location standard documentary is ৳3,60,000. Feature and series work is scoped from ৳7,80,000. Every quote is itemised in writing within 48 hours.",
       },
       {
         q: "How long does a short impact documentary take?",
-        a: "A 10–12 minute film typically runs 3 to 5 weeks from research sign-off to graded master. Standard multi-location films run 6 to 10 weeks, plus institutional review rounds.",
+        a: "A 10 to 12 minute film typically runs 3 to 5 weeks from research sign-off to graded master. Standard multi-location films run 6 to 10 weeks, plus institutional review rounds.",
       },
       {
         q: "Do you handle field shoots in remote districts?",
@@ -718,11 +718,11 @@ export const studioServices = [
       },
       {
         q: "Can you license and restore archival footage?",
-        a: "Yes. Archival research, licensing and restoration are handled as quoted line items, with rights cleared before the edit locks — essential for heritage and compliance stories.",
+        a: "Yes. Archival research, licensing and restoration are handled as quoted line items, with rights cleared before the edit locks: essential for heritage and compliance stories.",
       },
       {
         q: "What masters and versions do we receive?",
-        a: "Festival DCP plus broadcast and web masters, a teaser trailer, social character cutdowns, Bangla and English subtitles and a documented asset register. Additional language versions run ৳25,000–45,000.",
+        a: "Festival DCP plus broadcast and web masters, a teaser trailer, social character cutdowns, Bangla and English subtitles and a documented asset register. Additional language versions run ৳25,000 to 45,000.",
       },
       {
         q: "How do institutional review rounds work?",
@@ -777,7 +777,7 @@ export const studioServices = [
       },
       {
         q: "Do you fly drones over the property?",
-        a: "Yes, with licensed operators where permissions allow — a standalone aerial slot is ৳25,000 and we liaise the permission. Restricted zones use elevated gimbal and rooftop coverage instead.",
+        a: "Yes, with licensed operators where permissions allow: a standalone aerial slot is ৳25,000 and we liaise the permission. Restricted zones use elevated gimbal and rooftop coverage instead.",
       },
       {
         q: "How should we prepare the property before the shoot?",
@@ -797,7 +797,7 @@ export const studioServices = [
       },
       {
         q: "Which areas of Dhaka do you cover?",
-        a: "All of Dhaka — Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and beyond — plus projects outside the city quoted with travel days. Parking, access and management permissions are confirmed beforehand.",
+        a: "All of Dhaka: Gulshan, Banani, Uttara, Mirpur DOHS, Bashundhara and beyond: plus projects outside the city quoted with travel days. Parking, access and management permissions are confirmed beforehand.",
       },
       {
         q: "How do we book and pay?",
@@ -831,11 +831,11 @@ export const studioServices = [
         faqs: [
       {
         q: "How much does wedding videography cost in Dhaka?",
-        a: "At FrameCipher Studio, single-event cinema is ৳32,000, a two-event narrative with couple session is ৳68,000, and signature 3–4 event celebrations are ৳1,45,000. Drone adds ৳25,000 and 4K delivery ৳15,000. Every quote is itemised in writing within 48 hours.",
+        a: "At FrameCipher Studio, single-event cinema is ৳32,000, a two-event narrative with couple session is ৳68,000, and signature 3 to 4 event celebrations are ৳1,45,000. Drone adds ৳25,000 and 4K delivery ৳15,000. Every quote is itemised in writing within 48 hours.",
       },
       {
         q: "How far in advance should we book our dates?",
-        a: "Book 1 to 3 months ahead, especially for November–February peak weekends. Off-season and weekday dates often confirm faster — message us the moment your venues firm up.",
+        a: "Book 1 to 3 months ahead, especially for November, February peak weekends. Off-season and weekday dates often confirm faster: message us the moment your venues firm up.",
       },
       {
         q: "What is the difference between cinematic films and traditional coverage?",
@@ -847,7 +847,7 @@ export const studioServices = [
       },
       {
         q: "Do you travel for destination weddings?",
-        a: "Yes — Sylhet, Chattogram, Cox’s Bazar and international assignments, with travel quoted transparently and the same creative team across all functions for narrative consistency.",
+        a: "Yes: Sylhet, Chattogram, Cox’s Bazar and international assignments, with travel quoted transparently and the same creative team across all functions for narrative consistency.",
       },
       {
         q: "Can you fly a drone at our venue?",
@@ -855,7 +855,7 @@ export const studioServices = [
       },
       {
         q: "Will the crew direct us and our family?",
-        a: "Candid first, guided only for portraits. Our contractual discretion keeps filming unobtrusive — natural interactions, never forced performances — with direction limited to couple sessions and group portraits.",
+        a: "Candid first, guided only for portraits. Our contractual discretion keeps filming unobtrusive: natural interactions, never forced performances: with direction limited to couple sessions and group portraits.",
       },
       {
         q: "How many revisions are included?",
@@ -913,7 +913,7 @@ export const studioServices = [
       },
       {
         q: "Can you restore old photos, VHS tapes and documents?",
-        a: "Yes. High-resolution scanning with dust cleanup and colour restoration for vintage photographs, plus VHS and document digitisation — woven into the film alongside the interviews.",
+        a: "Yes. High-resolution scanning with dust cleanup and colour restoration for vintage photographs, plus VHS and document digitisation: woven into the film alongside the interviews.",
       },
       {
         q: "Do you offer Bangla and English versions?",
@@ -925,7 +925,7 @@ export const studioServices = [
       },
       {
         q: "Can each sibling get a copy?",
-        a: "Yes. Heirloom box sets include copies for the family, and additional engraved USB sets are ৳3,500 each — planned at the brief stage so every household receives one.",
+        a: "Yes. Heirloom box sets include copies for the family, and additional engraved USB sets are ৳3,500 each: planned at the brief stage so every household receives one.",
       },
       {
         q: "How do we book and pay?",
@@ -998,7 +998,7 @@ export const studioServices = [
       },
       {
         q: "How fast can you deliver?",
-        a: "Standard finishing delivers in 5–10 working days from verified intake. Express 48–72 hour finishing adds 30%, and raw or proxy files are available within 24 hours.",
+        a: "Standard finishing delivers in 5 to 10 working days from verified intake. Express 48 to 72 hour finishing adds 30%, and raw or proxy files are available within 24 hours.",
       },
       {
         q: "What happens to our files after delivery?",
@@ -1049,7 +1049,7 @@ export const studioServices = [
       },
       {
         q: "Can you cut long videos into vertical shorts?",
-        a: "Yes. We ingest 1–2 hour podcasts or webinars and extract hook-first 9:16 cutdowns with kinetic subtitles, zoom cuts and sound effects for Reels, TikTok and YouTube Shorts.",
+        a: "Yes. We ingest 1 to 2 hour podcasts or webinars and extract hook-first 9:16 cutdowns with kinetic subtitles, zoom cuts and sound effects for Reels, TikTok and YouTube Shorts.",
       },
       {
         q: "Is the background music copyright-safe?",
@@ -1061,7 +1061,7 @@ export const studioServices = [
       },
       {
         q: "How fast can you deliver?",
-        a: "Standard edits deliver in 3–5 working days from verified intake. Express 48-hour delivery is available at a 30% priority fee, and proxy previews are available within 24 hours.",
+        a: "Standard edits deliver in 3 to 5 working days from verified intake. Express 48-hour delivery is available at a 30% priority fee, and proxy previews are available within 24 hours.",
       },
       {
         q: "Do you add Bangla and English captions?",
@@ -1120,7 +1120,7 @@ export const studioServices = [
       },
       {
         q: "What should we send before the session?",
-        a: "The final script as editable text with pronunciations for brand names and technical terms marked, tone references, and — for sync work — the locked video with timecodes.",
+        a: "The final script as editable text with pronunciations for brand names and technical terms marked, tone references, and: for sync work: the locked video with timecodes.",
       },
       {
         q: "Are recordings delivered broadcast-ready?",
@@ -1132,7 +1132,7 @@ export const studioServices = [
       },
       {
         q: "How fast can you deliver?",
-        a: "Short reads deliver in 24–48 hours from script confirmation. Commercial VO follows your picture-lock schedule, and series narration runs on agreed multi-session calendars. Priority lanes add 30%.",
+        a: "Short reads deliver in 24 to 48 hours from script confirmation. Commercial VO follows your picture-lock schedule, and series narration runs on agreed multi-session calendars. Priority lanes add 30%.",
       },
       {
         q: "What if a line needs re-recording?",
@@ -1175,7 +1175,7 @@ export const studioServices = [
       },
       {
         q: "What should presenters avoid wearing on green screen?",
-        a: "Avoid green clothing and accessories, reflective jewellery, shiny silk fabrics and thin green-tinted glasses. Bring wardrobe options — we check each outfit against spill risk on the live key monitors before recording.",
+        a: "Avoid green clothing and accessories, reflective jewellery, shiny silk fabrics and thin green-tinted glasses. Bring wardrobe options: we check each outfit against spill risk on the live key monitors before recording.",
       },
       {
         q: "Do you provide virtual backgrounds and 3D sets?",
@@ -1199,7 +1199,7 @@ export const studioServices = [
       },
       {
         q: "How fast can you deliver?",
-        a: "Raw keyable footage hands over the same day. Finished composites deliver in 5–7 working days. Express 48–72 hour compositing adds 30%.",
+        a: "Raw keyable footage hands over the same day. Finished composites deliver in 5 to 7 working days. Express 48 to 72 hour compositing adds 30%.",
       },
       {
         q: "How many revisions are included?",
@@ -1360,7 +1360,7 @@ export const studioServices = [
       },
       {
         q: "How many photos do we receive per product?",
-        a: "Three retouched angles per product as standard — front, 45-degree and detail macro — with extra retouched angles at ৳300 each. Custom shot lists are confirmed in writing before the shoot.",
+        a: "Three retouched angles per product as standard: front, 45-degree and detail macro: with extra retouched angles at ৳300 each. Custom shot lists are confirmed in writing before the shoot.",
       },
       {
         q: "What pushes a quote from ৳7,500 toward ৳34,000?",
@@ -1380,7 +1380,7 @@ export const studioServices = [
       },
       {
         q: "What is the product reel add-on?",
-        a: "A short motion spotlight cut from the same styled setup at ৳2,500 per product — catalogue stills plus a reel formatted for Reels, Shorts and TikTok.",
+        a: "A short motion spotlight cut from the same styled setup at ৳2,500 per product: catalogue stills plus a reel formatted for Reels, Shorts and TikTok.",
       },
       {
         q: "How fast can you deliver?",
@@ -1453,7 +1453,7 @@ export const studioServices = [
       },
       {
         q: "Can we bring our own cameras, lighting and crew?",
-        a: "Yes. Room-only hire is built for outside crews — bring cameras, audio and fixtures, and we provide the isolated stage, grid positions, power distribution and assistant support.",
+        a: "Yes. Room-only hire is built for outside crews: bring cameras, audio and fixtures, and we provide the isolated stage, grid positions, power distribution and assistant support.",
       },
       {
         q: "Does rental include an on-site technician?",
@@ -1469,7 +1469,7 @@ export const studioServices = [
       },
       {
         q: "Can we visit the stage before booking?",
-        a: "Yes. Message us on WhatsApp at +880 1768-146650 to schedule a walkthrough — clap-test the acoustics, inspect the grid and power, and confirm the backdrop before you commit.",
+        a: "Yes. Message us on WhatsApp at +880 1768-146650 to schedule a walkthrough: clap-test the acoustics, inspect the grid and power, and confirm the backdrop before you commit.",
       },
       {
         q: "How do half-day and full-day blocks compare to hourly billing?",
@@ -1507,7 +1507,7 @@ export const studioServices = [
         faqs: [
       {
         q: "What did the portfolio pieces actually cost to produce?",
-        a: "Starter productions sit at ৳25,000–80,000, signature work at ৳1,00,000–3,00,000, and flagship campaigns above ৳5,00,000. Ask for the band behind any reel and we attach the scope that produced it.",
+        a: "Starter productions sit at ৳25,000 to 80,000, signature work at ৳1,00,000 to 3,00,000, and flagship campaigns above ৳5,00,000. Ask for the band behind any reel and we attach the scope that produced it.",
       },
       {
         q: "Can we see raw versus colour-graded comparisons?",
@@ -1535,7 +1535,7 @@ export const studioServices = [
       },
       {
         q: "Where is the studio located?",
-        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — reachable from Mirpur DOHS, Banani and Airport Road, with parking beside the building.",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: reachable from Mirpur DOHS, Banani and Airport Road, with parking beside the building.",
       },
       {
         q: "How do I book and pay?",
@@ -1581,7 +1581,7 @@ export const studioServices = [
       },
       {
         q: "How do retainer lanes work for always-on brands?",
-        a: "Standing monthly studio and edit slots with the same crew learning your brand grammar, quarterly planning workshops and 10 to 20% effective savings versus spot booking — with pause-or-cancel flexibility.",
+        a: "Standing monthly studio and edit slots with the same crew learning your brand grammar, quarterly planning workshops and 10 to 20% effective savings versus spot booking: with pause-or-cancel flexibility.",
       },
       {
         q: "What file formats and archives do we receive?",
@@ -1593,7 +1593,7 @@ export const studioServices = [
       },
       {
         q: "Where does production happen?",
-        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with field production quoted separately for offices, factories and venues.",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: with field production quoted separately for offices, factories and venues.",
       },
       {
         q: "How do I book and pay?",
@@ -1623,7 +1623,7 @@ export const studioServices = [
         faqs: [
       {
         q: "How much does studio production cost in Dhaka?",
-        a: "Hourly hire runs ৳2,000–4,500, sessions start from ৳7,500, signature productions run ৳45,000–1,85,000, and flagship campaigns are scoped from ৳2,60,000 past ৳12,50,000. Every quote is itemised in writing within 48 hours.",
+        a: "Hourly hire runs ৳2,000 to 4,500, sessions start from ৳7,500, signature productions run ৳45,000 to 1,85,000, and flagship campaigns are scoped from ৳2,60,000 past ৳12,50,000. Every quote is itemised in writing within 48 hours.",
       },
       {
         q: "Why do you quote from scope instead of fixed packages?",
@@ -1639,7 +1639,7 @@ export const studioServices = [
       },
       {
         q: "What payment methods do you accept?",
-        a: "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash — every payment with a formal VAT-compliant invoice for corporate accounting.",
+        a: "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash: every payment with a formal VAT-compliant invoice for corporate accounting.",
       },
       {
         q: "Are retainers available for recurring content?",
@@ -1651,11 +1651,11 @@ export const studioServices = [
       },
       {
         q: "How do your rates compare to other Dhaka studios?",
-        a: "We sit at the equipped middle of every band — never the cheapest quote, always itemised so you can see what the cheaper quote omitted: crew roles, backup power, revisions, licensing and archiving.",
+        a: "We sit at the equipped middle of every band: never the cheapest quote, always itemised so you can see what the cheaper quote omitted: crew roles, backup power, revisions, licensing and archiving.",
       },
       {
         q: "Where is the studio located?",
-        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with free walkthroughs by appointment before you commit.",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: with free walkthroughs by appointment before you commit.",
       },
       {
         q: "How do I get a quote?",
@@ -1701,7 +1701,7 @@ export const studioServices = [
       },
       {
         q: "Can we visit and test the stage before booking?",
-        a: "Yes. Walkthroughs run same-day or next-day by appointment — clap-test the acoustics, inspect the grid and power, and record test clips on your own media, free of charge.",
+        a: "Yes. Walkthroughs run same-day or next-day by appointment: clap-test the acoustics, inspect the grid and power, and record test clips on your own media, free of charge.",
       },
       {
         q: "Is there a dressing room, makeup mirror and client lounge?",
@@ -1717,7 +1717,7 @@ export const studioServices = [
       },
       {
         q: "Where is the studio and where do crews park?",
-        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with dedicated parking beside the building and elevator access to the stage.",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: with dedicated parking beside the building and elevator access to the stage.",
       },
       {
         q: "How do I book and pay?",
@@ -1751,11 +1751,11 @@ export const studioServices = [
       },
       {
         q: "Do you charge for quotes, consultations or walkthroughs?",
-        a: "No. Answers, itemised quotes and studio walkthroughs with test recordings are all free. You only pay when cameras roll — sessions from ৳2,000/hour with the balance due on final sign-off.",
+        a: "No. Answers, itemised quotes and studio walkthroughs with test recordings are all free. You only pay when cameras roll: sessions from ৳2,000/hour with the balance due on final sign-off.",
       },
       {
         q: "Can I reschedule if my team is delayed?",
-        a: "Yes. Sessions reschedule free of charge to any available slot with at least 48 hours notice — no penalties, no lost advance.",
+        a: "Yes. Sessions reschedule free of charge to any available slot with at least 48 hours notice: no penalties, no lost advance.",
       },
       {
         q: "What power backup runs during load-shedding?",
@@ -1763,11 +1763,11 @@ export const studioServices = [
       },
       {
         q: "How do I reach the studio, and where do we park?",
-        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — off the Mirpur DOHS–Banani access road with dedicated parking beside the building and elevator to the stage.",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: off the Mirpur DOHS, Banani access road with dedicated parking beside the building and elevator to the stage.",
       },
       {
         q: "What kit and room specs can we verify on a visit?",
-        a: "Acoustic isolation, the overhead softbox grid, 4K cinema cameras, broadcast microphones, seamless backdrops, green screen, monitoring and power backup — with test recordings on your own media.",
+        a: "Acoustic isolation, the overhead softbox grid, 4K cinema cameras, broadcast microphones, seamless backdrops, green screen, monitoring and power backup: with test recordings on your own media.",
       },
       {
         q: "How long does delivery take, and what revisions are included?",
@@ -1779,7 +1779,7 @@ export const studioServices = [
       },
       {
         q: "What payment methods and invoices do you provide?",
-        a: "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash — every payment with a formal VAT-compliant invoice for corporate accounting.",
+        a: "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash: every payment with a formal VAT-compliant invoice for corporate accounting.",
       },
       {
         q: "Can we bring catering, and is Wi-Fi provided?",
@@ -1787,7 +1787,7 @@ export const studioServices = [
       },
       {
         q: "What are your operating hours?",
-        a: "Open 24 hours — all sessions run by advance reservation, including overnight edits, early call times and international client time zones.",
+        a: "Open 24 hours: all sessions run by advance reservation, including overnight edits, early call times and international client time zones.",
       },
     ],
   },
@@ -1817,7 +1817,7 @@ export const studioServices = [
       },
       {
         q: "What are your operating hours?",
-        a: "Open 24 hours — every session runs by advance reservation, covering overnight edits, early call times and international client time zones.",
+        a: "Open 24 hours: every session runs by advance reservation, covering overnight edits, early call times and international client time zones.",
       },
       {
         q: "How quickly can we schedule a walkthrough visit?",
@@ -1833,15 +1833,15 @@ export const studioServices = [
       },
       {
         q: "How do quotes, advances and invoices work?",
-        a: "Itemised written quotes within 48 hours, a 50% advance to lock dates, balance only on final sign-off, and VAT-compliant invoices on every payment — bKash, Nagad, bank, cheque or cash.",
+        a: "Itemised written quotes within 48 hours, a 50% advance to lock dates, balance only on final sign-off, and VAT-compliant invoices on every payment: bKash, Nagad, bank, cheque or cash.",
       },
       {
         q: "Can we reschedule after confirming?",
-        a: "Yes. Rescheduling is free with at least 48 hours notice to any available slot — no penalties and no lost advance.",
+        a: "Yes. Rescheduling is free with at least 48 hours notice to any available slot: no penalties and no lost advance.",
       },
       {
         q: "Where is the studio and where do we park?",
-        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — off the Mirpur DOHS–Banani access road with dedicated parking beside the building and elevator to the stage.",
+        a: "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: off the Mirpur DOHS, Banani access road with dedicated parking beside the building and elevator to the stage.",
       },
       {
         q: "How fast is standard delivery once we book?",

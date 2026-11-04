@@ -1,9 +1,21 @@
-function LegalSection({ title, children }) {
+import React from 'react'
+import Link from 'next/link'
+import { FileText, ArrowRight, CheckCircle2 } from 'lucide-react'
+
+function LegalSection({ id, number, title, children }) {
   return (
-    <section className="bg-frame-bg p-7 md:p-10 [&_a]:border-b-2 [&_a]:border-frame-accent [&_a]:font-bold [&_a]:text-frame-fg [&_h3]:mt-8 [&_h3]:font-heading [&_h3]:text-2xl [&_h3]:font-bold [&_h3]:uppercase [&_h3]:leading-none [&_h3]:tracking-tighter [&_h3]:text-frame-accent [&_p]:mt-4 [&_p]:text-base [&_p]:font-medium [&_p]:leading-tight [&_p]:text-frame-muted-fg [&_ul]:mt-5">
-      <h2 className="font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-        {title}
-      </h2>
+    <section
+      id={id}
+      className="scroll-mt-32 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 transition-colors duration-200 hover:border-white/[0.14] [&_a]:border-b [&_a]:border-frame-accent [&_a]:text-white hover:[&_a]:text-frame-accent [&_h3]:mt-6 [&_h3]:font-heading [&_h3]:text-lg [&_h3]:sm:text-xl [&_h3]:font-medium [&_h3]:uppercase [&_h3]:leading-tight [&_h3]:tracking-tight [&_h3]:text-frame-accent [&_p]:mt-4 [&_p]:text-sm [&_p]:sm:text-base [&_p]:font-normal [&_p]:leading-relaxed [&_p]:text-zinc-300 [&_ul]:mt-4"
+    >
+      <div className="flex items-center gap-3 border-b border-white/[0.08] pb-4 mb-4">
+        <span className="font-mono text-xs uppercase tracking-wider text-frame-accent bg-[#18181B] border border-white/[0.08] px-2.5 py-0.5 rounded-full">
+          Section {number}
+        </span>
+        <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-medium leading-[0.96] tracking-[-0.02em] text-white">
+          {title}
+        </h2>
+      </div>
       {children}
     </section>
   )
@@ -11,130 +23,200 @@ function LegalSection({ title, children }) {
 
 function List({ items }) {
   return (
-    <ul className="grid gap-2">
-      {items.map((item) => (
-        <li key={item} className="border-l-4 border-frame-accent pl-4 text-base font-medium leading-tight text-frame-muted-fg wide:text-lg">
-          {item}
+    <ul className="grid gap-2.5">
+      {items.map((item, index) => (
+        <li
+          key={`${item.slice(0, 20)}-${index}`}
+          className="flex items-start gap-3 rounded-lg border border-white/[0.04] bg-[#18181B] p-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300"
+        >
+          <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-1" />
+          <span>{item}</span>
         </li>
       ))}
     </ul>
   )
 }
 
+const tableOfContents = [
+  { id: 'agreement', title: '1. Agreement to Terms' },
+  { id: 'services', title: '2. Services Description' },
+  { id: 'use', title: '3. Use of Website' },
+  { id: 'submissions', title: '4. Contact Submissions' },
+  { id: 'ip', title: '5. Intellectual Property' },
+  { id: 'warranties', title: '6. Warranties & Disclaimers' },
+  { id: 'liability', title: '7. Limitation of Liability' },
+  { id: 'agreements', title: '8. Service Agreements' },
+  { id: 'law', title: '9. Governing Law' },
+  { id: 'changes', title: '10. Changes to Terms' },
+  { id: 'contact', title: '11. Contact Information' },
+]
+
 export default function TermsContent() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto grid max-w-[95vw] gap-8 lg:grid-cols-[0.42fr_1fr]">
-        <aside className="sticky top-28 hidden self-start border-2 border-frame-border p-6 lg:block">
-          <p className="text-xs font-black uppercase tracking-[0.26em] text-frame-accent">Document index</p>
-          <ol className="mt-6 grid gap-3 text-sm font-black uppercase tracking-tighter text-frame-muted-fg">
-            <li>Agreement and services</li>
-            <li>Permitted use</li>
-            <li>Submissions and IP</li>
-            <li>Liability and warranties</li>
-            <li>Contact</li>
-          </ol>
+    <section className="px-4 py-16 sm:px-6 md:px-8 md:py-24 text-white">
+      <div className="mx-auto max-w-7xl grid gap-10 lg:grid-cols-[280px_1fr] items-start">
+        {/* Sticky Document Index Sidebar */}
+        <aside className="sticky top-28 hidden lg:block rounded-xl border border-white/[0.08] bg-[#121214] p-6">
+          <div className="flex items-center gap-2 border-b border-white/[0.08] pb-3 mb-4">
+            <FileText className="h-4 w-4 text-frame-accent" />
+            <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
+              Document Index
+            </p>
+          </div>
+          <nav aria-label="Table of contents">
+            <ol className="grid gap-2 text-xs font-mono text-zinc-400">
+              {tableOfContents.map((item) => (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    className="block py-1 px-2 rounded hover:bg-white/[0.04] hover:text-white transition-colors"
+                  >
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+
+          <div className="mt-6 pt-5 border-t border-white/[0.08] space-y-3">
+            <p className="font-mono text-[11px] text-zinc-500 uppercase">
+              Need custom terms for your enterprise?
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-frame-accent hover:text-white transition-colors"
+            >
+              <span>Contact legal team</span>
+              <ArrowRight className="h-3 w-3" />
+            </Link>
+          </div>
         </aside>
 
-        <div className="grid gap-px bg-frame-border">
-          <LegalSection title="Agreement to Terms">
+        {/* Legal Sections Column */}
+        <div className="grid gap-6">
+          <LegalSection id="agreement" number="01" title="Agreement to Terms">
             <p>
               By accessing or using the Frame Cipher website and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.
             </p>
           </LegalSection>
 
-          <LegalSection title="Services Description">
+          <LegalSection id="services" number="02" title="Services Description">
             <p>Frame Cipher provides professional media production services including:</p>
-            <List items={['Commercial video production', 'Product campaign creation', 'Professional photography', 'Brand strategy and consulting', 'Creative content development']} />
+            <List
+              items={[
+                'Commercial video production',
+                'Product campaign creation',
+                'Professional photography',
+                'Brand strategy and consulting',
+                'Creative content development',
+              ]}
+            />
           </LegalSection>
 
-          <LegalSection title="Use of Website">
+          <LegalSection id="use" number="03" title="Use of Website">
             <h3>Permitted Use</h3>
             <p>You may use our website for lawful purposes only. You agree not to:</p>
-            <List items={['Violate any applicable laws or regulations', 'Infringe on intellectual property rights', 'Transmit harmful code or malware', 'Attempt unauthorized access to our systems', 'Harass, abuse, or harm others', 'Submit false or misleading information', 'Use automated systems to scrape content']} />
+            <List
+              items={[
+                'Violate any applicable laws or regulations',
+                'Infringe on intellectual property rights',
+                'Transmit harmful code or malware',
+                'Attempt unauthorized access to our systems',
+                'Harass, abuse, or harm others',
+                'Submit false or misleading information',
+                'Use automated systems to scrape content',
+              ]}
+            />
           </LegalSection>
 
-          <LegalSection title="Contact Form Submissions">
+          <LegalSection id="submissions" number="04" title="Contact Form Submissions">
             <p>When you submit our contact form:</p>
-            <List items={['You confirm that all information provided is accurate and truthful', 'You consent to us storing and processing your information as described in our Privacy Policy', 'You agree to receive communications from us regarding your inquiry', 'Submission does not constitute a binding agreement for services', 'We reserve the right to decline any project inquiry']} />
+            <List
+              items={[
+                'You confirm that all information provided is accurate and truthful',
+                'You consent to us storing and processing your information as described in our Privacy Policy',
+                'You agree to receive communications from us regarding your inquiry',
+                'Submission does not constitute a binding agreement for services',
+                'We reserve the right to decline any project inquiry',
+              ]}
+            />
           </LegalSection>
 
-          <LegalSection title="Intellectual Property">
+          <LegalSection id="ip" number="05" title="Intellectual Property">
             <h3>Our Content</h3>
             <p>
-              All content on this website, including but not limited to text, graphics, logos, images, videos, and software, is the property of Frame Cipher or its content suppliers and is protected by copyright, trademark, and other intellectual property laws.
+              All content on this website, including text, graphics, logos, images, videos, audio clips, and software, is the property of Frame Cipher and is protected by copyright and intellectual property laws. You may not reproduce, distribute, modify, or create derivative works without our express written permission.
             </p>
-            <h3>Portfolio Work</h3>
+
+            <h3>Client Work</h3>
             <p>
-              Portfolio pieces displayed on our website are owned by Frame Cipher or used with permission. Unauthorized use, reproduction, or distribution is prohibited.
+              Portfolio items and case studies displayed on our website represent work completed for clients. Ownership of final deliverables is governed by individual client contracts.
             </p>
           </LegalSection>
 
-          <LegalSection title="Service Agreements">
-            <p>For actual production services:</p>
-            <List items={['A separate written agreement will be required', 'Specific terms, deliverables, and pricing will be outlined in project contracts', 'Payment terms and schedules will be defined per project', 'Intellectual property rights will be specified in individual agreements', 'Revisions and approval processes will be documented']} />
-          </LegalSection>
-
-          <LegalSection title="Limitation of Liability">
-            <p>To the fullest extent permitted by law:</p>
-            <List items={['Frame Cipher shall not be liable for any indirect, incidental, special, or consequential damages', 'We do not guarantee uninterrupted or error-free website operation', 'We are not responsible for third-party content or links', 'Our total liability shall not exceed the amount paid for services (if any)']} />
-          </LegalSection>
-
-          <LegalSection title="Disclaimer of Warranties">
+          <LegalSection id="warranties" number="06" title="Disclaimers and Warranties">
             <p>
-              Our website and services are provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind, either express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.
+              Our website is provided on an &quot;AS IS&quot; and &quot;AS AVAILABLE&quot; basis. We make no warranties, express or implied, regarding:
             </p>
+            <List
+              items={[
+                'Uninterrupted or error-free website operation',
+                'Accuracy, completeness, or reliability of content',
+                'Fitness for a particular purpose',
+                'Non-infringement of third-party rights',
+              ]}
+            />
           </LegalSection>
 
-          <LegalSection title="Third-Party Services">
-            <p>Our website uses third-party services including:</p>
-            <List items={['Google Firebase for data storage', 'Google Analytics for website analytics', 'Vercel for hosting services']} />
+          <LegalSection id="liability" number="07" title="Limitation of Liability">
             <p>
-              These services have their own terms and privacy policies. We are not responsible for their practices or content.
+              To the fullest extent permitted by law, Frame Cipher shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from:
             </p>
+            <List
+              items={[
+                'Your use of or inability to use our website',
+                'Any unauthorized access to or use of our servers',
+                'Any interruption or cessation of transmission',
+                'Any bugs, viruses, or harmful code transmitted through our website',
+              ]}
+            />
           </LegalSection>
 
-          <LegalSection title="Indemnification">
+          <LegalSection id="agreements" number="08" title="Service Agreements">
             <p>
-              You agree to indemnify and hold Frame Cipher harmless from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of our website or violation of these terms.
+              Specific production projects, deliverables, timelines, pricing, and client obligations are governed by separate, legally binding Service Agreements executed between Frame Cipher and the client. In the event of a conflict between these website terms and a signed client agreement, the signed agreement shall prevail.
             </p>
           </LegalSection>
 
-          <LegalSection title="Governing Law">
+          <LegalSection id="law" number="09" title="Governing Law">
             <p>
-              These Terms shall be governed by and construed in accordance with the laws of Bangladesh. Any disputes shall be subject to the exclusive jurisdiction of the courts in Dhaka, Bangladesh.
+              These Terms shall be governed by and construed in accordance with the laws of Bangladesh, without regard to its conflict of law provisions. Any legal action arising from these terms shall be subject to the exclusive jurisdiction of the courts of Bangladesh.
             </p>
           </LegalSection>
 
-          <LegalSection title="Modifications to Terms">
+          <LegalSection id="changes" number="10" title="Changes to Terms">
             <p>
-              We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting. Your continued use of the website after changes constitutes acceptance of the modified terms.
+              We reserve the right to modify these Terms of Service at any time. Changes will be posted on this page with an updated &quot;Last updated&quot; date. Continued use of our website following any changes constitutes your acceptance of the new terms.
             </p>
           </LegalSection>
 
-          <LegalSection title="Termination">
-            <p>
-              We may terminate or suspend your access to our website immediately, without prior notice, for any reason, including breach of these Terms.
-            </p>
-          </LegalSection>
-
-          <LegalSection title="Severability">
-            <p>
-              If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.
-            </p>
-          </LegalSection>
-
-          <LegalSection title="Contact Information">
-            <p>For questions about these Terms of Service, contact us:</p>
-            <p>Email: <a href="mailto:teamframecipher@gmail.com">teamframecipher@gmail.com</a></p>
-            <p>Phone: <a href="tel:+8801768146650">+880 1768-146650</a></p>
-            <p>Address: Ecb Chattar, Matikata, Khan Polli Mosque, Dhaka-1206, Bangladesh</p>
-          </LegalSection>
-
-          <LegalSection title="Entire Agreement">
-            <p>
-              These Terms of Service, together with our Privacy Policy, constitute the entire agreement between you and Frame Cipher regarding the use of our website.
-            </p>
+          <LegalSection id="contact" number="11" title="Contact Information">
+            <p>If you have questions about these Terms of Service, please contact us at:</p>
+            <div className="mt-4 rounded-lg border border-white/[0.08] bg-[#18181B] p-5 font-mono text-xs sm:text-sm text-zinc-300 space-y-2">
+              <p className="font-heading text-base font-medium text-white uppercase">Frame Cipher</p>
+              <p>
+                Email:{' '}
+                <a href="mailto:teamframecipher@gmail.com" className="text-frame-accent hover:underline">
+                  teamframecipher@gmail.com
+                </a>
+              </p>
+              <p>
+                Website:{' '}
+                <a href="https://framecipher.com" target="_blank" rel="noopener noreferrer" className="text-frame-accent hover:underline">
+                  framecipher.com
+                </a>
+              </p>
+            </div>
           </LegalSection>
         </div>
       </div>

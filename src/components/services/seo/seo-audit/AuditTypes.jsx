@@ -1,122 +1,136 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { ShoppingBag, MapPin, Globe, Database, Check } from 'lucide-react'
 
 const auditTypes = [
   {
     title: 'Ecommerce SEO Audit',
-    body: 'For ecommerce websites, we can review:',
+    icon: ShoppingBag,
+    lead: 'For ecommerce websites, we audit product, category, and transactional architectures:',
     points: [
       'Product and category architecture',
-      'Faceted navigation',
+      'Faceted navigation & filters',
       'Product and category indexation',
-      'Variant URLs',
-      'Duplicate product pages',
-      'Out-of-stock pages',
-      'Product schema',
-      'Internal linking',
-      'Filters',
-      'Pagination where relevant',
-      'Product content',
-      'Commercial category targeting',
-      'Ecommerce conversion tracking',
+      'Variant URLs & duplicate pages',
+      'Out-of-stock & discontinued pages',
+      'Product Schema & offer markup',
+      'Internal linking & category silos',
+      'Ecommerce conversion tracking in GA4',
     ],
-    note: 'Audits can be tailored to platforms such as Shopify, WooCommerce, Magento, or custom ecommerce systems.',
+    note: 'Tailored to platforms such as Shopify, WooCommerce, Magento, or custom ecommerce systems.',
   },
   {
     title: 'Local SEO Audit',
-    body: 'For businesses targeting local customers, we can review:',
+    icon: MapPin,
+    lead: 'For businesses targeting local geographic customers across Bangladesh and overseas:',
     points: [
-      'Google Business Profile',
-      'Local landing pages',
-      'NAP consistency',
-      'Local keyword targeting',
-      'Review signals',
-      'Citation consistency',
-      'Local competitors',
-      'Location-page quality',
-      'Internal linking',
-      'Local search visibility',
+      'Google Business Profile optimization',
+      'Local landing pages & service areas',
+      'NAP citation consistency',
+      'Local keyword targeting & intent',
+      'Review signals & customer sentiment',
+      'Local competitors & Map Pack visibility',
+      'Location-page content quality',
+      'Local internal linking signals',
     ],
-    note: 'The audit can be used as a standalone diagnostic or alongside an ongoing Local SEO strategy.',
+    note: 'Can be used as a standalone diagnostic or alongside an ongoing Local SEO strategy.',
   },
   {
     title: 'International SEO Audit',
-    body: 'For multi-country and multilingual websites, we can review:',
+    icon: Globe,
+    lead: 'For multi-country and multilingual websites targeting global searchers:',
     points: [
       'Country and language targeting',
-      'URL architecture',
-      'Hreflang',
-      'Canonicals',
-      'Regional indexation',
+      'URL architecture (ccTLD vs subfolder)',
+      'Hreflang implementation & canonicals',
+      'Regional indexation & crawl pathways',
       'International internal linking',
-      'Localized content',
+      'Localized content & currency signaling',
       'Country-specific keyword targeting',
-      'Market-level competitors',
-      'Regional visibility',
+      'Market-level competitors (USA, UK, UAE, AU)',
     ],
-    note: 'This is useful for businesses expanding into markets such as the USA, UK, UAE, Australia, and other international regions.',
+    note: 'Essential for businesses expanding into the USA, UK, UAE, Australia, and Canada.',
   },
   {
     title: 'Enterprise & Large Website Audit',
-    body: 'Large websites often require deeper auditing because small structural problems can affect thousands of URLs. Enterprise audits may include:',
+    icon: Database,
+    lead: 'Large websites require deeper auditing because small structural problems affect thousands of URLs:',
     points: [
-      'Large-scale crawl analysis',
-      'Template-level issues',
-      'Indexation patterns',
-      'Crawl efficiency',
-      'JavaScript rendering',
-      'Faceted navigation',
-      'Large content inventories',
-      'Internal-link architecture',
-      'Migration risks',
-      'Multi-market structures',
+      'Large-scale crawl analysis (10k–1M+ URLs)',
+      'Template-level issues & dynamic code',
+      'Indexation patterns & crawl efficiency',
+      'JavaScript rendering & hydration',
+      'Faceted navigation & parameter filters',
+      'Internal-link architecture at scale',
       'Log-file analysis where available',
-      'Custom technical investigations',
+      'Multi-market technical configurations',
     ],
-    note: "The scope is adjusted to the site's size, platform, business goals, and technical environment.",
+    note: "Scope is adjusted to the site's size, platform, business goals, and technical environment.",
   },
 ]
 
 export default function AuditTypes() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Built around your website" title="Specialized SEO Audit Options">
-          Different websites require different audit layers. We can extend the standard audit
-          based on your platform, business model, market, and technical complexity.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Specialized Scope // Tailored Dimensions
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Specialized SEO{' '}
+            <span className="italic text-frame-accent">Audit Options</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            Different websites require different audit layers. We can extend the standard audit based on your platform, business model, market, and technical complexity.
+          </p>
+        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {auditTypes.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Option 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
-                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
+        {/* 4 Specialized Audits Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
+          {auditTypes.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 transition-colors hover:border-white/[0.16] hover:bg-[#151518]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">Specialization 0{idx + 1}</span>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-xl sm:text-2xl font-semibold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.lead}
                   </p>
-                )}
+
+                  <ul className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] text-zinc-400 leading-relaxed italic">
+                    &rarr; {item.note}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

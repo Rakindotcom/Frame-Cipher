@@ -1,57 +1,67 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const blocks = [
+import React from 'react'
+import { Search, Briefcase, Sliders, ShieldCheck } from 'lucide-react'
+
+const strategies = [
   {
-    title: 'Keyword & Match-Type Strategy',
-    body: 'We build keyword lists around real commercial intent, search behavior, and expected volume. We also review match types, search themes, keyword relevance, negative keywords, brand terms, non-brand terms, competitor terms where appropriate, and long-tail opportunities.',
+    icon: Search,
+    title: 'Keyword & Match-Type Architecture',
+    desc: 'Building targeted keyword clusters based on high-intent commercial queries, optimizing Exact, Phrase, and Broad match combinations specifically calibrated for Bing algorithms.',
   },
   {
-    title: 'Search-Term & Negative Keyword Management',
-    body: 'Search-term analysis helps identify which queries are creating relevant traffic and which are wasting budget. We use that data to add relevant keywords, exclude irrelevant queries, refine messaging, improve intent alignment, and identify new opportunities.',
+    icon: ShieldCheck,
+    title: 'Search-Term & Negative Governance',
+    desc: 'Conducting aggressive search-term audits to eliminate irrelevant queries, prune wasted ad spend, and expand high-converting keyword themes.',
   },
   {
-    title: 'Audience Layering',
-    body: 'Audience signals can complement keyword intent. We may test LinkedIn Profile Targeting, remarketing, in-market audiences, customer lists, similar audiences where available, predictive targeting where available, and audience exclusions. The exact setup depends on campaign objectives and available audience data.',
+    icon: Briefcase,
+    title: 'Audience Layering & LinkedIn Signals',
+    desc: 'Layering LinkedIn professional profile data (company names, industry verticals, job functions, and seniority) to dynamically boost bids on high-value B2B decision-makers.',
   },
   {
+    icon: Sliders,
     title: 'Network & Placement Management',
-    body: 'Microsoft advertising can distribute campaigns across different parts of its ecosystem and search partnerships. We evaluate distribution based on traffic quality, conversion performance, search volume, campaign objective, audience behavior, and placement performance. We do not assume that maximum reach is automatically the best strategy.',
-  },
-  {
-    title: 'Bid & Budget Optimization',
-    body: 'Budgets are adjusted based on conversion performance, search demand, acquisition cost, revenue, campaign priority, audience performance, and available conversion data. The objective is not simply to spend the budget. It is to allocate spend where the account has a measurable business case.',
+    desc: 'Evaluating traffic quality between core Bing search results and syndicated search partners, isolating high-converting placements and excluding low-intent partner sites.',
   },
 ]
 
 export default function Strategy() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="How we work" title="Microsoft Ads Search & Audience Strategy">
-          A Microsoft Ads account should be designed around search intent, audience signals, and
-          conversion data, not around the settings of another platform.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Microsoft Ads Search &amp;{' '}
+            <span className="italic text-frame-accent">Audience Strategy.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Deliberate keyword selection, search-term governance, and professional audience layering engineered to capture high-margin commercial demand.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {blocks.map((block, index) => (
-            <div
-              key={block.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 flex items-center gap-4">
-                <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <div className="h-1.5 flex-1 bg-frame-accent" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+          {strategies.map((s) => {
+            const Icon = s.icon
+            return (
+              <div
+                key={s.title}
+                className="relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
+                    {s.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {s.desc}
+                  </p>
+                </div>
               </div>
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {block.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {block.body}
-              </p>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

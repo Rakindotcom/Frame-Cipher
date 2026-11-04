@@ -80,8 +80,7 @@ export default function ServiceExperience({ service }) {
   const heroCopy = getHeroCopy(service)
 
   return (
-    <main className="service-experience bg-frame-bg text-frame-fg min-h-screen">
-
+    <main className="service-experience bg-[#09090B] text-[#FAFAFA] min-h-screen selection:bg-[#A855F7]/20 selection:text-white">
       <ServiceExperienceHero
         service={service}
         serviceName={serviceName}
@@ -93,8 +92,8 @@ export default function ServiceExperience({ service }) {
       />
 
       {service.quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-5 py-12 sm:px-8 md:py-16">
-          <blockquote className="mx-auto max-w-5xl text-center font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+        <section className="relative isolate border-y border-white/[0.08] bg-[#09090B] px-5 py-12 sm:px-8 md:py-16">
+          <blockquote className="mx-auto max-w-5xl text-center font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-white">
             “{cleanText(service.quote)}”
           </blockquote>
         </section>

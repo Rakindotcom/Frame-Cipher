@@ -23,29 +23,39 @@ const areas = [
 
 export default function ServiceAreas() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Market Footprint"
-          title="Built for Bangladesh Realities &amp; Global Ambition."
+          title={
+            <>
+              Built for Bangladesh Realities &amp;{' '}
+              <span className="italic text-frame-accent">Global Ambition.</span>
+            </>
+          }
         >
           Headquartered in Dhaka (Ecb Chattar, Matikata), Frame Cipher combines deep on-the-ground local
           market intelligence with global digital advertising standards.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-3">
-          {areas.map((a) => (
+        <div className="grid border-t border-b border-white/[0.08] divide-y md:divide-y-0 md:divide-x divide-white/[0.08] md:grid-cols-3 bg-[#09090B]">
+          {areas.map((a, idx) => (
             <article
               key={a.region}
-              className="bg-frame-bg p-7 md:p-8 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]"
             >
-              <h3 className="font-heading text-xl font-bold uppercase text-frame-accent">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                <span className="font-mono text-xs text-frame-accent tabular-nums">
+                  0{idx + 1}
+                </span>
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              </div>
+              <h3 className="mt-5 font-heading text-xl font-medium text-white group-hover:text-frame-accent transition-colors">
                 {a.region}
               </h3>
-              <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-fg/80">
+              <p className="mt-2 font-mono text-xs text-purple-300">
                 {a.scope}
               </p>
-              <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-4 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                 {a.description}
               </p>
             </article>

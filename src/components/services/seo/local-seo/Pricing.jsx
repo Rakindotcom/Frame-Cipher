@@ -1,233 +1,239 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const packages = [
+import React from 'react'
+import { Check, Minus } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+
+const plans = [
   {
     name: 'Starter Local',
-    price: '৳15,000/month',
+    price: '৳15,000',
+    frequency: '/month',
     bestFor: 'Small local businesses',
-    locations: '1 location',
-    flagship: 'Google Business Profile optimization',
+    recommended: 'Single-location businesses',
+    locations: '1 Location',
     features: [
       'Google Business Profile Optimization',
       'Local Keyword Research',
       'Basic Competitor Analysis',
       'Core Local Website SEO',
-      '1–2 Service / Location Pages per month',
-      'Citation Cleanup',
-      'Basic Citation Building',
-      'Review Strategy',
-      'Local Schema',
+      '1–2 Service / Location Pages/mo',
+      'Citation Cleanup & Basic Building',
+      'Review Acquisition Strategy',
+      'Local Schema Markup',
       'Google Maps Optimization',
-      'Local Search Monitoring',
-      'Monthly Reporting',
+      'Local Search Monitoring & Monthly Report',
     ],
     popular: false,
   },
   {
     name: 'Growth Local',
-    price: '৳30,000/month',
-    bestFor: 'Growing businesses',
-    locations: '1–3 locations',
-    flagship: 'Competitive local markets',
+    price: '৳30,000',
+    frequency: '/month',
+    bestFor: 'Growing businesses in competitive sectors',
+    recommended: 'Competitive local markets',
+    locations: '1–3 Locations',
     features: [
-      'Google Business Profile Optimization',
-      'Local Keyword Research',
+      'Everything in Starter Local',
       'Advanced Competitor Analysis',
-      'Full Local Optimization',
-      '2–4 Service / Location Pages per month',
-      'Citation Cleanup',
-      'Citation Building',
-      'Review Strategy',
-      'Local Schema',
-      'Google Maps Optimization',
-      'Geo-Grid Tracking',
-      'Local Authority / Link Building',
-      'Local Search Monitoring',
-      'Biweekly Strategy & Consultation',
-      'Monthly Reporting',
+      'Full Local Website Optimization',
+      '2–4 Service / Location Pages/mo',
+      'Full Citation Building & Cleanup',
+      'Geo-Grid Rank Tracking Scans',
+      'Local Authority & Link Building',
+      'Biweekly Strategy Consultation',
+      'Call & Direction Intent Attribution',
     ],
     popular: true,
   },
   {
     name: 'Multi-Location',
-    price: '৳50,000+/month',
-    bestFor: 'Multi-branch & larger businesses',
-    locations: '4+ locations',
-    flagship: 'Brands with multiple branches',
+    price: '৳50,000+',
+    frequency: '/month',
+    bestFor: 'Multi-branch & franchise enterprises',
+    recommended: 'Brands with multiple branches',
+    locations: '4+ Locations',
     features: [
-      'Google Business Profile Optimization',
-      'Local Keyword Research',
-      'Advanced Competitor Analysis',
-      'Multi-Location Optimization',
-      'Custom Service / Location Pages',
-      'Citation Cleanup',
-      'Citation Building',
-      'Review Strategy',
-      'Local Schema',
-      'Google Maps Optimization',
-      'Geo-Grid Tracking',
-      'Advanced Local Authority / Link Building',
-      'Local Search Monitoring',
-      'Ongoing Strategy & Consultation',
-      'Monthly Reporting',
+      'Everything in Growth Local',
+      'Multi-Location Scaled Architecture',
+      'Custom Dedicated Location Pages/mo',
+      'Advanced Geo-Grid Coverage Mapping',
+      'Centralized Franchise Profile Governance',
+      'Advanced Local Authority & Digital PR',
+      'Ongoing Strategy & Dedicated Lead',
+      'Custom SLA & Executive Dashboard',
     ],
     popular: false,
   },
 ]
 
 const comparisonRows = [
-  ['Google Business Profile Optimization', '✓', '✓', '✓'],
-  ['Local Keyword Research', '✓', '✓', '✓'],
-  ['Competitor Analysis', 'Basic', 'Advanced', 'Advanced'],
-  ['Local Website SEO', 'Core pages', 'Full local optimization', 'Multi-location optimization'],
-  ['Service / Location Pages', '1–2/month', '2–4/month', 'Custom'],
-  ['Citation Cleanup', '✓', '✓', '✓'],
-  ['Citation Building', 'Basic', '✓', '✓'],
-  ['Review Strategy', '✓', '✓', '✓'],
-  ['Local Schema', '✓', '✓', '✓'],
-  ['Google Maps Optimization', '✓', '✓', '✓'],
-  ['Geo-Grid Tracking', '✗', '✓', '✓'],
-  ['Local Authority / Link Building', 'Basic', '✓', 'Advanced'],
-  ['Local Search Monitoring', '✓', '✓', '✓'],
-  ['Monthly Reporting', '✓', '✓', '✓'],
-  ['Strategy & Consultation', 'Monthly', 'Biweekly', 'Ongoing'],
-  ['Recommended For', 'Single-location businesses', 'Competitive local markets', 'Brands with multiple branches'],
+  { feature: 'Target Locations', starter: '1', growth: '1–3', multi: '4+' },
+  { feature: 'Google Business Profile Optimization', starter: true, growth: true, multi: true },
+  { feature: 'Local Keyword Research', starter: true, growth: true, multi: true },
+  { feature: 'Competitor Analysis', starter: 'Basic', growth: 'Advanced', multi: 'Advanced' },
+  { feature: 'Local Website SEO', starter: 'Core pages', growth: 'Full local optimization', multi: 'Multi-location optimization' },
+  { feature: 'Service / Location Pages', starter: '1–2/month', growth: '2–4/month', multi: 'Custom' },
+  { feature: 'Citation Cleanup', starter: true, growth: true, multi: true },
+  { feature: 'Citation Building', starter: 'Basic', growth: true, multi: true },
+  { feature: 'Review Strategy', starter: true, growth: true, multi: true },
+  { feature: 'Local Schema (JSON-LD)', starter: true, growth: true, multi: true },
+  { feature: 'Google Maps Optimization', starter: true, growth: true, multi: true },
+  { feature: 'Geo-Grid Tracking', starter: false, growth: true, multi: true },
+  { feature: 'Local Authority / Link Building', starter: 'Basic', growth: true, multi: 'Advanced' },
+  { feature: 'Local Search Monitoring', starter: true, growth: true, multi: true },
+  { feature: 'Monthly Reporting', starter: true, growth: true, multi: true },
+  { feature: 'Strategy & Consultation', starter: 'Monthly', growth: 'Biweekly', multi: 'Ongoing' },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment & Plans"
-          title="Local SEO Pricing in Bangladesh"
-        >
-          Local SEO pricing depends on the business model, number of locations, competition,
-          website condition, and amount of ongoing work required. A small local business with one
-          location needs a different campaign from a national brand with dozens of branches.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Investment Options // Transparent Plans
+            </span>
+          </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-          {packages.map((pkg, index) => (
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Local SEO Pricing in{' '}
+            <span className="italic text-frame-accent">Bangladesh</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Local SEO pricing depends on your business model, number of locations, competition density, website condition, and amount of ongoing optimization required.
+          </p>
+        </div>
+
+        {/* 3 Pricing Cards Grid */}
+        <div className="mt-12 grid gap-6 lg:grid-cols-3">
+          {plans.map((plan, index) => (
             <div
-              key={pkg.name}
-              className={`flex flex-col justify-between border-2 p-7 md:p-8 transition-colors ${
-                pkg.popular
-                  ? 'border-frame-accent bg-frame-accent/10'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+              key={index}
+              className={`rounded-2xl border p-6 sm:p-8 flex flex-col justify-between transition-all ${
+                plan.popular
+                  ? 'border-frame-accent bg-frame-accent/[0.08] relative'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/20'
               }`}
             >
               <div>
-                <div className="flex min-h-[22px] items-center justify-between gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                    Plan 0{index + 1}
-                  </span>
-                  {pkg.popular && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                      Most Popular
-                    </span>
-                  )}
-                </div>
-                <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pkg.name}
-                </h3>
-                <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                  <div className="font-heading text-2xl md:text-3xl font-black tracking-tight text-frame-fg">
-                    {pkg.price}
+                {plan.popular && (
+                  <div className="absolute -top-3 left-6 rounded-full bg-frame-accent px-3 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-black">
+                    Most Popular
                   </div>
-                  <span className="mt-1 block text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {pkg.locations}
-                  </span>
-                </div>
-                <div className="mt-4 border border-frame-accent/50 bg-frame-accent/5 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Best For
-                  </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
-                    {pkg.bestFor}
+                )}
+
+                <div className="space-y-1">
+                  <h3 className="font-heading text-2xl font-medium text-white">
+                    {plan.name}
+                  </h3>
+                  <p className="text-xs text-zinc-400">
+                    {plan.bestFor}
                   </p>
                 </div>
-                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                  Flagship focus: <span className="font-semibold text-frame-fg/90">{pkg.flagship}</span>
-                </p>
 
-                <ul className="mt-5 max-h-56 space-y-2.5 overflow-hidden border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90">
-                  {pkg.features.slice(0, 8).map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{feat}</span>
+                <div className="mt-5 pb-5 border-b border-white/[0.08]">
+                  <div className="flex items-baseline gap-1">
+                    <span className="font-heading text-4xl font-bold text-white">
+                      {plan.price}
+                    </span>
+                    {plan.frequency && (
+                      <span className="font-mono text-xs text-zinc-400">
+                        {plan.frequency}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 font-mono text-xs text-frame-accent">
+                    Scope: {plan.locations} ({plan.recommended})
+                  </p>
+                </div>
+
+                <ul className="mt-6 space-y-3">
+                  {plan.features.map((feat, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <Check className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{feat}</span>
                     </li>
                   ))}
                 </ul>
-                <p className="mt-4 text-[0.65rem] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                  + {pkg.features.length - 8} more included modules
-                </p>
               </div>
 
-              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+              <div className="mt-8 pt-6 border-t border-white/[0.08]">
                 <PosterButton
                   href="/contact"
-                  variant={pkg.popular ? 'accent' : 'outline'}
-                  className="w-full text-xs"
+                  variant={plan.popular ? 'primary' : 'outline'}
+                  className="w-full justify-center"
                 >
-                  Choose {pkg.name}
+                  Choose {plan.name} &rarr;
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-16 overflow-hidden border-2 border-frame-border bg-frame-bg">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/50">
-              <tr>
-                <th className="p-4 md:p-5 font-heading text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
-                  What&apos;s Included
-                </th>
-                {packages.map((pkg) => (
-                  <th
-                    key={pkg.name}
-                    className={`p-4 md:p-5 text-center font-heading text-xs md:text-sm font-black uppercase tracking-[0.24em] ${
-                      pkg.popular ? 'text-frame-accent' : 'text-frame-fg'
-                    }`}
-                  >
-                    {pkg.name}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-xs md:text-sm font-medium">
-              {comparisonRows.map((row, rIdx) => (
-                <tr key={rIdx} className="align-top transition-colors hover:bg-frame-muted/20">
-                  <td className="p-4 md:p-5 font-bold text-frame-fg">{row[0]}</td>
-                  {[1, 2, 3].map((col) => (
-                    <td
-                      key={col}
-                      className={`p-4 md:p-5 text-center font-medium ${
-                        col === 2 ? 'font-semibold text-frame-accent' : 'text-frame-muted-fg'
-                      }`}
-                    >
-                      {row[col]}
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="max-w-3xl space-y-2">
-            <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-              For this reason, we do not force every business into the same package.
-            </p>
-            <p className="text-sm md:text-base font-semibold leading-relaxed text-frame-fg">
-              Request a consultation and we can assess your locations, competition, website, and
-              current local visibility before recommending a suitable scope.
-            </p>
+        {/* Detailed Feature Comparison Table */}
+        <div className="mt-16 rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden">
+          <div className="p-6 sm:p-8 border-b border-white/[0.08]">
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              Side-By-Side Comparison
+            </span>
+            <h3 className="mt-1 font-heading text-xl sm:text-2xl font-medium text-white">
+              Deliverables Matrix
+            </h3>
           </div>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get a Custom Quote &rarr;</PosterButton>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm text-zinc-300">
+              <thead className="border-b border-white/[0.08] bg-white/[0.02] font-mono text-xs uppercase tracking-wider text-zinc-400">
+                <tr>
+                  <th className="py-4 px-6 font-semibold">Service Deliverable</th>
+                  <th className="py-4 px-6 font-semibold">Starter Local</th>
+                  <th className="py-4 px-6 font-semibold text-frame-accent">Growth Local</th>
+                  <th className="py-4 px-6 font-semibold">Multi-Location</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06] text-xs sm:text-sm">
+                {comparisonRows.map((row, rIdx) => (
+                  <tr key={rIdx} className="hover:bg-white/[0.02] transition-colors">
+                    <td className="py-3.5 px-6 font-medium text-white">{row.feature}</td>
+                    <td className="py-3.5 px-6">
+                      {typeof row.starter === 'boolean' ? (
+                        row.starter ? <Check className="h-4 w-4 text-emerald-400" /> : <Minus className="h-4 w-4 text-zinc-600" />
+                      ) : (
+                        <span className="text-zinc-300 font-mono text-xs">{row.starter}</span>
+                      )}
+                    </td>
+                    <td className="py-3.5 px-6 bg-frame-accent/[0.02]">
+                      {typeof row.growth === 'boolean' ? (
+                        row.growth ? <Check className="h-4 w-4 text-frame-accent" /> : <Minus className="h-4 w-4 text-zinc-600" />
+                      ) : (
+                        <span className="text-frame-accent font-semibold font-mono text-xs">{row.growth}</span>
+                      )}
+                    </td>
+                    <td className="py-3.5 px-6">
+                      {typeof row.multi === 'boolean' ? (
+                        row.multi ? <Check className="h-4 w-4 text-emerald-400" /> : <Minus className="h-4 w-4 text-zinc-600" />
+                      ) : (
+                        <span className="text-zinc-300 font-mono text-xs">{row.multi}</span>
+                      )}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="p-6 bg-white/[0.01] border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <p className="text-xs sm:text-sm text-zinc-400">
+              Request a consultation and we can assess your locations, competition, website, and current local visibility before recommending a suitable scope.
+            </p>
+            <PosterButton href="/contact" variant="outline" className="shrink-0">
+              Request Custom Assessment &rarr;
+            </PosterButton>
           </div>
         </div>
       </div>

@@ -1,60 +1,99 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { PageHero, PosterButton } from '../../../Kinetic'
+import { ChevronRight, ShieldCheck, CheckCircle2, Zap } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import TechnicalSeoVisual from './TechnicalSeoVisual'
 
 export default function Hero({ service }) {
-  const title = service?.h1 || "Best Technical SEO Service in Bangladesh"
-  const subtitle = service?.shortDesc || service?.metaDescription || "A technically strong website gives search engines a clearer path to crawl, understand, and index your important pages. Framecipher provides technical SEO services that identify and fix crawlability, indexation, performance, structured data, rendering, and architecture issues that can limit organic visibility. We work with businesses across Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE."
-  const isPillar = service?.pageType === 'Pillar Service'
-  const pillarParent = service?.pillarParent
-  const quote = service?.quote || "Most sites don't have a content problem. They have a foundation problem that content work can't fix, no matter how good the writing is."
+  const subtitle =
+    service?.shortDesc ||
+    'A technically strong website gives search engines a clearer path to crawl, understand, and index your important pages. Framecipher provides technical SEO services that identify and fix crawlability, indexation, performance, structured data, rendering, and architecture issues across Bangladesh, the US, UK, Australia, Canada, and UAE.'
 
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
-          <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          {pillarParent && (
-            <>
-              <span>/</span>
-              <Link href="/services/seo" className="transition hover:text-frame-fg">SEO</Link>
-            </>
-          )}
-          <span>/</span>
-          <span className="text-frame-accent">Technical SEO</span>
-        </div>
-      </nav>
+    <div className="relative isolate bg-[#09090B] text-white">
+      {/* HERO SECTION */}
+      <section className="relative isolate overflow-hidden border-b border-white/[0.08] px-4 pt-28 pb-16 sm:px-6 md:px-8 md:pt-32 md:pb-24">
+        <div className="mx-auto max-w-7xl">
+          {/* Breadcrumbs */}
+          <nav
+            aria-label="Breadcrumbs"
+            className="mb-8 flex items-center gap-2 overflow-x-auto whitespace-nowrap scrollbar-none py-1 font-mono text-[11px] sm:text-xs text-zinc-400"
+          >
+            <Link href="/" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              Home
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <Link href="/services" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              Services
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <Link href="/services/seo" className="shrink-0 whitespace-nowrap transition-colors hover:text-white">
+              SEO
+            </Link>
+            <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
+            <span className="shrink-0 whitespace-nowrap text-frame-accent">Technical SEO</span>
+          </nav>
 
-      {/* HERO */}
-      <PageHero
-        eyebrow={isPillar ? 'Core Service Pillar' : 'Specialized Capability'}
-        meta="One In-House Team / Built For Results"
-        number={isPillar ? '01' : '360'}
-        title={title}
-        actions={
-          <>
-            <PosterButton href="/contact">Get Free Consultation</PosterButton>
-            <PosterButton href="/services" variant="outline">
-              Explore All Services
-            </PosterButton>
-          </>
-        }
-      >
-        {subtitle}
-      </PageHero>
+          {/* Grid Layout: Left Content, Right Interactive Visual */}
+          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-center">
+            {/* Left Column (7 cols) */}
+            <div className="lg:col-span-6 space-y-6">
+              {/* Eyebrow Pill */}
+              <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                  Core Technical Discipline // Crawl & Performance Engineering
+                </span>
+              </div>
 
-      {/* QUOTE BANNER IF PRESENT */}
-      {quote && (
-        <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-12 md:px-8 md:py-16">
-          <div className="mx-auto max-w-5xl text-center">
-            <blockquote className="font-heading text-lg md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              &ldquo;{quote}&rdquo;
-            </blockquote>
+              {/* Display H1 */}
+              <h1 className="font-heading text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-medium leading-[1.0] tracking-tight text-white break-normal hyphens-none">
+                Best Technical{' '}
+                <span className="italic text-frame-accent">SEO Service</span>{' '}
+                in Bangladesh
+              </h1>
+
+              {/* Subtitle / Lead Paragraph */}
+              <p className="max-w-xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+                {subtitle}
+              </p>
+
+              {/* Trust Indicators */}
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 font-mono text-xs text-zinc-400">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent" />
+                  <span>100% In-House Team</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Zap className="h-4 w-4 text-frame-accent" />
+                  <span>Direct Code Implementation</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="h-4 w-4 text-frame-accent" />
+                  <span>Crawl & Speed SLA</span>
+                </div>
+              </div>
+
+              {/* CTAs */}
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-4">
+                <PosterButton href="/contact">
+                  Get Free Consultation &rarr;
+                </PosterButton>
+                <PosterButton href="/services/seo" variant="outline">
+                  Explore All SEO Services &rarr;
+                </PosterButton>
+              </div>
+            </div>
+
+            {/* Right Column (5 cols) */}
+            <div className="lg:col-span-6 flex justify-center w-full">
+              <TechnicalSeoVisual />
+            </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
     </div>
   )
 }

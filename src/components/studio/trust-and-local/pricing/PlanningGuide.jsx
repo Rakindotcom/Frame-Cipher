@@ -6,8 +6,8 @@ const guideBlocks = [
   {
     title: 'How Scope-Based Quoting Works',
     body: [
-      'Scope-based quoting means the price follows the work: studio hours, crew roles, equipment lines and post-production deliverables are each listed with quantities and rates. At FrameCipher Studio the quote arrives in writing within 48 hours of a completed brief — before any payment is accepted.',
-      'This protects both sides. You see exactly what the cheaper competing quote omitted — crew roles, backup power, revision rounds, music licensing, subtitle languages, aspect-ratio versions, archiving — because our quote lists every one.',
+      'Scope-based quoting means the price follows the work: studio hours, crew roles, equipment lines and post-production deliverables are each listed with quantities and rates. At FrameCipher Studio the quote arrives in writing within 48 hours of a completed brief: before any payment is accepted.',
+      'This protects both sides. You see exactly what the cheaper competing quote omitted: crew roles, backup power, revision rounds, music licensing, subtitle languages, aspect-ratio versions, archiving: because our quote lists every one.',
     ],
   },
   {
@@ -21,7 +21,7 @@ const guideBlocks = [
     title: 'Which Lane to Choose',
     list: [
       'Hourly and Session Hire: you need facility time and can compare our equipped middle against basic rooms.',
-      'Signature Productions: most Dhaka brands buy here — fixed scopes with 2 revision rounds and itemised quotes.',
+      'Signature Productions: most Dhaka brands buy here: fixed scopes with 2 revision rounds and itemised quotes.',
       'Flagship and Campaign: multi-film, multi-day and broadcast scopes needing producers and priority lanes.',
     ],
   },
@@ -29,7 +29,7 @@ const guideBlocks = [
     title: 'Dhaka Realities We Plan Around',
     list: [
       'Comparability: ask every studio whether crew roles, backup power, revisions, licensing, subtitles, versions and archiving are included before comparing numbers.',
-      'Power: building generator plus IPS backup is included in our hire — not added as a surprise line.',
+      'Power: building generator plus IPS backup is included in our hire, not added as a surprise line.',
       'Access: quotes, walkthroughs and consultations are free; you only pay when cameras roll.',
     ],
   },
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

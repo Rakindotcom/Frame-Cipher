@@ -1,137 +1,179 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Building2, UserCheck, Check, Sparkles } from 'lucide-react'
 
 const companyPage = {
   label: 'Company Page',
-  headline: 'Credibility & Corporate Presence',
-  body: 'Your Company Page provides an official destination for your organization on LinkedIn.',
+  headline: 'Official Corporate Hub',
+  body: 'A LinkedIn Company Page provides an official professional presence for your organization. It serves as your business communication, credibility, and brand content center.',
   points: [
-    'Corporate credibility',
-    'Business information',
-    'Company updates',
-    'Products and services',
-    'Industry content',
-    'Employer branding',
-    'Recruitment communication',
-    'Customer-facing information',
-    'Company announcements',
-    'Professional community building',
+    'Official company profile & business info',
+    'Product, service, & solution visibility',
+    'Showcase pages for key offerings',
+    'Branded updates, case studies & announcements',
+    'Recruitment, team culture & employer brand',
+    'Lead form & CTA destinations',
+    'Employee advocacy hub & re-shares',
+    'Institutional B2B credibility asset',
   ],
   footer:
-    'LinkedIn also recommends maintaining complete Page information, publishing regularly, engaging with the community, and using employee participation to expand reach.',
+    'A company page provides the foundation for organizational visibility and professional credibility.',
 }
 
 const executiveProfile = {
   label: 'Executive Profile',
-  headline: 'Expertise & Personal Authority',
-  body: 'An executive profile provides a more personal space for professional expertise and perspective.',
+  headline: 'Personal Authority & Perspective',
+  body: 'People connect with people. Founder, CEO, and executive profiles often drive deeper organic reach, higher conversation rates, and greater audience trust than brand pages alone.',
   points: [
-    'Thought leadership',
-    'Industry commentary',
-    'Founder storytelling',
-    'Professional experience',
-    'Expertise sharing',
-    'Relationship building',
-    'Personal credibility',
-    'Executive visibility',
-    'Professional networking',
+    'Founder & leadership story positioning',
+    'Original perspective & thought leadership',
+    'Behind-the-scenes decision rationales',
+    'Frameworks, playbooks & contrarian insights',
+    'Direct industry peer-to-peer engagement',
+    'Talent magnet & executive recruitment',
+    'High organic algorithm distribution',
+    'Speaking & media opportunity magnet',
   ],
   footer:
-    'Executive content works best when it reflects the person’s actual knowledge, experience, and point of view.',
+    'Executive content works best when it reflects the person’s authentic knowledge, experiences, opinions, and distinct point of view.',
 }
-
-const example = [
-  {
-    side: 'Company Page',
-    body: 'Company announcement, research, case study, service insight, or business update.',
-  },
-  {
-    side: 'Executive Profile',
-    body: 'Personal perspective, lesson, experience, analysis, or industry viewpoint connected to the same broader subject.',
-  },
-]
 
 export default function PageVsExecutive() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Roles &amp; coordination"
-          title="Company Pages and Executive Profiles Play Different Roles"
-        >
-          A company page and an executive profile can support the same business strategy without
-          serving the same communication purpose. The company page represents the organization; the
-          executive profile represents the person, expertise, experience, and perspective behind it.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Strategic Architecture · Dual Engines
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          {[companyPage, executiveProfile].map((block) => (
-            <article key={block.label} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="inline-block bg-frame-accent px-3 py-1 text-[11px] font-black uppercase tracking-[0.22em] text-frame-accent-fg">
-                  {block.label}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                  {block.headline}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                  {block.body}
-                </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Company Pages &amp; Executive Profiles{' '}
+            <span className="italic text-frame-accent">Play Different Roles.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            A company page and an executive profile can support the same business strategy without serving the same communication purpose. The company page represents the organization; the executive profile represents the person, expertise, and perspective behind it.
+          </p>
+        </div>
+
+        {/* 2-Column Symmetrical Comparison Cards */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Card 1: Company Page */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
+                <div className="space-y-1">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    {companyPage.label}
+                  </span>
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    {companyPage.headline}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <Building2 className="h-5 w-5" />
+                </div>
               </div>
 
-              <ul className="mt-6 grid gap-2 border-t-2 border-frame-border/60 pt-5 sm:grid-cols-2">
-                {block.points.map((point) => (
-                  <li key={point} className="flex items-start gap-2.5 text-xs font-medium leading-snug text-frame-fg/90 md:text-sm">
-                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
+              <p className="text-xs sm:text-sm text-zinc-300 mb-6 leading-relaxed">
+                {companyPage.body}
+              </p>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-300">
+                {companyPage.points.map((pt, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/10 text-frame-accent mt-0.5">
+                      <Check className="h-2.5 w-2.5 stroke-[2.5]" />
                     </span>
-                    <span>{point}</span>
+                    <span className="leading-snug">{pt}</span>
                   </li>
                 ))}
               </ul>
+            </div>
 
-              <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                {block.footer}
+            <div className="mt-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs text-zinc-400 leading-relaxed">
+              <strong className="text-zinc-200">Official Standard: </strong>
+              {companyPage.footer}
+            </div>
+          </article>
+
+          {/* Card 2: Executive Profile */}
+          <article className="flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#15121c] p-7 md:p-8 shadow-xl">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-purple-500/20">
+                <div className="space-y-1">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    {executiveProfile.label}
+                  </span>
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    {executiveProfile.headline}
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-purple-500/30 bg-purple-500/10 text-frame-accent">
+                  <UserCheck className="h-5 w-5" />
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-zinc-200 mb-6 leading-relaxed">
+                {executiveProfile.body}
               </p>
-            </article>
-          ))}
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-200">
+                {executiveProfile.points.map((pt, idx) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-purple-500/40 bg-purple-500/20 text-purple-300 mt-0.5">
+                      <Check className="h-2.5 w-2.5 stroke-[2.5]" />
+                    </span>
+                    <span className="leading-snug">{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-purple-500/20 bg-purple-500/10 p-4 text-xs text-purple-200/90 leading-relaxed">
+              <strong className="text-white">Authentic Principle: </strong>
+              {executiveProfile.footer}
+            </div>
+          </article>
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-          <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-            Connecting Both Into One Strategy
-          </span>
-          <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-            Coordinate them around shared business themes
-          </h3>
-          <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Your company page and executive profiles should not publish identical content all the
-            time. For example:
-          </p>
-
-          <div className="mt-6 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
-            {example.map((entry) => (
-              <div key={entry.side} className="bg-frame-bg p-6">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                  {entry.side}
-                </span>
-                <p className="mt-2 text-sm font-medium leading-relaxed text-frame-fg md:text-base">
-                  {entry.body}
-                </p>
-              </div>
-            ))}
+        {/* Coordination Architecture Card */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+          <div className="max-w-3xl space-y-2 mb-6">
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              Harmonized Deployment · </span>
+            <h4 className="font-heading text-xl font-medium tracking-tight text-white">
+              Connecting Both Into One Strategy
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+              Your company page and executive profiles should not publish identical content all the time. Instead, we coordinate them around shared business themes:
+            </p>
           </div>
 
-          <p className="mt-6 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-            This creates a connected LinkedIn presence without turning every executive profile into
-            another copy of the company page.
-          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4 border-t border-white/[0.06]">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 block mb-2">
+                Company Page Role
+              </span>
+              <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                Official company announcement, proprietary research, case study release, service insight, or organizational milestone.
+              </p>
+            </div>
 
-          <div className="mt-6">
-            <PosterButton href="/contact" variant="outline">
-              Discuss Your LinkedIn Strategy &rarr;
-            </PosterButton>
+            <div className="rounded-xl border border-purple-500/20 bg-purple-500/5 p-5">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent block mb-2">
+                Executive Profile Role
+              </span>
+              <p className="text-xs sm:text-sm text-purple-200/90 leading-relaxed">
+                Personal perspective, strategic lesson, firsthand experience, operational analysis, or leadership viewpoint connected to the same broader theme.
+              </p>
+            </div>
           </div>
         </div>
       </div>

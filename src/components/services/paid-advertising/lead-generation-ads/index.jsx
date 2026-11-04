@@ -1,14 +1,20 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import WhyUnderperform from './WhyUnderperform'
 import Platforms from './Platforms'
 import Includes from './Includes'
 import Metrics from './Metrics'
-import WhoFor from './WhoFor'
-import WhenNotRight from './WhenNotRight'
+import CaseStudies from './CaseStudies'
 import WhyChoose from './WhyChoose'
 import Process from './Process'
 import Pricing from './Pricing'
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
+import WhoFor from './WhoFor'
+import WhenNotRight from './WhenNotRight'
 import Markets from './Markets'
 import Timeline from './Timeline'
 import Guarantee from './Guarantee'
@@ -17,21 +23,19 @@ import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "Qualified Lead Generation",
-  "CRM Integration & Routing",
-  "Lead Qualification",
-  "Cost Per Qualified Lead",
-  "Offline Conversion Feedback",
-  "Sales-Aligned Reporting",
-  "Multi-Platform Strategy"
+  'Qualified Inquiries',
+  'CRM Real-Time Routing',
+  'Quality-Weighted Bidding',
+  'Cost Per Qualified Lead (CPQL)',
+  'Multi-Channel Lead Ads',
+  'Offline Conversion Sync',
+  'High-Intent Commercial Offers',
+  'Customer Acquisition Cost (CAC)',
 ]
 
-import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
-import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
-
-export default function PaidAdvertisingLeadGenerationAdsService({ service }) {
+export default function PaidAdvertisingLeadGenAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -39,13 +43,14 @@ export default function PaidAdvertisingLeadGenerationAdsService({ service }) {
       <Platforms />
       <Includes />
       <Metrics />
-      <WhoFor />
-      <WhenNotRight />
+      <CaseStudies />
       <WhyChoose />
       <Process />
       <Pricing />
-      <ServiceCalculatorBanner platform="leadgen" />
+      <ServiceCalculatorBanner platform="lead-gen" />
       <RelatedAdsPlatforms service={service} />
+      <WhoFor />
+      <WhenNotRight />
       <Markets />
       <Timeline />
       <Guarantee />
@@ -55,4 +60,4 @@ export default function PaidAdvertisingLeadGenerationAdsService({ service }) {
   )
 }
 
-export { Hero, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Process, Pricing, FAQ, CTA }

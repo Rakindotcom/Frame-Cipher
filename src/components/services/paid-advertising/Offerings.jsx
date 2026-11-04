@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, ShieldCheck, ArrowRight } from 'lucide-react'
 
 const services = [
   {
@@ -94,7 +97,7 @@ const services = [
     summary: 'The ad is only one part of the conversion path.',
     body: [
       'A relevant click can still fail because of a slow page, weak offer, poor message alignment, confusing navigation, weak trust signals, or unnecessary friction during the conversion process.',
-      'We review the relationship between: Ad \u2192 Landing Page \u2192 Offer \u2192 Form or Checkout \u2192 Conversion.',
+      'We review the relationship between: Ad → Landing Page → Offer → Form or Checkout → Conversion.',
     ],
     bullets: [
       'Ad-to-page message alignment',
@@ -153,94 +156,104 @@ const services = [
 
 const researchAreas = [
   {
-    title: 'Ad \u2192 Landing Page Alignment',
+    title: 'Ad → Landing Page Alignment',
     body: 'The message that earns the click should be the message the page continues. We review whether the landing page delivers the promise the ad made and gives the visitor a clear next step.',
     tail: 'This is where a large share of paid campaign spend is wasted. The click is earned and then lost in the post-click experience.',
   },
   {
     title: 'Offer, Friction & Trust Review',
-    body: 'A relevant click can still fail because of a weak offer, too much form friction, unclear pricing, missing trust signals, or a conversion path that does not match the customer\u2019s readiness.',
+    body: 'A relevant click can still fail because of a weak offer, too much form friction, unclear pricing, missing trust signals, or a conversion path that does not match the customer’s readiness.',
     tail: 'We identify the specific barriers between the click and the action your campaign was built to produce.',
   },
 ]
 
 export default function Offerings() {
   return (
-    <section id="offerings" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <div>
-          <SectionIntro
-            eyebrow="Capabilities & Scope"
-            title="What Paid Advertising Services Include"
-          >
-            Paid advertising involves much more than creating ads and pressing launch. We manage
-            the strategy, campaign structure, creative coordination, tracking, landing-page
-            alignment, optimization, and reporting required to turn media spend into measurable
-            business results.
-          </SectionIntro>
+    <section id="offerings" className="scroll-mt-20 border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What Paid Advertising{' '}
+            <span className="italic text-frame-accent">Services Include.</span>
+          </h2>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-            {services.map((item, index) => (
-              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Service 0{index + 1}
-                  </span>
-                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-                    {item.summary}
-                  </p>
-                  <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.body.map((paragraph, pIdx) => (
-                      <p key={pIdx}>{paragraph}</p>
-                    ))}
-                  </div>
-                  {item.bullets?.length > 0 && (
-                    <ul className="mt-4 grid gap-2 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
-                      {item.bullets.map((bullet, bIdx) => (
-                        <li key={bIdx} className="flex items-start gap-2">
-                          <span className="text-frame-accent font-bold">✓</span>
-                          <span className="leading-snug">{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {item.note && (
-                    <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                      {item.note}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Paid advertising involves much more than creating ads and pressing launch. We manage the strategy, campaign structure, creative coordination, tracking, landing-page alignment, optimization, and reporting required to turn media spend into measurable business results.
+          </p>
         </div>
 
-        <div className="mt-28">
-          <SectionIntro
-            eyebrow="The post-click experience"
-            title="Where Clicks Become Conversions"
-          >
-            Paid advertising does not end when someone clicks. The quality of the landing page,
-            offer, and conversion path determines whether the click produces business value.
-          </SectionIntro>
+        {/* 8-Part Blueprint Matrix (Modality 3) */}
+        <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col justify-between bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:bg-[#18181B]"
+            >
+              <div className="space-y-4">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+                <p className="text-sm font-medium leading-relaxed text-zinc-200">
+                  {item.summary}
+                </p>
+
+                <div className="space-y-2 text-sm leading-relaxed text-zinc-400">
+                  {item.body.map((paragraph, pIdx) => (
+                    <p key={pIdx}>{paragraph}</p>
+                  ))}
+                </div>
+
+                {item.bullets && item.bullets.length > 0 && (
+                  <ul className="mt-4 grid gap-2 pt-2 text-xs text-zinc-300 sm:grid-cols-1">
+                    {item.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {item.note && (
+                <div className="mt-6 rounded-lg border-l-2 border-frame-accent bg-black/40 p-3.5 font-mono text-xs text-zinc-400">
+                  {item.note}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* The Post-Click Experience Subsection */}
+        <div className="mt-20 pt-16 border-t border-white/[0.08]">
+          <div className="mb-10 max-w-3xl space-y-3">
+            <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-white">
+              Where Clicks Become <span className="italic text-frame-accent">Conversions.</span>
+            </h3>
+            <p className="text-base text-zinc-300">
+              Paid advertising does not end when someone clicks. The quality of the landing page, offer, and conversion path determines whether the click produces business value.
+            </p>
+          </div>
+
+          <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] lg:grid-cols-2">
             {researchAreas.map((area, index) => (
-              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <div
+                key={index}
+                className="flex flex-col justify-between bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:bg-[#18181B]"
+              >
+                <div className="space-y-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
                     Focus 0{index + 1}
                   </span>
-                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                     {area.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  </h4>
+                  <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
                     {area.body}
                   </p>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="text-xs sm:text-sm text-zinc-400 font-mono italic pt-2">
                     {area.tail}
                   </p>
                 </div>

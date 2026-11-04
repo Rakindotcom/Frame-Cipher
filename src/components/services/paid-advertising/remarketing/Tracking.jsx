@@ -1,117 +1,98 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const blocks = [
+import React from 'react'
+import { Server, Cpu, Database, ShieldAlert, CheckCircle2 } from 'lucide-react'
+
+const components = [
   {
-    title: 'Platform Pixels & Tags',
-    body: 'We can review and configure relevant tracking systems and verify the events that support audiences and conversions.',
-    label: 'Tracking systems',
+    icon: Cpu,
+    title: 'Platform Pixels & Browser Tags',
+    desc: 'Auditing and hardening client-side tracking tags across Google Ads, Meta Pixel, TikTok Pixel, Pinterest Tag, and LinkedIn Insight Tag.',
     items: [
-      'Google Ads tags',
-      'Meta Pixel',
-      'Pinterest Tag',
-      'TikTok Pixel',
-      'LinkedIn Insight Tag',
-      'Other supported platform tracking',
+      'Standardized event taxonomy (ViewContent, AddToCart, InitiateCheckout, Lead, Purchase)',
+      'Custom parameter extraction (product IDs, cart value, lead category)',
+      'Cross-domain tracking verification across checkout gateways',
+      'Event payload validation and trigger condition QA',
     ],
   },
   {
-    title: 'Server-Side Tracking',
-    body: 'Server-side tracking can complement browser-based tracking by sending selected event data directly from business systems.',
-    label: 'We can help evaluate',
+    icon: Server,
+    title: 'Server-Side Conversions API (CAPI)',
+    desc: 'Bypassing ad-blocker suppression and browser cookie expiration by transmitting validated conversion events directly from server to ad platform.',
     items: [
-      'Server-side event implementation',
-      'Conversion APIs',
-      'Event matching',
-      'Deduplication',
-      'Data quality',
-      'Event validation',
+      'Meta Conversions API & TikTok Events API implementation',
+      'Server-to-browser event deduplication via unique event_id tokens',
+      'Enhanced Event Quality Match (EMQ) scoring with hashed user parameters',
+      'Resilient signal preservation regardless of browser tracking prevention',
     ],
   },
   {
-    title: 'First-Party Data & CRM',
-    body: 'First-party data can become an important remarketing asset as privacy requirements and platform measurement systems evolve.',
-    label: 'We can work with customer and lead data for',
+    icon: Database,
+    title: 'First-Party CRM Data Integration',
+    desc: 'Securely synchronizing your customer database and sales pipeline with advertising platforms for precision offline and high-intent targeting.',
     items: [
-      'Customer matching',
-      'Exclusions',
-      'Win-back',
-      'Cross-sell',
-      'Lead nurturing',
-      'Existing-customer campaigns',
+      'Customer list hashing and automated CRM synchronization',
+      'Offline conversion tracking tying ad clicks to completed sales contracts',
+      'Lead status mapping (MQL, SQL, Opportunity, Closed Won)',
+      'Consent-compliant customer matching protocols',
     ],
   },
   {
+    icon: ShieldAlert,
     title: 'Audience Suppression & Deduplication',
-    body: 'Suppression rules help prevent people from sitting in the wrong audience after their behavior changes.',
-    label: 'Examples include',
+    desc: 'Configuring negative audience exclusions to ensure converted users are instantly removed from prospecting and pre-purchase remarketing.',
     items: [
-      'Excluding purchasers from acquisition campaigns',
-      'Removing converted leads from lead-generation remarketing',
-      'Excluding existing customers from new-customer campaigns',
-      'Moving audiences between funnel stages',
-      'Preventing overlapping audience strategies where possible',
+      'Instant exclusion of recent purchasers (last 7, 30, 90 days)',
+      'Exclusion of converted leads from ongoing lead-gen campaigns',
+      'Suppression rules preventing cross-campaign audience overlap',
+      'Automated audience migration as user behavior advances',
     ],
   },
 ]
 
 export default function Tracking() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Infrastructure" title="Tracking Infrastructure for Modern Remarketing">
-          Good remarketing depends on accurate audience signals.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          Before building campaigns, we review the tracking and data infrastructure that supports
-          audience creation, exclusions, conversion measurement, and optimization.
-        </p>
-
-        <div className="space-y-6">
-          {blocks.map((block, index) => (
-            <div
-              key={block.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 md:p-12 transition-colors hover:border-frame-accent"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="font-heading text-3xl font-bold text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
-                  </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                    {block.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {block.body}
-                  </p>
-                </div>
-
-                <div className="lg:w-1/2">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                    {block.label}
-                  </p>
-                  <ul className="grid gap-3 sm:grid-cols-2">
-                    {block.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Tracking Infrastructure for{' '}
+            <span className="italic text-frame-accent">Modern Remarketing.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Flawless remarketing requires flawless audience data. Before spending a single ad dollar, we verify and harden the data infrastructure that powers audience creation, suppression, and attribution.
+          </p>
         </div>
 
-        <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-12">
-          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Server-side tracking is not a replacement for every browser signal. It is part of a
-            broader measurement architecture. Audience use depends on platform requirements,
-            consent, data quality, and campaign eligibility.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {components.map((c) => {
+            const Icon = c.icon
+            return (
+              <div
+                key={c.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-heading text-xl font-medium text-white mb-2">
+                  {c.title}
+                </h3>
+                <p className="text-sm text-zinc-400 font-normal leading-relaxed mb-6">
+                  {c.desc}
+                </p>
+
+                <div className="pt-4 border-t border-white/[0.06] space-y-2">
+                  {c.items.map((item) => (
+                    <div key={item} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

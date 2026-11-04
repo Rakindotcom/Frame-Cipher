@@ -1,73 +1,60 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const blocks = [
+import React from 'react'
+import { Lock, ShieldCheck, Database, Layers } from 'lucide-react'
+
+const privacyPillars = [
   {
+    icon: ShieldCheck,
     title: 'Consent-Aware Tracking',
-    body: 'Where applicable, we configure tracking to respect the client\u2019s consent framework and platform requirements. For markets with specific consent requirements, audience creation and personalized advertising depend on valid consent signals and compliant implementation.',
+    desc: 'Configuring Google Consent Mode v2 and platform consent flags so tags dynamically adjust based on user opt-in/opt-out status, ensuring full compliance in international jurisdictions.',
   },
   {
-    title: 'First-Party Data Strategy',
-    body: 'We help businesses make better use of data they legitimately collect through websites, apps, CRM systems, customer relationships, lead forms, and ecommerce transactions.',
+    icon: Database,
+    title: 'First-Party Data Primacy',
+    desc: 'Transitioning reliance away from volatile third-party cookies toward owned first-party data assets legitimately collected through your website, CRM, order history, and direct customer interactions.',
   },
   {
-    title: 'Measurement Resilience',
-    body: 'We design tracking to avoid depending on a single signal source wherever the platform and implementation allow.',
+    icon: Layers,
+    title: 'Multi-Signal Measurement Resilience',
+    desc: 'Combining browser pixels, server-side Conversion APIs, enhanced conversions, and offline customer matching so tracking accuracy remains robust against browser privacy updates.',
   },
-]
-
-export const measurementItems = [
-  'Audience activity',
-  'Conversions',
-  'Revenue',
-  'Campaign performance',
-  'Customer movement through the funnel',
 ]
 
 export default function Privacy() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Privacy" title="Privacy, Consent & Modern Remarketing">
-          Remarketing now operates within a more privacy-conscious advertising environment.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          Browser restrictions, app privacy controls, consent requirements, platform policies, and
-          changing measurement technologies can affect how audiences are created and measured. That
-          makes proper consent and data handling part of the remarketing strategy, not an optional
-          technical detail.
-        </p>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {blocks.map((block) => (
-            <div
-              key={block.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {block.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                {block.body}
-              </p>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Privacy, Consent &amp;{' '}
+            <span className="italic text-frame-accent">Modern Remarketing.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Remarketing operates within an evolving privacy landscape. Browser restrictions (ITP), mobile OS privacy controls (ATT), and regional consent laws mean compliance is a core strategic foundation, not an afterthought.
+          </p>
         </div>
 
-        <div className="mt-6 border-2 border-frame-border bg-frame-bg p-8 md:p-12">
-          <p className="mb-8 text-sm font-bold uppercase tracking-widest text-frame-accent">
-            The goal is a more reliable view of
-          </p>
-          <div className="flex flex-wrap gap-3">
-            {measurementItems.map((item) => (
-              <span
-                key={item}
-                className="border border-frame-border px-4 py-2 text-sm font-bold uppercase tracking-wider text-frame-fg"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {privacyPillars.map((p) => {
+            const Icon = p.icon
+            return (
+              <div
+                key={p.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
               >
-                {item}
-              </span>
-            ))}
-          </div>
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-heading text-lg font-medium text-white mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
+                  {p.desc}
+                </p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

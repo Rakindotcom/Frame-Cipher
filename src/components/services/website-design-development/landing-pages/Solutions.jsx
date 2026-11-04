@@ -1,5 +1,3 @@
-import { SectionIntro, SectionLabel } from '../../../Kinetic'
-
 const campaignGoals = [
   {
     title: 'Lead Generation Landing Pages',
@@ -33,21 +31,35 @@ const campaignGoals = [
 
 export default function Solutions() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/20 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Campaign Objectives / Target Alignment" title="Landing Page Solutions for Different Campaign Goals">
-          A landing page should be built around the action your campaign needs visitors to take. The page structure, message, proof, and call to action should all support that goal.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Landing Page Solutions for{' '}
+            <span className="italic text-frame-accent">Different Campaign Goals.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            A landing page should be built around the action your campaign needs visitors to take. The page structure, message, proof, and call to action should all support that goal.
+          </p>
+        </div>
+
+        {/* 3-Column Grid of Goal Cards */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {campaignGoals.map((goal, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <SectionLabel className="mb-2">Goal 0{index + 1}</SectionLabel>
-                <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                  Goal 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-medium tracking-tight text-white">
                   {goal.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {goal.desc}
                 </p>
               </div>
@@ -55,9 +67,12 @@ export default function Solutions() {
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          The right structure depends on your offer, audience, traffic source, and conversion goal. We recommend the page type around the campaign rather than forcing every project into the same template.
-        </p>
+        {/* Bottom Context Callout */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 border-l-2 border-l-frame-accent">
+          <p className="text-sm sm:text-base leading-relaxed text-zinc-300">
+            The right structure depends on your offer, audience, traffic source, and conversion goal. We recommend the page type around the campaign rather than forcing every project into the same template.
+          </p>
+        </div>
       </div>
     </section>
   )

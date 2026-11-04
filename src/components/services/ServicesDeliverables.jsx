@@ -1,4 +1,4 @@
-import { SectionIntro } from '../Kinetic'
+import { Check } from 'lucide-react'
 
 const deliverables = [
   {
@@ -57,46 +57,54 @@ const deliverables = [
 
 export default function ServicesDeliverables() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Deliverables / what you actually get"
-          title="Everything is part of a defined package."
-          index="07"
-        >
-          No vague promises. Every result is delivered through clear, itemized packages so you know
-          exactly what you&apos;re getting.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-4xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Everything is part of a{' '}
+            <span className="italic text-frame-accent">
+              defined package.
+            </span>
+          </h2>
+          <p className="mt-5 max-w-3xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            No vague promises. Every result is delivered through clear, itemized packages so you know
+            exactly what you&apos;re getting.
+          </p>
+        </div>
 
-        <div className="mt-14 grid gap-5 md:grid-cols-2">
+        {/* 2x2 Architectural Blueprint Matrix */}
+        <div className="grid gap-px border border-white/[0.08] bg-white/[0.08] rounded-xl overflow-hidden sm:grid-cols-2">
           {deliverables.map((block) => (
             <article
               key={block.number}
-              className="border-2 border-frame-border bg-frame-muted p-7 transition-colors duration-300 hover:border-frame-accent md:p-9"
+              className="group bg-[#121214] p-7 transition-colors duration-200 hover:bg-[#151518] md:p-9 flex flex-col justify-between"
             >
-              <div className="flex items-start justify-between gap-5">
-                <h3 className="font-heading text-3xl font-bold uppercase leading-none tracking-tighter text-frame-fg md:text-4xl">
-                  {block.title}
-                </h3>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted-fg md:text-5xl">
-                  {block.number}
-                </span>
+              <div>
+                <div className="flex items-start justify-between gap-5">
+                  <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                    {block.title}
+                  </h3>
+                  <span className="font-mono text-sm font-medium text-zinc-500 tabular-nums">
+                    /{block.number}
+                  </span>
+                </div>
+
+                <p className="mt-3 font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                  {block.tagline}
+                </p>
+
+                <ul className="mt-6 space-y-3">
+                  {block.items.map((item) => (
+                    <li key={item} className="flex items-start gap-3 text-sm font-normal text-zinc-300">
+                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border border-emerald-500/30 bg-emerald-500/10 text-emerald-400" aria-hidden="true">
+                        <Check className="h-3 w-3 stroke-[3]" />
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-
-              <p className="mt-6 text-base font-bold uppercase tracking-wide text-frame-accent">
-                {block.tagline}
-              </p>
-
-              <ul className="mt-6 space-y-3">
-                {block.items.map((item) => (
-                  <li key={item} className="flex items-center gap-4 text-base font-medium text-frame-fg md:text-lg">
-                    <span className="text-frame-accent" aria-hidden="true">
-                      {'\u2713'}
-                    </span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </article>
           ))}
         </div>

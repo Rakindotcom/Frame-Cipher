@@ -1,8 +1,7 @@
 'use client'
 
-import { MapPin, Phone, MessageSquare, Mail, Clock, Navigation, CheckCircle2, ArrowUpRight } from 'lucide-react'
-import { SectionIntro } from '../Kinetic'
-import GoogleMapEmbed from '../common/GoogleMapEmbed'
+import React from 'react'
+import { MapPin, Phone, Mail, Clock, Navigation, CheckCircle2, ArrowUpRight } from 'lucide-react'
 import { contact } from '../../data/agency'
 
 const audienceTypes = [
@@ -16,85 +15,118 @@ const audienceTypes = [
 
 export default function StudioLocation() {
   return (
-    <section id="location" className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Visit & who books" title="Find FrameCipher Studio in Dhaka." index="08">
-          Who can book, where we are, and how to reach us.
-        </SectionIntro>
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/20 p-8 md:p-10">
+    <section id="location" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
+              Find FrameCipher Studio{' '}
+              <span className="italic text-frame-accent">in Dhaka.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
+            Who can book our soundstage, exact geographic coordinates at ECB Chattar, and complete transit instructions.
+          </p>
+        </div>
+
+        {/* 2-Column Architectural Split */}
+        <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+          {/* Location & Navigation Dossier */}
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10">
             <div>
-              <div className="mb-4 flex items-center gap-2 text-frame-accent">
-                <MapPin className="h-5 w-5" />
-                <span className="text-xs font-black uppercase tracking-[0.22em]">Address & Getting Here</span>
+              <div className="mb-4 flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-frame-accent" />
+                <span className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
+                  Address &amp; Arrival Logistics
+                </span>
               </div>
-              <h3 className="font-heading text-2xl font-extrabold uppercase text-frame-fg md:text-3xl">Eurasia Building, 6th Floor</h3>
-              <div className="mt-6 space-y-4 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                <div className="flex items-start gap-3 border-b border-frame-border/60 pb-3">
+              <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
+                Eurasia Building, 6th Floor
+              </h3>
+
+              <div className="mt-6 space-y-4 text-sm font-normal text-zinc-300">
+                <div className="flex items-start gap-3 border-b border-white/[0.08] pb-3">
                   <Navigation className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                   <div>
-                    <p className="font-semibold text-frame-fg">Address:</p>
-                    <p>6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206, Bangladesh</p>
+                    <p className="font-mono text-xs uppercase text-zinc-500">Address</p>
+                    <p className="text-zinc-200 mt-0.5">6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206, Bangladesh</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 border-b border-frame-border/60 pb-3">
+
+                <div className="flex items-start gap-3 border-b border-white/[0.08] pb-3">
                   <Navigation className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                   <div>
-                    <p className="font-semibold text-frame-fg">Getting here:</p>
-                    <p>The studio is beside Khan Polli Jame Masjid on Matikata Road at ECB Chattar, close to Mirpur DOHS, with flyover access toward Banani, Gulshan and Airport Road. There is an elevator to the 6th floor, and parking is nearby.</p>
+                    <p className="font-mono text-xs uppercase text-zinc-500">Getting here</p>
+                    <p className="text-zinc-200 mt-0.5">The studio is beside Khan Polli Jame Masjid on Matikata Road at ECB Chattar, close to Mirpur DOHS, with flyover access toward Banani, Gulshan and Airport Road. Dedicated passenger elevator to the 6th floor, with secure parking nearby.</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 border-b border-frame-border/60 pb-3">
+
+                <div className="flex items-start gap-3 border-b border-white/[0.08] pb-3">
                   <Clock className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                   <div>
-                    <p className="font-semibold text-frame-fg">Hours:</p>
-                    <p>Open 24 hours — sessions by advance reservation</p>
+                    <p className="font-mono text-xs uppercase text-zinc-500">Hours</p>
+                    <p className="text-zinc-200 mt-0.5">Open 24 hours (sessions by advance reservation)</p>
                   </div>
                 </div>
-                <div className="flex items-start gap-3 border-b border-frame-border/60 pb-3">
+
+                <div className="flex items-start gap-3 border-b border-white/[0.08] pb-3">
                   <Phone className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                   <div>
-                    <p className="font-semibold text-frame-fg">Phone and WhatsApp:</p>
-                    <a href="tel:+8801768146650" className="font-bold text-frame-accent hover:underline">+880 1768-146650</a>
-                    {' '}•{' '}
-                    <a href="https://wa.me/8801768146650" target="_blank" rel="noopener noreferrer" className="font-bold text-frame-accent hover:underline">WhatsApp &rarr;</a>
+                    <p className="font-mono text-xs uppercase text-zinc-500">Phone &amp; WhatsApp</p>
+                    <p className="mt-0.5">
+                      <a href="tel:+8801768146650" className="font-mono text-zinc-200 hover:text-white transition-colors">+880 1768-146650</a>
+                      {' '}•{' '}
+                      <a href="https://wa.me/8801768146650" target="_blank" rel="noopener noreferrer" className="font-mono text-frame-accent hover:underline">WhatsApp Direct &rarr;</a>
+                    </p>
                   </div>
                 </div>
+
                 <div className="flex items-start gap-3">
                   <Mail className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                   <div>
-                    <p className="font-semibold text-frame-fg">Email:</p>
-                    <a href="mailto:teamframecipher@gmail.com" className="font-bold text-frame-accent hover:underline">teamframecipher@gmail.com</a>
+                    <p className="font-mono text-xs uppercase text-zinc-500">Email</p>
+                    <a href="mailto:teamframecipher@gmail.com" className="font-mono text-zinc-200 hover:text-white transition-colors">teamframecipher@gmail.com</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div className="mt-8 border-t border-frame-border pt-6">
-              <a href={contact.googleMapsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-all duration-300 hover:bg-frame-accent/90">
+
+            <div className="mt-8 border-t border-white/[0.08] pt-6">
+              <a
+                href={contact.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex h-[52px] items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 font-mono text-xs uppercase tracking-wider text-white transition-all hover:border-white/40 hover:bg-white/10"
+              >
                 <span>Get Driving Directions on Google Maps</span>
-                <ArrowUpRight className="h-4 w-4" />
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
               </a>
             </div>
           </div>
-          <div className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-8 md:p-10">
+
+          {/* Who Can Book Soundstage */}
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10">
             <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.24em] text-frame-accent">Who Can Book Our Dhaka Studio</p>
-              <ul className="mt-6 space-y-3">
+              <div className="flex items-center gap-2 mb-4">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
+                  Client Archetypes
+                </p>
+              </div>
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                Who Can Book Our Dhaka Studio
+              </h3>
+              <ul className="mt-6 space-y-3.5">
                 {audienceTypes.map((item, i) => (
-                  <li key={i} className="flex items-start gap-2.5 text-xs font-medium text-frame-muted-fg">
+                  <li key={i} className="flex items-start gap-3 rounded-lg border border-white/[0.04] bg-[#18181B] p-3 text-xs sm:text-sm font-normal text-zinc-300">
                     <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="mt-8 border border-frame-border bg-frame-muted/30 p-4 text-xs font-medium text-frame-muted-fg">
-              <strong className="font-bold text-frame-fg">Power backup:</strong> the studio has IPS and generator power backup — recording continues through power cuts.
-            </div>
           </div>
-        </div>
-        <div className="mt-12">
-          <GoogleMapEmbed title="FrameCipher Studio Dhaka (ECB Chattar)" description="6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata Road, ECB Chattar, Dhaka 1206" height="460px" mapQuery={contact.studioCoords} directionsUrl={contact.googleMapsUrl} />
         </div>
       </div>
     </section>

@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const comparisonData = [
   {
@@ -64,38 +66,47 @@ const comparisonData = [
 
 export default function Comparison() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Decision Framework" title="Next.js vs WordPress, Webflow &amp; Other Platforms">
-          The right technology depends on what your website or application needs to accomplish.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Next.js vs WordPress,{' '}
+            <span className="italic text-frame-accent">Webflow &amp; Other Platforms.</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            The right technology depends on what your website or application needs to accomplish.
+          </p>
+        </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+        {/* Comparison Table */}
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
           <table className="w-full text-left min-w-[720px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/40">
+            <thead className="border-b border-white/[0.08] bg-white/[0.02]">
               <tr>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Requirement</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Next.js</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WordPress</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Webflow / Hosted Platforms</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-zinc-400">Requirement</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-frame-accent">Next.js</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-zinc-400">WordPress</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-zinc-400">Webflow / Hosted Platforms</th>
               </tr>
             </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm font-medium">
+            <tbody className="divide-y divide-white/[0.06] text-sm">
               {comparisonData.map((row, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-6 font-bold text-frame-fg">{row.requirement}</td>
-                  <td className={`p-5 md:p-6 ${row.highlight === 'nextjs' ? 'font-bold text-frame-accent' : 'text-frame-fg'}`}>
+                <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
+                  <td className="p-5 font-medium text-white">{row.requirement}</td>
+                  <td className={`p-5 ${row.highlight === 'nextjs' ? 'font-medium text-frame-accent' : 'text-zinc-300'}`}>
                     {row.nextjs}
                   </td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.wordpress}</td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.platforms}</td>
+                  <td className="p-5 text-zinc-400">{row.wordpress}</td>
+                  <td className="p-5 text-zinc-400">{row.platforms}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
+        {/* Footnote */}
+        <p className="mt-8 text-xs sm:text-sm italic text-zinc-400">
           We recommend the platform based on your requirements, budget, internal team, content workflow, integrations, and long-term plans.
         </p>
       </div>

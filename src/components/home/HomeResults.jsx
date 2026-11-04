@@ -7,30 +7,43 @@ const metrics = [
 
 export default function HomeResults() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-accent px-4 py-20 text-frame-accent-fg md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-12 grid gap-6 lg:grid-cols-[1fr_0.9fr] lg:items-end">
-          <h2 className="font-heading text-[clamp(2.8rem,7.5vw,7.5rem)] font-bold uppercase leading-[0.82] tracking-tighter">
-            Built around business outcomes.
-          </h2>
-          <p className="text-base font-semibold leading-snug opacity-90 sm:text-xl md:text-2xl">
-            The goal is not simply to launch a website, publish content, or run ads. The goal is
-            to create measurable business impact.
-          </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+          <div>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Built around{' '}
+              <span className="italic text-frame-accent">
+                business outcomes.
+              </span>
+            </h2>
+          </div>
+          <div className="border-l border-white/[0.08] pl-6">
+            <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+              The goal is not simply to launch a website, publish content, or run ads. The goal is
+              to create measurable business impact, defensible market share, and revenue momentum.
+            </p>
+          </div>
         </div>
 
-        <div className="grid bg-frame-accent-fg gap-px sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {metrics.map((metric) => (
             <article
               key={metric.label}
-              className="flex min-h-52 flex-col justify-between bg-frame-accent p-6 sm:p-7"
+              className="group relative flex min-h-60 flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-all duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
             >
-              <p className="font-heading text-[clamp(2.5rem,5vw,5rem)] font-bold uppercase leading-none tracking-tighter">
-                {metric.value}
-              </p>
-              <div className="mt-6 border-t-2 border-frame-accent-fg/25 pt-4">
-                <p className="text-sm font-black uppercase leading-snug tracking-[0.12em]">{metric.label}</p>
-                <p className="mt-1.5 text-xs font-medium leading-relaxed opacity-75">{metric.note}</p>
+              <div>
+                <span className="text-[11px] text-zinc-500 group-hover:text-frame-accent transition-colors">
+                  {metric.label}
+                </span>
+                <p className="mt-4 font-heading text-4xl sm:text-5xl font-medium leading-none text-white transition-colors duration-200 group-hover:text-frame-accent tabular-nums">
+                  {metric.value}
+                </p>
+              </div>
+              <div className="mt-6 border-t border-white/[0.08] pt-4">
+                <p className="text-xs font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-300">
+                  {metric.note}
+                </p>
               </div>
             </article>
           ))}

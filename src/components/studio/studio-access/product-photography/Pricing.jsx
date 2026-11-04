@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for product-photography — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for product-photography: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Product Photography Rates in Dhaka",
@@ -38,7 +38,7 @@ const DATA = {
         "Macro texture and label detail shots",
         "Transparent-background PNG cuts included",
         "360° multi-angle coverage sets",
-        "Raw handover same day, retouched in 3–4 days"
+        "Raw handover same day, retouched in 3 to 4 days"
       ]
     },
     {
@@ -66,7 +66,7 @@ const DATA = {
     "Retouching depth and transparent PNG cutouts",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Dhaka product photography runs ৳1,000–1,500 per product (3 retouched photos, minimum 5) at Black Box, ৳3,000 per-product / ৳6,000 indoor / ৳12,000 outdoor packages at Studio89, and ৳8,000–14,000 half-day room rates — with full days at ৳14,000–25,000. Macro, jewellery and reflective materials command premiums for reflection-control labour. Our ৳1,500/product catalogue tier matches the honest market middle with retouching genuinely included.",
+  "marketNote": "Dhaka product photography runs ৳1,000 to 1,500 per product (3 retouched photos, minimum 5) at Black Box, ৳3,000 per-product / ৳6,000 indoor / ৳12,000 outdoor packages at Studio89, and ৳8,000 to 14,000 half-day room rates, with full days at ৳14,000 to 25,000. Macro, jewellery and reflective materials command premiums for reflection-control labour. Our ৳1,500/product catalogue tier matches the honest market middle with retouching genuinely included.",
   "costRows": [
     [
       "Catalogue set: 5 products × 3 retouched photos",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Product Photography Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

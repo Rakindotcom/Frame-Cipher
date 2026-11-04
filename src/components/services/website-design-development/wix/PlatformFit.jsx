@@ -1,4 +1,5 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import { Check, ArrowRight } from 'lucide-react'
 
 const wixGoodFitPoints = [
   'You need a professional website without managing a complex technical stack',
@@ -19,33 +20,46 @@ const anotherPlatformBetterPoints = [
 
 export default function PlatformFit() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Fit & Evaluation" title="Is Wix the Right Platform for Your Business?" />
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Heading: STRICTLY LEFT-ALIGNED */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Is Wix the Right Platform for{' '}
+            <span className="italic text-frame-accent">Your Business?</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Platform selection should be driven by business logic, editorial velocity, and infrastructure constraints, not platform loyalty.
+          </p>
+        </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-3 border-2 border-frame-border bg-frame-muted/10 p-7 sm:p-8 md:p-10">
-          <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+        {/* Narrative Context Card */}
+        <div className="grid gap-6 md:grid-cols-3 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 mb-10">
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
             Wix can be an excellent fit for many businesses, but choosing a website platform should start with requirements rather than trends.
           </p>
-          <p className="md:col-span-2 text-sm sm:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+          <p className="md:col-span-2 text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
             We recommend Wix when its editing experience, built-in features, development options, and long-term flexibility match what your business actually needs.
           </p>
         </div>
 
+        {/* Two Comparison Columns */}
         <div className="grid gap-8 md:grid-cols-2">
           {/* GOOD FIT */}
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-10 transition-colors duration-200 hover:border-white/[0.14]">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-emerald-500">
+              <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
                 Recommended For
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
                 Wix Can Be a Good Fit When:
               </h3>
-              <ul className="mt-6 space-y-3 text-sm sm:text-base font-medium text-frame-fg/90">
+              <ul className="mt-6 space-y-3.5 text-sm sm:text-base font-normal text-zinc-300">
                 {wixGoodFitPoints.map((pt, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="text-emerald-500 font-bold">✓</span>
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 mt-0.5">
+                      <Check className="h-3 w-3 stroke-[2.5]" />
+                    </span>
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -54,18 +68,20 @@ export default function PlatformFit() {
           </div>
 
           {/* ANOTHER PLATFORM */}
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-10 transition-colors duration-200 hover:border-white/[0.14]">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-amber-500">
+              <span className="font-mono text-xs uppercase tracking-wider text-amber-400">
                 Alternative Architecture
               </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
                 Another Platform May Be Better When:
               </h3>
-              <ul className="mt-6 space-y-3 text-sm sm:text-base font-medium text-frame-fg/90">
+              <ul className="mt-6 space-y-3.5 text-sm sm:text-base font-normal text-zinc-300">
                 {anotherPlatformBetterPoints.map((pt, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="text-amber-500 font-bold">&rarr;</span>
+                    <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-amber-500/20 bg-amber-500/10 text-amber-400 mt-0.5">
+                      <ArrowRight className="h-3 w-3 stroke-[2.5]" />
+                    </span>
                     <span>{pt}</span>
                   </li>
                 ))}
@@ -74,15 +90,15 @@ export default function PlatformFit() {
           </div>
         </div>
 
-        {/* OUR APPROACH */}
-        <div className="mt-10 border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+        {/* OUR ADVISORY STANDARD */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+          <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
             Our Advisory Standard
           </span>
-          <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="mt-2 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
             Our Approach
           </h3>
-          <p className="mt-4 text-base md:text-lg font-medium leading-relaxed text-frame-muted-fg">
+          <p className="mt-4 text-base md:text-lg font-normal leading-relaxed text-zinc-300">
             We do not recommend Wix simply because Wix is what you asked for. We first review the business model, content structure, integrations, functionality, SEO requirements, ecommerce needs, and future plans. Then we recommend the platform that makes the most practical sense for the project.
           </p>
         </div>

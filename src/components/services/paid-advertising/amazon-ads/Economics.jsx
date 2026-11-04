@@ -1,64 +1,106 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const blocks = [
+import React from 'react'
+import { Percent, TrendingUp, Calculator, ShieldAlert, ArrowRight } from 'lucide-react'
+
+const metrics = [
   {
-    title: 'ACOS',
-    body: 'Advertising Cost of Sales (ACOS) compares advertising spend with advertising-attributed sales. Amazon defines ACOS as a metric used to evaluate advertising efficiency by comparing ad spend with ad revenue. ACOS is useful for campaign-level analysis, but it does not describe the entire economics of an Amazon business.',
+    icon: Percent,
+    title: 'ACOS (Advertising Cost of Sales)',
+    formula: 'Ad Spend ÷ Attributed Ad Sales × 100%',
+    role: 'Campaign Efficiency Metric',
+    desc: 'Amazon defines ACOS as the standard benchmark to evaluate advertising efficiency. It is essential for campaign-level keyword and bid calibration, but it does not tell the whole business profitability story in isolation.',
   },
   {
-    title: 'TACOS',
-    body: 'Total Advertising Cost of Sales (TACOS) compares advertising spend with total sales, including sales not directly attributed to advertising. TACOS is commonly used as a broader business-analysis metric rather than a standalone Amazon advertising product metric. It can help businesses understand how dependent overall sales are on paid advertising.',
+    icon: TrendingUp,
+    title: 'TACOS (Total Advertising Cost of Sales)',
+    formula: 'Ad Spend ÷ Total Marketplace Revenue × 100%',
+    role: 'Business Health & Organic Lift Metric',
+    desc: 'TACOS compares total advertising spend against all sales (both ad-attributed and organic). A declining TACOS while total revenue climbs signals that paid velocity is boosting organic discovery and keyword rankings.',
   },
   {
+    icon: Calculator,
     title: 'Break-Even ACOS',
-    body: 'A useful ACOS target depends on product economics. We consider product cost, Amazon fees, fulfillment costs, discounts, returns, contribution margin, customer value, and growth objectives. A product with a narrow margin should not automatically use the same ACOS target as a high-margin product.',
+    formula: 'Sale Price - (COGS + Amazon Referral Fee + FBA Fee) ÷ Sale Price',
+    role: 'The Profit Threshold Boundary',
+    desc: 'We model the exact break-even threshold for every hero SKU. An ad campaign operating beneath break-even generates net profit immediately; an aggressive launch campaign might temporarily run at break-even to build ranking velocity.',
   },
   {
+    icon: ShieldAlert,
     title: 'Margin-Aware Optimization',
-    body: 'Our goal is not to achieve the lowest possible ACOS. A lower ACOS can still be undesirable if it restricts profitable growth. A higher ACOS can sometimes be acceptable when the product economics and acquisition strategy justify it. We evaluate advertising efficiency alongside sales, margins, conversion rate, product-level economics, and business objectives.',
+    formula: 'Contribution Margin Dollars > Pure Percentage Optimization',
+    role: 'Holistic Growth Philosophy',
+    desc: 'Our goal is not simply to chase the lowest possible ACOS. An artificially low ACOS often strangles revenue and allows competitors to capture market share. We balance target efficiency with overall dollar profit expansion.',
   },
 ]
 
 export default function Economics() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Economics" title="ACOS, TACOS & Amazon Profitability">
-          Amazon advertising should not be evaluated through one metric alone.
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {blocks.map((block) => (
-            <div
-              key={block.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 flex items-center gap-4">
-                <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                  {block.title}
-                </span>
-                <div className="h-1.5 flex-1 bg-frame-accent" />
-              </div>
-              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                {block.body}
-              </p>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            ACOS, TACOS &amp;{' '}
+            <span className="italic text-frame-accent">Amazon Profitability.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Amazon advertising should never be evaluated through one isolated metric. We structure campaigns around your actual unit economics, Amazon fulfillment fees, and blended account contribution margins.
+          </p>
         </div>
 
-        <div className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-8 md:p-10">
-          <p className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-            Review Your Amazon Advertising Economics
-          </p>
-          <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            We evaluate product-level economics, break-even ACOS, and realistic growth targets
-            before deciding how much advertising to run.
-          </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {metrics.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                    {item.role}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white mb-2">
+                  {item.title}
+                </h3>
+
+                <div className="rounded-lg border border-white/[0.06] bg-black/40 px-3.5 py-2 font-mono text-xs text-zinc-300 mb-4">
+                  <span className="text-frame-accent font-semibold">Formula: </span>
+                  {item.formula}
+                </div>
+
+                <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Assessment Callout Banner */}
+        <div className="rounded-2xl border border-frame-accent/30 bg-frame-accent/[0.05] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent font-semibold">
+              Economics Assessment
+            </span>
+            <h4 className="font-heading text-xl sm:text-2xl font-medium text-white">
+              Evaluate Your True Amazon Contribution Margins
+            </h4>
+            <p className="text-sm text-zinc-300 font-normal leading-relaxed">
+              We analyze your SKU-level gross margins, Amazon FBA fees, and return allowances to establish realistic, profitable ACOS and TACOS thresholds before spending ad dollars.
+            </p>
+          </div>
           <a
             href="#pricing"
-            className="mt-6 inline-flex border-2 border-frame-accent px-6 py-3 text-sm font-bold uppercase tracking-widest text-frame-accent transition-colors hover:bg-frame-accent hover:text-frame-bg"
+            className="inline-flex items-center gap-2 rounded-xl bg-frame-accent px-6 py-3.5 font-mono text-xs font-semibold uppercase tracking-wider text-black transition-colors hover:bg-white hover:text-black shrink-0"
           >
-            Assess Your Amazon Profitability
+            <span>Review Amazon Pricing</span>
+            <ArrowRight className="h-4 w-4" />
           </a>
         </div>
       </div>

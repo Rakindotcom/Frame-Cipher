@@ -1,234 +1,185 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, ArrowRight, Layers, Workflow } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const steps = [
   {
     number: '01',
     title: 'Account & Business Audit',
-    lead: 'We review your existing TikTok presence and understand your business before creating the strategy. The audit can cover:',
-    groups: [
-      {
-        items: [
-          'Current profile',
-          'Existing content',
-          'Content performance',
-          'Audience',
-          'Brand positioning',
-          'Brand voice',
-          'Competitors',
-          'Content gaps',
-          'Business goals',
-          'Conversion paths',
-        ],
-      },
+    lead: 'We review your existing TikTok presence and understand your commercial objectives before formulating strategy:',
+    bullets: [
+      'Current profile setup & bio clarity',
+      'Historical content & video performance',
+      'Audience demographics & search signals',
+      'Competitor presence & positioning gaps',
+      'Business goals & primary conversion paths',
+      'Assessment of existing footage/assets',
     ],
-    notes: [
-      'We also determine whether your existing account has useful content, audience data, or performance history that can inform the new strategy.',
-    ],
+    note: 'We determine whether your existing account has useful audience data or historical retention patterns to inform the new strategy.',
   },
   {
     number: '02',
     title: 'Audience & Competitor Research',
-    lead: 'We identify who you want to reach and examine how similar businesses communicate with that audience. Research may include:',
-    groups: [
-      {
-        items: [
-          'Audience interests',
-          'Customer questions',
-          'Competitor content',
-          'Content formats',
-          'Market opportunities',
-          'Topic gaps',
-          'Creative patterns',
-          'Search topics',
-          'Competitor content gaps',
-        ],
-      },
+    lead: 'We identify who you want to reach and examine how competitor accounts communicate with that audience:',
+    bullets: [
+      'Buyer interests & customer pain-points',
+      'Customer questions & purchase hesitations',
+      'Competitor content patterns & formats',
+      'High-intent search topics on TikTok',
+      'Underserved topic gaps & creative angles',
+      'Opportunities for distinct brand positioning',
     ],
-    notes: ['The goal is to identify opportunities rather than simply copy competitor content.'],
+    note: 'The goal is to discover underserved opportunities rather than simply copy competitor videos.',
   },
   {
     number: '03',
     title: 'Strategy & Content Planning',
-    lead: 'We turn research into a practical content system. This stage can define:',
-    groups: [
-      {
-        items: [
-          'Content pillars',
-          'Brand voice',
-          'Content formats',
-          'Creative direction',
-          'Posting frequency',
-          'Topics',
-          'Video concepts',
-          'Search opportunities',
-          'Calls to action',
-          'Testing priorities',
-          'Reporting metrics',
-        ],
-      },
+    lead: 'We turn research into a repeatable, high-retention content system for your brand:',
+    bullets: [
+      'Content pillars & recurring themes',
+      'Brand messaging voice & on-camera style',
+      'Short-form formats & hook styles',
+      'Posting cadence & publishing calendar',
+      'Search-aware video concepts & keywords',
+      'First content cycle & approval workflow',
     ],
-    notes: ['We also establish the first content cycle and approval workflow.'],
+    note: 'Establishes clear criteria for video reviews and aligns production with commercial business goals.',
   },
   {
     number: '04',
     title: 'Production & Approval',
-    lead: 'We develop the agreed content and prepare it for publishing. Depending on the scope, this can include:',
-    groups: [
-      {
-        items: [
-          'Scripting',
-          'Hooks',
-          'Editing',
-          'Captions',
-          'On-screen text',
-          'Graphics',
-          'Short-form video production',
-          'Creator/UGC coordination',
-        ],
-      },
+    lead: 'We develop the agreed content and prepare platform-native assets for publishing:',
+    bullets: [
+      'Scripting & talking points',
+      'Retention-focused opening hooks',
+      'Paced short-form video editing',
+      'Styled captions & on-screen callouts',
+      'Dynamic transitions & brand elements',
+      'Creator & UGC collaboration coordination',
     ],
-    notes: [
-      'Content follows the agreed review and approval process before publishing.',
-      'The number of revision rounds, approval deadlines, and publishing responsibilities are defined in the service scope.',
-    ],
+    note: 'Every video follows an agreed review and approval workflow before publishing. Revision rounds and deadlines are clearly defined.',
   },
   {
     number: '05',
     title: 'Publishing & Community Management',
-    lead: 'Once content is approved, we publish according to the agreed schedule. We also manage community interactions within the agreed scope and identify useful audience feedback or content opportunities.',
-    notes: [
-      'Where relevant, we coordinate timely trend-based publishing without allowing trends to replace the planned content strategy.',
+    lead: 'Once approved, we publish on schedule and actively nurture community conversations:',
+    bullets: [
+      'Peak-time content scheduling',
+      'Optimized captions & discoverability tags',
+      'Profile checks & pinned video curation',
+      'Comment monitoring & active responses',
+      'Customer question triage & DM escalation',
+      'Timely trend adaptation & opportunistic posts',
     ],
+    note: 'Recurring audience questions from comments are captured to feed directly into future video topics and tutorials.',
   },
   {
     number: '06',
     title: 'Reporting & Optimization',
-    lead: 'Performance data is reviewed regularly. We identify:',
-    groups: [
-      {
-        label: 'We identify',
-        items: [
-          'Strong content',
-          'Weak content',
-          'Topic patterns',
-          'Hook performance',
-          'Retention patterns',
-          'Completion trends',
-          'Audience responses',
-          'Format opportunities',
-          'Creative improvements',
-          'Business actions',
-          'Next-cycle priorities',
-        ],
-      },
-      {
-        label: 'We can test variables such as',
-        items: [
-          'Hooks',
-          'Topics',
-          'Formats',
-          'Storytelling approaches',
-          'Editing styles',
-          'Creative angles',
-          'Calls to action',
-        ],
-      },
+    lead: 'Performance data is systematically reviewed to refine upcoming creative batches:',
+    bullets: [
+      'Watch time, completion & retention drop-offs',
+      'Hook retention rate & topic traction',
+      'Audience engagement, shares & saves',
+      'Profile visits, website clicks & leads',
+      'Creative variant & format testing',
+      'Actionable next-cycle recommendations',
     ],
-    notes: [
-      'Stronger patterns are developed further. Weaker approaches are adjusted or removed from future content cycles.',
-    ],
+    note: 'Stronger creative patterns are scaled up; weaker approaches are adjusted or removed from subsequent cycles.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution framework"
-          title="How Our TikTok Management Process Works"
-        >
-          We use a structured process so strategy, production, publishing, community management, and
-          optimization stay connected.
-        </SectionIntro>
-
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-3">
-          {steps.map((step) => (
-            <article
-              key={step.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
-            >
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.number}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
-                  {step.lead}
-                </p>
-              </div>
-
-              {(step.groups || step.notes) && (
-                <div className="mt-6 space-y-5 border-t-2 border-frame-border/60 pt-5 transition-colors duration-200 group-hover:border-frame-accent-fg/30">
-                  {step.groups &&
-                    step.groups.map((group, gIdx) => (
-                      <div key={group.label || `group-${gIdx}`}>
-                        {group.label && (
-                          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                            {group.label}
-                          </span>
-                        )}
-                        <ul className="mt-3 grid gap-2 sm:grid-cols-2">
-                          {group.items.map((item) => (
-                            <li
-                              key={item}
-                              className="flex items-start gap-2 text-xs font-medium leading-snug text-frame-fg/90 transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-sm"
-                            >
-                              <span
-                                aria-hidden="true"
-                                className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg"
-                              />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    ))}
-
-                  {step.notes &&
-                    step.notes.map((note) => (
-                      <p
-                        key={note}
-                        className="text-xs font-semibold leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80"
-                      >
-                        {note}
-                      </p>
-                    ))}
-                </div>
-              )}
-            </article>
-          ))}
-
-          <div className="flex min-h-64 flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Transparency by default
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Execution Playbook · 6 Steps
             </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              Every reporting cycle explains what should continue, what should change, and what should
-              be tested next, based on actual performance rather than assumptions.
-            </p>
           </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            How Our TikTok Management{' '}
+            <span className="italic text-frame-accent">Process Works.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We use a structured process so strategy, production, publishing, community management, and optimization stay connected into one reliable workflow.
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Stronger patterns are developed further. Weaker approaches are adjusted or removed from future
-            content cycles.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get Your Free TikTok Audit &rarr;</PosterButton>
+        {/* 6 Process Steps Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((step, idx) => (
+            <article
+              key={step.number}
+              className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    Step {step.number} · </span>
+                  <span className="font-mono text-xs text-zinc-500">
+                    Phase 0{idx + 1}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium tracking-tight text-white">
+                  {step.title}
+                </h3>
+
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  {step.lead}
+                </p>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2.5">
+                    Activities &amp; Outputs:
+                  </p>
+                  <ul className="space-y-2 text-xs text-zinc-400">
+                    {step.bullets.map((bullet, bIdx) => (
+                      <li key={bIdx} className="flex items-start gap-2">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3 text-[11px] text-zinc-400 leading-relaxed">
+                <strong className="text-zinc-200">Principle: </strong>
+                {step.note}
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* Bottom Banner */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Data-Led Iteration Across Every Cycle
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400">
+              Stronger patterns are scaled up. Weaker approaches are adjusted or removed based on verified platform signals.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get Your Free TikTok Audit
+            </PosterButton>
           </div>
         </div>
       </div>

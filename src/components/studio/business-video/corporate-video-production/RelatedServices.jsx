@@ -16,7 +16,7 @@ const related = [
 export default function RelatedServices() {
   return (
     <section id="related-services" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Keep Exploring"
           title="Related Studio Services"

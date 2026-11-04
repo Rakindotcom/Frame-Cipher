@@ -1,6 +1,6 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -70,8 +70,8 @@ const sampleShowcase = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         
         {/* WHY CHOOSE INTRO */}
         <SectionIntro
@@ -83,32 +83,32 @@ export default function WhyChoose() {
         </SectionIntro>
 
         {/* 6 ADVANTAGES IN A BALANCED 3x2 GRID */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {reasons.map((item, index) => (
             <div
               key={index}
-              className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors"
+              className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between hover:bg-[#121214] transition-colors"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3 mb-4">
-                  <span className="font-heading text-2xl md:text-3xl font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                  <span className="font-heading text-2xl md:text-3xl font-black text-[#A855F7]">
                     {item.num}
                   </span>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-frame-muted-fg border border-frame-border px-1.5 py-0.5">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#A1A1AA] border border-white/[0.08] px-1.5 py-0.5">
                     Advantage 0{index + 1}
                   </span>
                 </div>
 
-                <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg leading-snug">
+                <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA] leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="mt-6 border-t border-frame-border/60 pt-4 flex items-center gap-2 text-xs font-mono font-bold text-frame-accent">
+              <div className="mt-6 border-t border-white/[0.06] pt-4 flex items-center gap-2 text-xs font-mono font-bold text-[#A855F7]">
                 <CheckIcon className="h-4 w-4 shrink-0" />
                 <span>Verified Creative Standard</span>
               </div>
@@ -117,16 +117,16 @@ export default function WhyChoose() {
         </div>
 
         {/* SELECTED SOCIAL MEDIA GRAPHICS WORK SHOWCASE */}
-        <div id="portfolio" className="mt-20 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-10 scroll-mt-20">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b-2 border-frame-border pb-6">
+        <div id="portfolio" className="mt-20 border border-white/[0.08] bg-[#121214] p-6 md:p-10 scroll-mt-20">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-white/[0.08] pb-6">
             <div className="max-w-2xl">
-              <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-frame-accent block mb-2">
+              <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-2">
                 Creative Portfolio
               </span>
-              <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Selected Social Media Graphics Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                 See verified social creative workflows showing design objectives, content formats, safe-zone engineering, and real-world feed applications.
               </p>
             </div>
@@ -140,38 +140,38 @@ export default function WhyChoose() {
           {/* PROJECT EXAMPLES: BALANCED 3-COLUMN GRID */}
           <div className="mt-8 grid gap-6 lg:grid-cols-3">
             {sampleShowcase.map((proj, pIdx) => (
-              <div key={pIdx} className="border-2 border-frame-border bg-frame-bg p-6 flex flex-col justify-between">
+              <div key={pIdx} className="border border-white/[0.08] bg-[#09090B] p-6 flex flex-col justify-between">
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between border-b border-frame-border/60 pb-2">
-                    <span className="font-mono text-[11px] font-black uppercase tracking-wider text-frame-accent">
+                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+                    <span className="font-mono text-[11px] font-black uppercase tracking-wider text-[#A855F7]">
                       {proj.category}
                     </span>
-                    <span className="font-mono text-[10px] text-frame-muted-fg border border-frame-border px-1 py-0.5">
+                    <span className="font-mono text-[10px] text-[#A1A1AA] border border-white/[0.08] px-1 py-0.5">
                       Case 0{pIdx + 1}
                     </span>
                   </div>
 
                   <div>
-                    <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg leading-snug">
+                    <h4 className="font-heading text-base font-bold tracking-tight text-[#FAFAFA] leading-snug">
                       {proj.objective}
                     </h4>
-                    <p className="mt-1 text-xs font-mono font-bold text-frame-accent">
+                    <p className="mt-1 text-xs font-mono font-bold text-[#A855F7]">
                       {proj.format}
                     </p>
                   </div>
 
-                  <p className="text-xs font-medium leading-relaxed text-frame-muted-fg">
-                    <strong className="text-frame-fg">Creative Direction:</strong> {proj.direction}
+                  <p className="text-xs font-medium leading-relaxed text-[#A1A1AA]">
+                    <strong className="text-[#FAFAFA]">Creative Direction:</strong> {proj.direction}
                   </p>
 
-                  <div className="border-t border-frame-border/60 pt-3 text-xs space-y-1 font-mono">
-                    <p className="text-frame-muted-fg">
-                      <strong className="text-frame-fg">Engineering:</strong> {proj.productionDetails}
+                  <div className="border-t border-white/[0.06] pt-3 text-xs space-y-1 font-mono">
+                    <p className="text-[#A1A1AA]">
+                      <strong className="text-[#FAFAFA]">Engineering:</strong> {proj.productionDetails}
                     </p>
                   </div>
                 </div>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-3 flex items-center justify-between text-[11px] font-mono font-bold text-frame-accent">
+                <div className="mt-6 border-t border-white/[0.06] pt-3 flex items-center justify-between text-[11px] font-mono font-bold text-[#A855F7]">
                   <span>100% Safe-Zone Compliant</span>
                   <span>Published Asset</span>
                 </div>
@@ -179,8 +179,8 @@ export default function WhyChoose() {
             ))}
           </div>
 
-          <div className="mt-6 border-t border-frame-border/60 pt-3 text-center">
-            <p className="text-[11px] font-mono text-frame-muted-fg">
+          <div className="mt-6 border-t border-white/[0.06] pt-3 text-center">
+            <p className="text-[11px] font-mono text-[#A1A1AA]">
               * Note: We showcase verified production workflows and approved designs. Client performance metrics are disclosed only under explicit authorization.
             </p>
           </div>

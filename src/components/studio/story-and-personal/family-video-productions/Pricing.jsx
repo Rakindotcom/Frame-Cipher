@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for family-video-productions — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for family-video-productions: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Family & Legacy Film Rates in Dhaka",
@@ -33,11 +33,11 @@ const DATA = {
       "popular": true,
       "description": "An elder’s life story told properly: multi-session interviews, archive restoration and chaptered documentary edit.",
       "features": [
-        "2–3 unhurried interview sessions at elder’s pace",
+        "2 to 3 unhurried interview sessions at elder’s pace",
         "Up to 100 photographs, VHS and document digitisation",
         "Family-tree graphics and chapter structuring",
         "Colour restoration of faded vintage photographs",
-        "25–35 minute documentary with trailer cut",
+        "25 to 35 minute documentary with trailer cut",
         "Heirloom box set with copies for siblings"
       ]
     },
@@ -66,7 +66,7 @@ const DATA = {
     "Bilingual narration and trailer versions",
     "USB box sets and vault access length"
   ],
-  "marketNote": "Bespoke biography and anniversary filmmaking in Dhaka is quoted per scope rather than per hour, with single-session interview edits starting near ৳25,000–35,000 and multi-session archive projects reaching ৳1,00,000–1,50,000 once restoration volume grows. The cost driver is never the camera — it is interview patience and restoration hours. Our tiers price those honestly: unhurried sessions and real restoration labour, not rushed single-visit edits.",
+  "marketNote": "Bespoke biography and anniversary filmmaking in Dhaka is quoted per scope rather than per hour, with single-session interview edits starting near ৳25,000 to 35,000 and multi-session archive projects reaching ৳1,00,000 to 1,50,000 once restoration volume grows. The cost driver is never the camera: it is interview patience and restoration hours. Our tiers price those honestly: unhurried sessions and real restoration labour, not rushed single-visit edits.",
   "costRows": [
     [
       "Milestone film: interview + event + 30 photos",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Family and Legacy Films Cost in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
@@ -203,7 +203,7 @@ export default function Pricing() {
             </dl>
           )}
           <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-            Sessions happen at your family home across Dhaka or in our quiet studio at ECB Chattar — with generator
+            Sessions happen at your family home across Dhaka or in our quiet studio at ECB Chattar, with generator
             and IPS backup and fibre internet supporting every interview and archive transfer.
           </p>
         </div>

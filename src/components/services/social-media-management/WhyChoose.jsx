@@ -1,4 +1,8 @@
-import { SectionIntro, PosterButton } from '../../Kinetic'
+'use client'
+
+import React from 'react'
+import PosterButton from '../../home/PosterButton'
+import { ShieldCheck, CheckCircle2, ArrowRight } from 'lucide-react'
 
 const standards = [
   {
@@ -7,7 +11,7 @@ const standards = [
   },
   {
     title: 'Platform-Specific Strategy',
-    body: 'We do not treat every platform as the same. Content is planned around each platform’s audience, format, communication style, and role within your marketing strategy.',
+    body: 'We do not treat every platform as the same. Content is planned around each platform\'s audience, format, communication style, and role within your marketing strategy.',
   },
   {
     title: 'Client Approval Before Publishing',
@@ -15,7 +19,7 @@ const standards = [
   },
   {
     title: 'Bangladesh & International Experience',
-    body: 'We work with businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE. That means audience behavior, language, culture, market positioning, and platform usage are accounted for. For Bangladeshi businesses, we can also develop Bangla-English content where it fits the audience and brand.',
+    body: 'We work with businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE. This allows us to account for differences in audience behavior, language, culture, market positioning, and platform usage. For Bangladeshi businesses, we can also develop Bangla-English content where it fits the audience and brand.',
   },
   {
     title: 'Transparent Reporting',
@@ -29,27 +33,49 @@ const standards = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="The Framecipher standard"
-          title="Why Choose Framecipher for Social Media Management"
-        >
-          Content, publishing, community care, and reporting coordinated by one team rather than
-          passed between separate vendors.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               THE FRAMECIPHER ADVANTAGE 
+            </p>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Choose Framecipher for{' '}
+            <span className="italic text-[#A855F7]">Social Media Management.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Content, publishing, community care, and reporting coordinated by one in-house team rather than passed between separate vendors.
+          </p>
+        </div>
+
+        {/* 6 Standards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {standards.map((standard, index) => (
-            <article key={standard.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <article
+              key={standard.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-200 hover:border-white/[0.16]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Standard {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                    Advantage 0{index + 1}
+                  </span>
+                  <span className="font-mono text-[10px] text-zinc-500 uppercase">
+                    Execution Pillar
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white leading-snug">
                   {standard.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="mt-3 text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
                   {standard.body}
                 </p>
               </div>
@@ -57,14 +83,19 @@ export default function WhyChoose() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Our goal is to keep your social presence active, useful, consistent, and aligned with
-            your business, rather than chasing vanity metrics or promising viral results.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Talk to Our Social Media Team &rarr;</PosterButton>
+        {/* Bottom Banner */}
+        <div className="flex flex-col gap-6 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+              Sustainable Social Growth
+            </span>
+            <p className="text-sm sm:text-base text-zinc-300 max-w-2xl font-normal leading-relaxed">
+              Our focus is consistent execution, useful content, active community management, measurement, and continuous improvement without unverified vanity promises.
+            </p>
           </div>
+          <PosterButton href="/contact" variant="accent" className="shrink-0">
+            Talk to Our Social Media Team
+          </PosterButton>
         </div>
       </div>
     </section>

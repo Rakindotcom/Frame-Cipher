@@ -7,7 +7,7 @@ const guideBlocks = [
     title: 'How to Read a Studio Portfolio',
     body: [
       'A portfolio answers one question: can this team repeat the result for you. Trailers and montages hide weak full films, so ask for complete pieces in your industry with the crew sheet attached. At FrameCipher Studio every case carries its budget band, which tells you whether the reference cost starter, signature or flagship money.',
-      'Grading before-and-afters matter because flat log footage flatters no one. Our DaVinci comparisons show the dynamic range captured on set and the grade applied in post — the two halves of image quality you are actually buying.',
+      'Grading before-and-afters matter because flat log footage flatters no one. Our DaVinci comparisons show the dynamic range captured on set and the grade applied in post, the two halves of image quality you are actually buying.',
     ],
   },
   {
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

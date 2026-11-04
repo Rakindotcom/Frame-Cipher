@@ -31,7 +31,7 @@ const marqueeItems = [
 
 export default function SocialMediaManagementYoutubeManagementService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-[#FAFAFA] min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <VideoPortfolioPreview
@@ -39,7 +39,7 @@ export default function SocialMediaManagementYoutubeManagementService({ service 
         eyebrow="Social Content Work"
         title="Social Media Content Portfolio"
         description="Vertical reels, shorts, and platform-native edits produced consistently for brands, creators, and campaigns."
-        buttonText="Explore Social Content →"
+        buttonText="Explore Social Content"
         buttonHref="/projects#short-video-work"
       />
       <Overview />

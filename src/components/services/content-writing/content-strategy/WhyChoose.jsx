@@ -27,22 +27,22 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Why Framecipher" title="Why Choose Framecipher for Content Strategy">
           A strategy is only worth building if it can be executed by a real team with real constraints.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {reasons.map((reason) => (
             <article
               key={reason.title}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40"
+              className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40"
             >
-              <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+              <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {reason.title}
               </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/content-strategy" allowed={["/services/content-writing/website-content"]}>
+              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"><AutoLinks currentPath="/services/content-writing/content-strategy" allowed={["/services/content-writing/website-content"]}>
                 {reason.text}
               </AutoLinks></p>
             </article>

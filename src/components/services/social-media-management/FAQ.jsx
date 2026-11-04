@@ -1,6 +1,8 @@
+'use client'
 
-import { AutoLinks } from '../../seo/AutoLinks'
-import { SectionIntro } from '../../Kinetic'
+import React, { useState } from 'react'
+import { ChevronDown, HelpCircle, ArrowRight } from 'lucide-react'
+import PosterButton from '../../home/PosterButton'
 import { resolveFaqs } from '../../../lib/seo/faq'
 
 const fallbackFaqs = [
@@ -62,47 +64,105 @@ const fallbackFaqs = [
 ]
 
 export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about social media management, content, community care, pricing, and
-          engagement models.
-        </SectionIntro>
+  const faqs =
+    service?.faqs && service.faqs.length >= fallbackFaqs.length
+      ? resolveFaqs(service, fallbackFaqs)
+      : fallbackFaqs
+  const [openIndex, setOpenIndex] = useState(null)
 
-        <div className="space-y-4">
-          {faqs.map((faq) => (
-            <details
-              key={faq.question}
-              className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-base font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:text-lg">
-                <span>{faq.question}</span>
-                <span
-                  aria-hidden="true"
-                  className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
+  const toggleFaq = (index) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer.replace(/\n+/g, ' '),
+      },
+    })),
+  }
+
+  return (
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      {/* Schema.org Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
+      <div className="mx-auto max-w-4xl">
+        {/* Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-16">
+          <div className="inline-flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               COMMON INQUIRIES · CLEAR ANSWERS 
+            </p>
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked{' '}
+            <span className="italic text-[#A855F7]">Questions.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Clear, direct answers about our social media management deliverables, platform coverage, content creation, community care, and commercial terms.
+          </p>
+        </div>
+
+        {/* Accordion List */}
+        <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div key={index} className="transition-colors hover:bg-white/[0.01]">
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  className="flex w-full items-start justify-between gap-4 py-6 text-left transition-colors sm:py-7"
+                  aria-expanded={isOpen}
                 >
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6">
-                {faq.answer.split('\n\n').map((paragraph, pIdx) => (
-                  <p
-                    key={pIdx}
-                    className={`text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base ${
-                      pIdx > 0 ? 'mt-4' : ''
+                  <span className="font-heading text-lg sm:text-xl font-medium uppercase text-white leading-snug">
+                    {faq.question}
+                  </span>
+                  <span
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#18181B] transition-transform duration-200 mt-0.5 ${
+                      isOpen ? 'rotate-180 border-[#A855F7]/40 text-[#A855F7]' : 'text-zinc-400'
                     }`}
-                  ><AutoLinks currentPath="/services/social-media-management" allowed={["/services/paid-advertising"]}>
-                    {paragraph}
-                  </AutoLinks></p>
-                ))}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="pb-7 pr-6 sm:pr-12 animate-in fade-in-50 duration-200">
+                    <div className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300 space-y-4 whitespace-pre-line">
+                      {faq.answer}
+                    </div>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Contact Prompt Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="space-y-1">
+            <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+              Have Another Question?
+            </span>
+            <p className="text-sm font-normal text-zinc-300">
+              Speak with our social team about your brand goals, audience, and platform mix.
+            </p>
+          </div>
+          <PosterButton href="/contact" variant="accent" className="shrink-0">
+            Talk to Our Social Team
+          </PosterButton>
         </div>
       </div>
     </section>

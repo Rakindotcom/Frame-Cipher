@@ -12,24 +12,24 @@ const proof = [
 
 export default function Proof() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Samples &amp; proof"
           title="Product Description Samples &amp; Client Proof"
         />
 
-        <ul className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {proof.map((item) => (
-            <li key={item} className="flex items-start gap-2.5 bg-frame-bg p-5">
+            <li key={item} className="flex items-start gap-2.5 bg-[#09090B] p-5">
               <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
-              <span className="text-sm font-medium leading-relaxed text-frame-fg">{item}</span>
+              <span className="text-sm font-medium leading-relaxed text-[#FAFAFA]">{item}</span>
             </li>
           ))}
         </ul>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Examples on this page are limited to work that has been completed and approved for publication.
           </p>
           <div className="shrink-0">

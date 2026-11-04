@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { CTASection } from '../components/Kinetic'
 import Testimonials from '../components/Testimonials'
 import { growthCaseStudies } from '../data/growthWork'
 import {
@@ -9,6 +8,8 @@ import {
   CaseStudiesFilterBar,
   CaseStudiesGrid,
   CaseStudiesFeaturedSpotlight,
+  CaseStudiesFAQ,
+  CaseStudiesCTA,
 } from '../components/case-studies'
 
 export default function CaseStudiesPage() {
@@ -108,7 +109,7 @@ export default function CaseStudiesPage() {
       'reels'.includes(q))
 
   return (
-    <main className="bg-frame-bg text-frame-fg">
+    <main className="case-studies-page min-h-screen bg-[#09090B] text-[#FAFAFA] overflow-x-hidden [overflow-anchor:none]">
       <CaseStudiesHero />
 
       <CaseStudiesFilterBar
@@ -139,10 +140,9 @@ export default function CaseStudiesPage() {
         description="Before the process details, here is the client-side signal: public mentions, direct feedback, and the reactions that show the work landed."
       />
 
-      <CTASection title="Want a growth system built around measurable outcomes?">
-        Frame Cipher connects content, paid media, SEO, websites, and measurement into one
-        practical system for growth.
-      </CTASection>
+      <CaseStudiesFAQ />
+
+      <CaseStudiesCTA />
     </main>
   )
 }

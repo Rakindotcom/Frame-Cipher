@@ -1,7 +1,11 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React, { useState } from 'react'
+import Script from 'next/script'
+import { ChevronDown, ChevronUp } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 import { resolveFaqs } from '../../../../lib/seo/faq'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const fallbackFaqs = [
   {
@@ -55,38 +59,109 @@ const fallbackFaqs = [
 ]
 
 export default function FAQ({ service }) {
+  const [openIndex, setOpenIndex] = useState(null)
   const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct answers"
-          title="Frequently Asked Questions About Community Management"
-        >
-          Straight answers about scope, platforms, review management, escalation, coverage hours, and how
-          community management differs from broader social media management.
-        </SectionIntro>
 
-        <div className="space-y-4">
-          {faqs.map((faq) => (
-            <details
-              key={faq.q}
-              className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-base font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:text-lg">
-                <span>{faq.q}</span>
-                <span
-                  aria-hidden="true"
-                  className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
+  const toggleFaq = (index) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q || faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a || faq.answer,
+      },
+    })),
+  }
+
+  return (
+    <section id="faq" className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28 scroll-mt-24">
+      {/* Schema.org FAQPage Injection */}
+      <Script
+        id="community-management-faq-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl">
+        {/* Strictly Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Questions about our{' '}
+            <span className="italic text-frame-accent">community management.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Straight answers about scope, platforms, review management, escalation, coverage hours, and how community management differs from broader social media management.
+          </p>
+        </div>
+
+        {/* Centered Accordion Column */}
+        <div className="mx-auto max-w-4xl space-y-3">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            const questionText = faq.q || faq.question
+            const answerText = faq.a || faq.answer
+
+            return (
+              <div
+                key={questionText}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(index)}
+                  className="flex w-full items-center justify-between p-6 text-left"
+                  aria-expanded={isOpen}
                 >
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6">
-                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/community-management" allowed={["/services/content-writing/content-strategy"]}>{faq.a}</AutoLinks></p>
+                  <div className="flex items-center gap-4 pr-4">
+                    <span className="font-mono text-xs text-frame-accent tabular-nums tracking-wider">
+                      {index < 9 ? `0${index + 1}` : index + 1}
+                    </span>
+                    <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white">
+                      {questionText}
+                    </span>
+                  </div>
+                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                    <p className="text-base font-normal leading-relaxed text-zinc-300">
+                      <AutoLinks
+                        currentPath="/services/social-media-management/community-management"
+                        allowed={["/services/content-writing/content-strategy"]}
+                      >
+                        {answerText}
+                      </AutoLinks>
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Contact Prompt Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base font-medium text-white max-w-xl">
+            Have a specific platform, response SLA, or volume requirement in mind? Contact us for a straightforward scope assessment.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact" variant="accent">
+              Talk to Our Ops Team &rarr;
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

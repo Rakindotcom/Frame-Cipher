@@ -1,6 +1,7 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const marketBlocks = [
   {
@@ -60,72 +61,74 @@ const marketBlocks = [
   },
 ]
 
-const tokens = ['Bangladesh', 'Dhaka', 'USA', 'UK', 'UAE', 'Australia', 'European markets']
-
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Where we work" title="Bangladesh & International Markets">
-          Framecipher works with businesses in Bangladesh as well as companies targeting multiple
-          international markets. Our approach can support both businesses starting their first
-          overseas expansion and companies that already operate across several countries.
-        </SectionIntro>
-
-        <div className="grid gap-6 sm:grid-cols-2">
-          {marketBlocks.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Market 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/seo/keyword-research"]}>
-                {item.body}
-              </AutoLinks></p>
-              {item.points && (
-                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {item.tokens && (
-                <div className="mt-6 flex flex-wrap gap-2">
-                  {item.tokens.map((token) => (
-                    <span
-                      key={token}
-                      className="border-2 border-frame-border bg-frame-muted/30 px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-frame-accent"
-                    >
-                      {token}
-                    </span>
-                  ))}
-                </div>
-              )}
-              {item.note && (
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/website-design-development/landing-pages"]}>
-                  {item.note}
-                </AutoLinks></p>
-              )}
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Global Operations</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Bangladesh &amp;{' '}
+            <span className="italic text-frame-accent">International Markets</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Framecipher works with businesses in Bangladesh as well as companies targeting multiple international markets. Our international SEO approach can support both businesses starting their first overseas expansion and companies that already operate across several countries.
+          </p>
         </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-2">
-          {tokens.map((token) => (
-            <span
-              key={token}
-              className="border-2 border-frame-border bg-frame-bg px-3 py-1 text-xs font-black uppercase tracking-[0.2em] text-frame-accent"
+        {/* 4 Market Blocks Grid */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {marketBlocks.map((block, index) => (
+            <div
+              key={block.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] md:p-8"
             >
-              {token}
-            </span>
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Focus // 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
+                  {block.title}
+                </h3>
+                <p className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                  {block.body}
+                </p>
+
+                {block.tokens && (
+                  <div className="mt-5 flex flex-wrap gap-2 border-t border-white/[0.06] pt-4">
+                    {block.tokens.map((token) => (
+                      <span
+                        key={token}
+                        className="rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 font-mono text-xs text-zinc-300"
+                      >
+                        {token}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {block.points && (
+                  <ul className="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.06] pt-4 text-xs sm:text-sm text-zinc-300">
+                    {block.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+
+                {block.note && (
+                  <div className="mt-6 rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs sm:text-sm text-zinc-300">
+                    <p className="leading-relaxed">{block.note}</p>
+                  </div>
+                )}
+              </div>
+            </div>
           ))}
         </div>
       </div>

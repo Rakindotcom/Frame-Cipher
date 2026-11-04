@@ -7,7 +7,7 @@ const guideBlocks = [
     title: 'What Verification Means Here',
     body: [
       'Verification means testing the room before money moves: clap-test the acoustics, inspect the grid load and dimming, check camera bodies and audio kit, confirm generator plus IPS behaviour, and record test clips on your own media. At FrameCipher Studio walkthroughs run same-day or next-day at ECB Chattar, free of charge.',
-      'This is standard practice among serious hirers in Dhaka. Basic rooms at ৳1,000–1,500/hour and equipped stages at ৳2,000–3,000/hour look identical in photos — the differences only appear under test: echo decay, light flicker, power sag and backup switchover.',
+      'This is standard practice among serious hirers in Dhaka. Basic rooms at ৳1,000 to 1,500/hour and equipped stages at ৳2,000 to 3,000/hour look identical in photos, the differences only appear under test: echo decay, light flicker, power sag and backup switchover.',
     ],
   },
   {
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

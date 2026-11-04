@@ -1,117 +1,146 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Share2, Layers, Repeat, Sparkles } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const platformRoles = [
-  { platform: 'A LinkedIn post', role: 'May focus on industry insight' },
-  { platform: 'An Instagram Reel', role: 'May demonstrate the product visually' },
-  { platform: 'A TikTok video', role: 'May use a shorter educational or demonstration format' },
-  { platform: 'A YouTube video', role: 'May provide a deeper explanation' },
-  { platform: 'A Facebook post', role: 'May support the campaign with broader community-focused communication' },
+  { platform: 'LinkedIn Post', role: 'Focuses on industry insight, executive point-of-view & B2B frameworks' },
+  { platform: 'Instagram Reel / Carousel', role: 'Demonstrates the product visually with high-retention graphic slides' },
+  { platform: 'TikTok Short Video', role: 'Leverages relatable conversational hooks and concise product proofs' },
+  { platform: 'YouTube Video / Short', role: 'Provides in-depth problem solving, detailed walkthroughs and search SEO' },
+  { platform: 'Facebook Community Post', role: 'Engages broader community discussions, questions and promotional offers' },
 ]
 
 const repurposingChecks = [
-  'Which content should be reused',
-  'Which content should be rewritten',
-  'Which assets need a new format',
-  'Which platforms need a different angle',
-  'Which source materials can support future content',
+  'Which core insights should be reused across networks',
+  'Which scripts and captions should be rewritten natively',
+  'Which visual assets need a vertical vs landscape format',
+  'Which platforms require a different hook or angle',
+  'Which source materials can support future content cycles',
 ]
 
 export default function CrossPlatform() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Platform-native planning"
-          title="One Core Idea, Multiple Platform-Native Formats"
-        >
-          Cross-platform planning does not mean copying one post onto every social network. The better
-          approach is to identify the central idea first, then determine how that idea should be
-          communicated on each platform.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Platform-Native Planning · Omnichannel Efficiency
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-3">
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Shared Message
-              </span>
-              <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            One Core Idea, Multiple{' '}
+            <span className="italic text-frame-accent">Platform-Native Formats.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Cross-platform planning does not mean copying one post onto every social network. The better approach is to identify the central idea first, then determine how that idea should be communicated on each platform.
+          </p>
+        </div>
+
+        {/* 3 Pillar Cards Grid */}
+        <div className="grid gap-6 lg:grid-cols-3">
+          {/* Card 1: Shared Message */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Consistency
+                </span>
+                <Sparkles className="h-4 w-4 text-frame-accent" />
+              </div>
+
+              <h3 className="font-heading text-xl font-medium text-white">
                 Shared Campaign Message
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We identify the core message behind a campaign, product launch, announcement, educational
-                topic, or brand initiative.
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                We identify the core message behind a campaign, product launch, announcement, educational topic, or brand initiative.
               </p>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                This creates consistency across the campaign while allowing each platform to communicate
-                the message in its own format.
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                This creates consistency across the campaign while allowing each platform to communicate the message in its own format.
               </p>
             </div>
 
-            <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              For example, a product launch may have one central value proposition but use different
-              supporting messages across Instagram, LinkedIn, TikTok, Facebook, and YouTube.
-            </p>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">Single Value Proposition:</strong>
+              For example, a product launch has one central value proposition but uses different supporting angles across Instagram, LinkedIn, TikTok, Facebook, and YouTube.
+            </div>
           </article>
 
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Adapted Execution
-              </span>
-              <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+          {/* Card 2: Adapted Execution */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Platform Roles
+                </span>
+                <Layers className="h-4 w-4 text-frame-accent" />
+              </div>
+
+              <h3 className="font-heading text-xl font-medium text-white">
                 Platform-Specific Execution
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                Each platform can have a different role within the same campaign.
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                Each platform plays a distinct role within the same campaign:
               </p>
+
+              <div className="space-y-2 pt-1">
+                {platformRoles.map((entry) => (
+                  <div key={entry.platform} className="text-xs text-zinc-300 border-l-2 border-purple-500/30 pl-2.5 py-0.5">
+                    <span className="font-semibold text-white block">{entry.platform}</span>
+                    <span className="text-zinc-400 text-[11px]">{entry.role}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4">
-              {platformRoles.map((entry) => (
-                <li key={entry.platform} className="text-xs font-medium leading-snug text-frame-fg/90 md:text-sm">
-                  <span className="font-semibold text-frame-fg">{entry.platform}</span>{' '}
-                  <span className="text-frame-muted-fg">{entry.role.toLowerCase()}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              The campaign stays connected without forcing every platform to behave the same way.
-            </p>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">True Platform Gravity:</strong>
+              The campaign stays connected without forcing every social channel to look or behave identically.
+            </div>
           </article>
 
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Efficient Reuse
-              </span>
-              <h3 className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
-                Repurposing Without Duplicate Posting
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                Repurposing means adapting useful ideas and assets for new contexts. It does not mean
-                publishing identical content everywhere.
-              </p>
-            </div>
+          {/* Card 3: Efficient Repurposing */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Asset Leverage
+                </span>
+                <Repeat className="h-4 w-4 text-frame-accent" />
+              </div>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                Our planning identifies
-              </span>
-              <ul className="mt-3 space-y-2">
+              <h3 className="font-heading text-xl font-medium text-white">
+                Repurposing Without Duplication
+              </h3>
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                Repurposing means adapting useful ideas and assets for new contexts, not broadcasting the same file everywhere:
+              </p>
+
+              <ul className="space-y-2 text-xs text-zinc-300 pt-1">
                 {repurposingChecks.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-xs font-medium leading-snug text-frame-fg/90 md:text-sm">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
+                  <li key={item} className="flex items-start gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0 mt-1.5" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              This creates a more efficient content workflow without sacrificing platform relevance.
-            </p>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">Production Efficiency:</strong>
+              This creates a far more efficient content workflow without sacrificing platform relevance or viewer engagement.
+            </div>
           </article>
         </div>
       </div>

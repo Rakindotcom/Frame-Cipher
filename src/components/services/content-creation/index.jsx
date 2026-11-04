@@ -34,7 +34,7 @@ export default function ContentCreationService({ service }) {
   }
 
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-[#FAFAFA] min-h-screen">
       <Hero service={currentService} />
       <TypeMarquee items={marqueeItems} slow />
       <VideoPortfolioPreview
@@ -49,7 +49,7 @@ export default function ContentCreationService({ service }) {
         type="video"
         eyebrow="Script writing samples"
         title="Video script portfolio."
-        description="Real scripts written for product videos, brand films, motion ads, documentaries, and shorts — many in Bangla and English."
+        description="Real scripts written for product videos, brand films, motion ads, documentaries, and shorts, many in Bangla and English."
         archiveHref="https://docs.google.com/spreadsheets/d/1f9-75aR1mWrcEVkKP5CU7JtdQiEbAsIKRlXdybyU5Y4/edit"
         archiveLabel="Browse Script Archive →"
       />

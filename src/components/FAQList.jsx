@@ -1,41 +1,38 @@
-'use client'
-
-import { useId, useState } from 'react'
-
 export default function FAQList({ faqs }) {
+  if (!faqs || faqs.length === 0) return null
+
   return (
-    <div className="grid gap-px bg-frame-border">
-      {faqs.map((faq) => (
-        <FAQItem key={faq.question} question={faq.question} answer={faq.answer} />
+    <div className="space-y-4">
+      {faqs.map((faq, index) => (
+        <FAQItem key={faq.question} question={faq.question} answer={faq.answer} index={index} />
       ))}
     </div>
   )
 }
 
-function FAQItem({ question, answer }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const answerId = useId()
-
+function FAQItem({ question, answer, index }) {
   return (
-    <article className="bg-frame-bg p-6 transition-colors md:p-8">
-      <button
-        type="button"
-        onClick={() => setIsOpen((open) => !open)}
-        className="flex w-full items-start justify-between gap-4 text-left"
-        aria-expanded={isOpen}
-        aria-controls={answerId}
-      >
-        <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-          {question}
-        </h3>
-        <span className="select-none font-heading text-2xl font-bold leading-none text-frame-accent" aria-hidden="true">
-          {isOpen ? '−' : '+'}
+    <details className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-all duration-200 hover:border-white/[0.18] open:border-white/[0.14] open:bg-[#151518] overflow-hidden">
+      <summary className="flex cursor-pointer list-none items-center justify-between p-6 sm:p-7 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B] touch-manipulation select-none [&::-webkit-details-marker]:hidden">
+        <div className="flex items-center gap-4 pr-4">
+          <span className="font-mono text-xs sm:text-sm font-semibold text-frame-accent tabular-nums">
+            {String(index + 1).padStart(2, '0')}
+          </span>
+          <h3 className="font-heading text-lg sm:text-xl font-bold leading-tight tracking-tight text-white group-open:text-purple-300 transition-colors">
+            {question}
+          </h3>
+        </div>
+        <span
+          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-frame-accent font-mono text-base font-semibold transition-transform duration-300 group-open:rotate-45"
+          aria-hidden="true"
+        >
+          +
         </span>
-      </button>
-      <div id={answerId} hidden={!isOpen} className="mt-5 border-t border-frame-border/50 pt-5">
+      </summary>
+      <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-zinc-300 bg-transparent">
         <RichParagraphs text={answer} />
       </div>
-    </article>
+    </details>
   )
 }
 
@@ -44,7 +41,7 @@ function RichParagraphs({ text }) {
     .split(/\n{2,}/)
     .filter(Boolean)
     .map((paragraph) => (
-      <p key={paragraph} className="mb-4 text-base font-medium leading-relaxed text-frame-muted-fg last:mb-0 wide:text-lg">
+      <p key={paragraph} className="mb-3 text-sm font-normal leading-relaxed text-zinc-300 last:mb-0 md:text-base">
         {paragraph}
       </p>
     ))

@@ -1,4 +1,8 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Repeat, ArrowRight, TrendingUp, Sparkles } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const brokenLoop = ['Idea', 'Post', 'Wait', 'Repeat']
 const workingLoop = ['Research', 'Plan', 'Create', 'Publish', 'Measure', 'Improve']
@@ -36,161 +40,201 @@ const reasons = [
   {
     number: '01',
     title: 'Build a Repeatable Content System',
-    lead: 'Without a system, TikTok can become:',
+    lead: 'Without a system, TikTok becomes unpredictable guessing. We replace sporadic posting with a structured operational engine.',
     body: 'This creates a repeatable workflow for developing and managing content. It also gives every content cycle a clear purpose.',
   },
   {
     number: '02',
     title: 'Learn From Audience Response',
-    lead: 'Every content cycle can provide useful information. You can learn:',
-    body: 'We use those observations to refine future content. The objective is not to assume what your audience wants. It is to create, measure, learn, and improve based on evidence.',
+    lead: 'Every content cycle provides valuable signal. You learn which topics, hooks, and formats actually resonate with target buyers.',
+    body: 'We use those observations to refine future content. The objective is not to assume what your audience wants, but to improve based on real evidence.',
   },
   {
     number: '03',
     title: 'Reduce Reliance on Viral Hits',
-    lead: 'Viral content can create attention, but a business cannot build its entire marketing strategy around unpredictable spikes. We build a broader content system that can include:',
-    body: 'This gives your account multiple ways to create value instead of depending on one successful video.',
+    lead: 'Viral spikes create temporary attention, but a business cannot build sustainable revenue on unpredictable algorithmic surges.',
+    body: 'We build a diverse content ecosystem across education, product, and founder storytelling so your account consistently generates value.',
   },
   {
     number: '04',
     title: 'Improve Content Over Time',
-    lead: 'Your first month should not look exactly like your sixth month. As performance data accumulates, we can identify stronger:',
-    body: 'We then use those patterns to improve future content.',
+    lead: 'Your first month should not look like your sixth month. As performance data accumulates, creative execution sharpens.',
+    body: 'We identify winning hooks, retention curves, and formats to systematically compound results month over month.',
   },
 ]
 
-function FlowStrip({ items = [], muted = false, className = '' }) {
-  return (
-    <ul className={`flex flex-wrap items-center gap-2 ${className}`}>
-      {items.map((entry, index) => (
-        <li key={entry} className="flex items-center gap-2">
-          <span
-            className={`px-3 py-1.5 text-xs font-bold ${
-              muted
-                ? 'border border-frame-border bg-frame-muted/10 text-frame-muted-fg'
-                : index === items.length - 1
-                  ? 'border border-frame-accent bg-frame-accent/10 text-frame-accent'
-                  : 'border border-frame-border/80 bg-frame-bg text-frame-fg'
-            }`}
-          >
-            {entry}
-          </span>
-          {index < items.length - 1 && (
-            <span aria-hidden="true" className={`font-bold ${muted ? 'text-frame-muted-fg' : 'text-frame-accent'}`}>
-              &rarr;
-            </span>
-          )}
-        </li>
-      ))}
-    </ul>
-  )
-}
-
 export default function WhyMatters() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Why it matters"
-          title="Why Consistent TikTok Management Matters"
-        >
-          One successful video does not create a complete TikTok strategy. Consistent management gives your
-          business a structured way to publish, learn, improve, and build a recognizable presence over time.
-        </SectionIntro>
-
-        {/* LOOP COMPARISON */}
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          <div className="bg-frame-bg p-6 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
-              Without a system
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Compounding Growth · Methodology
             </span>
-            <FlowStrip items={brokenLoop} muted className="mt-5" />
           </div>
 
-          <div className="bg-frame-accent/10 p-6 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              We replace that with
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Consistent TikTok Management{' '}
+            <span className="italic text-frame-accent">Matters.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            One successful video does not create a complete TikTok strategy. Consistent management gives your business a structured way to publish, learn, improve, and build a recognizable presence over time.
+          </p>
+        </div>
+
+        {/* Loop Comparison */}
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2 mb-10">
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <span className="font-mono text-xs uppercase tracking-widest text-zinc-400 block mb-3">
+              Unstructured Posting · Without a System
             </span>
-            <FlowStrip items={workingLoop} className="mt-5" />
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {brokenLoop.map((item, idx) => (
+                <React.Fragment key={item}>
+                  <span className="rounded-md border border-white/[0.08] bg-[#18181B] px-3 py-1.5 font-mono text-xs text-zinc-400">
+                    {item}
+                  </span>
+                  {idx < brokenLoop.length - 1 && (
+                    <span className="text-zinc-600 text-xs">&rarr;</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-zinc-400 leading-relaxed">
+              Sporadic posting, unpredictable views, zero compounding retention, and endless waiting for a lucky algorithmic hit.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-purple-500/30 bg-[#15121c] p-7 md:p-8 shadow-xl">
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent block mb-3">
+              Repeatable Content System · The Framecipher Engine
+            </span>
+            <div className="flex flex-wrap items-center gap-2 pt-2">
+              {workingLoop.map((item, idx) => (
+                <React.Fragment key={item}>
+                  <span className="rounded-md border border-purple-500/30 bg-purple-500/10 px-3 py-1.5 font-mono text-xs text-purple-200 font-semibold">
+                    {item}
+                  </span>
+                  {idx < workingLoop.length - 1 && (
+                    <span className="text-frame-accent text-xs">&rarr;</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+            <p className="mt-4 text-xs text-purple-200/90 leading-relaxed">
+              Every content cycle has a defined commercial purpose, rigorous tracking, audience feedback capture, and continuous optimization.
+            </p>
           </div>
         </div>
 
-        {/* REASONS */}
-        <div className="mt-10 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-          {reasons.map((reason, index) => (
+        {/* 4 Reasons Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {reasons.map((reason, idx) => (
             <article
               key={reason.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
             >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {reason.number}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
+                <div className="flex items-center justify-between gap-2 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    Principle {reason.number} · </span>
+                  <span className="font-mono text-xs text-zinc-500">
+                    0{idx + 1} of 04
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {reason.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
+
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {reason.lead}
                 </p>
+
+                {/* Specific lists per reason */}
+                {idx === 1 && (
+                  <div className="mt-6 border-t border-white/[0.06] pt-4">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2.5">
+                      What Audience Signals Reveal:
+                    </p>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-400">
+                      {learn.map((item) => (
+                        <li key={item} className="flex items-start gap-2">
+                          <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                          <span className="leading-snug">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {idx === 2 && (
+                  <div className="mt-6 border-t border-white/[0.06] pt-4">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2.5">
+                      Diverse Pillar Mix:
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {mixedContent.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-md border border-white/[0.08] bg-[#18181B] px-2.5 py-1 font-mono text-[10px] text-zinc-300"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {idx === 3 && (
+                  <div className="mt-6 border-t border-white/[0.06] pt-4">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2.5">
+                      Compounding Variables:
+                    </p>
+                    <div className="flex flex-wrap gap-1.5">
+                      {improve.map((item) => (
+                        <span
+                          key={item}
+                          className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[10px] text-purple-300"
+                        >
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {index === 1 && (
-                <ul className="mt-6 grid gap-2 border-t-2 border-frame-border/60 pt-4 sm:grid-cols-2">
-                  {learn.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-xs font-medium leading-snug text-frame-fg/90 transition-colors duration-200 group-hover:text-frame-accent-fg/90 md:text-sm"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg"
-                      />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {index === 2 && (
-                <ul className="mt-6 flex flex-wrap gap-2 border-t-2 border-frame-border/60 pt-4">
-                  {mixedContent.map((item) => (
-                    <li
-                      key={item}
-                      className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              {index === 3 && (
-                <ul className="mt-6 flex flex-wrap gap-2 border-t-2 border-frame-border/60 pt-4">
-                  {improve.map((item) => (
-                    <li
-                      key={item}
-                      className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-
-              <p className="mt-4 text-xs font-semibold leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80">
+              <div className="mt-6 rounded-xl border border-white/[0.06] bg-[#09090B] p-4 text-xs text-zinc-400 leading-relaxed">
                 {reason.body}
-              </p>
+              </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-            The account you have in month six should be sharper than the one you had in month one. That is
-            what the system is for.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get Your Free TikTok Audit &rarr;</PosterButton>
+        {/* Bottom Banner */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              The Account You Have in Month Six Should Outperform Month One
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400">
+              That is what a disciplined operational content system achieves for your brand.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get Your Free TikTok Audit
+            </PosterButton>
           </div>
         </div>
       </div>

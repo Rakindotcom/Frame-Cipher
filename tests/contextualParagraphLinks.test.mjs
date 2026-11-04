@@ -1,10 +1,14 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { register } from 'node:module'
+
+register('./helpers/app-module-loader.mjs', import.meta.url)
+
 import React from 'react'
-import {
+const {
   renderContextualParagraph,
   CONTEXTUAL_LINK_RULES,
-} from '../src/lib/seo/contextualParagraphLinks.jsx'
+} = await import('../src/lib/seo/contextualParagraphLinks.jsx')
 
 test('CONTEXTUAL_LINK_RULES is populated with valid links and non-empty phrases', () => {
   assert.ok(CONTEXTUAL_LINK_RULES.length > 20, 'Expected >20 contextual linking rules')

@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const layers = [
   {
@@ -35,86 +38,106 @@ const layers = [
 
 export default function HowTheyWork() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Disciplines, one strategy" title="AEO, GEO & AI Search: How They Work Together">
-          AEO and GEO are often used interchangeably, but they can describe different layers of
-          the same broader AI Search Optimization strategy.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Methodology // Disciplines, One Strategy</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            AEO, GEO &amp; AI Search:{' '}
+            <span className="italic text-frame-accent">How They Work Together</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            AEO and GEO are often used interchangeably, but they can describe different layers of
+            the same broader AI Search Optimization strategy.
+          </p>
+        </div>
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        {/* 2 Main Disciplines */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {layers.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-9"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 hover:border-white/[0.14] transition-all"
             >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Discipline 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg">
-                {item.lead}
-              </p>
-              <ul className="mt-5 space-y-2.5 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                {item.points.map((point, pIdx) => (
-                  <li key={pIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{point}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-6 border-l-2 border-frame-accent p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <div>
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Discipline 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                  {item.body}
+                </p>
+
+                <p className="mt-5 text-xs font-mono uppercase tracking-wider text-zinc-400">
+                  {item.lead}
+                </p>
+
+                <ul className="mt-3 space-y-2.5 border-t border-white/[0.06] pt-4 text-xs sm:text-sm text-zinc-300">
+                  {item.points.map((point, pIdx) => (
+                    <li key={pIdx} className="flex items-start gap-2.5">
+                      <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
+                      <span className="leading-snug">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-6 border-l-2 border-frame-accent bg-[#09090B] p-4 text-xs sm:text-sm leading-relaxed text-zinc-400 rounded-r-md">
                 {item.closing}
-              </p>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-9">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        {/* Supporting Pillars */}
+        <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+          {/* Card 1 */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 space-y-3">
+            <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
               Entity &amp; Source Authority
             </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
               Neither exists in isolation
             </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <p className="text-sm font-normal leading-relaxed text-zinc-300">
               Neither answer structure nor content depth exists in isolation.
             </p>
-            <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
+            <p className="text-sm leading-relaxed text-zinc-400">
               AI search can draw on multiple signals and sources when forming an answer. Strong
               entity information, credible references, consistent brand details, useful content,
               and clear expertise can all contribute to a stronger overall information footprint.
             </p>
           </div>
 
-          <div className="border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-9">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          {/* Card 2 */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 space-y-4">
+            <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
               Why the disciplines work together
             </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
               One broader strategy
             </h3>
-            <ul className="mt-5 space-y-3 text-sm md:text-base font-medium leading-relaxed text-frame-fg">
-              <li className="flex items-start gap-2">
-                <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-300">
+              <li className="flex items-start gap-2.5">
+                <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
                 <span>AEO can improve the clarity of specific answers.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+              <li className="flex items-start gap-2.5">
+                <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
                 <span>GEO can strengthen broader generative visibility.</span>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="mt-0.5 text-frame-accent font-bold">✓</span>
+              <li className="flex items-start gap-2.5">
+                <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
                 <span>Entity and source authority can help connect the information together.</span>
               </li>
             </ul>
-            <p className="mt-5 border-t-2 border-frame-accent/40 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <p className="pt-3 border-t border-white/[0.06] text-xs leading-relaxed text-zinc-400">
               Together, they form a broader AI Search Optimization strategy that works alongside
               traditional SEO rather than attempting to replace it.
             </p>

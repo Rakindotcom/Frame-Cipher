@@ -1,93 +1,144 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React, { useState } from 'react'
+import { ChevronDown } from 'lucide-react'
 import { resolveFaqs } from '../../../../lib/seo/faq'
 
 const fallbackFaqs = [
   {
-    q: 'What exactly counts as a Google penalty?',
-    a: 'In everyday language, \u201Cpenalty\u201D is used loosely. Technically, Google issues formal manual actions when human reviewers determine that a site violates Google\u2019s spam policies, and it separately flags security issues. A traffic drop after a core or spam update is not the same as a manual action. The recovery work only becomes clear once we know which category applies.',
+    q: 'How do I know if I have a Google manual action?',
+    a: 'Open the Manual Actions report in Google Search Console. If Google has issued a manual action, the report will show the issue and affected areas. Manual actions are different from ordinary ranking declines and update-related traffic changes.',
   },
   {
-    q: 'How do I know if my site really has a manual action?',
-    a: 'Open Google Search Console and check the Manual Actions report. If it lists a manual action, Google has identified a specific violation such as unnatural links, thin content, or spam. A drop in traffic alone does not mean there is a manual action. The Security Issues report is separate.',
+    q: 'Is a Google core update traffic drop the same as a penalty?',
+    a: 'No. A drop following a core update does not automatically mean Google issued a manual action or “penalty.” Core updates change Google’s ranking systems broadly, so recovery requires analyzing affected pages, queries, content quality, technical conditions, and competitive search results.',
   },
   {
-    q: "What's the difference between a manual action and an algorithmic impact?",
-    a: 'A manual action is a human review decision applied to a site or specific pages, listed in Search Console, and generally recoverable through remediation plus a reconsideration request. An algorithmic impact is a change in how a ranking system evaluates content after an update. Recovery focuses on improving quality and usefulness rather than submitting a review request.',
+    q: 'What if my traffic dropped but there is no manual action?',
+    a: 'That is common enough that diagnosis matters. The decline could relate to a Google update, technical change, migration, indexing issue, seasonal demand, security problem, search-demand shift, or stronger competitors. Google’s traffic-drop troubleshooting guidance specifically recommends checking several of these possibilities.',
+  },
+  {
+    q: 'Can you recover a manual action?',
+    a: 'We can diagnose the manual action, implement the relevant remediation, document the changes, and prepare the reconsideration request. Google makes the final decision after reviewing the request and the site’s current condition.',
+  },
+  {
+    q: 'Do I need to disavow all bad backlinks?',
+    a: 'No. Google says most sites do not need the disavow tool. It recommends using it cautiously in specific situations, particularly where there is a considerable number of spammy or artificial links associated with a manual action or likely manual action and removal is not practical.',
+  },
+  {
+    q: 'Can you recover an unnatural-links manual action?',
+    a: 'Yes, we can investigate the link profile, identify relevant artificial or manipulative links, support removal efforts, prepare documentation, and use disavow only where appropriate. Google specifically recommends trying to remove violating links before relying on disavow.',
+  },
+  {
+    q: 'Can you recover a thin-content or spam-related manual action?',
+    a: 'We can investigate the affected content, identify the specific violation, and implement the necessary remediation. The exact work depends on what Google identified and how broadly the issue affects the site.',
+  },
+  {
+    q: 'What happens after a reconsideration request is submitted?',
+    a: 'Google reviews the request and the current condition of the site. Reconsideration reviews can take several days or weeks, and Google recommends waiting for the current review to finish rather than repeatedly submitting new requests.',
+  },
+  {
+    q: 'Can a hacked website lose Google visibility?',
+    a: 'Yes. Hacked sites can contain malware, phishing, spam, or other harmful content that creates security and search problems. Google has a separate Security Issues report for these situations, and security recovery follows a different review process from standard manual actions.',
   },
   {
     q: 'How long does Google penalty recovery take?',
-    a: 'It depends on the cause. A technical fix may recover quickly after Google re-crawls affected pages. Content improvement after a core update usually takes several weeks or longer to be reflected. A manual action requires fixing the violation and then receiving a review decision from Google, which also takes time. We report realistic timelines rather than guaranteeing dates.',
+    a: 'There is no single recovery timeframe. The preparation period depends on the cause and scope of the problem. Manual actions also require Google’s own review after remediation, while algorithmic recovery depends on broader improvements and subsequent reassessment.',
   },
   {
-    q: 'Should I disavow links if Google says I have unnatural links?',
-    a: 'Google says most sites do not need to use the disavow tool, and that using it unnecessarily can harm a site. For a genuine unnatural-links issue, Google recommends trying to remove the violating links first and only considering disavow where appropriate. We investigate the link profile before recommending removal or disavow.',
+    q: 'Can you guarantee my rankings will return?',
+    a: 'No. We can guarantee a documented diagnostic and remediation process within the agreed scope, but Google controls its ranking systems and manual-action decisions. We therefore do not promise a specific ranking position, traffic level, or recovery date.',
   },
   {
-    q: 'Does a manual action remove my site from Google?',
-    a: 'It depends on the action. Some manual actions apply to the whole site, while others only affect specific pages or sections. Google may restrict visibility while the violation remains unfixed. The priority is correcting the actual issue rather than resubmitting a request before the work is done.',
-  },
-  {
-    q: 'Can you submit a reconsideration request for me?',
-    a: 'You own the Search Console account, and reconsideration requests are submitted through it. We prepare the remediation work, organize the documentation of what was fixed and how, and guide you through submitting a clear, evidence-supported request when the site is genuinely ready.',
-  },
-  {
-    q: 'Do you guarantee the manual action will be removed?',
-    a: 'No. The final decision belongs to Google after it reviews the request. We guarantee an honest, documented remediation process and a complete reconsideration submission, but we cannot promise approval. We also prepare the request so that if Google adds new issues to the action, the next steps are clear.',
-  },
-  {
-    q: 'My site was hacked or shows spam pages. Is that a manual action?',
-    a: 'Usually not in the same category. Google treats hacked sites under a separate Security Issues report, and the cleanup and review process uses a different flow from standard manual-action reconsideration. If both exist, we handle them as related but distinct problems.',
-  },
-  {
-    q: 'Do you work with Bangladeshi websites too?',
-    a: 'Yes. We support both Bangladeshi businesses and international websites. Our recovery analysis can account for local search behavior, Bangla or English content, Bangladesh-focused SERPs, and technical condition, alongside work for markets such as the US, UK, Australia, Canada, and the UAE.',
-  },
-  {
-    q: 'How much does penalty recovery cost?',
-    a: 'Packages start at \u09F325,000+ for a Diagnostic Review, \u09F360,000+ for Manual Action Recovery, and \u09F380,000+ for Google Update / Algorithmic Recovery. Complex multi-issue situations are scoped after diagnosis. Final pricing depends on the website, investigation scope, and the amount of remediation required.',
-  },
-  {
-    q: 'What if my traffic drop is not a penalty at all?',
-    a: 'That is exactly why we diagnose first. A decline can come from a technical or migration problem, an indexing change, a security issue, lower search demand, or stronger competition. If the diagnosis shows no penalty exists, we tell you that honestly and recommend the relevant recovery path instead of selling penalty work.',
+    q: 'Do you support businesses outside Bangladesh?',
+    a: 'Yes. Framecipher provides recovery support for businesses and publishers in Bangladesh as well as international markets, including the US, UK, Australia, Canada, and UAE.',
   },
 ]
 
 export default function FAQ({ service }) {
   const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section id="faq" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Common questions" title="Google Penalty Recovery FAQ">
-          Honest answers to the questions businesses ask us most often after losing Google
-          visibility.
-        </SectionIntro>
+  const [openIndex, setOpenIndex] = useState(0)
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <details key={faq.q} className="group border-2 border-frame-border bg-frame-bg">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 md:p-7">
-                <div className="flex items-start gap-4">
-                  <span className="pt-0.5 text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Q{String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
-                    {faq.q}
-                  </h3>
-                </div>
-                <span
-                  aria-hidden="true"
-                  className="grid h-7 w-7 shrink-0 place-items-center border-2 border-frame-border text-frame-accent transition-transform group-open:rotate-45"
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? -1 : idx)
+  }
+
+  // Schema.org FAQPage Microdata
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: f.a,
+      },
+    })),
+  }
+
+  return (
+    <section id="faq" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24 scroll-mt-20">
+      {/* Schema.org FAQPage Microdata Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-4xl">
+        {/* Canonical Center-Aligned Header (§5.3) */}
+        <div className="text-center space-y-3 mb-12">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-rose-500" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Frequently Asked Questions
+            </span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+            Google Penalty Recovery FAQ
+          </h2>
+          <p className="text-base sm:text-lg text-zinc-400 max-w-2xl mx-auto">
+            Clear answers about Google manual actions, algorithmic drops, core updates, and reconsideration reviews.
+          </p>
+        </div>
+
+        {/* Accordion List */}
+        <div className="space-y-3">
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx
+            return (
+              <div
+                key={idx}
+                className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-colors"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(idx)}
+                  className="w-full flex items-center justify-between p-5 sm:p-6 text-left transition-colors hover:text-white"
+                  aria-expanded={isOpen}
                 >
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border/60 p-6 md:p-7">
-                <div className="ml-[2.75rem]">
-                  <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{faq.a}</p>
-                </div>
+                  <span className="font-heading text-base sm:text-lg font-medium text-white pr-4">
+                    {faq.q}
+                  </span>
+                  <div
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#18181B] text-zinc-400 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 text-white' : ''
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="px-5 pb-6 sm:px-6 pt-0 border-t border-white/[0.04] mt-2">
+                    <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed pt-3">
+                      {faq.a}
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

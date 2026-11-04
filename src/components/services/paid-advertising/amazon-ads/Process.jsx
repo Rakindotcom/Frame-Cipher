@@ -1,161 +1,157 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Search,
+  Calculator,
+  Compass,
+  Rocket,
+  Sliders,
+  ShoppingBag,
+  TrendingUp,
+  CheckCircle2,
+} from 'lucide-react'
 
 const steps = [
   {
-    title: 'Account & Product Audit',
-    body: 'We begin with the advertising account, the product catalog, and the current campaign setup to understand where the account stands before changing anything.',
-    items: [
-      'Amazon advertising account',
-      'Product catalog and eligibility',
-      'Account health and status',
-      'Amazon Brand Registry status where relevant',
-      'Current campaign structure',
-      'Current targeting and bidding',
-      'Current Ad Groups and products',
-      'Listing and retail readiness',
-      'Data and reporting setup',
+    step: '01',
+    icon: Search,
+    title: 'Account & Product Catalog Audit',
+    desc: 'Comprehensive review of your existing Amazon Ads account, product eligibility, listing quality, historical search terms, and Brand Registry status to identify baseline health.',
+    deliverables: [
+      'Historical campaign and search-term harvest review',
+      'Catalog ASIN eligibility and Buy Box percentage check',
+      'Identification of active wasted spend and negative term gaps',
     ],
   },
   {
+    step: '02',
+    icon: Calculator,
     title: 'Marketplace & Profitability Assessment',
-    body: 'Advertising performs differently by marketplace, category, and product economics. We assess where the realistic opportunity sits before committing spend.',
-    items: [
-      'Estimated marketplace opportunity and competition',
-      'Product economics and margins where available',
-      'Break-even and target ACOS',
-      'Amazon fees and fulfillment implications',
-      'Pricing strategy',
-      'Inventory availability',
-      'Availability of relevant Amazon advertising features',
-      'Realistic expectations based on category and stage',
+    desc: 'Modeling break-even ACOS, Amazon referral fees, and FBA fulfillment charges for each SKU to set realistic target thresholds before committing advertising capital.',
+    deliverables: [
+      'SKU-level break-even ACOS benchmark model',
+      'Competitor pricing and sponsored impression share assessment',
+      'Inventory depth and restock lead-time validation',
     ],
   },
   {
-    title: 'Campaign Strategy & Planning',
-    body: 'A plan is built around the products, the marketplace, the budget, and the target outcome rather than a generic template.',
-    items: [
-      'Account structure and hierarchy',
-      'Product selection for advertising',
-      'Keyword and product-targeting research',
-      'Campaign types and targeting approach',
-      'Budget planning and allocation',
-      'ACOS and TACOS targets',
-      'Reporting scope',
-      'Creative and asset coordination where relevant',
-      'Timeline and milestones',
-      'Measurement approach',
+    step: '03',
+    icon: Compass,
+    title: 'Campaign Architecture & Strategy',
+    desc: 'Designing the custom account taxonomy, portfolio budgets, and campaign separation between hero ASINs, automatic discovery, manual exact, and competitor conquesting.',
+    deliverables: [
+      'Account portfolio hierarchy and naming structure',
+      'Target keyword lists grouped by search intent and match type',
+      'Sponsored Brands and Storefront alignment blueprint',
     ],
   },
   {
-    title: 'Setup & Launch',
-    body: 'Campaigns are built, checked, and launched in a structured sequence so the release is controlled and measurable.',
-    items: [
-      'Campaign creation and organization',
-      'Targeting setup',
-      'Bids and budgets',
-      'Product and negative targeting',
-      'Conversion and reporting checks',
-      'Pre-launch quality review',
-      'Structured launch',
+    step: '04',
+    icon: Rocket,
+    title: 'Precision Setup & Controlled Launch',
+    desc: 'Building campaigns with clean keyword isolation, negative match lists, placement multipliers, and tracking parameters followed by strict pre-launch QA checks.',
+    deliverables: [
+      'Automatic and manual campaign build across target match types',
+      'Negative keyword and ASIN lists applied to prevent budget bleed',
+      'Dynamic bidding settings and initial placement multipliers set',
     ],
   },
   {
+    step: '05',
+    icon: Sliders,
     title: 'Search-Term & Bid Optimization',
-    body: 'Ongoing review of search terms, targeting, bids, and budgets keeps the account moving in the right direction.',
-    items: [
-      'Search-term review',
-      'Negative keyword and product management',
-      'Keyword discovery and harvesting',
-      'Bid adjustments',
-      'Placement analysis',
-      'Budget allocation',
-      'Product-level performance analysis',
-      'Ongoing optimization',
+    desc: 'Systematic weekly harvesting of converting search queries into exact-match campaigns, aggressive pruning of non-converting terms, and placement calibration.',
+    deliverables: [
+      'Continuous search-term harvesting routines',
+      'Negative exact pruning for low-conversion click sinks',
+      'Top-of-search placement bid multiplier adjustments',
     ],
   },
   {
-    title: 'Listing & Inventory Monitoring',
-    body: 'Amazon advertising depends on products remaining available and eligible. We monitor the retail signals that can affect campaign performance.',
-    items: [
-      'Product availability checks',
-      'Featured Offer eligibility review',
-      'Pricing and competitive positioning',
-      'Review and rating changes',
-      'Inventory alerts',
-      'Retail readiness coordination',
+    step: '06',
+    icon: ShoppingBag,
+    title: 'Listing & Inventory Health Monitoring',
+    desc: 'Ongoing surveillance of retail signals that affect advertising performance—ensuring ad spend never runs on low-inventory or Buy Box suppressed products.',
+    deliverables: [
+      'Buy Box loss detection and automated campaign throttling',
+      'Inventory depletion alerts to protect organic rank momentum',
+      'Listing change and review rating surveillance',
     ],
   },
   {
-    title: 'Ongoing Management & Reporting',
-    body: 'Management continues after launch in structured cycles with transparent reporting.',
-    items: [
-      'Weekly campaign monitoring',
-      'Search-term review',
-      'Bid and budget adjustments',
-      'Product and keyword analysis',
-      'ACOS and TACOS reporting',
-      'Conversion and sales analysis',
-      'Marketplace visibility checks',
-      'Account health review',
-      'Campaign structure review',
-      'New-to-brand reporting where available',
-      'Competitor movement',
-      'Prime Day and seasonal event planning',
-      'Transparent monthly reporting',
+    step: '07',
+    icon: TrendingUp,
+    title: 'Executive Reporting & Strategic Iteration',
+    desc: 'Transparent monthly reporting comparing ACOS, TACOS, organic rank movement, NTB customers, and contribution margins, driving data-backed strategic expansion.',
+    deliverables: [
+      'Monthly executive performance reports with clear business metrics',
+      'ACOS vs. TACOS blended revenue and organic lift correlation',
+      'Quarterly growth roadmap for new products or new marketplaces',
     ],
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Process" title="Our Amazon Ads Management Process">
-          We do not apply one identical workflow to every brand.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          The process is structured around the product, the marketplace, the advertising account,
-          and the available data.
-        </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our Amazon Ads{' '}
+            <span className="italic text-frame-accent">Management Process.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            A disciplined, 7-stage management framework engineered to eliminate wasted budget, accelerate product sales velocity, and expand marketplace profitability.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {steps.map((step, index) => (
-            <div
-              key={step.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 md:p-12"
-            >
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="font-heading text-3xl font-bold text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
+        <div className="space-y-4">
+          {steps.map((s) => {
+            const Icon = s.icon
+            return (
+              <div
+                key={s.step}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14]"
+              >
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8 items-start">
+                  <div className="lg:col-span-5 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm uppercase tracking-wider text-frame-accent font-bold">
+                        Stage {s.step}
+                      </span>
+                      <div className="h-px flex-1 bg-white/[0.08]" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-lg border border-white/[0.08] bg-white/[0.03] flex items-center justify-center text-frame-accent">
+                        <Icon className="h-4.5 w-4.5" />
+                      </div>
+                      <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                        {s.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                      {s.desc}
+                    </p>
                   </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {step.body}
-                  </p>
-                </div>
 
-                <div className="lg:w-1/2">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                    We&apos;re focusing on
-                  </p>
-                  <ul className="grid gap-3 md:grid-cols-2">
-                    {step.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="lg:col-span-7 rounded-lg border border-white/[0.06] bg-black/40 p-5">
+                    <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-3">
+                      Stage Deliverables:
+                    </p>
+                    <div className="space-y-2">
+                      {s.deliverables.map((d) => (
+                        <div key={d} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                          <span>{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

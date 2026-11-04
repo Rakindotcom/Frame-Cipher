@@ -22,8 +22,8 @@ export default function StudioServiceLayout({
   whyMatters = '',
   howRuns = [],
   costFactors = [],
-  timeline = '',
-  faqs = [],
+  timeline: _timeline = '',
+  faqs: _faqs = [],
   linksOut = [],
   extraSections,
   videoCategory = null,
@@ -39,7 +39,7 @@ export default function StudioServiceLayout({
 
       {/* 2. Primary Deep-Dive Content Section */}
       <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-        <div className="mx-auto max-w-[95vw]">
+        <div className="mx-auto max-w-7xl">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-8 space-y-12">
               {/* Introduction & Value Proposition */}
@@ -50,7 +50,7 @@ export default function StudioServiceLayout({
                     {currentService.shortTitle || 'Studio Service'} • In-House Dhaka Execution
                   </span>
                 </div>
-                <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+                <h2 className="font-heading text-3xl sm:text-5xl font-medium leading-[1.04] tracking-[-0.03em] text-frame-fg">
                   {h1 || currentService.h1}
                 </h2>
                 <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
@@ -66,7 +66,7 @@ export default function StudioServiceLayout({
               {/* What Is Included */}
               {whatIncluded && whatIncluded.length > 0 && (
                 <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-                  <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg mb-6 flex items-center gap-2">
+                  <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-frame-fg mb-6 flex items-center gap-2">
                     <span className="text-frame-accent">◆</span> What This Service Includes
                   </h3>
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -86,7 +86,7 @@ export default function StudioServiceLayout({
               {/* Types of Content / Sub-Services */}
               {serviceTypes && serviceTypes.length > 0 && (
                 <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-                  <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg mb-6 flex items-center gap-2">
+                  <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-frame-fg mb-6 flex items-center gap-2">
                     <span className="text-frame-accent">◆</span> Types We Produce & Deliver
                   </h3>
                   <div className="grid gap-4 sm:grid-cols-2">
@@ -98,7 +98,7 @@ export default function StudioServiceLayout({
                         <span className="text-[10px] font-black uppercase tracking-wider text-frame-accent">
                           Format 0{idx + 1}
                         </span>
-                        <h4 className="mt-1 font-heading text-base font-bold uppercase text-frame-fg">
+                        <h4 className="mt-1 font-heading text-base font-medium tracking-tight text-frame-fg">
                           {typeof type === 'string' ? type : type.title}
                         </h4>
                         {typeof type === 'object' && type.desc && (
@@ -118,7 +118,7 @@ export default function StudioServiceLayout({
                   <span className="text-xs font-black uppercase tracking-widest text-frame-accent">
                     Controlled Environment & Quality Control
                   </span>
-                  <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                  <h3 className="mt-2 font-heading text-xl md:text-2xl font-medium tracking-tight text-frame-fg">
                     Why Professional Studio Production Matters
                   </h3>
                   <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
@@ -130,7 +130,7 @@ export default function StudioServiceLayout({
               {/* How a Project Runs */}
               {howRuns && howRuns.length > 0 && (
                 <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-                  <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg mb-6 flex items-center gap-2">
+                  <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-frame-fg mb-6 flex items-center gap-2">
                     <span className="text-frame-accent">◆</span> How a Project Runs
                   </h3>
                   <div className="space-y-3">
@@ -155,7 +155,7 @@ export default function StudioServiceLayout({
                   <span className="text-xs font-black uppercase tracking-widest text-frame-accent">
                     Production Engineering & Standards
                   </span>
-                  <h3 className="mt-2 font-heading text-xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                  <h3 className="mt-2 font-heading text-xl md:text-3xl font-medium tracking-tight text-frame-fg">
                     Technical Architecture & Quality Guarantees
                   </h3>
                   <p className="mt-3 text-sm md:text-base leading-relaxed text-frame-muted-fg wide:text-lg">
@@ -165,7 +165,7 @@ export default function StudioServiceLayout({
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <div className="border border-frame-border/80 bg-frame-muted/10 p-5 space-y-2">
-                    <h4 className="font-heading text-sm font-bold uppercase text-frame-fg flex items-center gap-2">
+                    <h4 className="font-heading text-sm font-medium tracking-tight text-frame-fg flex items-center gap-2">
                       <span className="text-frame-accent">01.</span> Acoustic Decoupling & Voice Clarity
                     </h4>
                     <p className="text-xs text-frame-muted-fg leading-relaxed">
@@ -174,7 +174,7 @@ export default function StudioServiceLayout({
                   </div>
 
                   <div className="border border-frame-border/80 bg-frame-muted/10 p-5 space-y-2">
-                    <h4 className="font-heading text-sm font-bold uppercase text-frame-fg flex items-center gap-2">
+                    <h4 className="font-heading text-sm font-medium tracking-tight text-frame-fg flex items-center gap-2">
                       <span className="text-frame-accent">02.</span> Calibrated High-CRI Lighting Science
                     </h4>
                     <p className="text-xs text-frame-muted-fg leading-relaxed">
@@ -183,7 +183,7 @@ export default function StudioServiceLayout({
                   </div>
 
                   <div className="border border-frame-border/80 bg-frame-muted/10 p-5 space-y-2">
-                    <h4 className="font-heading text-sm font-bold uppercase text-frame-fg flex items-center gap-2">
+                    <h4 className="font-heading text-sm font-medium tracking-tight text-frame-fg flex items-center gap-2">
                       <span className="text-frame-accent">03.</span> Cinema 4K Dynamic Range & Color Grading
                     </h4>
                     <p className="text-xs text-frame-muted-fg leading-relaxed">
@@ -192,7 +192,7 @@ export default function StudioServiceLayout({
                   </div>
 
                   <div className="border border-frame-border/80 bg-frame-muted/10 p-5 space-y-2">
-                    <h4 className="font-heading text-sm font-bold uppercase text-frame-fg flex items-center gap-2">
+                    <h4 className="font-heading text-sm font-medium tracking-tight text-frame-fg flex items-center gap-2">
                       <span className="text-frame-accent">04.</span> Multi-Ratio Mobile & Web Architecture
                     </h4>
                     <p className="text-xs text-frame-muted-fg leading-relaxed">
@@ -203,7 +203,7 @@ export default function StudioServiceLayout({
 
                 {/* Standard Production Pricing & Scope Matrix */}
                 <div className="mt-8 pt-8 border-t border-frame-border/60">
-                  <h4 className="font-heading text-base font-bold uppercase text-frame-fg mb-4">
+                  <h4 className="font-heading text-base font-medium tracking-tight text-frame-fg mb-4">
                     Standard Studio Engagement Tiers (Dhaka)
                   </h4>
                   <div className="overflow-x-auto border-2 border-frame-border">
@@ -220,20 +220,20 @@ export default function StudioServiceLayout({
                         <tr className="hover:bg-frame-muted/10">
                           <td className="px-4 py-3 font-bold text-frame-fg">Studio Session / Interview</td>
                           <td className="px-4 py-3 text-frame-muted-fg">Half-day soundstage shoot, 2x 4K cameras, teleprompter, sound engineer, 1x master cut + 2x vertical reels</td>
-                          <td className="px-4 py-3 text-frame-muted-fg font-mono">3 - 5 Days</td>
-                          <td className="px-4 py-3 font-mono font-bold text-frame-accent">BDT 45,000 - 85,000</td>
+                          <td className="px-4 py-3 text-frame-muted-fg font-mono">3 to 5 Days</td>
+                          <td className="px-4 py-3 font-mono font-bold text-frame-accent">BDT 45,000 to 85,000</td>
                         </tr>
                         <tr className="hover:bg-frame-muted/10">
                           <td className="px-4 py-3 font-bold text-frame-fg">Full Commercial / Corporate Film</td>
                           <td className="px-4 py-3 text-frame-muted-fg">Full-day filming (studio + on-location office/factory), cinema crew, drone, motion graphics, DaVinci grade</td>
-                          <td className="px-4 py-3 text-frame-muted-fg font-mono">10 - 15 Days</td>
-                          <td className="px-4 py-3 font-mono font-bold text-frame-accent">BDT 120,000 - 250,000</td>
+                          <td className="px-4 py-3 text-frame-muted-fg font-mono">10 to 15 Days</td>
+                          <td className="px-4 py-3 font-mono font-bold text-frame-accent">BDT 120,000 to 250,000</td>
                         </tr>
                         <tr className="hover:bg-frame-muted/10">
                           <td className="px-4 py-3 font-bold text-frame-fg">Enterprise Brand Campaign</td>
                           <td className="px-4 py-3 text-frame-muted-fg">Multi-day narrative production, actors/models, scriptwriting, custom score, TVC broadcast compliance + social suite</td>
-                          <td className="px-4 py-3 text-frame-muted-fg font-mono">3 - 5 Weeks</td>
-                          <td className="px-4 py-3 font-mono font-bold text-frame-accent">BDT 300,000 - 650,000+</td>
+                          <td className="px-4 py-3 text-frame-muted-fg font-mono">3 to 5 Weeks</td>
+                          <td className="px-4 py-3 font-mono font-bold text-frame-accent">BDT 300,000 to 650,000+</td>
                         </tr>
                       </tbody>
                     </table>
@@ -255,7 +255,7 @@ export default function StudioServiceLayout({
                     Dhaka Studio Facility
                   </span>
                 </div>
-                <h4 className="font-heading text-base font-bold uppercase text-frame-fg">
+                <h4 className="font-heading text-base font-bold text-frame-fg">
                   FrameCipher Studio
                 </h4>
                 <p className="mt-2 text-xs text-frame-muted-fg leading-relaxed">
@@ -296,7 +296,7 @@ export default function StudioServiceLayout({
               {/* What Affects Price */}
               {costFactors && costFactors.length > 0 && (
                 <div className="border-2 border-frame-border bg-frame-muted/10 p-6">
-                  <h4 className="font-heading text-sm font-bold uppercase tracking-wider text-frame-fg mb-4 flex items-center gap-2">
+                  <h4 className="font-heading text-sm font-bold tracking-wider text-frame-fg mb-4 flex items-center gap-2">
                     <span className="text-frame-accent">◆</span> Pricing Factors
                   </h4>
                   <ul className="space-y-2.5 text-xs font-medium text-frame-muted-fg">
@@ -316,7 +316,7 @@ export default function StudioServiceLayout({
               {/* Related Cluster Links (Links Out) */}
               {linksOut && linksOut.length > 0 && (
                 <div className="border-2 border-frame-border bg-frame-bg p-6">
-                  <h4 className="font-heading text-xs font-black uppercase tracking-widest text-frame-accent mb-4">
+                  <h4 className="font-heading text-xs font-black tracking-widest text-frame-accent mb-4">
                     Related Studio Services
                   </h4>
                   <div className="space-y-2">
@@ -341,7 +341,7 @@ export default function StudioServiceLayout({
       {/* Extra Custom Injected Content / Groupings */}
       {extraSections && (
         <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-12 md:px-8">
-          <div className="mx-auto max-w-[95vw]">{extraSections}</div>
+          <div className="mx-auto max-w-7xl">{extraSections}</div>
         </section>
       )}
 

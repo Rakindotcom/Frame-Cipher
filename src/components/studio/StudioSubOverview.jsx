@@ -8,7 +8,7 @@ function OverviewBenefits({ service }) {
   if (!service.benefits || service.benefits.length === 0) return null
   return (
     <div className="border-2 border-frame-border bg-frame-muted/15 p-6 md:p-8">
-      <h3 className="mb-6 flex items-center gap-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
+      <h3 className="mb-6 flex items-center gap-2 font-heading text-xl font-medium tracking-tight text-frame-fg md:text-2xl">
         <Layers className="h-5 w-5 text-frame-accent" />
         <span>Key Inclusions & Standards</span>
       </h3>
@@ -39,7 +39,7 @@ function OverviewAudience({ service }) {
           <Users className="h-5 w-5" />
           <span className="text-xs font-black uppercase tracking-[0.28em] md:text-sm">Who This Service Is For</span>
         </div>
-        <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">Target Project Types</h3>
+        <h3 className="font-heading text-xl font-medium tracking-tight text-frame-fg md:text-2xl">Target Project Types</h3>
         <ul className="mt-6 space-y-4">
           {list.map((aud, i) => (
             <li key={i} className="flex items-start gap-3 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
@@ -62,7 +62,7 @@ function OverviewAudience({ service }) {
 export default function StudioSubOverview({ service }) {
   return (
     <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Production capabilities" title="Engineered for results. Not just filming." index="02">
           {renderContextualParagraph(service.detailedDescription || service.intro, {
             currentSlug: `studio/${service.slug}`,

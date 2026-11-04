@@ -4,11 +4,11 @@
 import { AutoLinks } from '../../../seo/AutoLinks'
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for voice-over — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for voice-over: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Voice Over Studio Packages and Prices in Dhaka (BDT)",
-  "pricingIntro": "Fixed-scope VO with booth, engineer, talent coordination and mastering itemised in writing — in Bangla and English.",
+  "pricingIntro": "Fixed-scope VO with booth, engineer, talent coordination and mastering itemised in writing: in Bangla and English.",
   "tiers": [
     {
       "name": "Short Read",
@@ -23,7 +23,7 @@ const DATA = {
         "De-breathing, de-essing, EQ and compression",
         "24-bit 48kHz WAV broadcast master + MP3",
         "Live in-person or Zoom direction included",
-        "24–48 hour standard turnaround"
+        "24 to 48 hour standard turnaround"
       ]
     },
     {
@@ -66,9 +66,9 @@ const DATA = {
     "Languages: Bangla, English or bilingual delivery",
     "Timing and sync to locked picture versus audio-only",
     "Pickup sessions and pronunciation correction rounds",
-    "Turnaround: 48–72 hour priority adds 30%"
+    "Turnaround: 48 to 72 hour priority adds 30%"
   ],
-  "marketNote": "Dhaka voice-over benchmarks run ৳3,000–5,000 for short reads up to 10 minutes, with studio rental at ৳1,500/hour and mixing/mastering around ৳6,000 (Bangladhol published rates). Talent fees for commercial usage add ৳5,000–20,000 depending on artist profile. Our tiers bundle booth, engineer, talent coordination and mastering — the four line items that fragmented bookings multiply.",
+  "marketNote": "Dhaka voice-over benchmarks run ৳3,000 to 5,000 for short reads up to 10 minutes, with studio rental at ৳1,500/hour and mixing/mastering around ৳6,000 (Bangladhol published rates). Talent fees for commercial usage add ৳5,000 to 20,000 depending on artist profile. Our tiers bundle booth, engineer, talent coordination and mastering, the four line items that fragmented bookings multiply.",
   "costRows": [
     [
       "Short read up to 2 min + mastered WAV",
@@ -96,7 +96,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -127,7 +127,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed"><AutoLinks currentPath="/studio/voice-over" allowed={["/studio/rental"]}>
@@ -174,7 +174,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -188,7 +188,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Voice Over Recording Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

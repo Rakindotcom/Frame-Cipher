@@ -16,7 +16,7 @@ import {
 
 export default function AboutPage() {
   return (
-    <main className="bg-frame-bg text-frame-fg">
+    <main className="about-page bg-[#09090B] text-[#FAFAFA] min-h-screen overflow-x-hidden">
       {/* 01: Hero & Identity */}
       <AboutHero />
 
@@ -35,7 +35,7 @@ export default function AboutPage() {
       {/* 06: Engineering Architecture & Proprietary Tech Stack */}
       <AboutTechStack />
 
-      {/* 07: Company Milestones & Growth Roadmap (2022 - 2026+) */}
+      {/* 07: Company Milestones & Growth Roadmap (2022 to 2026+) */}
       <AboutTimeline />
 
       {/* 08: Executive Leadership & Hands-on Operators */}

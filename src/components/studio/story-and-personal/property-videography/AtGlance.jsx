@@ -7,18 +7,18 @@ const glanceRows = [
   ['Luxury villa with drone', '৳65,000 per property, host-led'],
   ['Commercial tower showcase', '৳1,30,000 per project, multi-day'],
   ['Standalone drone slot', '৳25,000, permission liaised'],
-  ['Standard delivery', '3–4 business days after the shoot'],
+  ['Standard delivery', '3 to 4 business days after the shoot'],
   ['Urgent listing lane', '48-hour delivery, +25%'],
-  ['Quote and payment', 'Itemised within 48 hours — 50% advance, VAT invoices'],
-  ['Shoots and studio', 'On-location across Dhaka — studio at ECB Chattar is base'],
+  ['Quote and payment', 'Itemised within 48 hours: 50% advance, VAT invoices'],
+  ['Shoots and studio', 'On-location across Dhaka: studio at ECB Chattar is base'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
-  ['Phone and hours', '+880 1768-146650 — Open 24 hours, sessions by advance reservation'],
+  ['Phone and hours', '+880 1768-146650: Open 24 hours, sessions by advance reservation'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Property Videography Essentials"

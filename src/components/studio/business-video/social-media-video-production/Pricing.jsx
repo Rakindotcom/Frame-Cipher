@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for social-media-video-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for social-media-video-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Social Video Packages and Prices in Dhaka (BDT)",
@@ -21,7 +21,7 @@ const DATA = {
         "Kinetic Bangla/English captions on every clip",
         "Viral SFX, transitions and licensed music beds",
         "Cover frames and posting-order recommendation",
-        "Delivery in 3–5 days with SRT caption files"
+        "Delivery in 3 to 5 days with SRT caption files"
       ]
     },
     {
@@ -33,12 +33,12 @@ const DATA = {
       "popular": true,
       "description": "A full-day content bank: 20 verticals with B-roll overlays, styling changes and a month of posting calendar.",
       "features": [
-        "Full-day session: up to 20 finished 15–60s clips",
+        "Full-day session: up to 20 finished 15 to 60s clips",
         "Mid-session styling and backdrop change",
         "B-roll overlays and product insert shots",
         "3 hook variants on your 2 priority topics",
         "30-day posting calendar with caption drafts",
-        "Priority edit lane, delivery in 5–7 days"
+        "Priority edit lane, delivery in 5 to 7 days"
       ]
     },
     {
@@ -66,7 +66,7 @@ const DATA = {
     "Posting calendar and caption drafts",
     "Turnaround: 48-hour rush lane adds 25%"
   ],
-  "marketNote": "Freelance reel editing in Dhaka runs ৳500–2,000 per short, while agency monthly content packages span ৳15,000–60,000. Shoot-based social ads from studios start at ৳1,50,000, and one planned shoot day typically yields 8 to 20 assets. Batch studio recording compresses the expensive part — shoot time — so per-clip cost falls 40–60% versus filming each reel separately.",
+  "marketNote": "Freelance reel editing in Dhaka runs ৳500 to 2,000 per short, while agency monthly content packages span ৳15,000 to 60,000. Shoot-based social ads from studios start at ৳1,50,000, and one planned shoot day typically yields 8 to 20 assets. Batch studio recording compresses the expensive part: shoot time, so per-clip cost falls 40 to 60% versus filming each reel separately.",
   "costRows": [
     [
       "Batch-10: half-day record + edited captioned clips",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Social Video Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

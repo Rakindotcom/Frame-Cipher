@@ -1,87 +1,82 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const factors = [
-  'Product or service quality',
-  'Pricing and offer',
-  'Market demand',
-  'Competition',
-  'Media budget',
-  'Creative quality',
-  'Landing-page experience',
-  'Tracking quality',
-  'Campaign structure',
-  'Platform delivery',
-  'Customer behavior',
-]
-
-const commitments = [
-  'Proper setup',
-  'Reliable measurement',
-  'Disciplined testing',
-  'Active management',
-  'Transparent reporting',
-]
+import React from 'react'
+import { ShieldCheck, XCircle, CheckCircle2 } from 'lucide-react'
 
 export default function Guarantee() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Honest expectations"
-          title="What We Do Not Guarantee"
-        >
-          We believe Pinterest advertising should come with transparency and honest
-          expectation-setting rather than performance promises that depend on factors outside an
-          agency&apos;s control.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What We Do{' '}
+            <span className="italic text-frame-accent">Not Guarantee.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Honest agencies do not make unverified revenue promises. Real advertising performance depends on the full commercial ecosystem.
+          </p>
+        </div>
 
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              We do not guarantee
-            </span>
-            <p className="mt-4 text-base font-medium leading-relaxed text-frame-fg md:text-lg">
-              We do not guarantee a fixed ROAS, CPA, CPC, conversion rate, revenue level, or
-              number of sales.
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Left: What We Do Not Guarantee */}
+          <div className="rounded-xl border border-red-500/20 bg-[#121214] p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-red-500/30 bg-red-500/10 text-red-400">
+                <XCircle className="h-5 w-5" />
+              </span>
+              <h3 className="font-heading text-xl font-medium text-white">
+                No Invented Guarantees
+              </h3>
+            </div>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              We do not guarantee a fixed ROAS, CPA, CPC, conversion rate, revenue level, or exact number of checkouts. Performance is determined by commercial variables outside of media buying alone:
             </p>
-            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Performance depends on factors including:
-            </p>
-            <ul className="mt-4 grid gap-2 sm:grid-cols-2">
-              {factors.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-xs font-semibold text-frame-fg/90">
-                  <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-border text-frame-muted-fg">
-                    <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </span>
-                  <span className="leading-snug">{item}</span>
-                </li>
+
+            <div className="space-y-3 pt-2">
+              {[
+                'Product quality, market fit, and offer positioning',
+                'Pricing competitiveness against alternative retailers',
+                'Landing-page checkout speed and user experience',
+                'Auction competitiveness, CPM fluctuations, and seasonality',
+                'Real human buyer behavior and disposable income',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <XCircle className="h-4 w-4 text-red-400/80 shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
 
-          <div className="border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-9">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              What we commit to
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              The parts of the campaign we control
-            </h3>
-            <ul className="mt-6 space-y-2.5">
-              {commitments.map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-sm font-semibold text-frame-fg">{item}</span>
-                </li>
+          {/* Right: What We Commit To */}
+          <div className="rounded-xl border border-frame-accent/40 bg-[#121214] p-6 sm:p-8">
+            <div className="flex items-center gap-3 mb-6">
+              <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-frame-accent/30 bg-frame-accent/10 text-frame-accent">
+                <ShieldCheck className="h-5 w-5" />
+              </span>
+              <h3 className="font-heading text-xl font-medium text-white">
+                What We Firmly Commit To
+              </h3>
+            </div>
+
+            <p className="text-sm text-zinc-400 leading-relaxed mb-6">
+              What Framecipher guarantees is the rigorous, professional execution of the entire technical and creative advertising discipline:
+            </p>
+
+            <div className="space-y-3 pt-2">
+              {[
+                'Flawless tracking with Pinterest Tag and server-side CAPI',
+                'High-converting, platform-native vertical Pin creative',
+                'Disciplined algorithmic learning protection (10+ day buffer)',
+                'Structured catalog feed health and Product Group segmentation',
+                'Completely transparent client account ownership and zero markup on ad spend',
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-2.5">
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm text-zinc-300">{item}</span>
+                </div>
               ))}
-            </ul>
-            <div className="mt-7">
-              <PosterButton href="/contact">Talk to the Framecipher Media Team</PosterButton>
             </div>
           </div>
         </div>

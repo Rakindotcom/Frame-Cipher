@@ -1,4 +1,8 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ArrowRight, ShieldCheck, Search, FileText, CheckCircle } from 'lucide-react'
+import PosterButton from '../../home/PosterButton'
 
 const auditInputs = [
   {
@@ -28,26 +32,32 @@ const auditFindings = [
 
 const auditSteps = [
   {
+    step: '01',
     title: 'Submit Your Account & Goals',
     body: 'Send us the relevant access and a brief description of what paid advertising should produce for your business.',
   },
   {
+    step: '02',
     title: 'Receive the Account Review',
     body: 'We review campaign structure, conversion setup, targeting, creative, landing-page journey, and budget allocation.',
   },
   {
+    step: '03',
     title: 'Get Your Findings',
     body: 'You will see where budget is going, what campaigns are producing, what should be fixed first, and which opportunities deserve investment.',
   },
   {
+    step: '04',
     title: 'Review the Proposal',
     body: 'You receive a custom quotation and can review the recommended scope and budget before making a commitment.',
   },
   {
+    step: '05',
     title: 'Approve the Plan',
     body: 'No campaigns or budget changes begin without your approval.',
   },
   {
+    step: '06',
     title: 'Execution Begins',
     body: 'Our in-house team manages, tests, and optimizes the agreed campaign plan.',
   },
@@ -55,90 +65,106 @@ const auditSteps = [
 
 export default function GettingStarted() {
   return (
-    <div className="border-t-2 border-frame-border bg-frame-bg text-frame-fg">
-      <section className="px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Free audit"
-            title="Start With a Free Ad Account Audit"
-          >
-            Your current ad account may be generating useful business results, wasting budget, or
-            doing a little of both. The first step is to find out which is actually happening.
-          </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Start With a Free{' '}
+            <span className="italic text-frame-accent">Ad Account Audit.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Your current ad account may be generating useful business results, wasting budget, or doing a little of both. The first step is to find out which is actually happening.
+            Framecipher can review your current campaigns, conversion setup, targeting, creative, landing-page journey, and budget allocation, then identify the main opportunities and problems.
+          </p>
+        </div>
 
-          <div className="grid gap-6 lg:grid-cols-2 lg:items-start">
-            <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-              <div className="mt-6 space-y-4">
-                {auditInputs.map((item, index) => (
-                  <div key={index} className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-6 md:p-7 transition-colors hover:border-frame-accent">
-                    <div>
-                      <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                        Requirement 0{index + 1}
-                      </span>
-                      <h3 className="mt-3 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
-                        {item.title}
-                      </h3>
-                      <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                        {item.body}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+        {/* 2-Column Findings & Requirements Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+          {/* Left Column: What You Will See (7 cols) */}
+          <div className="lg:col-span-7 rounded-xl border border-white/[0.08] bg-[#121214] p-8 md:p-10 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+              <span className="font-mono text-xs uppercase tracking-wider text-frame-accent font-semibold">
+                AUDIT DELIVERABLE
+              </span>
+              <Search className="h-4 w-4 text-frame-accent" />
             </div>
 
-            <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                You will see
-              </span>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                Framecipher can review your current campaigns, conversion setup, targeting,
-                creative, landing-page journey, and budget allocation, then identify the main
-                opportunities and problems.
-              </p>
-              <ul className="mt-6 space-y-2.5">
-                {auditFindings.map((item, index) => (
-                  <li key={index} className="flex items-start gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg">
-                    <span className="font-mono text-xs font-black text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
+              You will clearly see:
+            </h3>
+
+            <ul className="space-y-3">
+              {auditFindings.map((finding) => (
+                <li key={finding} className="flex items-start gap-3 text-sm sm:text-base text-zinc-200">
+                  <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
+                  <span>{finding}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="pt-6 border-t border-white/[0.06]">
+              <PosterButton href="/contact" variant="accent">
+                Get Your Free Ad Account Audit &rarr;
+              </PosterButton>
+            </div>
+          </div>
+
+          {/* Right Column: What We Need From You (5 cols) */}
+          <div className="lg:col-span-5 rounded-xl border border-white/[0.08] bg-[#121214] p-8 space-y-6">
+            <div className="border-b border-white/[0.06] pb-4">
+              <h3 className="mt-1 font-heading text-xl font-medium tracking-tight text-white">
+                What We Need
+              </h3>
+            </div>
+
+            <div className="space-y-4">
+              {auditInputs.map((input) => (
+                <div key={input.title} className="space-y-1">
+                  <div className="font-mono text-xs text-frame-accent font-semibold flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
+                    {input.title}
+                  </div>
+                  <p className="text-xs text-zinc-400 leading-relaxed pl-3.5">
+                    {input.body}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
-      </section>
 
-      <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-[95vw]">
-          <SectionIntro
-            eyebrow="Audit journey"
-            title="What Happens After You Request Your Free Audit?"
-          >
-            Getting started is straightforward.
-          </SectionIntro>
+        {/* 6-Step Audit Workflow Flow */}
+        <div className="space-y-6">
+          <div className="border-b border-white/[0.08] pb-4">
+            <h3 className="font-heading text-2xl font-medium tracking-tight text-white">
+              6-Step Audit to Execution Path
+            </h3>
+          </div>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
-            {auditSteps.map((step, index) => (
-              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-                <div>
-                  <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                    {String(index + 1).padStart(2, '0')}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {auditSteps.map((step) => (
+              <div
+                key={step.step}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-3 transition-colors hover:border-white/[0.14]"
+              >
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-2">
+                  <span className="font-mono text-lg font-bold text-white/30">
+                    {step.step}
                   </span>
-                  <h3 className="mt-5 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {step.body}
-                  </p>
+                  <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
                 </div>
+                <h4 className="font-heading text-base font-medium tracking-tight text-white">
+                  {step.title}
+                </h4>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  {step.body}
+                </p>
               </div>
             ))}
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }

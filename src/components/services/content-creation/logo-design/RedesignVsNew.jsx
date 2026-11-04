@@ -1,6 +1,6 @@
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -43,8 +43,8 @@ const decisionMatrix = [
 
 export default function RedesignVsNew() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Strategic Evaluation"
           title="Logo Redesign vs. New Logo Design"
@@ -52,33 +52,33 @@ export default function RedesignVsNew() {
           Choosing between a logo refresh, a technical refinement, and a complete redesign depends on how much existing recognition your current mark carries. A redesign should solve an underlying business problem rather than alter a mark simply for novelty.
         </SectionIntro>
 
-        <div className="mt-12 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+        <div className="mt-12 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
           <table className="w-full text-left">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+            <thead className="border-b border-white/[0.08] bg-[#121214]">
               <tr>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Your Current Situation & Need
                 </th>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Recommended Approach
                 </th>
-                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Design Focus
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y-2 divide-frame-border text-xs sm:text-sm font-medium">
               {decisionMatrix.map((item, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20">
-                  <td className="p-4 md:p-6 font-bold uppercase tracking-tight text-frame-fg max-w-xs md:max-w-md">
+                <tr key={idx} className="hover:bg-[#121214]">
+                  <td className="p-4 md:p-6 font-bold uppercase tracking-tight text-[#FAFAFA] max-w-xs md:max-w-md">
                     {item.need}
                   </td>
-                  <td className="p-4 md:p-6 font-bold text-frame-accent whitespace-nowrap">
-                    <span className="inline-block border border-frame-accent/40 bg-frame-accent/10 px-2.5 py-1 text-xs uppercase tracking-wider">
+                  <td className="p-4 md:p-6 font-bold text-[#A855F7] whitespace-nowrap">
+                    <span className="inline-block border border-[#A855F7]/30 bg-[#A855F7]/10 px-2.5 py-1 text-xs uppercase tracking-wider">
                       {item.approach}
                     </span>
                   </td>
-                  <td className="p-4 md:p-6 text-frame-muted-fg leading-relaxed">
+                  <td className="p-4 md:p-6 text-[#A1A1AA] leading-relaxed">
                     {item.focus}
                   </td>
                 </tr>
@@ -87,8 +87,8 @@ export default function RedesignVsNew() {
           </table>
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <p className="text-xs sm:text-sm font-medium text-frame-fg leading-relaxed max-w-4xl mx-auto text-center">
+        <div className="mt-8 border border-white/[0.08] bg-[#121214] p-6 md:p-8">
+          <p className="text-xs sm:text-sm font-medium text-[#FAFAFA] leading-relaxed max-w-4xl mx-auto text-center">
             &ldquo;A redesign should solve an underlying commercial or functional limitation rather than change the logo simply for the sake of making it look newer. When existing customer recognition holds commercial value, our default instinct is evolution, not erasure.&rdquo;
           </p>
         </div>

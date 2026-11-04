@@ -1,65 +1,76 @@
 const capabilityGroups = [
   {
-    number: '01',
-    title: 'Web',
-    items: ['Next.js', 'React', 'WordPress', 'Shopify', 'HTML', 'CSS', 'Tailwind CSS', 'TypeScript'],
+    title: 'Web & Digital Platforms',
+    description: 'High-performance web applications, headless commerce, and conversion-focused architectures.',
+    items: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Shopify', 'WordPress', 'HTML5', 'CSS3', 'Headless CMS'],
   },
   {
-    number: '02',
-    title: 'Backend & Systems',
-    items: ['Node.js', 'APIs', 'Databases', 'Custom Dashboards', 'CRM', 'Business Management Systems', 'Automation'],
+    title: 'Backend, Cloud & Systems',
+    description: 'Custom APIs, database architecture, CRM workflows, and business automation software.',
+    items: ['Node.js', 'Python (FastAPI)', 'PostgreSQL', 'Supabase', 'Vercel Edge', 'APIs', 'Databases', 'Custom Dashboards', 'CRM', 'Business Management Systems', 'Automation'],
   },
   {
-    number: '03',
-    title: 'Marketing Technology',
-    items: ['Google Ads', 'Meta Ads', 'Analytics', 'Conversion Tracking', 'SEO', 'AEO', 'GEO'],
+    title: 'MarTech & Unified Attribution',
+    description: 'Server-side tracking, algorithmic ad platforms, search intelligence, and conversion analytics.',
+    items: ['Meta CAPI (Server-Side)', 'Google Tag Manager', 'Google Ads', 'Meta Ads', 'Analytics', 'Conversion Tracking', 'Looker Studio', 'SEO', 'AEO', 'GEO', 'WhatsApp Business API'],
+  },
+  {
+    title: 'Studio, Cinema & Creative Engine',
+    description: 'Studio commercial filming, cinematic color grading, motion graphics, and audio mastering.',
+    items: ['4K Cinema Rigs (Sony FX)', 'DaVinci Resolve Studio', 'Adobe Premiere Pro', 'After Effects', 'Studio Lighting & Audio', 'Drone Aerials', 'Motion Design', 'Brand Identity Systems'],
   },
 ]
 
 export default function HomeTech() {
   return (
-    <section className="px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-12 max-w-[95vw]">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-            Technology / Capabilities
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-            Technology behind the work.
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Technology behind{' '}
+            <span className="italic text-frame-accent">
+              the work.
+            </span>
           </h2>
-          <p className="mt-6 max-w-3xl text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+          <p className="mt-6 text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
             From modern websites to custom business systems, we use technology based on the
             actual requirements of the project, not a fixed template.
           </p>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-3">
-          {capabilityGroups.map((group) => (
+        {/* Structured Capability Matrix */}
+        <div className="grid border-t border-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+          {capabilityGroups.map((group, index) => (
             <article
               key={group.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-6 sm:p-8"
+              className="group relative flex flex-col justify-between border-b lg:border-b-0 lg:border-r last:border-r-0 border-white/[0.08] p-6 transition-colors duration-300 hover:bg-white/[0.02] sm:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
             >
-              <div className="mb-6 flex items-center justify-between gap-4 border-b-2 border-frame-border/80 pb-5">
-                <h3 className="font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg sm:text-3xl">
+              <div>
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                  <span
+                    className="font-mono text-xs text-frame-accent tabular-nums"
+                    aria-hidden="true"
+                  >
+                    0{index + 1}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-heading text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl">
                   {group.title}
                 </h3>
-                <span
-                  className="font-heading text-2xl font-bold leading-none tracking-tighter text-frame-muted"
-                  aria-hidden="true"
-                >
-                  {group.number}
-                </span>
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400 transition-colors duration-200 group-hover:text-zinc-300">
+                  {group.description}
+                </p>
+                <ul className="mt-6 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded border border-white/[0.08] bg-[#121214] px-2.5 py-1 text-[10px] sm:text-[11px] text-zinc-300 transition-colors duration-200 hover:border-white/[0.16] hover:text-white"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-              <ul className="flex flex-wrap gap-2">
-                {group.items.map((item) => (
-                  <li
-                    key={item}
-                    className="border border-frame-border bg-frame-muted/30 px-3 py-2 text-xs font-black uppercase tracking-wider text-frame-muted-fg transition-colors duration-200 hover:border-frame-accent hover:text-frame-fg"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </article>
           ))}
         </div>

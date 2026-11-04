@@ -14,7 +14,7 @@ const guideBlocks = [
     title: 'Batch Recording or Monthly Engine',
     body: [
       'A batch pack suits creators and brands with scripts ready: 10 clips in a half-day visit, 20 in a full day, each with kinetic Bangla or English captions, cover frames and SRT files.',
-      'Inside the ECB Chattar stage, vertical-composed rigs, backdrop changes and styling swaps are already in place. Recording 10 to 20 clips in one visit compresses the expensive part — shoot time — so per-clip cost falls 40 to 60 percent versus filming each reel separately.',
+      'Inside the ECB Chattar stage, vertical-composed rigs, backdrop changes and styling swaps are already in place. Recording 10 to 20 clips in one visit compresses the expensive part: shoot time, so per-clip cost falls 40 to 60 percent versus filming each reel separately.',
       'The monthly engine suits teams that must never face an empty calendar: a monthly shoot day, 30 or more finished verticals, trend-response pickups and a performance review that feeds winning hooks back into the next batch.',
     ],
   },
@@ -46,7 +46,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -58,7 +58,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

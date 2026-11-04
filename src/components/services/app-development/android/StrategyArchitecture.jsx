@@ -1,61 +1,95 @@
+'use client'
+
+import React from 'react'
+import {
+  Compass,
+  Smartphone,
+  Database,
+  TrendingUp,
+  CheckCircle2,
+} from 'lucide-react'
+
 const strategyArchitecture = [
   {
-    title: "Requirements & Feature Planning",
-    desc: "We identify the core features, user roles, key workflows, and functionality required for the initial release."
+    num: '01',
+    title: 'Requirements & Feature Planning',
+    desc: 'We identify the core features, user roles, key workflows, and functionality required for the initial release.',
+    icon: Compass,
   },
   {
-    title: "Device & OS Targeting",
-    desc: "We define the Android versions, device categories, screen sizes, and other compatibility requirements relevant to the target users."
+    num: '02',
+    title: 'Device & OS Targeting',
+    desc: 'We define the Android versions, device categories, screen sizes, and other compatibility requirements relevant to the target users.',
+    icon: Smartphone,
   },
   {
-    title: "Data & API Planning",
-    desc: "We determine what data the application needs, where it comes from, and how the Android client communicates with backend systems."
+    num: '03',
+    title: 'Data & API Planning',
+    desc: 'We determine what data the application needs, where it comes from, and how the Android client communicates with backend systems.',
+    icon: Database,
   },
   {
-    title: "Scalability Planning",
-    desc: "The architecture is planned around the expected product roadmap so future features can be added without unnecessarily restructuring the application."
-  }
+    num: '04',
+    title: 'Scalability Planning',
+    desc: 'The architecture is planned around the expected product roadmap so future features can be added without unnecessarily restructuring the application.',
+    icon: TrendingUp,
+  },
 ]
 
 export default function StrategyArchitecture() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Blueprint &amp; Roadmap
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          Product Strategy &amp; Architecture
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          Before development starts, we establish how the application should work as a product and as a technical system.
-        </p>
-      </div>
+    <section
+      id="strategy-architecture"
+      className="border-b border-white/[0.08] py-20 md:py-28 bg-[#09090B] text-white"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Product Strategy &amp;{' '}
+            <span className="italic text-frame-accent">Architecture.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {strategyArchitecture.map((item, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              Pillar 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {item.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Before development starts, we establish how the application should work as a product and as a technical system.
+          </p>
+        </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm font-semibold italic text-frame-fg">
-          Good architecture reduces uncertainty later. It should support the product without introducing unnecessary technical complexity.
-        </p>
+        {/* 4-Card Grid */}
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {strategyArchitecture.map((item, i) => (
+            <div
+              key={i}
+              className="group rounded-xl border border-white/[0.08] bg-[#121214] p-8 transition-colors duration-200 hover:border-white/[0.14] hover:bg-[#18181B]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  {item.num}
+                </span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                  <item.icon className="h-5 w-5" />
+                </div>
+              </div>
+
+              <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                {item.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Architectural Uncertainty Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex items-start gap-4">
+          <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
+          <p className="font-mono text-sm leading-relaxed text-zinc-300">
+            <strong className="text-white">Architecture Rule:</strong> Good architecture reduces uncertainty later. It should support the product without introducing unnecessary technical complexity.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

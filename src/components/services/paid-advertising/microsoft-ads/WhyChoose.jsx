@@ -1,98 +1,74 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const reportingMetrics = [
-  'Spend',
-  'Impressions',
-  'Clicks',
-  'CTR',
-  'CPC',
-  'Conversions',
-  'Conversion rate',
-  'CPA',
-  'Leads',
-  'Qualified leads',
-  'Purchases',
-  'Revenue',
-  'ROAS',
-  'Search-term performance',
-  'Audience performance',
-  'Campaign performance',
-]
+import React from 'react'
+import { Search, Briefcase, ArrowRightLeft, Users, ShieldCheck, Globe } from 'lucide-react'
 
 const reasons = [
   {
+    icon: Search,
     title: 'Microsoft-Specific Strategy',
-    body: 'We do not simply duplicate Google Ads and call the job complete. We adapt keyword strategy, campaign structure, network settings, audience layers, conversion goals, and bidding to the Microsoft Advertising environment.',
+    desc: 'We never simply import Google Ads and walk away. We adapt keyword match types, syndicated network placements, and device bid modifiers to the Microsoft environment.',
   },
   {
-    title: 'LinkedIn Profile Targeting Used Deliberately',
-    body: 'Professional audience signals can be valuable for B2B and other high-consideration campaigns. We evaluate them as part of the strategy rather than leaving them unused by default.',
+    icon: Briefcase,
+    title: 'Deliberate LinkedIn Profile Targeting',
+    desc: 'We strategically overlay professional B2B signals—targeting specific industries, decision-maker job functions, and enterprise company accounts at search CPC rates.',
   },
   {
+    icon: ArrowRightLeft,
     title: 'Clean Google Ads Migration',
-    body: 'We can use Microsoft\u2019s import workflow to accelerate account setup, then review and adapt the imported structure before campaigns run.',
+    desc: 'We utilize Microsoft’s official import tools to transfer core campaign structures, followed by rigorous manual cleanup, bid recalibration, and negative keyword audits.',
   },
   {
-    title: 'One In-House Team',
-    body: 'Strategy, campaign management, tracking, creative coordination, and reporting are handled through one in-house team. You do not need to coordinate separate vendors for every part of the campaign.',
+    icon: Users,
+    title: 'One In-House Media & Tech Team',
+    desc: 'Strategy, ad copywriting, UET tag implementation, and bid optimization are handled by our dedicated team in Dhaka without external agency subcontracting.',
   },
   {
-    title: 'Client-Owned Accounts & Assets',
-    body: 'Your advertising accounts, tracking assets, campaign data, catalogs, and business assets remain under your ownership. We work within the appropriate client-owned advertising environment.',
+    icon: ShieldCheck,
+    title: '100% Client-Owned Accounts',
+    desc: 'Your Microsoft Advertising account, UET tracking tags, catalogs, and historical campaign data remain under your direct ownership. Zero media spend markups.',
   },
   {
-    title: 'Bangladesh + International Markets',
-    body: 'Framecipher is based in Dhaka and works with businesses in Bangladesh and international markets. We adapt campaign structure, creative, audience strategy, language, offers, and measurement to the target market.',
+    icon: Globe,
+    title: 'Bangladesh & International Delivery',
+    desc: 'We manage local campaigns in Bangladesh where demand justifies spend, alongside high-volume international campaigns across the US, UK, Canada, Australia, and UAE.',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Why Framecipher" title="Why Businesses Choose Framecipher for Microsoft Ads" />
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Businesses Choose Framecipher for{' '}
+            <span className="italic text-frame-accent">Microsoft Ads.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Microsoft Advertising requires platform-specific optimization, deliberate audience layering, and reliable conversion measurement. Here is how we deliver incremental growth.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {reasons.map((reason) => (
-            <div
-              key={reason.title}
-              className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {reason.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {reason.body}
-              </p>
-            </div>
-          ))}
-
-          <div className="border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent">
-            <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-            <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-              Transparent Reporting
-            </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Reporting can include the metrics that matter to the campaign rather than a fixed
-              dashboard of volume metrics.
-            </p>
-            <ul className="mt-5 grid grid-cols-2 gap-3">
-              {reportingMetrics.map((metric) => (
-                <li
-                  key={metric}
-                  className="flex items-start gap-2 text-xs font-bold uppercase tracking-wider text-frame-muted-fg"
-                >
-                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                  <span>{metric}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-l-2 border-frame-accent pl-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              For B2B campaigns, reporting can also extend into lead quality and downstream sales
-              data where CRM information is available.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {reasons.map((r, idx) => {
+            const Icon = r.icon
+            return (
+              <div
+                key={r.title}
+                className="relative overflow-hidden flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+              >
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white mb-2.5">
+                    {r.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {r.desc}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

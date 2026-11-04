@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     "question": "Can we bring our own cameras, lighting and crew?",
-    "answer": "Yes. Room-only hire is built for outside crews — bring cameras, audio and fixtures, and we provide the isolated stage, grid positions, power distribution and assistant support."
+    "answer": "Yes. Room-only hire is built for outside crews: bring cameras, audio and fixtures, and we provide the isolated stage, grid positions, power distribution and assistant support."
   },
   {
     "question": "Does rental include an on-site technician?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "Can we visit the stage before booking?",
-    "answer": "Yes. Message us on WhatsApp at +880 1768-146650 to schedule a walkthrough — clap-test the acoustics, inspect the grid and power, and confirm the backdrop before you commit."
+    "answer": "Yes. Message us on WhatsApp at +880 1768-146650 to schedule a walkthrough: clap-test the acoustics, inspect the grid and power, and confirm the backdrop before you commit."
   },
   {
     "question": "How do half-day and full-day blocks compare to hourly billing?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, blocks, support and booking — everything about stage hire at FrameCipher Studio.
+          Costs, blocks, support and booking: everything about stage hire at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

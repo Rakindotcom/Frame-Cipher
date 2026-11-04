@@ -1,4 +1,4 @@
-﻿import Hero from './Hero'
+import Hero from './Hero'
 import Overview from './Overview'
 import WhenNeed from './WhenNeed'
 import RootCause from './RootCause'
@@ -20,16 +20,19 @@ const marqueeItems = [
   'Google Penalty Recovery',
   'Evidence-First Diagnosis',
   'Dedicated In-House Team',
-  'Built For Recovery',
-  'Quality Assured',
-  'Ongoing Support',
+  'Core Algorithm Rebound',
+  'Manual Action Clearance',
+  'Empirical Disavow Hygiene',
+  '100% Policy-Safe Remediation',
 ]
 
 export default function SeoPenaltyRecoveryService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero service={service} />
-      <TypeMarquee items={marqueeItems} slow />
+      <div className="border-b border-white/[0.08] bg-[#09090B] py-3 text-xs font-mono uppercase tracking-widest text-zinc-400">
+        <TypeMarquee items={marqueeItems} slow />
+      </div>
       <Overview />
       <WhenNeed />
       <RootCause />

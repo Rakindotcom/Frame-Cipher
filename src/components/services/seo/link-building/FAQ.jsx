@@ -1,87 +1,143 @@
-import { SectionIntro } from '../../../Kinetic'
-import { resolveFaqs } from '../../../../lib/seo/faq'
+'use client'
 
-const fallbackFaqs = [
+import React, { useState } from 'react'
+import { Plus, Minus, HelpCircle } from 'lucide-react'
+
+const allLinkBuildingFaqs = [
   {
     question: 'What is off-page SEO?',
-    answer: 'Off-page SEO covers everything outside your own website that can influence how search engines evaluate and understand it: backlinks, brand mentions, publisher relationships, citations, and other external signals. It works alongside on-page and technical SEO to establish authority and trust.',
+    answer:
+      'Off-page SEO refers to activities performed outside your website that can support its visibility, authority, reputation, and discovery. Link building is one major part of off-page SEO, but the broader work can also include digital PR, relevant citations, brand mentions, and other authority-building activities.',
   },
   {
     question: 'What is link building?',
-    answer: 'Link building is the process of earning references from other websites to your content. When done properly, links function as genuine recommendations: a relevant, respected site pointing readers toward yours because the reference makes sense for both audiences. When done badly, links are bought or manufactured purely to manipulate rankings, which carries real penalty risk.',
+    answer:
+      'Link building is the process of earning or acquiring relevant external links that point from other websites to your website. The quality and context of those links matter far more than simply increasing the total number of backlinks.',
   },
   {
     question: 'Do you buy backlinks?',
-    answer: 'No. Bought links, especially in bulk, carry real penalty risk. Google\u2019s systems are increasingly good at detecting unnatural link patterns, and a resulting penalty typically costs far more time to recover from than the links would have saved. Every link we build is earned through manual outreach to relevant publishers.',
+    answer:
+      'No. We do not use bulk backlink packages, link networks (PBNs), automated link creation, or mass placements designed primarily to manipulate rankings. Google’s spam policies specifically identify buying or selling links for ranking purposes as link spam.',
   },
   {
     question: 'How do you decide whether a website is worth targeting?',
-    answer: 'We evaluate topical relevance, editorial context, real audience and organic visibility, geographic relevance, natural anchor and destination fit, and screening for spam or manipulative patterns. A site only enters the campaign when it genuinely serves readers who might find the business useful.',
+    answer:
+      'We consider topical relevance, editorial quality, audience fit, organic visibility where available, geographic relevance, outbound-link behavior, content standards, and potential placement context. A high third-party authority score alone is not enough.',
   },
   {
     question: 'Do you use guest posting?',
-    answer: 'Yes, but only as genuine editorial guest content. We develop topics that fit each publication, write original articles, and place links contextually and naturally. Google\u2019s spam policies discourage paid or manipulative guest-post links, so we only pursue guest content that contributes real value to the target publication.',
+    answer:
+      'Yes, where guest content genuinely fits the publication and audience. We develop useful content and pursue editorial opportunities instead of creating thin articles solely to insert backlinks.',
   },
   {
     question: 'How many backlinks do I need each month?',
-    answer: 'It depends on your plan, industry, and the quality tier of placements available. We won\u2019t promise a fixed number regardless of outreach conditions \u2014 quality and relevance matter more than hitting an arbitrary count, and we report what was actually pursued and placed.',
+    answer:
+      'There is no reliable universal number. The appropriate campaign scope depends on your industry, competitors, current backlink profile, target pages, publisher opportunities, content assets, and market. We focus on relevant opportunities rather than setting an arbitrary backlink quota.',
   },
   {
     question: 'Can you build links to service and product pages?',
-    answer: 'Yes. Depending on the target page\u2019s role, we advise on which destinations should earn references: homepage, service, research, category, or product pages. We pursue links to the page that genuinely helps the reader, not only to the homepage.',
+    answer:
+      'Yes. Where the context supports it, backlinks can point to service pages, product or category pages, research assets, guides, and other valuable resources. We decide the destination based on relevance instead of sending every link to the homepage.',
   },
   {
     question: 'Do you build local backlinks in Bangladesh?',
-    answer: 'Yes. For businesses in Bangladesh we build local citations and references from directories relevant to the local market, alongside outreach to international publications where the business\u2019s audience extends beyond the country.',
+    answer:
+      'Yes. Depending on the business, this can include relevant Bangladeshi directories, industry organizations, local publications, regional websites, and other appropriate sources. The exact opportunity set depends on the business and location.',
   },
   {
     question: 'How do you measure link-building results?',
-    answer: 'We review links and referring domains, the target pages receiving references, referral traffic and brand visibility, organic search performance in Search Console, and business outcomes where they can be attributed. We don\u2019t attribute every traffic change to link building \u2014 where other factors explain movement, we say so.',
+    answer:
+      'We track earned links, referring domains, target pages, placement coverage, referral traffic where available, and organic search metrics such as impressions and clicks. Where conversion tracking exists, we also review leads, enquiries, sales, or other business outcomes.',
   },
   {
     question: 'What happens if my website already has spammy backlinks?',
-    answer: 'We review your existing backlink profile as part of the initial audit. For genuinely harmful links we can prepare a disavow file, used carefully in line with Google\u2019s guidance, while unrelated or low-value links that aren\u2019t causing damage are left alone.',
+    answer:
+      'We review the existing backlink profile and separate ordinary low-quality or irrelevant links from links that may warrant further action. We do not automatically classify every unwanted link as harmful. Where a genuine artificial-link issue exists, we assist with removal outreach and provide disavow guidance where warranted in line with Google recommendations.',
   },
   {
     question: 'How long does link building take?',
-    answer: 'An initial backlink audit is typically delivered within a week. Earning genuinely relevant placements takes real outreach time, so most campaigns run as monthly engagements, and results tend to appear gradually over months rather than as a sudden jump.',
+    answer:
+      'Link acquisition usually takes place over time because publisher research, outreach, editorial review, content creation, and publication happen on different schedules. The right campaign length depends on the industry, market, content requirements, competition, and available opportunities.',
   },
   {
     question: 'Do you guarantee Google rankings?',
-    answer: 'No. Publication decisions belong to the sites we pitch, and rankings depend on factors beyond the backlink profile: competition, site quality, content, and conversion behavior. What we guarantee is genuine, manual outreach to relevant sites \u2014 never bulk-bought links or link networks that put your site at risk.',
+    answer:
+      'No. Search rankings depend on many factors beyond backlinks, so no responsible agency can guarantee a specific Google position from link building alone. We focus on building relevant authority and reporting the work and performance transparently.',
+  },
+  {
+    question: 'Do you guarantee placement on specific high-authority sites?',
+    answer:
+      'No. Publication decisions belong to the sites we pitch, not to us. We pursue genuinely relevant, high-quality targets, but final acceptance is always the publisher’s call. What we guarantee is genuine, manual outreach to relevant sites rather than manufactured placements.',
   },
 ]
 
-export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about off-page SEO, link building methods, timelines, pricing, and
-          engagement models.
-        </SectionIntro>
+export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState(null)
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-muted/10 open:border-frame-accent transition-colors"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {faq.answer}
+  const toggleAccordion = (index) => {
+    setOpenIndex(openIndex === index ? null : index)
+  }
+
+  return (
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-4xl">
+        {/* Section Header - Strictly Centered per Design System */}
+        <div className="space-y-4 text-center mx-auto max-w-2xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <HelpCircle className="h-3.5 w-3.5 text-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Direct Answers // {allLinkBuildingFaqs.length} Essential Questions
+            </span>
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Frequently Asked{' '}
+            <span className="italic text-frame-accent">Questions</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-400 leading-relaxed">
+            Common questions about off-page SEO, link building methods, timelines, pricing, and campaign expectations.
+          </p>
+        </div>
+
+        {/* Accordion List with Hairline Architectural Borders */}
+        <div className="mt-12 space-y-3">
+          {allLinkBuildingFaqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors hover:border-white/20"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleAccordion(index)}
+                  className="flex w-full items-center justify-between p-6 text-left transition-colors"
+                >
+                  <span className="font-heading text-base sm:text-lg font-medium uppercase tracking-tight text-white pr-4">
+                    {faq.question}
+                  </span>
+                  <div
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-zinc-300 transition-colors ${
+                      isOpen ? 'border-frame-accent/40 bg-frame-accent/15 text-frame-accent' : ''
+                    }`}
+                  >
+                    {isOpen ? (
+                      <Minus className="h-4 w-4" />
+                    ) : (
+                      <Plus className="h-4 w-4" />
+                    )}
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="px-6 pb-6 pt-0 border-t border-white/[0.06] text-sm sm:text-base text-zinc-300 leading-relaxed mt-2 pt-4">
+                    {faq.answer}
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

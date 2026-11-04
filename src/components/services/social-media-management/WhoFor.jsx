@@ -1,4 +1,8 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
+import PosterButton from '../../home/PosterButton'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
 
 const audiences = [
   {
@@ -33,41 +37,71 @@ const audiences = [
 
 export default function WhoFor() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Target audience alignment"
-          title="Who Is Social Media Management For?"
-        >
-          The plan, platform mix, and content volume are adjusted to the audience you already
-          have and the stage your business is at.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               AUDIENCE FIT 
+            </p>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Who Is Social Media Management{' '}
+            <span className="italic text-[#A855F7]">For?</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            The plan, platform mix, and content volume are adjusted to the audience you already have and the stage your business is at.
+          </p>
+        </div>
+
+        {/* 7 Audience Cards + 1 Advisory Card */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {audiences.map((audience, index) => (
-            <article key={audience.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <article
+              key={audience.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.16]"
+            >
               <div>
-                <span className="flex h-10 w-10 items-center justify-center border-2 border-frame-accent/40 bg-frame-accent/10 font-heading text-sm font-bold text-frame-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                    Segment 0{index + 1}
+                  </span>
+                  <span className="font-mono text-[10px] text-zinc-500 uppercase">
+                    Tailored Mix
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-lg font-medium text-white leading-snug">
                   {audience.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="mt-3 text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
                   {audience.body}
                 </p>
               </div>
             </article>
           ))}
 
-          <div className="flex flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure where you fit
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              The free initial social audit helps us understand your requirements before
-              recommending a plan, so you are not paying for scope you do not need.
-            </p>
+          {/* Not Sure Where You Fit Card */}
+          <div className="flex flex-col justify-between rounded-xl border border-[#A855F7]/30 bg-frame-accent/[0.04] p-6 space-y-4">
+            <div>
+              <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                Custom Evaluation
+              </span>
+              <h3 className="mt-2 font-heading text-lg font-medium text-white">
+                Not Sure Where You Fit?
+              </h3>
+              <p className="mt-2 text-xs sm:text-sm text-zinc-300 font-normal leading-relaxed">
+                The free initial social audit helps us understand your requirements before recommending a plan, so you never pay for scope you do not need.
+              </p>
+            </div>
+            <PosterButton href="/contact" variant="accent" className="w-full justify-center">
+              Get Free Social Audit
+            </PosterButton>
           </div>
         </div>
       </div>

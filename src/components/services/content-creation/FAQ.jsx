@@ -59,7 +59,7 @@ const fallbackFaqs = [
 export default function FAQ({ service }) {
   const faqs = resolveFaqs(service, fallbackFaqs)
   return (
-    <section id="faq" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+    <section id="faq" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
           eyebrow="Direct Answers"
@@ -73,15 +73,15 @@ export default function FAQ({ service }) {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+              className="group border border-white/[0.08] bg-[#09090B] open:border-[#A855F7]/40 transition-colors"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none select-none hover:text-frame-accent transition-colors">
+              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-[#FAFAFA] marker:content-none select-none hover:text-[#A855F7] transition-colors">
                 <span className="pr-4">{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
+                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+              <div className="border-t border-white/[0.08] p-6 text-sm md:text-base font-medium leading-relaxed text-[#A1A1AA] wide:text-lg">
                 {faq.answer}
               </div>
             </details>

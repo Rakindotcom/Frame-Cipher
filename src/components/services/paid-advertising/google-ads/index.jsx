@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import Campaigns from './Campaigns'
@@ -14,25 +17,30 @@ import Timeline from './Timeline'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
-
-const marqueeItems = [
-  "Google Search",
-  "Google Shopping",
-  "Performance Max",
-  "Display & YouTube",
-  "Remarketing",
-  "Conversion Tracking",
-  "Ongoing Optimization"
-]
-
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
 import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
+const marqueeItems = [
+  "Google Search Ads",
+  "Google Shopping",
+  "Performance Max",
+  "Enhanced Conversions",
+  "GA4 Server-Side Tracking",
+  "Display & YouTube Ads",
+  "Dynamic Remarketing",
+  "Quality Score 10/10 Optimization",
+  "100% Client Account Ownership",
+  "Offline Conversion Imports",
+  "Dhaka & Global Media Delivery"
+]
+
 export default function PaidAdvertisingGoogleAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="min-h-screen bg-[#09090B] text-white selection:bg-purple-500/30 selection:text-white">
       <Hero />
-      <TypeMarquee items={marqueeItems} slow />
+      <div className="border-b border-white/[0.08] bg-[#121214]/60 py-3 font-mono text-xs text-zinc-400">
+        <TypeMarquee items={marqueeItems} slow />
+      </div>
       <Overview />
       <Campaigns />
       <Includes />

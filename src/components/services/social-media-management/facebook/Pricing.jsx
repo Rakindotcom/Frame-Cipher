@@ -1,292 +1,186 @@
-
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
 const packages = [
   {
     name: 'Essential',
     price: '৳10,000',
-    priceNote: 'Per month',
+    period: '/mo',
     bestFor: 'Small businesses',
     description: 'Designed for businesses that need a consistent and professionally maintained Facebook presence.',
     features: [
       '3 posts per week',
-      'Content planning',
+      'Content planning & calendar',
       'Basic community management',
-      'Reporting',
+      'Comment monitoring',
+      'Monthly performance reporting',
+      'Facebook Page optimization',
     ],
     popular: false,
+    ctaText: 'Start Essential Plan',
   },
   {
     name: 'Growth',
     price: '৳18,000',
-    priceNote: 'Per month',
+    period: '/mo',
     bestFor: 'Growing businesses',
     description: 'Designed for businesses that need more active publishing and customer interaction.',
     features: [
+      'Everything in Essential',
       '5 posts per week',
       'Active community management',
-      'Review monitoring',
-      'Reporting',
+      'Review monitoring & response',
+      'Broader content formats (Reels/Carousels)',
+      'More frequent optimization & refinement',
+      'Expanded performance reporting',
     ],
     popular: true,
+    ctaText: 'Start Growth Plan',
   },
   {
     name: 'Full Coverage',
     price: '৳28,000',
-    priceNote: 'Per month',
+    period: '/mo',
     bestFor: 'Businesses needing broader management',
     description: 'Designed for businesses that depend heavily on Facebook for communication and customer engagement.',
     features: [
-      'Daily content',
-      'Broader community coverage',
-      'Review management',
-      'Priority response',
+      'Daily content publishing',
+      'Broader content formats & creative',
+      'Expanded community & Messenger triage',
+      'Review management & brand care',
+      'Priority response coverage',
+      'Detailed monthly reporting & insights',
+      'Ongoing strategic optimization',
+      'Group management where included in scope',
     ],
     popular: false,
+    ctaText: 'Start Full Coverage',
   },
   {
     name: 'Enterprise',
     price: 'Custom',
-    priceNote: 'Scoped per engagement',
+    period: '',
     bestFor: 'Multi-location / larger brands',
     description: 'For larger brands, multi-location businesses, and businesses requiring customized workflows.',
     features: [
-      'Custom content volume',
-      'Multiple Pages',
-      'Workflows',
-      'Reporting and service coverage',
-    ],
-    popular: false,
-  },
-]
-
-const planDetails = [
-  {
-    name: 'Essential Facebook Management',
-    intro: 'Designed for businesses that need a consistent and professionally maintained Facebook presence.',
-    includes: [
-      'Facebook Page management',
-      'Content strategy',
-      '3 posts per week',
-      'Content calendar',
-      'Content creation',
-      'Scheduling',
-      'Basic community management',
-      'Comment monitoring',
-      'Monthly reporting',
-    ],
-  },
-  {
-    name: 'Growth Facebook Management',
-    intro: 'Designed for businesses that need more active publishing and customer interaction.',
-    includes: [
-      'Everything in Essential, plus',
-      '5 posts per week',
-      'Active community management',
-      'Review monitoring',
-      'Broader content formats',
-      'More frequent optimization',
-      'Expanded reporting',
-      'Ongoing content refinement',
-    ],
-  },
-  {
-    name: 'Full-Coverage Facebook Management',
-    intro:
-      'Designed for businesses that depend heavily on Facebook for communication and customer engagement.',
-    includes: [
-      'Daily content',
-      'Broader content formats',
-      'Expanded community management',
-      'Review management',
-      'Priority response coverage',
-      'More detailed reporting',
-      'Ongoing strategic optimization',
-      'Group management where included in scope',
-    ],
-  },
-  {
-    name: 'Enterprise Facebook Management',
-    intro:
-      'For larger brands, multi-location businesses, and businesses requiring customized workflows.',
-    includes: [
       'Multiple Facebook Pages',
       'Location-specific management',
-      'Custom content volume',
-      'Dedicated coordination',
-      'Custom reporting',
-      'Custom response requirements',
-      'Advanced approval workflows',
-      'Strategic reviews',
+      'Custom content volume & creative production',
+      'Dedicated account coordination',
+      'Custom response SLA & escalation',
+      'Advanced multi-tier approval workflows',
+      'Strategic executive reviews',
+      'Custom analytics & tracking integrations',
     ],
+    popular: false,
+    ctaText: 'Request Enterprise Quote',
   },
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Investment &amp; plans"
-          title="Facebook Management Pricing"
-        >
-          Our Facebook management pricing depends on content volume, creative requirements,
-          community coverage, response expectations, and the number of Pages or locations.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            Facebook Management Pricing
+          </div>
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Predictable monthly management plans.
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our Facebook management pricing depends on content volume, creative requirements, community
+            coverage, response expectations, and the number of Pages or locations.
+          </p>
+        </div>
 
-        {/* PACKAGE CARDS */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          {packages.map((pkg, index) => (
-            <div
+        {/* Pricing Cards Grid */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {packages.map((pkg) => (
+            <article
               key={pkg.name}
-              className={`flex flex-col justify-between border-2 p-6 transition-colors md:p-7 ${
+              className={`relative flex flex-col justify-between  border p-7 transition-colors duration-300 ${
                 pkg.popular
-                  ? 'border-frame-accent bg-frame-accent/10'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+                  ? 'border-frame-accent/40 bg-[#121214] ring-1 ring-frame-accent/30'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.18]'
               }`}
             >
               <div>
-                <div className="flex min-h-[22px] items-center justify-between gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                    Package 0{index + 1}
+                {pkg.popular && (
+                  <div className="mb-4 inline-flex items-center gap-1.5 rounded-full border border-frame-accent/30 bg-frame-accent/10 px-3 py-1 text-[10px] font-mono uppercase tracking-wider text-frame-accent">
+                    Most Popular
+                  </div>
+                )}
+                <div className="flex items-baseline justify-between">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                    {pkg.name}
+                  </h3>
+                  <span className="text-xs font-mono text-[#A1A1AA]">{pkg.bestFor}</span>
+                </div>
+
+                <div className="mt-5 flex items-baseline gap-1">
+                  <span className="font-mono text-3xl font-semibold tracking-tight text-[#FAFAFA] sm:text-4xl">
+                    {pkg.price}
                   </span>
-                  {pkg.popular && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                      Most Popular
-                    </span>
+                  {pkg.period && (
+                    <span className="font-mono text-xs text-[#A1A1AA]">{pkg.period}</span>
                   )}
                 </div>
 
-                <h3 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                  {pkg.name}
-                </h3>
-
-                <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                  <div className="font-heading text-2xl font-black tracking-tight text-frame-fg md:text-3xl">
-                    {pkg.price}
-                  </div>
-                  <span className="mt-1 block text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {pkg.priceNote}
-                  </span>
-                </div>
-
-                <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs leading-relaxed text-[#A1A1AA]">
                   {pkg.description}
                 </p>
 
-                <div className="mt-4 border border-frame-accent/50 bg-frame-accent/5 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Best For
+                <div className="mt-6 border-t border-white/[0.08] pt-5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A]">
+                    Included Scope
                   </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">
-                    {pkg.bestFor}
-                  </p>
-                </div>
-
-                <div className="mt-5 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Core Coverage
-                  </span>
-                  <ul className="mt-3 space-y-2.5 text-xs font-medium text-frame-fg/90 md:text-sm">
-                    {pkg.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span className="leading-snug">{feat}</span>
+                  <ul className="mt-3 space-y-2.5">
+                    {pkg.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
+                        <svg
+                          className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        <span className="leading-snug">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+              <div className="mt-8 border-t border-white/[0.08] pt-6">
                 <PosterButton
                   href="/contact"
-                  variant={pkg.popular ? 'accent' : 'outline'}
-                  className="w-full text-xs"
+                  variant={pkg.popular ? 'default' : 'outline'}
+                  className="w-full justify-center"
                 >
-                  Choose {pkg.name}
+                  {pkg.ctaText}
                 </PosterButton>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        {/* PLAN DETAIL BLOCKS */}
-        <div className="mt-20">
-          <div className="mb-10 max-w-3xl">
-            <p className="mb-2 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              Full plan breakdown
-            </p>
-            <h2 className="font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg md:text-4xl">
-              What Each Facebook Management Plan Includes
-            </h2>
-            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-              Exact scope is confirmed during the free audit. Higher plans build on the ones below
-              rather than replacing them.
+        {/* Ad Spend & Boundary Note */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-frame-accent">
+              Transparent Scope
+            </span>
+            <p className="mt-2 text-base leading-relaxed text-[#FAFAFA] sm:text-lg">
+              Ad spend is separate from Facebook management fees. Facebook Ads Management can be added
+              through a separate paid advertising engagement when required.
             </p>
           </div>
-
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
-            {planDetails.map((plan, index) => (
-              <article key={plan.name} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Plan {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                    {plan.name}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {plan.intro}
-                  </p>
-                </div>
-
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Includes
-                  </span>
-                  <ul className="mt-3 space-y-2.5 text-xs font-medium text-frame-fg/90 md:text-sm">
-                    {plan.includes.map((item) => (
-                      <li key={item} className="flex items-start gap-2">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
-                        </span>
-                        <span className="leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        {/* PRICING NOTES */}
-        <div className="mt-10 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-8">
-          <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/paid-advertising"]}>
-            Ad spend is separate from Facebook management fees. Facebook Ads Management can be added
-            through a separate paid advertising engagement when required.
-          </AutoLinks></p>
-          <p className="mt-3 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-            These are starting reference prices rather than fixed quotes. Final scope is confirmed
-            after the free Page audit.
-          </p>
-        </div>
-
-        <div className="mt-6 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-2xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-            Growth is the most requested plan for businesses that need more active publishing and
-            customer interaction.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Request a Custom Quote &rarr;</PosterButton>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Request a Custom Quote</PosterButton>
           </div>
         </div>
       </div>

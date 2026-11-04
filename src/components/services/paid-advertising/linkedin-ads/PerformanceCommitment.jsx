@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ShieldCheck, AlertCircle } from 'lucide-react'
 
 const resultFactors = [
   'ICP quality',
@@ -30,59 +33,72 @@ const commitments = [
 
 export default function PerformanceCommitment() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Service commitment"
-          title="Performance Expectations & Service Commitment"
-        >
-          LinkedIn Ads performance depends on factors beyond campaign management.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            Performance Expectations{' '}
+            <span className="italic text-frame-accent">&amp; Service Commitment.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            LinkedIn Ads performance depends on factors beyond campaign management.
+          </p>
+        </div>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-2 lg:items-start">
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Results can be influenced by
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Factors beyond account management
-            </h3>
-            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
+        {/* 2-Column Split: Influencing Factors vs Disciplined Commitments */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Left Column: Reality of B2B Results */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 space-y-6">
+            <div>
+              <h3 className="font-heading text-2xl font-medium text-white mt-1">
+                Factors Beyond Account Management
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
               {resultFactors.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm font-semibold text-frame-fg">
-                  <span className="text-frame-accent font-bold">✓</span>
-                  <span className="leading-snug">{item}</span>
-                </li>
+                <div key={index} className="flex items-center gap-2 text-xs text-zinc-300">
+                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                  <span>{item}</span>
+                </div>
               ))}
-            </ul>
-            <p className="mt-6 border-t border-frame-border/60 pt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We therefore do not promise a fixed cost per lead, number of opportunities,
-              revenue figure, or return on ad spend before understanding the business and market.
-            </p>
+            </div>
+
+            <div className="border-t border-white/[0.06] pt-5">
+              <p className="text-sm font-normal leading-relaxed text-zinc-400">
+                We therefore do not promise a fixed cost per lead, number of opportunities, revenue figure, or return on ad spend before understanding the business and market.
+              </p>
+            </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              What we commit to
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              A disciplined management process
-            </h3>
-            <ul className="mt-6 space-y-2.5">
+          {/* Right Column: Disciplined Management Process */}
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 space-y-6">
+            <div>
+              <h3 className="font-heading text-2xl font-medium text-white mt-1">
+                A Disciplined Management Process
+              </h3>
+            </div>
+
+            <ul className="space-y-2.5">
               {commitments.map((item, index) => (
-                <li key={index} className="flex items-start gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <li
+                  key={index}
+                  className="flex items-center gap-3 border-b border-white/[0.04] pb-2 text-xs sm:text-sm text-zinc-300"
+                >
+                  <span className="font-mono text-[11px] text-frame-accent font-semibold">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 border-t-2 border-frame-accent bg-frame-accent/5 p-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              LinkedIn Ads are not the right acquisition channel for every business. Where the
-              target audience, deal economics, or sales process do not support the platform, we
-              would rather identify that early than encourage unnecessary spend.
-            </p>
+
+            <div className="border-l-2 border-frame-accent bg-frame-accent/10 p-4 rounded-r-lg">
+              <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                LinkedIn Ads are not the right acquisition channel for every business. Where the target audience, deal economics, or sales process do not support the platform, we would rather identify that early than encourage unnecessary spend.
+              </p>
+            </div>
           </div>
         </div>
       </div>

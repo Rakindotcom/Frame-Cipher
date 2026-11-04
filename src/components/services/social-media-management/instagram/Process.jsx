@@ -1,155 +1,160 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const steps = [
   {
-    number: '01',
+    num: '01',
     title: 'Account Audit & Business Discovery',
-    body: 'We start by understanding your business and reviewing your existing Instagram account. We then identify the priorities for your management program.',
-    bullets: [
-      'Profile structure',
-      'Profile SEO',
-      'Content performance',
-      'Reels',
-      'Feed',
-      'Stories',
-      'Visual identity',
-      'Engagement patterns',
-      'Audience',
-      'Competitors',
-      'Content gaps',
-      'Business objectives',
-      'Existing content assets',
+    desc: 'We start by understanding your business and reviewing your existing Instagram account to identify immediate priorities.',
+    points: [
+      'Profile structure & SEO readiness',
+      'Historical content & Reels performance',
+      'Visual identity & grid aesthetics',
+      'Audience engagement patterns',
+      'Competitor positioning review',
+      'Content gaps & commercial goals',
     ],
   },
   {
-    number: '02',
+    num: '02',
     title: 'Audience & Competitor Research',
-    body: 'We research the audience you want to reach and the businesses competing for that audience’s attention. This helps us identify opportunities worth acting on.',
-    bullets: [
-      'Common customer questions',
-      'Content opportunities',
-      'Competitor patterns',
-      'Market trends',
-      'Content gaps',
-      'Relevant topics',
-      'Potential differentiators',
-      'Audience objections',
+    desc: 'We research the audience you want to reach and the businesses competing for that audience\'s attention to uncover unaddressed demand.',
+    points: [
+      'Common customer questions & pain points',
+      'Competitor content formats & frequency',
+      'Emerging industry trends & audio hooks',
+      'Audience objections & conversion barriers',
       'Content formats worth testing',
     ],
   },
   {
-    number: '03',
+    num: '03',
     title: 'Strategy & Content Planning',
-    body: 'We develop the Instagram strategy and monthly content calendar based on the research. Before production begins, we also establish your preferred brand voice, messaging style, visual direction, terminology, and approval requirements.',
-    bullets: [
-      'Content pillars',
-      'Content objectives',
-      'Formats',
-      'Reels topics',
-      'Feed content',
-      'Stories',
-      'Campaigns',
-      'CTAs',
-      'Publishing cadence',
-      'Production requirements',
-      'Approval workflow',
+    desc: 'We develop the Instagram strategy and monthly content calendar based on the research findings.',
+    points: [
+      'Core content pillars & objectives',
+      'Monthly publishing calendar & cadence',
+      'Reels concepts & short-form video hooks',
+      'Feed, Carousel & Story allocations',
+      'Brand voice, tone & visual direction',
+      'Client review & approval workflow setup',
     ],
   },
   {
-    number: '04',
+    num: '04',
     title: 'Content Creation & Approval',
-    body: 'Our team creates the agreed content and prepares it for your review. Content is reviewed and approved according to the agreed workflow before publishing.',
-    bullets: ['Reels', 'Feed posts', 'Carousels', 'Stories', 'Captions', 'Hooks', 'Scripts', 'Graphics', 'Short-form video editing'],
+    desc: 'Our in-house creative team scripts, edits, designs, and prepares all agreed content for your team\'s review.',
+    points: [
+      'Vertical Reels video editing & dynamic captions',
+      'Branded educational Carousel design',
+      'High-impact static Feed visuals',
+      'Interactive Story batch preparation',
+      'Caption copywriting & hashtag research',
+      'Formal client approval sign-off',
+    ],
   },
   {
-    number: '05',
+    num: '05',
     title: 'Publishing & Community Management',
-    body: 'Approved content is scheduled or published according to the content calendar. At the same time, our team manages the agreed community activities.',
-    bullets: [
-      'Comments',
-      'DMs',
-      'Story interactions',
-      'Basic customer questions',
-      'Inquiry escalation',
-      'Community moderation',
+    desc: 'Approved content is scheduled and published according to plan while our team actively manages community interactions.',
+    points: [
+      'Meta Business Suite scheduling',
+      'Daily comment responses & moderation',
+      'Direct message (DM) monitoring',
+      'Story interactions & lead qualification',
+      'Structured inquiry escalation process',
     ],
   },
   {
-    number: '06',
+    num: '06',
     title: 'Reporting & Ongoing Optimization',
-    body: 'We review account and content performance regularly. The findings help us decide what to repeat, what to improve, and what should change in the next content cycle.',
-    bullets: [
-      'Which formats deserve more attention',
-      'Which topics perform well',
-      'Which hooks should be tested',
-      'Which content needs improvement',
-      'Which audience responses matter',
-      'Which content should be repeated',
-      'What should change next',
+    desc: 'We review account and content metrics regularly to inform upcoming cycles with first-party data.',
+    points: [
+      'Reach, watch time & view analytics',
+      'Engagement & save rate benchmarks',
+      'Format performance comparison',
+      'Topic & hook testing takeaways',
+      'Iterative adjustments for next month',
     ],
-    note: 'This creates an ongoing management system instead of a fixed content plan that never changes.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution framework"
-          title="How Our Instagram Management Process Works"
-        >
-          Our Instagram management process connects research, strategy, content production, publishing,
-          community management, and optimization.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               EXECUTION TIMELINE · STEP-BY-STEP 
+            </p>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step) => (
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            How Our Instagram Management{' '}
+            <span className="italic text-[#A855F7]">Process Works.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our Instagram management process connects research, strategy, content production, publishing, community management, and optimization into one ongoing compounding system.
+          </p>
+        </div>
+
+        {/* 6-Step Process Grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {steps.map((st) => (
             <article
-              key={step.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              key={st.num}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:border-white/[0.16]"
             >
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.number}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.title}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                  <span className="font-mono text-xs uppercase tracking-widest text-[#A855F7]">
+                    Phase {st.num} · </span>
+                  <span className="font-mono text-[11px] uppercase text-zinc-500">
+                    Structured Workflow
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium tracking-tight text-white">
+                  {st.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
-                  {step.body}
+
+                <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                  {st.desc}
                 </p>
+
+                <div className="space-y-2 border-t border-white/[0.06] pt-4">
+                  {st.points.map((pt, pIdx) => (
+                    <div key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                      <Check className="h-3.5 w-3.5 text-[#A855F7] shrink-0 mt-0.5" />
+                      <span className="leading-snug">{pt}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
-
-              <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 transition-colors duration-200 group-hover:border-frame-accent-fg/30 group-hover:text-frame-accent-fg/90 md:text-sm">
-                {step.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-2">
-                    <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg" />
-                    <span className="leading-snug">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-
-              {step.note && (
-                <p className="mt-4 text-xs font-semibold leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80">
-                  {step.note}
-                </p>
-              )}
             </article>
           ))}
+        </div>
 
-          <div className="flex flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Continuous, not one-off
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90 md:text-base">
-              The audit comes first, so recommendations are based on your actual account rather than a
-              generic checklist.
+        {/* Bottom Banner */}
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-between gap-4 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div>
+            <p className="font-heading text-lg font-medium uppercase text-white">
+              Every month builds directly on first-party data from the previous cycle.
             </p>
-            <div className="mt-6">
-              <PosterButton href="/contact">Get Your Free Instagram Account Audit &rarr;</PosterButton>
-            </div>
+            <p className="text-xs text-zinc-400 mt-1">
+              Zero automated shortcuts. 100% human-reviewed production and community management.
+            </p>
           </div>
+          <PosterButton href="/contact">
+            Request a Custom Quote
+          </PosterButton>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const services = [
   {
@@ -227,83 +228,81 @@ const services = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Capabilities & Scope" title="Our International SEO Services">
-          Our international SEO services combine market strategy, technical SEO, keyword research,
-          content localization, authority building, and ongoing performance analysis.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl mb-14">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span className="font-mono uppercase tracking-widest text-[11px] text-[#A855F7]">Capabilities &amp; Scope</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Our International{' '}
+            <span className="italic text-frame-accent">SEO Services</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our international SEO services combine market strategy, technical SEO, keyword research, content localization, authority building, and ongoing performance analysis.
+          </p>
+        </div>
 
+        {/* 11 Offerings Grid */}
         <div className="grid gap-6 md:grid-cols-2">
           {services.map((item, index) => (
             <div
               key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] md:p-8"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Capability 0{index + 1}
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Capability // {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
                 {item.description && (
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/seo/international-seo" allowed={["/services/seo/keyword-research"]}>
+                  <p className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                     {item.description}
-                  </AutoLinks></p>
+                  </p>
                 )}
-                {item.points ? (
-                  <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                    {item.points.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
+
+                {item.points && (
+                  <ul className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.06] pt-3 text-xs sm:text-sm text-zinc-300">
+                    {item.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{point}</span>
                       </li>
                     ))}
                   </ul>
-                ) : (
+                )}
+
+                {item.groups &&
                   item.groups.map((group, gIdx) => (
-                    <div key={gIdx} className="mt-5">
-                      <p className="border-t-2 border-frame-border/60 pt-4 text-sm font-bold text-frame-fg">
-                        {group.label}
-                      </p>
-                      <ul className="mt-2.5 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
-                        {group.points.map((bullet, bIdx) => (
+                    <div key={gIdx} className="mt-4">
+                      {group.label && (
+                        <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-2">
+                          {group.label}
+                        </p>
+                      )}
+                      <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.06] pt-2 text-xs sm:text-sm text-zinc-300">
+                        {group.points.map((point, bIdx) => (
                           <li key={bIdx} className="flex items-start gap-2">
-                            <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                            <span className="leading-snug">{bullet}</span>
+                            <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                            <span className="leading-snug">{point}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                  ))
-                )}
+                  ))}
+
                 {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </p>
+                  <div className="mt-6 rounded-lg border border-white/[0.06] bg-[#18181B] p-4 text-xs sm:text-sm text-zinc-300">
+                    <p className="leading-relaxed">{item.note}</p>
+                  </div>
                 )}
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure where to start?
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Start with a free consultation
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We review your current international setup and recommend which services will have the
-              most impact first.
-            </p>
-          </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
-          </div>
         </div>
       </div>
     </section>

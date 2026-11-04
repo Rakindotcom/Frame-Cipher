@@ -48,8 +48,8 @@ const deliverables = [
 
 export default function ProductionLibrary() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* MULTIPLIER SECTION */}
         <SectionIntro
           eyebrow="Production Efficiency"
@@ -59,17 +59,17 @@ export default function ProductionLibrary() {
           A strong production project should not always end with one finished asset. When the format allows, we plan production to capture multiple useful content opportunities from the same shoot.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
           {capturePhases.map((phase) => (
-            <div key={phase.step} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+            <div key={phase.step} className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="font-heading text-3xl font-black text-frame-accent">
+                <span className="font-heading text-3xl font-black text-[#A855F7]">
                   {phase.step}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {phase.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {phase.description}
                 </p>
               </div>
@@ -80,42 +80,42 @@ export default function ProductionLibrary() {
         {/* DELIVERABLES SHOWCASE */}
         <div className="mt-20">
           <div className="mb-10 max-w-3xl">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-[#A855F7]">
               Tangible Outcomes
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold tracking-tight text-[#FAFAFA]">
               What You Receive
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="mt-3 text-sm md:text-base font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
               Your final deliverables depend on the agreed project scope, delivered as an organized package ready for immediate marketing deployment.
             </p>
           </div>
 
-          <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
             {deliverables.map((item, idx) => (
-              <div key={idx} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+              <div key={idx} className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between">
                 <div>
-                  <span className="flex h-8 w-8 items-center justify-center border-2 border-frame-accent bg-frame-accent/10 font-heading text-xs font-bold text-frame-accent">
+                  <span className="flex h-8 w-8 items-center justify-center border-2 border-[#A855F7]/40 bg-[#A855F7]/10 font-heading text-xs font-bold text-[#A855F7]">
                     ✓
                   </span>
-                  <h4 className="mt-4 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="mt-4 font-heading text-lg font-bold tracking-tight text-[#FAFAFA]">
                     {item.title}
                   </h4>
-                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                     {item.description}
                   </p>
                 </div>
               </div>
             ))}
-            <div className="bg-frame-accent/10 border-2 border-frame-accent p-6 md:p-8 flex flex-col justify-between">
+            <div className="bg-[#A855F7]/10 border-2 border-[#A855F7]/40 p-6 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Custom Inclusions
                 </span>
-                <h4 className="mt-2 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-2 font-heading text-lg font-bold tracking-tight text-[#FAFAFA]">
                   Raw Files & Licensing
                 </h4>
-                <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   Source files, editable project files, commercial licensing, and raw 4K footage can be included when agreed during initial project scoping.
                 </p>
               </div>

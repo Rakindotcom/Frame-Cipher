@@ -1,6 +1,9 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const faqs = [
+import React, { useState } from 'react'
+import { ChevronDown, HelpCircle } from 'lucide-react'
+
+const defaultFaqs = [
   {
     "question": "Can you integrate with our existing ERP or legacy systems?",
     "answer": "Yes. Enterprise applications can connect with existing ERP, CRM, HRMS, databases, APIs, and other systems. Compatibility is reviewed during discovery before the integration approach is finalized."
@@ -48,36 +51,69 @@ const faqs = [
 ]
 
 export default function FAQ({ service }) {
-  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : faqs
-  if (!faqList?.length) return null
+  const [openIndex, setOpenIndex] = useState(0)
+  const faqs = service?.faqs && service.faqs.length > 0 ? service.faqs : defaultFaqs
+
+  const toggleFAQ = (index) => {
+    setOpenIndex(openIndex === index ? -1 : index)
+  }
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct Answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about our delivery process, technical standards, and engagement models.
-        </SectionIntro>
+    <section
+      id="faq"
+      className="border-b border-white/[0.08] bg-[#09090B] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
+    >
+      <div className="mx-auto max-w-5xl">
+        <div className="mb-14 text-center space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About{' '}
+            <span className="italic text-frame-accent">Enterprise App Development.</span>
+          </h2>
+
+          <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-300">
+            Common questions about ERP integrations, enterprise security, legacy modernization, timelines, and costs.
+          </p>
+        </div>
 
         <div className="space-y-4">
-          {faqList.map((faq, index) => (
-            <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg whitespace-pre-line wide:text-lg">
-                {faq.answer}
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            const questionText = faq.question || faq.q
+            const answerText = faq.answer || faq.a
+
+            return (
+              <div
+                key={index}
+                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14]"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFAQ(index)}
+                  className="flex w-full items-center justify-between p-6 sm:p-7 text-left transition-colors"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-heading text-base sm:text-lg font-medium text-white pr-4">
+                    {questionText}
+                  </span>
+                  <div
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-zinc-400 transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 bg-frame-accent/10 border-frame-accent/30 text-frame-accent' : ''
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.06] px-6 pb-6 pt-4 sm:px-7 sm:pb-7">
+                    <p className="text-sm sm:text-base leading-relaxed text-zinc-400">
+                      {answerText}
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

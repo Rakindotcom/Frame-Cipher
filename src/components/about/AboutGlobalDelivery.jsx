@@ -56,81 +56,78 @@ const enterpriseAssurances = [
 
 export default function AboutGlobalDelivery() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-card px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         {/* Section Header */}
-        <div className="mb-16 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
-          <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              Global Operations / Delivery Architecture
-            </p>
-            <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-              A Follow-The-Sun Multinational Delivery Engine.
+        <div className="mb-14 grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
+          <div className="space-y-4">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+              A Follow-The-Sun{' '}
+              <span className="italic text-frame-accent">
+                Delivery Engine.
+              </span>
             </h2>
           </div>
           <div>
-            <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
               Headquartered in Dhaka with global operational nodes, Frame Cipher powers brands across the globe. Our asynchronous communication protocols, overlapping timezone coverage, and enterprise delivery standards make working with us feel as immediate as having an in-house team down the hall in New York, London, or Dubai.
             </p>
           </div>
         </div>
 
-        {/* Global Regional Nodes Grid */}
-        <div className="mb-16 grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4">
+        {/* Modality 3: Blueprint Matrix for 4 Regional Nodes (Seamless hairline grid) */}
+        <div className="mb-14 border-t border-l border-white/[0.08] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 bg-[#09090B]">
           {globalNodes.map((node) => (
             <div
               key={node.region}
-              className="flex flex-col justify-between bg-frame-bg p-6 sm:p-8"
+              className="group border-r border-b border-white/[0.08] p-7 flex flex-col justify-between space-y-6 transition-colors duration-200 hover:bg-[#121214]"
             >
-              <div>
-                <span className="rounded bg-frame-accent/10 px-2 py-0.5 font-mono text-[10px] font-bold uppercase tracking-wider text-frame-accent">
+              <div className="space-y-3">
+                <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent">
                   {node.region}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase text-frame-fg">
+                <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white group-hover:text-purple-300 transition-colors">
                   {node.countries}
                 </h3>
-                <p className="mt-2 font-mono text-xs text-frame-accent">
+                <p className="font-mono text-xs text-purple-400">
                   {node.timezones}
                 </p>
-                <div className="mt-5 border-t border-frame-border/80 pt-4">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-frame-muted-fg">
+                <div className="pt-4 border-t border-white/[0.08] space-y-1">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                     Primary Workloads:
                   </p>
-                  <p className="mt-1 text-xs font-medium text-frame-fg">
+                  <p className="text-xs font-normal leading-relaxed text-zinc-300">
                     {node.focus}
                   </p>
                 </div>
               </div>
-              <div className="mt-6 border-t border-frame-border/60 pt-4">
-                <p className="text-[11px] leading-relaxed text-frame-muted-fg">
-                  <span className="font-bold text-frame-fg">SLA:</span> {node.sla}
+              <div className="pt-4 border-t border-white/[0.08]">
+                <p className="text-[11px] leading-relaxed text-zinc-400 font-mono">
+                  <span className="text-white font-medium">SLA:</span> {node.sla}
                 </p>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Enterprise Governance Assurances */}
-        <div className="border-2 border-frame-border bg-frame-bg p-8 sm:p-12">
-          <div className="mb-8">
-            <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent">
-              TRUST, GOVERNANCE & COMPLIANCE
-            </span>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg sm:text-3xl">
+        {/* Enterprise Governance Assurances (Structured Blueprint Row) */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-10">
+          <div className="mb-8 border-b border-white/[0.08] pb-4">
+            <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-[-0.02em] text-white">
               Enterprise Assurances Built for Global Procurement
             </h3>
           </div>
 
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {enterpriseAssurances.map((item) => (
-              <div key={item.title} className="space-y-3">
-                <span className="border-b border-frame-accent/60 pb-1 text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent">
-                  {item.badge}
+            {enterpriseAssurances.map((item, idx) => (
+              <div key={item.title} className="space-y-2.5">
+                <span className="font-mono text-xs text-frame-accent block tabular-nums">
+                  0{idx + 1}
                 </span>
-                <h4 className="font-heading text-lg font-bold uppercase text-frame-fg">
+                <h4 className="font-heading text-base font-medium tracking-tight text-white">
                   {item.title}
                 </h4>
-                <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-xs md:text-sm font-normal leading-relaxed text-zinc-400">
                   {item.desc}
                 </p>
               </div>

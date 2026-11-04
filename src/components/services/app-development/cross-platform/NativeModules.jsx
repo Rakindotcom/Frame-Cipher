@@ -1,59 +1,66 @@
+'use client'
+
+import React from 'react'
+
 const nativeModulePillars = [
   {
-    title: "iOS Native Modules",
-    desc: "Selected features can use native iOS technologies when deeper access to Apple APIs, device capabilities, or platform-specific behavior is required."
+    title: 'iOS Native Modules',
+    desc: 'Selected features can use native iOS technologies when deeper access to Apple APIs, device capabilities, or platform-specific behavior is required.',
   },
   {
-    title: "Android Native Modules",
-    desc: "The same approach can be used for Android-specific functionality that requires direct access to Android APIs or device capabilities."
+    title: 'Android Native Modules',
+    desc: 'The same approach can be used for Android-specific functionality that requires direct access to Android APIs or device capabilities.',
   },
   {
-    title: "Device & Hardware Features",
-    desc: "Camera, Bluetooth, biometrics, location, sensors, notifications, background functionality, and other device features may require platform-aware implementation."
+    title: 'Device & Hardware Features',
+    desc: 'Camera, Bluetooth, biometrics, location, sensors, notifications, background functionality, and other device features may require platform-aware implementation.',
   },
   {
-    title: "Platform-Specific Business Logic",
-    desc: "Some workflows may need different behavior on Android and iOS because the platforms expose different capabilities or follow different interaction patterns."
+    title: 'Platform-Specific Business Logic',
+    desc: 'Some workflows may need different behavior on Android and iOS because the platforms expose different capabilities or follow different interaction patterns.',
   },
   {
-    title: "Native Where Needed, Shared Where Possible",
-    desc: "Our goal is not maximum code sharing at any cost. We share what benefits from sharing and use native implementation when it produces a cleaner and more reliable product."
-  }
+    title: 'Native Where Needed, Shared Where Possible',
+    desc: 'Our goal is not maximum code sharing at any cost. We share what benefits from sharing and use native implementation when it produces a cleaner and more reliable product.',
+  },
 ]
 
 export default function NativeModules() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Hybrid Native Bridges
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          Shared Code &amp; Native Module Integration
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          Cross-platform does not mean every part of the application must be identical on both operating systems.
-        </p>
-      </div>
+    <section id="native-modules" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Shared Code &amp;{' '}
+            <span className="italic text-frame-accent">Native Module Integration.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {nativeModulePillars.map((item, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              Module 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {item.desc}
-            </p>
-          </div>
-        ))}
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Cross-platform does not mean every part of the application must be identical on both operating systems.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {nativeModulePillars.map((item, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col justify-between bg-[#0f1011] p-6 sm:p-7 transition-colors hover:bg-[#141516]"
+            >
+              <div>
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  0{idx + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

@@ -1,5 +1,9 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { SectionIntro, PosterButton } from '../../Kinetic'
+import PosterButton from '../../home/PosterButton'
+import { CheckCircle2, ArrowRight, ShieldCheck, MessageSquare } from 'lucide-react'
 
 const managedItems = [
   'Comments and replies',
@@ -14,65 +18,84 @@ const managedItems = [
 
 export default function CommunityCare() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Social customer care"
-          title="Community Management &amp; Social Customer Care"
-        >
-          Your audience expects more than scheduled content. They may ask questions, request
-          pricing, comment on a post, send a direct message, mention your business, or raise a
-          concern. Our community management service keeps those interactions organized and timely.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <div className="flex items-center gap-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-[#A855F7]">
+               SOCIAL CUSTOMER CARE 
+            </p>
+          </div>
 
-        <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            <p>
-              Depending on your plan, we can manage the day-to-day conversation around your brand
-              so an unanswered question does not sit publicly for days. That kind of silence
-              reflects on the business as much as the content itself does.
-            </p>
-            <p>
-              Your team remains involved whenever a response requires internal information,
-              approval, or a business decision. We respond in your approved brand voice and flag
-              anything that needs you rather than guessing on your behalf.
-            </p>
-            <div className="border-l-2 border-frame-accent bg-frame-bg p-6">
-              <p className="text-sm font-semibold leading-relaxed text-frame-fg">
-                An unanswered comment or a slow response on a service question shapes how people
-                judge your business, often before they ever speak to you.
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Community Management &amp;{' '}
+            <span className="italic text-[#A855F7]">Social Customer Care.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Your audience expects more than scheduled content. They may ask questions, request pricing, comment on a post, send a direct message, mention your business, or raise a concern. Our community management service helps keep those interactions organized and timely.
+          </p>
+        </div>
+
+        {/* 2-Column Split: Philosophy & Standards vs. Managed Inclusions */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:items-start border-t border-white/[0.08] pt-12">
+          {/* Left Column (5 cols) */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="space-y-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              <p>
+                Depending on your plan, we manage the day-to-day conversation around your brand so an unanswered question does not sit publicly for days. That kind of silence reflects on the business as much as the content itself does.
+              </p>
+              <p>
+                Your team remains involved whenever a response requires internal information, approval, or a business decision. We respond in your approved brand voice and flag anything that needs you rather than guessing on your behalf.
+              </p>
+            </div>
+
+            <div className="rounded-xl border-l-2 border-[#A855F7]/40 border-white/[0.08] bg-[#121214] p-6 space-y-2">
+              <div className="flex items-center gap-2 text-xs font-mono uppercase text-[#A855F7]">
+                <ShieldCheck className="h-4 w-4" />
+                <span>First Impression Reality</span>
+              </div>
+              <p className="text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
+                An unanswered comment or a slow response on a service question shapes how people judge your business, often before they ever speak to you directly.
               </p>
             </div>
           </div>
 
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Depending on your plan, we can manage
-            </span>
-            <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {managedItems.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-3 border-2 border-frame-border bg-frame-bg p-4 transition-colors hover:border-frame-accent"
-                >
-                  <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                    <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </span>
-                  <span className="text-sm font-semibold leading-snug text-frame-fg">{item}</span>
-                </li>
-              ))}
-            </ul>
+          {/* Right Column (7 cols): Managed Deliverables Grid */}
+          <div className="lg:col-span-7 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#A855F7]">
+                Depending on your plan, we can manage:
+              </span>
+              <MessageSquare className="h-4 w-4 text-[#A855F7]" />
+            </div>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <PosterButton href="/contact">Improve Your Social Customer Care &rarr;</PosterButton>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {managedItems.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-start gap-3 rounded-lg border border-white/[0.06] bg-[#121214] p-4 transition-colors hover:border-white/[0.14]"
+                >
+                  <CheckCircle2 className="h-4 w-4 text-[#A855F7] shrink-0 mt-0.5" />
+                  <span className="text-xs sm:text-sm font-medium text-white leading-snug">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-4 flex flex-wrap items-center gap-4">
+              <PosterButton href="/contact" variant="accent">
+                Improve Your Social Customer Care
+              </PosterButton>
               <Link
                 href="/services/social-media-management/community-management"
-                className="group inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition hover:text-frame-fg md:text-sm"
+                className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-[#A855F7] hover:text-white transition-colors"
               >
-                Community management detail
-                <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                <span>Community Management Detail</span>
+                <ArrowRight className="h-3.5 w-3.5" />
               </Link>
             </div>
           </div>

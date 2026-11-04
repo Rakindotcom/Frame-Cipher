@@ -1,55 +1,64 @@
+'use client'
+
+import React from 'react'
+
 const uiUxPoints = [
   {
-    title: "Apple Human Interface Guidelines",
-    desc: "We use established iOS interface patterns where they improve usability while keeping the product's own brand identity."
+    title: 'Apple Human Interface Guidelines',
+    desc: "We use established iOS interface patterns where they improve usability while keeping the product's own brand identity.",
   },
   {
-    title: "User Flows & Interaction Design",
-    desc: "We map key journeys before visual design so the interface supports the actual task a user needs to complete."
+    title: 'User Flows & Interaction Design',
+    desc: 'We map key journeys before visual design so the interface supports the actual task a user needs to complete.',
   },
   {
-    title: "Responsive iPhone & iPad Layouts",
-    desc: "Layouts are adapted to the supported screen sizes and device requirements instead of relying on one fixed design."
+    title: 'Responsive iPhone & iPad Layouts',
+    desc: 'Layouts are adapted to the supported screen sizes and device requirements instead of relying on one fixed design.',
   },
   {
-    title: "Prototyping & Usability",
-    desc: "Interactive prototypes help validate important flows before development and reduce avoidable design changes later."
-  }
+    title: 'Prototyping & Usability',
+    desc: 'Interactive prototypes help validate important flows before development and reduce avoidable design changes later.',
+  },
 ]
 
 export default function UiUxDesign() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Native Experience
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          UI/UX Design for iOS
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          We design your application around how iOS users move through tasks, screens, and actions.
-        </p>
-      </div>
+    <section id="ui-ux-design" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            UI/UX Design{' '}
+            <span className="italic text-frame-accent">for iOS.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {uiUxPoints.map((item, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              UX Focus 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {item.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {item.desc}
-            </p>
-          </div>
-        ))}
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We design your application around how iOS users move through tasks, screens, and actions, ensuring natural fluid transitions and tactile responsiveness.
+          </p>
+        </div>
+
+        {/* 4 UX Focus Cards */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {uiUxPoints.map((item, i) => (
+            <div
+              key={i}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
+            >
+              <div>
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  0{i + 1}
+                </span>
+                <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

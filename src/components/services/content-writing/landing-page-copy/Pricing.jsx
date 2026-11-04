@@ -6,7 +6,7 @@ const packages = [
     name: 'Single Landing Page',
     price: '৳10,000/page',
     bestFor: 'Single campaigns and focused offers',
-    timeline: '3–5 business days',
+    timeline: '3 to 5 business days',
     includes: [
       'Offer and audience research',
       'Traffic-source review',
@@ -25,7 +25,7 @@ const packages = [
     name: 'Landing Page + Variants',
     price: '৳15,000/page',
     bestFor: 'Campaigns requiring testing',
-    timeline: '3–5 days, plus 2–3 days per variant set',
+    timeline: '3 to 5 days, plus 2 to 3 days per variant set',
     includes: [
       'Offer and audience research',
       'Traffic-source review',
@@ -93,49 +93,49 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="scroll-mt-20 border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28"
+      className="scroll-mt-20 border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28"
     >
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Pricing &amp; packages" title="Landing Page Copywriting Pricing">
           Pricing depends on the offer, research requirements, page length, complexity, traffic source, number of
           stakeholders, and testing requirements.
         </SectionIntro>
 
         {/* PACKAGE CARDS */}
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-4">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 xl:grid-cols-4">
           {packages.map((pkg) => (
-            <article key={pkg.number} className="flex flex-col bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={pkg.number} className="flex flex-col bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted">
                 Package {pkg.number}
               </span>
 
-              <h3 className="mt-4 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+              <h3 className="mt-4 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                 {pkg.name}
               </h3>
-              <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg">{pkg.bestFor}</p>
+              <p className="mt-2 text-xs font-medium leading-relaxed text-[#A1A1AA]">{pkg.bestFor}</p>
 
-              <div className="mt-6 border-y-2 border-frame-border/60 py-5">
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+              <div className="mt-6 border-y border-white/[0.08]/60 py-5">
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                   Starting Price
                 </span>
-                <p className="mt-1 font-heading text-2xl font-bold leading-tight tracking-tight text-frame-fg md:text-3xl">
+                <p className="mt-1 font-heading text-2xl font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-3xl">
                   {pkg.price}
                 </p>
-                <p className="mt-3 border-t border-frame-border/40 pt-2 text-[11px] font-semibold text-frame-muted-fg">
+                <p className="mt-3 border-t border-white/[0.08]/40 pt-2 text-[11px] font-semibold text-[#A1A1AA]">
                   Typical timeline: {pkg.timeline}
                 </p>
               </div>
 
-              <span className="mt-6 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+              <span className="mt-6 text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                 What&rsquo;s Included
               </span>
               <ul className="mt-3 flex-1 space-y-2">
                 {pkg.includes.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2 text-xs font-medium leading-relaxed text-frame-fg md:text-sm"
+                    className="flex items-start gap-2 text-xs font-medium leading-relaxed text-[#FAFAFA] md:text-sm"
                   >
-                    <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                    <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                       ✓
                     </span>
                     <span>{item}</span>
@@ -153,12 +153,12 @@ export default function Pricing() {
         </div>
 
         {/* NOT INCLUDED */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-[0.8fr_1.2fr]">
-          <div className="bg-frame-muted/40 p-7 md:p-8">
-            <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-[0.8fr_1.2fr]">
+          <div className="bg-[#121214]/40 p-7 md:p-8">
+            <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
               Quoted Separately
             </h3>
-            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
               These are not part of the copywriting packages unless they are explicitly included in the agreed
               scope.
             </p>
@@ -167,9 +167,9 @@ export default function Pricing() {
             {notIncluded.map((item) => (
               <li
                 key={item}
-                className="flex items-start gap-2.5 bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"
+                className="flex items-start gap-2.5 bg-[#09090B] p-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"
               >
-                <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+                <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                   &times;
                 </span>
                 {item}
@@ -178,8 +178,8 @@ export default function Pricing() {
           </ul>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Every package is scoped around one agreed brief, and final pricing is confirmed after we review your
             offer, audience, traffic source, and requirements.
           </p>

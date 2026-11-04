@@ -6,7 +6,7 @@ const guideBlocks = [
   {
     title: 'How to Use These Answers',
     body: [
-      'Start with your topic: booking and payment, room and kit, access and location, reviews and revisions, or delivery and formats. Each answer states the fact first — prices, timelines, inclusions — then the reasoning behind it.',
+      'Start with your topic: booking and payment, room and kit, access and location, reviews and revisions, or delivery and formats. Each answer states the fact first: prices, timelines, inclusions, then the reasoning behind it.',
       'Anything unanswered gets a same-day reply on WhatsApp at +880 1768-146650. Answers convert into itemised quotes within 48 hours of a completed brief, so a question asked today can be a locked booking this week.',
     ],
   },
@@ -14,7 +14,7 @@ const guideBlocks = [
     title: 'Booking Facts Worth Knowing First',
     body: [
       'Answers, quotes and walkthroughs are free. Sessions start from ৳2,000/hour, productions are scoped and itemised, and a 50% advance confirms dates with the balance due only on final sign-off.',
-      'Rescheduling is free with 48-hour notice. Every payment — bKash, Nagad, bank, cheque or cash — gets a VAT-compliant invoice for corporate accounting.',
+      'Rescheduling is free with 48-hour notice. Every payment: bKash, Nagad, bank, cheque or cash: gets a VAT-compliant invoice for corporate accounting.',
     ],
   },
   {
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

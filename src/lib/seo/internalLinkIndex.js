@@ -81,7 +81,7 @@ function isUsablePhrase(phrase) {
   return true
 }
 
-/** name / name+s / name services — the natural ways a paragraph refers to a page. */
+/** name / name+s / name services: the natural ways a paragraph refers to a page. */
 function nameVariants(base) {
   const out = new Set()
   if (!base) return out
@@ -208,7 +208,7 @@ export function buildLinkIndex() {
       continue
     }
     if (tier1.size > 1) {
-      // Two pages are equally "about" this phrase — never guess.
+      // Two pages are equally "about" this phrase: never guess.
       droppedAmbiguous.push(phrase)
       continue
     }

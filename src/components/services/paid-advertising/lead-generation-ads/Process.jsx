@@ -1,151 +1,145 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Search,
+  Compass,
+  Database,
+  Rocket,
+  Sliders,
+  TrendingUp,
+  CheckCircle2,
+} from 'lucide-react'
 
 const steps = [
   {
-    title: 'Discovery & Qualification',
-    body: 'We start by understanding who buys, what you offer, and how your sales process actually works.',
-    label: 'We start by understanding',
-    items: [
-      'Your ideal customer',
-      'Offer',
-      'Qualification criteria',
-      'Sales process',
-      'Average deal value',
-      'Sales cycle',
-      'Follow-up process',
-      'CRM setup',
-      'Target markets',
+    step: '01',
+    icon: Search,
+    title: 'Discovery & Qualification Mapping',
+    desc: 'Deep discovery into your ideal customer profile (ICP), deal economics, sales cycle length, existing CRM setup, and qualification criteria.',
+    deliverables: [
+      'Customer profile and qualification benchmarks defined',
+      'Average contract value and target CAC threshold modeling',
+      'Existing CRM architecture and routing diagnostic',
     ],
   },
   {
-    title: 'Platform & Offer Strategy',
-    body: 'We choose the relevant platforms and build the offer around the customer journey.',
-    label: 'The strategy may include',
-    items: [
-      'Google Search',
-      'Google Lead Form Assets where available',
-      'Meta Lead Ads',
-      'LinkedIn Lead Gen Forms',
-      'Website lead campaigns',
-      'Calls',
-      'Messaging',
-      'Booking or consultation flows',
+    step: '02',
+    icon: Compass,
+    title: 'Platform Selection & Offer Strategy',
+    desc: 'Selecting the channel mix across Google, Meta, and LinkedIn, and designing compelling high-intent offers (demos, quotes, audits) that attract decision-makers.',
+    deliverables: [
+      'Multi-channel allocation strategy and budget blueprint',
+      'Direct-response ad copy and visual creative concepts',
+      'High-utility offer specification (consultation, quote, demo)',
     ],
   },
   {
-    title: 'Lead Destination & CRM Setup',
-    body: 'We build or configure the selected lead destination and connect it to the appropriate sales process.',
-    label: 'This may include',
-    items: [
-      'Form setup',
-      'Qualification questions',
-      'Landing pages',
-      'CRM mapping',
-      'Lead routing',
-      'Notifications',
-      'Source tracking',
-      'Conversion measurement',
+    step: '03',
+    icon: Database,
+    title: 'Lead Destination & CRM Integration',
+    desc: 'Building responsive landing pages or native in-app forms, embedding qualification questions, and linking real-time CRM lead routing with instant notifications.',
+    deliverables: [
+      'Form build with strategic qualification fields',
+      'Real-time CRM webhook and lead field mapping',
+      'Instant SMS/Slack/email alerts configured for sales reps',
     ],
   },
   {
-    title: 'Campaign Launch & QA',
-    body: 'Before launch, we review every element that can break a lead campaign between the ad and the follow-up.',
-    label: 'Before launch, we review',
-    items: [
-      'Tracking',
-      'Forms',
-      'CRM routing',
-      'Conversion events',
-      'URLs',
-      'Ad copy',
-      'Creative',
-      'Audience settings',
-      'Budget',
-      'Geographic targeting',
+    step: '04',
+    icon: Rocket,
+    title: 'Pre-Launch QA & Controlled Activation',
+    desc: 'End-to-end testing of form submission payloads, tracking tags, CRM contact creation, and ad parameters followed by structured campaign rollout.',
+    deliverables: [
+      'Complete end-to-end test lead submission through to CRM',
+      'Tracking tag, UTM parameter, and CAPI verification',
+      'Initial bid parameters and placement multipliers activated',
     ],
   },
   {
-    title: 'Lead Quality Optimization',
-    body: 'After launch, we evaluate the evidence and adjust toward the campaigns and audiences producing quality.',
-    label: 'After launch, we evaluate',
-    items: [
-      'Lead volume',
-      'Lead quality',
-      'Cost per qualified lead',
-      'Sales feedback',
-      'Audience performance',
-      'Creative performance',
-      'Offer performance',
-      'Funnel behavior',
+    step: '05',
+    icon: Sliders,
+    title: 'Lead Quality & Funnel Optimization',
+    desc: 'Weekly calibration evaluating not just lead volume, but sales rep contact rates, qualification percentages, and Cost Per Qualified Lead (CPQL).',
+    deliverables: [
+      'Weekly qualitative sales feedback review loops',
+      'Disqualification pattern analysis and form field tuning',
+      'Budget re-allocation toward highest-converting ad sets',
     ],
   },
   {
-    title: 'Sales-Aligned Reporting',
-    body: 'Reporting can include spend, media metrics, lead metrics, and downstream sales outcomes where the CRM data exists.',
-    label: 'Reporting can include',
-    items: [
-      'Spend',
-      'Impressions',
-      'Clicks',
-      'CTR',
-      'Leads',
-      'CPL',
-      'Qualified leads',
-      'CPQL',
-      'Opportunities',
-      'Cost per opportunity',
-      'Customers',
-      'CAC',
-      'Revenue',
-      'ROAS where applicable',
+    step: '06',
+    icon: TrendingUp,
+    title: 'Closed-Loop Sales Reporting',
+    desc: 'Transparent executive reporting connecting ad spend to downstream opportunities, closed contracts, customer acquisition cost, and revenue.',
+    deliverables: [
+      'Cost Per Qualified Lead (CPQL) and Cost Per Opportunity reports',
+      'Offline conversion feedback upload to Google and Meta',
+      'Monthly strategic roadmap review and channel scaling plan',
     ],
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Process" title="Our Lead Generation Ads Process">
-          We apply the same structured method to every program, with the specific implementation
-          adapted to each business and sales process.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our Lead Generation{' '}
+            <span className="italic text-frame-accent">Ads Process.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            A structured, 6-stage engineering process designed to eliminate unqualified submission waste, speed up sales response times, and scale closed pipeline.
+          </p>
+        </div>
 
-        <div className="space-y-6">
-          {steps.map((step, index) => (
-            <div key={step.title} className="border-2 border-frame-border bg-frame-bg p-8 md:p-12">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-                <div className="lg:max-w-md">
-                  <div className="mb-4 flex items-center gap-4">
-                    <span className="font-heading text-3xl font-bold text-frame-accent">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <div className="h-1.5 w-10 bg-frame-accent" />
+        <div className="space-y-4">
+          {steps.map((s) => {
+            const Icon = s.icon
+            return (
+              <div
+                key={s.step}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14]"
+              >
+                <div className="grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8 items-start">
+                  <div className="lg:col-span-5 space-y-3">
+                    <div className="flex items-center gap-3">
+                      <span className="font-mono text-sm uppercase tracking-wider text-frame-accent font-bold">
+                        Stage {s.step}
+                      </span>
+                      <div className="h-px flex-1 bg-white/[0.08]" />
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <div className="h-9 w-9 rounded-lg border border-white/[0.08] bg-white/[0.03] flex items-center justify-center text-frame-accent">
+                        <Icon className="h-4.5 w-4.5" />
+                      </div>
+                      <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                        {s.title}
+                      </h3>
+                    </div>
+                    <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                      {s.desc}
+                    </p>
                   </div>
-                  <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-                    {step.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                    {step.body}
-                  </p>
-                </div>
 
-                <div className="lg:w-1/2">
-                  <p className="mb-4 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                    {step.label}
-                  </p>
-                  <ul className="grid gap-3 md:grid-cols-2">
-                    {step.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="lg:col-span-7 rounded-lg border border-white/[0.06] bg-black/40 p-5">
+                    <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 mb-3">
+                      Stage Deliverables &amp; Milestones:
+                    </p>
+                    <div className="space-y-2">
+                      {s.deliverables.map((d) => (
+                        <div key={d} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                          <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                          <span>{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

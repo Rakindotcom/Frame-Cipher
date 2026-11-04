@@ -1,132 +1,244 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
-import { PageHero, PosterButton } from '../../../Kinetic'
+import { ChevronRight, ShieldCheck } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { Ambient3DCanvas } from '../../../ui/ambient-3d-canvas'
+import { CodeTypingBg, CODE_TOKENS as T } from '../../../ui/code-typing-bg'
+
+// Ambient typing snippet shows real Liquid storefront templating.
+const SHOPIFY_LINES = [
+  [
+    ['{% for ', T.kw],
+    ['product ', T.id],
+    ['in ', T.kw],
+    ['collection.products ', T.id],
+    ['%}', T.kw],
+  ],
+  [
+    ['  <article ', T.id],
+    ['class', T.fn],
+    ['=', T.punct],
+    [`"fc-product-card"`, T.str],
+    ['>', T.id],
+  ],
+  [
+    ['    {{ ', T.id],
+    ['product.title', T.fn],
+    [' }} - {{ ', T.id],
+    ['product.price | money', T.fn],
+    [' }}', T.id],
+  ],
+  [
+    ['  </article>', T.id],
+  ],
+  [['{% endfor %}', T.kw]],
+  [],
+  [
+    [`{% render `, T.kw],
+    [`'fc-upsell'`, T.str],
+    [', cart: cart %}', T.id],
+  ],
+  [],
+  [['// bKash & Nagad checkout integrated', T.comment]],
+]
 
 export default function Hero() {
   return (
-    <div className="bg-frame-bg text-frame-fg">
-      {/* BREADCRUMB */}
-      <nav aria-label="Breadcrumb" className="border-b-2 border-frame-border bg-frame-bg/90 px-4 py-3.5 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
-          <Link href="/" className="transition hover:text-frame-fg">Home</Link>
-          <span>/</span>
-          <Link href="/services" className="transition hover:text-frame-fg">Services</Link>
-          <span>/</span>
-          <Link href="/services/website-design-development" className="transition hover:text-frame-fg">Website Design & Development</Link>
-          <span>/</span>
-          <span className="text-frame-accent">Shopify</span>
+    <div className="relative isolate bg-[#09090B] text-white">
+      {/* Top Header & Breadcrumbs Clearance */}
+      <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] pt-28 pb-16 px-4 sm:px-6 md:px-8">
+        {/* Background Ambient Code Snippet */}
+        <div className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 h-[480px] w-[500px] opacity-25 select-none [mask-image:radial-gradient(ellipse_70%_65%_at_65%_50%,#000_30%,transparent_100%)] hidden xl:block">
+          <CodeTypingBg lines={SHOPIFY_LINES} />
         </div>
-      </nav>
 
-      {/* HERO */}
-      <PageHero
-        eyebrow="Focused Service / Managed Ecommerce Infrastructure"
-        meta="Shopify & Online Store 2.0 / High Conversion"
-        number="09"
-        title="Best Shopify Development Service in Bangladesh"
-        actions={
-          <>
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
-            <PosterButton href="#pricing" variant="outline">
-              View Pricing &amp; Plans &rarr;
-            </PosterButton>
-          </>
-        }
-      >
-        Framecipher builds Shopify stores for merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure. Whether you&apos;re launching a store in Dhaka or selling to customers across the US, UK, Australia, Canada, or UAE, our Shopify development services deliver a store built to convert visitors and stay easy for your team to run.
-      </PageHero>
+        <div className="mx-auto max-w-7xl">
+          {/* Breadcrumb Navigation Header Row */}
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-white/[0.08] pb-6">
+            <nav aria-label="Breadcrumb navigation" className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 overflow-x-auto whitespace-nowrap scrollbar-none py-1">
+              <Link href="/" className="shrink-0 hover:text-white transition-colors">
+                Home
+              </Link>
+              <ChevronRight className="h-3 w-3 text-zinc-600 shrink-0" />
+              <Link href="/services" className="shrink-0 hover:text-white transition-colors">
+                Services
+              </Link>
+              <ChevronRight className="h-3 w-3 text-zinc-600 shrink-0" />
+              <Link href="/services/website-design-development" className="shrink-0 hover:text-white transition-colors">
+                Website Design &amp; Development
+              </Link>
+              <ChevronRight className="h-3 w-3 text-zinc-600 shrink-0" />
+              <span className="text-frame-accent shrink-0">Shopify Development</span>
+            </nav>
 
-      {/* KINETIC BRUTALIST DASHBOARD / METRICS */}
-      <div className="border-b-2 border-frame-border bg-frame-bg px-4 py-8 md:px-8">
-        <div className="mx-auto max-w-5xl border-2 border-frame-border bg-frame-muted/20 p-5 md:p-8 font-mono text-xs">
-          <div className="flex flex-wrap items-center justify-between gap-4 border-b border-frame-border pb-4">
-            <div className="flex items-center gap-2">
-              <span className="inline-block h-3 w-3 rounded-full bg-emerald-500 animate-pulse"></span>
-              <span className="font-bold uppercase tracking-wider text-frame-fg">SHOPIFY_COMMERCE // OS 2.0 ARCHITECTURE</span>
-            </div>
-            <div className="flex flex-wrap items-center gap-4 text-frame-muted-fg font-semibold uppercase">
-              <span>STATUS: PRODUCTION-READY</span>
-              <span>APPS: ZERO-BLOAT POLICY</span>
-              <span className="text-frame-accent font-black">CHECKOUT: LEVEL 1 PCI-DSS</span>
+            <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-emerald-400 bg-[#121214] border border-emerald-500/20 rounded-full px-3.5 py-1">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+              <span>Managed Ecommerce &middot; Dhaka &amp; Global</span>
             </div>
           </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 md:grid-cols-4">
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Theme Architecture</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Online Store 2.0</p>
-              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Modular Liquid & JSON</p>
+          {/* Master 12-Column Grid (7 + 5 side-by-side on desktop) */}
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            {/* Left Column (7-col) */}
+            <div className="space-y-6 lg:col-span-6 xl:col-span-6">
+              {/* Eyebrow & Meta */}
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                  <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                    [ 09 / MANAGED ECOMMERCE ]
+                  </span>
+                </span>
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Shopify &amp; Online Store 2.0 / High Conversion
+                </span>
+              </div>
+
+              {/* H1 Heading */}
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white break-normal hyphens-none">
+                Best Shopify Development{' '}
+                <span className="italic text-frame-accent">Service in Bangladesh.</span>
+              </h1>
+
+              {/* Description */}
+              <p className="max-w-2xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+                Framecipher builds Shopify stores for merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure. Whether you&apos;re launching a store in Dhaka or selling to customers across the US, UK, Australia, Canada, or UAE, our Shopify development services deliver a store built to convert visitors and stay easy for your team to run.
+              </p>
+
+              {/* Symmetrical 52px Button Pair */}
+              <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                <PosterButton href="/contact" variant="accent">
+                  Get Free Consultation
+                </PosterButton>
+                <PosterButton href="#pricing" variant="outline">
+                  View Pricing &amp; Plans
+                </PosterButton>
+              </div>
             </div>
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">App Strategy</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Zero App Bloat</p>
-              <p className="mt-1 text-[11px] text-frame-accent font-bold">Native Functions Stack</p>
-            </div>
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Global Commerce</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Shopify Markets</p>
-              <p className="mt-1 text-[11px] text-emerald-500 font-bold">Multi-currency & Duties</p>
-            </div>
-            <div className="border border-frame-border bg-frame-bg p-4">
-              <p className="text-[10px] uppercase tracking-widest text-frame-muted-fg">Speed Benchmark</p>
-              <p className="mt-1 font-heading text-lg font-bold text-frame-fg">Sub-Second Load</p>
-              <p className="mt-1 text-[11px] text-frame-accent font-bold">Core Web Vitals 95+</p>
+
+            {/* Right Column (5-col) - Interactive 3D Canvas */}
+            <div className="relative flex justify-center lg:col-span-6 xl:col-span-6 w-full">
+              <div className="relative w-full max-w-[540px]">
+                <Ambient3DCanvas
+                  mode="speed-stream"
+                  className="w-full aspect-square max-h-[500px]"
+                />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* 4-METRIC ARCHITECTURAL STATUS LEDGER */}
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-8 sm:px-6 md:px-8">
+        <div className="mx-auto max-w-7xl rounded-2xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 md:p-8 font-mono text-xs">
+          <div className="grid grid-cols-1 divide-y divide-white/[0.08] sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4 overflow-hidden rounded-xl border border-white/[0.08] bg-[#09090B]">
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">Theme Architecture</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">Online Store 2.0</p>
+              <p className="mt-1 text-[11px] text-emerald-400 font-medium">Modular Liquid &amp; JSON</p>
+            </div>
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">App Strategy</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">Zero App Bloat</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-medium">Native Functions Stack</p>
+            </div>
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">Global Commerce</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">Shopify Markets</p>
+              <p className="mt-1 text-[11px] text-emerald-400 font-medium">Multi-currency &amp; Duties</p>
+            </div>
+            <div className="p-5 md:p-6 transition-colors duration-200 hover:bg-white/[0.02]">
+              <p className="text-[10px] uppercase tracking-widest text-zinc-400">Speed Benchmark</p>
+              <p className="mt-1 font-heading text-lg font-medium text-white">Sub-Second Load</p>
+              <p className="mt-1 text-[11px] text-frame-accent font-medium">Core Web Vitals 95+</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* STRATEGIC VALUE BANNER / WHY WE'RE THE RIGHT TEAM */}
-      <section className="bg-frame-muted/30 px-4 py-16 md:px-8 md:py-24 border-b-2 border-frame-border">
-        <div className="mx-auto max-w-[95vw]">
-          <div className="max-w-4xl">
-            <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-              Engineering Principles
-            </p>
-            <h2 className="font-heading text-[clamp(2.2rem,5.8vw,4.8rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-              Why We&apos;re the Right Shopify Development Team
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+        <div className="mx-auto max-w-7xl">
+          <div className="max-w-3xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Why We&apos;re the Right{' '}
+              <span className="italic text-frame-accent">Shopify Development Team.</span>
             </h2>
 
-            <div className="mt-8 flex flex-wrap items-center gap-2 sm:gap-3 text-xs sm:text-sm font-black uppercase tracking-wider text-frame-fg">
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Catalog Planning</span>
-              <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Theme Architecture</span>
-              <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">App Stack</span>
-              <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-border/80 bg-frame-bg px-3.5 py-2">Payments &amp; Integrations</span>
-              <span className="text-frame-accent font-bold">&rarr;</span>
-              <span className="border border-frame-accent bg-frame-accent/10 px-3.5 py-2 text-frame-accent">Conversion Flow</span>
-            </div>
-
-            <div className="mt-8 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-3 text-left">
-              <div className="bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Who We Build For</span>
-                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  Merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure.
-                </p>
-              </div>
-              <div className="bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">What We Build</span>
-                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  Online Store 2.0 storefronts, app integrations, custom Shopify features, B2B, and global expansion through Shopify Markets.
-                </p>
-              </div>
-              <div className="bg-frame-bg p-5">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">How We Deliver</span>
-                <p className="mt-2 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  We plan catalog, theme architecture, app stack, payments, and conversion flow before build&mdash;with a zero-bloat app policy.
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-8 flex max-w-3xl flex-col items-center gap-4 border-2 border-frame-accent/60 bg-frame-bg p-6 sm:flex-row sm:justify-between">
-              <p className="text-sm sm:text-base font-medium leading-relaxed text-frame-fg">
-                Not sure whether Shopify or a different platform fits your store? We&apos;ll tell you honestly which one makes sense.
+            <div className="mt-6 space-y-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+              <p>
+                Shopify removes much of the infrastructure burden from ecommerce, but the storefront built on top of it still determines how customers browse, trust, and buy.
               </p>
-              <PosterButton href="/contact" className="shrink-0">
-                Get an Honest Assessment
-              </PosterButton>
+              <p>
+                Framecipher focuses on building Shopify stores that are structured for real business use, not simply designed to look good in a portfolio.
+              </p>
+              <p>
+                We plan your catalog, navigation, theme architecture, app stack, integrations, payment setup, and conversion flow before development begins.
+              </p>
+              <p>
+                We also take a platform-neutral approach. Shopify can be a strong fit for businesses that want managed ecommerce infrastructure and easy store management. When WooCommerce, Magento, or another platform makes more practical sense, we explain that before development starts.
+              </p>
             </div>
+          </div>
+
+          {/* 4-Pill Continuum */}
+          <div className="mt-8 flex flex-wrap items-center gap-3 text-xs sm:text-sm font-medium">
+            <span className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2 text-zinc-200">
+              Managed Ecommerce Infrastructure
+            </span>
+            <span className="text-zinc-600">&bull;</span>
+            <span className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2 text-zinc-200">
+              Custom Shopify Development
+            </span>
+            <span className="text-zinc-600">&bull;</span>
+            <span className="rounded-full border border-white/[0.08] bg-[#121214] px-4 py-2 text-zinc-200">
+              Disciplined App Architecture
+            </span>
+            <span className="text-zinc-600">&bull;</span>
+            <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-4 py-2 text-frame-accent">
+              Platform-Neutral Recommendations
+            </span>
+          </div>
+
+          {/* 3-Column Continuum Band */}
+          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14]">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                Who We Build For
+              </span>
+              <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                Merchants who want reliable uptime and simplified backend management without taking on full custom infrastructure.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14]">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                What We Build
+              </span>
+              <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                Online Store 2.0 storefronts, app integrations, custom Shopify features, B2B, and global expansion through Shopify Markets.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14]">
+              <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                How We Deliver
+              </span>
+              <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                We plan catalog, theme architecture, app stack, payments, and conversion flow before build, with a zero-bloat app policy.
+              </p>
+            </div>
+          </div>
+
+          {/* Honest Assessment Banner */}
+          <div className="mt-8 flex flex-col items-start justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:flex-row sm:items-center sm:p-8">
+            <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-200 max-w-2xl">
+              Not sure whether Shopify or a different platform fits your store? We&apos;ll tell you honestly which one makes sense.
+            </p>
+            <PosterButton href="/contact" variant="accent" className="shrink-0">
+              Get an Honest Assessment
+            </PosterButton>
           </div>
         </div>
       </section>

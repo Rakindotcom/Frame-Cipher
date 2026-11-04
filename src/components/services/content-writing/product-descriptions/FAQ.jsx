@@ -73,8 +73,8 @@ const fallbackFaqs = [
 export default function FAQ({ service }) {
   const faqs = resolveFaqs(service, fallbackFaqs)
   return (
-    <section className="border-y-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Direct answers" title="Frequently Asked Questions About Product Description Writing">
           Straight answers about scope, manufacturer copy, duplicate content, bulk catalogs, platforms, SEO,
           Bangla support, and product samples.
@@ -84,19 +84,19 @@ export default function FAQ({ service }) {
           {faqs.map((faq) => (
             <details
               key={faq.q}
-              className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent"
+              className="group border border-white/[0.08] bg-[#09090B] transition-colors open:border-[#A855F7]/40"
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-base font-bold uppercase leading-snug tracking-tight text-frame-fg marker:content-none md:text-lg">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 font-heading text-base font-bold uppercase leading-snug tracking-tight text-[#FAFAFA] marker:content-none md:text-lg">
                 <span>{faq.q}</span>
                 <span
                   aria-hidden="true"
-                  className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
+                  className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45"
                 >
                   +
                 </span>
               </summary>
-              <div className="border-t-2 border-frame-border p-6">
-                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/product-descriptions" allowed={["/services/website-design-development/ecommerce-website"]}>
+              <div className="border-t border-white/[0.08] p-6">
+                <p className="text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"><AutoLinks currentPath="/services/content-writing/product-descriptions" allowed={["/services/website-design-development/ecommerce-website"]}>
                   {faq.a}
                 </AutoLinks></p>
               </div>

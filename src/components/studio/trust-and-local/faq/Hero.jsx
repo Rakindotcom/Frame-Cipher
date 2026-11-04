@@ -4,15 +4,15 @@ import Link from 'next/link'
 import { PageHero, PosterButton } from '../../../Kinetic'
 
 export default function Hero({ service }) {
-  const title = 'Studio FAQ — Answers Before You Book'
+  const title = 'Studio FAQ: Answers Before You Book'
   const subtitle =
-    'Everything about planning a shoot at FrameCipher Studio: booking and advances, kit and room specs, parking and access at ECB Chattar, review rounds and delivery. Answers are free, quotes are free and walkthroughs are free — you only pay when cameras roll.'
+    'Everything about planning a shoot at FrameCipher Studio: booking and advances, kit and room specs, parking and access at ECB Chattar, review rounds and delivery. Answers are free, quotes are free and walkthroughs are free: you only pay when cameras roll.'
 
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/studio" className="transition hover:text-frame-fg">Studio</Link>
@@ -47,12 +47,12 @@ export default function Hero({ service }) {
           <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
             Transparency Prevents Surprises
           </p>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] tracking-tighter text-frame-fg">
             Know Everything Before Shoot Day.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
             Knowing exactly what is and is not included keeps budgets predictable and teams prepared. The
-            answers below cover the questions buyers ask most — and anything unanswered gets a same-day reply
+            answers below cover the questions buyers ask most, and anything unanswered gets a same-day reply
             on WhatsApp at +880 1768-146650.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">

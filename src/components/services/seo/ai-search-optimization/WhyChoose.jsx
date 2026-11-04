@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const reasons = [
   {
@@ -45,48 +48,67 @@ const reasons = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="The Framecipher standard" title="Why Choose Framecipher for AI Search Optimization">
-          Evidence-driven AI search work that stays connected across content, technical, and brand
-          strategy.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Competitive Edge // The Framecipher Standard</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Why Choose Framecipher for{' '}
+            <span className="italic text-frame-accent">AI Search Optimization</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Evidence-driven AI search work that stays connected across content, technical, and brand
+            strategy.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+        {/* 4 Reasons Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {reasons.map((reason, index) => (
-            <div key={reason.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <div
+              key={reason.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Standard 0{index + 1}
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Pillar 0{index + 1}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {reason.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {reason.body}
                 </p>
+
                 {reason.lead && (
-                  <p className="mt-3 text-sm font-semibold leading-relaxed text-frame-fg">
+                  <p className="mt-4 text-xs font-mono uppercase tracking-wider text-zinc-400">
                     {reason.lead}
                   </p>
                 )}
+
                 {reason.points.length > 0 && (
-                  <ul className="mt-4 space-y-2 text-xs font-medium leading-snug text-frame-fg/90">
+                  <ul className="mt-3 space-y-2 border-t border-white/[0.06] pt-3 text-xs sm:text-sm text-zinc-300">
                     {reason.points.map((point, pIdx) => (
                       <li key={pIdx} className="flex items-start gap-2">
-                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                        <span>{point}</span>
+                        <Check className="h-3 w-3 mt-0.5 text-frame-accent shrink-0" />
+                        <span className="leading-snug">{point}</span>
                       </li>
                     ))}
                   </ul>
                 )}
-                {reason.closing && (
-                  <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
+              </div>
+
+              {reason.closing && (
+                <div className="mt-6 pt-3 border-t border-white/[0.06]">
+                  <p className="text-xs text-zinc-400">
                     {reason.closing}
                   </p>
-                )}
-              </div>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
+                </div>
+              )}
             </div>
           ))}
         </div>

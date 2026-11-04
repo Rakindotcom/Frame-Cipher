@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const issues = [
   {
@@ -11,7 +13,7 @@ const issues = [
   },
   {
     title: 'Policy or Restricted-Content Issues',
-    body: 'Some content can create direct AdSense policy problems, while other categories may fall under publisher restrictions. We review relevant content and implementation risks before you submit rather than assuming that every page is automatically monetization-ready. Google notes that policy compliance is the publisher\u2019s responsibility and that policies may change over time.',
+    body: 'Some content can create direct AdSense policy problems, while other categories may fall under publisher restrictions. We review relevant content and implementation risks before you submit rather than assuming that every page is automatically monetization-ready. Google notes that policy compliance is the publisher’s responsibility and that policies may change over time.',
   },
   {
     title: 'Navigation & Site Usability Problems',
@@ -23,32 +25,48 @@ const issues = [
   },
   {
     title: 'Unsupported Language or Regional Issues',
-    body: 'Google maintains a list of languages supported by its publisher products. Bengali is currently among the supported primary languages. We check whether your site\u2019s primary content and language configuration create an eligibility or monetization issue before submission.',
+    body: 'Google maintains a list of languages supported by its publisher products. Bengali is currently among the supported primary languages. We check whether your site’s primary content and language configuration create an eligibility or monetization issue before submission.',
   },
 ]
 
 export default function CommonIssues() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Disapproval causes" title="Common Google AdSense Disapproval Issues We Fix">
-          The rejection notice may be generic, but the underlying causes are usually specific and
-          fixable once the right issue is identified.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Diagnosis &amp; Root Causes // Disapproval Fixes</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Common Google AdSense{' '}
+            <span className="italic text-frame-accent">Disapproval Issues We Fix</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            The rejection notice may be generic, but the underlying causes are usually specific and
+            fixable once the right issue is identified.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {/* 6 Issues Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {issues.map((item, index) => (
-            <div key={item.title} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Issue 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
+            <div
+              key={item.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
+            >
+              <div>
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Issue 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                  {item.body}
+                </p>
+              </div>
             </div>
           ))}
         </div>

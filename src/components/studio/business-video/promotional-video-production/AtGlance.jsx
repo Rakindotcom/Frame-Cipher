@@ -3,22 +3,22 @@
 import { SectionIntro } from '../../../Kinetic'
 
 const glanceRows = [
-  ['Launch cut', '৳28,000 per video, 30–60 seconds plus story cut'],
+  ['Launch cut', '৳28,000 per video, 30 to 60 seconds plus story cut'],
   ['Campaign pack', '৳58,000 per campaign, hero plus hooks and teasers'],
   ['Seasonal blitz', '৳1,25,000 per season, multi-product coverage'],
-  ['Standard delivery', '5–10 working days from brief to delivery'],
+  ['Standard delivery', '5 to 10 working days from brief to delivery'],
   ['Priority delivery', '+25% for 48-hour flash-sale express lane'],
   ['Quote', 'Itemised, in writing, within 48 hours'],
   ['Payment', '50% advance confirms dates, balance on final sign-off, VAT-compliant invoices'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
   ['Phone and WhatsApp', '+880 1768-146650'],
-  ['Hours', 'Open 24 hours — sessions by advance reservation'],
+  ['Hours', 'Open 24 hours (sessions by advance reservation)'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Promotional Video Essentials"

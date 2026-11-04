@@ -1,51 +1,91 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const reasons = [
+import React from 'react'
+import { Users2, ShieldCheck, Globe, Sparkles } from 'lucide-react'
+
+const differences = [
   {
+    step: '01',
+    icon: Users2,
     title: 'One In-House Team',
-    body: 'Strategy advice comes from people who also execute the work themselves, not consultants disconnected from what implementation actually involves.',
+    description:
+      'Strategy advice comes directly from practitioners who also execute the work themselves—not junior account managers or abstract slide deck consultants disconnected from what implementation actually takes in code and content.',
   },
   {
+    step: '02',
+    icon: ShieldCheck,
     title: "Honest About What's Realistic",
-    body: "We don't hand over a roadmap that assumes resources you've told us you don't have, the plan gets built around your actual situation.",
+    description:
+      "We never hand over a theoretical playbook that assumes resources you've told us you don't have. Every roadmap is calibrated around your verified internal capacity, developer backlog, and realistic business timelines.",
   },
   {
+    step: '03',
+    icon: Globe,
     title: 'Local & International Strategic Experience',
-    body: 'Based in Dhaka. Advising clients across Bangladesh, the US, UK, Australia, Canada, and UAE.',
+    description:
+      'Headquartered in Dhaka with active client advisory footprints across Bangladesh, the US, UK, Australia, Canada, and the UAE. We understand both local Bangladeshi market economics and Tier-1 international competition.',
   },
   {
+    step: '04',
+    icon: Sparkles,
     title: 'No Pressure Toward Full Execution',
-    body: "Strategy is a legitimate standalone service here, not a sales funnel toward a bigger retainer you didn't actually ask for.",
+    description:
+      "Strategy is a genuine, standalone service here—never an aggressive top-of-funnel sales pitch designed to force you into an oversized execution retainer that your team never asked for or needed.",
   },
 ]
 
 export default function WhyDifferent() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="The Framecipher difference" title="Why We're Different">
-          Strategy advice works when it respects the team that has to act on it.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Header Block */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              The Framecipher Difference
+            </span>
+          </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {reasons.map((reason, index) => (
-            <div
-              key={reason.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Difference 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {reason.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                  {reason.body}
-                </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white">
+            Why We&apos;re <span className="italic text-frame-accent">Different</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-400">
+            Strategic SEO advice only delivers ROI when it genuinely respects the internal team and real-world operational constraints tasked with executing it.
+          </p>
+        </div>
+
+        {/* 2x2 Grid of Differentiator Surface Cards */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {differences.map((diff) => {
+            const Icon = diff.icon
+            return (
+              <div
+                key={diff.step}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-all duration-300 hover:border-frame-accent/40 hover:bg-[#151518] md:p-8"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-semibold tracking-wider text-frame-accent uppercase">
+                      Pillar {diff.step}
+                    </span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-frame-accent/30 group-hover:text-frame-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                    {diff.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
+                    {diff.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

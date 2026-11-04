@@ -39,13 +39,7 @@ export default function AdsMetricsHandbook() {
       {/* Section Header */}
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-8">
         <div>
-          <div className="flex items-center gap-2">
-            <BookOpen className="h-4 w-4 text-frame-accent" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.24em] text-frame-accent">
-              Knowledge Base // Diagnostics
-            </span>
-          </div>
-          <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="font-heading text-2xl md:text-4xl font-medium tracking-tight text-frame-fg">
             The Digital Advertising Metrics Encyclopedia
           </h3>
           <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">

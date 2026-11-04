@@ -1,165 +1,204 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { ArrowRight, Check } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const steps = [
   {
     number: '01',
     title: 'Channel & Business Audit',
-    body: 'We start by understanding your current channel and business.',
+    body: 'We start by understanding your current channel and business model:',
     points: [
-      'Existing content',
-      'Channel structure',
-      'Branding',
-      'Topics',
-      'Titles',
-      'Thumbnails',
-      'SEO',
-      'Audience',
-      'Analytics',
-      'Competitors',
-      'Conversion opportunities',
+      'Existing content catalog review',
+      'Channel structure & branding',
+      'Topic performance & watch time',
+      'Title, thumbnail & CTR history',
+      'YouTube SEO & search presence',
+      'Audience retention & drop-off points',
+      'Competitor landscape & gaps',
+      'Conversion & lead capture pathways',
     ],
   },
   {
     number: '02',
     title: 'Audience & Competitor Research',
-    body: 'We research the people you want to reach and the content already competing for their attention. This helps identify opportunities.',
+    body: 'We research the people you want to reach and the content already competing for their attention:',
     points: [
-      'Audience questions',
-      'Content gaps',
-      'Search opportunities',
-      'Competitor topics',
-      'Content formats',
-      'Packaging patterns',
-      'Market opportunities',
+      'Audience questions & pain points',
+      'High-intent search opportunities',
+      'Competitor topic gaps & formats',
+      'Successful packaging patterns',
+      'Audience retention benchmarks',
+      'Seasonal interest & trending angles',
     ],
   },
   {
     number: '03',
     title: 'Strategy & Content Planning',
-    body: 'We turn the research into an actionable content plan.',
+    body: 'We turn the research into an actionable monthly content roadmap:',
     points: [
-      'Content pillars',
-      'Topics',
-      'Video formats',
-      'Publishing cadence',
-      'Shorts opportunities',
-      'Long-form opportunities',
-      'CTAs',
-      'Content priorities',
+      'Core content pillars & themes',
+      'Search-aware topic selection',
+      'Video format mix (tutorials, demos, etc.)',
+      'Publishing cadence & consistency',
+      'Shorts & long-form synergy roadmap',
+      'Conversion CTAs & destination links',
     ],
   },
   {
     number: '04',
     title: 'Production & Approval',
-    body: 'Content moves through an organized production workflow.',
+    body: 'Content moves through an organized, transparent production workflow:',
     flow: ['Brief', 'Script', 'Production', 'Editing', 'Thumbnail', 'SEO', 'Client Review', 'Approval'],
-    note: 'Client approval remains part of the process where required by the service agreement.',
+    note: 'Client approval remains part of the process where required by the service agreement before any upload goes live.',
   },
   {
     number: '05',
     title: 'Publishing & Optimization',
-    body: 'Approved videos are prepared and published according to the agreed schedule. We manage relevant upload elements.',
+    body: 'Approved videos are prepared and published according to the agreed schedule:',
     points: [
-      'Titles',
-      'Descriptions',
-      'Thumbnails',
-      'Playlists',
-      'Chapters',
-      'End screens',
-      'Publishing settings',
-      'Related content connections',
+      'Optimized titles & descriptions',
+      'Custom high-converting thumbnails',
+      'Strategic playlist assignments',
+      'Timestamps & chapters',
+      'End screens & cards',
+      'Visibility scheduling & pre-flight checks',
+      'Related content linking',
     ],
   },
   {
     number: '06',
     title: 'Reporting & Continuous Improvement',
-    body: 'Each reporting cycle turns performance data into practical next steps.',
+    body: 'Each reporting cycle turns performance data into practical next steps:',
     points: [
-      'What performed well',
-      'What underperformed',
-      'Which topics attracted viewers',
-      'Where retention changed',
-      'How packaging performed',
-      'Which formats generated stronger response',
-      'What should be tested next',
+      'What performed well & why',
+      'Underperforming topic analysis',
+      'Audience retention curves & drop-offs',
+      'Packaging CTR & impressions',
+      'Shorts vs long-form response rates',
+      'Hypothesis testing for the next cycle',
     ],
-    note: 'The strategy evolves as meaningful channel data becomes available.',
+    note: 'The strategy continuously evolves as meaningful channel data becomes available.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Execution framework" title="How Our YouTube Management Process Works">
-          A structured workflow keeps content aligned with your business goals and makes performance
-          easier to evaluate.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Execution Playbook · 06 Phases
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 xl:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            How Our YouTube Management{' '}
+            <span className="italic text-frame-accent">Process Works.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            A structured workflow keeps content aligned with your business goals and makes performance easier to evaluate.
+          </p>
+        </div>
+
+        {/* 6 Step Cards Grid */}
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {steps.map((step) => (
             <article
               key={step.number}
-              className="group flex flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              className="group flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 space-y-4 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]"
             >
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.number}
-                </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg md:text-xl">
+              <div className="space-y-4">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                  <span className="font-mono text-xs font-semibold uppercase tracking-wider text-frame-accent">
+                    Phase {step.number}
+                  </span>
+                  <span className="font-mono text-[10px] text-zinc-500">YouTube Lifecycle</span>
+                </div>
+
+                <h3 className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
-                  {step.body}
+
+                <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  <AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/content-creation", "/services/video-production"]}>
+                    {step.body}
+                  </AutoLinks>
                 </p>
+
+                {step.flow && (
+                  <div className="space-y-2 border-t border-white/[0.06] pt-3">
+                    <span className="font-mono text-[10px] uppercase text-zinc-400 block">
+                      Production Sequence:
+                    </span>
+                    <div className="flex flex-wrap items-center gap-1.5">
+                      {step.flow.map((entry, idx) => (
+                        <div key={entry} className="flex items-center gap-1.5">
+                          <span className="rounded border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                            {entry}
+                          </span>
+                          {idx < step.flow.length - 1 && (
+                            <ArrowRight className="h-2.5 w-2.5 text-zinc-600" />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {step.points && (
+                  <div className="border-t border-white/[0.06] pt-3">
+                    <ul className="space-y-1.5 text-xs text-zinc-300">
+                      {step.points.map((point) => (
+                        <li key={point} className="flex items-start gap-2">
+                          <span className="flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/10 text-frame-accent mt-0.5">
+                            <Check className="h-2 w-2 stroke-[2.5]" />
+                          </span>
+                          <span className="leading-snug">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
 
-              {step.flow && (
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <ul className="flex flex-wrap items-center gap-1.5">
-                    {step.flow.map((entry, index) => (
-                      <li key={entry} className="flex items-center gap-1.5">
-                        <span className="border border-frame-accent/50 bg-frame-bg px-2 py-0.5 text-[10px] font-bold text-frame-fg">
-                          {entry}
-                        </span>
-                        {index < step.flow.length - 1 && (
-                          <span aria-hidden="true" className="text-frame-accent">
-                            &rarr;
-                          </span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              {step.points && (
-                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 transition-colors duration-200 group-hover:border-frame-accent-fg/30 group-hover:text-frame-accent-fg/90 md:text-sm">
-                  {step.points.map((point) => (
-                    <li key={point} className="flex items-start gap-2">
-                      <span className="mt-1 h-1.5 w-1.5 shrink-0 bg-frame-accent transition-colors duration-200 group-hover:bg-frame-accent-fg" />
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
-
               {step.note && (
-                <p className="mt-4 text-xs font-semibold leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/80">
+                <div className="mt-4 rounded-lg border border-white/[0.06] bg-white/[0.02] p-3 text-[11px] leading-relaxed text-zinc-400">
+                  <span className="font-mono text-[10px] uppercase text-frame-accent font-semibold block mb-0.5">
+                    Workflow Quality Gate
+                  </span>
                   {step.note}
-                </p>
+                </div>
               )}
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Every stage produces something the next stage can use: research feeds planning, planning
-            feeds production, and performance data feeds the next cycle.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get a Free Consultation &rarr;</PosterButton>
+        {/* Process Ledger Footer */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Every Stage Produces Practical Value
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl">
+              Research feeds planning, planning feeds production, and performance data feeds the next strategic cycle.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get a Free Consultation
+            </PosterButton>
           </div>
         </div>
       </div>

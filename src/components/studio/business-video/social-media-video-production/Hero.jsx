@@ -11,7 +11,7 @@ export default function Hero({ service }) {
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/studio" className="transition hover:text-frame-fg">Studio</Link>
@@ -46,12 +46,12 @@ export default function Hero({ service }) {
           <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
             Batch-Recorded Verticals, Not One-Off Clips
           </p>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] tracking-tighter text-frame-fg">
             A Month of Posts in One Studio Day.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
             Vertical, square and horizontal videos need different framing. Composing natively for vertical 9:16 keeps
-            subjects, kinetic captions and graphics clear of platform buttons — and batch-recording 10 to 20 clips in
+            subjects, kinetic captions and graphics clear of platform buttons, and batch-recording 10 to 20 clips in
             one session cuts the per-clip cost nearly in half.
           </p>
           <p className="mx-auto mt-4 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">

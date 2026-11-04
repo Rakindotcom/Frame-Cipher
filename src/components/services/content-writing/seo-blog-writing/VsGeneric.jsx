@@ -30,31 +30,31 @@ const rows = [
 
 export default function VsGeneric() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Service boundaries" title="SEO Content vs. Generic Blog Writing">
           Not every blog article is an SEO content project.
         </SectionIntro>
 
-        <div className="overflow-x-auto border-2 border-frame-border">
+        <div className="overflow-x-auto border border-white/[0.08]">
           <table className="w-full min-w-[640px] border-collapse text-left">
             <thead>
               <tr>
                 <th
                   scope="col"
-                  className="w-1/5 border-b-2 border-frame-border bg-frame-muted/30 p-4 font-heading text-xs font-bold uppercase tracking-[0.2em] text-frame-muted-fg md:p-5 md:text-sm"
+                  className="w-1/5 border-b border-white/[0.08] bg-[#121214] p-4 font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#A1A1AA] md:p-5 md:text-sm"
                 >
                   &nbsp;
                 </th>
                 <th
                   scope="col"
-                  className="w-2/5 border-b-2 border-l-2 border-frame-border bg-frame-muted/30 p-4 font-heading text-xs font-bold uppercase tracking-[0.2em] text-frame-muted-fg md:p-5 md:text-sm"
+                  className="w-2/5 border-b-2 border-l-2 border-white/[0.08] bg-[#121214] p-4 font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#A1A1AA] md:p-5 md:text-sm"
                 >
                   Generic Blog Writing
                 </th>
                 <th
                   scope="col"
-                  className="w-2/5 border-b-2 border-l-2 border-frame-border bg-frame-accent/10 p-4 font-heading text-xs font-bold uppercase tracking-[0.2em] text-frame-accent md:p-5 md:text-sm"
+                  className="w-2/5 border-b-2 border-l-2 border-white/[0.08] bg-[#A855F7]/10 p-4 font-heading text-xs font-bold uppercase tracking-[0.2em] text-[#A855F7] md:p-5 md:text-sm"
                 >
                   SEO Content
                 </th>
@@ -65,14 +65,14 @@ export default function VsGeneric() {
                 <tr key={row.title} className="align-top">
                   <th
                     scope="row"
-                    className="border-b-2 border-frame-border bg-frame-bg p-4 font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-fg md:p-5"
+                    className="border-b border-white/[0.08] bg-[#09090B] p-4 font-heading text-sm font-bold uppercase leading-snug tracking-tight text-[#FAFAFA] md:p-5"
                   >
                     {row.title}
                   </th>
-                  <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-5">
+                  <td className="border-b-2 border-l-2 border-white/[0.08] bg-[#09090B] p-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:p-5">
                     {row.generic}
                   </td>
-                  <td className="border-b-2 border-l-2 border-frame-border bg-frame-bg p-4 text-sm font-medium leading-relaxed text-frame-fg md:p-5">
+                  <td className="border-b-2 border-l-2 border-white/[0.08] bg-[#09090B] p-4 text-sm font-medium leading-relaxed text-[#FAFAFA] md:p-5">
                     {row.seo}
                   </td>
                 </tr>
@@ -81,7 +81,7 @@ export default function VsGeneric() {
           </table>
         </div>
 
-        <p className="mt-8 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+        <p className="mt-8 border-l-2 border-[#A855F7]/40 bg-[#121214] p-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
           The difference is not simply the number of keywords in an article. It is the planning and
           optimization process behind the content.
         </p>

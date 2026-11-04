@@ -1,83 +1,92 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const flowItems = [
-  'Lead',
-  'Qualification',
-  'Sales Follow-Up',
-  'Opportunity',
-  'Customer',
-]
+import React from 'react'
+import {
+  Target,
+  Database,
+  Users,
+  Globe2,
+  TrendingUp,
+  Lock,
+  Compass,
+} from 'lucide-react'
 
-const reasons = [
+const differentiators = [
   {
+    icon: Target,
     title: 'Quality-Weighted Optimization',
-    body: 'We do not optimize blindly toward the cheapest form fill. Campaign decisions are influenced by lead quality, qualification, sales outcomes, and available revenue data.',
+    desc: 'We refuse to optimize blindly for cheap, unqualified form submissions. Our bidding decisions prioritize verified sales opportunities and customer revenue.',
   },
   {
-    title: 'CRM + Paid Media Together',
-    body: 'Campaigns and CRM workflows are considered as one connected acquisition system.',
+    icon: Database,
+    title: 'CRM + Paid Media Synchronized',
+    desc: 'We engineer advertising campaigns and CRM follow-up pipelines as a single interconnected acquisition machine, eliminating lead handoff friction.',
   },
   {
-    title: 'One In-House Team',
-    body: 'Strategy, paid media, tracking, creative coordination, and reporting are handled through one in-house team.',
+    icon: Users,
+    title: 'Dedicated In-House Growth Team',
+    desc: 'Strategy, copywriting, landing page design, tracking implementation, and reporting are handled 100% in-house in Dhaka. Zero untracked outsourcing.',
   },
   {
-    title: 'Local & International Markets',
-    body: 'Framecipher is based in Dhaka and works with businesses in Bangladesh and international markets including the US, UK, Australia, Canada, UAE, and other eligible markets.',
+    icon: Globe2,
+    title: 'Dhaka Hub + Global Campaign Execution',
+    desc: 'Direct communication in Dhaka with proven multi-market experience across Bangladesh, the US, UK, Australia, Canada, and the UAE.',
   },
   {
-    title: 'We Look Past the Click',
-    body: 'We consider what happens after the lead is submitted, all the way through to customer.',
+    icon: TrendingUp,
+    title: 'We Look Far Past the Initial Click',
+    desc: 'We optimize the entire path: Ad Click → Form Submission → Lead Qualification → Sales Rep Contact → Proposal → Customer Revenue.',
   },
   {
-    title: 'Sales-Aligned Reporting',
-    body: 'Reporting can go beyond platform metrics to include cost per qualified lead, opportunity rate, customer acquisition cost, and revenue where the required CRM data exists.',
+    icon: Compass,
+    title: 'Sales-Aligned Executive Reporting',
+    desc: 'Reporting goes beyond platform metrics to calculate Cost Per Qualified Lead (CPQL), sales pipeline generated, and closed Customer Acquisition Cost (CAC).',
   },
   {
-    title: 'Client-Owned Accounts & Data',
-    body: 'Advertising accounts, campaign data, tracking assets, CRM data, and customer information remain within the appropriate client-owned environment.',
+    icon: Lock,
+    title: '100% Client-Owned Accounts & Data',
+    desc: 'All ad accounts, CRM data, tracking tags, and historical leads remain your exclusive property. We never lock you into proprietary black-box accounts.',
   },
 ]
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Why Framecipher" title="Why Businesses Choose Framecipher for Lead Generation" />
-
-        <div className="mb-12 border-2 border-frame-border bg-frame-muted/10 p-8 md:p-12">
-          <p className="mb-6 text-sm font-bold uppercase tracking-widest text-frame-accent">
-            The full journey we connect
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Businesses Choose Framecipher for{' '}
+            <span className="italic text-frame-accent">Lead Generation.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            We replace vanity lead counts with commercial discipline, bridging the gap between digital advertising spend and closed sales pipeline.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
-            {flowItems.map((item, index) => (
-              <span key={item} className="flex items-center gap-3">
-                <span className="border border-frame-border px-4 py-2 text-sm font-bold uppercase tracking-wider text-frame-fg">
-                  {item}
-                </span>
-                {index < flowItems.length - 1 && (
-                  <span className="text-lg font-black text-frame-accent">→</span>
-                )}
-              </span>
-            ))}
-          </div>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {reasons.map((reason) => (
-            <div
-              key={reason.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {reason.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {reason.body}
-              </p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {differentiators.map((d, idx) => {
+            const Icon = d.icon
+            return (
+              <div
+                key={d.title}
+                className={`rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between ${
+                  idx === 6 ? 'md:col-span-2 lg:col-span-3 xl:col-span-2' : ''
+                }`}
+              >
+                <div>
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-lg font-medium text-white mb-2">
+                    {d.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 font-normal leading-relaxed">
+                    {d.desc}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

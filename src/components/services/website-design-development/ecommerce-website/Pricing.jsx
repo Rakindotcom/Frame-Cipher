@@ -1,4 +1,5 @@
-import { PosterButton } from '../../../Kinetic'
+import { Check, Minus } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const packages = [
   {
@@ -6,7 +7,7 @@ const packages = [
     for: 'New merchants launching a focused, conversion-ready store',
     price: '৳65,000',
     products: 'Up to 50 products',
-    timeline: '2–3 weeks',
+    timeline: '2 to 3 weeks',
     platform: 'Shopify / WooCommerce',
     features: [
       'Strategy & Consultation',
@@ -22,7 +23,7 @@ const packages = [
     for: 'Growing merchants needing broader catalogs and integrations',
     price: '৳130,000',
     products: 'Up to 300 products',
-    timeline: '4–6 weeks',
+    timeline: '4 to 6 weeks',
     platform: 'Shopify / WooCommerce',
     featured: true,
     features: [
@@ -43,7 +44,7 @@ const packages = [
     for: 'Established retailers with complex catalogs and multi-system requirements',
     price: '৳250,000+ / Custom Quote',
     products: '300+ products',
-    timeline: '6–10+ weeks',
+    timeline: '6 to 10+ weeks',
     platform: 'Shopify / WooCommerce / Magento',
     features: [
       'Strategy & Consultation',
@@ -70,12 +71,12 @@ const comparisonMatrix = [
   { feature: 'Product & UI/UX Design', starter: '✓', growth: '✓', enterprise: '✓' },
   { feature: 'Platform Development', starter: 'Shopify / WooCommerce', growth: 'Shopify / WooCommerce', enterprise: 'Shopify / WooCommerce / Magento' },
   { feature: 'bKash / Nagad Integration', starter: '✓', growth: '✓', enterprise: '✓' },
-  { feature: 'International Payment Gateway', starter: '✗', growth: '✓', enterprise: '✓' },
+  { feature: 'International Payment Gateway', starter: '—', growth: '✓', enterprise: '✓' },
   { feature: 'Product Schema & SEO Setup', starter: '✓', growth: '✓', enterprise: '✓' },
-  { feature: 'Inventory & Order Management', starter: '✗', growth: '✓', enterprise: '✓ Multi-warehouse' },
-  { feature: 'Shipping & Logistics Integration', starter: '✗', growth: '✓', enterprise: '✓' },
-  { feature: 'Custom Functionality', starter: '✗', growth: '✓ As scoped', enterprise: '✓ Full custom' },
-  { feature: 'Dedicated Project Management', starter: '✗', growth: '✗', enterprise: '✓' },
+  { feature: 'Inventory & Order Management', starter: '—', growth: '✓', enterprise: '✓ Multi-warehouse' },
+  { feature: 'Shipping & Logistics Integration', starter: '—', growth: '✓', enterprise: '✓' },
+  { feature: 'Custom Functionality', starter: '—', growth: '✓ As scoped', enterprise: '✓ Full custom' },
+  { feature: 'Dedicated Project Management', starter: '—', growth: '—', enterprise: '✓' },
   { feature: 'Launch Support', starter: '✓', growth: '✓ Extended', enterprise: '✓ Extended Post-Launch Support' },
 ]
 
@@ -95,177 +96,191 @@ const ownershipPoints = [
   'Basic training for supported store management tasks',
 ]
 
+function MatrixCell({ val, isHighlighted = false }) {
+  if (val === true || val === 'Included' || val === 'Yes' || val === '✓') {
+    return (
+      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/15 text-frame-accent">
+        <Check className="h-3 w-3 stroke-[2.5]" />
+      </span>
+    )
+  }
+
+  if (val === false || val === '—' || val === 'None' || val === 'No' || val === '✗') {
+    return (
+      <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-white/10 bg-white/[0.02] text-zinc-600">
+        <Minus className="h-3 w-3 stroke-[2]" />
+      </span>
+    )
+  }
+
+  if (typeof val === 'string') {
+    const trimmed = val.trim()
+    if (trimmed.startsWith('✓') || trimmed.startsWith('Included')) {
+      const detail = trimmed.replace(/^[✓Included\s]+/, '').trim()
+      return (
+        <div className="inline-flex items-center gap-2">
+          <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/15 text-frame-accent">
+            <Check className="h-3 w-3 stroke-[2.5]" />
+          </span>
+          {detail && (
+            <span className={isHighlighted ? "text-xs font-medium text-frame-accent" : "text-xs text-zinc-300"}>
+              {detail}
+            </span>
+          )}
+        </div>
+      )
+    }
+  }
+
+  return <span className={isHighlighted ? "font-medium text-white" : "text-zinc-300"}>{val}</span>
+}
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        {/* SECTION HEADER */}
-        <div className="mb-14 md:mb-20 max-w-4xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Investment & Value / Clear Estimates
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            E-commerce Website Development Pricing
+    <section id="pricing" className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Centered Section Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            E-commerce Website{' '}
+            <span className="italic text-frame-accent">Development Pricing.</span>
           </h2>
-          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+
+          <p className="text-base text-zinc-300 sm:text-lg">
             Ecommerce website development is custom-quoted based on the size and complexity of your store. Choose from a focused Starter Store for new merchants, a Growth Store for expanding businesses, or an Enterprise Store Build for established retailers with more complex catalogs and integrations. Pricing depends on factors such as product count, platform, payment methods, logistics integrations, custom functionality, and business requirements.
           </p>
         </div>
 
-        {/* 3 PACKAGE CARDS */}
-        <div className="grid gap-8 lg:grid-cols-3">
+        {/* 3 Package Cards Grid */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-3 mb-16">
           {packages.map((pkg, idx) => (
             <div
               key={idx}
-              className={`border-2 p-7 md:p-10 flex flex-col justify-between ${
+              className={`flex flex-col justify-between rounded-xl p-7 transition-colors duration-200 sm:p-8 ${
                 pkg.featured
-                  ? 'border-frame-accent bg-frame-accent/10 shadow-lg'
-                  : 'border-frame-border bg-frame-bg'
+                  ? 'border border-frame-accent/40 bg-[#15121e] shadow-[0_0_40px_rgba(168,85,247,0.12)]'
+                  : 'border border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Package Tier 0{idx + 1}
-                  </span>
-                  {pkg.featured && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                      Most Popular
-                    </span>
-                  )}
-                </div>
-                <h3 className="font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-2xl font-medium tracking-tight text-white sm:text-3xl">
                   {pkg.name}
                 </h3>
-                <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+
+                <p className="mt-2 text-xs text-zinc-400 leading-relaxed sm:text-sm">
                   {pkg.for}
                 </p>
 
-                <div className="mt-6 border-y-2 border-frame-border/60 py-5">
-                  <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">Starting Price</span>
-                  <div className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
+                <div className="mt-6 border-y border-white/[0.08] py-5">
+                  <div className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
                     {pkg.price}
                   </div>
-                  <div className="mt-3 text-xs font-semibold text-frame-muted-fg flex justify-between border-t border-frame-border/40 pt-2">
-                    <span>Catalog: {pkg.products}</span>
-                    <span>Timeline: {pkg.timeline}</span>
-                  </div>
-                  <div className="mt-1 text-[11px] font-bold text-frame-accent">
-                    Platform: {pkg.platform}
+                  <div className="mt-3 space-y-1.5 font-mono text-xs text-zinc-400">
+                    <div>Catalog: <span className="text-zinc-200">{pkg.products}</span></div>
+                    <div>Timeline: <span className="text-zinc-200">{pkg.timeline}</span></div>
+                    <div>Platform: <span className="text-zinc-200">{pkg.platform}</span></div>
                   </div>
                 </div>
 
-                <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {pkg.features.map((feat, fIdx) => (
-                    <li key={fIdx} className="flex items-start gap-2">
-                      <span className="text-frame-accent font-bold">✓</span>
-                      <span>{feat}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="mt-6 space-y-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                    What&apos;s Included:
+                  </span>
+                  <ul className="space-y-2.5 text-xs sm:text-sm text-zinc-300">
+                    {pkg.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5">
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/10 text-frame-accent mt-0.5">
+                          <Check className="h-3 w-3 stroke-[2.5]" />
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              <div className="mt-8">
+              <div className="mt-8 pt-6 border-t border-white/[0.08]">
                 <PosterButton
                   href="/contact"
                   variant={pkg.featured ? 'accent' : 'outline'}
-                  className="w-full"
+                  className="w-full justify-center"
                 >
-                  Choose {pkg.name}
+                  Get Started
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        {/* COMPARISON MATRIX - STRICTLY H2 */}
-        <div className="mt-24">
-          <div className="mb-10 max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-              Side-by-Side Breakdown
-            </p>
-            <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-              Technical Architecture & Platform Comparison
-            </h2>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg wide:text-lg">
-              Compare package deliverables, capabilities, and system integrations to find the right scope for your store.
+        {/* Comparison Matrix Table */}
+        <div className="mb-16">
+          <div className="mb-6">
+            <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+              Package Feature Comparison
+            </h3>
+            <p className="text-sm text-zinc-400 mt-1">
+              Detailed breakdown of deliverables across store development tiers.
             </p>
           </div>
 
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg">
-            <table className="w-full min-w-[720px] text-left border-collapse">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214] scrollbar-none">
+            <table className="w-full text-left text-xs sm:text-sm">
               <thead>
-                <tr className="border-b-2 border-frame-border bg-frame-muted/40">
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent w-1/4">
-                    Feature / Deliverable
-                  </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg w-1/4">
-                    Starter Store
-                  </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent w-1/4 bg-frame-accent/10">
-                    Growth Store
-                  </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg w-1/4">
-                    Enterprise Store Build
-                  </th>
+                <tr className="border-b border-white/[0.08] bg-white/[0.02] text-zinc-400 font-mono text-xs uppercase tracking-wider">
+                  <th className="p-4 sm:p-5">Feature</th>
+                  <th className="p-4 sm:p-5">Starter</th>
+                  <th className="p-4 sm:p-5 text-frame-accent">Growth (Featured)</th>
+                  <th className="p-4 sm:p-5">Enterprise</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-frame-border/60 text-xs md:text-sm font-medium">
+              <tbody className="divide-y divide-white/[0.06]">
                 {comparisonMatrix.map((row, rIdx) => (
-                  <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                    <td className="p-4 md:p-5 font-bold text-frame-fg border-r border-frame-border/40">
+                  <tr key={rIdx} className="hover:bg-white/[0.02] transition-colors">
+                    <td className="p-4 sm:p-5 font-medium text-white font-mono text-xs sm:text-sm">
                       {row.feature}
                     </td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg border-r border-frame-border/40">
-                      {row.starter}
+                    <td className="p-4 sm:p-5">
+                      <MatrixCell val={row.starter} />
                     </td>
-                    <td className="p-4 md:p-5 font-semibold text-frame-fg border-r border-frame-border/40 bg-frame-accent/5">
-                      {row.growth}
+                    <td className="p-4 sm:p-5 bg-purple-500/[0.03]">
+                      <MatrixCell val={row.growth} isHighlighted />
                     </td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg">
-                      {row.enterprise}
+                    <td className="p-4 sm:p-5">
+                      <MatrixCell val={row.enterprise} />
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
-
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-2 border-frame-border bg-frame-muted/20 p-5">
-            <p className="text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-              The packages provide a starting framework, not fixed limits for every project. We can adjust the scope based on your catalog, platform, integrations, and operational requirements.
-            </p>
-            <PosterButton href="/contact" className="shrink-0">
-              Request a Custom Quote &rarr;
-            </PosterButton>
-          </div>
         </div>
 
-        {/* TIMELINE / DURATION - STRICTLY H2 */}
-        <div className="mt-20 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-12">
-          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Delivery Windows</span>
-          <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            E-commerce Website Development Timeline
-          </h2>
-          <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
-            Ecommerce projects typically take 2&ndash;10+ weeks depending on catalog size, platform, integrations, content readiness, and custom functionality.
-          </p>
+        {/* Timeline & Scope Breakdown */}
+        <div className="mb-16">
+          <div className="mb-6">
+            <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+              Estimated Delivery Timelines
+            </h3>
+            <p className="text-sm text-zinc-400 mt-1">
+              Realistic launch timelines based on scope, catalog size, and review iterations.
+            </p>
+          </div>
 
-          <div className="mt-8 overflow-x-auto border-2 border-frame-border bg-frame-bg">
-            <table className="w-full min-w-[600px] text-left border-collapse">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
+            <table className="w-full text-left text-xs sm:text-sm">
               <thead>
-                <tr className="border-b-2 border-frame-border bg-frame-muted/40">
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent">Package</th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-accent">Timeline</th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-wider text-frame-fg">Catalog & Scope Scope</th>
+                <tr className="border-b border-white/[0.08] bg-white/[0.02] text-zinc-400 font-mono text-xs uppercase tracking-wider">
+                  <th className="p-4 sm:p-5">Package Tier</th>
+                  <th className="p-4 sm:p-5">Timeline</th>
+                  <th className="p-4 sm:p-5">Scope &amp; Complexity</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-frame-border/60 text-xs md:text-sm font-medium">
-                {timelineTable.map((item, tIdx) => (
-                  <tr key={tIdx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-5 font-bold text-frame-fg">{item.package}</td>
-                    <td className="p-4 md:p-5 text-frame-accent font-bold">{item.timeline}</td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg">{item.scope}</td>
+              <tbody className="divide-y divide-white/[0.06]">
+                {timelineTable.map((t, tIdx) => (
+                  <tr key={tIdx} className="hover:bg-white/[0.02] transition-colors">
+                    <td className="p-4 sm:p-5 font-medium text-white">{t.package}</td>
+                    <td className="p-4 sm:p-5 font-mono text-frame-accent">{t.timeline}</td>
+                    <td className="p-4 sm:p-5 text-zinc-300">{t.scope}</td>
                   </tr>
                 ))}
               </tbody>
@@ -273,106 +288,32 @@ export default function Pricing() {
           </div>
         </div>
 
-        {/* WEBSITE OWNERSHIP & POST-LAUNCH MAINTENANCE - STRICTLY H2 */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-          {/* Ownership */}
-          <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Asset Control</span>
-              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                Website Ownership, Store Management & Handover
-              </h2>
-              <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                Your ecommerce store should remain a manageable business asset after launch. The project agreement defines ownership, access, deliverables, and handover terms. Depending on the platform and scope, this can include:
-              </p>
-              <ul className="mt-6 space-y-2.5 text-xs md:text-sm font-medium text-frame-fg/90">
-                {ownershipPoints.map((item, oIdx) => (
-                  <li key={oIdx} className="flex items-start gap-2">
-                    <span className="text-frame-accent font-bold">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p className="mt-8 text-xs font-medium italic text-frame-muted-fg border-t border-frame-border/60 pt-4">
-              We also explain which updates and technical changes are included in the original project and which are handled through ongoing maintenance or a separate scope.
-            </p>
-          </div>
+        {/* Ownership & Handover Standard Card */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-10">
+          <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white mb-2">
+            What You Own After Delivery
+          </h3>
+          <p className="text-sm text-zinc-400 mb-6 max-w-3xl">
+            Upon project completion and final payment, you retain full ownership and control of your ecommerce store assets.
+          </p>
 
-          {/* Post-Launch Support & Maintenance */}
-          <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Operational Stability</span>
-              <h2 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                Post-Launch Support & E-commerce Maintenance
-              </h2>
-              <div className="mt-4 space-y-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                <p>
-                  After launch, your store may need ongoing technical updates, security maintenance, backups, performance checks, product or feature updates, and troubleshooting.
-                </p>
-                <p>
-                  Development projects include the launch support and handover defined in the project agreement. Ongoing maintenance, new features, larger changes, and continued optimization can be handled through a separate maintenance scope.
-                </p>
-                <p>
-                  We do not guarantee a specific sales volume or conversion rate from development alone. Results also depend on traffic, pricing, product-market fit, offers, customer demand, marketing, and competition.
-                </p>
-                <p className="font-semibold text-frame-fg">
-                  Our role is to build the technical and conversion-focused foundation your ecommerce business can continue to grow from.
-                </p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {ownershipPoints.map((point, oIdx) => (
+              <div key={oIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-300">
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-frame-accent/30 bg-frame-accent/10 text-frame-accent mt-0.5">
+                  <Check className="h-3 w-3 stroke-[2.5]" />
+                </span>
+                <span>{point}</span>
               </div>
-            </div>
-
-            <div className="mt-8 border-t border-frame-border/60 pt-6">
-              <PosterButton href="/contact" className="w-full">
-                Talk to Our Build Team &rarr;
-              </PosterButton>
-            </div>
+            ))}
           </div>
         </div>
 
-        {/* SERVICE AREAS - STRICTLY H2 */}
-        <div className="mt-12 border-2 border-frame-border bg-frame-bg p-7 md:p-12">
-          <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">Coverage</span>
-          <h2 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
-            Service Areas: Bangladesh & Worldwide
-          </h2>
-          <div className="mt-4 grid gap-px border border-frame-border bg-frame-border sm:grid-cols-2 max-w-4xl">
-            <div className="bg-frame-bg p-5 md:p-6">
-              <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Headquartered in Dhaka</span>
-              <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
-                {[
-                  'Based in Dhaka, Bangladesh',
-                  'Bkash & Nagad integration as a standard build item',
-                  'Mobile-first testing for local connections',
-                  'Built for delivery, COD & local logistics',
-                ].map((pt, dIdx) => (
-                  <li key={dIdx} className="flex items-start gap-2">
-                    <span className="text-frame-accent font-bold">✓</span>
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="bg-frame-bg p-5 md:p-6">
-              <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Serving the World</span>
-              <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
-                {[
-                  'Clients in the UAE, US, UK, Australia & Canada',
-                  'Delivered for clients in 20+ countries',
-                  'Payment behavior, logistics & market expectations',
-                  'No single-market template applied everywhere',
-                ].map((pt, wIdx) => (
-                  <li key={wIdx} className="flex items-start gap-2">
-                    <span className="text-frame-accent font-bold">✓</span>
-                    <span>{pt}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-          <p className="mt-5 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg max-w-4xl wide:text-lg">
-            Framecipher is based in Dhaka, Bangladesh, and builds e-commerce stores for merchants across Bangladesh as well as clients worldwide. Our process is built to handle different payment behavior, logistics needs, and market expectations.
-          </p>
+        {/* Bottom Consultation CTA Trigger */}
+        <div className="mt-12 text-center">
+          <PosterButton href="/contact" variant="accent">
+            Request an Accurate Scope Quote
+          </PosterButton>
         </div>
       </div>
     </section>

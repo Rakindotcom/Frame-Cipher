@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for wedding-videography — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for wedding-videography: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Wedding Videography Rates in Dhaka",
@@ -17,7 +17,7 @@ const DATA = {
       "description": "One function filmed cinematically: candid coverage, highlight film and social teaser with feature-grade colour.",
       "features": [
         "Up to 6 hours with lead cinematographer + assistant",
-        "3–5 minute cinematic highlight film",
+        "3 to 5 minute cinematic highlight film",
         "60-second Instagram teaser within 7 days",
         "Full ceremony documentary edit included",
         "Licensed emotional score, studio sound master",
@@ -44,14 +44,14 @@ const DATA = {
     {
       "name": "Signature Celebration",
       "price": "৳1,45,000",
-      "priceNote": "3–4 events",
+      "priceNote": "3 to 4 events",
       "tag": "Multi-Day Heirloom",
       "cta": "Request Signature Celebration",
       "description": "The complete celebration: Holud, wedding, reception with multi-cinematographer coverage and premiere edit.",
       "features": [
-        "3–4 functions, 2 cinematographers throughout",
+        "3 to 4 functions, 2 cinematographers throughout",
         "Drone aerials of venue and baraat (where permitted)",
-        "Same-week teaser, 3–4 week heirloom premiere",
+        "Same-week teaser, 3 to 4 week heirloom premiere",
         "Parents’ story chapter with legacy interview",
         "Premium grade + custom score direction",
         "Private screening link for family before release"
@@ -66,7 +66,7 @@ const DATA = {
     "Score licensing and premium grade direction",
     "Teaser speed and premiere edit lane"
   ],
-  "marketNote": "Dhaka wedding videography spans ৳8,000–25,000 per event for single-operator coverage, ৳30,000–60,000 for standard two-crew cinematic packages, ৳1,00,000–1,40,000 for premium multi-crew productions and ৳2,50,000–5,00,000 for signature storytelling houses (Chitrogolpo, weddingpixbd, BD Event Management 2025–26). Drone adds ~৳25,000 and 4K delivery ~৳15,000–25,000 market-wide. Our bands sit at the cinematic middle: narrative craft without signature-house premiums.",
+  "marketNote": "Dhaka wedding videography spans ৳8,000 to 25,000 per event for single-operator coverage, ৳30,000 to 60,000 for standard two-crew cinematic packages, ৳1,00,000 to 1,40,000 for premium multi-crew productions and ৳2,50,000 to 5,00,000 for signature storytelling houses (Chitrogolpo, weddingpixbd, BD Event Management 2025 to 26). Drone adds ~৳25,000 and 4K delivery ~৳15,000 to 25,000 market-wide. Our bands sit at the cinematic middle: narrative craft without signature-house premiums.",
   "costRows": [
     [
       "Single-event cinematic film + teaser",
@@ -77,7 +77,7 @@ const DATA = {
       "৳68,000"
     ],
     [
-      "Signature 3–4 event celebration",
+      "Signature 3 to 4 event celebration",
       "৳1,45,000"
     ],
     [
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Wedding Videography Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
@@ -203,7 +203,7 @@ export default function Pricing() {
             </dl>
           )}
           <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-            Wedding shoots happen on-location — venues, homes and destinations across Bangladesh — with the studio
+            Wedding shoots happen on-location: venues, homes and destinations across Bangladesh, with the studio
             at ECB Chattar as base for editing, grading and backup power on every booking.
           </p>
         </div>

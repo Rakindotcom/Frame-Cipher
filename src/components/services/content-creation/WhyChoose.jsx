@@ -57,8 +57,8 @@ const whyChoosePoints = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Strategic Rationale"
           title="Why Consistent Content Production Matters"
@@ -69,24 +69,24 @@ export default function WhyChoose() {
 
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start">
           {/* WHY IT MATTERS (LEFT) */}
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#09090B] p-7 md:p-10">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Commercial Impact
             </span>
-            <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-3 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
               The Value of Coordinated Visuals
             </h3>
-            <div className="mt-6 grid border-2 border-frame-border bg-frame-border gap-px">
+            <div className="mt-6 grid border border-white/[0.08] bg-frame-border gap-px">
               {whyMattersPoints.map((item) => (
-                <div key={item.num} className="flex items-start gap-4 bg-frame-bg p-5">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center border-2 border-frame-accent bg-frame-accent/10 font-heading text-xs font-bold text-frame-accent">
+                <div key={item.num} className="flex items-start gap-4 bg-[#09090B] p-5">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center border-2 border-[#A855F7]/40 bg-[#A855F7]/10 font-heading text-xs font-bold text-[#A855F7]">
                     {item.num}
                   </span>
                   <div>
-                    <h4 className="font-heading text-sm md:text-base font-bold uppercase tracking-tight text-frame-fg">
+                    <h4 className="font-heading text-sm md:text-base font-bold tracking-tight text-[#FAFAFA]">
                       {item.title}
                     </h4>
-                    <p className="mt-1 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                    <p className="mt-1 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                       {item.desc}
                     </p>
                   </div>
@@ -103,26 +103,26 @@ export default function WhyChoose() {
           {/* WHY CHOOSE FRAMECIPHER (RIGHT) */}
           <div className="space-y-6">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 The Frame Cipher Standard
               </span>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Why Choose Framecipher for Content Creation
               </h3>
             </div>
 
-            <div className="grid border-2 border-frame-border bg-frame-border gap-px">
+            <div className="grid border border-white/[0.08] bg-frame-border gap-px">
               {whyChoosePoints.map((item, index) => (
-                <div key={index} className="bg-frame-bg p-6">
+                <div key={index} className="bg-[#09090B] p-6">
                   <div className="flex items-baseline gap-3">
-                    <span className="font-heading text-sm font-black text-frame-accent">
+                    <span className="font-heading text-sm font-black text-[#A855F7]">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+                    <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-[#FAFAFA]">
                       {item.title}
                     </h4>
                   </div>
-                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                     {item.desc}
                   </p>
                 </div>

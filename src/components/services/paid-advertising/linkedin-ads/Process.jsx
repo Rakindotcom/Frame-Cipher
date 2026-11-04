@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
 
 const steps = [
   {
@@ -74,47 +77,54 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution framework"
-          title="How We Manage LinkedIn Ads"
-        >
-          Campaigns are built, launched, measured, and scaled through a structured process so
-          decisions are driven by evidence rather than assumptions.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            How We Manage{' '}
+            <span className="italic text-frame-accent">LinkedIn Ads.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Campaigns are built, launched, measured, and scaled through a structured process so decisions are driven by evidence rather than assumptions.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* 7-Stage Architectural Sequence Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+            >
+              <div className="space-y-4">
+                <h3 className="font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {step.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {step.body.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
+
+                <div className="space-y-2 text-sm font-normal leading-relaxed text-zinc-300">
+                  {step.body.map((p, pIdx) => (
+                    <p key={pIdx}>{p}</p>
                   ))}
                 </div>
+
                 {step.bullets?.length > 0 && (
-                  <ul className="mt-4 grid gap-1.5 text-xs font-semibold text-frame-fg/90 sm:grid-cols-2">
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/[0.04] pt-3">
                     {step.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
+                      <li key={bIdx} className="flex items-start gap-1.5 text-xs text-zinc-300">
+                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                        <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 )}
-                {step.note && (
-                  <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {step.note}
-                  </div>
-                )}
               </div>
+
+              {step.note && (
+                <div className="mt-5 border-l-2 border-frame-accent bg-frame-accent/10 p-3.5 rounded-r-lg text-xs leading-relaxed text-zinc-400">
+                  {step.note}
+                </div>
+              )}
             </div>
           ))}
         </div>

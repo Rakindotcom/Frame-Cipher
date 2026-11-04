@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for video-marketing — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for video-marketing: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Video Marketing Packages and Prices in Dhaka (BDT)",
@@ -64,9 +64,9 @@ const DATA = {
     "Landing-page embeds and CRO notes",
     "Retargeting sequences and versioning",
     "YouTube SEO packaging per video",
-    "Turnaround: 48–72 hour express adds 30%"
+    "Turnaround: 48 to 72 hour express adds 30%"
   ],
-  "marketNote": "Dhaka retainers for single-platform social or paid-ads management start around ৳45,000 per month, with full multi-channel engagements at ৳1,20,000 or more per month. Content production retainers for editing alone typically run ৳15,000–60,000 per month. Our ৳2,40,000 engine tier reflects the full stack — strategy, studio, crew and edit — for accounts where creative volume is the growth constraint.",
+  "marketNote": "Dhaka retainers for single-platform social or paid-ads management start around ৳45,000 per month, with full multi-channel engagements at ৳1,20,000 or more per month. Content production retainers for editing alone typically run ৳15,000 to 60,000 per month. Our ৳2,40,000 engine tier reflects the full stack: strategy, studio, crew and edit: for accounts where creative volume is the growth constraint.",
   "costRows": [
     [
       "Funnel starter: 3-video set + distribution map",
@@ -82,7 +82,7 @@ const DATA = {
     ],
     [
       "YouTube SEO packaging per video",
-      "৳8,000–12,000"
+      "৳8,000 to 12,000"
     ],
     [
       "Landing-page video CRO notes",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Video Marketing Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

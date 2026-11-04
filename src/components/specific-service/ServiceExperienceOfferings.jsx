@@ -1,6 +1,6 @@
 import { cleanServiceText as cleanText } from '../../data/serviceContent'
 
-const surface = 'border border-white/10 bg-white/[0.035]'
+const surface = 'rounded-xl border border-white/[0.08] bg-white/[0.035]'
 
 function CheckIcon() {
   return (
@@ -13,7 +13,7 @@ function CheckIcon() {
 function SectionHeading({ eyebrow, title, children }) {
   return (
     <div className="mb-10 max-w-3xl md:mb-14">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-violet-300">{eyebrow}</p>
+
       <h2 className="font-heading text-3xl font-semibold leading-tight tracking-[-0.035em] text-white sm:text-4xl md:text-5xl">{title}</h2>
       {children && <p className="mt-5 text-base leading-7 text-zinc-400 md:text-lg">{children}</p>}
     </div>
@@ -31,7 +31,7 @@ export default function ServiceExperienceOfferings({ isPillar, service }) {
         </SectionHeading>
         <div className="grid gap-4 lg:grid-cols-2">
           {service.offerings.map((offering, index) => (
-            <article key={`${offering.title}-${index}`} className={`${surface} rounded-3xl p-7 md:p-9`}>
+            <article key={`${offering.title}-${index}`} className={`${surface}  p-7 md:p-9`}>
               <div className="flex items-start gap-5">
                 <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-violet-400/10 text-sm font-bold text-violet-300">
                   {String(index + 1).padStart(2, '0')}
@@ -48,7 +48,7 @@ export default function ServiceExperienceOfferings({ isPillar, service }) {
                 </div>
               </div>
               {offering.bullets?.length > 0 && (
-                <ul className="mt-7 grid gap-3 border-t border-white/10 pt-6 sm:grid-cols-2">
+                <ul className="mt-7 grid gap-3 border-t border-white/[0.08] pt-6 sm:grid-cols-2">
                   {offering.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2.5 text-sm leading-6 text-zinc-300">
                       <CheckIcon />

@@ -28,44 +28,41 @@ const steps = [
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        {/* SECTION HEADER */}
-        <div className="mb-14 md:mb-20 max-w-4xl">
-          <p className="mb-3 text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
-            Milestones & Governance / Step-by-Step
-          </p>
-          <h2 className="font-heading text-[clamp(2.4rem,6vw,5rem)] font-bold uppercase leading-[0.88] tracking-tighter text-frame-fg">
-            Our Business Website Development Process
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Our Business Website{' '}
+            <span className="italic text-frame-accent">Development Process.</span>
           </h2>
-          <p className="mt-6 text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
+          <p className="text-base text-zinc-400 sm:text-lg">
             Our process is built around visibility at every stage, not a black-box handoff at the end.
           </p>
         </div>
 
-        {/* STEP CARDS WITH WATERMARK */}
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step) => (
-            <div key={step.number} className="relative overflow-hidden bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
-              <span 
-                className="pointer-events-none absolute -right-2 -bottom-6 font-heading text-[7rem] md:text-[8rem] font-bold leading-none tracking-tighter text-frame-muted/30 select-none"
-                aria-hidden="true"
+        {/* Modality 2: Architectural 5-Column Divided Continuum Band */}
+        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
+          <div className="grid grid-cols-1 divide-y divide-white/[0.08] md:grid-cols-2 md:divide-y-0 md:divide-x lg:grid-cols-5">
+            {steps.map((step) => (
+              <div
+                key={step.number}
+                className="group relative flex flex-col justify-between p-6 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02]"
               >
-                {step.number}
-              </span>
-              <div className="relative z-10">
-                <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-                  Phase {step.number}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                  {step.description}
-                </p>
+                <div>
+                  <h3 className="mt-6 font-heading text-lg font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-xs sm:text-sm leading-relaxed text-zinc-300">
+                    {step.description}
+                  </p>
+                </div>
+                <div className="mt-8 border-t border-white/[0.06] pt-3 font-mono text-[10px] uppercase tracking-wider text-zinc-500">
+                  Checkpoint Approved
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

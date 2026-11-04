@@ -58,7 +58,7 @@ function fmtNum(n, decimals = 0) {
   return Number(n.toFixed(decimals)).toLocaleString('en-US', { maximumFractionDigits: decimals })
 }
 
-function fmtPct(n, decimals = 1) {
+function _fmtPct(n, decimals = 1) {
   if (!isFinite(n)) return 'N/A'
   return `${n.toFixed(decimals)}%`
 }
@@ -81,7 +81,7 @@ function valueLabel(objective) {
   }
 }
 
-export default function OpenAiAdsCalculator({ onLeadSubmit }) {
+export default function OpenAiAdsCalculator({ onLeadSubmit: _onLeadSubmit }) {
   const [step, setStep] = useState(1)
 
   // Step 1
@@ -96,7 +96,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
   const [networkId, setNetworkId] = useState('chatgpt-web-app')
   const [bidStrategyId, setBidStrategyId] = useState('value-optimized')
   const [competitionId, setCompetitionId] = useState('medium')
-  const [seasonId, setSeasonId] = useState('normal')
+  const [seasonId, _setSeasonId] = useState('normal')
 
   // Step 3
   const [revenueGoal, setRevenueGoal] = useState('150000')
@@ -111,8 +111,8 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
   const [qsOverride, setQsOverride] = useState('')
 
   // Report
-  const [clientName, setClientName] = useState('')
-  const [preparedBy, setPreparedBy] = useState('Frame Cipher AI Media Group')
+  const [clientName, _setClientName] = useState('')
+  const [preparedBy, _setPreparedBy] = useState('Frame Cipher AI Media Group')
   const [downloading, setDownloading] = useState(false)
 
   const n = (v) => {
@@ -384,7 +384,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 01 // Geographic Region & Industry
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Target Geography & Industry Vertical
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -487,7 +487,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 02 // AI Placement & Surface Selection
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Conversational Surface & Format
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -623,7 +623,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 03 // Revenue Goal & Margin Economics
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Revenue Target & Unit Economics
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -718,7 +718,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 04 // Semantic Relevance Score & Metric Overrides
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Relevance Score (1-10) & Custom CPC
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -814,7 +814,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
                   AI Conversational Simulation Computed
                 </span>
               </div>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
                 ChatGPT & AI Search Performance Blueprint
               </h3>
             </div>
@@ -888,7 +888,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
 
           {/* Funnel */}
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
-            <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
               Conversational Citation Funnel
             </h4>
             <div className="mt-6 space-y-4">
@@ -921,7 +921,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                 AI Budget Horizons
               </span>
-              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 3 Scenarios for Your AI Ads Strategy
               </h4>
             </div>
@@ -1000,7 +1000,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <div className="flex items-center gap-2 text-frame-accent">
               <Sparkles className="h-5 w-5" />
-              <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
                 Generative AI Search Strategy Insights
               </h4>
             </div>
@@ -1031,7 +1031,7 @@ export default function OpenAiAdsCalculator({ onLeadSubmit }) {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                   Next-Gen Advertising
                 </span>
-                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                   Ready to Capture Intent in ChatGPT & AI Search?
                 </h4>
                 <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">

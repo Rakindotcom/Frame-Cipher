@@ -1,189 +1,234 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const plans = [
   {
     name: 'Strategy Session',
-    price: '\u09F325,000',
+    price: '৳25,000',
     period: 'one-time',
-    type: 'One-time project',
-    bestFor: 'Businesses needing direction once',
+    type: 'Single Roadmap',
+    bestFor: 'Businesses needing high-level direction once',
+    description:
+      'A defined sprint with a clear start and end point, suited to businesses that can execute independently with their internal team afterward.',
+    covered: 'Single roadmap development, one strategy walkthrough session',
     features: [
-      'Discovery & Assessment',
-      'Written Strategy Documentation',
-      'Single roadmap development',
-      'Strategy Walkthrough Session',
-      'Follow-Up Q&A',
+      'Discovery & initial business assessment',
+      'Written Strategy & Prioritization Documentation',
+      'Single 30/60/90-day actionable roadmap',
+      'Live Strategy Walkthrough Video Session',
+      '2-week asynchronous follow-up Q&A',
     ],
-    note: 'A defined engagement with a clear start and end point, suited to businesses that can execute independently afterward.',
+    highlight: false,
   },
   {
     name: 'Audit-to-Roadmap Package',
-    price: '\u09F345,000',
+    price: '৳45,000',
     period: 'one-time',
-    type: 'One-time project',
+    type: 'Full Diagnosis + Plan',
     bestFor: 'Businesses with an audit but no clear next steps',
+    description:
+      'Transforms diagnostic findings—ours or a previous vendor’s—into an empirical, prioritized, and sequenced execution plan.',
+    covered: 'Full technical & content audit plus translated, sequenced execution plan',
     features: [
-      'Everything in Strategy Session',
-      'Full SEO audit',
-      'Findings prioritization',
-      'Sequenced execution plan',
-      'Progress check-in',
+      'Comprehensive Technical, Content & Backlink Audit',
+      'Competitor SERP Share & Content Gap Analysis',
+      'Impact vs. Effort Prioritization Matrix',
+      'Sequenced 90-day Engineering & Content Roadmap',
+      'Executive Strategy Walkthrough & Q&A Session',
+      '30-day Post-Delivery Implementation Support',
     ],
-    note: 'Turns an audit, ours or anyone else\u2019s, into an actual execution plan.',
     highlight: true,
   },
   {
     name: 'Fractional Advisory',
-    price: '\u09F340,000',
+    price: '৳40,000',
     period: '/month',
-    type: 'Ongoing retainer',
+    type: 'Ongoing Retainer',
     bestFor: 'Businesses with an internal team needing senior direction',
+    description:
+      'Ongoing, senior-level strategic guidance without the long-term overhead and equity cost of a full-time in-house executive.',
+    covered: 'Ongoing strategic guidance, quarterly reviews, team alignment',
     features: [
-      'Everything in Audit-to-Roadmap Package',
-      'Ongoing strategic guidance',
-      'Internal team direction',
-      'Quarterly strategy reviews',
-      'Algorithm update guidance',
+      'Bi-weekly strategic direction & check-in calls',
+      'Direct guidance for internal marketing & dev teams',
+      'Quarterly in-depth roadmap calibration reviews',
+      'Google algorithm update response & triage',
+      'Executive performance & attribution reporting',
+      'Ongoing Slack / asynchronous advisory channel',
     ],
-    note: 'Senior-level strategic direction without a full-time hire.',
+    highlight: false,
   },
   {
     name: 'Team Training & Enablement',
     price: 'Custom',
     period: 'quote',
-    type: 'Custom scope',
+    type: 'Custom Scope',
     bestFor: 'Businesses building internal SEO capability',
+    description:
+      'Hands-on training sessions, custom SOP documentation, and workflow setups that build permanent internal SEO capacity.',
+    covered: 'Custom training workshops, SOP documentation, workflow setup',
     features: [
-      'Everything in Strategy Session',
-      'SEO fundamentals training',
-      'Tool & workflow setup',
-      'Documentation & playbooks',
-      'A custom scope agreed with your team',
+      'Customized curriculum tailored to your industry',
+      'Hands-on technical SEO & content optimization workshops',
+      'Internal tool stack configuration (GSC, GA4, Screaming Frog)',
+      'Custom Standard Operating Procedures (SOPs) & playbooks',
+      'Post-training capability audit & follow-up reviews',
     ],
-    note: 'Builds lasting internal capability rather than ongoing dependency.',
+    highlight: false,
   },
 ]
 
-const notes = [
-  'Strategy and consulting pricing depends on the engagement model, a one-time project, ongoing fractional advisory, or a hybrid arrangement each carry different scope and cost.',
-  'Larger teams, additional training sessions, or a hybrid strategy-plus-execution scope may require additional scoping.',
+const includedAtEveryTier = [
+  'Discovery & Business Target Assessment',
+  'Written Strategy & Architectural Documentation',
+  'Live Strategy Walkthrough Presentation Session',
+  'Follow-Up Asynchronous Technical Q&A Support',
 ]
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28 scroll-mt-20">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment" title="Pricing">
-          Strategy and consulting pricing depends on engagement model. Each package lists what it
-          includes.
-        </SectionIntro>
+    <section
+      id="pricing"
+      className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white scroll-mt-20"
+    >
+      <div className="mx-auto max-w-7xl">
+        {/* Header Block */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Investment &amp; Scope
+            </span>
+          </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {plans.map((plan, index) => (
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white">
+            Transparent <span className="italic text-frame-accent">SEO Strategy Pricing</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-400">
+            Strategy and consulting pricing depends on your selected engagement model. A one-time project, ongoing fractional advisory, or custom team training each carry distinct scope and deliverable commitments.
+          </p>
+        </div>
+
+        {/* 4-Tier Pricing Grid */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`flex flex-col p-7 md:p-8 ${
+              className={`relative flex flex-col justify-between rounded-2xl border p-7 transition-all duration-300 md:p-8 ${
                 plan.highlight
-                  ? 'border-2 border-frame-accent bg-frame-accent/10'
-                  : 'border-2 border-frame-border bg-frame-bg'
+                  ? 'border-frame-accent/60 bg-[#16141F] shadow-[0_0_40px_rgba(159,103,255,0.12)] ring-1 ring-frame-accent/40'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16] hover:bg-[#151518]'
               }`}
             >
-              <div className="flex items-center justify-between gap-2">
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                  Plan 0{index + 1}
+              {plan.highlight && (
+                <div className="absolute -top-3 left-6 inline-flex items-center gap-1.5 rounded-full border border-frame-accent/50 bg-frame-accent px-3 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-sm">
+                  <Sparkles className="h-3 w-3" />
+                  <span>Most Popular</span>
+                </div>
+              )}
+
+              <div>
+                <span className="font-mono text-xs font-semibold tracking-wider text-zinc-400 uppercase">
+                  {plan.type}
                 </span>
-                {plan.highlight && (
-                  <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                    Most Popular
-                  </span>
-                )}
-              </div>
 
-              <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {plan.name}
-              </h3>
+                <h3 className="mt-2 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                  {plan.name}
+                </h3>
 
-              <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                <div className="flex items-end gap-1.5">
-                  <span className="font-heading text-3xl font-bold leading-none tracking-tight text-frame-fg">
-                    {plan.price}
-                  </span>
-                  {plan.period && (
-                    <span className="pb-0.5 text-xs font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-                      {plan.period}
+                <p className="mt-2 text-xs font-normal leading-relaxed text-zinc-400">
+                  {plan.description}
+                </p>
+
+                {/* Price Display */}
+                <div className="mt-5 border-y border-white/[0.08] py-4">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-heading text-3xl sm:text-4xl font-medium tracking-tight text-white">
+                      {plan.price}
                     </span>
-                  )}
+                    {plan.period && (
+                      <span className="font-mono text-xs text-zinc-400 uppercase">
+                        {plan.period}
+                      </span>
+                    )}
+                  </div>
+                  <p className="mt-2 text-xs font-mono text-emerald-400">
+                    Best for: {plan.bestFor}
+                  </p>
+                </div>
+
+                {/* Features List */}
+                <div className="mt-5 space-y-2.5">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-400">
+                    Deliverables Included:
+                  </p>
+                  <ul className="space-y-2 text-xs text-zinc-300">
+                    {plan.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2">
+                        <Check className="h-4 w-4 shrink-0 text-frame-accent mt-0.5" />
+                        <span className="leading-snug">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
-              <dl className="mt-5 space-y-3 text-sm">
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Engagement
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.type}</dd>
-                </div>
-                <div>
-                  <dt className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    Best For
-                  </dt>
-                  <dd className="mt-0.5 font-semibold text-frame-fg">{plan.bestFor}</dd>
-                </div>
-              </dl>
-
-              <p className="mt-5 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                Included
-              </p>
-              <ul className="mt-3 space-y-2.5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                {plan.features.map((feat, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2">
-                    <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                    <span className="leading-snug">{feat}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                {plan.note}
-              </p>
-
-              <div className="mt-auto pt-8">
+              {/* Action Button */}
+              <div className="mt-8 pt-4 border-t border-white/[0.06]">
                 <PosterButton
                   href="/contact"
-                  variant={plan.highlight ? 'accent' : 'outline'}
-                  className="w-full whitespace-nowrap"
+                  variant={plan.highlight ? 'primary' : 'outline'}
+                  className="w-full justify-center"
                 >
-                  Request This Engagement
+                  Choose {plan.name} &rarr;
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <ul className="space-y-3.5 border-2 border-frame-border bg-frame-bg p-7 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-8">
-            {notes.map((note, nIdx) => (
-              <li key={nIdx} className="flex items-start gap-3">
-                <span className="mt-0.5 text-frame-accent font-bold">*</span>
-                <span>{note}</span>
-              </li>
-            ))}
-          </ul>
+        {/* Universal Guarantee & Included-at-Every-Tier Banner */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7 space-y-4">
+              <div className="flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-frame-accent">
+                <ShieldCheck className="h-4 w-4" />
+                <span>Included At Every Tier Guarantee</span>
+              </div>
+              <h3 className="font-heading text-2xl font-medium tracking-tight text-white">
+                Every Strategy Is Delivered With Executive Rigor
+              </h3>
+              <p className="text-sm font-normal leading-relaxed text-zinc-400">
+                Regardless of package tier or scope, we never hand over an unvetted document or leave you without implementation clarity.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                {includedAtEveryTier.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-2 text-xs text-zinc-300 font-mono">
+                    <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-          <div className="flex flex-col items-stretch justify-center gap-4 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Not sure which engagement fits your team? Tell us about your situation, and we will
-              recommend the right starting point.
-            </p>
-            <PosterButton href="/contact" className="w-full whitespace-nowrap">
-              Get a Custom Quote
-            </PosterButton>
+            <div className="lg:col-span-5 flex flex-col items-start lg:items-end justify-center gap-3">
+              <p className="text-xs font-mono text-zinc-400 lg:text-right">
+                Need a hybrid model combining fractional strategy with tactical implementation?
+              </p>
+              <PosterButton href="/contact">
+                Get a Custom Scope &rarr;
+              </PosterButton>
+            </div>
           </div>
         </div>
 
-        <p className="mt-8 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          * Pricing figures are a market-reference starting point. Final pricing is confirmed
-          after confirming the engagement model and scoping requirements.
+        {/* Market Disclaimer */}
+        <p className="mt-8 text-center font-mono text-xs text-zinc-500">
+          * Figures above represent starting market references. Final pricing is formally confirmed after scoping internal team capacity and technical roadmap complexity.
         </p>
       </div>
     </section>

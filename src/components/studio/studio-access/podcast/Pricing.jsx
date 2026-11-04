@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for podcast — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for podcast: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Podcast Studio Rates in Dhaka",
@@ -66,7 +66,7 @@ const DATA = {
     "Number of vertical cutdowns per episode",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Dhaka podcast studios charge ৳2,500/hour (Gold, 2-person) to ৳4,500/hour (Platinum) with 2-hour minimums at Black Box Aftabnagar; Desh Shamachar lists ৳3,500–8,000 session packages; Genesis Mirpur DOHS offers 2-camera at ৳3,000–5,000/hour with editing at ৳5,000–9,000 per episode. Our ৳8,000 audio and ৳18,000 video sessions align with premium operated tiers — engineer, isolation and 4K multi-cam included rather than added.",
+  "marketNote": "Dhaka podcast studios charge ৳2,500/hour (Gold, 2-person) to ৳4,500/hour (Platinum) with 2-hour minimums at Black Box Aftabnagar; Desh Shamachar lists ৳3,500 to 8,000 session packages; Genesis Mirpur DOHS offers 2-camera at ৳3,000 to 5,000/hour with editing at ৳5,000 to 9,000 per episode. Our ৳8,000 audio and ৳18,000 video sessions align with premium operated tiers: engineer, isolation and 4K multi-cam included rather than added.",
   "costRows": [
     [
       "Audio session: 2h, 4 mics, mastered WAV/MP3",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Podcast Recording Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

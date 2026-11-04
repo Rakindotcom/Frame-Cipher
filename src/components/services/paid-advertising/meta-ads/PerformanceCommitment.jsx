@@ -1,85 +1,108 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const resultFactors = [
-  'Product or service quality',
-  'Offer strength',
-  'Pricing',
-  'Creative',
-  'Market demand',
-  'Competition',
-  'Landing-page experience',
-  'Conversion rate',
-  'Sales process',
-  'Customer response time',
-  'Advertising budget',
-  'Tracking quality',
-]
+import React from 'react'
+import { ShieldCheck, CheckCircle2, AlertTriangle } from 'lucide-react'
 
 const commitments = [
-  'Clear campaign objectives',
-  'Reliable conversion measurement',
-  'Strategic creative testing',
-  'Ongoing campaign analysis',
-  'Budget management',
-  'Audience and delivery review',
-  'Transparent reporting',
-  'Strategy adjustments based on performance data',
+  'Clear, business-aligned campaign objectives',
+  'Reliable conversion measurement & CAPI validation',
+  'Strategic, hypothesis-driven creative testing',
+  'Ongoing campaign, ad set & creative analysis',
+  'Disciplined budget management & pacing',
+  'Advantage+ audience & placement delivery review',
+  'Transparent, platform vs real revenue reporting',
+  'Strategy adjustments based on empirical data',
+]
+
+const externalFactors = [
+  'Product or service quality vs competitors',
+  'Commercial offer strength & risk reversal',
+  'Consumer pricing & unit margin elasticity',
+  'Market demand, seasonality & category fatigue',
+  'Post-click landing page speed & checkout UX',
+  'Sales team response time on WhatsApp & leads',
 ]
 
 export default function PerformanceCommitment() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Service commitment"
-          title="Performance Expectations & Service Commitment"
-        >
-          Meta Ads performance depends on more than campaign management.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Eyebrow & Headline */}
+        <div className="max-w-3xl space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Performance Expectations &amp;{' '}
+            <span className="italic text-frame-accent">Service Commitment.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Meta Ads performance depends on more than campaign management. Your offer, pricing, creative, market demand, competition, landing-page experience, conversion rate, sales process, customer response time, advertising budget, and tracking quality all influence the outcome.
+          </p>
+        </div>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-2 lg:items-start">
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Results can be influenced by
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Factors beyond account management
-            </h3>
-            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
-              {resultFactors.map((item, index) => (
-                <li key={index} className="flex items-start gap-2 text-sm font-semibold text-frame-fg">
-                  <span className="text-frame-accent font-bold">✓</span>
-                  <span className="leading-snug">{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t border-frame-border/60 pt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We therefore do not promise a fixed cost per lead, ROAS, revenue figure, or number
-              of purchases before understanding the account and market.
-            </p>
+        {/* Modality 2 Symmetrical Two-Column Realistic Architecture Split */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:items-start">
+          {/* Left Column: Realistic Factors & Honesty Guarantee (6 cols) */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 space-y-6">
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                Why We Never Promise Fake Fixed ROAS
+              </h3>
+
+              <div className="space-y-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                <p>
+                  For that reason, we do not promise a fixed cost per lead, ROAS, revenue figure, or number of purchases before understanding your account history, audience size, and unit economics.
+                </p>
+                <p>
+                  Where the economics of Meta advertising do not make commercial sense for your business, we would rather identify that early than encourage unnecessary ad spend.
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-white/[0.08] space-y-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 block">
+                  Variables Beyond The Ad Account:
+                </span>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono text-zinc-400">
+                  {externalFactors.map((factor, fIdx) => (
+                    <div key={fIdx} className="flex items-start gap-2">
+                      <span className="text-frame-accent font-bold">•</span>
+                      <span className="leading-snug">{factor}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              What we commit to
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              A disciplined management process
+          {/* Right Column: Disciplined Process Commitments (6 cols) */}
+          <div className="lg:col-span-6 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 space-y-6">
+            <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+              <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                What We Strictly Commit To
+              </span>
+              <ShieldCheck className="h-4 w-4 text-frame-accent" />
+            </div>
+
+            <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+              A Disciplined Management Process
             </h3>
-            <ul className="mt-6 space-y-2.5">
-              {commitments.map((item, index) => (
-                <li key={index} className="flex items-start gap-3 border-b border-frame-border/60 pb-2.5 text-sm font-semibold text-frame-fg">
-                  <span className="font-mono text-xs font-black text-frame-accent">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t-2 border-frame-accent bg-frame-accent/5 p-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              Where the economics of Meta advertising do not make sense for a business, we would
-              rather identify that early than encourage unnecessary spend.
+
+            <p className="text-sm text-zinc-300 leading-relaxed font-normal">
+              While auction competition and seasonal social trends fluctuate, our operational engineering discipline remains relentless:
             </p>
+
+            <div className="space-y-3 pt-2">
+              {commitments.map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3.5 rounded-lg border border-white/[0.04] bg-[#09090B] p-3 text-xs sm:text-sm font-mono text-zinc-200"
+                >
+                  <span className="font-bold text-frame-accent shrink-0">
+                    {String(index + 1).padStart(2, '0')}.
+                  </span>
+                  <span className="leading-snug">{item}</span>
+                  <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 ml-auto" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

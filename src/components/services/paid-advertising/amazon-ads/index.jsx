@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import WhenWrong from './WhenWrong'
@@ -5,11 +8,13 @@ import Solutions from './Solutions'
 import Includes from './Includes'
 import Economics from './Economics'
 import Attribution from './Attribution'
-import WhenNotRight from './WhenNotRight'
 import WhoFor from './WhoFor'
+import WhenNotRight from './WhenNotRight'
 import WhyChoose from './WhyChoose'
 import Process from './Process'
 import Pricing from './Pricing'
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 import Markets from './Markets'
 import Timeline from './Timeline'
 import Guarantee from './Guarantee'
@@ -18,21 +23,19 @@ import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "Sponsored Products",
-  "Sponsored Brands",
-  "Display Ads & DSP",
-  "ACOS, TACOS & Profitability",
-  "Keyword & Product Targeting",
-  "Amazon Attribution",
-  "Brand Stores Where Eligible"
+  'Sponsored Products',
+  'Sponsored Brands',
+  'Display Ads & DSP',
+  'ACOS, TACOS & Profitability',
+  'Keyword & ASIN Targeting',
+  'Amazon Attribution',
+  'Brand Stores Where Eligible',
+  'Buy Box & Retail Readiness',
 ]
-
-import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
-import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingAmazonAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -57,4 +60,4 @@ export default function PaidAdvertisingAmazonAdsService({ service }) {
   )
 }
 
-export { Hero, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Process, Pricing, FAQ, CTA }

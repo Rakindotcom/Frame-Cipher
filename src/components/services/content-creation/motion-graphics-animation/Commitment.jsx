@@ -1,6 +1,6 @@
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -20,8 +20,8 @@ const commitments = [
 
 export default function Commitment() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Integrity & Standards"
           title="What We Commit To"
@@ -29,28 +29,28 @@ export default function Commitment() {
           We do not promise arbitrary viral numbers or guaranteed conversion percentages from an animation alone; distribution, landing pages, and audience targeting shape those metrics. What we control with absolute discipline is our production process.
         </SectionIntro>
 
-        <div className="mt-12 border-2 border-frame-border bg-frame-muted/10 p-6 md:p-10">
+        <div className="mt-12 border border-white/[0.08] bg-[#121214] p-6 md:p-10">
           <div className="max-w-3xl mb-6">
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
               Our Production Guarantee
             </span>
-            <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
               Transparent, Milestone-Driven Execution
             </h3>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2">
             {commitments.map((text, idx) => (
-              <div key={idx} className="flex items-start gap-3 bg-frame-bg p-4 border border-frame-border/80">
+              <div key={idx} className="flex items-start gap-3 bg-[#09090B] p-4 border border-white/[0.08]">
                 <CheckIcon />
-                <span className="text-xs sm:text-sm font-medium text-frame-fg leading-relaxed">
+                <span className="text-xs sm:text-sm font-medium text-[#FAFAFA] leading-relaxed">
                   {text}
                 </span>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 border-t border-frame-border/60 pt-4 text-xs font-medium text-frame-muted-fg">
+          <div className="mt-8 border-t border-white/[0.06] pt-4 text-xs font-medium text-[#A1A1AA]">
             The exact number of revisions, editable source files, voice-over casting, music licenses, and additional cutdowns are outlined clearly in your project scope before kick-off.
           </div>
         </div>

@@ -1,79 +1,117 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, Eye } from 'lucide-react'
 
 const steps = [
   {
-    number: '01',
+    num: '01',
     title: 'Technical Audit',
-    description: 'We examine the website\u2019s technical infrastructure, crawlability, indexation, performance, architecture, and other relevant areas to identify issues affecting organic visibility.',
+    para1:
+      'We examine the website’s technical infrastructure, crawlability, indexation, performance, architecture, and other relevant areas to identify issues affecting organic visibility.',
   },
   {
-    number: '02',
+    num: '02',
     title: 'Prioritization',
-    description: 'Not every technical issue deserves the same level of attention. We prioritize recommendations based on potential impact, urgency, business importance, implementation requirements, and available resources.',
+    para1:
+      'Not every technical issue deserves the same level of attention. We prioritize recommendations based on potential impact, urgency, business importance, implementation requirements, and available resources.',
   },
   {
-    number: '03',
+    num: '03',
     title: 'Implementation',
-    description: 'Approved technical changes are implemented directly by our team or coordinated with your existing developers, depending on the project. This can include technical configuration, redirects, structured data, internal linking, performance improvements, indexing controls, and other approved fixes.',
+    para1:
+      'Approved technical changes are implemented directly by our team or coordinated with your existing developers, depending on the project.',
+    para2:
+      'Changes can include technical configuration, redirects, structured data, internal linking, performance improvements, indexing controls, and other approved fixes.',
   },
   {
-    number: '04',
+    num: '04',
     title: 'Validation',
-    description: 'We verify whether the implemented changes actually resolved the identified problem. Depending on the issue, validation may involve technical testing, crawling, Search Console checks, structured-data validation, performance testing, or other available evidence.',
+    para1:
+      'We verify whether the implemented changes actually resolved the identified problem.',
+    para2:
+      'Depending on the issue, validation may involve technical testing, crawling, Search Console checks, structured-data validation, performance testing, or other available evidence.',
   },
   {
-    number: '05',
+    num: '05',
     title: 'Monitoring',
-    description: 'After implementation, we monitor the relevant technical signals to identify regressions, new issues, or additional opportunities.',
+    para1:
+      'After implementation, we monitor the relevant technical signals to identify regressions, new issues, or additional opportunities.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Execution framework"
-          title="How We Approach Technical SEO"
-        >
-          We focus on fixing the right problems in the right order rather than trying to change
-          everything at once.
-        </SectionIntro>
+    <section className="relative isolate bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro */}
+        <div className="mb-12 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3 py-1 text-xs text-zinc-300 mb-4">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Execution Framework // 5-Stage Protocol
+            </span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
+            How We Approach{' '}
+            <span className="italic text-frame-accent">Technical SEO</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            We focus on fixing the right problems in the right order rather than trying to change everything at once.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, index) => (
+        {/* 5 Steps Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {steps.map((step) => (
             <div
-              key={index}
-              className="group relative flex min-h-64 flex-col justify-between bg-frame-bg p-7 transition-colors hover:bg-frame-accent md:p-8"
+              key={step.num}
+              className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-all duration-300 hover:border-frame-accent/40 hover:bg-[#151518]"
             >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted transition-colors duration-200 group-hover:text-frame-accent-fg">
-                  {step.number}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg transition-colors duration-200 group-hover:text-frame-accent-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                  <span className="font-mono text-2xl font-bold tracking-tight text-zinc-500 group-hover:text-frame-accent transition-colors">
+                    {step.num}
+                  </span>
+                  <span className="font-mono text-[11px] uppercase tracking-widest text-zinc-500">
+                    Phase {step.num}
+                  </span>
+                </div>
+
+                <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {step.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg transition-colors duration-200 group-hover:text-frame-accent-fg/90">
-                  {step.description}
-                </p>
+
+                <div className="mt-3 space-y-2 text-sm text-zinc-300 font-normal leading-relaxed">
+                  <p>{step.para1}</p>
+                  {step.para2 && (
+                    <p className="border-l-2 border-white/[0.1] pl-3 text-zinc-400">
+                      {step.para2}
+                    </p>
+                  )}
+                </div>
               </div>
-              <span
-                aria-hidden="true"
-                className="mt-6 inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-frame-accent transition-colors duration-200 group-hover:text-frame-accent-fg"
-              >
-                Phase 0{index + 1}
-              </span>
             </div>
           ))}
 
-          <div className="flex min-h-64 flex-col justify-center bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Transparency by default
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              Every approved technical change is reviewed before it touches the live site, so
-              nothing happens without your visibility into what is changing and why.
-            </p>
+          {/* 6th Transparency Block to complete grid */}
+          <div className="relative flex flex-col justify-between rounded-2xl border border-frame-accent/30 bg-gradient-to-br from-frame-accent/10 via-[#121214] to-[#121214] p-6 sm:p-7">
+            <div>
+              <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+                <Eye className="h-4 w-4" />
+                <span>Transparency by Default</span>
+              </div>
+              <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white">
+                Pre-Deployment Verification
+              </h3>
+              <p className="mt-3 text-sm text-zinc-300 font-normal leading-relaxed">
+                Every approved technical change is reviewed before it touches the live site, so nothing happens without your visibility into what is changing and why.
+              </p>
+            </div>
+            <div className="mt-6 flex items-center gap-2 font-mono text-xs text-frame-accent">
+              <CheckCircle2 className="h-4 w-4" />
+              <span>Full Staging Checks Included</span>
+            </div>
           </div>
         </div>
       </div>

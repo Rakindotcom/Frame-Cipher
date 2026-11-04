@@ -25,7 +25,7 @@ const wordpressKeywords = [
 
 export default function WebsiteDesignDevelopmentWordpressService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={wordpressKeywords} slow />
       <WebsitePortfolioPreview

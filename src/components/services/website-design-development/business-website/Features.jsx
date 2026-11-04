@@ -1,5 +1,3 @@
-import { SectionIntro, SectionLabel } from '../../../Kinetic'
-
 const featuresList = [
   {
     title: 'Lead Capture Forms',
@@ -37,31 +35,50 @@ const featuresList = [
 
 export default function Features() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Tools & Ecosystem / Lead Capture" title="Business Website Features & Integrations">
-          A business website often needs more than pages and contact information. We can connect the website to the tools your team uses to manage leads, communication, bookings, and marketing.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Business Website{' '}
+            <span className="italic text-frame-accent">Features &amp; Integrations.</span>
+          </h2>
+          <p className="text-base text-zinc-400 sm:text-lg">
+            A business website often needs more than pages and contact information. We can connect the website to the tools your team uses to manage leads, communication, bookings, and marketing.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-4">
+        {/* Modality 3: 4-Column Blueprint Matrix */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
           {featuresList.map((feature, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-6 transition-colors duration-200 hover:bg-[#121214]"
+            >
               <div>
-                <SectionLabel className="mb-2">Capability {String(index + 1).padStart(2, '0')}</SectionLabel>
-                <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                  Capability {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {feature.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm leading-relaxed text-zinc-300">
                   {feature.desc}
                 </p>
+              </div>
+              <div className="mt-6 border-t border-white/[0.06] pt-3 font-mono text-[10px] text-zinc-500 uppercase tracking-wider">
+                Full API Compatibility
               </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          Integration availability depends on the platform, third-party software, API access, and project scope. We confirm compatibility before development begins.
-        </p>
+        {/* Architectural Footnote Box */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-5 md:p-6">
+          <p className="text-xs sm:text-sm font-medium text-zinc-300 border-l-2 border-frame-accent pl-4">
+            Integration availability depends on the platform, third-party software, API access, and project scope. We confirm compatibility before development begins.
+          </p>
+        </div>
       </div>
     </section>
   )

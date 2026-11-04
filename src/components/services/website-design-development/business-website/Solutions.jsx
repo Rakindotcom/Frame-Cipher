@@ -1,5 +1,3 @@
-import { SectionIntro } from '../../../Kinetic'
-
 const industries = [
   {
     title: 'Service Businesses',
@@ -29,31 +27,50 @@ const industries = [
 
 export default function Solutions() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Market Alignment / Domain Tailoring" title="Business Website Solutions for Different Industries">
-          Different businesses need different website structures, content, functionality, and conversion paths. We adapt the website around how your customers research, compare, and contact your business.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Business Website Solutions for{' '}
+            <span className="italic text-frame-accent">Different Industries.</span>
+          </h2>
+          <p className="text-base text-zinc-400 sm:text-lg">
+            Different businesses need different website structures, content, functionality, and conversion paths. We adapt the website around how your customers research, compare, and contact your business.
+          </p>
+        </div>
 
-        <div className="grid bg-frame-border gap-px border-2 border-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* Modality 3: Blueprint Matrix */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
           {industries.map((ind, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-6 transition-colors duration-200 hover:bg-[#121214] sm:p-8"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">Industry 0{index + 1}</span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                  Industry 0{index + 1}
+                </span>
+                <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {ind.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {ind.desc}
                 </p>
+              </div>
+              <div className="mt-6 border-t border-white/[0.06] pt-3 font-mono text-[11px] text-zinc-500">
+                Custom Journey Architecture
               </div>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-xs md:text-sm font-medium text-frame-muted-fg border-l-2 border-frame-accent pl-4 wide:text-lg">
-          Every project starts with your actual business model and customer journey rather than forcing the same structure on every company.
-        </p>
+        {/* Footnote callout */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-5 md:p-6">
+          <p className="text-xs sm:text-sm font-medium text-zinc-300 border-l-2 border-frame-accent pl-4">
+            Every project starts with your actual business model and customer journey rather than forcing the same structure on every company.
+          </p>
+        </div>
       </div>
     </section>
   )

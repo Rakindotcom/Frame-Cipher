@@ -1,11 +1,13 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const marketBlocks = [
   {
     title: 'Google AdSense Support for Bangladeshi Publishers',
     body: 'We help Bangladesh-based bloggers, publishers, niche website owners, and businesses prepare their websites for AdSense review.',
     closing:
-      'For Bangladeshi websites, we assess the actual site rather than applying a generic \u201CBangladesh approval\u201D formula.',
+      'For Bangladeshi websites, we assess the actual site rather than applying a generic “Bangladesh approval” formula.',
   },
   {
     title: 'International Publishers & Website Owners',
@@ -17,29 +19,47 @@ const marketBlocks = [
 
 export default function Markets() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Markets we serve" title="Bangladesh & International Markets">
-          AdSense preparation should reflect the market the website actually serves. We review sites
-          for Bangladeshi and international publishers rather than applying a single approval
-          formula everywhere.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Geographic Reach // Publisher Audiences</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Bangladesh &amp;{' '}
+            <span className="italic text-frame-accent">International Markets</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            AdSense preparation should reflect the market the website actually serves. We review sites
+            for Bangladeshi and international publishers rather than applying a single approval
+            formula everywhere.
+          </p>
+        </div>
 
-        <div className="grid gap-6 lg:grid-cols-2">
+        {/* 2 Market Blocks */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {marketBlocks.map((item, index) => (
-            <div key={item.title} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Market 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              <p className="mt-5 border-l-2 border-frame-accent p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+            <div
+              key={item.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
+            >
+              <div>
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Market 0{index + 1}
+                </span>
+                <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                  {item.body}
+                </p>
+              </div>
+
+              <div className="mt-6 border-l-2 border-frame-accent bg-[#09090B] p-4 text-xs sm:text-sm leading-relaxed text-zinc-400 rounded-r-md">
                 {item.closing}
-              </p>
+              </div>
             </div>
           ))}
         </div>

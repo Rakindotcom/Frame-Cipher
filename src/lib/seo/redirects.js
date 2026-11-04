@@ -65,6 +65,7 @@ export const legacyRedirects = [
   { source: '/services/360', destination: '/services/360-marketing', permanent: true },
   { source: '/services/marketing', destination: '/services/360-marketing', permanent: true },
   { source: '/services/digital-marketing', destination: '/services/360-marketing', permanent: true },
+  { source: '/360-marketing', destination: '/services/360-marketing', permanent: true },
   { source: '/services/360-marketing-agency', destination: '/services/360-marketing', permanent: true },
 ];
 

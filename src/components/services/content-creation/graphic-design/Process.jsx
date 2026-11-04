@@ -34,12 +34,12 @@ const processStepsData = [
 ]
 
 const timelineMatrix = [
-  { type: 'Single Design Piece', time: '3–5 business days', note: 'One flyer, one-pager, single ad, or standalone asset' },
-  { type: 'Pitch Deck / Presentation', time: '1–2 weeks', note: '10–20 slide custom deck with data visualization & template' },
-  { type: 'Company Profile', time: '1–2 weeks', note: 'Multi-page corporate document with structured layout system' },
-  { type: 'Print Collateral Package', time: '1–2 weeks', note: 'Business cards, letterhead, envelopes, and corporate brochure' },
-  { type: 'Packaging / Label Project', time: '1–3 weeks', note: 'Dieline engineering, label systems & variant colorways' },
-  { type: 'Catalogue / Larger Publication', time: '2–4+ weeks', note: 'Extensive product catalogs, annual reports & lookbooks' },
+  { type: 'Single Design Piece', time: '3 to 5 business days', note: 'One flyer, one-pager, single ad, or standalone asset' },
+  { type: 'Pitch Deck / Presentation', time: '1 to 2 weeks', note: '10 to 20 slide custom deck with data visualization & template' },
+  { type: 'Company Profile', time: '1 to 2 weeks', note: 'Multi-page corporate document with structured layout system' },
+  { type: 'Print Collateral Package', time: '1 to 2 weeks', note: 'Business cards, letterhead, envelopes, and corporate brochure' },
+  { type: 'Packaging / Label Project', time: '1 to 3 weeks', note: 'Dieline engineering, label systems & variant colorways' },
+  { type: 'Catalogue / Larger Publication', time: '2 to 4+ weeks', note: 'Extensive product catalogs, annual reports & lookbooks' },
   { type: 'Ongoing Design Retainer', time: 'Monthly delivery', note: 'Scheduled monthly sprints with dedicated turnaround queues' }
 ]
 
@@ -47,8 +47,8 @@ export default function Process({ service }) {
   const steps = service?.processSteps?.length === 6 ? service.processSteps : processStepsData
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Execution Methodology"
           title="Our Graphic Design Process"
@@ -57,17 +57,17 @@ export default function Process({ service }) {
         </SectionIntro>
 
         {/* 6-STEP PROCESS GRID */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between">
+            <div key={index} className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-[#A855F7]">
                   {step.number || String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {step.description}
                 </p>
               </div>
@@ -77,45 +77,45 @@ export default function Process({ service }) {
 
         {/* TYPICAL TIMELINES TABLE */}
         <div className="mt-16">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-frame-border pb-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Production Benchmarks
               </span>
-              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Typical Graphic Design Timelines
               </h3>
             </div>
-            <p className="text-xs font-mono text-frame-muted-fg">
+            <p className="text-xs font-mono text-[#A1A1AA]">
               Timelines begin after scope, brand assets, and content are approved
             </p>
           </div>
 
-          <div className="mt-6 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+          <div className="mt-6 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
             <table className="w-full text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+              <thead className="border-b border-white/[0.08] bg-[#121214]">
                 <tr>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Project Type
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Typical Timeline
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Scope Details
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-frame-border text-xs sm:text-sm font-medium">
                 {timelineMatrix.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-5 font-bold uppercase tracking-tight text-frame-fg">
+                  <tr key={idx} className="hover:bg-[#121214]">
+                    <td className="p-4 md:p-5 font-bold uppercase tracking-tight text-[#FAFAFA]">
                       {item.type}
                     </td>
-                    <td className="p-4 md:p-5 font-bold text-frame-accent whitespace-nowrap">
+                    <td className="p-4 md:p-5 font-bold text-[#A855F7] whitespace-nowrap">
                       {item.time}
                     </td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg">
+                    <td className="p-4 md:p-5 text-[#A1A1AA]">
                       {item.note}
                     </td>
                   </tr>
@@ -124,7 +124,7 @@ export default function Process({ service }) {
             </table>
           </div>
 
-          <p className="mt-4 text-xs font-medium text-frame-muted-fg leading-relaxed">
+          <p className="mt-4 text-xs font-medium text-[#A1A1AA] leading-relaxed">
             * Note: Timelines commence after the project scope, required content, brand assets, and technical specifications are confirmed. Larger corporate profiles, extensive catalogues, or complex packaging dielines receive custom schedule estimates.
           </p>
         </div>

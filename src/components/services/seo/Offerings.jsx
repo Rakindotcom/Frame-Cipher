@@ -1,6 +1,7 @@
+'use client'
 
+import React from 'react'
 import { AutoLinks } from '../../seo/AutoLinks'
-import { SectionIntro } from '../../Kinetic'
 
 const seoServices = [
   {
@@ -64,7 +65,8 @@ const seoServices = [
     title: 'AI Search Optimization',
     summary: 'Search is expanding beyond traditional search-result pages. AI-assisted search experiences can summarize information, answer questions, compare businesses, and surface sources within generated responses.',
     body: [
-      'Our AI search optimization work focuses on making your website\'s information clear, useful, structured, and easy for modern search systems to interpret. This can include answer-focused content, entity clarity, structured information, FAQs, topical coverage, supporting authority, and content designed around conversational search behavior.',
+      'Our AI search optimization work focuses on making your website\'s information clear, useful, structured, and easy for modern search systems to interpret.',
+      'This can include answer-focused content, entity clarity, structured information, FAQs, topical coverage, supporting authority, and content designed around conversational search behavior.',
     ],
     note: 'We do not guarantee citations, mentions, or visibility in a particular AI platform. Instead, we improve the underlying content, structure, and authority signals that can help your website be understood and considered across evolving search experiences.',
   },
@@ -94,7 +96,8 @@ const researchAreas = [
   {
     title: 'Competitor Keyword Gap Analysis',
     body: 'Your SEO competitors are not always the companies you compete with offline. They are often the websites and pages appearing for the searches you want to capture.',
-    tail: 'We analyze relevant competitors to identify ranking terms, important landing pages, content coverage, backlink patterns, search intent, and opportunities your website has not addressed.',
+    middle: 'We analyze relevant competitors to identify ranking terms, important landing pages, content coverage, backlink patterns, search intent, and opportunities your website has not addressed.',
+    tail: 'The result is a clearer view of what competing websites are doing in search and where your website can build stronger coverage.',
   },
   {
     title: 'Content & SERP Gap Analysis',
@@ -105,77 +108,122 @@ const researchAreas = [
 
 export default function Offerings() {
   return (
-    <section id="offerings" className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <div>
-          <SectionIntro
-            eyebrow="Capabilities & Scope"
-            title="Our Search Engine Optimization Services"
-          >
-            SEO performs best when technical health, useful content, search intent, authority,
-            and user experience work together. Our SEO services cover the core areas required to
-            build, improve, and maintain organic search visibility.
-          </SectionIntro>
-
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-            {seoServices.map((item, index) => (
-              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Service 0{index + 1}
-                  </span>
-                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {item.title}
-                  </h3>
-                  <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90"><AutoLinks currentPath="/services/seo" allowed={["/services/website-design-development/landing-pages"]}>
-                    {item.summary}
-                  </AutoLinks></p>
-                  <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.body.map((paragraph, pIdx) => (
-                      <p key={pIdx}>{paragraph}</p>
-                    ))}
-                  </div>
-                  {item.note && (
-                    <div className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                      {item.note}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+    <section id="offerings" className="scroll-mt-20 border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section 1 Header: Core SEO Capabilities */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Capabilities &amp; Scope // 10 Specialized Disciplines
+            </span>
           </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our Search Engine{' '}
+            <span className="italic text-frame-accent">Optimization Services.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            SEO performs best when technical health, useful content, search intent, authority, and user experience work together. Our SEO services cover the core areas required to build, improve, and maintain organic search visibility.
+          </p>
         </div>
 
-        <div className="mt-28">
-          <SectionIntro
-            eyebrow="Understanding the search landscape"
-            title="Keyword Research & Competitor SEO Analysis"
-          >
-            Effective SEO starts before changing a title tag or publishing an article. It starts
-            with understanding what people search for, what they expect to find, and which pages
-            currently satisfy that demand.
-          </SectionIntro>
+        {/* Modality 3: Blueprint Matrix Grid for 10 Services */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
+          {seoServices.map((item, index) => (
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:bg-[#18181B] sm:p-8"
+            >
+              <div>
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                    Service 0{index + 1}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/10 group-hover:bg-frame-accent transition-colors" />
+                </div>
 
-          <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-3">
-            {researchAreas.map((area, index) => (
-              <div key={index} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-                <div>
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-200">
+                  <AutoLinks currentPath="/services/seo" allowed={["/services/website-design-development/landing-pages"]}>
+                    {item.summary}
+                  </AutoLinks>
+                </p>
+
+                <div className="mt-4 space-y-3 text-sm font-normal leading-relaxed text-zinc-400">
+                  {item.body.map((paragraph, pIdx) => (
+                    <p key={pIdx}>{paragraph}</p>
+                  ))}
+                </div>
+
+                {item.note && (
+                  <div className="mt-5 rounded-lg border-l-2 border-frame-accent bg-white/[0.02] p-4 text-xs font-normal leading-relaxed text-zinc-400">
+                    {item.note}
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Section 2 Header: Keyword Research & Competitor Analysis */}
+        <div className="mt-28 mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Understanding the Search Landscape
+            </span>
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Keyword Research &amp;{' '}
+            <span className="italic text-frame-accent">Competitor SEO Analysis.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Effective SEO starts before changing a title tag or publishing an article. It starts with understanding what people search for, what they expect to find, and which pages currently satisfy that demand.
+          </p>
+        </div>
+
+        {/* Modality 3: 3-Column Matrix for Research Areas */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] lg:grid-cols-3">
+          {researchAreas.map((area, index) => (
+            <div
+              key={index}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:bg-[#18181B] sm:p-8"
+            >
+              <div>
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
                     Analysis 0{index + 1}
                   </span>
-                  <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                    {area.title}
-                  </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {area.body}
-                  </p>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {area.tail}
-                  </p>
+                  <span className="h-1.5 w-1.5 rounded-full bg-white/10 group-hover:bg-frame-accent transition-colors" />
                 </div>
+
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                  {area.title}
+                </h3>
+
+                <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-300">
+                  {area.body}
+                </p>
+
+                {area.middle && (
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-300">
+                    {area.middle}
+                  </p>
+                )}
+
+                <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-400">
+                  {area.tail}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

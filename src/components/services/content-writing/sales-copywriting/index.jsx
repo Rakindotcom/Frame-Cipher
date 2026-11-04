@@ -30,7 +30,7 @@ const marqueeItems = [
 
 export default function ContentWritingSalesCopywritingService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-[#FAFAFA] min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <WritingPortfolioPreview

@@ -1,8 +1,11 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
 
 const includesModules = [
   {
-    tag: 'Module 01',
+    tag: '01',
     title: 'Site Audit & Diagnosis',
     intro: 'Every project starts with understanding what is underperforming and why.',
     subhead: 'What We Review:',
@@ -19,7 +22,7 @@ const includesModules = [
     outro: 'The audit turns redesign decisions from assumptions into a practical plan.',
   },
   {
-    tag: 'Module 02',
+    tag: '02',
     title: 'UX & Information Architecture',
     intro: 'A redesign should make it easier for visitors to find information and complete important actions.',
     subhead: 'We can review and improve:',
@@ -36,7 +39,7 @@ const includesModules = [
     outro: null,
   },
   {
-    tag: 'Module 03',
+    tag: '03',
     title: 'Visual Redesign',
     intro: 'We modernize the visual experience around the needs identified during the audit.',
     subhead: 'This can include:',
@@ -53,7 +56,7 @@ const includesModules = [
     outro: 'The objective is not to change everything for the sake of change. The design should solve the problems identified during the discovery stage.',
   },
   {
-    tag: 'Module 04',
+    tag: '04',
     title: 'Technical Rebuild & Performance',
     intro: 'When the existing technical foundation is part of the problem, the redesign may require deeper development work.',
     subhead: 'This can include:',
@@ -71,7 +74,7 @@ const includesModules = [
     outro: null,
   },
   {
-    tag: 'Module 05',
+    tag: '05',
     title: 'Testing & Launch',
     intro: 'Before launch, we test the redesigned website across the areas that matter to users and search engines.',
     subhead: 'This can include:',
@@ -94,42 +97,52 @@ const includesModules = [
 
 export default function Included() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Deliverables & Scope" title="What Your Website Redesign Includes">
-          Our redesign work is structured around what the current website actually needs to improve.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            What Your Website{' '}
+            <span className="italic text-frame-accent">Redesign Includes.</span>
+          </h2>
+        </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3 border-2 border-frame-border">
-          {includesModules.map((module, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 sm:p-8 md:p-10 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
+        {/* 5 Modules Grid */}
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+          {includesModules.map((mod, idx) => (
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  {module.tag}
+                <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                  {mod.tag}
                 </span>
-                <h3 className="mt-4 font-heading text-xl sm:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {module.title}
+                <h3 className="mt-3 font-heading text-xl font-medium text-white">
+                  {mod.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {module.intro}
+                <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
+                  {mod.intro}
                 </p>
-                <p className="mt-6 text-xs font-black uppercase tracking-wider text-frame-fg">
-                  {module.subhead}
+
+                <p className="mt-4 font-mono text-[11px] uppercase tracking-wider text-zinc-300 border-t border-white/[0.08] pt-4">
+                  {mod.subhead}
                 </p>
-                <ul className="mt-4 space-y-2 text-xs sm:text-sm font-medium text-frame-fg">
-                  {module.items.map((item, iIdx) => (
-                    <li key={iIdx} className="flex items-start gap-2.5">
-                      <span className="flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent font-black text-[10px] text-frame-accent mt-0.5">
-                        ✓
+                <ul className="mt-3 space-y-2 text-xs sm:text-sm text-zinc-300">
+                  {mod.items.map((item, iIdx) => (
+                    <li key={iIdx} className="flex items-start gap-2">
+                      <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-frame-accent/40 bg-frame-accent/10 text-frame-accent mt-0.5">
+                        <Check className="h-2.5 w-2.5 stroke-[2.5]" />
                       </span>
                       <span className="leading-snug">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              {module.outro && (
-                <p className="mt-6 border-t border-frame-border/80 pt-4 text-xs font-medium italic text-frame-muted-fg">
-                  {module.outro}
+
+              {mod.outro && (
+                <p className="mt-6 border-t border-white/[0.08] pt-4 text-xs italic text-zinc-400 leading-relaxed">
+                  {mod.outro}
                 </p>
               )}
             </div>

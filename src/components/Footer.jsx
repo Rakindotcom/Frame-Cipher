@@ -1,33 +1,130 @@
+'use client'
+
+import React from 'react'
 import Link from 'next/link'
 import { contact, navItems, siteUrl } from '../data/agency'
+import { RouteGlobe } from './ui/route-globe'
+import { ArrowUpRight } from 'lucide-react'
+
+const CYBER_DARK_THEME = {
+  ground: 'transparent',
+  land: '#A855F7',
+  arc: '#C084FC',
+  glow: 'rgba(168, 85, 247, 0.22)',
+  text: '#FFFFFF',
+  muted: '#A1A1AA',
+}
+
+const directoryList = [
+  {
+    name: 'Clutch',
+    logo: '/Listed%20In/Clutch-transparent.webp',
+    status: 'Verified Agency',
+    badge: 'Top B2B & Tech Partner',
+    rating: '5.0 ★ Rating',
+  },
+  {
+    name: 'Trustpilot',
+    logo: '/Listed%20In/Trustpilot-transparent.webp',
+    status: '5.0 Score',
+    badge: 'Verified Client Reviews',
+    rating: 'Excellent',
+  },
+  {
+    name: 'SelectedFirms',
+    logo: '/Listed%20In/SelectedFirms-transparent.webp',
+    status: 'Top Marketing Agency',
+    badge: 'Ranked Global Company',
+    rating: 'Official Badge',
+    url: 'https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic',
+  },
+  {
+    name: 'GoodFirms',
+    logo: '/Listed%20In/GoodFirms-transparent.webp',
+    status: 'Top Rated Company',
+    badge: 'Software & Growth',
+    rating: 'Verified Leader',
+  },
+  {
+    name: 'ShortList',
+    logo: '/Listed%20In/ShortList-transparent.webp',
+    status: 'Featured Partner',
+    badge: 'Curated Agency Directory',
+    rating: 'Official Listing',
+  },
+]
 
 export default function Footer() {
   return (
-    <footer className="border-t-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-12 border-b-2 border-frame-border pb-10">
-          <p className="mb-4 text-sm font-black uppercase tracking-[0.28em] text-frame-accent">Frame Cipher</p>
-          <h2 className="font-heading text-[clamp(3rem,10vw,10rem)] font-bold uppercase leading-[0.78] tracking-tighter text-frame-fg">
-            Brand. Content. Tech. Growth.
+    <footer className="relative isolate overflow-hidden border-t border-white/[0.08] bg-[#09090B] px-4 pt-16 sm:px-6 md:px-8 md:pt-20 pb-8 md:pb-10 text-[#FAFAFA]">
+      {/* Background Interactive 3D RouteGlobe Canvas & Architectural Ambient Light */}
+      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none [mask-image:linear-gradient(to_bottom,black_50%,transparent_92%)] [-webkit-mask-image:linear-gradient(to_bottom,black_50%,transparent_92%)]">
+        {/* Soft atmospheric violet glow */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-purple-600/[0.05] blur-[150px]" />
+        <div className="absolute -bottom-32 right-1/4 h-[400px] w-[600px] rounded-full bg-indigo-600/[0.04] blur-[140px]" />
+
+        {/* Interactive 3D Dotted Globe with Flight Routes & Animated Comets */}
+        <div className="pointer-events-auto absolute inset-0 flex items-start justify-center pt-80 sm:pt-96 md:items-center md:justify-end md:pt-0 opacity-25 md:opacity-30 lg:opacity-35 xl:right-10">
+          <RouteGlobe
+            theme={CYBER_DARK_THEME}
+            className="h-[380px] w-[380px] sm:h-[480px] sm:w-[480px] md:h-[620px] md:w-[620px] lg:h-[750px] lg:w-[750px]"
+          />
+        </div>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Top Massive Headline & Global Delivery Identifier */}
+        <div className="mb-12 border-b border-white/[0.08] pb-10">
+          <div className="flex items-center gap-2 mb-5">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            </span>
+            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+              Frame Cipher · Global Delivery Network
+            </p>
+          </div>
+          <h2 className="font-heading text-[clamp(2.5rem,7.5vw,7.5rem)] font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Brand. Content. Tech.{' '}
+            <span className="italic text-frame-accent">
+              Growth.
+            </span>
           </h2>
         </div>
 
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.3fr_1fr_1.15fr_0.85fr_1fr]">
-          <div>
-            <div className="mb-5 flex items-center gap-3">
-              <img src="/logo.webp" alt="Frame Cipher" className="h-11 w-11 object-contain" />
-              <div className="font-heading text-lg font-bold uppercase tracking-[0.16em] text-frame-fg">FRAME CIPHER</div>
+        {/* 5-Column Sitemap & Directory Grid */}
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.4fr_1.05fr_1.15fr_0.85fr_1.1fr] pb-12 border-b border-white/[0.08]">
+          {/* Col 1: Identity & Positioning */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-3">
+              <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-1 shadow-sm">
+                <img src="/logo.webp" alt="Frame Cipher" className="h-full w-full object-contain" />
+              </div>
+              <span className="font-heading text-lg font-medium uppercase tracking-[0.08em] text-white">
+                FRAME CIPHER
+              </span>
             </div>
-            <p className="max-w-md text-sm font-medium leading-7 text-frame-muted-fg wide:text-lg">
+            <p className="max-w-sm text-sm font-normal leading-relaxed text-zinc-300">
               Frame Cipher is a 360 marketing, media, and technology agency helping brands build strategy,
               content, software, campaigns, and growth systems under one roof.
             </p>
-            <p className="mt-4 text-xs font-black uppercase tracking-[0.2em] text-frame-accent">{siteUrl}</p>
+            <div className="pt-2">
+              <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-frame-accent bg-[#18181B] border border-white/[0.08] px-3 py-1 rounded-full">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                <span>{siteUrl.replace(/^https?:\/\//, '')}</span>
+              </span>
+            </div>
           </div>
 
+          {/* Col 2: Core Services */}
           <div>
-            <h2 className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Core Services</h2>
-            <ul className="grid gap-2 text-sm">
+            <div className="mb-4 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+                Core Services
+              </h3>
+            </div>
+            <ul className="grid gap-2.5 text-sm">
               {[
                 { title: '360 Marketing', href: '/services/360-marketing' },
                 { title: 'Paid Advertising', href: '/services/paid-advertising' },
@@ -42,20 +139,32 @@ export default function Footer() {
                 { title: 'Studio Space Rental', href: '/studio/rental' },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                    {item.title}
+                  <Link
+                    href={item.href}
+                    className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
+                  >
+                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                      &rsaquo;
+                    </span>
+                    <span>{item.title}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Col 3: Ads Calculators */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <h2 className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Ads Calculators</h2>
-              <span className="rounded bg-frame-accent/15 px-1.5 py-0.5 text-[9px] font-mono font-bold tracking-wider text-frame-accent">FREE</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+                Ads Calculators
+              </h3>
+              <span className="rounded-full bg-purple-500/10 px-2 py-0.5 font-mono text-[9px] font-medium tracking-wider text-purple-300 border border-purple-500/20">
+                FREE
+              </span>
             </div>
-            <ul className="grid gap-2 text-sm">
+            <ul className="grid gap-2.5 text-sm">
               {[
                 { title: 'All Calculators Hub', href: '/calculators' },
                 { title: 'Google Ads ROI', href: '/calculators/google-ads' },
@@ -69,154 +178,207 @@ export default function Footer() {
                 { title: 'Pinterest Ads', href: '/calculators/pinterest-ads' },
               ].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                    {item.title}
+                  <Link
+                    href={item.href}
+                    className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
+                  >
+                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                      &rsaquo;
+                    </span>
+                    <span>{item.title}</span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
+          {/* Col 4: Company */}
           <div>
-            <h2 className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Company</h2>
-            <ul className="grid gap-2 text-sm">
+            <div className="mb-4 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+                Company
+              </h3>
+            </div>
+            <ul className="grid gap-2.5 text-sm">
               {navItems.slice(1).map((item) => (
                 <li key={item.path}>
-                  <Link href={item.path} className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                    {item.name}
+                  <Link
+                    href={item.path}
+                    className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
+                  >
+                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                      &rsaquo;
+                    </span>
+                    <span>{item.name}</span>
                   </Link>
                 </li>
               ))}
               <li>
-                <Link href="/authors" className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                  Authors
+                <Link
+                  href="/authors"
+                  className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
+                >
+                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                    &rsaquo;
+                  </span>
+                  <span>Authors</span>
                 </Link>
               </li>
               <li>
-                <Link href="/privacy" className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                  Privacy
+                <Link
+                  href="/privacy"
+                  className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
+                >
+                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                    &rsaquo;
+                  </span>
+                  <span>Privacy</span>
                 </Link>
               </li>
               <li>
-                <Link href="/terms" className="font-medium text-frame-muted-fg transition-colors hover:text-frame-fg">
-                  Terms
+                <Link
+                  href="/terms"
+                  className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
+                >
+                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                    &rsaquo;
+                  </span>
+                  <span>Terms</span>
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Col 5: Direct Contact */}
           <div>
-            <h2 className="mb-4 text-xs font-black uppercase tracking-[0.22em] text-frame-accent">Contact</h2>
-            <ul className="grid gap-3 text-sm font-medium text-frame-muted-fg wide:text-lg">
-              <li>{contact.location}</li>
+            <div className="mb-4 flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+                Contact
+              </h3>
+            </div>
+            <ul className="grid gap-3.5 text-sm text-zinc-400">
+              <li className="text-zinc-300 leading-relaxed font-normal">
+                {contact.location}
+              </li>
               <li>
-                <a href={`tel:${contact.phoneHref}`} className="transition-colors hover:text-frame-fg">
+                <a
+                  href={`tel:${contact.phoneHref}`}
+                  className="font-mono text-sm text-zinc-300 hover:text-white transition-colors"
+                >
                   {contact.phone}
                 </a>
               </li>
               <li>
-                <a href={`mailto:${contact.email}`} className="transition-colors hover:text-frame-fg">
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="font-mono text-sm text-zinc-300 hover:text-white transition-colors break-all"
+                >
                   {contact.email}
                 </a>
               </li>
-              <li>
-                <a href={contact.whatsapp} className="font-black uppercase tracking-tighter text-frame-accent transition-colors hover:text-frame-fg">
-                  Talk on WhatsApp
+              <li className="pt-2">
+                <a
+                  href={contact.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex h-11 items-center gap-2 rounded-full bg-[#FAFAFA] px-5 font-mono text-xs uppercase tracking-wider text-[#09090B] font-medium transition-all hover:bg-white hover:scale-[1.02] active:scale-[0.98] shadow-sm touch-manipulation"
+                >
+                  <span>Talk on WhatsApp</span>
+                  <span
+                    aria-hidden="true"
+                    className="transition-transform duration-200 group-hover:translate-x-1"
+                  >
+                    &rarr;
+                  </span>
                 </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Listed & Recognized On / Accreditations Strip */}
-        <div className="mt-12 border-t-2 border-frame-border pt-8">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-            <div className="max-w-md">
-              <p className="text-[11px] font-black uppercase tracking-[0.24em] text-frame-accent">
-                Listed &amp; Recognized On
-              </p>
-              <p className="mt-1 text-xs font-medium text-frame-muted-fg">
-                Accredited across verified global agency directories &amp; client review platforms.
-              </p>
+        {/* Listed & Recognized On / Architectural Directory Ribbon */}
+        <div className="py-8 border-b border-white/[0.08]">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-6">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                  Industry Accreditations
+                </p>
+              </div>
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-[-0.02em] text-white">
+                Recognized &amp; Listed On
+              </h3>
             </div>
+            <p className="font-mono text-xs text-zinc-400 uppercase tracking-wider">
+              Accredited across verified global agency directories &amp; client review platforms.
+            </p>
+          </div>
 
-            <div className="flex flex-wrap items-center gap-3 sm:gap-4">
-              {/* SelectedFirms (Exact Badge Code from Provider) */}
-              <div className="group flex h-14 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm">
+          {/* 5-Column High-End Architectural Directory Cards */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+            {directoryList.map((dir) => {
+              const cardContent = (
+                <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]/80 p-4 sm:p-5 flex flex-col justify-between h-full hover:border-white/[0.18] hover:bg-[#18181B] transition-all duration-300 group before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100">
+                  <div>
+                    <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5">
+                      <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent font-medium tabular-nums">
+                        {dir.rating}
+                      </span>
+                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent/60 group-hover:bg-frame-accent group-hover:shadow-[0_0_8px_rgba(168,85,247,0.7)] transition-all" />
+                    </div>
+
+                    <div className="flex h-12 items-center justify-start my-3">
+                      <img
+                        src={dir.logo}
+                        alt={dir.name}
+                        className="max-h-8 max-w-[125px] w-auto object-contain filter brightness-105 contrast-110 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-white/[0.04]">
+                    <div className="font-heading text-xs sm:text-sm font-medium uppercase text-white group-hover:text-frame-accent transition-colors flex items-center justify-between">
+                      <span>{dir.name}</span>
+                      <ArrowUpRight className="h-3.5 w-3.5 text-zinc-500 group-hover:text-frame-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+                    </div>
+                    <p className="font-mono text-[10px] uppercase text-zinc-400 mt-0.5">
+                      {dir.status}
+                    </p>
+                  </div>
+                </div>
+              )
+
+              return dir.url ? (
                 <a
-                  href="https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic"
+                  key={dir.name}
+                  href={dir.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center"
-                  title="Top Digital Marketing Company - SelectedFirms"
+                  className="block h-full"
+                  title={`${dir.name} Profile`}
                 >
-                  <img
-                    alt="Top Digital Marketing Company"
-                    src="https://selectedfirms.co/public/assets/frontend/img/services/round/digital-marketing-agencies.webp"
-                    className="h-10 w-10 object-contain transition-transform duration-200 group-hover:scale-105"
-                    loading="lazy"
-                  />
+                  {cardContent}
                 </a>
-              </div>
-
-              {/* Clutch */}
-              <div
-                className="group flex h-14 w-28 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
-                title="Clutch Verified Agency"
-              >
-                <img
-                  src="/Listed%20In/Cutch.webp"
-                  alt="Clutch"
-                  className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* GoodFirms */}
-              <div
-                className="group flex h-14 w-32 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
-                title="GoodFirms Top Agency"
-              >
-                <img
-                  src="/Listed%20In/GoodFirms.png"
-                  alt="GoodFirms"
-                  className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* Trustpilot */}
-              <div
-                className="group flex h-14 w-32 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
-                title="Trustpilot Reviews"
-              >
-                <img
-                  src="/Listed%20In/Trustpilot.webp"
-                  alt="Trustpilot"
-                  className="max-h-8 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-
-              {/* ShortList */}
-              <div
-                className="group flex h-14 w-28 items-center justify-center rounded-lg border border-frame-border bg-white px-3.5 py-1.5 transition-all duration-200 hover:-translate-y-0.5 hover:border-frame-accent hover:shadow-sm"
-                title="ShortList Featured Agency"
-              >
-                <img
-                  src="/Listed%20In/ShortList-logo.webp"
-                  alt="ShortList"
-                  className="max-h-7 max-w-full object-contain transition-transform duration-200 group-hover:scale-105"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+              ) : (
+                <div key={dir.name} className="h-full">
+                  {cardContent}
+                </div>
+              )
+            })}
           </div>
         </div>
 
-        <div className="mt-8 flex flex-col gap-4 border-t-2 border-frame-border pt-6 text-xs font-black uppercase tracking-[0.18em] text-frame-muted-fg md:flex-row md:items-center md:justify-between">
+        {/* Bottom Bar: Copyright & System Positioning */}
+        <div className="pt-6 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-zinc-500 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Frame Cipher. All rights reserved.</p>
-          <p>One Team for Brand, Content, Tech, and Growth.</p>
+          <div className="flex items-center gap-2 text-zinc-400">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>One Team for Brand, Content, Tech, and Growth.</span>
+          </div>
         </div>
       </div>
     </footer>

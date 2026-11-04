@@ -1,224 +1,197 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Server,
+  FileCode,
+  FileText,
+  Link2,
+  BarChart2,
+  LineChart,
+  Cpu,
+  Check,
+} from 'lucide-react'
 
 const services = [
   {
     title: 'Technical SEO Audit',
-    body: 'We examine the technical foundation that allows search engines to crawl, understand, and index your website. Our review can include:',
+    icon: Server,
+    lead: 'We examine the technical foundation that allows search engines to crawl, understand, and index your website.',
     points: [
-      'Crawlability',
-      'Indexation',
-      'Robots.txt',
-      'XML sitemaps',
-      'Canonicalization',
-      'URL structure',
-      'Redirects',
-      '404 and status-code issues',
-      'Crawl depth',
-      'Orphan pages',
-      'Duplicate URLs',
-      'Index bloat',
-      'JavaScript rendering',
-      'Mobile performance',
-      'Core Web Vitals',
-      'Page speed',
-      'Structured data',
-      'HTTPS and technical configuration',
+      'Crawlability & indexation',
+      'Robots.txt & XML sitemaps',
+      'Canonicalization & URL structure',
+      'Redirects & 404 status codes',
+      'Crawl depth & orphan pages',
+      'Duplicate URLs & index bloat',
+      'JavaScript rendering & hydration',
+      'Mobile performance & Core Web Vitals',
+      'Page speed & HTTPS configuration',
+      'Structured data (Schema.org)',
     ],
-    notes: [
-      'We do not treat every technical warning as equally important. We identify which issues affect important pages or templates and explain what should be fixed first.',
-    ],
+    summary: 'We identify which issues affect important pages or templates and explain what should be fixed first.',
   },
   {
     title: 'On-Page SEO Audit',
-    body: 'We review how effectively individual pages target and satisfy their intended search queries. Our analysis can include:',
+    icon: FileCode,
+    lead: 'We review how effectively individual pages target and satisfy their intended search queries.',
     points: [
-      'Title tags',
-      'Meta descriptions',
-      'H1-H6 structure',
+      'Title tags & meta descriptions',
+      'H1-H6 semantic heading structure',
       'Search intent alignment',
-      'Keyword targeting',
-      'Image optimization',
-      'Internal links',
-      'Anchor text',
-      'Page structure',
-      'Calls to action',
-      'Structured data',
-      'Content relevance',
+      'Keyword targeting & density',
+      'Image optimization & alt text',
+      'Internal links & anchor text',
+      'Page structure & content relevance',
+      'Calls to action & conversion friction',
+      'Structured data implementation',
     ],
-    notes: [
-      'We assess important pages in their competitive context rather than applying generic on-page checklists to every URL.',
-    ],
+    summary: 'We assess important pages in their competitive context rather than applying generic on-page checklists.',
   },
   {
     title: 'Content & Keyword Audit',
-    body: 'Your content needs to target the right topics, keywords, and search intent. We evaluate:',
+    icon: FileText,
+    lead: 'Your content needs to target the right topics, keywords, and search intent.',
     points: [
       'Keyword-to-page mapping',
-      'Search intent',
-      'Keyword cannibalization',
-      'Content gaps',
-      'Thin or low-value content',
+      'Search intent categorization',
+      'Keyword cannibalization analysis',
+      'Content gaps & thin/low-value pages',
       'Duplicate or overlapping topics',
-      'Outdated content',
-      'Topic coverage',
-      'Content depth',
-      'Supporting content',
-      'Commercial and informational intent',
-      'Competitor content gaps',
+      'Outdated content identification',
+      'Topical coverage & content depth',
+      'Supporting commercial vs info intent',
+      'Competitor content gap analysis',
     ],
-    notes: [
-      'We may recommend improving, consolidating, redirecting, removing, or creating content depending on what the data shows.',
-      'The goal is not simply to publish more. It is to make the existing content system more useful and strategically aligned.',
-    ],
+    summary: 'The goal is not simply to publish more—it is to make existing content strategically useful.',
   },
   {
     title: 'Backlink Profile Audit',
-    body: 'We review your backlink profile in the context of relevance, authority, anchor text, and competitor strength. Our analysis can include:',
+    icon: Link2,
+    lead: 'We review your backlink profile in the context of relevance, authority, anchor text, and competitor strength.',
     points: [
-      'Link quality',
-      'Relevance',
-      'Referring domains',
-      'Anchor text patterns',
-      'Lost links',
-      'Suspicious or manipulative patterns',
+      'Link quality & domain authority',
+      'Contextual topical relevance',
+      'Referring domains distribution',
+      'Anchor text patterns & brand ratios',
+      'Lost links & toxic pattern analysis',
+      'Suspicious or manipulative links',
       'Competitor backlink opportunities',
-      'Authority gaps',
-      'Link acquisition opportunities',
+      'Authority gaps & acquisition paths',
     ],
-    notes: [
-      'We distinguish between links that deserve attention and links that are unlikely to have meaningful impact. Where a questionable backlink exists, we assess its context before recommending any action rather than treating every low-quality link as a penalty risk.',
-    ],
+    summary: 'We distinguish between links that deserve attention and links unlikely to have meaningful impact.',
   },
   {
     title: 'Competitor & SERP Analysis',
-    body: 'Your rankings are always relative to the pages competing for the same search demand. We analyze:',
+    icon: BarChart2,
+    lead: 'Your rankings are always relative to the pages competing for the same search demand.',
     points: [
-      'Organic competitors',
-      'Country-specific competitors',
-      'Ranking URLs',
-      'Keyword gaps',
-      'Content gaps',
-      'SERP features',
-      'Search intent patterns',
-      'Page types that rank',
-      'Competitor content depth',
-      'Competitor authority',
+      'Organic competitors (local & global)',
+      'Ranking URLs & keyword gaps',
+      'Content gaps & SERP features',
+      'Search intent patterns & ranking page types',
+      'Competitor content depth & quality',
+      'Competitor authority & backlink profiles',
       'Internal-link opportunities',
-      'Commercial opportunities',
+      'Commercial monetization differences',
     ],
-    notes: [
-      'This helps answer a more useful question: What are the pages that outrank you doing differently?',
-    ],
+    summary: 'Answers what the pages outranking you are doing differently in organic search.',
   },
   {
     title: 'Analytics, Search Console & Conversion Audit',
-    body: 'Search visibility should be connected to user behavior and business outcomes. Where access is available, we review:',
+    icon: LineChart,
+    lead: 'Search visibility should be connected to user behavior and business outcomes.',
     points: [
-      'Google Search Console',
-      'Google Analytics',
-      'Organic landing pages',
-      'Search queries',
-      'Impressions and clicks',
-      'Click-through rates',
-      'Conversion events',
-      'Lead forms',
-      'Calls',
-      'Ecommerce transactions',
-      'Conversion paths',
-      'Tracking gaps',
-      'Organic traffic anomalies',
+      'Google Search Console performance',
+      'Google Analytics (GA4) integration',
+      'Organic landing page behavior',
+      'Search query CTR anomalies',
+      'Conversion events (leads, calls, sales)',
+      'Ecommerce transaction tracking',
+      'Conversion paths & funnel leaks',
+      'Tracking gaps & data inaccuracies',
     ],
-    notes: [
-      'This helps identify cases where rankings and traffic appear healthy but important business actions are not being measured or generated.',
-    ],
+    summary: 'Identifies cases where rankings look healthy but business actions are not tracked or generated.',
   },
   {
     title: 'AI Search & Visibility Audit',
-    body: 'Search behavior is expanding beyond traditional organic results. Where relevant to the project, we assess opportunities related to AI-powered search experiences and answer-focused discovery. Our review can include:',
+    icon: Cpu,
+    lead: 'Search behavior is expanding beyond traditional organic results into AI-driven answer engines.',
     points: [
       'AI Overview visibility considerations',
       'AI-search content coverage',
-      'Question-based content',
-      'Entity clarity',
-      'Structured data',
-      'Content extractability',
-      'E-E-A-T signals',
-      'Brand and topic associations',
-      'Citation opportunities',
-      'Competitor visibility in AI-driven search experiences',
+      'Question-based query modeling',
+      'Entity clarity & Knowledge Graph signals',
+      'Structured data & extractability',
+      'E-E-A-T signals & author credentials',
+      'Brand & topic co-occurrence citations',
+      'Competitor visibility in AI answers',
     ],
-    notes: [
-      'The objective is not to promise visibility in a specific AI platform. It is to identify whether your content and site structure provide strong signals for modern search and answer experiences.',
-    ],
+    summary: 'Identifies whether your content and site structure provide strong signals for modern AI search.',
   },
 ]
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Capabilities & Scope" title="Our SEO Audit Services">
-          Our SEO audit services combine automated data collection with manual analysis so that
-          findings are evaluated in the context of your website and business.
-        </SectionIntro>
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/30 p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Audit Service 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
-                <ul className="mt-6 space-y-2 border-t-2 border-frame-border/60 pt-5 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((bullet, bIdx) => (
-                    <li key={bIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                {item.notes && (
-                  <div className="mt-5 space-y-3 border-l-2 border-frame-accent bg-frame-bg p-4">
-                    {item.notes.map((note, nIdx) => (
-                      <p
-                        key={nIdx}
-                        className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"
-                      >
-                        {note}
-                      </p>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
-          ))}
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Core Scope // 7 Audit Pillars
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Our SEO Audit{' '}
+            <span className="italic text-frame-accent">Services</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            Our SEO audit services combine automated data collection with manual analysis so that findings are evaluated in the context of your website and business.
+          </p>
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Not sure where to start?
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Start with a free consultation
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We review your website and recommend which audit scope will have the most impact
-              first.
-            </p>
-          </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
-          </div>
+        {/* 7 Services Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-colors hover:border-white/[0.16] hover:bg-[#151518]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">Pillar 0{idx + 1}</span>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-lg sm:text-xl font-semibold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.lead}
+                  </p>
+
+                  <ul className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] text-zinc-400 leading-relaxed italic">
+                    &rarr; {item.summary}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

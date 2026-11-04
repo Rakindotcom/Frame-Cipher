@@ -70,7 +70,7 @@ const fallbackFaqs = [
   },
   {
     question: "How long does a branding project take?",
-    answer: "A complete branding project generally takes around 4–6 weeks. Smaller projects may take less time, while complex rebrands and larger identity systems can require longer."
+    answer: "A complete branding project generally takes around 4 to 6 weeks. Smaller projects may take less time, while complex rebrands and larger identity systems can require longer."
   },
   {
     question: "Can you help apply the brand after the branding project?",
@@ -92,7 +92,7 @@ export default function FAQ({ service }) {
   )
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <SectionIntro
           eyebrow="Direct Clarity"
@@ -108,7 +108,7 @@ export default function FAQ({ service }) {
             placeholder="Search FAQs (e.g. guidelines, rebrand, voice, strategy, timeline, Bangla, logo)..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full border-2 border-frame-border bg-frame-bg p-4 text-xs sm:text-sm font-medium text-frame-fg placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none wide:text-lg"
+            className="w-full border border-white/[0.08] bg-[#09090B] p-4 text-xs sm:text-sm font-medium text-[#FAFAFA] placeholder:text-[#A1A1AA] focus:border-[#A855F7]/40 focus:outline-none wide:text-lg"
           />
         </div>
 
@@ -117,21 +117,21 @@ export default function FAQ({ service }) {
             filteredFaqs.map((faq, index) => (
               <details
                 key={index}
-                className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+                className="group border border-white/[0.08] bg-[#09090B] open:border-[#A855F7]/40 transition-colors"
               >
-                <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
+                <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-[#FAFAFA] marker:content-none">
                   <span>{faq.question}</span>
-                  <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45 font-mono text-lg">
+                  <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45 font-mono text-lg">
                     +
                   </span>
                 </summary>
-                <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+                <div className="border-t border-white/[0.08] p-6 text-sm md:text-base font-medium leading-relaxed text-[#A1A1AA] wide:text-lg">
                   {faq.answer}
                 </div>
               </details>
             ))
           ) : (
-            <div className="border-2 border-dashed border-frame-border p-8 text-center text-sm font-medium text-frame-muted-fg wide:text-lg">
+            <div className="border-2 border-dashed border-white/[0.08] p-8 text-center text-sm font-medium text-[#A1A1AA] wide:text-lg">
               No matching questions found for &ldquo;{searchQuery}&rdquo;. Try another search term or contact our branding team directly.
             </div>
           )}

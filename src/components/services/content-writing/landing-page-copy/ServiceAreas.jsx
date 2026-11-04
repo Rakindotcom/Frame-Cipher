@@ -19,24 +19,24 @@ const areas = [
 
 export default function ServiceAreas() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Markets &amp; languages" title="Landing Page Copywriting Service Areas">
           Landing page copy should be written for a specific market and audience, not for a generic international
           one.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {areas.map((area) => (
-            <article key={area.title} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+            <article key={area.title} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 {area.label}
               </span>
               <h3
-                className="mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl"
+                className="mt-3 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl"
                 dangerouslySetInnerHTML={{ __html: area.title }}
               />
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                 {area.body[0]}
               </p>
             </article>

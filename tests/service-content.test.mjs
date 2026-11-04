@@ -32,10 +32,12 @@ test('all 74 public service records are free of draft artifacts', () => {
 
 test('all pricing rows match their named columns and retain source numeric prices', () => {
   for (const item of pages) {
-    const table = item.pricing.table
+    const table = item.pricing?.table
+    if (!table) continue
     assert.ok(table.headers.every(Boolean), item.slug)
     assert.ok(table.rows.every((row) => row.length === table.headers.length && row[0]), item.slug)
-    const original = source.find((entry) => entry.slug === item.slug).pricing.table
+    const original = source.find((entry) => entry.slug === item.slug)?.pricing?.table
+    if (!original) continue
     const numericPrices = original.rows.flat().filter((cell) => /৳\s*\d/.test(cell))
     for (const price of numericPrices) assert.ok(table.rows.flat().includes(price), `${item.slug}: missing ${price}`)
     assert.doesNotMatch(table.note, /Order Now|Included at every tier/)

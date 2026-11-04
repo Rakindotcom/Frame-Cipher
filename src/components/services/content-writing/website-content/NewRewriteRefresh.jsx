@@ -55,8 +55,8 @@ const groups = [
 
 export default function NewRewriteRefresh() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Scope &amp; approach"
           title="When Your Website Needs New Content, a Rewrite, or a Refresh"
@@ -65,22 +65,22 @@ export default function NewRewriteRefresh() {
           with the content.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {groups.map((group) => (
-            <article key={group.title} className="bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
-              <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+            <article key={group.title} className="bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
+              <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                 {group.title}
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                 {group.intro}
               </p>
               <ul className="mt-5 space-y-2">
                 {group.items.map((item) => (
                   <li
                     key={item}
-                    className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                    className="flex items-start gap-2 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                   >
-                    <span aria-hidden="true" className="mt-1 text-frame-accent">
+                    <span aria-hidden="true" className="mt-1 text-[#A855F7]">
                       &bull;
                     </span>
                     {item}
@@ -91,8 +91,8 @@ export default function NewRewriteRefresh() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Not sure whether your site needs a refresh, an individual page rewrite, or a full rewrite?
           </p>
           <div className="shrink-0">

@@ -44,20 +44,20 @@ const processStepsData = [
 ]
 
 const timelineMatrix = [
-  { stage: 'Discovery & Brand Audit', duration: '2–4 business days', scope: 'Stakeholder interviews, legacy audit & brand questionnaire' },
-  { stage: 'Research & Strategy', duration: '3–7 business days', scope: 'Competitive review, positioning framework & messaging pillars' },
-  { stage: 'Creative Direction', duration: '3–5 business days', scope: 'Exploration of distinct visual & verbal concept directions' },
-  { stage: 'Identity Development', duration: '5–10 business days', scope: 'Full color, typography, imagery, voice & layout system engineering' },
-  { stage: 'Review & Refinement', duration: '3–5 business days', scope: 'Structured stakeholder feedback integration & real-world testing' },
-  { stage: 'Guidelines & Final Handoff', duration: '2–5 business days', scope: 'Brand manual compilation, vector export suite & asset library organization' }
+  { stage: 'Discovery & Brand Audit', duration: '2 to 4 business days', scope: 'Stakeholder interviews, legacy audit & brand questionnaire' },
+  { stage: 'Research & Strategy', duration: '3 to 7 business days', scope: 'Competitive review, positioning framework & messaging pillars' },
+  { stage: 'Creative Direction', duration: '3 to 5 business days', scope: 'Exploration of distinct visual & verbal concept directions' },
+  { stage: 'Identity Development', duration: '5 to 10 business days', scope: 'Full color, typography, imagery, voice & layout system engineering' },
+  { stage: 'Review & Refinement', duration: '3 to 5 business days', scope: 'Structured stakeholder feedback integration & real-world testing' },
+  { stage: 'Guidelines & Final Handoff', duration: '2 to 5 business days', scope: 'Brand manual compilation, vector export suite & asset library organization' }
 ]
 
 export default function Process({ service }) {
   const steps = service?.processSteps?.length === 8 ? service.processSteps : processStepsData
 
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Methodical Execution"
           title="Our Structured Branding Process"
@@ -66,17 +66,17 @@ export default function Process({ service }) {
         </SectionIntro>
 
         {/* 8-STEP PROCESS GRID */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((step, index) => (
-            <div key={index} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between">
+            <div key={index} className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between">
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-accent">
+                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-[#A855F7]">
                   {step.number || String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-4 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {step.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {step.description}
                 </p>
               </div>
@@ -86,45 +86,45 @@ export default function Process({ service }) {
 
         {/* TYPICAL TIMELINES TABLE */}
         <div className="mt-16">
-          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b-2 border-frame-border pb-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between border-b border-white/[0.08] pb-4">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Production Pace
               </span>
-              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Typical Branding Project Timeline
               </h3>
             </div>
-            <p className="text-xs font-mono font-bold text-frame-muted-fg">
-              Total Duration: Approximately 4–6 weeks
+            <p className="text-xs font-mono font-bold text-[#A1A1AA]">
+              Total Duration: Approximately 4 to 6 weeks
             </p>
           </div>
 
-          <div className="mt-6 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+          <div className="mt-6 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
             <table className="w-full text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+              <thead className="border-b border-white/[0.08] bg-[#121214]">
                 <tr>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Project Stage
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Typical Duration
                   </th>
-                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th className="p-4 md:p-5 text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Milestone Deliverables
                   </th>
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-frame-border text-xs sm:text-sm font-medium">
                 {timelineMatrix.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-5 font-bold uppercase tracking-tight text-frame-fg">
+                  <tr key={idx} className="hover:bg-[#121214]">
+                    <td className="p-4 md:p-5 font-bold uppercase tracking-tight text-[#FAFAFA]">
                       {item.stage}
                     </td>
-                    <td className="p-4 md:p-5 font-bold text-frame-accent whitespace-nowrap">
+                    <td className="p-4 md:p-5 font-bold text-[#A855F7] whitespace-nowrap">
                       {item.duration}
                     </td>
-                    <td className="p-4 md:p-5 text-frame-muted-fg">
+                    <td className="p-4 md:p-5 text-[#A1A1AA]">
                       {item.scope}
                     </td>
                   </tr>
@@ -133,8 +133,8 @@ export default function Process({ service }) {
             </table>
           </div>
 
-          <p className="mt-4 text-xs font-medium text-frame-muted-fg leading-relaxed">
-            * Note: A focused Brand Starter project may move faster (3–4 weeks), while enterprise rebrands involving multiple stakeholder groups or complex sub-brand architectures may require additional production time.
+          <p className="mt-4 text-xs font-medium text-[#A1A1AA] leading-relaxed">
+            * Note: A focused Brand Starter project may move faster (3 to 4 weeks), while enterprise rebrands involving multiple stakeholder groups or complex sub-brand architectures may require additional production time.
           </p>
         </div>
       </div>

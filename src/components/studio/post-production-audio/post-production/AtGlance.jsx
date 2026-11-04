@@ -6,19 +6,19 @@ const glanceRows = [
   ['Essential finish', '৳12,000 for up to 5 minutes'],
   ['Commercial grade', '৳45,000 for up to 10 minutes'],
   ['Feature / series finishing', 'From ৳1,25,000, scoped quote'],
-  ['Priority finishing lane', '+30% for 48–72 hour turnaround'],
-  ['Standard turnaround', '5–10 working days from verified intake'],
+  ['Priority finishing lane', '+30% for 48 to 72 hour turnaround'],
+  ['Standard turnaround', '5 to 10 working days from verified intake'],
   ['Revisions', '2 structured rounds on full scopes, timestamped review'],
   ['Quote', 'Itemised, in writing, within 48 hours'],
   ['Payment', '50% advance confirms dates, balance on final sign-off, VAT-compliant invoices'],
   ['Studio', '6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206'],
-  ['Phone and WhatsApp', '+880 1768-146650 — Open 24 hours, sessions by advance reservation'],
+  ['Phone and WhatsApp', '+880 1768-146650: Open 24 hours, sessions by advance reservation'],
 ]
 
 export default function AtGlance() {
   return (
     <section id="at-a-glance" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="At a glance"
           title="Post-Production Essentials"

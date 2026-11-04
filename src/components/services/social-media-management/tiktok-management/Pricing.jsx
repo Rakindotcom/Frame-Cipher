@@ -1,4 +1,8 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check, Sliders, ShieldAlert, Sparkles } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const packages = [
   {
@@ -97,160 +101,163 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      className="scroll-mt-20 border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28"
+      className="relative isolate scroll-mt-20 border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28"
     >
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Investment &amp; plans" title="TikTok Management Pricing">
-          Framecipher&rsquo;s pricing covers more than video production or posting. Each plan combines
-          strategy, content planning, production, publishing, discoverability, community management, and
-          reporting according to the selected scope.
-        </SectionIntro>
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Commercial Retainers · Pricing Matrix
+            </span>
+          </div>
 
-        {/* PACKAGE CARDS */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Management{' '}
+            <span className="italic text-frame-accent">Pricing &amp; Plans.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Framecipher&rsquo;s pricing covers more than video production or posting. Each plan combines strategy, content planning, production, publishing, discoverability, community management, and reporting according to the selected scope.
+          </p>
+        </div>
+
+        {/* 3 Package Tiers Grid (Non-clipping headers) */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {packages.map((pkg, index) => (
             <div
               key={pkg.name}
-              className={`flex flex-col justify-between border-2 p-6 transition-colors md:p-7 ${
+              className={`relative flex flex-col justify-between rounded-2xl border p-6 sm:p-7 md:p-8 transition-colors ${
                 pkg.popular
-                  ? 'border-frame-accent bg-frame-accent/10'
-                  : 'border-frame-border bg-frame-bg hover:border-frame-border/80'
+                  ? 'border-purple-500/50 bg-[#15121c] ring-1 ring-purple-500/30 shadow-2xl shadow-purple-950/40'
+                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
               }`}
             >
               <div>
-                <div className="flex min-h-[22px] items-center justify-between gap-2">
-                  <span className="text-xs font-black uppercase tracking-[0.22em] text-frame-accent">
-                    Package 0{index + 1}
-                  </span>
+                {/* Header row with non-clipping featured badge */}
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    Tier 0{index + 1} · </span>
                   {pkg.popular && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2.5 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
-                      Most Popular
+                    <span className="rounded-full border border-purple-500/40 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-violet-300">
+                      Most Requested
                     </span>
                   )}
                 </div>
 
-                <h3 className="mt-2 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
+                <h3 className="mt-2 font-heading text-xl font-medium tracking-tight text-white">
                   {pkg.name}
                 </h3>
 
-                <div className="mt-5 border-y-2 border-frame-border/60 py-4">
-                  <div className="font-heading text-2xl font-black tracking-tight text-frame-fg md:text-3xl">
-                    {pkg.price}
-                  </div>
-                  <span className="mt-1 block text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                    {pkg.priceNote}
-                  </span>
-                </div>
+                <p className="mt-4 font-mono text-2xl md:text-3xl font-medium text-frame-accent">
+                  {pkg.price}
+                </p>
 
-                <div className="mt-4 border border-frame-accent/50 bg-frame-accent/5 p-3">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    Best For
-                  </span>
-                  <p className="mt-1 text-xs font-semibold leading-snug text-frame-fg">{pkg.bestFor}</p>
-                </div>
+                <p className="mt-1 font-mono text-xs text-zinc-400">
+                  {pkg.priceNote}
+                </p>
 
-                <div className="mt-5 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[10px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                    What&rsquo;s Covered
-                  </span>
-                  <ul className="mt-3 space-y-2.5 text-xs font-medium text-frame-fg/90 md:text-sm">
-                    {pkg.features.map((feat) => (
-                      <li key={feat} className="flex items-start gap-2">
-                        <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                          </svg>
+                <p className="mt-4 text-xs font-normal leading-relaxed text-zinc-300 min-h-[36px]">
+                  {pkg.bestFor}
+                </p>
+
+                <div className="mt-6 border-t border-white/[0.08] pt-4">
+                  <p className="font-mono text-xs uppercase tracking-wider text-white mb-3">
+                    What&apos;s Included:
+                  </p>
+                  <ul className="space-y-2.5 text-xs font-normal text-zinc-200">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/10 text-frame-accent mt-0.5">
+                          <Check className="h-2.5 w-2.5 stroke-[2.5]" />
                         </span>
-                        <span className="leading-snug">{feat}</span>
+                        <span className="leading-snug">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
               </div>
 
-              <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
+              <div className="mt-8 border-t border-white/[0.06] pt-6">
                 <PosterButton
                   href="/contact"
-                  variant={pkg.popular ? 'accent' : 'outline'}
-                  className="w-full text-xs"
+                  variant={pkg.popular ? 'primary' : 'secondary'}
+                  size="md"
+                  className="w-full text-center"
                 >
-                  {pkg.popular ? 'Choose Growth' : `Request ${pkg.name}`}
+                  {pkg.price === 'Custom Quote' ? 'Request Custom Quote' : 'Select Plan'}
                 </PosterButton>
               </div>
             </div>
           ))}
         </div>
 
-        {/* FEATURE COMPARISON */}
-        <div className="mt-16 border-2 border-frame-border">
-          <div className="flex flex-col gap-1 border-b-2 border-frame-border bg-frame-muted/20 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
-            <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">
-              Plan Comparison
+        {/* FEATURE COMPARISON TABLE */}
+        <div className="mt-16 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214]">
+          <div className="flex flex-col gap-2 border-b border-white/[0.08] p-6 sm:flex-row sm:items-center sm:justify-between">
+            <h3 className="font-heading text-lg font-medium tracking-tight text-white sm:text-xl">
+              Plan Comparison Matrix
             </h3>
-            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-              Standard &nbsp;&rarr;&nbsp; Growth &nbsp;&rarr;&nbsp; + Ads Coordination
+            <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              Standard &nbsp;&rarr;&nbsp; Growth &nbsp;&rarr;&nbsp; Custom
             </span>
           </div>
 
-          <div className="hidden grid-cols-4 gap-px bg-frame-border sm:grid">
-            <div className="bg-frame-muted/30 px-5 py-3 text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
-              Feature
-            </div>
-            {columns.map((col) => (
-              <div
-                key={col}
-                className="bg-frame-muted/30 px-5 py-3 text-center text-[10px] font-black uppercase leading-snug tracking-[0.2em] text-frame-fg"
-              >
-                {col}
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-col">
-            {rows.map((row) => (
-              <div
-                key={row.label}
-                className="grid grid-cols-1 gap-px border-t border-frame-border bg-frame-border sm:grid-cols-4"
-              >
-                <div className="bg-frame-bg px-5 py-3.5 text-xs font-bold text-frame-fg md:text-sm">
-                  {row.label}
-                </div>
-                {row.values.map((value, vIdx) => (
-                  <div
-                    key={`${row.label}-${columns[vIdx]}`}
-                    className="flex items-center justify-center gap-2 bg-frame-bg px-5 py-3.5 text-center text-xs font-medium text-frame-muted-fg md:text-sm wide:text-lg"
-                  >
-                    <span className="font-black uppercase tracking-[0.18em] text-frame-accent sm:hidden">
-                      {columns[vIdx]}:
-                    </span>
-                    {value === 'check' ? (
-                      <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                        <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                      </span>
-                    ) : value === 'dash' ? (
-                      <span aria-hidden="true" className="font-black text-frame-muted-fg">
-                        &mdash;
-                      </span>
-                    ) : (
-                      <span className="leading-snug">{value}</span>
-                    )}
-                  </div>
+          <div className="overflow-x-auto">
+            <table className="w-full border-collapse text-left text-xs sm:text-sm">
+              <thead>
+                <tr className="border-b border-white/[0.08] bg-[#18181B]">
+                  <th className="p-4 sm:p-5 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                    Feature &amp; Deliverable
+                  </th>
+                  {columns.map((col) => (
+                    <th
+                      key={col}
+                      className="p-4 sm:p-5 text-center font-heading text-xs sm:text-sm font-medium uppercase text-white"
+                    >
+                      {col}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06]">
+                {rows.map((row) => (
+                  <tr key={row.label} className="transition-colors hover:bg-white/[0.02]">
+                    <td className="p-4 sm:p-5 font-medium text-zinc-200">
+                      {row.label}
+                    </td>
+                    {row.values.map((value, vIdx) => (
+                      <td key={vIdx} className="p-4 sm:p-5 text-center text-zinc-400">
+                        {value === 'check' ? (
+                          <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border border-purple-500/40 bg-purple-500/10 text-frame-accent">
+                            <Check className="h-3 w-3 stroke-[2.5]" />
+                          </span>
+                        ) : value === 'dash' ? (
+                          <span className="text-zinc-600 font-mono">&mdash;</span>
+                        ) : (
+                          <span className="font-mono text-xs text-zinc-300 font-medium">
+                            {value}
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
                 ))}
-              </div>
-            ))}
+              </tbody>
+            </table>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Framecipher&rsquo;s TikTok management plans start at ৳25,000 per month. Growth is ৳40,000
-            per month, while larger or combined organic and paid programs are customized according to
-            scope.
+        {/* Bottom Banner */}
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm leading-relaxed text-zinc-400">
+            Framecipher&rsquo;s TikTok management plans start at ৳25,000 per month. Growth is ৳40,000 per month, while larger or combined organic and paid programs are customized according to scope.
           </p>
           <div className="shrink-0">
-            <PosterButton href="/contact">Request a Custom TikTok Plan &rarr;</PosterButton>
+            <PosterButton href="/contact">
+              Request a Custom TikTok Plan
+            </PosterButton>
           </div>
         </div>
       </div>

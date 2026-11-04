@@ -58,7 +58,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, formats, revisions and booking — everything about video production at FrameCipher Studio.
+          Costs, formats, revisions and booking: everything about video production at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

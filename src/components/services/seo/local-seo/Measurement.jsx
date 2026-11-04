@@ -1,128 +1,95 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const measurements = [
+import React from 'react'
+import {
+  Compass,
+  LayoutDashboard,
+  PhoneCall,
+  Search,
+  Briefcase,
+} from 'lucide-react'
+
+const metrics = [
   {
+    icon: Compass,
     title: 'Map Pack & Geo-Grid Visibility',
-    intro: 'We monitor visibility across relevant geographic areas. This can show where your business appears strongly, where visibility is limited, how visibility changes over time, and which locations need more attention.',
-    points: [
-      'Where your business appears strongly',
-      'Where visibility is limited',
-      'How visibility changes over time',
-      'Which locations need more attention',
-    ],
-    note: 'Geo-grid data can provide a more useful picture than checking one Google Maps position from one location.',
+    desc: 'Monitoring rankings across multi-point geographic grids rather than checking single manual coordinates. Reveals exact strong visibility zones, proximity boundaries, and pockets needing attention.',
   },
   {
-    title: 'Google Business Profile Performance',
-    intro: 'We review relevant profile interactions to understand how customers discover and engage with your listing.',
-    points: [
-      'Profile views',
-      'Website actions',
-      'Calls',
-      'Direction requests',
-      'Search discovery',
-      'Customer interactions',
-    ],
-    note: 'The exact metrics available can vary by business and Google\u2019s reporting environment.',
+    icon: LayoutDashboard,
+    title: 'Google Business Profile Interactions',
+    desc: 'Tracking verified customer discovery metrics inside Google Business Profile insights: direct vs discovery searches, photo views, profile interactions, and branded search volume.',
   },
   {
+    icon: PhoneCall,
     title: 'Calls, Directions & Website Actions',
-    intro: 'Local visibility should lead to useful customer actions. We monitor the actions that connect search activity with customer intent.',
-    points: [
-      'Phone calls',
-      'Direction requests',
-      'Website visits',
-      'Contact submissions',
-      'Booking actions',
-      'Other tracked enquiries',
-    ],
+    desc: 'Connecting search visibility to concrete user intent: tracked phone calls, Google Maps direction requests, booking inquiries, and website link clicks directly from local search results.',
   },
   {
+    icon: Search,
     title: 'Organic Local Search Performance',
-    intro: 'Local customers do not only use Google Maps. They can also discover businesses through standard organic search results, so we monitor relevant organic performance.',
-    points: [
-      'Service keywords',
-      'Location keywords',
-      'Local landing pages',
-      'Commercial searches',
-      'Informational searches connected to your services',
-    ],
+    desc: 'Measuring standard organic Google Search performance across localized service queries, city landing pages, and commercial queries through Google Search Console impressions and clicks.',
   },
   {
-    title: 'Leads & Business Outcomes',
-    intro: 'The final objective is business value. Where tracking is available, we connect local search activity with outcomes that matter to the business.',
-    points: [
-      'Qualified enquiries',
-      'Calls',
-      'Bookings',
-      'Store visits',
-      'Quote requests',
-      'Sales opportunities',
-    ],
-    note: 'This provides a more useful view of SEO performance than rankings alone.',
+    icon: Briefcase,
+    title: 'Leads & Commercial Business Outcomes',
+    desc: 'The ultimate bottom-line measurement: qualified walk-ins, quote requests, appointment bookings, and attributed sales opportunities resulting from enhanced local market prominence.',
   },
 ]
 
 export default function Measurement() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Transparent tracking"
-          title="How We Measure Local SEO Performance"
-        >
-          Local SEO performance should be measured through more than one ranking position. We
-          combine visibility data with actions and business outcomes to understand whether the
-          strategy is producing useful results.
-        </SectionIntro>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {measurements.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Measurement 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.intro}
-                </p>
-                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
-                  </p>
-                )}
-              </div>
-            </div>
-          ))}
-
-          <div className="flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Reporting Principle
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                Reporting supports the next decision
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                Reporting focuses on relevant activities, visibility, customer actions, and
-                business outcomes rather than filling reports with unnecessary metrics.
-              </p>
-            </div>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Accountability &amp; Tracking
+            </span>
           </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            How We Measure{' '}
+            <span className="italic text-frame-accent">Local SEO Performance</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Local SEO performance should be measured through far more than a single manual ranking check. We combine geographic visibility heatmaps with verified customer actions and real business revenue outcomes.
+          </p>
+        </div>
+
+        {/* 5 Metrics Cards Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {metrics.map((item, index) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 flex flex-col justify-between hover:border-white/20 transition-colors"
+              >
+                <div>
+                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
+                    <span className="font-mono text-xs font-semibold text-frame-accent">
+                      Metric 0{index + 1}
+                    </span>
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] text-frame-accent border border-white/[0.06]">
+                      <Icon className="h-4 w-4" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-2.5 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

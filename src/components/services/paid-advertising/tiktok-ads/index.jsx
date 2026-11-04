@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import Includes from './Includes'
@@ -16,23 +19,22 @@ import Guarantee from './Guarantee'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
-
-const marqueeItems = [
-  "Native Creative Testing",
-  "Spark Ads",
-  "UGC & Creator Content",
-  "Smart+ Automation",
-  "TikTok Pixel & Events API",
-  "TikTok Shop Where Available",
-  "Audience Strategy & Retargeting"
-]
-
 import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
 import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
+const marqueeItems = [
+  'Native Creative Testing',
+  'Spark Ads & Creator Content',
+  'Smart+ Automation',
+  'TikTok Pixel & Events API',
+  'TikTok Shop & GMV Max',
+  'Audience Strategy & Retargeting',
+  'Value-Based Bidding (VBB)',
+]
+
 export default function PaidAdvertisingTiktokAdsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />

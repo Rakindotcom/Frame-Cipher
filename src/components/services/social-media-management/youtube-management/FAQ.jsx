@@ -1,132 +1,222 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import React, { useState } from 'react'
+import { ChevronDown, HelpCircle, MessageSquare } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 import { resolveFaqs } from '../../../../lib/seo/faq'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const fallbackFaqs = [
   {
-    q: 'What Does a YouTube Management Service Include?',
-    a: 'YouTube management can include channel strategy, content planning, scripting, video production, editing, YouTube SEO, thumbnails, publishing, Shorts, community management, analytics, and ongoing optimization. The exact scope depends on the selected package.',
+    question: 'What Does a YouTube Management Service Include?',
+    answer:
+      'YouTube management can include channel strategy, content planning, scripting, video production, editing, YouTube SEO, thumbnails, publishing, Shorts, community management, analytics, and ongoing optimization.\n\nThe exact scope depends on the selected package.',
   },
   {
-    q: 'How Much Does YouTube Management Cost in Bangladesh?',
-    a: 'Framecipher\u2019s YouTube management plans start at \u09F330,000 per month for the Standard package. Growth management is \u09F350,000 per month, while larger or more specialized channels can receive a custom proposal.',
+    question: 'How Much Does YouTube Management Cost in Bangladesh?',
+    answer:
+      'Framecipher\'s YouTube management plans start at ৳30,000 per month for the Standard package.\n\nGrowth management is ৳50,000 per month, while larger or more specialized channels can receive a custom proposal.',
   },
   {
-    q: 'Do You Create YouTube Videos?',
-    a: 'Yes. Video production and editing can be included within the agreed service scope. The exact production requirements depend on the package and the type of content you need.',
+    question: 'Do You Create YouTube Videos?',
+    answer:
+      'Yes.\n\nVideo production and editing can be included within the agreed service scope.\n\nThe exact production requirements depend on the package and the type of content you need.',
   },
   {
-    q: 'Do You Write YouTube Scripts?',
-    a: 'Yes. Script development can be included for suitable content formats. We structure scripts around the topic, audience, video objective, and intended viewer experience.',
+    question: 'Do You Write YouTube Scripts?',
+    answer:
+      'Yes.\n\nScript development can be included for suitable content formats.\n\nWe structure scripts around the topic, audience, video objective, and intended viewer experience.',
   },
   {
-    q: 'Do You Design YouTube Thumbnails?',
-    a: 'Yes. Thumbnail design is included in our management packages according to the agreed monthly content volume \u2014 two thumbnail designs per month on Standard and four on Growth.',
+    question: 'Do You Design YouTube Thumbnails?',
+    answer:
+      'Yes.\n\nThumbnail design is included in our management packages according to the agreed monthly content volume.',
   },
   {
-    q: 'Do You Provide YouTube SEO?',
-    a: 'Yes. YouTube SEO can include topic research, titles, descriptions, relevant metadata, content optimization, playlists, and other discovery-focused improvements.',
+    question: 'Do You Provide YouTube SEO?',
+    answer:
+      'Yes.\n\nYouTube SEO can include topic research, titles, descriptions, relevant metadata, content optimization, playlists, and other discovery-focused improvements.',
   },
   {
-    q: 'Do You Manage YouTube Shorts?',
-    a: 'Yes. Shorts can be included through repurposing, dedicated Shorts production, or a custom content strategy depending on the package.',
+    question: 'Do You Manage YouTube Shorts?',
+    answer:
+      'Yes.\n\nShorts can be included through repurposing, dedicated Shorts production, or a custom content strategy depending on the package.',
   },
   {
-    q: 'Do You Optimize Existing YouTube Videos?',
-    a: 'Yes. We can audit existing videos and identify opportunities involving titles, thumbnails, descriptions, organization, content connections, and other relevant optimization areas.',
+    question: 'Do You Optimize Existing YouTube Videos?',
+    answer:
+      'Yes.\n\nWe can audit existing videos and identify opportunities involving titles, thumbnails, descriptions, organization, content connections, and other relevant optimization areas.',
   },
   {
-    q: 'Can You Manage an Existing YouTube Channel?',
-    a: 'Yes. We can work with existing channels as well as new channels. Existing channels typically begin with an audit so we understand the current content, audience, performance, and opportunities.',
+    question: 'Can You Manage an Existing YouTube Channel?',
+    answer:
+      'Yes.\n\nWe can work with existing channels as well as new channels.\n\nExisting channels typically begin with an audit so we understand the current content, audience, performance, and opportunities.',
   },
   {
-    q: 'Do You Manage YouTube Comments?',
-    a: 'Community management can be included depending on the selected package. The scope can cover comment monitoring, responses, audience questions, and community feedback.',
+    question: 'Do You Manage YouTube Comments?',
+    answer:
+      'Community management can be included depending on the selected package.\n\nThe scope can cover comment monitoring, responses, audience questions, and community feedback.',
   },
   {
-    q: 'Do You Manage YouTube Playlists?',
-    a: 'Yes. Playlist planning and organization can be included as part of channel management.',
+    question: 'Do You Manage YouTube Playlists?',
+    answer:
+      'Yes.\n\nPlaylist planning and organization can be included as part of channel management.',
   },
   {
-    q: 'Do You Manage YouTube Ads?',
-    a: 'YouTube Ads are a separate paid advertising service from organic YouTube management. They can be coordinated with your organic strategy when paid media management is included in the project scope.',
+    question: 'Do You Manage YouTube Ads?',
+    answer:
+      'YouTube Ads are a separate paid advertising service from organic YouTube management.\n\nThey can be coordinated with your organic strategy when paid media management is included in the project scope.',
   },
   {
-    q: 'Can You Manage YouTube Channels Outside Bangladesh?',
-    a: 'Yes. Framecipher works with businesses targeting international markets, including the US, UK, Australia, Canada, and UAE.',
+    question: 'Can You Manage YouTube Channels Outside Bangladesh?',
+    answer:
+      'Yes.\n\nFramecipher works with businesses targeting international markets, including the US, UK, Australia, Canada, and UAE.',
   },
   {
-    q: 'Do You Need Me to Provide Video Footage?',
-    a: 'It depends on the production scope. You may provide existing footage, recordings, product materials, screen recordings, or other assets. Full production requirements can also be scoped separately.',
+    question: 'Do You Need Me to Provide Video Footage?',
+    answer:
+      'It depends on the production scope.\n\nYou may provide existing footage, recordings, product materials, screen recordings, or other assets.\n\nFull production requirements can also be scoped separately.',
   },
   {
-    q: 'Can You Film Videos for My Business?',
-    a: 'Filming requirements can be discussed as part of a custom production scope. Location, travel, equipment, talent, studio requirements, and production complexity can affect the final quotation.',
+    question: 'Can You Film Videos for My Business?',
+    answer:
+      'Filming requirements can be discussed as part of a custom production scope.\n\nLocation, travel, equipment, talent, studio requirements, and production complexity can affect the final quotation.',
   },
   {
-    q: 'How Long Does YouTube Management Take to Start?',
-    a: 'Initial setup and the first content batch can typically take around 2\u20133 weeks, depending on strategy, content requirements, production, and client approvals.',
+    question: 'How Long Does YouTube Management Take to Start?',
+    answer:
+      'Initial setup and the first content batch can typically take around 2–3 weeks, depending on strategy, content requirements, production, and client approvals.',
   },
   {
-    q: 'Do You Guarantee YouTube Views or Subscribers?',
-    a: 'No. We do not guarantee specific views, subscribers, rankings, viral results, leads, or revenue. We control the strategy, production, optimization, publishing, and reporting work. Audience response and platform distribution cannot be guaranteed.',
-  },
-  {
-    q: 'Can You Review My Channel Before We Start?',
-    a: 'Yes. A free consultation is the right place to review your current channel, content, packaging, and opportunities, and to decide whether a management plan makes sense. A one-time YouTube Video SEO &amp; Metadata Audit is also available for \u09F315,000 if you want prioritized recommendations without a monthly plan.',
+    question: 'Do You Guarantee YouTube Views or Subscribers?',
+    answer:
+      'No.\n\nWe do not guarantee specific views, subscribers, rankings, viral results, leads, or revenue.\n\nWe control the strategy, production, optimization, publishing, and reporting work. Audience response and platform distribution cannot be guaranteed.',
   },
 ]
 
 export default function FAQ({ service }) {
   const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Questions"
-          title="Frequently Asked Questions About YouTube Management"
-        >
-          Straight answers about scope, pricing, timelines, production, and what YouTube management can
-          realistically deliver.
-        </SectionIntro>
+  const [openIndex, setOpenIndex] = useState(null)
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border">
-          {faqs.map((faq, index) => (
-            <details key={faq.q} className="group bg-frame-bg">
-              <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-5 font-heading text-base font-bold text-frame-fg transition-colors hover:bg-frame-accent/5 md:p-6 md:text-lg">
-                <span className="flex items-start gap-3">
-                  <span className="mt-0.5 text-xs font-black tracking-tighter text-frame-accent">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="uppercase leading-snug">{faq.q}</span>
-                </span>
-                <span
-                  aria-hidden="true"
-                  className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45"
-                >
-                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                    <path strokeLinecap="round" d="M12 5v14M5 12h14" />
-                  </svg>
-                </span>
-              </summary>
-              <div className="border-t border-frame-border/60 px-5 py-5 md:px-6">
-                <p className="pl-7 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/social-media-management/community-management"]}>
-                  {faq.a}
-                </AutoLinks></p>
-              </div>
-            </details>
-          ))}
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx)
+  }
+  const schemaData = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer.replace(/\n\n/g, '<br/><br/>'),
+      },
+    })),
+  }
+
+  return (
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      {/* Schema.org Injection */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
+
+      <div className="mx-auto max-w-5xl">
+        {/* Section Intro */}
+        <div className="mb-14 space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Knowledge Base · FAQs
+            </span>
+          </div>
+
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About{' '}
+            <span className="italic text-frame-accent">YouTube Management.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            Straight answers about scope, pricing, video production, YouTube SEO, thumbnails, and what channel management can realistically deliver.
+          </p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Have a question that is not answered here? Ask during the consultation and we will answer it
-            directly.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact" variant="outline">
-              Get a Free Consultation &rarr;
+        {/* 17 Accordion Items */}
+        <div className="space-y-3.5">
+          {faqs.map((faq, index) => {
+            const isOpen = openIndex === index
+            return (
+              <div
+                key={faq.question}
+                className={`overflow-hidden rounded-2xl border transition-colors duration-200 ${
+                  isOpen
+                    ? 'border-purple-500/40 bg-[#15121C]'
+                    : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(index)}
+                  aria-expanded={isOpen}
+                  className="flex w-full items-center justify-between p-5 sm:p-6 text-left transition-colors"
+                >
+                  <span className="flex items-center gap-3.5 pr-4">
+                    <span className="font-mono text-xs text-frame-accent font-semibold shrink-0">
+                      {String(index + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-heading text-base sm:text-lg font-medium uppercase text-white tracking-tight">
+                      {faq.question}
+                    </span>
+                  </span>
+                  <div
+                    className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-zinc-400 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180 text-frame-accent border-purple-500/30' : ''
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.06] p-5 sm:p-6 pt-3 sm:pt-4">
+                    {faq.answer.split('\n\n').map((paragraph, pIdx) => (
+                      <p
+                        key={pIdx}
+                        className={`text-xs sm:text-sm font-normal leading-relaxed text-zinc-300 ${
+                          pIdx > 0 ? 'mt-3' : ''
+                        }`}
+                      >
+                        <AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/paid-advertising", "/services/content-creation"]}>
+                          {paragraph}
+                        </AutoLinks>
+                      </p>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Additional Questions Strip */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Have a Specific Question About Your Channel?
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400">
+              Speak directly with our video strategy team during a consultation to review your channel and goals.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get a Free Consultation
             </PosterButton>
           </div>
         </div>

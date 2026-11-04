@@ -1,97 +1,148 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
+
+const bangladeshFocus = [
+  'Bangla communication',
+  'English communication',
+  'Bangla-English content where appropriate',
+  'Local customer behavior',
+  'Local offers and campaigns',
+  'Local business information',
+  'Messenger-led customer inquiries',
+  'Community engagement',
+  'Local audience considerations',
+]
+
+const bdCities = ['Dhaka', 'Chattogram', 'Sylhet', 'Khulna', 'Rajshahi', 'Barishal', 'Rangpur', 'Mymensingh', 'Cumilla']
 
 const globalMarkets = [
   { region: 'United States', cities: 'New York, Los Angeles, Chicago, Houston, Miami' },
   { region: 'United Kingdom', cities: 'London, Manchester, Birmingham, Leeds' },
   { region: 'Australia', cities: 'Sydney, Melbourne, Brisbane, Perth' },
-  { region: 'United Arab Emirates', cities: 'Dubai, Abu Dhabi, Sharjah' },
   { region: 'Canada', cities: 'Toronto, Vancouver, Montreal, Calgary' },
-  { region: 'Europe', cities: 'Germany, France, Netherlands, Spain' },
+  { region: 'United Arab Emirates', cities: 'Dubai, Abu Dhabi, Sharjah' },
 ]
-
-const worldwideNote =
-  'We also support clients in other countries. If your business is outside the markets listed above, contact us and we will confirm whether we can support your market and timezone before any engagement begins.'
 
 export default function ServiceAreas() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Service areas"
-          title="Local Facebook Management &amp; Global Support"
-        >
-          Facebook management adapts to the platform&rsquo;s rules, your audience, and your market. We
-          support businesses both locally in Bangladesh and internationally.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            Service Areas
+          </div>
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Facebook Management Service Areas
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Facebook management adapts to the platform&rsquo;s rules, your audience, and your market. We
+            support businesses both locally in Bangladesh and internationally.
+          </p>
+        </div>
 
-        <div className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-14">
-          <div className="border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Bangladesh
+        {/* 2-Column Market Grid */}
+        <div className="mt-16 grid gap-8 lg:grid-cols-12">
+          {/* Bangladesh Focus */}
+          <div className=" rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:col-span-6">
+            <span className="font-mono text-xs font-semibold text-frame-accent">
+              Local Presence
             </span>
-            <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Dhaka &amp; Nationwide
+            <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+              Facebook Management in Bangladesh
             </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We work with businesses across Bangladesh, including:
+            <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
+              We manage Facebook Pages for businesses across Bangladesh. We adapt the strategy to your
+              business rather than assuming every Bangladesh business needs the same content.
             </p>
-            <ul className="mt-5 grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {['Dhaka', 'Chattogram', 'Sylhet', 'Khulna', 'Rajshahi', 'Barishal', 'Rangpur', 'Mymensingh', 'Cumilla'].map(
-                (city) => (
-                  <li
-                    key={city}
-                    className="flex items-center gap-2 border-2 border-frame-border bg-frame-bg px-3 py-2 text-xs font-semibold text-frame-fg md:text-sm"
-                  >
-                    <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    {city}
+
+            <div className="mt-6 border-t border-white/[0.08] pt-5">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A]">
+                Bangladesh-Focused Approach
+              </span>
+              <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                {bangladeshFocus.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
+                    <svg
+                      className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span className="leading-snug">{item}</span>
                   </li>
-                )
-              )}
-            </ul>
-            <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              Content can be developed in Bangla or English depending on your audience and business
-              needs.
-            </p>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-6 border-t border-white/[0.08] pt-5">
+              <span className="text-[10px] font-mono uppercase tracking-wider text-[#71717A]">
+                Key Service Locations
+              </span>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {bdCities.map((city) => (
+                  <span
+                    key={city}
+                    className="rounded-lg rounded-xl border border-white/[0.06] bg-white/[0.03] px-2.5 py-1 text-xs text-[#FAFAFA]"
+                  >
+                    {city}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              International
-            </span>
-            <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          {/* International Markets */}
+          <div className=" rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:col-span-6">
+            <span className="font-mono text-xs font-semibold text-frame-accent">
               Global Support
+            </span>
+            <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+              International Facebook Management
             </h3>
-            <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We manage Facebook Pages for clients targeting international audiences across multiple
-              regions.
+            <p className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
+              We also support businesses targeting customers outside Bangladesh. Content and communication
+              can be adapted to the target market while keeping your core brand standards consistent.
             </p>
 
-            <div className="mt-6 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2">
+            <div className="mt-6 space-y-3">
               {globalMarkets.map((market) => (
-                <div key={market.region} className="bg-frame-bg p-5">
-                  <h4 className="font-heading text-sm font-bold uppercase tracking-tight text-frame-fg md:text-base">
-                    {market.region}
-                  </h4>
-                  <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
-                    {market.cities}
-                  </p>
+                <div
+                  key={market.region}
+                  className=" rounded-xl border border-white/[0.06] bg-white/[0.02] p-4"
+                >
+                  <h4 className="text-sm font-medium text-[#FAFAFA]">{market.region}</h4>
+                  <p className="mt-1 text-xs text-[#A1A1AA]">{market.cities}</p>
                 </div>
               ))}
             </div>
 
-            <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {worldwideNote}
-            </p>
+            <div className="mt-6 rounded-xl border border-white/[0.06] bg-[#09090B]/60 p-4">
+              <p className="text-xs leading-relaxed text-[#A1A1AA]">
+                We also support clients in other countries. If your business is outside the markets listed
+                above, contact us and we will confirm whether we can support your market and timezone
+                before any engagement begins.
+              </p>
+            </div>
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Multi-location and multi-market businesses are supported through the Enterprise plan, where
-            location-specific requirements are handled as part of one coordinated workflow.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Confirm Your Market &rarr;</PosterButton>
+        {/* Bottom Banner */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-frame-accent">
+              Market-Specific Strategy
+            </span>
+            <p className="mt-2 text-base leading-relaxed text-[#FAFAFA] sm:text-lg">
+              Whether you are engaging customers in Dhaka or targeting buyers in North America and
+              Europe, we tailor voice, timings, and messaging to match.
+            </p>
+          </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Discuss Your Target Market</PosterButton>
           </div>
         </div>
       </div>

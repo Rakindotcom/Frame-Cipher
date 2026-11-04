@@ -73,13 +73,7 @@ export default function CalculatorServiceBridge() {
     <section className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-10" id="related-services">
       <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between border-b border-frame-border pb-8">
         <div>
-          <div className="flex items-center gap-2">
-            <Layers className="h-4 w-4 text-frame-accent" />
-            <span className="text-xs font-mono font-bold uppercase tracking-[0.24em] text-frame-accent">
-              Agency Execution Services
-            </span>
-          </div>
-          <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="font-heading text-2xl md:text-4xl font-medium tracking-tight text-frame-fg">
             Turn These Projections Into Real Revenue
           </h3>
           <p className="mt-2 max-w-2xl text-xs md:text-sm text-frame-muted-fg leading-relaxed wide:text-lg">
@@ -105,7 +99,7 @@ export default function CalculatorServiceBridge() {
               <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-frame-accent">
                 {srv.category}
               </span>
-              <h4 className="mt-2 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="mt-2 font-heading text-xl font-medium tracking-tight text-frame-fg">
                 {srv.title}
               </h4>
               <p className="mt-3 text-xs leading-relaxed text-frame-muted-fg">

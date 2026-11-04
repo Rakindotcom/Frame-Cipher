@@ -10,13 +10,12 @@ import {
   HomeTextMarquee,
   HomeProblems,
   HomeBuild,
-  HomeResults,
+  HomeStudioShowcase,
   HomeWhy,
   HomeTech,
   HomeFeaturedWork,
   HomeRecentInsights,
   HomeCaseStudies,
-  HomeServicesPulse,
   HomeCalculatorsGrid,
   HomeProcess,
   HomeEngagement,
@@ -26,6 +25,7 @@ import {
   HomeFAQ,
   HomeCTA,
 } from '../components/home'
+import HomePortfolioShowcase from '../components/home/HomePortfolioShowcase'
 
 export default function Home({ latestPosts = [] }) {
   return (
@@ -34,6 +34,7 @@ export default function Home({ latestPosts = [] }) {
       <Clients />
       <HomeProblems />
       <HomeBuild />
+      <HomeStudioShowcase />
       <Testimonials />
       <GrowthOSHome />
       <HomeMarqueeStats />
@@ -42,10 +43,9 @@ export default function Home({ latestPosts = [] }) {
       <HomeManifesto />
       <HomeTextMarquee />
       <HomeFeaturedWork />
-      <HomeResults />
+      <HomePortfolioShowcase />
       <HomeRecentInsights initialPosts={latestPosts} />
       <HomeCaseStudies />
-      <HomeServicesPulse />
       <HomeCalculatorsGrid />
       <HomeProcess />
       <HomeEngagement />

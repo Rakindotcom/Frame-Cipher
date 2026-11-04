@@ -1,35 +1,108 @@
 import Hero from './Hero'
-import Offerings from './Offerings'
+import WhatIsEnterprise from './WhatIsEnterprise'
+import Services from './Services'
+import AppsWeBuild from './AppsWeBuild'
+import WhyMoreThanCoding from './WhyMoreThanCoding'
+import Architecture from './Architecture'
+import SystemsIntegration from './SystemsIntegration'
+import WorkflowAutomation from './WorkflowAutomation'
+import SecurityCompliance from './SecurityCompliance'
+import DataReporting from './DataReporting'
+import MobileOffline from './MobileOffline'
+import ModernizationMigration from './ModernizationMigration'
+import CloudPerformance from './CloudPerformance'
+import DevopsManagement from './DevopsManagement'
+import TechStack from './TechStack'
+import UiUxAdoption from './UiUxAdoption'
+import RolloutChange from './RolloutChange'
+import TestingQa from './TestingQa'
+import DataMigration from './DataMigration'
+import EngagementModels from './EngagementModels'
 import Process from './Process'
+import Deliverables from './Deliverables'
+import WhyChoose from './WhyChoose'
+import CaseStudies from './CaseStudies'
 import Pricing from './Pricing'
+import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
 import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const keywords = [
-  'Legacy Modernization',
-  'ERP & CRM Integration',
-  'Role-Based Access Control',
-  'Single Sign-On (SSO)',
-  'High Availability Architecture',
-  'Automated CI/CD',
-  'Enterprise Mobile & Offline-First',
-  'Mission-Critical SLA Support',
+  'Custom ERP & Workflow Engines',
+  'Legacy Database & API Integration',
+  'Enterprise RBAC & SAML 2.0 SSO',
+  'Audit Logging & SOC2 Compliance',
+  'Field Operations & Offline Sync',
+  'High-Availability Cloud Architecture',
+  'Automated CI/CD & Disaster Recovery',
+  '100% In-House Enterprise Engineering',
 ]
 
 export default function AppDevelopmentEnterpriseAppsService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page min-h-screen bg-[#09090B] text-white selection:bg-[#704bd2]/30 selection:text-white">
       <Hero service={service} />
       <TypeMarquee items={keywords} slow />
-      
-      <Offerings />
+
+      <WhatIsEnterprise />
+      <Services />
+      <AppsWeBuild />
+      <WhyMoreThanCoding />
+      <Architecture />
+      <SystemsIntegration />
+      <WorkflowAutomation />
+      <SecurityCompliance />
+      <DataReporting />
+      <MobileOffline />
+      <ModernizationMigration />
+      <CloudPerformance />
+      <DevopsManagement />
+      <TechStack />
+      <UiUxAdoption />
+      <RolloutChange />
+      <TestingQa />
+      <DataMigration />
+      <EngagementModels />
       <Process />
+      <Deliverables />
+      <WhyChoose />
+      <CaseStudies />
       <Pricing />
+      <BangladeshWorldwide />
       <FAQ service={service} />
       <CTA />
     </main>
   )
 }
 
-export { Hero, Offerings, Process, Pricing, FAQ, CTA }
+export {
+  Hero,
+  WhatIsEnterprise,
+  Services,
+  AppsWeBuild,
+  WhyMoreThanCoding,
+  Architecture,
+  SystemsIntegration,
+  WorkflowAutomation,
+  SecurityCompliance,
+  DataReporting,
+  MobileOffline,
+  ModernizationMigration,
+  CloudPerformance,
+  DevopsManagement,
+  TechStack,
+  UiUxAdoption,
+  RolloutChange,
+  TestingQa,
+  DataMigration,
+  EngagementModels,
+  Process,
+  Deliverables,
+  WhyChoose,
+  CaseStudies,
+  Pricing,
+  BangladeshWorldwide,
+  FAQ,
+  CTA,
+}

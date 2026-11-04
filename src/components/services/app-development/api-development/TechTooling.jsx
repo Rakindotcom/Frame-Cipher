@@ -1,51 +1,60 @@
+'use client'
+
+import React from 'react'
+
 const technologyTooling = [
-  "REST APIs",
-  "GraphQL",
-  "Webhooks",
-  "OpenAPI and Swagger",
-  "OAuth and token-based authentication",
-  "API keys and access controls",
-  "Database integration",
-  "Caching",
-  "Automated API testing",
-  "Logging and monitoring",
-  "Cloud and existing infrastructure",
-  "Message Queues & Event Streaming"
+  { layer: 'Languages & Runtimes', tools: 'Node.js, TypeScript, Go, Python, PHP / Laravel' },
+  { layer: 'Frameworks & Gateways', tools: 'Express, Fastify, NestJS, Gin, FastAPI, Kong, KrakenD' },
+  { layer: 'Protocols', tools: 'REST (JSON), GraphQL (Apollo), gRPC (Protobuf), Webhooks, WebSockets' },
+  { layer: 'Databases & Caching', tools: 'PostgreSQL, MySQL, MongoDB, Redis, Memcached, Database integration' },
+  { layer: 'Documentation & Testing', tools: 'OpenAPI and Swagger, Swagger UI, Postman, Jest, Supertest, Automated API testing' },
+  { layer: 'Security & Auth', tools: 'OAuth and token-based authentication, API keys and access controls, HMAC-SHA256, mTLS' },
+  { layer: 'Cloud & Infrastructure', tools: 'Cloud and existing infrastructure, AWS, Google Cloud, DigitalOcean, Docker, Kubernetes' },
+  { layer: 'Monitoring & Logging', tools: 'Logging and monitoring, Datadog, Prometheus, Grafana, Sentry, OpenTelemetry' },
 ]
 
 export default function TechTooling() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Stack &amp; Frameworks
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          API Technology &amp; Tooling
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          We select API technologies and supporting tools based on your application&apos;s requirements, existing infrastructure, integration needs, and long-term maintenance. Our API projects can involve:
-        </p>
-      </div>
+    <section id="tech-tooling" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            API Technology &amp; <span className="italic text-frame-accent">Tooling.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {technologyTooling.map((tech, i) => (
-          <div key={i} className="flex items-center gap-3 border-2 border-frame-border bg-frame-muted/10 p-4">
-            <span className="flex h-5 w-5 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-              <svg className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </span>
-            <span className="text-xs md:text-sm font-semibold text-frame-fg">
-              {tech}
-            </span>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We select API technologies and supporting tools based on your application's requirements, existing infrastructure, integration needs, and long-term maintenance. Our API projects can involve:
+          </p>
+        </div>
+
+        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-xl">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-white/[0.08] bg-[#18181b]/50 font-mono text-xs uppercase tracking-wider text-zinc-300">
+                <tr>
+                  <th className="p-4 sm:p-5 border-r border-white/[0.08] text-white">Architecture Layer</th>
+                  <th className="p-4 sm:p-5 text-frame-accent">Technologies &amp; Frameworks</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.06] font-sans">
+                {technologyTooling.map((item, idx) => (
+                  <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
+                    <td className="p-4 sm:p-5 font-medium text-white border-r border-white/[0.08] whitespace-nowrap">
+                      {item.layer}
+                    </td>
+                    <td className="p-4 sm:p-5 font-normal text-zinc-300">
+                      {item.tools}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
-        ))}
+          <div className="border-t border-white/[0.08] bg-[#0d0d10] p-4 text-xs font-mono text-zinc-400">
+            The final technology choices depend on the project's architecture, existing systems, and technical requirements.
+          </div>
+        </div>
       </div>
-
-      <p className="mt-6 text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent border-t border-frame-border/60 pt-4">
-          The final technology choices depend on the project&apos;s architecture, existing systems, and technical requirements.
-      </p>
-    </div>
+    </section>
   )
 }

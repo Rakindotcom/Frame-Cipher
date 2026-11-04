@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const criteria = [
   {
@@ -11,42 +13,56 @@ const criteria = [
   },
   {
     title: 'AdSense Policy Compliance',
-    body: 'Your website must comply with Google\u2019s AdSense and publisher policies before you apply. Google can update these policies, so we review your site against the requirements that apply at the time of your engagement. We look for prohibited or restricted content, problematic implementations, misleading elements, and other policy risks that could affect your application.',
+    body: 'Your website must comply with Google’s AdSense and publisher policies before you apply. Google can update these policies, so we review your site against the requirements that apply at the time of your engagement. We look for prohibited or restricted content, problematic implementations, misleading elements, and other policy risks that could affect your application.',
   },
   {
     title: 'Site Ownership & Technical Access',
-    body: 'Google requires applicants to have access to the site\u2019s HTML source code so AdSense can be connected and reviewed properly. We check whether your website is technically prepared for AdSense connection, including access, live pages, site configuration, and the basic setup needed to place and verify AdSense code.',
+    body: 'Google requires applicants to have access to the site’s HTML source code so AdSense can be connected and reviewed properly. We check whether your website is technically prepared for AdSense connection, including access, live pages, site configuration, and the basic setup needed to place and verify AdSense code.',
   },
   {
     title: 'Publisher Eligibility',
-    body: 'Google\u2019s current eligibility guidance states that applicants need their own content, must comply with AdSense policies, and must be at least 18 years old. Additional account and product requirements can also apply depending on how AdSense is being used. We review the eligibility factors that are relevant to your website and explain any issue that should be addressed before you submit.',
+    body: 'Google’s current eligibility guidance states that applicants need their own content, must comply with AdSense policies, and must be at least 18 years old. Additional account and product requirements can also apply depending on how AdSense is being used. We review the eligibility factors that are relevant to your website and explain any issue that should be addressed before you submit.',
   },
 ]
 
 export default function ReadinessCheck() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Readiness criteria" title="Is Your Website Ready for Google AdSense?">
-          Google evaluates sites on content, navigation, policy compliance, technical setup, and
-          eligibility before deciding on an application.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Eligibility Core // Readiness Criteria</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Is Your Website Ready for{' '}
+            <span className="italic text-frame-accent">Google AdSense</span>?
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Google evaluates sites on content, navigation, policy compliance, technical setup, and
+            eligibility before deciding on an application.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* 5 Criteria Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {criteria.map((item, index) => (
-            <div key={item.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <div
+              key={item.title}
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 hover:border-white/[0.14] hover:bg-[#18181B] transition-all"
+            >
               <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Pillar 0{index + 1}
                 </span>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {item.body}
                 </p>
               </div>
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
             </div>
           ))}
         </div>

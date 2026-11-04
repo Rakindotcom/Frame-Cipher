@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const scopeRows = [
   ['SEO Audit', 'Technical, on-page, content, backlink, competitor, and visibility analysis'],
@@ -16,41 +18,56 @@ const scopeRows = [
 
 export default function Included() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Scope & Deliverables"
-          title="What's Included in Our SEO Services"
-        >
-          Every SEO campaign is different. The actual scope depends on your website, market,
-          competition, business goals, technical environment, and available resources.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Scope &amp; Deliverables // Full Architectural Coverage
+            </span>
+          </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border">
-          <table className="w-full text-left text-sm">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-              <tr>
-                <th className="p-4 border-r-2 border-frame-border w-1/3">SEO Area</th>
-                <th className="p-4">Typical Deliverables</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-              {scopeRows.map((row, rIdx) => (
-                <tr key={rIdx} className="align-top transition-colors hover:bg-frame-muted/20">
-                  <td className="p-4 border-r-2 border-frame-border font-bold text-frame-fg">
-                    {row[0]}
-                  </td>
-                  <td className="p-4 font-medium">{row[1]}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What&apos;s Included in Our{' '}
+            <span className="italic text-frame-accent">SEO Services.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Every SEO campaign is different. The actual scope depends on your website, market, competition, business goals, technical environment, and available resources.
+          </p>
         </div>
 
-        <div className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-5 md:p-6">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            We define the final scope after reviewing the website so you pay for work that aligns
-            with your actual SEO needs.
+        {/* Architectural Ledger Table */}
+        <div className="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214]">
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="border-b border-white/[0.08] bg-white/[0.02] font-mono text-xs uppercase tracking-wider text-zinc-400">
+                <tr>
+                  <th className="p-5 border-r border-white/[0.08] w-1/3">SEO Discipline</th>
+                  <th className="p-5">Typical Deliverables &amp; Focus</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-white/[0.08] text-zinc-300">
+                {scopeRows.map((row, rIdx) => (
+                  <tr key={rIdx} className="align-top transition-colors hover:bg-white/[0.02]">
+                    <td className="p-5 border-r border-white/[0.08] font-medium text-white flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                      <span>{row[0]}</span>
+                    </td>
+                    <td className="p-5 font-normal leading-relaxed text-zinc-300">{row[1]}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        {/* Note Callout */}
+        <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7">
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+            We define the final scope after reviewing the website so you pay for work that aligns with your actual SEO needs.
           </p>
         </div>
       </div>

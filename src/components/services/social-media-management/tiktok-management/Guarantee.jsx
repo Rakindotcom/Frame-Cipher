@@ -1,5 +1,7 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
-import { CheckIcon } from './ui'
+'use client'
+
+import React from 'react'
+import { Check, X, ShieldCheck, AlertTriangle } from 'lucide-react'
 
 const controlled = [
   'Strategy development',
@@ -8,10 +10,10 @@ const controlled = [
   'Content planning',
   'Brand voice development',
   'Agreed video production',
-  'Publishing',
+  'Publishing cadence',
   'TikTok SEO implementation',
   'Community management within scope',
-  'Trend research',
+  'Trend research & adaptation',
   'Creator/UGC coordination where included',
   'Performance reporting',
   'Content testing',
@@ -41,93 +43,104 @@ const factors = [
   'Product-market fit',
 ]
 
-function CrossIcon() {
-  return (
-    <span
-      aria-hidden="true"
-      className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-border bg-frame-muted/20 text-frame-muted-fg"
-    >
-      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-        <path strokeLinecap="round" d="M6 6l12 12M18 6L6 18" />
-      </svg>
-    </span>
-  )
-}
-
 export default function Guarantee() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Service commitments" title="What We Commit to">
-          No TikTok management service can responsibly guarantee platform outcomes. We separate what we
-          control from what depends on audience response and platform distribution.
-        </SectionIntro>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          <div className="border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              What We Control
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Commercial Governance · Service Commitments
             </span>
-            <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-              Our scope can include:
-            </p>
-            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
-              {controlled.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm font-semibold leading-snug text-frame-fg">
-                  <CheckIcon />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-l-2 border-frame-accent bg-frame-bg p-3 text-xs font-semibold leading-relaxed text-frame-fg">
-              We commit to delivering the agreed work according to the approved scope and schedule.
-            </p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
-              What We Don&rsquo;t Guarantee
-            </span>
-            <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-              No TikTok management service can responsibly guarantee:
-            </p>
-            <ul className="mt-6 grid gap-2.5 sm:grid-cols-2">
-              {notGuaranteed.map((item) => (
-                <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                  <CrossIcon />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-              Performance depends on factors outside the content team&rsquo;s control, including{' '}
-              {factors.join(', ').replace(/, ([^,]*)$/, ', and $1')}.
-            </p>
-          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            What We Commit To{' '}
+            <span className="italic text-frame-accent">&amp; Where We Draw the Line.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            We focus on the parts of TikTok management our team can directly control while keeping commercial expectations realistic and transparent.
+          </p>
         </div>
 
-        <div className="mt-10 grid gap-6 border-t-2 border-frame-border pt-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-            <p className="max-w-4xl text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-              Our responsibility is to control the process, produce the agreed work, measure performance,
-              and improve the content system using available evidence.
-            </p>
+        {/* 2-Column Symmetrical Comparison Cards */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Card 1: What We Control */}
+          <div className="flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#15121c] p-7 md:p-8 shadow-xl shadow-purple-950/20">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-purple-500/20">
+                <div className="space-y-1">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    Direct Operational Control · </span>
+                  <h3 className="font-heading text-xl font-medium tracking-tight text-white">
+                    What We Control &amp; Improve
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-purple-500/30 bg-purple-500/10 text-purple-400">
+                  <Check className="h-5 w-5" />
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-zinc-300 mb-6 leading-relaxed">
+                We take 100% operational accountability for the research, positioning, production, and execution:
+              </p>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-200">
+                {controlled.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-purple-500/40 bg-purple-500/20 text-frame-accent mt-0.5">
+                      <Check className="h-2.5 w-2.5 stroke-[2.5]" />
+                    </span>
+                    <span className="leading-snug">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-purple-500/20 bg-purple-500/10 p-4 text-xs text-purple-200/90 leading-relaxed">
+              <strong>Professional Standard: </strong>
+              We commit to delivering the agreed work according to the approved scope, brand parameters, and publishing schedule.
+            </div>
           </div>
 
-          <div className="flex flex-col justify-center border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Ready to talk scope?
-            </span>
-            <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90">
-              We will be direct about what a realistic plan looks like for your account.
-            </p>
-            <div className="mt-6 space-y-3">
-              <PosterButton href="/contact" className="w-full">
-                Get Your Free TikTok Audit &rarr;
-              </PosterButton>
-              <PosterButton href="/contact" variant="outline" className="w-full">
-                Request a Custom Quote &rarr;
-              </PosterButton>
+          {/* Card 2: What We Don't Guarantee */}
+          <div className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <div>
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
+                <div className="space-y-1">
+                  <span className="font-mono text-xs uppercase tracking-widest text-zinc-400">
+                    Transparent Boundaries · </span>
+                  <h3 className="font-heading text-xl font-medium tracking-tight text-white">
+                    What We Do Not Guarantee
+                  </h3>
+                </div>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-amber-500/30 bg-amber-500/10 text-amber-400">
+                  <AlertTriangle className="h-5 w-5" />
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-sm text-zinc-400 mb-6 leading-relaxed">
+                No agency can responsibly guarantee external platform distribution, viral spikes, or macroeconomic business outcomes:
+              </p>
+
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-zinc-400">
+                {notGuaranteed.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-zinc-700 bg-zinc-800 text-zinc-400 mt-0.5">
+                      <X className="h-2.5 w-2.5 stroke-[2.5]" />
+                    </span>
+                    <span className="leading-snug text-zinc-300">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mt-8 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs text-zinc-400 leading-relaxed">
+              <strong className="text-zinc-200">External Variables: </strong>
+              Performance depends on audience response, competition, market conditions, account history, platform changes, and product-market fit. Our duty is to control the process, measure evidence, and continuously optimize.
             </div>
           </div>
         </div>

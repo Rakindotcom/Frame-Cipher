@@ -1,73 +1,120 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { ArrowRight, ShoppingCart, Layers, GitCompare, BookOpen, BookmarkCheck, FileText } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const intentMapping = [
-  ['Product searches', 'Product pages'],
-  ['Category searches', 'Category pages'],
-  ['Comparison searches', 'Comparison content'],
-  ['Research queries', 'Buying guides'],
-  ['Brand searches', 'Relevant brand or product pages'],
-  ['Supporting topics', 'Informational content with commercial internal links'],
+  {
+    intent: 'Product searches',
+    destination: 'Product pages',
+    description: 'High purchase intent, exact SKUs, models & variants ready to buy',
+    icon: ShoppingCart,
+  },
+  {
+    intent: 'Category searches',
+    destination: 'Category pages',
+    description: 'Commercial discovery for broad product groups and collections',
+    icon: Layers,
+  },
+  {
+    intent: 'Comparison searches',
+    destination: 'Comparison content',
+    description: 'Head-to-head evaluation, feature matrix & side-by-side breakdowns',
+    icon: GitCompare,
+  },
+  {
+    intent: 'Research queries',
+    destination: 'Buying guides',
+    description: 'Decision-stage educational guides, criteria & recommendation lists',
+    icon: BookOpen,
+  },
+  {
+    intent: 'Brand searches',
+    destination: 'Relevant brand or product pages',
+    description: 'Navigational & brand-affinity queries direct to brand hubs',
+    icon: BookmarkCheck,
+  },
+  {
+    intent: 'Supporting topics',
+    destination: 'Informational content with commercial internal links',
+    description: 'How-to guides, FAQs & blogs internally linking to products',
+    icon: FileText,
+  },
 ]
 
 export default function Overview() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="What this is" title="Ecommerce SEO Built Around Buyers, Products & Revenue">
-          Ecommerce SEO works best when search visibility connects with your buying journey.
-        </SectionIntro>
-
-        <div className="space-y-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-          <p>
-            A customer searching for a specific product may already have strong purchase intent.
-            Another visitor may still be comparing options or researching a problem. Your SEO
-            strategy should account for that difference.
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Core Philosophy // Search Intent &amp; Revenue
           </p>
-          <p>
-            We connect search demand with the pages that can satisfy each intent:
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Ecommerce SEO Built Around{' '}
+            <span className="italic text-frame-accent">Buyers, Products &amp; Revenue</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            Ecommerce SEO works best when search visibility connects with your buying journey.
+            A customer searching for a specific product may already have strong purchase intent. Another visitor may still be comparing options or researching a problem.
+          </p>
+          <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
+            Your SEO strategy should account for that difference. We connect search demand with the pages that can satisfy each intent:
           </p>
         </div>
 
-        <ul className="mt-8 overflow-hidden border-2 border-frame-border bg-frame-bg">
-          {intentMapping.map(([intent, page], index) => (
-            <li
-              key={index}
-              className="flex flex-col gap-2 border-b border-frame-border/60 px-6 py-5 last:border-b-0 sm:flex-row sm:items-center sm:justify-between md:px-7"
-            >
-              <span className="text-sm font-bold uppercase tracking-tight text-frame-fg md:text-base">
-                {intent}
-              </span>
-              <span aria-hidden="true" className="font-mono text-xs font-bold text-frame-accent">
-                &rarr;
-              </span>
-              <span className="text-sm font-semibold uppercase tracking-tight text-frame-accent md:text-base">
-                {page}
-              </span>
-            </li>
-          ))}
-        </ul>
+        {/* Intent Mapping Grid */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {intentMapping.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.16] hover:bg-[#161619]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-4 w-4" />
+                    </span>
+                    <span className="font-mono text-[10px] text-zinc-400">Intent 0{idx + 1}</span>
+                  </div>
 
-        <p className="mt-8 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-          We also consider technical performance, site architecture, internal linking, structured
-          data, and ecommerce analytics. The goal is simple: bring qualified searchers to useful
-          pages and create more opportunities for them to become customers.
-        </p>
+                  <h3 className="mt-4 font-heading text-lg font-semibold tracking-tight text-white">
+                    {item.intent}
+                  </h3>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <div>
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              See where you stand
-            </span>
-            <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-              Start with a free consultation
-            </h3>
-            <p className="mt-4 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              We review your store&apos;s current SEO position and recommend where the work will
-              have the most impact first.
+                  <div className="mt-3 flex items-center gap-2 text-xs font-mono font-semibold text-frame-accent">
+                    <ArrowRight className="h-3 w-3 shrink-0" />
+                    <span className="text-emerald-400">{item.destination}</span>
+                  </div>
+
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Supporting Summary & Action Callout */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-8 md:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+          <div className="max-w-2xl space-y-3">
+            <h4 className="font-heading text-xl md:text-2xl font-semibold tracking-tight text-white">
+              End-to-End Commerce Infrastructure
+            </h4>
+            <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              We also consider technical performance, site architecture, internal linking, structured data, and ecommerce analytics. The goal is simple: bring qualified searchers to useful pages and create more opportunities for them to become customers.
             </p>
           </div>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact">Get Free Consultation &rarr;</PosterButton>
+
+          <div className="shrink-0">
+            <PosterButton href="/contact">
+              Get Free Consultation &rarr;
+            </PosterButton>
           </div>
         </div>
       </div>

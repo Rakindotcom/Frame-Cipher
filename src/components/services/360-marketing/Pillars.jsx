@@ -84,50 +84,60 @@ const pillars = [
 
 export default function Pillars() {
   return (
-    <section id="pillars" className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="pillars" className="relative isolate px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-white border-b border-white/[0.08]">
+      <div className="pointer-events-none absolute inset-x-0 top-1/3 -z-10 flex justify-center">
+        <div className="h-96 w-[800px] rounded-full bg-purple-600/10 blur-[140px]" />
+      </div>
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="The 6 Growth Engines"
-          title="Complete 360 Marketing Architecture."
+          title={
+            <>
+              Complete 360{' '}
+              <span className="italic text-frame-accent">Marketing Architecture.</span>
+            </>
+          }
         >
           A true 360-degree marketing system is not a random checklist of services. It is an interlocking
           flywheel where each discipline reinforces the next to compound your brand equity and revenue.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {pillars.map((pillar) => (
             <article
               key={pillar.number}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-10 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-9 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#151518]"
             >
               <div>
-                <p className="font-heading text-5xl font-bold leading-none tracking-tighter text-frame-accent">
-                  {pillar.number}
-                </p>
-                <h3 className="mt-6 font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    {pillar.number}
+                  </span>
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                </div>
+                <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium leading-tight tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {pillar.title}
                 </h3>
-                <p className="mt-4 text-sm font-semibold leading-normal text-frame-muted-fg md:text-base wide:text-lg">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {pillar.summary}
                 </p>
 
-                <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-5 text-xs font-medium leading-relaxed text-frame-muted-fg/90 md:text-sm wide:text-lg">
+                <ul className="mt-6 space-y-2.5 border-t border-white/[0.08] pt-5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {pillar.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-2.5">
-                      <span className="mt-1 h-1.5 w-1.5 flex-none bg-frame-accent" />
+                      <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-frame-accent" />
                       <span>{bullet}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="mt-8 border-t border-frame-border/60 pt-5">
+              <div className="mt-8 border-t border-white/[0.08] pt-5">
                 <Link
                   href={pillar.link}
-                  className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-frame-accent hover:text-frame-fg transition-colors"
+                  className="inline-flex min-h-[44px] h-[44px] w-full items-center justify-between rounded-full border border-white/[0.12] bg-[#18181B] px-5 text-xs font-medium text-white transition-all duration-200 hover:border-frame-accent/60 hover:bg-frame-accent hover:text-white"
                 >
                   <span>{pillar.linkText}</span>
-                  <span>→</span>
+                  <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </article>

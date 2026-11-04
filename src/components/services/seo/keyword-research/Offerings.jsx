@@ -1,216 +1,234 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Sparkles,
+  Search,
+  MessageSquare,
+  BarChart3,
+  Target,
+  Crosshair,
+  HelpCircle,
+  Network,
+  Split,
+  LineChart,
+  FileSpreadsheet,
+  Check,
+} from 'lucide-react'
 
 const services = [
   {
+    number: '01',
+    icon: Search,
     title: 'Seed Keyword & Topic Discovery',
-    body: "We start with your business, products, services, audience, and market rather than opening a keyword tool and exporting a list.",
-    pointsHead: 'We identify:',
+    description:
+      'We start with your core business model, products, service lines, audience profile, and addressable market rather than immediately opening a generic tool and exporting an unvetted bulk list.',
     points: [
-      'Core business terms',
-      'Product and service terminology',
-      'Industry topics',
-      'Customer problems',
-      'Category-level topics',
-      'Related concepts',
-      'Question themes',
-      'Initial competitor terms',
+      'Core business terminology & commercial vocabulary',
+      'Product and service category-level taxonomy',
+      'Industry topics & underlying customer problem spaces',
+      'Related commercial concepts & initial competitor terms',
     ],
-    note: 'The starting set becomes the foundation for broader keyword expansion.',
+    note: 'The validated starting set becomes the empirical foundation for broader keyword cluster expansion.',
   },
   {
+    number: '02',
+    icon: MessageSquare,
     title: 'Customer Language & Query Research',
-    body: 'Customers do not always use the same language that businesses use internally. We investigate how real users describe:',
-    pointsHead: '',
+    description:
+      'Real searchers do not always use internal industry jargon. We investigate the exact vernacular, phrasing, and pain points prospective buyers use when searching.',
     points: [
-      'Problems',
-      'Products',
-      'Services',
-      'Features',
-      'Solutions',
-      'Use cases',
-      'Comparisons',
-      'Questions',
+      'Real-world problem & symptom phrasing',
+      'Feature, solution, and specific use-case descriptions',
+      'Alternative & head-to-head comparison searches',
+      'Search query logs, autocomplete patterns & People Also Ask',
     ],
-    note: 'Depending on the project, research can include search-query data, autocomplete suggestions, related searches, SERP results, customer language patterns, and other relevant sources. This helps uncover terminology your internal team may not have considered.',
+    note: 'Uncovers high-converting colloquial terminology and long-tail query variants your internal team may not have considered.',
   },
   {
+    number: '03',
+    icon: BarChart3,
     title: 'Search Volume, Competition & Opportunity Analysis',
-    body: 'Search volume is useful, but it should not be the only decision-making factor. We evaluate keywords using a broader set of signals:',
-    pointsHead: '',
+    description:
+      'Search volume is useful context, but never the sole decision metric. We score keyword opportunities across a multi-dimensional matrix of demand, difficulty, and revenue potential.',
     points: [
-      'Search demand',
-      'Ranking difficulty',
-      'SERP competition',
-      'Domain and page strength',
-      'Search intent',
-      'Business relevance',
-      'Current website authority',
-      'Conversion potential',
-      'Content requirements',
+      'Normalized monthly search demand & seasonality',
+      'Empirical ranking difficulty & SERP dominance strength',
+      'Domain & page-level authority requirements',
+      'Bottom-line conversion potential vs. content production effort',
     ],
-    note: 'A high-volume term dominated by highly established websites may be a weaker short-term opportunity than a lower-volume term with strong relevance and achievable competition. We therefore use search volume as part of the decision, not the entire strategy.',
+    note: 'A high-volume head term dominated by Wikipedia or legacy software giants is often a weaker commercial priority than an achievable keyword with verified buyer intent.',
   },
   {
+    number: '04',
+    icon: Target,
     title: 'Search Intent & SERP Analysis',
-    body: 'A keyword cannot be evaluated properly without understanding what users expect to see. We classify terms by intent and examine the current SERP to understand:',
-    pointsHead: '',
+    description:
+      'A keyword cannot be properly evaluated without understanding the search engine results page (SERP) layout and exact searcher expectations.',
     points: [
-      'Informational intent',
-      'Commercial investigation',
-      'Transactional intent',
-      'Navigational intent',
-      'Local intent where relevant',
-      'Ranking page types',
-      'Content formats',
-      'SERP features',
-      'Search-result patterns',
-      'User expectations',
+      'Informational, Commercial, Transactional & Navigational intent',
+      'Dominant ranking page types (product, category, service, guide)',
+      'SERP feature presence (Featured Snippets, PAA, Local Packs, Video)',
+      'Content format requirements aligned with searcher expectations',
     ],
-    note: 'We then recommend the page type most appropriate for the query. A service page, product page, category page, comparison page, or informational article should not automatically target the same type of keyword.',
+    note: 'Ensures service pages, product catalogs, comparison hubs, and informational guides target appropriate queries without intent mismatch.',
   },
   {
+    number: '05',
+    icon: Crosshair,
     title: 'Competitor Keyword Gap Analysis',
-    body: 'Your competitors can reveal search opportunities that your website currently misses. We identify:',
-    pointsHead: '',
+    description:
+      'Direct and indirect competitors reveal high-value search demand your domain currently misses. We identify exactly where rivals earn their primary organic visibility.',
     points: [
-      'Keywords competitors rank for',
-      'Pages driving their visibility',
-      'Shared ranking opportunities',
-      'Missing topics',
-      'Content gaps',
-      'Commercial keyword gaps',
-      'Long-tail gaps',
-      'Supporting-topic opportunities',
+      'High-traffic keywords competitors rank for in top-5 positions',
+      'Underlying URLs and page architectures driving their traffic',
+      'Shared ranking opportunities and untapped topical voids',
+      'Commercial keyword gaps and high-intent long-tail voids',
     ],
-    note: 'We then filter those findings through your own business relevance and ranking potential. The objective is not to copy competitors. It is to understand where they have search visibility and determine which opportunities make sense for your website.',
+    note: 'The goal is not blind imitation; it is identifying where market demand exists and seizing realistic opportunities with superior content architecture.',
   },
   {
+    number: '06',
+    icon: HelpCircle,
     title: 'Long-Tail & Question Keyword Research',
-    body: 'Long-tail queries often reveal specific problems, use cases, buying questions, and lower-volume opportunities. We research:',
-    pointsHead: '',
+    description:
+      'Specific long-tail queries and question modifiers often reveal pre-purchase questions, specialized use cases, and lower-competition ranking targets.',
     points: [
-      'Specific product queries',
-      'Detailed service searches',
-      'Question keywords',
-      'Problem-based searches',
-      'Comparison queries',
-      'Feature-related searches',
-      'Location modifiers',
-      'Audience-specific searches',
-      'High-intent niche queries',
+      'Specific product and granular service searches',
+      'Question-based queries (how to, what is, pricing of, best for)',
+      'Problem-based searches and buying criteria comparisons',
+      'Location, audience, and industry-specific modifiers',
     ],
-    note: 'These terms can help newer or less authoritative websites build visibility without relying entirely on highly competitive head terms.',
+    note: 'Enables newer domains and category challengers to build immediate organic momentum without fighting unwinnable head-term wars.',
   },
   {
+    number: '07',
+    icon: Network,
     title: 'Semantic Keyword & Entity Research',
-    body: 'Search engines increasingly understand topics through relationships between terms, concepts, entities, and user intent. We identify:',
-    pointsHead: '',
+    description:
+      'Modern search engines evaluate topical completeness through semantic entities, concept relationships, and contextual vocabulary rather than keyword density.',
     points: [
-      'Related terms',
-      'Semantic variations',
-      'Entities',
-      'Subtopics',
-      'Supporting concepts',
-      'Related questions',
-      'Topic relationships',
-      'Contextual terminology',
+      'Knowledge Graph entities and related conceptual topics',
+      'Contextual subtopics and supporting semantic terminology',
+      'Topical authority SILO architecture mapping',
+      'Natural topic relationships without repetitive keyword stuffing',
     ],
-    note: 'This helps create broader topic coverage without forcing the same keyword into every section of a page. The goal is a content structure that fully addresses the subject rather than a list of disconnected keyword variations.',
+    note: 'Builds exhaustive content architecture that search algorithms recognize as definitive topical authorities.',
   },
   {
+    number: '08',
+    icon: Split,
     title: 'Keyword Mapping & Cannibalization Analysis',
-    body: 'Keyword research becomes much more useful when every important keyword has a clear place on the website. We map keyword groups to appropriate:',
-    pointsHead: '',
+    description:
+      'Every priority search term must have one designated, authoritative home URL on your website to prevent conflicting ranking signals.',
     points: [
-      'Service pages',
-      'Product pages',
-      'Category pages',
-      'Location pages',
-      'Blog content',
-      'Guides',
-      'Comparison pages',
-      'Supporting resources',
+      'Keyword-to-page assignment (Service, Product, Category, Guide)',
+      'Audit of overlapping URLs targeting identical search intent',
+      'Resolution of internal cannibalization between blog posts and service pages',
+      'Content consolidation, canonical, and 301 redirection roadmaps',
     ],
-    note: 'We also look for keyword cannibalization, where multiple URLs target similar search intent. This can include competing service pages, blog and service-page overlap, duplicate keyword targeting, multiple URLs ranking for the same intent, unclear primary pages, and consolidation opportunities. The objective is to create a clearer relationship between keyword to intent to page to URL.',
+    note: 'Creates an unambiguous architectural hierarchy: 1 Intent → 1 Target URL → 1 Clear Organic Signal.',
   },
   {
+    number: '09',
+    icon: LineChart,
     title: 'Existing Ranking & Search Console Opportunity Research',
-    body: "Existing search data can reveal some of the fastest opportunities for improving a website's keyword strategy. Where Search Console or equivalent data is available, we can identify:",
-    pointsHead: '',
+    description:
+      'Historical search performance data often provides the fastest organic wins. We analyze Search Console impressions to identify quick-win keyword trajectories.',
     points: [
-      'Queries already generating impressions',
-      'Page-two ranking opportunities',
-      'Keywords with high impressions but low CTR',
-      'Queries ranking with the wrong URL',
-      'Emerging search terms',
-      'Under-optimized pages',
-      'Commercial queries with limited visibility',
-      'Existing pages that can be improved instead of creating new ones',
+      'Queries generating massive impressions on positions 8–20 (Striking Distance)',
+      'High-impression, low-CTR terms requiring snippet optimization',
+      'Queries ranking with sub-optimal or outdated URLs',
+      'Existing commercial pages that can be upgraded instead of creating new URLs',
     ],
-    note: 'This helps combine new keyword discovery with opportunities the website already has.',
+    note: 'Combines net-new discovery with immediate low-hanging fruit already residing within your domain history.',
   },
   {
+    number: '10',
+    icon: FileSpreadsheet,
     title: 'Content Brief & Page Planning',
-    body: 'Keyword research should lead naturally into content execution. We organize research into planning inputs such as:',
-    pointsHead: '',
+    description:
+      'Keyword research directly translates into actionable execution blueprints for internal writers, SEO specialists, and developer teams.',
     points: [
-      'Primary keyword',
-      'Secondary terms',
-      'Search intent',
-      'Target audience',
-      'Page type',
-      'Topic cluster',
-      'Supporting questions',
-      'Recommended content angle',
-      'Internal-link opportunities',
-      'Competitor observations',
+      'Primary target keyword and secondary semantic term clusters',
+      'Explicit search intent profile and recommended page format',
+      'Recommended heading outlines (H1, H2, H3) and user questions',
+      'Internal linking recommendations and competitor benchmark notes',
     ],
-    note: 'This gives writers and SEO teams a clearer starting point for creating or optimizing the right page.',
+    note: 'Eliminates guesswork for content creators, streamlining production from raw data into finished, high-ranking pages.',
   },
 ]
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Capabilities & Scope" title="Our Keyword Research Services">
-          Our keyword research process combines data analysis, SERP research, competitor
-          intelligence, search-intent classification, and manual evaluation.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Header Block */}
+        <div className="max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-emerald-400">
+              Capabilities &amp; Scope
+            </span>
+          </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {services.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Service 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
-                <p className="mt-6 border-t-2 border-frame-border/60 pt-4 text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                  What We Do
-                </p>
-                <ul className="mt-3 space-y-2 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white">
+            Our Keyword <span className="italic text-frame-accent">Research Services</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-400">
+            Our keyword research methodology combines multi-platform search data, live SERP competitive intelligence, intent scoring, semantic clustering, and manual strategic evaluation.
+          </p>
+        </div>
+
+        {/* 10 Services 2-Column Grid */}
+        <div className="mt-12 sm:mt-16 grid grid-cols-1 gap-6 md:grid-cols-2">
+          {services.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.number}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-all duration-300 hover:border-frame-accent/40 hover:bg-[#151518] md:p-8"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs font-semibold tracking-wider text-frame-accent">
+                      Service {item.number}
+                    </span>
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.02] text-zinc-300 transition-colors group-hover:border-frame-accent/30 group-hover:text-frame-accent">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-5 border-t border-white/[0.06] pt-4">
+                    <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300">
+                      What We Deliver:
+                    </p>
+                    <ul className="mt-2.5 space-y-2 text-xs text-zinc-300">
+                      {item.points.map((point, pIdx) => (
+                        <li key={pIdx} className="flex items-start gap-2">
+                          <Check className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                          <span className="leading-snug">{point}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="mt-6 rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5 text-xs text-zinc-400 font-normal leading-relaxed">
                   {item.note}
-                </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

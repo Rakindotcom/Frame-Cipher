@@ -1,80 +1,86 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const metrics = [
+import React from 'react'
+import { CheckCircle2, BarChart2 } from 'lucide-react'
+
+const reportMetrics = [
   'Impressions',
   'Clicks',
-  'CTR',
-  'CPM',
-  'CPC',
-  'Spend',
-  'Conversions',
-  'Conversion rate',
-  'Cost per conversion',
-]
-
-const expectations = [
-  {
-    title: 'Ads Manager Metrics vs. Third-Party Analytics',
-    body: 'OpenAI Ads Manager reports can differ from third-party analytics. Attribution windows, timestamps, consent settings, browser conditions, deduplication, campaign configuration, and modeled conversions can all affect reported totals. We report on the platform data and explain the differences instead of pretending the numbers are always identical.',
-  },
-  {
-    title: 'A Channel That Can Still Change',
-    body: 'ChatGPT Ads has changed quickly and still can. Features, eligibility, availability, and reporting can evolve with the platform as it matures. We track changes that affect your campaigns and tell you when a platform update changes how your setup should be structured.',
-  },
-  {
-    title: 'Data Establishes Maturity',
-    body: 'ChatGPT Ads is a young channel, and the starting dataset is often small. A controlled pilot test is the right way to begin, and scale follows evidence. We plan for measurement before we expect results, so the campaign learns from reliable data rather than guesses.',
-  },
+  'CTR (Click-Through Rate)',
+  'CPC (Cost Per Click)',
+  'CPM (Cost Per Mille)',
+  'Total Advertising Spend',
+  'Total Conversions',
+  'Conversion Rate (%)',
+  'Cost Per Conversion (CPA)',
+  'Campaign-Level Performance Trends',
+  'Ad-Group Performance Segmentation',
+  'Creative Asset Performance',
+  'Key Commercial Observations',
+  'Actionable Optimization Actions',
 ]
 
 export default function Reporting() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Transparent tracking"
-          title="Reporting & Performance Expectations"
-        >
-          Sharing the numbers is easy. Giving you numbers you can actually use to make decisions
-          is a different kind of work. The ChatGPT Ads channel is still evolving. Reports should
-          show what happened, what we changed, why, and what the next test should be.
-        </SectionIntro>
-
-        <div className="border-l-2 border-frame-accent bg-frame-bg p-6 md:p-7">
-          <p className="text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-            You receive a monthly report covering campaign-level metrics including impressions,
-            clicks, CTR, CPM, CPC, spend, conversions, and cost per conversion, plus ad-group
-            analysis, creative testing results, and optimization notes. If you need more frequent
-            reporting, dashboards, or additional analysis, we can discuss that as an optional
-            add-on.
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            Reporting &amp;{' '}
+            <span className="italic text-frame-accent">Performance Expectations.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Good reporting should make campaign performance easier to understand.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {metrics.map((item, index) => (
-            <div key={index} className="flex items-center gap-3 border-2 border-frame-border bg-frame-bg p-4">
-              <span className="font-mono text-xs font-black text-frame-accent">
-                {String(index + 1).padStart(2, '0')}.
-              </span>
-              <span className="text-sm font-semibold text-frame-fg">{item}</span>
+        {/* 2-Column Split: Metrics vs Interpretation */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+          {/* Left Column: Metrics Grid (6 cols) */}
+          <div className="lg:col-span-6 space-y-4">
+            <p className="text-base sm:text-lg font-normal text-zinc-300">
+              Depending on the campaign setup, your reports can include:
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
+              {reportMetrics.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-2.5 rounded-lg border border-white/[0.06] bg-[#121214] p-3 text-xs sm:text-sm text-zinc-300"
+                >
+                  <CheckCircle2 className="h-4 w-4 shrink-0 text-frame-accent" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          {expectations.map((item, index) => (
-            <div key={index} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Expectation 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
+          {/* Right Column: Narrative Analysis Cards (6 cols) */}
+          <div className="lg:col-span-6 space-y-6">
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 space-y-3">
+              <h3 className="font-heading text-lg font-medium text-white">
+                Platform Reporting Capabilities
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
+              <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                OpenAI Ads Manager currently provides campaign performance data including impressions, clicks, and spend, with additional reporting available for CTR, CPC, CPM, and conversions depending on the campaign and measurement setup.
               </p>
             </div>
-          ))}
+
+            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 space-y-3">
+              <h3 className="font-heading text-lg font-medium text-white">
+                Business-Led Interpretation
+              </h3>
+              <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                We also explain performance in business terms. A lower CPC does not automatically mean a campaign improved if lead quality declined. Likewise, higher traffic does not automatically mean stronger performance if the landing page fails to convert.
+              </p>
+            </div>
+
+            <div className="rounded-xl border-l-2 border-frame-accent bg-frame-accent/10 p-5">
+              <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                Our reporting focuses on the relationship between media delivery, user intent, conversions, and business outcomes.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -2,8 +2,8 @@ import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Content approach"
           title="SEO Content Built to Be Found, Understood, and Useful"
@@ -11,8 +11,8 @@ export default function Overview() {
           Ranking is only part of the job.
         </SectionIntro>
 
-        <div className="grid gap-10 border-t-2 border-frame-border pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
-          <div className="space-y-5 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+        <div className="grid gap-10 border-t border-white/[0.08] pt-12 lg:grid-cols-[1.3fr_0.7fr] lg:items-start">
+          <div className="space-y-5 text-base font-medium leading-relaxed text-[#A1A1AA] md:text-lg">
             <p>
               A page needs to match the searcher&rsquo;s intent, provide useful information, communicate
               clearly, and fit into the wider structure of your website.
@@ -25,8 +25,8 @@ export default function Overview() {
             <p>That is the approach behind our SEO and blog writing service.</p>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               What good SEO content does
             </span>
             <ul className="mt-5 space-y-4">
@@ -40,9 +40,9 @@ export default function Overview() {
               ].map((item) => (
                 <li
                   key={item}
-                  className="border-t-2 border-frame-border/60 pt-4 first:border-t-0 first:pt-0"
+                  className="border-t border-white/[0.08]/60 pt-4 first:border-t-0 first:pt-0"
                 >
-                  <span className="font-heading text-sm font-bold uppercase leading-snug tracking-tight text-frame-fg">
+                  <span className="font-heading text-sm font-bold uppercase leading-snug tracking-tight text-[#FAFAFA]">
                     {item}
                   </span>
                 </li>
@@ -51,8 +51,8 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
             Tell us what you want to rank for, who you want to reach, and what your business needs the content
             to accomplish.
           </p>

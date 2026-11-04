@@ -11,15 +11,15 @@ const duplicatedProofLines = [...baseLines, ...baseLines]
 
 export default function HomeTextMarquee() {
   return (
-    <section className="kinetic-marquee border-y-2 border-frame-border bg-frame-accent py-7 text-frame-accent-fg">
+    <section className="kinetic-marquee relative isolate overflow-hidden border-y border-white/[0.08] bg-[#09090B] py-8 text-white before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/30 before:to-transparent">
       <p className="sr-only">Proof points: strategy, campaign content, growth software, fast media, and useful reporting.</p>
-      <div className="kinetic-marquee-track kinetic-marquee-track-slow" aria-hidden="true">
+      <div className="kinetic-marquee-track kinetic-marquee-track-slow hover:[animation-play-state:paused]" aria-hidden="true">
         {duplicatedProofLines.map((line, index) => (
           <div key={`${line}-${index}`} className="flex shrink-0 items-center gap-8 px-6">
-            <span className="font-heading text-[clamp(2rem,6vw,5.5rem)] font-bold uppercase leading-none tracking-tighter text-frame-accent-fg">
+            <span className="font-heading text-2xl sm:text-4xl md:text-5xl font-medium leading-none text-white tracking-tight">
               {line}
             </span>
-            <span className="h-4 w-4 shrink-0 bg-frame-accent-fg" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-white/40" />
           </div>
         ))}
       </div>

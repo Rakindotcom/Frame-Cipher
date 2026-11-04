@@ -6,14 +6,14 @@ const guideBlocks = [
   {
     title: 'Why Process Determines Quality',
     body: [
-      'A great shoot is 80% preparation. The camera records what the preparation allows: aligned objectives, tested setups, scheduled participants and an edit plan that matches the publishing format. At FrameCipher Studio, briefing and scoping happen before scheduling — never after.',
+      'A great shoot is 80% preparation. The camera records what the preparation allows: aligned objectives, tested setups, scheduled participants and an edit plan that matches the publishing format. At FrameCipher Studio, briefing and scoping happen before scheduling, never after.',
       'Every delay we have post-mortemed traced to skipped briefing or unscoped feedback. The 5-stage workflow below structurally prevents both: written scope gates the shoot, and timestamped review gates the revisions.',
     ],
   },
   {
     title: 'Standard, Priority and Retainer Lanes',
     body: [
-      'The Standard lane delivers in 5 to 10 working days with 2 structured revision rounds — the right default for interviews, profiles, catalogues and planned campaigns.',
+      'The Standard lane delivers in 5 to 10 working days with 2 structured revision rounds: the right default for interviews, profiles, catalogues and planned campaigns.',
       'The Priority lane compresses to 48 to 72 hours at a 30% fee with same-day scoping, standby crew and an overlapping shoot-and-edit pipeline. The Retainer lane reserves monthly studio and edit capacity for always-on brands at 10 to 20% effective savings versus spot booking.',
     ],
   },
@@ -45,7 +45,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -57,7 +57,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

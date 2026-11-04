@@ -29,8 +29,8 @@ const approaches = [
 
 export default function ApproachComparison() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/20 px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Stylistic Alignment"
           title="2D vs. 3D Animation: Which Approach Fits Your Project?"
@@ -38,17 +38,17 @@ export default function ApproachComparison() {
           The choice between 2D and 3D should come from the core communication problem, not simply visual novelty. Here is how we evaluate stylistic fit.
         </SectionIntro>
 
-        <div className="mt-12 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+        <div className="mt-12 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
           <table className="w-full text-left text-xs sm:text-sm">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+            <thead className="border-b border-white/[0.08] bg-[#121214]">
               <tr>
-                <th className="p-4 md:p-6 font-black uppercase tracking-wider text-frame-fg">
+                <th className="p-4 md:p-6 font-black uppercase tracking-wider text-[#FAFAFA]">
                   Animation Approach
                 </th>
-                <th className="p-4 md:p-6 font-black uppercase tracking-wider text-frame-fg">
+                <th className="p-4 md:p-6 font-black uppercase tracking-wider text-[#FAFAFA]">
                   Usually Fits
                 </th>
-                <th className="p-4 md:p-6 font-black uppercase tracking-wider text-frame-fg">
+                <th className="p-4 md:p-6 font-black uppercase tracking-wider text-[#FAFAFA]">
                   Typical Use Cases
                 </th>
               </tr>
@@ -57,17 +57,17 @@ export default function ApproachComparison() {
               {approaches.map((row, idx) => (
                 <tr
                   key={idx}
-                  className={`transition-colors hover:bg-frame-muted/10 ${
-                    row.highlight ? 'bg-frame-accent/5' : ''
+                  className={`transition-colors hover:bg-[#121214] ${
+                    row.highlight ? 'bg-[#A855F7]/[0.05]' : ''
                   }`}
                 >
-                  <td className="p-4 md:p-6 font-heading text-sm md:text-base font-bold uppercase tracking-tight text-frame-fg whitespace-nowrap">
+                  <td className="p-4 md:p-6 font-heading text-sm md:text-base font-bold uppercase tracking-tight text-[#FAFAFA] whitespace-nowrap">
                     {row.approach}
                   </td>
-                  <td className="p-4 md:p-6 font-medium text-frame-fg">
+                  <td className="p-4 md:p-6 font-medium text-[#FAFAFA]">
                     {row.fits}
                   </td>
-                  <td className="p-4 md:p-6 font-medium text-frame-muted-fg">
+                  <td className="p-4 md:p-6 font-medium text-[#A1A1AA]">
                     {row.uses}
                   </td>
                 </tr>
@@ -76,12 +76,12 @@ export default function ApproachComparison() {
           </table>
         </div>
 
-        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-2 border-frame-accent/40 bg-frame-bg p-6 sm:flex-row text-center sm:text-left">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-2 border-[#A855F7]/30 bg-[#09090B] p-6 sm:flex-row text-center sm:text-left">
           <div>
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
               Unsure Which Fits Best?
             </span>
-            <p className="mt-1 text-xs sm:text-sm font-medium text-frame-fg">
+            <p className="mt-1 text-xs sm:text-sm font-medium text-[#FAFAFA]">
               We review your script or message and recommend whether clean 2D vectors, character illustration, or 3D rendering will communicate it best.
             </p>
           </div>

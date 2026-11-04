@@ -1,66 +1,73 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle } from 'lucide-react'
 
 const caseStudyFields = [
-  'Client / Industry',
-  'Starting Situation',
-  'Campaign Objective',
-  'Strategy',
-  'Implementation',
-  'Campaign Period',
-  'Link Acquisition',
-  'Search Performance',
-  'Business Outcome',
+  { name: 'Client / Industry', desc: 'Business type, geographic market, and niche competition context.' },
+  { name: 'Starting Situation', desc: 'Existing backlink profile baseline, visibility gaps, or authority deficit.' },
+  { name: 'Campaign Objective', desc: 'Specific priority target pages, market focus, or competitor authority gap addressed.' },
+  { name: 'Strategy', desc: 'Tailored mix of manual outreach, reclamation, guest content, digital PR, or citations.' },
+  { name: 'Implementation', desc: 'High-value content assets created, editorial publishers pitched, and destinations supported.' },
+  { name: 'Campaign Period', desc: 'Documented timeline and outreach duration for full transparency.' },
+  { name: 'Link Acquisition', desc: 'Verified live placements, referring domain metrics, and anchor distribution.' },
+  { name: 'Search Performance', desc: 'Empirical Google Search Console changes in impressions, clicks, and rankings.' },
+  { name: 'Business Outcome', desc: 'Verified inbound inquiries, qualified leads, sales, and demo requests attributed.' },
 ]
 
 export default function Results() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Real outcomes"
-          title="Off-Page SEO Results & Case Studies"
-        >
-          Off-page SEO results should be documented with link, search, and business evidence,
-          not with a list of placements that nobody can verify.
-        </SectionIntro>
-
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div>
-            <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-              Where verified data and client permission are available, case studies document:
-            </p>
-            <ul className="mt-6 grid gap-3">
-              {caseStudyFields.map((field, index) => (
-                <li key={index} className="flex items-center justify-between gap-3 border-2 border-frame-border bg-frame-bg p-4">
-                  <span className="font-mono text-xs font-black text-frame-accent">
-                    {String(index + 1).padStart(2, '0')}
-                  </span>
-                  <span className="flex-1 text-sm font-semibold text-frame-fg">{field}</span>
-                  <span className="text-frame-accent font-bold">✓</span>
-                </li>
-              ))}
-            </ul>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 sm:px-6 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Evidence-Based Performance
+            </span>
           </div>
 
-          <div className="space-y-5">
-            <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-7">
-              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
-                How each case study is documented
-              </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                Each case study explains the starting situation, the links acquired, the
-                campaign period, search performance changes, and any business outcomes that can
-                be connected and verified.
-              </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Off-Page SEO Results &amp;{' '}
+            <span className="italic text-frame-accent">Case Studies</span>
+          </h2>
+
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            Our case studies show what was done, why it was done, and what changed. We only publish results verified through appropriate analytics, Search Console data, campaign records, or client-approved reporting.
+          </p>
+        </div>
+
+        {/* 9 Verification Criteria Grid */}
+        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {caseStudyFields.map((field, index) => (
+            <div
+              key={index}
+              className="rounded-xl border border-white/[0.08] bg-[#121214] p-5 flex items-start gap-4 hover:border-white/20 transition-colors"
+            >
+              <span className="font-mono text-xs font-semibold text-frame-accent mt-0.5">
+                0{index + 1}
+              </span>
+              <div className="space-y-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="font-heading text-base font-medium text-white">
+                    {field.name}
+                  </h3>
+                  <CheckCircle className="h-4 w-4 text-emerald-400 shrink-0" />
+                </div>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  {field.desc}
+                </p>
+              </div>
             </div>
-            <div className="border-l-2 border-frame-accent bg-frame-bg/60 p-6 md:p-7">
-              <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                Only verified Framecipher results are published here, documented with available
-                link, search, and business evidence rather than unverified performance claims.
-              </p>
-            </div>
-            <PosterButton href="/case-studies">View Our Case Studies</PosterButton>
-          </div>
+          ))}
+        </div>
+
+        {/* Case Study Standard Note */}
+        <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <p className="text-sm text-zinc-400 leading-relaxed">
+            <span className="text-white font-medium">Strict Verification Policy:</span> We do not use simulated, estimated, or fabricated results. All published case studies undergo rigorous client review and verified data auditing before publication.
+          </p>
         </div>
       </div>
     </section>

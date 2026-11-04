@@ -1,21 +1,25 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Search, Check, Sparkles, UserCheck, ArrowRight, Video } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const searchAngles = [
-  'Questions',
-  'Problems',
-  'Comparisons',
-  'Use cases',
-  'Tutorials',
-  'Product decisions',
-  'Service-related topics',
+  'Customer Questions',
+  'Real-World Problems',
+  'Product Comparisons',
+  'Practical Use Cases',
+  'Step-by-Step Tutorials',
+  'Product Decisions',
+  'Service-Related Topics',
 ]
 
 const captions = [
-  'Clarify the topic',
-  'Reinforce the message',
-  'Support accessibility',
-  'Improve content comprehension',
-  'Naturally incorporate relevant terminology',
+  'Clarify the specific topic within 3 seconds',
+  'Reinforce the audio message visually',
+  'Support accessibility across sound-off viewing',
+  'Improve full content comprehension',
+  'Naturally incorporate relevant search terminology',
 ]
 
 const profileAnswers = [
@@ -36,7 +40,12 @@ const profileElements = [
   'Pinned-video planning',
 ]
 
-const pinnedQuestions = ['Who are we?', 'What do we offer?', 'Why should you trust us?', 'What should you watch first?']
+const pinnedQuestions = [
+  'Who are we?',
+  'What do we offer?',
+  'Why should you trust us?',
+  'What should you watch first?',
+]
 
 const research = [
   'Customer questions',
@@ -49,217 +58,266 @@ const research = [
   'Competitor content gaps',
 ]
 
-const feedInto = ['Video ideas', 'Scripts', 'Hooks', 'Captions', 'On-screen text', 'Publishing plans']
+const feedInto = [
+  'Video ideas',
+  'Scripts',
+  'Hooks',
+  'Captions',
+  'On-screen text',
+  'Publishing plans',
+]
 
 const relationship = ['What people want', 'What they search or explore', 'What your content answers']
 
-function FlowStrip({ items = [], className = '' }) {
-  return (
-    <ul className={`flex flex-wrap items-center gap-2 ${className}`}>
-      {items.map((entry, index) => (
-        <li key={entry} className="flex items-center gap-2">
-          <span className="border border-frame-border/80 bg-frame-bg px-3 py-1.5 text-xs font-bold text-frame-fg">
-            {entry}
-          </span>
-          {index < items.length - 1 && (
-            <span aria-hidden="true" className="font-bold text-frame-accent">
-              &rarr;
-            </span>
-          )}
-        </li>
-      ))}
-    </ul>
-  )
-}
-
 export default function Discoverability() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Search &amp; discovery"
-          title="TikTok Search &amp; Content Discoverability"
-        >
-          TikTok is not only a scrolling environment. People can also use the platform to discover
-          information, products, businesses, creators, and ideas. That makes discoverability an important
-          part of professional TikTok management.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Organic Discovery · Search Optimization
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          {/* SEARCH-AWARE CONTENT */}
-          <article className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Search &amp; Content{' '}
+            <span className="italic text-frame-accent">Discoverability.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            TikTok is not only a scrolling environment. People also use the platform to discover information, products, businesses, creators, and ideas. That makes discoverability an essential part of professional TikTok management.
+          </p>
+        </div>
+
+        {/* 4 Cards Grid */}
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+          {/* Card 1: Search-Aware Content */}
+          <article className="flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#15121c] p-7 md:p-8 shadow-xl">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-purple-500/20">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Intent-Driven Creation · </span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-purple-500/30 bg-purple-500/10 text-frame-accent">
+                  <Search className="h-4 w-4" />
+                </span>
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                 Search-Aware Content
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                Content built around what people want to discover
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We create content around topics people may actually want to discover.
-              </p>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                Instead of producing a generic video about a product, we can build content around the
-                questions, problems, comparisons, use cases, tutorials, product decisions, and
-                service-related topics your audience is exploring.
-              </p>
-            </div>
 
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">
-              <ul className="flex flex-wrap gap-2">
+              <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                Instead of producing generic videos, we build content around the exact questions, comparisons, and problems your audience actively searches:
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-2">
                 {searchAngles.map((entry) => (
-                  <li
+                  <span
                     key={entry}
-                    className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                    className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[11px] text-purple-200"
                   >
                     {entry}
-                  </li>
+                  </span>
                 ))}
-              </ul>
-              <p className="mt-5 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-                This creates a clearer relationship between:
-              </p>
-              <FlowStrip items={relationship} className="mt-3" />
+              </div>
+
+              <div className="mt-6 rounded-xl border border-purple-500/20 bg-purple-500/5 p-4">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-2.5">
+                  Clear Discovery Alignment:
+                </p>
+                <div className="flex flex-wrap items-center gap-1.5">
+                  {relationship.map((entry, idx) => (
+                    <React.Fragment key={entry}>
+                      <span className="rounded-md border border-white/[0.08] bg-[#18181B] px-2.5 py-1 font-mono text-[10px] text-zinc-200">
+                        {entry}
+                      </span>
+                      {idx < relationship.length - 1 && (
+                        <span aria-hidden="true" className="text-frame-accent text-xs">
+                          &rarr;
+                        </span>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </div>
+              </div>
             </div>
           </article>
 
-          {/* CAPTIONS & ON-SCREEN TEXT */}
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+          {/* Card 2: Captions & On-Screen Text */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Contextual Anchors · </span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <Video className="h-4 w-4" />
+                </span>
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                 Captions &amp; On-Screen Text
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                Context around the video
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                Captions and on-screen text help provide context around a video. We use them to:
-              </p>
-            </div>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
+              <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                Captions and on-screen text provide crucial algorithmic and human context around a video:
+              </p>
+
+              <ul className="mt-6 space-y-2.5 text-xs text-zinc-300">
                 {captions.map((entry) => (
-                  <li key={entry} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{entry}</span>
+                  <li key={entry} className="flex items-start gap-2.5">
+                    <span className="flex h-4 w-4 shrink-0 items-center justify-center rounded-full border border-purple-500/40 bg-purple-500/20 text-frame-accent mt-0.5">
+                      <Check className="h-2.5 w-2.5 stroke-[2.5]" />
+                    </span>
+                    <span className="leading-snug">{entry}</span>
                   </li>
                 ))}
               </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                We avoid forcing keywords into captions or on-screen text. The goal is useful, readable
-                content first.
-              </p>
+            </div>
+
+            <div className="mt-6 rounded-xl border border-white/[0.06] bg-[#09090B] p-4 text-xs text-zinc-400 leading-relaxed">
+              <strong className="text-zinc-200">Editorial Standard: </strong>
+              We avoid forcing keywords into captions or on-screen text. The goal is useful, readable content first.
             </div>
           </article>
 
-          {/* PROFILE & BIO */}
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+          {/* Card 3: Profile & Bio Optimization */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Landing Hub Optimization · </span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <UserCheck className="h-4 w-4" />
+                </span>
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                 Profile &amp; Bio Optimization
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                What your profile should communicate quickly
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                Your profile should quickly communicate:
-              </p>
-            </div>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
+              <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                Your profile must immediately communicate your value to first-time visitors:
+              </p>
+
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2">
                 {profileAnswers.map((entry) => (
-                  <li
+                  <div
                     key={entry}
-                    className="flex items-center gap-2.5 border-2 border-frame-border bg-frame-muted/10 px-3 py-2 text-xs font-semibold text-frame-fg md:text-sm"
+                    className="flex items-center gap-2 rounded-lg border border-white/[0.06] bg-[#18181B] p-2.5 text-xs text-zinc-200"
                   >
-                    <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    {entry}
-                  </li>
+                    <Check className="h-3 w-3 text-frame-accent shrink-0" />
+                    <span>{entry}</span>
+                  </div>
                 ))}
-              </ul>
+              </div>
 
-              <span className="mt-6 block text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                Profile optimization can include
-              </span>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {profileElements.map((entry) => (
-                  <li
-                    key={entry}
-                    className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                  >
-                    {entry}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-6 border-t border-white/[0.06] pt-4">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2">
+                  Key Profile Elements:
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {profileElements.map((entry) => (
+                    <span
+                      key={entry}
+                      className="rounded-md border border-white/[0.08] bg-[#18181B] px-2 py-0.5 font-mono text-[10px] text-zinc-300"
+                    >
+                      {entry}
+                    </span>
+                  ))}
+                </div>
+              </div>
 
-              <p className="mt-6 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-                Where appropriate, we can organize pinned videos around important first-visit questions
-                such as:
-              </p>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {pinnedQuestions.map((entry) => (
-                  <li
-                    key={entry}
-                    className="border border-frame-border bg-frame-bg px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                  >
-                    {entry}
-                  </li>
-                ))}
-              </ul>
+              <div className="mt-6 border-t border-white/[0.06] pt-4">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-2">
+                  Strategic Pinned-Video Architecture:
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {pinnedQuestions.map((entry) => (
+                    <span
+                      key={entry}
+                      className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 font-mono text-[10px] text-purple-300"
+                    >
+                      {entry}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </article>
 
-          {/* TOPIC & KEYWORD RESEARCH */}
-          <article className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
+          {/* Card 4: Topic & Keyword Research */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <div className="flex items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  Discovery Research · </span>
+                <span className="flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                  <Search className="h-4 w-4" />
+                </span>
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                 Topic &amp; Keyword Research
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                TikTok keyword research is not simply about collecting high-volume terms
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We look for topics that connect audience interest with your business. Research may include:
+
+              <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                TikTok keyword research is not simply about collecting high-volume terms; it connects genuine audience interest with your commercial offer:
               </p>
+
+              <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
+                {research.map((entry) => (
+                  <div key={entry} className="flex items-start gap-2">
+                    <Check className="h-3 w-3 text-frame-accent shrink-0 mt-0.5" />
+                    <span>{entry}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 border-t border-white/[0.06] pt-4">
+                <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300 mb-2">
+                  Insights Feed Directly Into:
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {feedInto.map((entry) => (
+                    <span
+                      key={entry}
+                      className="rounded-md border border-purple-500/30 bg-purple-500/10 px-2.5 py-1 font-mono text-[10px] text-purple-300"
+                    >
+                      {entry}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
 
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {research.map((entry) => (
-                  <li key={entry} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{entry}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <p className="mt-5 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-                These insights can then feed into:
-              </p>
-              <ul className="mt-3 flex flex-wrap gap-2">
-                {feedInto.map((entry) => (
-                  <li
-                    key={entry}
-                    className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                  >
-                    {entry}
-                  </li>
-                ))}
-              </ul>
+            <div className="mt-6 rounded-xl border border-white/[0.06] bg-[#09090B] p-4 text-xs text-zinc-400 leading-relaxed">
+              <strong className="text-zinc-200">Continuous Loop: </strong>
+              Discoverability is embedded at the concept and scripting stages, never bolted on as an afterthought.
             </div>
           </article>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Discoverability is treated as part of professional management, not as an optional extra added
-            after production.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact" variant="outline">
-              Get Your Free TikTok Audit &rarr;
+        {/* Bottom Banner */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              Discoverability Treated as Standard Operating Procedure
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400">
+              Not an optional extra added after production, but engineered into your profile and video concepts.
+            </p>
+          </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get Your Free TikTok Audit
             </PosterButton>
           </div>
         </div>

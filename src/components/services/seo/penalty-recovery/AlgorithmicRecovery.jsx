@@ -1,4 +1,4 @@
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
 
 const analyses = [
   {
@@ -22,6 +22,7 @@ const analyses = [
   {
     title: 'Technical & UX Validation',
     body: 'We validate technical foundations that may have contributed to the decline, including indexing, crawlability, page accessibility, redirects, canonicalization, internal links, performance, mobile usability, and other relevant implementation issues.',
+    closing: '',
   },
   {
     title: 'Competitor & SERP Reassessment',
@@ -33,37 +34,62 @@ const analyses = [
     title: 'Recovery Monitoring & Reassessment',
     body: 'Algorithmic recovery is not a one-time submission.',
     closing:
-      'We monitor the changes made, measure affected pages and queries over time, and reassess the strategy as additional search data becomes available. Google notes that improvements after major ranking changes may take time to be reflected, so recovery should be measured through sustained trends rather than a single day\u2019s ranking movement.',
+      'We monitor the changes made, measure affected pages and queries over time, and reassess the strategy as additional search data becomes available. Google notes that improvements after major ranking changes may take time to be reflected, so recovery should be measured through sustained trends rather than a single day’s ranking movement.',
   },
 ]
 
 export default function AlgorithmicRecovery() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="When it's not a manual action" title="Google Traffic Drop & Algorithmic Recovery">
-          Update-related and technical traffic declines follow a different recovery path from manual
-          actions, one built around analysis, improvement, and measured reassessment.
-        </SectionIntro>
+    <section className="border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#A855F7]">
+            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span>Algorithmic Investigation</span>
+          </div>
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
+            Google Traffic Drop &amp; Algorithmic Recovery
+          </h2>
+          <p className="text-base leading-relaxed text-zinc-300 sm:text-lg">
+            Update-related and technical traffic declines follow a different recovery path from manual actions, one built around empirical analysis, systemic improvement, and measured reassessment.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+        {/* Modality 1: Editorial Divided Rows Container */}
+        <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
           {analyses.map((item, index) => (
-            <div key={item.title} className="flex flex-col border-2 border-frame-border bg-frame-bg p-7 md:p-8">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Analysis 0{index + 1}
-              </span>
-              <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
-              </p>
-              {item.closing && (
-                <p className="mt-5 border-l-2 border-frame-accent p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.closing}
-                </p>
-              )}
-              <span aria-hidden="true" className="mt-6 block h-1 w-8 bg-frame-accent" />
+            <div
+              key={item.title}
+              className="group py-8 transition-colors duration-200 hover:bg-white/[0.02]"
+            >
+              <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-baseline md:gap-8">
+                {/* Col 1-3: Number and Category */}
+                <div className="md:col-span-3">
+                  <span className="font-mono text-xs uppercase tracking-wider text-emerald-400">
+                    Analysis // 0{index + 1}
+                  </span>
+                </div>
+
+                {/* Col 4-7: Headline / Analysis Title */}
+                <div className="md:col-span-4">
+                  <h3 className="text-lg font-medium text-white transition-colors duration-200 group-hover:text-emerald-300 sm:text-xl">
+                    {item.title}
+                  </h3>
+                </div>
+
+                {/* Col 8-12: Description / Solution */}
+                <div className="md:col-span-5 space-y-3">
+                  <p className="text-sm leading-relaxed text-zinc-300 sm:text-base">
+                    {item.body}
+                  </p>
+                  {item.closing && (
+                    <p className="border-l-2 border-emerald-500 pl-3 text-xs leading-relaxed text-zinc-400">
+                      {item.closing}
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           ))}
         </div>

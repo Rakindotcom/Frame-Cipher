@@ -64,8 +64,8 @@ const videoTypes = [
 
 export default function VideoTypes() {
   return (
-    <section id="types" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="types" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Specialized Formats"
           title="Types of Video We Produce"
@@ -74,38 +74,38 @@ export default function VideoTypes() {
           Different business objectives require different video formats. We build production setups tailored to your specific commercial goal and target audience.
         </SectionIntro>
 
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
           {videoTypes.map((type, idx) => (
             <div
               key={idx}
-              className="bg-frame-bg p-7 md:p-8 flex flex-col justify-between"
+              className="bg-[#09090B] p-7 md:p-8 flex flex-col justify-between"
             >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   {type.tag}
                 </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {type.title}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/services/website-design-development/landing-pages"]}>
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]"><AutoLinks currentPath="/services/content-creation/video-production" allowed={["/services/website-design-development/landing-pages"]}>
                   {type.description}
                 </AutoLinks></p>
 
-                <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+                <div className="mt-6 border-t border-white/[0.08]/60 pt-4">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-1">
                     Primary Use Cases
                   </span>
-                  <span className="text-xs font-semibold text-frame-fg leading-relaxed">
+                  <span className="text-xs font-semibold text-[#FAFAFA] leading-relaxed">
                     {type.supports}
                   </span>
                 </div>
               </div>
 
               {type.link && (
-                <div className="mt-6 pt-4 border-t border-frame-border/60">
+                <div className="mt-6 pt-4 border-t border-white/[0.06]">
                   <Link
                     href={type.link.href}
-                    className="inline-flex items-center gap-1 text-xs font-black uppercase tracking-[0.18em] text-frame-accent hover:underline"
+                    className="inline-flex items-center gap-1 text-xs font-black uppercase tracking-[0.18em] text-[#A855F7] hover:underline"
                   >
                     <span>{type.link.text}</span>
                   </Link>

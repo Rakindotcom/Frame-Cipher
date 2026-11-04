@@ -1,10 +1,12 @@
-import { SectionIntro } from '../../../Kinetic'
-import { resolveFaqs } from '../../../../lib/seo/faq'
+'use client'
 
-const fallbackFaqs = [
+import React, { useState } from 'react'
+import { Plus, Minus, HelpCircle } from 'lucide-react'
+
+const allAuditFaqs = [
   {
     question: 'What is an SEO audit?',
-    answer: 'An SEO audit is a structured review of a website\u2019s technical setup, content, on-page optimization, backlinks, search visibility, and competitive environment. A good audit does more than identify issues. It explains which issues matter, why they matter, and what to do next.',
+    answer: "An SEO audit is a structured review of a website's technical setup, content, on-page optimization, backlinks, search visibility, and competitive environment. A good audit does more than identify issues. It explains which issues matter, why they matter, and what to do next.",
   },
   {
     question: "What's included in an SEO audit?",
@@ -56,33 +58,77 @@ const fallbackFaqs = [
   },
 ]
 
-export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro eyebrow="Direct Answers" title="Frequently Asked Questions">
-          Common questions about SEO audits, scope, timelines, access, specialized audits, and what
-          we can and can&apos;t guarantee.
-        </SectionIntro>
+export default function FAQ() {
+  const [openIndices, setOpenIndices] = useState([0])
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {faq.answer}
+  const toggleFaq = (idx) => {
+    setOpenIndices((prev) =>
+      prev.includes(idx) ? prev.filter((i) => i !== idx) : [...prev, idx]
+    )
+  }
+
+  return (
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-4xl">
+        {/* Section Header */}
+        <div className="space-y-4 text-center max-w-2xl mx-auto">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Clarity &amp; Answers // Direct Responses
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            Frequently Asked{' '}
+            <span className="italic text-frame-accent">Questions</span>
+          </h2>
+          <p className="text-base font-normal leading-relaxed text-zinc-300">
+            Clear, honest answers about our diagnostic process, scopes, timelines, tools, and guarantees.
+          </p>
+        </div>
+
+        {/* 13 FAQs Accordion */}
+        <div className="mt-12 space-y-3">
+          {allAuditFaqs.map((faq, idx) => {
+            const isOpen = openIndices.includes(idx)
+            return (
+              <div
+                key={idx}
+                className="group rounded-2xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14] overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggleFaq(idx)}
+                  className="flex w-full items-center justify-between p-6 sm:p-7 text-left transition-colors focus:outline-none"
+                  aria-expanded={isOpen}
+                >
+                  <div className="flex items-center gap-3.5 pr-4">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/[0.04] text-frame-accent border border-white/[0.06] shrink-0 text-xs font-mono font-bold">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                    <span className="font-heading text-base sm:text-lg font-semibold uppercase tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                      {faq.question}
+                    </span>
+                  </div>
+
+                  <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-zinc-300 shrink-0 group-hover:border-frame-accent/40 group-hover:text-frame-accent transition-colors">
+                    {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.06] px-6 sm:px-7 pb-6 pt-4">
+                    <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Help Advisory Footer */}
+        <div className="mt-8 flex items-center justify-center gap-2 font-mono text-xs text-zinc-400">
+          <HelpCircle className="h-4 w-4 text-frame-accent" />
+          <span>Need custom audit requirements or migration scopes? Speak with our engineering lead.</span>
         </div>
       </div>
     </section>

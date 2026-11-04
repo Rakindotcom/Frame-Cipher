@@ -41,8 +41,8 @@ const relatedServices = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="The Framecipher Difference"
           title="Why Choose Framecipher for Motion Graphics & Animation"
@@ -51,22 +51,22 @@ export default function WhyChoose() {
         </SectionIntro>
 
         {/* 5 PILLARS */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {pillars.map((item, idx) => (
             <div
               key={item.num}
-              className={`bg-frame-bg p-6 md:p-8 flex flex-col justify-between ${
+              className={`bg-[#09090B] p-6 md:p-8 flex flex-col justify-between ${
                 idx === 4 ? 'sm:col-span-2 lg:col-span-2' : ''
               }`}
             >
               <div>
-                <span className="font-mono text-xs font-black text-frame-accent">
+                <span className="font-mono text-xs font-black text-[#A855F7]">
                   Standard {item.num}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
               </div>
@@ -75,14 +75,14 @@ export default function WhyChoose() {
         </div>
 
         {/* CROSS-SERVICE COORDINATION */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-16 border border-white/[0.08] bg-[#121214] p-6 md:p-8">
+          <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
             Cross-Service Ecosystem
           </span>
-          <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
             Coordinated With Other Creative Services
           </h4>
-          <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-3xl wide:text-lg">
+          <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] max-w-3xl wide:text-lg">
             Where your campaign demands live-action integration, paid ad management, or full brand identity design, motion graphics connects seamlessly across our in-house departments:
           </p>
 
@@ -91,7 +91,7 @@ export default function WhyChoose() {
               <Link
                 key={idx}
                 href={svc.path}
-                className="border border-frame-border bg-frame-bg px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-frame-fg transition-colors hover:border-frame-accent hover:text-frame-accent"
+                className="border border-white/[0.08] bg-[#09090B] px-3.5 py-2 text-xs font-bold uppercase tracking-wider text-[#FAFAFA] transition-colors hover:border-[#A855F7]/40 hover:text-[#A855F7]"
               >
                 {svc.name} &rarr;
               </Link>
@@ -100,16 +100,16 @@ export default function WhyChoose() {
         </div>
 
         {/* PORTFOLIO SHOWCASE */}
-        <div className="mt-16 border-2 border-frame-accent bg-frame-bg p-6 md:p-10">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b-2 border-frame-accent/40 pb-6">
+        <div className="mt-16 border-2 border-[#A855F7]/40 bg-[#09090B] p-6 md:p-10">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between border-b-2 border-[#A855F7]/30 pb-6">
             <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Verified Portfolio
               </span>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Selected Motion Graphics & Animation Work
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg max-w-2xl wide:text-lg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] max-w-2xl wide:text-lg">
                 Explore real Framecipher client productions across 2D explainers, 3D product visualizations, kinetic typography, and SaaS interface animations.
               </p>
             </div>
@@ -118,11 +118,11 @@ export default function WhyChoose() {
             </PosterButton>
           </div>
 
-          <div className="mt-6 grid gap-2 sm:grid-cols-2 md:grid-cols-4 text-xs font-bold uppercase tracking-wider text-frame-fg text-center">
-            <div className="border border-frame-border/80 bg-frame-muted/30 p-3">SaaS & Tech Explainers</div>
-            <div className="border border-frame-border/80 bg-frame-muted/30 p-3">3D Product Visuals</div>
-            <div className="border border-frame-border/80 bg-frame-muted/30 p-3">Brand Motion & Stings</div>
-            <div className="border border-frame-border/80 bg-frame-muted/30 p-3">Data & Metric Graphics</div>
+          <div className="mt-6 grid gap-2 sm:grid-cols-2 md:grid-cols-4 text-xs font-bold uppercase tracking-wider text-[#FAFAFA] text-center">
+            <div className="border border-white/[0.08] bg-[#121214] p-3">SaaS & Tech Explainers</div>
+            <div className="border border-white/[0.08] bg-[#121214] p-3">3D Product Visuals</div>
+            <div className="border border-white/[0.08] bg-[#121214] p-3">Brand Motion & Stings</div>
+            <div className="border border-white/[0.08] bg-[#121214] p-3">Data & Metric Graphics</div>
           </div>
         </div>
       </div>

@@ -1,98 +1,143 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Compass,
+  Smartphone,
+  Database,
+  PackageCheck,
+  FileText,
+  Check,
+  CheckCircle2,
+} from 'lucide-react'
 
 const deliverables = [
   {
-    category: "Product & UX",
+    num: '01',
+    category: 'Product & UX',
+    icon: Compass,
     items: [
-      "User flows",
-      "Wireframes",
-      "Android UI/UX designs",
-      "Interactive prototypes where required",
-      "Design system or reusable components where scoped"
-    ]
+      'User flows',
+      'Wireframes',
+      'Android UI/UX designs',
+      'Interactive prototypes where required',
+      'Design system or reusable components where scoped',
+    ],
   },
   {
-    category: "Android Application",
+    num: '02',
+    category: 'Android Application',
+    icon: Smartphone,
     items: [
-      "Production-ready Android application",
-      "Native Kotlin source code",
-      "Configured features",
-      "Supported platform functionality",
-      "Required integrations"
-    ]
+      'Production-ready Android application',
+      'Native Kotlin source code',
+      'Configured features',
+      'Supported platform functionality',
+      'Required integrations',
+    ],
   },
   {
-    category: "Backend & APIs",
+    num: '03',
+    category: 'Backend & APIs',
+    icon: Database,
     items: [
-      "API connections",
-      "Backend services where scoped",
-      "Database integration",
-      "Authentication",
-      "Required third-party integrations"
-    ]
+      'API connections',
+      'Backend services where scoped',
+      'Database integration',
+      'Authentication',
+      'Required third-party integrations',
+    ],
   },
   {
-    category: "Testing & Release",
+    num: '04',
+    category: 'Testing & Release',
+    icon: PackageCheck,
     items: [
-      "Tested Android build",
-      "Production configuration",
-      "Release-ready package",
-      "Google Play submission support where included"
-    ]
+      'Tested Android build',
+      'Production configuration',
+      'Release-ready package',
+      'Google Play submission support where included',
+    ],
   },
   {
-    category: "Handoff & Documentation",
+    num: '05',
+    category: 'Handoff & Documentation',
+    icon: FileText,
     items: [
-      "Source code",
-      "Design files where applicable",
-      "Technical documentation",
-      "Deployment information",
-      "Relevant access and account documentation"
-    ]
-  }
+      'Source code',
+      'Design files where applicable',
+      'Technical documentation',
+      'Deployment information',
+      'Relevant access and account documentation',
+    ],
+  },
 ]
 
 export default function Deliverables() {
   return (
-    <div className="mt-28">
-      <SectionIntro
-        eyebrow="Deliverables &amp; Handoff"
-        title="What You Receive From an Android Development Project"
-      >
-        The final deliverables depend on the agreed scope, but a typical Android project can include:
-      </SectionIntro>
+    <section
+      id="deliverables"
+      className="border-b border-white/[0.08] py-20 md:py-28 bg-[#09090B] text-white"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            What You Receive From an{' '}
+            <span className="italic text-frame-accent">Android Project.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {deliverables.map((del, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-bg p-6 md:p-8 flex flex-col justify-between"
-          >
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Deliverable 0{i + 1}
-              </span>
-              <h3 className="mt-2 font-heading text-xl font-bold uppercase text-frame-fg">
-                {del.category}
-              </h3>
-              <ul className="mt-4 space-y-2 border-t border-frame-border/60 pt-4">
-                {del.items.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                    <span className="text-frame-accent font-bold">&bull;</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            The final deliverables depend on the agreed scope, but a typical Android project can include:
+          </p>
+        </div>
+
+        {/* 5 Deliverables Package Cards */}
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
+          {deliverables.map((del, i) => (
+            <div
+              key={i}
+              className="group flex flex-col justify-between bg-[#0f1011] p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
+              <div>
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    {del.num}
+                  </span>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                    <del.icon className="h-5 w-5" />
+                  </div>
+                </div>
+
+                <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                  {del.category}
+                </h3>
+
+                <ul className="mt-6 space-y-3 border-t border-white/[0.06] pt-6 font-sans text-sm text-zinc-400">
+                  {del.items.map((item, idx) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-white/[0.06] font-mono text-[10px] uppercase text-zinc-500">
+                100% Client Ownership
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      <div className="mt-6 p-4 border-2 border-frame-border bg-frame-muted/10">
-        <p className="text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          The exact deliverables, source-code ownership, documentation level, and support terms are defined before development begins.
-        </p>
+        {/* Deliverables Scope Disclaimer */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex items-start gap-4">
+          <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
+          <p className="font-mono text-sm leading-relaxed text-zinc-300">
+            <strong className="text-white">Contractual Clarity:</strong> The exact deliverables, source-code ownership, documentation level, and support terms are defined before development begins.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

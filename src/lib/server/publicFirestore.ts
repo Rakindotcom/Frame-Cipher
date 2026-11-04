@@ -1,6 +1,12 @@
 import "server-only";
 import { getApp, getApps, initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore/lite";
+import { getFirestore, setLogLevel } from "firebase/firestore/lite";
+
+// Silence internal Firestore SDK RPC logs in server runtime so application-level
+// try/catch and graceful local cache fallbacks handle errors cleanly.
+try {
+  setLogLevel("silent");
+} catch {}
 
 // Public web configuration is not a credential. These server reads use the
 // same Firestore Security Rules as an anonymous visitor, not the Admin SDK.

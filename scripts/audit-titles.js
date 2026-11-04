@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.join(__dirname, '..');
-const appDir = path.join(rootDir, 'app');
+const _appDir = path.join(rootDir, 'app');
 
 function findFiles(dir, filterFn, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;

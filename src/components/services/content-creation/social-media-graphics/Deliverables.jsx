@@ -1,6 +1,6 @@
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -72,8 +72,8 @@ const scopingChecklist = [
 
 export default function Deliverables() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Asset Handover"
           title="What You Receive With Our Social Media Graphics Service"
@@ -83,23 +83,23 @@ export default function Deliverables() {
         </SectionIntro>
 
         {/* 10 DELIVERABLES IN A BALANCED 5x2 GRID */}
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-5">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-5">
           {standardDeliverables.map((item, idx) => (
             <div
               key={idx}
-              className="bg-frame-bg p-5 md:p-6 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors"
+              className="bg-[#09090B] p-5 md:p-6 flex flex-col justify-between hover:bg-[#121214] transition-colors"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-2 mb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-2 mb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     Asset {item.num}
                   </span>
                   <CheckIcon className="h-4 w-4" />
                 </div>
-                <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg leading-snug">
+                <h4 className="font-heading text-base font-bold tracking-tight text-[#FAFAFA] leading-snug">
                   {item.title}
                 </h4>
-                <p className="mt-2 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-2 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
               </div>
@@ -111,24 +111,24 @@ export default function Deliverables() {
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           
           {/* PRE-PRODUCTION ALIGNMENT */}
-          <div className="border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8 flex flex-col justify-between">
+          <div className="border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-frame-border/60 pb-3 mb-4">
-                <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+              <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
                   Pre-Production Alignment
                 </span>
-                <span className="font-mono text-[10px] text-frame-muted-fg border border-frame-border px-1.5 py-0.5">
+                <span className="font-mono text-[10px] text-[#A1A1AA] border border-white/[0.08] px-1.5 py-0.5">
                   6-Point Scope
                 </span>
               </div>
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                 Defined Scope Before Production
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
                 Before design commences, we document every variable so deliverables, revision expectations, and timelines remain crystal clear:
               </p>
 
-              <ul className="mt-4 space-y-2 text-xs sm:text-sm font-medium text-frame-fg">
+              <ul className="mt-4 space-y-2 text-xs sm:text-sm font-medium text-[#FAFAFA]">
                 {scopingChecklist.map((check, cIdx) => (
                   <li key={cIdx} className="flex items-start gap-2">
                     <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
@@ -140,36 +140,36 @@ export default function Deliverables() {
           </div>
 
           {/* EDITABLE ASSETS & SOURCE FILES */}
-          <div className="border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8 flex flex-col justify-between">
+          <div className="border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between border-b border-frame-border/60 pb-3 mb-4">
-                <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+              <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                <span className="font-mono text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
                   Design System Handoff
                 </span>
-                <span className="font-mono text-[10px] text-frame-muted-fg border border-frame-border px-1.5 py-0.5">
+                <span className="font-mono text-[10px] text-[#A1A1AA] border border-white/[0.08] px-1.5 py-0.5">
                   Figma & Canva
                 </span>
               </div>
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-xl font-bold tracking-tight text-[#FAFAFA]">
                 Reusable Templates & Source Files
               </h3>
-              <p className="mt-2 text-xs sm:text-sm font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+              <p className="mt-2 text-xs sm:text-sm font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
                 When included in your project tier, editable source files are delivered with clean modular structures:
               </p>
 
-              <div className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
-                <div className="p-2.5 border border-frame-border bg-frame-bg flex items-start gap-2">
+              <div className="mt-4 space-y-2.5 text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
+                <div className="p-2.5 border border-white/[0.08] bg-[#09090B] flex items-start gap-2">
                   <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
-                  <span><strong className="text-frame-fg">Figma Component Systems:</strong> Auto-layout frames, text styles, color variables, and swappable brand assets.</span>
+                  <span><strong className="text-[#FAFAFA]">Figma Component Systems:</strong> Auto-layout frames, text styles, color variables, and swappable brand assets.</span>
                 </div>
-                <div className="p-2.5 border border-frame-border bg-frame-bg flex items-start gap-2">
+                <div className="p-2.5 border border-white/[0.08] bg-[#09090B] flex items-start gap-2">
                   <CheckIcon className="h-3.5 w-3.5 mt-0.5" />
-                  <span><strong className="text-frame-fg">Canva Master Templates:</strong> Locked background elements with easily swappable text fields for internal marketing teams.</span>
+                  <span><strong className="text-[#FAFAFA]">Canva Master Templates:</strong> Locked background elements with easily swappable text fields for internal marketing teams.</span>
                 </div>
               </div>
             </div>
 
-            <div className="mt-6 pt-4 border-t border-frame-border/60">
+            <div className="mt-6 pt-4 border-t border-white/[0.06]">
               <PosterButton href="/contact" variant="outline" className="w-full text-center">
                 Discuss Template Handoff &rarr;
               </PosterButton>

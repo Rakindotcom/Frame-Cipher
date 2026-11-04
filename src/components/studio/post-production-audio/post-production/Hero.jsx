@@ -6,13 +6,13 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 export default function Hero({ service }) {
   const title = 'Video Post-Production Services in Dhaka'
   const subtitle =
-    'FrameCipher Studio finishes video shot at our studio or sent in from elsewhere. Bring your footage on an SSD or by cloud drive and one in-house team handles story assembly, colour grading, dialogue cleanup, sound design and platform masters — so externally shot material still leaves as one coherent film.'
+    'FrameCipher Studio finishes video shot at our studio or sent in from elsewhere. Bring your footage on an SSD or by cloud drive and one in-house team handles story assembly, colour grading, dialogue cleanup, sound design and platform masters, so externally shot material still leaves as one coherent film.'
 
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/studio" className="transition hover:text-frame-fg">Studio</Link>
@@ -47,11 +47,11 @@ export default function Hero({ service }) {
           <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
             Raw Footage In. Finished Masters Out.
           </p>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] tracking-tighter text-frame-fg">
             Externally Shot. Studio Finished.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Uneven colour, inconsistent volume and shapeless pacing are what make footage look amateur — whatever
+            Uneven colour, inconsistent volume and shapeless pacing are what make footage look amateur: whatever
             camera shot it. Our finishing suite conforms your material, balances every shot against the next, and
             restores dialogue recorded in noisy rooms, so the final export looks deliberate on YouTube, Meta and broadcast.
           </p>

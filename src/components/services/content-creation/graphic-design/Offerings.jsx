@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { SectionIntro } from '../../../Kinetic'
 
-function CheckIcon({ className = "h-4 w-4 shrink-0 text-frame-accent mt-0.5" }) {
+function CheckIcon({ className = "h-4 w-4 shrink-0 text-[#A855F7] mt-0.5" }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none" className={className}>
       <path d="m4.5 10 3.5 3.5 7.5-7.5" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -123,8 +123,8 @@ const offerings = [
 
 export default function Offerings() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Comprehensive Execution"
           title="What Our Graphic Design Services Include"
@@ -132,26 +132,26 @@ export default function Offerings() {
           From standalone investor pitch decks and retail packaging to multi-page corporate catalogues and cross-channel digital marketing campaigns, we design production-ready assets built around functional business needs.
         </SectionIntro>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2 lg:grid-cols-3">
           {offerings.map((item, idx) => (
-            <div key={idx} className="bg-frame-bg p-6 md:p-8 flex flex-col justify-between transition-colors hover:bg-frame-accent/5">
+            <div key={idx} className="bg-[#09090B] p-6 md:p-8 flex flex-col justify-between transition-colors hover:bg-[#A855F7]/[0.05]">
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-3">
-                  <span className="font-mono text-xs font-black text-frame-accent">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-xs font-black text-[#A855F7]">
                     Scope {item.num}
                   </span>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-frame-muted-fg">
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#A1A1AA]">
                     Collateral
                   </span>
                 </div>
-                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
 
-                <ul className="mt-6 space-y-2 border-t border-frame-border/60 pt-4 text-xs sm:text-sm font-medium text-frame-fg/90">
+                <ul className="mt-6 space-y-2 border-t border-white/[0.06] pt-4 text-xs sm:text-sm font-medium text-zinc-200">
                   {item.bullets.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-2">
                       <CheckIcon />
@@ -162,10 +162,10 @@ export default function Offerings() {
               </div>
 
               {item.link && (
-                <div className="mt-8 pt-4 border-t border-frame-border/60">
+                <div className="mt-8 pt-4 border-t border-white/[0.06]">
                   <Link
                     href={item.link.href}
-                    className="text-xs font-bold uppercase tracking-wider text-frame-accent hover:underline inline-flex items-center gap-1"
+                    className="text-xs font-bold uppercase tracking-wider text-[#A855F7] hover:underline inline-flex items-center gap-1"
                   >
                     {item.link.text} &rarr;
                   </Link>

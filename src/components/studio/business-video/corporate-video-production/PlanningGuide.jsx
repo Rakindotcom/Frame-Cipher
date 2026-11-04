@@ -22,7 +22,7 @@ const guideBlocks = [
     title: 'Which Tier to Choose',
     list: [
       'Executive Interview (৳48,000): one leader, one polished message, plus a LinkedIn highlight reel. Best when the script or talking points are ready.',
-      'Company Profile Film (৳95,000): the complete capability story — studio interviews plus office and facility b-roll, motion graphics and investor-grade finish.',
+      'Company Profile Film (৳95,000): the complete capability story: studio interviews plus office and facility b-roll, motion graphics and investor-grade finish.',
       'Enterprise AV Suite (৳2,60,000 and up): multi-film suites for AGMs, investor decks and employer branding across several leaders, locations and languages.',
     ],
   },
@@ -46,7 +46,7 @@ const guideBlocks = [
 export default function PlanningGuide() {
   return (
     <section id="planning-guide" className="border-t-2 border-frame-border bg-frame-muted/10 px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Planning Guide"
           title="Quality, Budget and Delivery"
@@ -58,7 +58,7 @@ export default function PlanningGuide() {
         <div className="grid gap-6 md:grid-cols-2">
           {guideBlocks.map((block, i) => (
             <article key={i} className={`border-2 border-frame-border bg-frame-bg p-6 md:p-8 ${i === 0 ? 'md:col-span-2' : ''}`}>
-              <h3 className="font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg">
                 {block.title}
               </h3>
               {block.body && block.body.map((para, j) => (

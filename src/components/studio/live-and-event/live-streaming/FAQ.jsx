@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     "question": "Is it better to stream from your studio or our venue?",
-    "answer": "The studio suits webinars, talks and launches with controlled sound, bonded fibre and backup power already in place. Venue streaming suits conferences and events where the gathering is the content — we recce the hall and coordinate with the AV desk beforehand."
+    "answer": "The studio suits webinars, talks and launches with controlled sound, bonded fibre and backup power already in place. Venue streaming suits conferences and events where the gathering is the content: we recce the hall and coordinate with the AV desk beforehand."
   },
   {
     "question": "What audio setup do you bring?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, redundancy, platforms and booking — everything about live streaming at FrameCipher Studio.
+          Costs, redundancy, platforms and booking: everything about live streaming at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

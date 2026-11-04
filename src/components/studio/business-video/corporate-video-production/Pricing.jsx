@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for corporate-video-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for corporate-video-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Corporate Video Packages and Prices in Dhaka (BDT)",
@@ -20,7 +20,7 @@ const DATA = {
         "Corporate lighting design for skin tone and authority",
         "Dual-camera 4K (wide master + tight editorial angle)",
         "Conversational directing for first-time on-camera leaders",
-        "60–90 second LinkedIn highlight reel included",
+        "60 to 90 second LinkedIn highlight reel included",
         "English and Bangla subtitles, 2 revision rounds"
       ]
     },
@@ -37,8 +37,8 @@ const DATA = {
         "Studio interview day + one location b-roll day",
         "Direct venue soundboard capture for facility audio",
         "Logo animation, kinetic data graphics, brand-grade colour",
-        "2–5 minute master plus 60-second and 30-second cuts",
-        "ProRes + high-bitrate MP4, SRT files, 5–7 day delivery"
+        "2 to 5 minute master plus 60-second and 30-second cuts",
+        "ProRes + high-bitrate MP4, SRT files, 5 to 7 day delivery"
       ]
     },
     {
@@ -66,7 +66,7 @@ const DATA = {
     "Bilingual voiceover and subtitle versioning",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Dhaka company-profile videos typically cost ৳30,000–80,000 for a basic crew, while corporate AV with scripted storytelling across locations runs ৳2,50,000–6,00,000 (Libanza Films 2026 guide). Premium cinematic corporate productions with cinema cameras and full departments reach ৳70,000–4,00,000+ (Brandtics). Our ৳95,000 profile tier sits at the professional mid-point: real pre-production and grade, without the agency overhead that doubles enterprise quotes.",
+  "marketNote": "Dhaka company-profile videos typically cost ৳30,000 to 80,000 for a basic crew, while corporate AV with scripted storytelling across locations runs ৳2,50,000 to 6,00,000 (Libanza Films 2026 guide). Premium cinematic corporate productions with cinema cameras and full departments reach ৳70,000 to 4,00,000+ (Brandtics). Our ৳95,000 profile tier sits at the professional mid-point: real pre-production and grade, without the agency overhead that doubles enterprise quotes.",
   "costRows": [
     [
       "Executive interview + LinkedIn highlight reel",
@@ -82,7 +82,7 @@ const DATA = {
     ],
     [
       "Additional language version (VO + subtitles)",
-      "৳15,000–25,000"
+      "৳15,000 to 25,000"
     ],
     [
       "48-hour board-meeting priority delivery",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Corporate Video Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

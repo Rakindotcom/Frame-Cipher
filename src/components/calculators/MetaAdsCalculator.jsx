@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useRef, useState } from 'react'
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
 import {
   COUNTRIES,
@@ -109,10 +109,10 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
   const [freqOverride, setFreqOverride] = useState('')
 
   // Report & Lead Capture
-  const [clientName, setClientName] = useState('')
-  const [preparedBy, setPreparedBy] = useState('Frame Cipher Media Team')
-  const [lead, setLead] = useState({ name: '', email: '', phone: '', company: '' })
-  const [leadSubmitted, setLeadSubmitted] = useState(false)
+  const [clientName, _setClientName] = useState('')
+  const [preparedBy, _setPreparedBy] = useState('Frame Cipher Media Team')
+  const [lead, _setLead] = useState({ name: '', email: '', phone: '', company: '' })
+  const [_leadSubmitted, setLeadSubmitted] = useState(false)
   const [downloading, setDownloading] = useState(false)
 
   const n = (v) => {
@@ -247,7 +247,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
 
     if (competition.id === 'high' || competition.id === 'very-high') {
       recommendations.push(
-        `High category competition is inflating CPMs by 25%–55%. Advantage+ Shopping and broad demographic targeting will prevent audience bidding overlap.`
+        `High category competition is inflating CPMs by 25% to 55%. Advantage+ Shopping and broad demographic targeting will prevent audience bidding overlap.`
       )
     }
 
@@ -296,7 +296,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
       const pageWidth = pdf.internal.pageSize.getWidth()
       const pageHeight = pdf.internal.pageSize.getHeight()
       const marginX = 40
-      const contentWidth = pageWidth - marginX * 2
+      const _contentWidth = pageWidth - marginX * 2
       let y = 60
 
       pdf.setFillColor('#0A0A0A')
@@ -377,7 +377,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
     }
   }
 
-  const handleLead = (e) => {
+  const _handleLead = (e) => {
     e.preventDefault()
     if (onLeadSubmit) {
       onLeadSubmit({
@@ -431,7 +431,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 01 // Geography & Market Selection
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Where Are You Advertising & In What Industry?
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -535,7 +535,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 02 // Campaign Architecture & Auction Dynamics
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Campaign Objective & Placement Surface
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -637,7 +637,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 03 // Financial Goals & Unit Economics
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Revenue Goal & Margin Assumptions
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -736,7 +736,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
             <div className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
               Phase 04 // Custom Account Overrides (Optional)
             </div>
-            <h3 className="mt-1 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-1 font-heading text-2xl font-bold tracking-tight text-frame-fg">
               Have Historical Account Data?
             </h3>
             <p className="mt-1 text-sm text-frame-muted-fg wide:text-lg">
@@ -831,7 +831,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
                   Simulation Computed Successfully
                 </span>
               </div>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-frame-fg">
                 Meta Ads Performance Blueprint
               </h3>
             </div>
@@ -907,7 +907,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <div className="flex items-center justify-between border-b border-frame-border pb-4">
               <div>
-                <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
                   Funnel Drop-Off & Delivery Velocity
                 </h4>
                 <p className="text-xs text-frame-muted-fg">
@@ -948,7 +948,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
               <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                 Execution Playbooks
               </span>
-              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                 3 Scenarios for Your Media Plan
               </h4>
             </div>
@@ -1027,7 +1027,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
           <div className="border border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
             <div className="flex items-center gap-2 text-frame-accent">
               <Sparkles className="h-5 w-5" />
-              <h4 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
+              <h4 className="font-heading text-lg font-bold tracking-tight text-frame-fg">
                 Algorithmic Diagnostics & Action Items
               </h4>
             </div>
@@ -1058,7 +1058,7 @@ export default function MetaAdsCalculator({ onLeadSubmit }) {
                 <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
                   Execution Pathway
                 </span>
-                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-1 font-heading text-xl md:text-2xl font-bold tracking-tight text-frame-fg">
                   Ready to Turn This Model into Real Revenue?
                 </h4>
                 <p className="mt-1 max-w-xl text-xs md:text-sm text-frame-muted-fg wide:text-lg">

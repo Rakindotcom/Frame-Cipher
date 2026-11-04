@@ -1,4 +1,9 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Compass, Calendar, Sparkles } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
+import { AutoLinks } from '../../../seo/AutoLinks'
 
 const strategyDecides = [
   'Who you want to reach',
@@ -13,103 +18,141 @@ const strategyDecides = [
 ]
 
 const calendarOrganizes = [
-  'Topics',
-  'Dates',
-  'Platforms',
-  'Formats',
-  'Campaigns',
-  'Content pillars',
-  'CTAs',
-  'Required assets',
+  'Topics & concepts',
+  'Publishing dates & schedules',
+  'Distribution platforms',
+  'Creative formats',
+  'Campaign associations',
+  'Content pillars balance',
+  'Primary CTAs',
+  'Required visual & copy assets',
   'Production deadlines',
-  'Approval stages',
-  'Publishing sequence',
+  'Approval stages & sign-offs',
+  'Publishing sequence & timing',
 ]
 
 export default function VsStrategy() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Scope clarity" title="Content Calendar vs. Content Strategy">
-          Content strategy and content calendars are closely connected, but they serve different purposes.
-          Keeping the distinction clear helps prevent confusion around scope, responsibilities, and
-          expectations.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Scope Clarity · Direction vs Execution
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          <article className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Direction
-              </span>
-              <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Content Calendar vs.{' '}
+            <span className="italic text-frame-accent">Content Strategy.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Content strategy and content calendars are closely connected, but they serve different purposes. Keeping the distinction clear helps prevent confusion around scope, responsibilities, and expectations.
+          </p>
+        </div>
+
+        {/* 2-Column Comparison Grid */}
+        <div className="grid gap-6 lg:grid-cols-2">
+          {/* Strategy Card */}
+          <article className="flex flex-col justify-between rounded-2xl border border-purple-500/30 bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/50 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Strategic Direction
+                </span>
+                <Compass className="h-4 w-4 text-frame-accent" />
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
                 What Content Strategy Decides
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
                 Content strategy establishes the direction behind your content. It helps determine:
               </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-300 pt-1">
+                {strategyDecides.map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {strategyDecides.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-3 text-xs font-semibold leading-relaxed text-frame-fg">
-                In simple terms, content strategy answers: what should we communicate, to whom, and why?
-              </p>
+            <div className="rounded-xl border border-purple-500/20 bg-purple-500/[0.05] p-4 text-xs font-medium text-white">
+              <span className="font-mono text-[10px] uppercase text-frame-accent block mb-1">
+                Core Question Answered:
+              </span>
+              &ldquo;What should we communicate, to whom, and why?&rdquo;
             </div>
           </article>
 
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
-                Execution
-              </span>
-              <h3 className="mt-3 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          {/* Calendar Card */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-white/[0.14] hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
+                  Operational Execution
+                </span>
+                <Calendar className="h-4 w-4 text-zinc-400" />
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
                 What the Content Calendar Organizes
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                The content calendar turns those strategic decisions into an execution plan. It organizes:
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                The content calendar turns those strategic decisions into an actionable execution plan. It organizes:
               </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-300 pt-1">
+                {calendarOrganizes.map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-zinc-400 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {calendarOrganizes.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-muted-fg" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                The calendar answers: what are we publishing, where, and when?
-              </p>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs font-medium text-white">
+              <span className="font-mono text-[10px] uppercase text-zinc-400 block mb-1">
+                Core Question Answered:
+              </span>
+              &ldquo;What are we publishing, where, and when?&rdquo;
             </div>
           </article>
         </div>
 
-        <div className="mt-8 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-8">
-          <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-            How They Work Together
-          </span>
-          <h3 className="mt-3 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-2xl">
-            Strategy provides the direction, the calendar provides the execution framework
+        {/* How They Work Together Synergy Card */}
+        <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-4">
+          <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+              How They Work Together
+            </span>
+            <Sparkles className="h-4 w-4 text-frame-accent" />
+          </div>
+
+          <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
+            Strategy Provides Direction · The Calendar Provides Execution
           </h3>
-          <p className="mt-5 max-w-4xl text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-            A useful content system connects both. That means your team is not simply scheduling posts. It
-            is working from a defined content direction that can be reviewed, adjusted, and improved over
-            time.
+
+          <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed max-w-4xl">
+            A useful content system connects both. That means your team is not simply scheduling posts in a rush. You are working from a defined content direction that can be measured, reviewed, adjusted, and improved over time.
           </p>
 
-          <div className="mt-6">
-            <PosterButton href="/contact" variant="outline">
-              Discuss Your Content Strategy &rarr;
+          <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="md"
+            >
+              Discuss Your Content Strategy
             </PosterButton>
           </div>
         </div>

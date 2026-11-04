@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const approvalCheckpoints = [
   {
@@ -21,23 +23,35 @@ const approvalCheckpoints = [
 
 export default function Revisions() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Collaboration & Governance" title="Revisions, Approvals & Post-Delivery Support">
-          UI/UX projects work best when feedback happens at the right stage instead of being saved until the end.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header Block */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Revisions, Approvals &amp;{' '}
+            <span className="italic text-frame-accent">Post-Delivery Support.</span>
+          </h2>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            UI/UX projects work best when feedback happens at the right stage instead of being saved until the end.
+          </p>
+        </div>
+
+        {/* 4 Checkpoint Cards Grid */}
+        <div className="mt-12 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
           {approvalCheckpoints.map((chk, idx) => (
-            <div key={idx} className="bg-frame-bg p-7 sm:p-8 flex flex-col justify-between hover:bg-frame-muted/10 transition-colors">
+            <div
+              key={idx}
+              className="group relative flex flex-col justify-between gap-6 p-7 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02] lg:flex-row lg:items-start lg:gap-12"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+                <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
                   Checkpoint 0{idx + 1}
                 </span>
-                <h3 className="mt-4 font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {chk.title}
                 </h3>
-                <p className="mt-4 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                   {chk.description}
                 </p>
               </div>
@@ -45,8 +59,9 @@ export default function Revisions() {
           ))}
         </div>
 
-        <div className="mt-8 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <p className="text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg italic">
+        {/* Disclaimer Callout */}
+        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400 italic">
             We do not guarantee a specific conversion rate or business outcome from design alone. Results can also depend on content, implementation, traffic, pricing, marketing, product quality, and other factors outside the design process.
           </p>
         </div>

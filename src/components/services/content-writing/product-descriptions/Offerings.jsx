@@ -141,8 +141,8 @@ const blocks = [
 
 export default function Offerings() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Capabilities & scope"
           title="What Our Product Description Writing Service Includes"
@@ -151,40 +151,40 @@ export default function Offerings() {
           decision. Each block below reflects part of that process.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border lg:grid-cols-2">
           {blocks.map((block) => (
-            <article key={block.number} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-200 hover:bg-frame-muted/40">
+            <article key={block.number} className="flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]/40">
               <div>
                 <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
                   {block.number}
                 </span>
-                <h3 className="mt-5 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl">
+                <h3 className="mt-5 font-heading text-lg font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-xl">
                   {block.title}
                 </h3>
                 {block.body.map((paragraph) => (
                   <p
                     key={paragraph}
-                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"
+                    className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"
                   >
                     {paragraph}
                   </p>
                 ))}
 
                 {block.example && (
-                  <div className="mt-5 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-                    <div className="bg-frame-muted/20 p-4">
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">
+                  <div className="mt-5 grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
+                    <div className="bg-[#121214] p-4">
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A1A1AA]">
                         Feature
                       </span>
-                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-frame-fg">
+                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-[#FAFAFA]">
                         {block.example.feature}
                       </p>
                     </div>
-                    <div className="bg-frame-accent/10 p-4">
-                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                    <div className="bg-[#A855F7]/10 p-4">
+                      <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                         Benefit
                       </span>
-                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-frame-fg">
+                      <p className="mt-1.5 text-sm font-medium leading-relaxed text-[#FAFAFA]">
                         {block.example.benefit}
                       </p>
                     </div>
@@ -196,9 +196,9 @@ export default function Offerings() {
                     {block.bullets.map((item) => (
                       <li
                         key={item}
-                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-frame-fg"
+                        className="flex items-start gap-2 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                       >
-                        <span aria-hidden="true" className="mt-1 text-frame-accent">
+                        <span aria-hidden="true" className="mt-1 text-[#A855F7]">
                           &bull;
                         </span>
                         {item}
@@ -209,7 +209,7 @@ export default function Offerings() {
               </div>
 
               {block.note && (
-                <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-5 border-l-2 border-[#A855F7]/40 bg-[#121214] p-3 text-xs font-medium leading-relaxed text-[#A1A1AA]">
                   {block.note}
                 </p>
               )}

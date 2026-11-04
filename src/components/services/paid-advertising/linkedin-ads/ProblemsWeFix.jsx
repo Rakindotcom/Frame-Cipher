@@ -1,10 +1,14 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { AlertCircle, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const problems = [
   {
     title: 'Poor ICP Definition',
     body: [
-      'A LinkedIn campaign cannot target the right professional audience if the business has not clearly defined whom it wants to acquire. We translate the sales team\u2019s understanding of the ideal customer into practical targeting criteria.',
+      'A LinkedIn campaign cannot target the right professional audience if the business has not clearly defined whom it wants to acquire. We translate the sales team’s understanding of the ideal customer into practical targeting criteria.',
     ],
   },
   {
@@ -16,7 +20,7 @@ const problems = [
   {
     title: 'High Lead Volume but Low Lead Quality',
     body: [
-      'A large number of submissions can hide a weak campaign. We evaluate leads against the business\u2019s actual qualification criteria so reporting can distinguish between form volume and commercially relevant prospects.',
+      'A large number of submissions can hide a weak campaign. We evaluate leads against the business’s actual qualification criteria so reporting can distinguish between form volume and commercially relevant prospects.',
     ],
   },
   {
@@ -47,55 +51,58 @@ const problems = [
 
 export default function ProblemsWeFix() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Account rescue"
-          title="Common LinkedIn Ads Problems We Fix"
-        >
-          Underperforming LinkedIn accounts are usually not failing because the platform is weak.
-          They are failing because of targeting, creative, structure, or measurement problems
-          inside the account.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.98] tracking-[-0.03em] text-white">
+            Common LinkedIn Ads{' '}
+            <span className="italic text-frame-accent">Problems We Fix.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Underperforming LinkedIn accounts are usually not failing because the platform is weak. They are failing because of targeting, creative, structure, or measurement problems inside the account.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Problems Grid */}
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.08] md:grid-cols-2 lg:grid-cols-4">
           {problems.map((problem, index) => (
             <div
               key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 md:p-8 transition-colors hover:border-frame-accent"
+              className="group relative flex flex-col justify-between bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
             >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Problem 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                    Problem 0{index + 1}
+                  </span>
+                  <AlertCircle className="h-4 w-4 text-zinc-600 group-hover:text-frame-accent transition-colors" />
+                </div>
+                <h3 className="font-heading text-lg font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {problem.title}
                 </h3>
-                <div className="mt-4 space-y-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {problem.body.map((paragraph, pIdx) => (
-                    <p key={pIdx}>{paragraph}</p>
+                <div className="space-y-2 text-sm font-normal leading-relaxed text-zinc-300">
+                  {problem.body.map((p, pIdx) => (
+                    <p key={pIdx}>{p}</p>
                   ))}
                 </div>
               </div>
             </div>
           ))}
 
-          <div className="flex flex-col justify-between border-2 border-frame-accent bg-frame-accent/5 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Your account
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+          {/* Audit CTA Card */}
+          <div className="relative flex flex-col justify-between bg-[#121214] bg-frame-accent/10 p-6 md:p-7 space-y-4">
+            <div className="space-y-3">
+              <h3 className="font-heading text-xl font-medium text-white">
                 Not sure which problem your account has?
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                Every engagement starts with an account review that identifies what is actually
-                happening before any changes are made.
+              <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                Every engagement starts with an account review that identifies what is actually happening before any changes are made.
               </p>
             </div>
-            <div className="mt-6">
-              <PosterButton href="/contact" className="w-full text-xs">
-                Get Your Account Reviewed
+            <div className="pt-2">
+              <PosterButton href="/contact" variant="accent" className="w-full">
+                Get Your Account Reviewed &rarr;
               </PosterButton>
             </div>
           </div>

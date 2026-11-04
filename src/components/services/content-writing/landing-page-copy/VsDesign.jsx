@@ -27,8 +27,8 @@ const columns = [
 
 export default function VsDesign() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Scope"
           title="Landing Page Copywriting vs. Landing Page Design &amp; Development"
@@ -37,24 +37,24 @@ export default function VsDesign() {
           unnecessary work.
         </SectionIntro>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <div className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {columns.map((column) => (
             <article
               key={column.title}
               className={
                 column.highlight
-                  ? 'flex flex-col bg-frame-accent/10 p-7 md:p-8'
-                  : 'flex flex-col bg-frame-bg p-7 md:p-8'
+                  ? 'flex flex-col bg-[#A855F7]/10 p-7 md:p-8'
+                  : 'flex flex-col bg-[#09090B] p-7 md:p-8'
               }
             >
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-muted-fg">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A1A1AA]">
                 {column.label}
               </span>
               <h3
                 className={
                   column.highlight
-                    ? 'mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-accent md:text-xl'
-                    : 'mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-xl'
+                    ? 'mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-[#A855F7] md:text-xl'
+                    : 'mt-3 font-heading text-lg font-bold uppercase leading-tight tracking-tight text-[#FAFAFA] md:text-xl'
                 }
                 dangerouslySetInnerHTML={{ __html: column.title }}
               />
@@ -62,7 +62,7 @@ export default function VsDesign() {
                 {column.points.map((point) => (
                   <li
                     key={point}
-                    className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-frame-fg"
+                    className="flex items-start gap-2.5 text-sm font-medium leading-relaxed text-[#FAFAFA]"
                   >
                     <span aria-hidden="true" className="mt-1.5 h-2 w-2 shrink-0 bg-frame-accent" />
                     {point}
@@ -73,8 +73,8 @@ export default function VsDesign() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/content-writing/landing-page-copy" allowed={["/services/website-design-development/landing-pages"]}>
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base"><AutoLinks currentPath="/services/content-writing/landing-page-copy" allowed={["/services/website-design-development/landing-pages"]}>
             The strongest landing pages are usually built when copy, design, and development work together. If
             you only need the copy, we can deliver the copy. If you need the complete page, that can be scoped
             separately.

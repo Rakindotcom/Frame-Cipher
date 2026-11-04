@@ -13,7 +13,7 @@ import {
 } from 'lucide-react'
 
 export default function GenericPlatformCalculator({ config }) {
-  const [currency, setCurrency] = useState('USD')
+  const [currency, _setCurrency] = useState('USD')
   const [revenueGoal, setRevenueGoal] = useState('50000')
   const [aov, setAov] = useState('120')
   const [margin, setMargin] = useState('45')
@@ -30,14 +30,14 @@ export default function GenericPlatformCalculator({ config }) {
       ? '0.75'
       : '3.50'
   )
-  const [cvrEstimate, setCvrEstimate] = useState(
+  const [cvrEstimate, _setCvrEstimate] = useState(
     config.slug === 'remarketing'
       ? '6.5'
       : config.slug === 'lead-generation-ads'
       ? '8.0'
       : '2.5'
   )
-  const [clientName, setClientName] = useState('')
+  const [clientName, _setClientName] = useState('')
   const [downloading, setDownloading] = useState(false)
 
   const n = (v) => {
@@ -189,7 +189,7 @@ export default function GenericPlatformCalculator({ config }) {
               {config.badge} // Interactive Simulator
             </span>
           </div>
-          <h3 className="mt-1 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="mt-1 font-heading text-2xl md:text-3xl font-medium tracking-tight text-frame-fg">
             {config.title}
           </h3>
         </div>
@@ -321,7 +321,7 @@ export default function GenericPlatformCalculator({ config }) {
           <span className="text-xs font-mono font-bold uppercase tracking-widest text-frame-accent">
             Pacing Playbooks
           </span>
-          <h4 className="mt-1 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="mt-1 font-heading text-xl font-medium tracking-tight text-frame-fg">
             3 Execution Scenarios
           </h4>
         </div>

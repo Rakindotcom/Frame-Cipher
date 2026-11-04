@@ -1,63 +1,89 @@
+'use client'
 
-import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro } from '../../../Kinetic'
+import React from 'react'
+import { Box, Sparkles, Video, Monitor, Radio, Store, ArrowUpRight } from 'lucide-react'
 
 const solutions = [
   {
+    icon: Box,
+    badge: 'Core Performance',
     title: 'Sponsored Products',
-    body: 'Sponsored Products are cost-per-click ads for individual products that can appear in shopping results and on product detail pages. They are often a core part of Amazon advertising because they connect targeting with product-level purchase intent.',
+    desc: 'Cost-per-click ads for individual items appearing directly in search results and product detail pages. They form the primary engine of purchase-ready Amazon traffic and keyword-to-sale attribution.',
   },
   {
+    icon: Sparkles,
+    badge: 'Brand Registry Required',
     title: 'Sponsored Brands',
-    body: 'Sponsored Brands can feature a brand logo, headline, video, or multiple products and can direct shoppers to eligible product pages, custom landing pages, or Brand Stores. Sponsored Brands are available to eligible advertisers, including professional sellers enrolled in Amazon Brand Registry and other qualifying advertiser types. Availability varies by marketplace.',
+    desc: 'Top-of-search headline banner ads featuring your brand logo, custom headline, and multiple curated products. Guides shoppers to your custom product collections or official Amazon Brand Store.',
   },
   {
+    icon: Video,
+    badge: 'High Conversion Hook',
     title: 'Sponsored Brands Video',
-    body: 'Video can help brands demonstrate products, explain benefits, and communicate the value proposition in a more visual format. We coordinate video concepts and assets around the product, audience, placement, and campaign objective.',
+    desc: 'Auto-playing in-feed video ads demonstrating product benefits and unboxing utility right in search results. Proven to capture attention and achieve higher CTR than static product placements.',
   },
   {
+    icon: Monitor,
+    badge: 'Audience & Retargeting',
     title: 'Amazon Display Ads',
-    body: 'Amazon\u2019s current display offering includes the self-service product formerly known as Sponsored Display, now positioned as Display Ads through sponsored ads. Display advertising can reach audiences across Amazon properties and third-party destinations, depending on the campaign setup. We use Display Ads for relevant audience, remarketing, and product-discovery strategies.',
+    desc: 'Self-service display placements (previously Sponsored Display) reaching high-intent shoppers across Amazon detail pages, customer reviews, and third-party apps based on browsing and purchase behavior.',
   },
   {
-    title: 'Amazon DSP',
-    body: 'Amazon DSP provides programmatic display and video advertising at scale. Amazon offers both self-service and managed-service options, and DSP can be used by advertisers that sell on Amazon as well as advertisers that do not. For Framecipher clients, DSP is considered when the audience strategy, budget, product portfolio, and business objectives justify a broader programmatic approach.',
+    icon: Radio,
+    badge: 'Programmatic Scale',
+    title: 'Amazon DSP (Demand-Side Platform)',
+    desc: 'Advanced programmatic audio, video, and display inventory across Amazon properties (Prime Video, Twitch, IMDb, Fire TV) and leading web publishers using Amazon exclusive first-party shopper data.',
   },
   {
+    icon: Store,
+    badge: 'Branded Experience',
     title: 'Amazon Brand Stores',
-    body: 'Brand Stores provide a dedicated Amazon destination where eligible brands can showcase products, brand messaging, and curated shopping experiences. They can also serve as landing destinations for Sponsored Brands and display advertising campaigns. We can coordinate advertising strategy with Brand Store structure when the account requires it.',
+    desc: 'Multi-page immersive brand storefronts on Amazon without competitor ads. We structure Store navigation, sub-pages, and merchandising to convert Sponsored Brands traffic into higher order value.',
   },
 ]
 
 export default function Solutions() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Solutions" title="Amazon Advertising Solutions We Manage">
-          We work across the Amazon advertising ecosystem that is available for the account,
-          product, and marketplace.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          Amazon&apos;s current advertising ecosystem includes sponsored ads, display advertising,
-          Brand Stores, and Amazon DSP, with availability varying by marketplace and advertiser
-          type.
-        </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Amazon Advertising Solutions{' '}
+            <span className="italic text-frame-accent">We Manage.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            We work across the entire Amazon advertising ecosystem available for your account type, product category, and target marketplace—from entry-level Sponsored Products to enterprise Amazon DSP.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2">
-          {solutions.map((solution) => (
-            <div
-              key={solution.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {solution.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/paid-advertising/amazon-ads" allowed={["/services/website-design-development/landing-pages"]}>
-                {solution.body}
-              </AutoLinks></p>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {solutions.map((item) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={item.title}
+                className="group relative rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div className="flex items-center justify-between mb-5">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-zinc-400">
+                    {item.badge}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white mb-2.5 flex items-center justify-between">
+                  <span>{item.title}</span>
+                  <ArrowUpRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100 text-frame-accent" />
+                </h3>
+
+                <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            )
+          })}
         </div>
       </div>
     </section>

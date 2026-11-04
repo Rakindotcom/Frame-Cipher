@@ -27,7 +27,7 @@ const magentoKeywords = [
 
 export default function WebsiteDesignDevelopmentMagentoService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={magentoKeywords} slow />
       <WebsitePortfolioPreview

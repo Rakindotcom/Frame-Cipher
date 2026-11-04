@@ -1,4 +1,8 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Check } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const offerings = [
   {
@@ -51,7 +55,7 @@ const offerings = [
       'Market-specific relevance',
     ],
     closing:
-      'Instead of optimizing one isolated answer, GEO looks at how the wider content and authority ecosystem supports your brand\u2019s visibility across generative search.',
+      'Instead of optimizing one isolated answer, GEO looks at how the wider content and authority ecosystem supports your brand’s visibility across generative search.',
   },
   {
     title: 'AI-Ready Content & Answer Architecture',
@@ -70,7 +74,7 @@ const offerings = [
       'Clear entity references',
     ],
     closing:
-      'We do not apply arbitrary \u201CAI formatting\u201D rules. The goal is well-organized content that communicates important information clearly and supports both traditional search and AI-assisted discovery.',
+      'We do not apply arbitrary “AI formatting” rules. The goal is well-organized content that communicates important information clearly and supports both traditional search and AI-assisted discovery.',
   },
   {
     title: 'Entity & Knowledge Graph Optimization',
@@ -149,61 +153,75 @@ const offerings = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="What we cover" title="Our AI Search Optimization Services">
-          Our AI Search Optimization services combine content strategy, technical SEO, entity
-          work, source authority, and visibility measurement.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] py-20 sm:py-24 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span>Service Matrix // Core Capabilities</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white ">
+            Our <span className="italic text-frame-accent">AI Search Optimization</span> Services
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Our AI Search Optimization services combine content strategy, technical SEO, entity
+            work, source authority, and visibility measurement.
+          </p>
+        </div>
 
-        <div className="space-y-10 md:space-y-14">
+        {/* 8 Offerings List */}
+        <div className="space-y-6 sm:space-y-8">
           {offerings.map((item, index) => (
             <div
               key={item.title}
-              className="grid gap-6 border-2 border-frame-border bg-frame-bg p-7 md:p-10 lg:grid-cols-[1fr_1.6fr]"
+              className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 hover:border-white/[0.14] transition-all grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10"
             >
-              <div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Offer 0{index + 1}
-                  </span>
-                </div>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+              {/* Left Column (5 cols) */}
+              <div className="lg:col-span-5 space-y-3">
+                <span className="font-mono text-xs font-semibold text-frame-accent tracking-widest uppercase">
+                  Service Module 0{index + 1}
+                </span>
+                <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
                   {item.title}
                 </h3>
-                <span className="mt-2 block h-1 w-8 bg-frame-accent" />
-              </div>
-              <div>
-                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   {item.body}
                 </p>
-                <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg">
+              </div>
+
+              {/* Right Column (7 cols) */}
+              <div className="lg:col-span-7 space-y-4">
+                <p className="text-xs font-mono uppercase tracking-wider text-zinc-400">
                   {item.lead}
                 </p>
-                <ul className="mt-5 space-y-2.5 border-l-2 border-frame-accent pl-5 text-sm md:text-base font-medium text-frame-fg">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2 leading-snug">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span>{point}</span>
-                    </li>
+                    <div key={pIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-zinc-200">
+                      <Check className="h-3.5 w-3.5 mt-0.5 text-frame-accent shrink-0" />
+                      <span className="leading-snug">{point}</span>
+                    </div>
                   ))}
-                </ul>
-                <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.closing}
-                </p>
+                </div>
+                <div className="pt-3 border-t border-white/[0.06]">
+                  <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                    {item.closing}
+                  </p>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <p className="max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
+        {/* Bottom Banner */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <p className="max-w-2xl text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
             The objective is to improve visibility across AI-driven search while strengthening the
             same content, technical, and authority foundations that matter to traditional search.
           </p>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact" className="w-full whitespace-nowrap self-center">
-              Request an AI Search Audit
+          <div className="shrink-0">
+            <PosterButton href="/contact">
+              Request an AI Search Audit &rarr;
             </PosterButton>
           </div>
         </div>

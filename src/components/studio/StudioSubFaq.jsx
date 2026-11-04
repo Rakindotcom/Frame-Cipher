@@ -1,18 +1,15 @@
 'use client'
 
-import { HelpCircle } from 'lucide-react'
-import { SectionIntro } from '../Kinetic'
-
-function SubFaqAccordion({ faqs }) {
+export function SubFaqAccordion({ faqs }) {
   return (
     <div className="space-y-4">
       {faqs.map((item, idx) => (
-        <details key={idx} className="group border-2 border-frame-border bg-frame-bg transition-colors open:border-frame-accent">
-          <summary className="flex cursor-pointer list-none select-none items-center justify-between p-6 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg transition-colors marker:content-none hover:text-frame-accent md:p-8 md:text-xl">
+        <details key={idx} className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors open:border-frame-accent">
+          <summary className="flex cursor-pointer list-none select-none items-center justify-between p-6 font-heading text-lg font-medium tracking-tight text-white transition-colors marker:content-none hover:text-frame-accent md:p-8 md:text-xl">
             <span className="pr-4">{item.q}</span>
-            <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border font-bold text-frame-accent transition-transform duration-200 group-open:rotate-45">+</span>
+            <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#18181B] font-semibold text-frame-accent transition-transform duration-200 group-open:rotate-45">+</span>
           </summary>
-          <div className="border-t-2 border-frame-border p-6 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:p-8 md:text-base">{item.a}</div>
+          <div className="border-t border-white/[0.08] p-6 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 md:p-8">{item.a}</div>
         </details>
       ))}
     </div>
@@ -36,17 +33,14 @@ export default function StudioSubFaq({ service }) {
   ]
 
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         <div className="mb-14">
-          <div className="mb-3 flex items-center gap-2 text-frame-accent">
-            <HelpCircle className="h-4 w-4" />
-            <span className="text-xs font-black uppercase tracking-[0.28em] md:text-sm">Direct Clarifications</span>
-          </div>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
-            Questions About {service.shortTitle || service.name}
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
+            Questions about{' '}
+            <span className="italic text-frame-accent">{service.shortTitle || service.name}.</span>
           </h2>
-          <p className="mt-6 text-base font-medium leading-relaxed text-frame-muted-fg md:text-xl">
+          <p className="mt-4 max-w-2xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
             Clear answers to common questions about session scheduling, equipment inclusions, and file delivery.
           </p>
         </div>

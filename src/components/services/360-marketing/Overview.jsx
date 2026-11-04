@@ -1,4 +1,4 @@
-import { SectionIntro, InversionCard } from '../../Kinetic'
+import { SectionIntro } from '../../Kinetic'
 
 const problemItems = [
   {
@@ -23,11 +23,15 @@ const problemItems = [
 
 export default function Overview() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="The Core Problem"
-          title="Why Fragmented Marketing Fails in 2026."
+          title={
+            <>
+              Why Fragmented Marketing{' '}
+              <span className="italic text-frame-accent">Fails in 2026.</span>
+            </>
+          }
         >
           Most growing businesses in Bangladesh waste 40% to 60% of their digital marketing investment
           not because their product is weak, but because their marketing channels operate on disconnected
@@ -36,18 +40,25 @@ export default function Overview() {
           business strategy.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-3">
+        <div className="grid border-t border-l border-white/[0.08] md:grid-cols-3 bg-[#09090B]">
           {problemItems.map((item, index) => (
-            <InversionCard
+            <article
               key={item.title}
-              title={item.title}
-              eyebrow={item.eyebrow}
-              number={String(index + 1).padStart(2, '0')}
+              className="group border-r border-b border-white/[0.08] bg-[#09090B] p-8 md:p-10 transition-colors duration-200 hover:bg-[#121214]"
             >
-              <p className="text-sm font-medium leading-relaxed md:text-base">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                <span className="font-mono text-xs text-frame-accent tabular-nums">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              </div>
+              <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium leading-tight tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                {item.title}
+              </h3>
+              <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
                 {item.description}
               </p>
-            </InversionCard>
+            </article>
           ))}
         </div>
       </div>

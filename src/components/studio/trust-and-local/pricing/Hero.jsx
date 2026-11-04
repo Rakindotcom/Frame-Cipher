@@ -6,13 +6,13 @@ import { PageHero, PosterButton } from '../../../Kinetic'
 export default function Hero({ service }) {
   const title = 'How Studio and Production Pricing Works'
   const subtitle =
-    'Studio and production costs depend on scope, so we quote from each project instead of publishing a single fixed rate. Every quote itemises your studio hours, crew roles, equipment and post-production deliverables in writing within 48 hours — before any payment is accepted.'
+    'Studio and production costs depend on scope, so we quote from each project instead of publishing a single fixed rate. Every quote itemises your studio hours, crew roles, equipment and post-production deliverables in writing within 48 hours: before any payment is accepted.'
 
   return (
     <div className="bg-frame-bg text-frame-fg">
       {/* BREADCRUMB */}
       <nav aria-label="Breadcrumb" className="border-b border-frame-border/60 bg-frame-bg/80 px-4 py-3 text-xs font-semibold uppercase tracking-wider text-frame-muted-fg md:px-8">
-        <div className="mx-auto flex max-w-[95vw] items-center gap-2 overflow-x-auto">
+        <div className="mx-auto flex max-w-7xl items-center gap-2 overflow-x-auto">
           <Link href="/" className="transition hover:text-frame-fg">Home</Link>
           <span>/</span>
           <Link href="/studio" className="transition hover:text-frame-fg">Studio</Link>
@@ -47,11 +47,11 @@ export default function Hero({ service }) {
           <p className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent mb-4">
             Scope-Based Quoting, Not Guesswork
           </p>
-          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
+          <h2 className="font-heading text-[clamp(2.2rem,5.5vw,4.5rem)] font-bold leading-[0.9] tracking-tighter text-frame-fg">
             Pay for Your Scope. Nothing Else.
           </h2>
           <p className="mx-auto mt-6 max-w-3xl text-base md:text-xl font-medium leading-relaxed text-frame-muted-fg">
-            Fixed packages force you to pay for services you do not need — or quietly cut crew and editing you do.
+            Fixed packages force you to pay for services you do not need: or quietly cut crew and editing you do.
             Quoting strictly from scope means you invest only in the personnel, equipment and finishing your
             asset demands, with every line visible before you commit.
           </p>

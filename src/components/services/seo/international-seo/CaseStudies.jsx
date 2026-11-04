@@ -1,73 +1,20 @@
-import Link from 'next/link'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+'use client'
 
-const documentation = [
-  'Countries or regions',
-  'International targeting model',
-  'Customer journey',
-  'Messaging',
-  'Performance output',
-  'Project timeframe',
-  'Hreflang',
-  'Canonicals',
-  'Site architecture',
-  'URL mapping',
-  'Internal linking',
-  'Indexation',
-]
+import React from 'react'
+import SeoCaseStudiesSection from '../SeoCaseStudiesSection'
 
 export default function CaseStudies() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Verified international SEO work" title="International SEO Results & Case Studies">
-          Real project evidence is more useful than generic international SEO promises.
-        </SectionIntro>
-
-        <p className="text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
-          Framecipher will showcase verified international SEO case studies here as they become
-          available. Each case study can cover:
-        </p>
-
-        <div className="mt-8 grid gap-10 lg:grid-cols-2 lg:items-start">
-          <div className="grid gap-3 sm:grid-cols-2">
-            {documentation.map((body, index) => (
-              <div key={body} className="border-l-2 border-frame-accent bg-frame-muted/10 p-4 md:p-5">
-                <span className="text-[0.65rem] font-mono font-bold uppercase tracking-wider text-frame-muted-fg">
-                  Section 0{index + 1}
-                </span>
-                <p className="mt-1 text-sm font-semibold leading-relaxed text-frame-fg">{body}</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="space-y-5">
-            <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7">
-              <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">
-                Measurable data only
-              </h3>
-              <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                We do not publish unsupported traffic, ranking, or revenue claims. Results shown
-                are based on actual project data tracked through verified reporting.
-              </p>
-            </div>
-            <div className="border-2 border-frame-border bg-frame-muted/10 p-6 md:p-7 space-y-3">
-              <h4 className="font-heading text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-                Verified Global SEO Case Study
-              </h4>
-              <ul className="space-y-2.5 text-sm font-semibold">
-                <li>
-                  <Link href="/case-studies/pixc-retouch-global-seo" className="text-frame-fg hover:text-frame-accent transition-colors flex items-center justify-between">
-                    <span>PixC Retouch Global SEO Campaign</span>
-                    <span className="text-frame-accent">&rarr;</span>
-                  </Link>
-                </li>
-              </ul>
-            </div>
-            <PosterButton href="/case-studies">View International SEO Results</PosterButton>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SeoCaseStudiesSection
+      title={
+        <>
+          International SEO Results &amp;{' '}
+          <span className="italic text-frame-accent">Case Studies.</span>
+        </>
+      }
+      subtitle="Global search footprint expansion across US, UK, Australia, and Canadian markets with 91% top-10 visibility and multi-million search impressions."
+      eyebrow="Global Search Portfolio // Cross-Border Proof"
+      slugs={['pixc-retouch-global-seo', 'border-locksmiths-local-seo']}
+    />
   )
 }

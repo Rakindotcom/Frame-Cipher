@@ -1,61 +1,68 @@
 import Link from 'next/link'
 import { portfolioProjects } from '../../data/agency'
+import SectionButton from './SectionButton'
 
 export default function HomeFeaturedWork() {
   const featuredProjects = portfolioProjects.slice(0, 3)
 
   return (
-    <section className="px-4 py-20 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">
-              Selected work / Proof
-            </p>
-            <h2 className="font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold uppercase leading-[0.85] tracking-tighter text-frame-fg">
-              Proof with pixels.
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Proof with{' '}
+              <span className="italic text-frame-accent">
+                pixels.
+              </span>
             </h2>
           </div>
-          <Link
-            href="/projects"
-            className="group inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2.5 border-2 border-frame-border bg-transparent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-fg transition-all duration-200 hover:border-frame-fg hover:bg-frame-fg hover:text-frame-bg active:scale-95 sm:text-sm md:min-h-14 md:px-8"
-          >
-            <span>Explore all projects</span>
-            <span aria-hidden="true" className="transition-transform duration-200 group-hover:translate-x-1">
-              &rarr;
-            </span>
-          </Link>
+          <div className="shrink-0">
+            <SectionButton href="/projects">Explore all projects</SectionButton>
+          </div>
         </div>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-3">
+        {/* Grid for featured work */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featuredProjects.map((project, index) => (
-            <article key={project.name} className="group flex flex-col justify-between bg-frame-bg">
+            <article
+              key={project.name}
+              className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
+            >
               <div>
-                <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-frame-border bg-frame-muted">
+                {/* Visual Thumbnail */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-zinc-950 border-b border-white/[0.08]">
                   <img
                     src={project.preview}
                     alt={project.name}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     loading="lazy"
                   />
-                  <p className="absolute left-3 top-3 bg-frame-accent px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg sm:left-4 sm:top-4 sm:text-xs">
-                    0{index + 1} / {project.category}
-                  </p>
                 </div>
+
+                {/* Card Story */}
                 <div className="p-6 sm:p-7">
-                  <h3 className="font-heading text-2xl font-bold uppercase leading-tight tracking-tighter text-frame-fg sm:text-3xl md:text-4xl">
+                  <span className="text-[11px] text-frame-accent">
+                    {project.category}
+                  </span>
+                  <h3 className="mt-2 font-heading text-xl font-medium text-white transition-colors group-hover:text-frame-accent sm:text-2xl">
                     {project.name}
                   </h3>
-                  <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg sm:text-base">
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-200 transition-colors">
                     {project.description}
                   </p>
                 </div>
               </div>
 
-              <div className="border-t border-frame-border/70 p-6 pt-4 sm:p-7 sm:pt-4">
-                <p className="text-[11px] font-black uppercase tracking-[0.18em] text-frame-accent">
-                  {project.scope}
-                </p>
+              {/* Card Footer: View Project Action */}
+              <div className="border-t border-white/[0.08] p-6 pt-4 sm:p-7 sm:pt-4">
+                <Link
+                  href="/projects"
+                  className="group inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08] active:scale-[0.98]"
+                >
+                  <span>View project</span>
+                  <span aria-hidden="true" className="ml-2 text-base transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+                </Link>
               </div>
             </article>
           ))}

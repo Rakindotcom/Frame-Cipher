@@ -1,4 +1,6 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
 
 const comparisonData = [
   {
@@ -75,57 +77,66 @@ const platformRecommendations = [
 
 export default function Comparison() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Platform Decision Framework" title="Shopify vs WooCommerce vs Magento">
-          The right ecommerce platform depends on catalog complexity, customization requirements, B2B needs, technical ownership, integrations, budget, and how the business wants to manage the store after launch.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Left-Aligned Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Shopify vs WooCommerce{' '}
+            <span className="italic text-frame-accent">vs Magento.</span>
+          </h2>
+          <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+            The right ecommerce platform depends on catalog complexity, customization requirements, B2B needs, technical ownership, integrations, budget, and how the business wants to manage the store after launch.
+          </p>
+        </div>
 
-        <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+        {/* Comparison Table */}
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
           <table className="w-full text-left min-w-[720px]">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/40">
+            <thead className="border-b border-white/[0.08] bg-white/[0.02]">
               <tr>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Factor</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Shopify</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">WooCommerce</th>
-                <th className="p-5 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Magento / Adobe Commerce</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-zinc-400">Factor</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-frame-accent">Shopify</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-zinc-400">WooCommerce</th>
+                <th className="p-5 font-mono text-[11px] uppercase tracking-wider text-zinc-400">Magento / Adobe Commerce</th>
               </tr>
             </thead>
-            <tbody className="divide-y-2 divide-frame-border text-sm font-medium">
+            <tbody className="divide-y divide-white/[0.06] text-sm">
               {comparisonData.map((row, idx) => (
-                <tr key={idx} className="hover:bg-frame-muted/20 transition-colors">
-                  <td className="p-5 md:p-6 font-bold text-frame-fg">{row.factor}</td>
-                  <td className={`p-5 md:p-6 ${row.highlight === 'shopify' ? 'font-bold text-frame-accent' : 'text-frame-fg'}`}>
+                <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
+                  <td className="p-5 font-medium text-white">{row.factor}</td>
+                  <td className={`p-5 ${row.highlight === 'shopify' ? 'font-medium text-frame-accent' : 'text-zinc-300'}`}>
                     {row.shopify}
                   </td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.woocommerce}</td>
-                  <td className="p-5 md:p-6 text-frame-muted-fg">{row.magento}</td>
+                  <td className="p-5 text-zinc-400">{row.woocommerce}</td>
+                  <td className="p-5 text-zinc-400">{row.magento}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
 
-        {/* RECOMMENDATION SCENARIOS */}
-        <div className="mt-10 grid gap-6 md:grid-cols-3">
+        {/* Recommendation Scenarios */}
+        <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-3">
           {platformRecommendations.map((card, i) => (
             <div
               key={i}
-              className={`border-2 p-6 sm:p-8 bg-frame-bg ${
-                card.accent ? 'border-frame-accent' : 'border-frame-border'
+              className={`rounded-xl border p-6 sm:p-8 bg-[#121214] transition-colors hover:border-white/[0.14] ${
+                card.accent ? 'border-frame-accent/40' : 'border-white/[0.08]'
               }`}
             >
-              <h3 className="font-heading text-lg sm:text-xl font-bold uppercase text-frame-fg">
+              <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
                 {card.platform}
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                 {card.desc}
               </p>
             </div>
           ))}
         </div>
 
-        <p className="mt-8 text-xs sm:text-sm italic text-frame-muted-fg wide:text-lg">
+        {/* Takeaway Footnote */}
+        <p className="mt-8 text-xs sm:text-sm italic text-zinc-400">
           We recommend the platform based on the project rather than forcing every business into the same technology.
         </p>
       </div>

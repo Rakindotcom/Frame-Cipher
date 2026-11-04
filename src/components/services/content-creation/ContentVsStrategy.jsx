@@ -36,8 +36,8 @@ const workflowSteps = [
 
 export default function ContentVsStrategy() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Service Boundaries & Synergy"
           title="Content Creation vs. Content Strategy vs. Social Media Management"
@@ -47,41 +47,41 @@ export default function ContentVsStrategy() {
         </SectionIntro>
 
         {/* 3 DISTINCT ROLES */}
-        <div className="grid border-2 border-frame-border bg-frame-border gap-px lg:grid-cols-3">
+        <div className="grid border border-white/[0.08] bg-frame-border gap-px lg:grid-cols-3">
           {serviceRoles.map((item, idx) => (
             <div
               key={idx}
               className={`p-7 md:p-9 flex flex-col justify-between ${
-                idx === 0 ? 'bg-frame-accent/10 border-2 border-frame-accent' : 'bg-frame-bg'
+                idx === 0 ? 'bg-[#A855F7]/10 border-2 border-[#A855F7]/40' : 'bg-[#09090B]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     Function {idx + 1}: {item.role}
                   </span>
                   {idx === 0 && (
-                    <span className="border border-frame-accent bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-frame-accent-fg">
+                    <span className="border border-[#A855F7]/40 bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-[#FAFAFA]">
                       This Service
                     </span>
                   )}
                 </div>
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-frame-accent"><AutoLinks currentPath="/services/content-creation" allowed={["/services/social-media-management/community-management"]}>
+                <p className="mt-2 text-xs font-bold uppercase tracking-wider text-[#A855F7]"><AutoLinks currentPath="/services/content-creation" allowed={["/services/social-media-management/community-management"]}>
                   {item.lead}
                 </AutoLinks></p>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-8 border-t-2 border-frame-border/60 pt-4">
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent block mb-1">
+              <div className="mt-8 border-t border-white/[0.08]/60 pt-4">
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7] block mb-1">
                   Core Responsibility
                 </span>
-                <span className="text-xs font-semibold text-frame-fg">
+                <span className="text-xs font-semibold text-[#FAFAFA]">
                   {item.deliverable}
                 </span>
               </div>
@@ -90,15 +90,15 @@ export default function ContentVsStrategy() {
         </div>
 
         {/* INTERCONNECTED WORKFLOW */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-muted/30 p-8 md:p-12">
+        <div className="mt-16 border border-white/[0.08] bg-[#121214] p-8 md:p-12">
           <div className="max-w-3xl">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Integrated Workflow
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
               How The Services Work Together
             </h3>
-            <p className="mt-2 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="mt-2 text-sm md:text-base font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
               You can utilize only the production stage you need, or combine multiple services when you want one seamlessly coordinated workflow from strategy through execution.
             </p>
           </div>
@@ -107,25 +107,25 @@ export default function ContentVsStrategy() {
             {workflowSteps.map((wf, wIdx) => (
               <div
                 key={wIdx}
-                className="border-2 border-frame-border bg-frame-bg p-5 flex flex-col justify-between"
+                className="border border-white/[0.08] bg-[#09090B] p-5 flex flex-col justify-between"
               >
                 <div>
-                  <span className="font-heading text-2xl font-black text-frame-accent">
+                  <span className="font-heading text-2xl font-black text-[#A855F7]">
                     {wf.step}
                   </span>
-                  <h4 className="mt-2 font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
+                  <h4 className="mt-2 font-heading text-base font-bold tracking-tight text-[#FAFAFA]">
                     {wf.title}
                   </h4>
                 </div>
-                <p className="mt-3 text-xs font-medium text-frame-muted-fg border-t border-frame-border/60 pt-2">
+                <p className="mt-3 text-xs font-medium text-[#A1A1AA] border-t border-white/[0.06] pt-2">
                   {wf.note}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-fg max-w-xl"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-writing/content-strategy"]}>
+          <div className="mt-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 border-t border-white/[0.08] pt-6">
+            <p className="text-xs sm:text-sm font-medium text-[#FAFAFA] max-w-xl"><AutoLinks currentPath="/services/content-creation" allowed={["/services/content-writing/content-strategy"]}>
               Already have a content strategy in place? We produce against your established brief. Need strategy first? Our strategy team can map your plan before production starts.
             </AutoLinks></p>
             <PosterButton href="/contact" className="shrink-0">

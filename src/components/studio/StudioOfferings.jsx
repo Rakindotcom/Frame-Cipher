@@ -1,8 +1,8 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { Mic, Video, Camera, UserCheck, Scissors, Building2, CheckCircle2, ArrowRight } from 'lucide-react'
-import { SectionIntro } from '../Kinetic'
 
 const offerings = [
   {
@@ -117,71 +117,96 @@ const moreServices = [
   { label: 'voice-over', href: '/studio/voice-over/' },
 ]
 
-function OfferingCard({ service }) {
-  const Icon = service.icon
-  return (
-    <div className="group flex flex-col justify-between bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-muted/30 md:p-8">
-      <div>
-        <div className="flex items-center justify-between">
-          <span className="flex h-12 w-12 items-center justify-center border border-frame-border bg-frame-muted/50 text-frame-accent transition-colors duration-300 group-hover:border-frame-accent group-hover:bg-frame-accent group-hover:text-frame-accent-fg">
-            <Icon className="h-6 w-6" />
-          </span>
-          <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-muted-fg">{service.tag}</span>
-        </div>
-        <h3 className="mt-6 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg md:text-2xl">{service.title}</h3>
-        <p className="mt-3 text-sm leading-relaxed text-frame-muted-fg wide:text-lg">{service.description}</p>
-        <ul className="mt-6 space-y-2.5 border-t border-frame-border/60 pt-6">
-          {service.features.map((feat, i) => (
-            <li key={i} className="flex items-start gap-2.5 text-xs font-medium text-frame-muted-fg">
-              <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
-              <span>{feat}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="mt-8 border-t border-frame-border/60 pt-6">
-        <Link href={service.href} className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-wider text-frame-fg transition-colors group-hover:text-frame-accent">
-          <span>{service.anchor}</span>
-          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-        </Link>
-      </div>
-    </div>
-  )
-}
-
-function MoreServicesStrip() {
-  return (
-    <div className="mt-8 border-2 border-frame-border bg-frame-muted/15 p-6 md:p-8">
-      <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-frame-fg">More services on request</h3>
-      <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-        We also quote{' '}
-        {moreServices.map((s, i) => (
-          <span key={s.href}>
-            <Link href={s.href} className="font-bold text-frame-fg underline decoration-frame-accent/40 transition-colors hover:text-frame-accent">
-              {s.label}
-            </Link>
-            {i < moreServices.length - 1 ? ', ' : '. '}
-          </span>
-        ))}
-        See the rate card below.
-      </p>
-    </div>
-  )
-}
-
 export default function StudioOfferings() {
   return (
-    <section id="services" className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="What we offer" title="Podcast, video and photo production services in Dhaka." index="03">
-          Six production services, each scoped in writing before the shoot. Choose one or bundle them.
-        </SectionIntro>
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {offerings.map((service) => (
-            <OfferingCard key={service.id} service={service} />
-          ))}
+    <section id="services" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Studio production{' '}
+              <span className="italic text-frame-accent">services.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
+            Six specialized production workflows, each scoped in writing before the shoot. Choose a standalone discipline or bundle full-funnel production.
+          </p>
         </div>
-        <MoreServicesStrip />
+
+        {/* Modality 3 Blueprint Matrix (2x3 Structured Grid) */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
+          {offerings.map((service) => {
+            const Icon = service.icon
+            return (
+              <div
+                key={service.id}
+                className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-8 sm:p-10 transition-colors duration-200 hover:bg-white/[0.02]"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-5">
+                    <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                      {service.tag}
+                    </span>
+                    <Icon className="h-5 w-5 text-zinc-500 group-hover:text-frame-accent transition-colors" />
+                  </div>
+
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                    {service.description}
+                  </p>
+
+                  <ul className="mt-6 space-y-2.5 border-t border-white/[0.08] pt-5">
+                    {service.features.map((feat, i) => (
+                      <li key={i} className="flex items-start gap-2.5 text-xs font-normal text-zinc-400">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                        <span>{feat}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-8 border-t border-white/[0.08] pt-4">
+                  <Link
+                    href={service.href}
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-frame-accent transition-colors hover:text-white"
+                  >
+                    <span>{service.anchor}</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* More Services Architectural Strip */}
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="flex items-center gap-2 mb-2">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <h3 className="font-mono text-xs tracking-[1.1px] text-frame-accent">
+              More Services on Request
+            </h3>
+          </div>
+          <p className="text-sm font-normal leading-relaxed text-zinc-300">
+            We also quote{' '}
+            {moreServices.map((s, i) => (
+              <span key={s.href}>
+                <Link
+                  href={s.href}
+                  className="font-medium text-white underline decoration-frame-accent/50 transition-colors hover:text-frame-accent"
+                >
+                  {s.label}
+                </Link>
+                {i < moreServices.length - 1 ? ', ' : '. '}
+              </span>
+            ))}
+            See the rate card below for baseline pricing.
+          </p>
+        </div>
       </div>
     </section>
   )

@@ -1,138 +1,166 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import {
+  Compass,
+  KeyRound,
+  Search,
+  FileText,
+  BarChart2,
+  CalendarCheck,
+  Check,
+} from 'lucide-react'
 
 const steps = [
   {
+    step: '01',
     title: 'Business, Site & Goal Discovery',
-    body: 'We begin by understanding:',
+    icon: Compass,
+    lead: 'We begin by understanding your commercial objectives and current context:',
     points: [
-      'Your business model',
-      'Target audience',
-      'Primary markets',
-      'Important products or services',
-      'Organic traffic goals',
-      'Conversion goals',
-      'Current SEO challenges',
-      'Recent website changes',
+      'Business model & target audience',
+      'Primary geographic markets',
+      'High-margin products & services',
+      'Organic traffic & conversion goals',
+      'Current SEO challenges & historical changes',
     ],
-    note: 'This prevents the audit from becoming a generic checklist disconnected from your business.',
+    summary: 'Prevents the audit from becoming a generic checklist disconnected from your business.',
   },
   {
+    step: '02',
     title: 'Access & Data Collection',
-    body: 'Where available, we collect the data needed for a meaningful audit. This may include:',
+    icon: KeyRound,
+    lead: 'Where available, we collect the full dataset required for an empirical audit:',
     points: [
-      'Website access',
-      'Google Search Console',
-      'Google Analytics',
-      'Sitemap information',
-      'Backlink data',
-      'Keyword data',
-      'Competitor information',
-      'Platform details',
-      'Previous SEO reports',
+      'Google Search Console API export',
+      'Google Analytics 4 event data',
+      'Sitemap & URL indexation files',
+      'Backlink profile databases',
+      'Target keywords & competitor lists',
+      'Platform & hosting architecture details',
     ],
-    note: 'The exact data requirements depend on the audit scope.',
+    summary: 'Ensures the diagnostic relies on verified historical data.',
   },
   {
+    step: '03',
     title: 'Technical Crawl & Manual Validation',
-    body: 'Automated crawls help identify large numbers of technical conditions quickly. We then manually review important findings to determine:',
+    icon: Search,
+    lead: 'Automated crawls identify raw technical conditions; our engineers manually validate:',
     points: [
-      'Whether the issue is real',
-      'Which pages are affected',
-      'Whether it matters',
-      'What caused it',
-      'What should be done next',
+      'Whether automated warnings are true issues',
+      'Which exact templates & pages are affected',
+      'Real impact on Googlebot crawling',
+      'Underlying technical causes in code',
+      'Specific remediation requirements',
     ],
-    note: 'This combination reduces the risk of treating automated warnings as equally important problems.',
+    summary: 'Eliminates false alarms and focuses engineering hours on real barriers.',
   },
   {
+    step: '04',
     title: 'On-Page, Content & Keyword Analysis',
-    body: 'We evaluate important pages against search intent, competitors, keyword targeting, and content quality. The review can identify:',
+    icon: FileText,
+    lead: 'We evaluate important pages against search intent, competitors, and quality:',
     points: [
-      'Weak page targeting',
-      'Missing content',
-      'Cannibalization',
-      'Overlapping pages',
-      'Thin content',
-      'Poor metadata',
-      'Weak internal linking',
-      'Unclear search intent',
+      'Page targeting & search intent alignment',
+      'Keyword cannibalization & internal overlap',
+      'Thin content & outdated pages',
+      'Metadata & semantic heading structure',
+      'Internal link equity distribution',
+      'Missing topical supporting content',
     ],
-    note: 'The focus is on improving the pages that can contribute most to organic growth.',
+    summary: 'Focuses on improving the pages that can contribute most to revenue growth.',
   },
   {
+    step: '05',
     title: 'Backlink & Competitor Analysis',
-    body: 'We evaluate your backlink profile alongside the websites competing for relevant searches. This helps identify:',
+    icon: BarChart2,
+    lead: 'We evaluate your backlink profile alongside the websites competing for your queries:',
     points: [
-      'Authority gaps',
-      'Relevant link opportunities',
-      'Competitor strengths',
-      'Content opportunities',
-      'Keyword gaps',
-      'SERP patterns',
-      'Market-specific weaknesses',
+      'Domain authority & referring domains',
+      'Anchor text distribution & toxic signals',
+      'Competitor backlink opportunities',
+      'Keyword & content gaps across the SERP',
+      'SERP features & ranking page models',
     ],
-    note: 'The objective is to understand your site within the competitive environment rather than in isolation.',
+    summary: 'Places your website within the competitive environment rather than in isolation.',
   },
   {
-    title: 'Prioritization & Roadmap Development',
-    body: 'Once the analysis is complete, findings are grouped and prioritized. We consider:',
+    step: '06',
+    title: 'Prioritization, Roadmap & Walkthrough',
+    icon: CalendarCheck,
+    lead: 'Findings are prioritized by Impact, Effort, Business Importance, and Urgency:',
     points: [
-      'Impact',
-      'Effort',
-      'Business importance',
-      'Urgency',
-      'Dependency between tasks',
-      'Technical complexity',
+      'Phased 30/60/90-day action sequence',
+      'Clear engineering vs content tasks',
+      'Full documented evidence & rationale',
+      'Live interactive findings walkthrough',
+      'Actionable handover for execution',
     ],
-    note: 'This creates a practical sequence instead of a long list of disconnected recommendations.',
-  },
-  {
-    title: 'Report & Findings Walkthrough',
-    body: 'The final report brings the findings together into a structured action plan. We then walk through the key findings with you so the report is understood before implementation begins.',
-    points: [],
+    summary: 'Turns audit data into a structured action plan understood before work begins.',
   },
 ]
 
 export default function Process() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Execution Framework" title="How We Conduct an SEO Audit">
-          Our process combines automated data collection, manual validation, competitive research,
-          and business context.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Methodology // 6-Stage Process
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            How We Conduct an{' '}
+            <span className="italic text-frame-accent">SEO Audit</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            Our process combines automated data collection, manual validation, competitive research, and business context.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
-          {steps.map((step, index) => (
-            <div key={step.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-              <div>
-                <span className="font-heading text-4xl font-bold leading-none tracking-tighter text-frame-muted">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {step.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {step.body}
-                </p>
-                {step.points.length > 0 && (
-                  <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                    {step.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2">
-                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{point}</span>
+        {/* 6 Process Cards Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {steps.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 transition-colors hover:border-white/[0.16] hover:bg-[#151518]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs font-bold text-zinc-400">Step {item.step}</span>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-lg sm:text-xl font-semibold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.lead}
+                  </p>
+
+                  <ul className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
                       </li>
                     ))}
                   </ul>
-                )}
-                {step.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {step.note}
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] text-zinc-400 leading-relaxed italic">
+                    &rarr; {item.summary}
                   </p>
-                )}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

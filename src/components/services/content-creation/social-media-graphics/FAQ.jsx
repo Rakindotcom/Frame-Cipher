@@ -78,7 +78,7 @@ export default function FAQ({ service }) {
   })
 
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
       <div className="mx-auto max-w-4xl">
         
         {/* SECTION HEADER */}
@@ -98,13 +98,13 @@ export default function FAQ({ service }) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search questions (e.g., templates, carousels, LinkedIn, pricing)..."
-              className="w-full border-2 border-frame-border bg-frame-bg px-4 py-3 text-xs md:text-sm font-mono placeholder:text-frame-muted-fg focus:border-frame-accent focus:outline-none"
+              className="w-full border border-white/[0.08] bg-[#09090B] px-4 py-3 text-xs md:text-sm font-mono placeholder:text-[#A1A1AA] focus:border-[#A855F7]/40 focus:outline-none"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => setSearchQuery("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs font-bold text-frame-muted-fg hover:text-frame-fg"
+                className="absolute right-3 top-1/2 -translate-y-1/2 font-mono text-xs font-bold text-[#A1A1AA] hover:text-[#FAFAFA]"
               >
                 Clear
               </button>
@@ -119,8 +119,8 @@ export default function FAQ({ service }) {
                 onClick={() => setActiveCategory(cat)}
                 className={`border-2 px-3 py-1 font-mono text-xs font-bold uppercase transition ${
                   activeCategory === cat
-                    ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
-                    : 'border-frame-border bg-frame-bg text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
+                    ? 'border-[#A855F7]/40 bg-frame-accent text-[#FAFAFA]'
+                    : 'border-white/[0.08] bg-[#09090B] text-[#A1A1AA] hover:border-frame-fg hover:text-[#FAFAFA]'
                 }`}
               >
                 {cat}
@@ -135,27 +135,27 @@ export default function FAQ({ service }) {
             filteredFaqs.map((faq, index) => (
               <details
                 key={index}
-                className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
+                className="group border border-white/[0.08] bg-[#09090B] open:border-[#A855F7]/40 transition-colors"
               >
-                <summary className="flex cursor-pointer list-none items-start justify-between p-6 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg marker:content-none text-left">
+                <summary className="flex cursor-pointer list-none items-start justify-between p-6 font-heading text-base md:text-lg font-bold uppercase tracking-tight text-[#FAFAFA] marker:content-none text-left">
                   <span className="flex items-start gap-3">
-                    <span className="font-mono text-xs text-frame-accent border border-frame-accent/40 px-1.5 py-0.5 shrink-0 hidden sm:inline-block mt-0.5">
+                    <span className="font-mono text-xs text-[#A855F7] border border-[#A855F7]/30 px-1.5 py-0.5 shrink-0 hidden sm:inline-block mt-0.5">
                       {faq.category}
                     </span>
                     <span className="leading-snug">{faq.question}</span>
                   </span>
-                  <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45 mt-0.5">
+                  <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45 mt-0.5">
                     +
                   </span>
                 </summary>
-                <div className="border-t border-frame-border/80 p-6 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <div className="border-t border-white/[0.08] p-6 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {faq.answer}
                 </div>
               </details>
             ))
           ) : (
-            <div className="border-2 border-frame-border bg-frame-muted/20 p-8 text-center">
-              <p className="font-mono text-xs text-frame-muted-fg">
+            <div className="border border-white/[0.08] bg-[#121214] p-8 text-center">
+              <p className="font-mono text-xs text-[#A1A1AA]">
                 No matching questions found for &ldquo;{searchQuery}&rdquo;.
               </p>
             </div>
@@ -163,12 +163,12 @@ export default function FAQ({ service }) {
         </div>
 
         {/* CONTACT PROMPT */}
-        <div className="mt-12 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-center sm:text-left">
-            <h4 className="font-heading text-base font-bold uppercase tracking-tight text-frame-fg">
+            <h4 className="font-heading text-base font-bold tracking-tight text-[#FAFAFA]">
               Have Specific Channel Or Campaign Requirements?
             </h4>
-            <p className="text-xs font-medium text-frame-muted-fg mt-0.5">
+            <p className="text-xs font-medium text-[#A1A1AA] mt-0.5">
               Talk directly with our creative team about custom volume retainers and template design.
             </p>
           </div>

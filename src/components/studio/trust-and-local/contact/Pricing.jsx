@@ -2,11 +2,11 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for contact — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for contact: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Engagement Routes & Costs",
-  "pricingIntro": "Three free ways to start — WhatsApp quote, walkthrough visit, technical scout — then scoped production from ৳2,000/hour hire to ৳12,50,000+ campaigns. Open 24 hours by appointment.",
+  "pricingIntro": "Three free ways to start: WhatsApp quote, walkthrough visit, technical scout, then scoped production from ৳2,000/hour hire to ৳12,50,000+ campaigns. Open 24 hours by appointment.",
   "tiers": [
     {
       "name": "WhatsApp Quote",
@@ -47,7 +47,7 @@ const DATA = {
       "priceNote": "50% advance",
       "tag": "Locked & Crewed",
       "cta": "Reserve Production",
-      "description": "Confirmed calendar, crewed stage, scheduled post and contractual delivery — from hourly hire to campaigns.",
+      "description": "Confirmed calendar, crewed stage, scheduled post and contractual delivery, from hourly hire to campaigns.",
       "features": [
         "Written scope with milestones and timeline",
         "Crew, equipment and post scheduled together",
@@ -66,7 +66,7 @@ const DATA = {
     "Timeline pressure and priority scheduling",
     "Turnaround: 48-hour priority adds 30%"
   ],
-  "marketNote": "Studios are judged on responsiveness before craft: Dhaka buyers report unanswered enquiries and vague quotes as the top hiring friction. Our contact standard is same-day WhatsApp response, 48-hour itemised quotes and next-day walkthroughs — because the studio that communicates precisely before payment produces precisely after it. The 6th-floor ECB Chattar stage operates 24 hours by appointment, serving overnight edits, early call times and international client time zones.",
+  "marketNote": "Studios are judged on responsiveness before craft: Dhaka buyers report unanswered enquiries and vague quotes as the top hiring friction. Our contact standard is same-day WhatsApp response, 48-hour itemised quotes and next-day walkthroughs: because the studio that communicates precisely before payment produces precisely after it. The 6th-floor ECB Chattar stage operates 24 hours by appointment, serving overnight edits, early call times and international client time zones.",
   "costRows": [
     [
       "WhatsApp consultation and quotes",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Responsive Booking Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React, { useState } from 'react'
+import { Plus, ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
 import { resolveFaqs } from '../../../lib/seo/faq'
 
 const fallbackFaqs = [
@@ -12,7 +15,7 @@ const fallbackFaqs = [
   },
   {
     question: 'Which paid advertising platform should my business use?',
-    answer: "That depends on where your customers search, browse, compare, and make decisions. A local service business may need a different media mix from an ecommerce brand, B2B company, SaaS business, or international brand. We select platforms based on business fit rather than recommending every channel by default.",
+    answer: 'That depends on where your customers search, browse, compare, and make decisions. A local service business may need a different media mix from an ecommerce brand, B2B company, SaaS business, or international brand. We select platforms based on business fit rather than recommending every channel by default.',
   },
   {
     question: 'Can you manage an existing Google or Meta Ads account?',
@@ -28,7 +31,7 @@ const fallbackFaqs = [
   },
   {
     question: 'Can you improve my landing page as part of the campaign?',
-    answer: "Yes, where included in scope. We can review ad-to-landing-page alignment, offer clarity, forms, checkout flow, mobile experience, calls to action, trust signals, and other conversion barriers. Framecipher can also support landing-page and development work when the campaign requires changes beyond the ad platform.",
+    answer: 'Yes, where included in scope. We can review ad-to-landing-page alignment, offer clarity, forms, checkout flow, mobile experience, calls to action, trust signals, and other conversion barriers. Framecipher can also support landing-page and development work when the campaign requires changes beyond the ad platform.',
   },
   {
     question: 'How do you measure lead quality?',
@@ -52,40 +55,104 @@ const fallbackFaqs = [
   },
   {
     question: 'Do you serve businesses outside Bangladesh?',
-    answer: "Yes. Framecipher works with businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE. Campaign structure, targeting, budget, and messaging can be adapted for the specific market rather than copied from a single-region strategy.",
+    answer: 'Yes. Framecipher works with businesses in Bangladesh and international markets, including the US, UK, Australia, Canada, and UAE. Campaign structure, targeting, budget, and messaging can be adapted for the specific market rather than copied from a single-region strategy.',
   },
 ]
 
-export default function FAQ({ service }) {
-  const faqs = resolveFaqs(service, fallbackFaqs)
-  return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-4xl">
-        <SectionIntro
-          eyebrow="Direct Answers"
-          title="Frequently Asked Questions"
-        >
-          Common questions about paid advertising budgets, tracking, platforms, and how
-          engagement works.
-        </SectionIntro>
 
-        <div className="space-y-4">
-          {faqs.map((faq, index) => (
-            <details
-              key={index}
-              className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
-            >
-              <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none">
-                <span>{faq.question}</span>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45">
-                  +
-                </span>
-              </summary>
-              <div className="border-t-2 border-frame-border p-6 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-                {faq.answer}
+import PosterButton from '../../home/PosterButton'
+
+export default function FAQ({ service }) {
+  const [openIndex, setOpenIndex] = useState(null)
+  const faqList = (service?.faqs && service.faqs.length > 0) ? service.faqs : fallbackFaqs
+
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx)
+  }
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqList.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question || faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer || faq.a,
+      },
+    })),
+  }
+
+  return (
+    <section id="faqs" className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+
+      <div className="mx-auto max-w-7xl">
+        {/* Strictly Centered Section Header */}
+        <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked{' '}
+            <span className="italic font-normal text-frame-accent">Questions.</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl mx-auto">
+            Common questions about paid advertising budgets, tracking, platforms, and how engagement works across all channels.
+          </p>
+        </div>
+
+        {/* Centered Accordion Column */}
+        <div className="mx-auto max-w-4xl space-y-3">
+          {faqList.map((faq, idx) => {
+            const isOpen = openIndex === idx
+            const qText = faq.question || faq.q
+            const aText = faq.answer || faq.a
+            return (
+              <div
+                key={idx}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] overflow-hidden"
+              >
+                <button
+                  type="button"
+                  onClick={() => toggle(idx)}
+                  className="flex w-full items-center justify-between p-6 text-left"
+                  aria-expanded={isOpen}
+                >
+                  <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
+                    {qText}
+                  </span>
+                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
+                    {isOpen ? (
+                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                    ) : (
+                      <ChevronDown className="h-4 w-4" />
+                    )}
+                  </span>
+                </button>
+
+                {isOpen && (
+                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                    <p className="text-base font-normal leading-relaxed text-zinc-300 whitespace-pre-line">
+                      {aText}
+                    </p>
+                  </div>
+                )}
               </div>
-            </details>
-          ))}
+            )
+          })}
+        </div>
+
+        {/* Contact Prompt Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6 max-w-4xl mx-auto">
+          <p className="text-sm sm:text-base font-medium text-white max-w-xl">
+            Have a specific paid media goal or ad spend budget in mind? Contact us, and we will give you a straight answer on what fits.
+          </p>
+          <div className="shrink-0">
+            <PosterButton href="/contact" variant="accent">
+              Request Consultation
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

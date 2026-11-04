@@ -15,8 +15,8 @@ const areas = [
 
 export default function Overview() {
   return (
-    <section className="border-y-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-y border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Reporting philosophy"
           title="Social Media Reporting Built Around Business Goals, Not Vanity Metrics"
@@ -26,30 +26,30 @@ export default function Overview() {
 
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
           <div>
-            <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
               The harder part is understanding which numbers actually matter.
             </p>
 
-            <div className="mt-8 border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-              <p className="text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
+            <div className="mt-8 border-2 border-[#A855F7]/40 bg-[#A855F7]/10 p-6 md:p-7">
+              <p className="text-sm font-semibold leading-relaxed text-[#FAFAFA] md:text-base">
                 A useful social media report should connect performance data to your business goals.
               </p>
-              <p className="mt-4 text-sm font-medium leading-relaxed text-frame-fg/90 md:text-base">
+              <p className="mt-4 text-sm font-medium leading-relaxed text-zinc-200 md:text-base">
                 It should identify meaningful trends, explain significant changes, and give you a clear
                 direction for the next reporting period.
               </p>
             </div>
           </div>
 
-          <div className="border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <div className="border border-white/[0.08] bg-[#121214] p-7 md:p-8">
+            <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
               Depending on your objectives, we can evaluate areas such as
             </span>
             <ul className="mt-5 flex flex-wrap gap-2">
               {areas.map((area) => (
                 <li
                   key={area}
-                  className="border border-frame-border bg-frame-bg px-2.5 py-1.5 text-[11px] font-semibold text-frame-fg"
+                  className="border border-white/[0.08] bg-[#09090B] px-2.5 py-1.5 text-[11px] font-semibold text-[#FAFAFA]"
                 >
                   {area}
                 </li>
@@ -58,13 +58,13 @@ export default function Overview() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-10 flex flex-col gap-6 border-t border-white/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+            <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
               The exact KPI set depends on your business, platforms, campaign objectives, tracking setup,
               and available data.
             </p>
-            <p className="mt-3 font-heading text-base font-bold uppercase leading-snug tracking-tight text-frame-fg md:text-lg">
+            <p className="mt-3 font-heading text-base font-bold uppercase leading-snug tracking-tight text-[#FAFAFA] md:text-lg">
               Context comes before conclusions.
             </p>
           </div>

@@ -13,6 +13,7 @@ import {
   ProjectsPaidAdsSection,
   ProjectsDesignSection,
   ProjectsWritingSection,
+  ProjectsFAQ,
   WorkArchiveModal,
   WorkImageModal,
   VideoPlayerModal,
@@ -295,7 +296,7 @@ export default function ProjectsPage({ initialView = null }) {
     const reAnchor = () => {
       const doc = document.documentElement
       const maxScroll = Math.max(0, doc.scrollHeight - window.innerHeight)
-      // Enough content remains at the old scroll offset — keep the position.
+      // Enough content remains at the old scroll offset: keep the position.
       if (maxScroll >= scrollYBefore) return
 
       // The viewport was clamped (previous content collapsed). Land the user
@@ -502,7 +503,7 @@ export default function ProjectsPage({ initialView = null }) {
     !isWritingVisible
 
   return (
-    <main className="bg-frame-bg text-frame-fg [overflow-anchor:none]">
+    <main className="projects-page min-h-screen bg-[#09090B] text-[#FAFAFA] overflow-x-hidden [overflow-anchor:none]">
       <ProjectsHero />
 
       <ProjectsFilterBar
@@ -541,13 +542,17 @@ export default function ProjectsPage({ initialView = null }) {
 
       {isWritingVisible && <ProjectsWritingSection samples={filteredWriting} />}
 
+      <ProjectsFAQ />
+
       {hasZeroMatches && (
-        <div className="mx-auto my-16 max-w-[95vw] border-2 border-frame-border bg-frame-muted p-6 text-center sm:p-12">
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">No matches</p>
-          <h3 className="mt-4 font-heading text-3xl font-bold uppercase tracking-tighter text-frame-fg md:text-5xl">
+        <div className="mx-auto my-16 max-w-2xl rounded-3xl border border-white/[0.08] bg-[#121214] p-8 text-center sm:p-12 shadow-2xl">
+          <span className="inline-block rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-mono text-xs uppercase tracking-wider text-violet-300">
+            No matches found
+          </span>
+          <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-white md:text-3xl">
             No projects found matching &ldquo;{searchQuery}&rdquo;
           </h3>
-          <p className="mt-4 text-base font-medium text-frame-muted-fg wide:text-lg">
+          <p className="mt-3 text-sm text-zinc-400">
             Try searching for another client name, service, or keyword, or reset the filters.
           </p>
           <button
@@ -556,9 +561,10 @@ export default function ProjectsPage({ initialView = null }) {
               setSearchQuery('')
               setActiveFilter('All')
             }}
-            className="mt-6 inline-flex border-2 border-frame-accent bg-frame-accent px-6 py-3.5 text-xs font-black uppercase tracking-wider text-frame-accent-fg transition-colors hover:bg-frame-bg hover:text-frame-fg focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent"
+            className="group mt-6 inline-flex h-[52px] items-center justify-center gap-2 rounded-full bg-white px-8 text-sm font-semibold text-zinc-950 transition-all duration-200 hover:bg-zinc-200 active:scale-[0.98]"
           >
-            Reset filters & search
+            <span>Reset filters &amp; search</span>
+            <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
           </button>
         </div>
       )}

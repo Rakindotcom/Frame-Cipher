@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const surface = 'border border-white/10 bg-white/[0.035]'
+const surface = 'border border-white/[0.08] bg-white/[0.035]'
 
 function ArrowIcon() {
   return (
@@ -20,7 +20,7 @@ function cleanName(value = '') {
 function SectionHeading({ eyebrow, title, children }) {
   return (
     <div className="mb-10 max-w-3xl md:mb-14">
-      <p className="mb-3 text-xs font-bold uppercase tracking-[0.22em] text-violet-300">{eyebrow}</p>
+
       <h2 className="font-heading text-3xl font-semibold leading-tight tracking-[-0.035em] text-white sm:text-4xl md:text-5xl">{title}</h2>
       {children && <p className="mt-5 text-base leading-7 text-zinc-400 md:text-lg">{children}</p>}
     </div>
@@ -31,7 +31,7 @@ export default function ServiceExperienceRelated({ relatedServices }) {
   if (!relatedServices?.length) return null
 
   return (
-    <section className="border-t border-white/10 bg-white/[0.02] px-5 py-20 sm:px-8 md:py-24">
+    <section className="border-t border-white/[0.08] bg-white/[0.02] px-5 py-20 sm:px-8 md:py-24">
       <div className="mx-auto max-w-7xl">
         <SectionHeading eyebrow="Keep exploring" title="Related services" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -39,7 +39,7 @@ export default function ServiceExperienceRelated({ relatedServices }) {
             <Link
               key={related.slug}
               href={`/services/${related.slug}`}
-              className={`${surface} group rounded-2xl p-6 transition hover:border-violet-400/40 hover:bg-violet-400/[0.06]`}
+              className={`${surface} group rounded-xl p-6 transition-colors duration-200 hover:border-violet-400/40 hover:bg-violet-400/[0.06]`}
             >
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-violet-300">
                 {cleanName(related.pillarParent) || 'Related service'}

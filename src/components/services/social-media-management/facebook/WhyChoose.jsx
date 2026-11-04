@@ -1,6 +1,5 @@
-
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import { PosterButton } from '../../../Kinetic'
 
 const standards = [
   {
@@ -33,62 +32,87 @@ const standards = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="The Framecipher standard"
-          title="Why Choose Framecipher for Facebook Management"
-        >
-          Facebook work handled by people who know the platform, with clear boundaries between what
-          your team controls and what Meta controls.
-        </SectionIntro>
+    <section className="relative border-t border-white/[0.08] bg-[#09090B] py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="flex items-center gap-2 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            The Framecipher Standard
+          </div>
+          <h2 className="mt-4 font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Choose Framecipher for Facebook Management
+          </h2>
+          <p className="mt-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Facebook work handled by people who know the platform, with clear boundaries between what
+            your team controls and what Meta controls.
+          </p>
+        </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        {/* Standards Grid */}
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {standards.map((standard, index) => (
-            <article key={standard.title} className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
+            <article
+              key={standard.title}
+              className="group flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-300 hover:border-white/[0.18] hover:bg-[#151518]"
+            >
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="font-mono text-xs font-medium text-frame-accent">
                   Standard {String(index + 1).padStart(2, '0')}
                 </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                   {standard.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg"><AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/social-media-management/community-management"]}>
-                  {standard.body}
-                </AutoLinks></p>
+                <div className="mt-3 text-sm leading-relaxed text-[#A1A1AA]">
+                  <AutoLinks currentPath="/services/social-media-management/facebook" allowed={["/services/social-media-management/community-management"]}>
+                    {standard.body}
+                  </AutoLinks>
+                </div>
               </div>
 
-              {standard.points?.length > 0 && (
-                <ul className="mt-6 space-y-2.5 border-t-2 border-frame-border/60 pt-4 text-xs font-medium text-frame-fg/90 md:text-sm">
-                  {standard.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                        <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+              <div className="mt-6 border-t border-white/[0.08] pt-5">
+                {standard.points && (
+                  <ul className="space-y-2">
+                    {standard.points.map((point, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-[#D4D4D8]">
+                        <svg
+                          className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
-                      </span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+                        <span className="leading-snug">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
-              {standard.note && (
-                <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                  {standard.note}
-                </p>
-              )}
+                {standard.note && (
+                  <div className="mt-4 rounded-xl border border-white/[0.06] bg-[#09090B]/60 p-3 text-xs leading-relaxed text-[#A1A1AA]">
+                    {standard.note}
+                  </div>
+                )}
+              </div>
             </article>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col gap-6 border-t-2 border-frame-border pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-            Ad spend is separate from Facebook management fees, which keeps organic content,
-            community management, and paid advertising strategically distinct.
-          </p>
-          <div className="shrink-0">
-            <PosterButton href="/contact">Get Your Free Page Audit &rarr;</PosterButton>
+        {/* Bottom Banner */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
+          <div className="mb-14 max-w-3xl space-y-4">
+            <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-frame-accent">
+              Transparent Boundaries
+            </span>
+            <p className="mt-2 text-base leading-relaxed text-[#FAFAFA] sm:text-lg">
+              Ad spend is separate from Facebook management fees, which keeps organic content,
+              community management, and paid advertising strategically distinct.
+            </p>
+          </div>
+          <div className="mt-6 shrink-0 lg:mt-0">
+            <PosterButton href="/contact">Get Your Free Page Audit</PosterButton>
           </div>
         </div>
       </div>

@@ -37,27 +37,27 @@ const deliverables = [
 
 export default function Deliverables() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#121214] px-4 py-20 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro eyebrow="Deliverables" title="What You Receive From Framecipher">
           The exact deliverables depend on your business, content library, market, and strategy scope. A typical
           engagement can include:
         </SectionIntro>
 
-        <ul className="grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
+        <ul className="grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
           {deliverables.map((item) => (
             <li
               key={item.title}
-              className="flex items-start gap-3 bg-frame-bg p-7 transition-colors duration-200 hover:bg-frame-muted/40 md:p-8"
+              className="flex items-start gap-3 bg-[#09090B] p-7 transition-colors duration-200 hover:bg-[#121214]/40 md:p-8"
             >
-              <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-frame-accent">
+              <span aria-hidden="true" className="mt-0.5 shrink-0 font-bold text-[#A855F7]">
                 ✓
               </span>
               <div>
-                <h3 className="font-heading text-base font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-lg">
+                <h3 className="font-heading text-base font-bold leading-tight tracking-tight text-[#FAFAFA] md:text-lg">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
+                <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA] md:text-base">
                   {item.text}
                 </p>
               </div>

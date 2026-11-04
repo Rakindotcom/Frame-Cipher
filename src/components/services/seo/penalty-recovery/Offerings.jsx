@@ -1,4 +1,6 @@
-import { SectionIntro, PosterButton } from '../../../Kinetic'
+import React from 'react'
+import { CheckCircle2 } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const offerings = [
   {
@@ -32,11 +34,11 @@ const offerings = [
       'Other violation-specific work',
     ],
     closing:
-      'Google\u2019s current manual-action guidance provides issue-specific remediation steps and requires the problem to be addressed before a review request.',
+      'Google’s current manual-action guidance provides issue-specific remediation steps and requires the problem to be addressed before a review request.',
   },
   {
     title: 'Unnatural Link Remediation & Disavow When Appropriate',
-    body: 'We investigate backlinks for patterns that may violate Google\u2019s link spam policies, document problematic links, and pursue removal where appropriate.',
+    body: 'We investigate backlinks for patterns that may violate Google’s link spam policies, document problematic links, and pursue removal where appropriate.',
     closing:
       'Disavow is treated as an advanced tool, not a routine cleanup step. Google says most sites do not need to use it and recommends removal efforts first when dealing with a genuine unnatural-link issue.',
   },
@@ -70,7 +72,7 @@ const offerings = [
     title: 'Google Core & Spam Update Recovery',
     body: 'When the evidence points toward an update-related ranking decline rather than a manual action, recovery requires broader improvement rather than reconsideration.',
     closing:
-      'We analyze the pages and queries most affected, identify quality and relevance gaps, compare competing results, and prioritize changes that improve the site\u2019s usefulness and search alignment.',
+      'We analyze the pages and queries most affected, identify quality and relevance gaps, compare competing results, and prioritize changes that improve the site’s usefulness and search alignment.',
   },
   {
     title: 'Reconsideration Request Support',
@@ -88,69 +90,85 @@ const offerings = [
 
 export default function Offerings() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="What we cover" title="Our Google Penalty Recovery Services">
-          Penalty recovery is only effective when it targets the actual cause. Our services cover
-          the full arc from diagnosis to remediation, reconsideration, and monitoring.
-        </SectionIntro>
+    <section className="bg-[#09090B] py-20 md:py-28 border-t border-white/[0.08]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#A855F7]">
+            <span className="h-1.5 w-1.5 rounded-full bg-[#A855F7]" />
+            <span>Core Recovery Solutions</span>
+          </div>
+          <h2 className="text-3xl font-medium tracking-tight text-white sm:text-5xl">
+            Our Google Penalty Recovery Services
+          </h2>
+          <p className="text-base leading-relaxed text-zinc-300 sm:text-lg">
+            Penalty recovery is only effective when it targets the actual cause. Our services cover the full arc from diagnosis to remediation, reconsideration, and ongoing monitoring.
+          </p>
+        </div>
 
-        <div className="space-y-10 md:space-y-14">
+        {/* Modality 3: Seamless Blueprint Matrix Grid */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] md:grid-cols-2">
           {offerings.map((item, index) => (
             <div
               key={item.title}
-              className="grid gap-6 border-2 border-frame-border bg-frame-bg p-7 md:p-10 lg:grid-cols-[1fr_1.6fr]"
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-6 transition-colors duration-200 hover:bg-[#121214] sm:p-8"
             >
               <div>
-                <div className="flex items-center justify-between gap-4">
-                  <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                    Offer 0{index + 1}
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-500">
+                    Service // 0{index + 1}
                   </span>
+                  <span className="h-2 w-2 rounded-full bg-white/10 transition-colors duration-300 group-hover:bg-frame-accent" />
                 </div>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+
+                <h3 className="mt-6 text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl">
                   {item.title}
                 </h3>
-                <span className="mt-2 block h-1 w-8 bg-frame-accent" />
-              </div>
-              <div>
-                <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="mt-3 text-sm leading-relaxed text-zinc-300">
                   {item.body}
                 </p>
+
                 {item.lead && (
-                  <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg">
+                  <p className="mt-4 font-mono text-xs font-semibold uppercase tracking-wider text-white">
                     {item.lead}
                   </p>
                 )}
-                {item.points?.length > 0 && (
-                  <ul className="mt-5 space-y-2.5 border-l-2 border-frame-accent pl-5 text-sm md:text-base font-medium text-frame-fg">
-                    {item.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-2 leading-snug">
-                        <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                        <span>{point}</span>
-                      </li>
+
+                {item.points && (
+                  <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-zinc-300">
+                    {item.points.map((pt, pIdx) => (
+                      <div key={pIdx} className="flex items-start gap-2">
+                        <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span>{pt}</span>
+                      </div>
                     ))}
-                  </ul>
-                )}
-                {item.closing && (
-                  <p className="mt-5 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.closing}
-                  </p>
+                  </div>
                 )}
               </div>
+
+              {item.closing && (
+                <div className="mt-6 rounded-xl border-l-2 border-frame-accent bg-[#141418] p-4 text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                  {item.closing}
+                </div>
+              )}
             </div>
           ))}
         </div>
 
-        <div className="mt-10 border-2 border-frame-accent bg-frame-accent/10 p-7 md:p-10 lg:flex lg:items-center lg:justify-between lg:gap-8">
-          <p className="max-w-4xl text-sm md:text-base font-medium leading-relaxed text-frame-fg/90">
-            Not sure what actually caused your traffic drop? Tell us what you are seeing and we will
-            recommend the right diagnostic starting point.
-          </p>
-          <div className="mt-6 lg:mt-0 lg:shrink-0">
-            <PosterButton href="/contact" className="w-full whitespace-nowrap self-center">
-              Request a Penalty Diagnosis
-            </PosterButton>
+        {/* Bottom Conversion Ledger */}
+        <div className="mt-12 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="space-y-1 text-center sm:text-left">
+            <h4 className="text-lg font-medium text-white sm:text-xl">
+              Not sure which recovery service fits your traffic loss?
+            </h4>
+            <p className="text-sm text-zinc-400">
+              We begin with a data-driven diagnosis to confirm whether a penalty exists before recommending work.
+            </p>
           </div>
+          <PosterButton href="/contact">
+            Get Free Consultation &rarr;
+          </PosterButton>
         </div>
       </div>
     </section>

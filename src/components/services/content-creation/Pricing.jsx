@@ -91,17 +91,17 @@ const pricingFactors = [
 const timelines = [
   {
     format: 'Simple Graphic or Short-Form Video',
-    timeline: '3–7 business days',
+    timeline: '3 to 7 business days',
     context: 'Reels, TikToks, ad statics, social carousels, and single-purpose banners.'
   },
   {
     format: 'Photography or Multi-Asset Production',
-    timeline: '1–2 weeks',
+    timeline: '1 to 2 weeks',
     context: 'Product catalog shoots, brand lifestyle sessions, pitch decks, and ad sets.'
   },
   {
     format: 'Larger Video or Branding Projects',
-    timeline: '2–4 weeks',
+    timeline: '2 to 4 weeks',
     context: 'Commercial videos, brand films, corporate documentaries, and full visual identities.'
   },
   {
@@ -113,8 +113,8 @@ const timelines = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section id="pricing" className="border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
+      <div className="mx-auto max-w-7xl">
         {/* HEADER */}
         <SectionIntro
           eyebrow="Investment & Scope"
@@ -131,43 +131,43 @@ export default function Pricing() {
               key={i}
               className={`flex flex-col justify-between border-2 p-6 md:p-8 transition-colors ${
                 pkg.isPopular
-                  ? 'border-frame-accent bg-frame-accent/10'
-                  : 'border-frame-border bg-frame-bg'
+                  ? 'border-[#A855F7]/40 bg-[#A855F7]/10'
+                  : 'border-white/[0.08] bg-[#09090B]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3 min-h-[22px]">
-                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                  <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     {pkg.cadence}
                   </span>
                   {pkg.isPopular && (
-                    <span className="border-2 border-frame-accent bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent-fg">
+                    <span className="border-2 border-[#A855F7]/40 bg-frame-accent px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#FAFAFA]">
                       Most Popular
                     </span>
                   )}
                 </div>
-                <h3 className="font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   {pkg.name}
                 </h3>
-                <div className="mt-4 border-y-2 border-frame-border/60 py-3">
-                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                <div className="mt-4 border-y border-white/[0.08]/60 py-3">
+                  <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                     Starting At
                   </span>
-                  <div className="font-heading text-2xl md:text-3xl font-black text-frame-fg">
+                  <div className="font-heading text-2xl md:text-3xl font-black text-[#FAFAFA]">
                     {pkg.price}
                   </div>
                 </div>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {pkg.description}
                 </p>
-                <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-frame-accent">
+                <div className="mt-3 text-[11px] font-bold uppercase tracking-wider text-[#A855F7]">
                   Best For: {pkg.bestFor}
                 </div>
                 {pkg.features && (
-                  <ul className="mt-4 space-y-2 text-xs font-medium text-frame-fg/90 border-t border-frame-border/60 pt-4">
+                  <ul className="mt-4 space-y-2 text-xs font-medium text-zinc-200 border-t border-white/[0.06] pt-4">
                     {pkg.features.map((feat, fIdx) => (
                       <li key={fIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
+                        <span className="text-[#A855F7] font-bold">✓</span>
                         <span className="leading-snug">{feat}</span>
                       </li>
                     ))}
@@ -175,7 +175,7 @@ export default function Pricing() {
                 )}
               </div>
 
-              <div className="mt-8 pt-4 border-t border-frame-border/60">
+              <div className="mt-8 pt-4 border-t border-white/[0.06]">
                 <PosterButton
                   href="/contact"
                   variant={pkg.isPopular ? 'accent' : 'outline'}
@@ -189,12 +189,12 @@ export default function Pricing() {
         </div>
 
         {/* COMPARISON TABLE */}
-        <div className="mt-16 overflow-x-auto border-2 border-frame-border bg-frame-bg">
+        <div className="mt-16 overflow-x-auto border border-white/[0.08] bg-[#09090B]">
           <table className="w-full min-w-[640px] text-left">
-            <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+            <thead className="border-b border-white/[0.08] bg-[#121214]">
               <tr>
                 {pricingTable.headers.map((h, i) => (
-                  <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">
+                  <th key={i} className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">
                     {h}
                   </th>
                 ))}
@@ -202,11 +202,11 @@ export default function Pricing() {
             </thead>
             <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
               {pricingTable.rows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-frame-muted/20">
-                  <td className="p-4 md:p-6 font-bold text-frame-fg">{row[0]}</td>
-                  <td className="p-4 md:p-6 font-bold text-frame-accent">{row[1]}</td>
-                  <td className="p-4 md:p-6 text-frame-fg">{row[2]}</td>
-                  <td className="p-4 md:p-6 text-frame-muted-fg">{row[3]}</td>
+                <tr key={rIdx} className="hover:bg-[#121214]">
+                  <td className="p-4 md:p-6 font-bold text-[#FAFAFA]">{row[0]}</td>
+                  <td className="p-4 md:p-6 font-bold text-[#A855F7]">{row[1]}</td>
+                  <td className="p-4 md:p-6 text-[#FAFAFA]">{row[2]}</td>
+                  <td className="p-4 md:p-6 text-[#A1A1AA]">{row[3]}</td>
                 </tr>
               ))}
             </tbody>
@@ -214,28 +214,28 @@ export default function Pricing() {
         </div>
 
         {/* PRICING FACTORS */}
-        <div className="mt-16 border-2 border-frame-border bg-frame-bg p-7 md:p-10">
-          <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+        <div className="mt-16 border border-white/[0.08] bg-[#09090B] p-7 md:p-10">
+          <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
             Scoping Variables
           </span>
-          <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="mt-2 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
             Factors That Influence Final Pricing
           </h3>
-          <p className="mt-2 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
+          <p className="mt-2 text-xs md:text-sm font-medium text-[#A1A1AA] wide:text-lg">
             Final pricing adapts dynamically to the physical, technical, and creative demands of your shoot:
           </p>
 
           <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
             {pricingFactors.map((factor, idx) => (
-              <div key={idx} className="flex items-center gap-2 border border-frame-border/80 bg-frame-muted/20 px-3.5 py-2.5">
-                <span className="text-frame-accent font-bold text-xs">◆</span>
-                <span className="text-xs md:text-sm font-medium text-frame-fg">{factor}</span>
+              <div key={idx} className="flex items-center gap-2 border border-white/[0.08] bg-[#121214] px-3.5 py-2.5">
+                <span className="text-[#A855F7] font-bold text-xs">◆</span>
+                <span className="text-xs md:text-sm font-medium text-[#FAFAFA]">{factor}</span>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t-2 border-frame-border pt-6">
-            <p className="text-xs sm:text-sm font-medium text-frame-muted-fg wide:text-lg">
+          <div className="mt-8 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-t border-white/[0.08] pt-6">
+            <p className="text-xs sm:text-sm font-medium text-[#A1A1AA] wide:text-lg">
               * Confirm all pricing and package inclusions before publishing. We provide custom quotations after detailed scoping.
             </p>
             <PosterButton href="/contact" className="shrink-0 text-xs sm:text-sm">
@@ -247,32 +247,32 @@ export default function Pricing() {
         {/* TIMELINES & PRODUCTION SUPPORT */}
         <div className="mt-20">
           <div className="mb-8 max-w-3xl">
-            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-frame-accent">
+            <span className="text-xs md:text-sm font-black uppercase tracking-[0.28em] text-[#A855F7]">
               Execution Cadence
             </span>
-            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
+            <h3 className="mt-2 font-heading text-2xl md:text-4xl font-bold tracking-tight text-[#FAFAFA]">
               Timeline, Revisions & Production Support
             </h3>
-            <p className="mt-3 text-sm md:text-base font-medium text-frame-muted-fg leading-relaxed wide:text-lg">
+            <p className="mt-3 text-sm md:text-base font-medium text-[#A1A1AA] leading-relaxed wide:text-lg">
               Production timelines depend on the format and scope. These are planning ranges, not fixed guarantees. Your proposal confirms the actual production schedule after the scope is defined.
             </p>
           </div>
 
-          <div className="overflow-x-auto border-2 border-frame-border bg-frame-bg shadow-sm">
+          <div className="overflow-x-auto border border-white/[0.08] bg-[#09090B] shadow-sm">
             <table className="w-full min-w-[640px] text-left">
-              <thead className="border-b-2 border-frame-border bg-frame-muted/30">
+              <thead className="border-b border-white/[0.08] bg-[#121214]">
                 <tr>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Format & Scope</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Starting Reference</th>
-                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-frame-accent">Production Details</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">Format & Scope</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">Starting Reference</th>
+                  <th className="p-4 md:p-6 text-xs md:text-sm font-black uppercase tracking-[0.24em] text-[#A855F7]">Production Details</th>
                 </tr>
               </thead>
               <tbody className="divide-y-2 divide-frame-border text-sm md:text-base font-medium">
                 {timelines.map((item, idx) => (
-                  <tr key={idx} className="hover:bg-frame-muted/20">
-                    <td className="p-4 md:p-6 font-bold text-frame-fg">{item.format}</td>
-                    <td className="p-4 md:p-6 font-bold text-frame-accent">{item.timeline}</td>
-                    <td className="p-4 md:p-6 text-frame-muted-fg">{item.context}</td>
+                  <tr key={idx} className="hover:bg-[#121214]">
+                    <td className="p-4 md:p-6 font-bold text-[#FAFAFA]">{item.format}</td>
+                    <td className="p-4 md:p-6 font-bold text-[#A855F7]">{item.timeline}</td>
+                    <td className="p-4 md:p-6 text-[#A1A1AA]">{item.context}</td>
                   </tr>
                 ))}
               </tbody>
@@ -280,46 +280,46 @@ export default function Pricing() {
           </div>
 
           {/* REVISIONS & ONGOING SUPPORT DUAL CARDS */}
-          <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border md:grid-cols-2">
-            <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+          <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border md:grid-cols-2">
+            <div className="bg-[#09090B] p-7 md:p-10 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Structured Review Process
                 </span>
-                <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   Review & Revisions Policy
                 </h4>
-                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   Every project includes a defined review process. The number of revision rounds depends on the selected package or project scope and is confirmed before production begins.
                 </p>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   We don&apos;t just send a final link and walk away. You inspect creative drafts at designated milestones so any necessary refinements are incorporated seamlessly before final delivery.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-frame-border/60">
-                <span className="text-xs font-bold uppercase tracking-wider text-frame-accent">
+              <div className="mt-6 pt-4 border-t border-white/[0.06]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#A855F7]">
                   Milestone Review · Agreed Revisions · Zero Surprises
                 </span>
               </div>
             </div>
 
-            <div className="bg-frame-bg p-7 md:p-10 flex flex-col justify-between">
+            <div className="bg-[#09090B] p-7 md:p-10 flex flex-col justify-between">
               <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+                <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                   Recurring Creative Partnership
                 </span>
-                <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h4 className="mt-2 font-heading text-xl md:text-2xl font-bold tracking-tight text-[#FAFAFA]">
                   Ongoing Production Support
                 </h4>
-                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   Businesses that need regular content can work with Framecipher on a recurring production cadence. Depending on the engagement, ongoing support can include scheduled production, recurring graphics, short-form video, photography, campaign assets, and content repurposing.
                 </p>
-                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   This eliminates the scramble to create new assets each week and gives your team a reliable, predictable content pipeline.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-frame-border/60">
-                <span className="text-xs font-bold uppercase tracking-wider text-frame-fg">
+              <div className="mt-6 pt-4 border-t border-white/[0.06]">
+                <span className="text-xs font-bold uppercase tracking-wider text-[#FAFAFA]">
                   Monthly Retainers · Editorial Cadence · Scalable Output
                 </span>
               </div>
@@ -328,27 +328,27 @@ export default function Pricing() {
         </div>
 
         {/* SERVICE AREAS BANNER */}
-        <div className="mt-20 border-2 border-frame-border bg-frame-muted/30 p-7 md:p-10">
+        <div className="mt-20 border border-white/[0.08] bg-[#121214] p-7 md:p-10">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div className="max-w-3xl">
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+              <span className="text-xs font-black uppercase tracking-[0.24em] text-[#A855F7]">
                 Regional & Global Footprint
               </span>
-              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold uppercase tracking-tight text-frame-fg">
+              <h3 className="mt-2 font-heading text-2xl md:text-3xl font-bold tracking-tight text-[#FAFAFA]">
                 Content Creation Service Areas
               </h3>
-              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
+              <p className="mt-3 text-sm md:text-base font-medium leading-relaxed text-[#A1A1AA] wide:text-lg">
                 Framecipher provides content creation services for businesses in Bangladesh, including Dhaka and other locations where production requirements can be supported. We also work with international clients across the:
               </p>
-              <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-frame-fg">
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Bangladesh (Dhaka & Nationwide)</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United States</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United Kingdom</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Australia</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">Canada</span>
-                <span className="border border-frame-border bg-frame-bg px-3 py-1.5">United Arab Emirates</span>
+              <div className="mt-4 flex flex-wrap gap-2 text-xs md:text-sm font-bold uppercase tracking-wider text-[#FAFAFA]">
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Bangladesh (Dhaka & Nationwide)</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">United States</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">United Kingdom</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Australia</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">Canada</span>
+                <span className="border border-white/[0.08] bg-[#09090B] px-3 py-1.5">United Arab Emirates</span>
               </div>
-              <p className="mt-3 text-xs md:text-sm font-medium text-frame-muted-fg wide:text-lg">
+              <p className="mt-3 text-xs md:text-sm font-medium text-[#A1A1AA] wide:text-lg">
                 For international projects, delivery and production arrangements depend on the required format, location, and scope.
               </p>
             </div>

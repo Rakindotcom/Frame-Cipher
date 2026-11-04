@@ -1,4 +1,4 @@
-import { SectionLabel, SectionIntro } from '../Kinetic'
+import Link from 'next/link'
 
 const center = {
   title: 'Frame Cipher',
@@ -40,60 +40,88 @@ const categories = [
 
 export default function ServicesConnectedSystem() {
   return (
-    <section className="overflow-hidden border-b-2 border-frame-border bg-frame-bg px-4 py-24 md:px-8 md:py-32">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Connected system / how everything connects"
-          title="Different services. One connected system."
-          index="04"
-        >
-          Every service can be hired alone, but the results compound when strategy, marketing,
-          creative, media, and technology move on the same plan.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 max-w-4xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Different services.{' '}
+            <span className="italic text-frame-accent">
+              One connected system.
+            </span>
+          </h2>
+          <p className="mt-5 max-w-3xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            Every service can be hired alone, but the results compound when strategy, marketing,
+            creative, media, and technology move on the same plan.
+          </p>
+        </div>
 
-        <div className="relative mt-16">
-          <div
-            className="absolute inset-0 -z-10 bg-[linear-gradient(rgba(168,85,247,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.06)_1px,transparent_1px)] bg-[size:44px_44px]"
-            aria-hidden="true"
-          />
-
-          <div className="mx-auto flex max-w-xl flex-col items-center justify-center border-2 border-frame-accent bg-frame-bg p-8 text-center shadow-2xl shadow-frame-accent/10 md:p-12">
-            <span className="mb-4 h-2 w-16 bg-frame-accent" aria-hidden="true" />
-            <h3 className="font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-none tracking-tighter text-frame-fg">
+        {/* Central Hub Sovereign Core Banner */}
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <span className="font-mono text-[11px] uppercase tracking-[1.1px] px-2.5 py-1 rounded bg-[#18181B] text-frame-accent border border-white/[0.08]">
+              The Sovereign Core
+            </span>
+            <h3 className="mt-3 font-heading text-2xl sm:text-3xl font-medium tracking-tight text-white">
               {center.title}
             </h3>
-            <p className="mt-4 text-base font-bold uppercase tracking-[0.18em] text-frame-accent">
+            <p className="mt-1 font-mono text-xs uppercase tracking-[1.1px] text-zinc-400">
               {center.subtitle}
             </p>
           </div>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[1.1px] text-frame-accent hover:text-white transition-colors touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent rounded"
+          >
+            <span>Consult Unified Team</span>
+            <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+          </Link>
+        </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {categories.map((category) => (
-              <div
-                key={category.number}
-                className="group relative border-2 border-frame-border bg-frame-muted p-6 transition-colors duration-300 hover:border-frame-accent hover:bg-frame-accent"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <span className="font-heading text-3xl font-bold leading-none tracking-tighter text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/60">
-                    {category.number}
+        {/* 5-Column Architectural Band (Modality 2) */}
+        <div className="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-px border border-white/[0.08] bg-white/[0.08] rounded-xl overflow-hidden">
+          {categories.map((category) => (
+            <div
+              key={category.number}
+              className="group relative flex flex-col justify-between bg-[#121214] p-6 transition-colors duration-200 hover:bg-[#151518]"
+            >
+              <div>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-mono text-sm font-medium tabular-nums text-zinc-500">
+                    /{category.number}
                   </span>
-                  <span className="mt-1.5 h-2 w-8 bg-frame-accent transition-colors duration-300 group-hover:bg-frame-accent-fg" aria-hidden="true" />
+                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" aria-hidden="true" />
                 </div>
-                <h3 className="mt-8 font-heading text-2xl font-bold uppercase leading-none tracking-tighter text-frame-fg transition-colors duration-300 group-hover:text-frame-accent-fg">
-                  <a href={category.href} className="after:absolute after:inset-0 after:content-['']">
+                <h4 className="mt-6 font-heading text-xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                  <Link href={category.href} className="after:absolute after:inset-0 after:content-['']">
                     {category.title}
-                  </a>
-                </h3>
-                <p className="mt-3 text-sm font-medium leading-tight text-frame-muted-fg transition-colors duration-300 group-hover:text-frame-accent-fg/80 wide:text-lg">
+                  </Link>
+                </h4>
+                <p className="mt-2.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {category.description}
                 </p>
               </div>
-            ))}
-          </div>
+
+              <div className="mt-8 border-t border-white/[0.08] pt-4 flex items-center justify-between font-mono text-[11px] uppercase tracking-[1.1px]">
+                <span className="text-zinc-500">Pillar</span>
+                <span className="text-zinc-400 group-hover:text-white transition-colors" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-10 text-center">
-          <SectionLabel>One brief, one team, one system, from strategy to execution.</SectionLabel>
+        {/* Bottom Helper Bar */}
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-white/[0.08] bg-[#121214] p-5 rounded-xl">
+          <p className="font-mono text-xs text-zinc-400">
+            One brief, one team, one system, from strategy to execution.
+          </p>
+          <Link
+            href="/contact"
+            className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[1.1px] text-frame-accent hover:text-white transition-colors"
+          >
+            <span>Start a Project</span>
+            <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+          </Link>
         </div>
       </div>
     </section>

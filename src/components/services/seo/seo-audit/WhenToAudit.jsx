@@ -1,9 +1,22 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const scenarios = [
+import React from 'react'
+import {
+  UserCheck,
+  TrendingDown,
+  RefreshCw,
+  ShoppingBag,
+  FileQuestion,
+  Rocket,
+  Globe,
+  Check,
+} from 'lucide-react'
+
+const triggers = [
   {
     title: 'Before Hiring an SEO Provider',
-    body: 'An independent audit can give you a clearer picture of your current SEO condition before signing up for ongoing services. You can use the findings to understand:',
+    icon: UserCheck,
+    lead: 'An independent audit can give you a clearer picture of your current SEO condition before signing up for ongoing services.',
     points: [
       'Existing technical problems',
       'Content weaknesses',
@@ -12,150 +25,162 @@ const scenarios = [
       'Missed opportunities',
       'Priority areas for future SEO work',
     ],
-    note: 'This also gives you a stronger baseline for evaluating an SEO strategy.',
+    summary: 'This gives you a stronger baseline for evaluating any agency strategy.',
   },
   {
     title: 'After a Traffic or Ranking Drop',
-    body: 'A sudden decline in organic traffic or rankings can have multiple causes. We investigate potential issues involving:',
+    icon: TrendingDown,
+    lead: 'A sudden decline in organic traffic or rankings can have multiple causes. We investigate evidence-based explanations involving:',
     points: [
-      'Indexation',
-      'Technical changes',
-      'Content changes',
-      'Search intent',
-      'Algorithm-related fluctuations',
-      'Lost backlinks',
+      'Indexation & crawl anomalies',
+      'Recent technical or code changes',
+      'Content modifications',
+      'Search intent algorithm shifts',
+      'Lost backlinks or toxic profiles',
       'Competitor improvements',
-      'Website migrations',
-      'Internal linking',
-      'Cannibalization',
+      'Unmapped migration redirects',
+      'Internal linking & cannibalization',
     ],
-    note: 'The objective is to identify evidence-based explanations rather than assume every ranking drop has the same cause.',
+    summary: 'Identifies the root cause rather than assuming every ranking drop is a penalty.',
   },
   {
     title: 'Before a Website Redesign or Migration',
-    body: 'Redesigns and migrations can change URLs, templates, internal links, technical settings, and content. An audit before launch can identify:',
+    icon: RefreshCw,
+    lead: 'Redesigns and migrations can change URLs, templates, internal links, technical settings, and content.',
     points: [
-      'Important existing URLs',
-      'Ranking pages',
-      'Redirect requirements',
-      'Canonical issues',
-      'Metadata changes',
+      'Important existing URLs & ranking pages',
+      '301 redirect mapping requirements',
+      'Canonical tag structures',
+      'Metadata & heading preservation',
       'Internal-link dependencies',
-      'Indexation risks',
-      'Content that should be preserved',
+      'Indexation risk mitigation',
+      'High-value content preservation',
     ],
-    note: 'This gives your development team a clearer SEO baseline before major changes go live.',
+    summary: 'Gives your development team a clear SEO baseline before major changes go live.',
   },
   {
     title: "When Traffic Isn't Turning Into Leads",
-    body: 'A website can receive organic traffic without generating enough business value. We review whether:',
+    icon: ShoppingBag,
+    lead: 'A website can receive organic traffic without generating enough business value. We review whether:',
     points: [
-      'The right pages attract traffic',
-      'Search intent matches your offer',
-      'Landing pages support conversions',
-      'Calls to action are clear',
-      'Important conversion events are tracked',
-      'Commercial pages receive enough organic visibility',
-      'Traffic comes from the right queries and markets',
+      'The right pages attract the traffic',
+      'Search intent matches your commercial offer',
+      'Landing pages support conversion flows',
+      'Calls to action are clear & accessible',
+      'Important conversion events are tracked in GA4',
+      'Commercial pages receive organic visibility',
+      'Traffic comes from the right target markets',
     ],
-    note: 'An SEO audit should connect search performance with business outcomes, not stop at rankings.',
+    summary: 'Connects search visibility directly with business outcomes, not just impressions.',
   },
   {
     title: "When Content Isn't Producing Rankings",
-    body: 'Publishing more content does not automatically create more organic growth. We assess:',
+    icon: FileQuestion,
+    lead: 'Publishing more content does not automatically create more organic growth. We assess:',
     points: [
-      'Keyword targeting',
-      'Search intent',
-      'Content depth',
-      'Content quality',
-      'Topic coverage',
-      'Internal linking',
-      'Cannibalization',
-      'Content overlap',
-      'Outdated pages',
-      'Missing supporting content',
-      'Competitor content gaps',
+      'Keyword targeting & intent mismatch',
+      'Content depth & topical coverage',
+      'Content quality & originality',
+      'Internal linking distribution',
+      'Cannibalization & topic overlap',
+      'Outdated & thin pages',
+      'Competitor content & entity gaps',
     ],
-    note: 'The objective is to identify whether existing content needs improvement, consolidation, new internal links, or a different search strategy.',
+    summary: 'Determines whether content needs consolidation, rewriting, or structural linking.',
   },
   {
     title: 'Before Launching a New Website',
-    body: 'A pre-launch SEO audit can identify problems before search engines encounter them. We can review:',
+    icon: Rocket,
+    lead: 'A pre-launch SEO audit can identify problems before search engines encounter them. We review:',
     points: [
-      'Site architecture',
-      'URL structure',
-      'Metadata',
-      'Headings',
-      'Indexation controls',
-      'Sitemaps',
-      'Canonicals',
-      'Structured data',
-      'Mobile performance',
-      'Internal linking',
-      'Redirect plans',
-      'Analytics and Search Console setup',
+      'Site architecture & URL hierarchy',
+      'Metadata & H1-H6 structure',
+      'Indexation controls & robots.txt',
+      'XML sitemaps & canonicals',
+      'Structured data (Schema.org)',
+      'Mobile performance & Core Web Vitals',
+      'Analytics & Search Console setup',
     ],
-    note: 'Fixing issues before launch is often simpler than repairing them after visibility has already been affected.',
+    summary: 'Fixing issues before launch is far cheaper than repairing lost visibility later.',
   },
   {
     title: 'When Expanding Into New Markets',
-    body: 'Adding countries or languages introduces another layer of SEO complexity. We can audit:',
+    icon: Globe,
+    lead: 'Adding countries or languages introduces another layer of SEO complexity. We audit:',
     points: [
       'Country and language targeting',
-      'International site structure',
-      'Hreflang',
-      'Canonicals',
-      'Regional URLs',
-      'Localization',
-      'Country-level competitors',
+      'International site structure (ccTLD vs subfolder)',
+      'Hreflang implementation & canonicals',
+      'Regional URL routing & localization',
+      'Country-level organic competitors',
       'International internal linking',
-      'Market-level visibility',
+      'Market-level search visibility',
     ],
-    note: 'This helps identify structural problems before international expansion creates a much larger technical footprint.',
+    summary: 'Prevents structural duplication before international expansion creates technical debt.',
   },
 ]
 
 export default function WhenToAudit() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="When it helps most" title="When Should You Get an SEO Audit?">
-          An SEO audit is most useful when you need to understand the cause of a problem before
-          investing in more SEO work.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="space-y-4 max-w-3xl">
+          <p className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+            Timing &amp; Triggers // Strategic Value
+          </p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[1.05] tracking-tight text-white">
+            When Should You Get an{' '}
+            <span className="italic text-frame-accent">SEO Audit?</span>
+          </h2>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 pt-2">
+            An SEO audit is most useful when you need to understand the cause of a problem before investing in more SEO work.
+          </p>
+        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {scenarios.map((item, index) => (
-            <div
-              key={item.title}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-bg p-7 transition-colors hover:border-frame-accent md:p-8"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Scenario 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
-                <ul className="mt-5 space-y-2 border-t-2 border-frame-border/60 pt-4 text-xs md:text-sm font-medium text-frame-fg/90">
-                  {item.points.map((point, pIdx) => (
-                    <li key={pIdx} className="flex items-start gap-2">
-                      <span className="mt-0.5 text-frame-accent font-bold">✓</span>
-                      <span className="leading-snug">{point}</span>
-                    </li>
-                  ))}
-                </ul>
-                {item.note && (
-                  <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-4 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                    {item.note}
+        {/* 7 Triggers Grid */}
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {triggers.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-7 transition-colors hover:border-white/[0.16] hover:bg-[#151518]"
+              >
+                <div>
+                  <div className="flex items-center justify-between">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/[0.04] text-frame-accent border border-white/[0.06] group-hover:bg-frame-accent/10 transition-colors">
+                      <Icon className="h-5 w-5" />
+                    </span>
+                    <span className="font-mono text-xs text-zinc-400">Scenario 0{idx + 1}</span>
+                  </div>
+
+                  <h3 className="mt-5 font-heading text-lg sm:text-xl font-semibold tracking-tight text-white">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.lead}
                   </p>
-                )}
+
+                  <ul className="mt-4 space-y-1.5 border-t border-white/[0.06] pt-4">
+                    {item.points.map((pt, pIdx) => (
+                      <li key={pIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 text-frame-accent shrink-0 mt-0.5" />
+                        <span className="leading-snug">{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                  <p className="font-mono text-[11px] text-zinc-400 leading-relaxed italic">
+                    &rarr; {item.summary}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

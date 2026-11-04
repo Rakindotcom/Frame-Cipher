@@ -30,20 +30,14 @@ export default function QuickCalculatorBar() {
   const cpaReduction = (100 - (1 / ((1 + ctrLift / 100) * (1 + cvrLift / 100))) * 100).toFixed(1)
 
   return (
-    <div className="w-full min-w-0 max-w-full overflow-hidden border-2 border-frame-border bg-frame-bg p-4 sm:p-6 md:p-8">
-      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between border-b border-frame-border pb-6">
+    <div className="w-full min-w-0 max-w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+      <div className="flex flex-col gap-2 md:flex-row md:items-center md:justify-between border-b border-white/[0.08] pb-6">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="h-2 w-2 rounded-full bg-frame-accent animate-pulse" />
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              Instant Micro-Calculators
-            </span>
-          </div>
-          <h3 className="mt-1 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
+          <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
             Rapid Advertising Math
           </h3>
         </div>
-        <p className="text-xs md:text-sm font-medium text-frame-muted-fg max-w-md wide:text-lg">
+        <p className="text-xs md:text-sm font-normal text-zinc-400 max-w-md wide:text-lg">
           Calculate your unit economics safeguards in 5 seconds before running full multi-channel simulations.
         </p>
       </div>
@@ -62,10 +56,10 @@ export default function QuickCalculatorBar() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`max-w-full text-left whitespace-normal break-words flex items-center gap-2 border px-3 sm:px-4 py-2 sm:py-2.5 text-xs font-black uppercase tracking-wider transition-all ${
+              className={`max-w-full text-left whitespace-normal break-words flex items-center gap-2 rounded-full px-4 py-2.5 text-xs font-medium uppercase tracking-wider transition-all min-h-[44px] cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent ${
                 isActive
-                  ? 'border-frame-accent bg-frame-accent text-frame-accent-fg'
-                  : 'border-frame-border bg-frame-muted/20 text-frame-muted-fg hover:border-frame-fg hover:text-frame-fg'
+                  ? 'border border-frame-accent bg-frame-accent text-zinc-950 font-semibold'
+                  : 'border border-white/[0.08] bg-[#18181B] text-zinc-400 hover:border-white/[0.18] hover:text-white'
               }`}
             >
               <Icon className="h-3.5 w-3.5 shrink-0" />
@@ -76,7 +70,7 @@ export default function QuickCalculatorBar() {
       </div>
 
       {/* Tab Panels */}
-      <div className="mt-6 border border-frame-border bg-frame-muted/10 p-4 sm:p-5 md:p-6 w-full min-w-0 max-w-full overflow-hidden">
+      <div className="mt-6 rounded-xl border border-white/[0.08] bg-[#18181B] p-4 sm:p-5 md:p-6 w-full min-w-0 max-w-full overflow-hidden">
         {/* TAB 1: Break-Even ROAS */}
         {activeTab === 'breakeven' && (
           <div className="grid gap-6 md:grid-cols-2 md:items-center">
@@ -106,21 +100,21 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 border border-frame-border bg-frame-bg p-4 text-center sm:grid-cols-2 sm:p-5">
+            <div className="grid grid-cols-1 gap-4 border border-white/[0.08] bg-[#121214] rounded-lg p-4 text-center sm:grid-cols-2 sm:p-5">
               <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                   Zero-Profit Hurdle
                 </div>
-                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-frame-fg">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-semibold tabular-nums text-white">
                   {breakEvenROAS}x
                 </div>
                 <div className="mt-1 text-[10px] text-rose-400 uppercase font-bold">Break-Even ROAS</div>
               </div>
-              <div className="border-frame-border sm:border-l sm:pl-4">
-                <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+              <div className="border-white/[0.08] sm:border-l sm:pl-4">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                   Target Safe Scale
                 </div>
-                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-emerald-400">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-semibold tabular-nums text-emerald-400">
                   {recommendedROAS}x
                 </div>
                 <div className="mt-1 text-[10px] text-emerald-400 uppercase font-bold">Recommended ROAS</div>
@@ -173,21 +167,21 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 border border-frame-border bg-frame-bg p-4 text-center sm:grid-cols-2 sm:p-5">
+            <div className="grid grid-cols-1 gap-4 border border-white/[0.08] bg-[#121214] rounded-lg p-4 text-center sm:grid-cols-2 sm:p-5">
               <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                   Absolute Max CPA
                 </div>
-                <div className="mt-2 font-mono text-xl sm:text-2xl md:text-3xl font-black text-frame-fg">
+                <div className="mt-2 font-mono text-xl sm:text-2xl md:text-3xl font-semibold tabular-nums text-white">
                   ${maxCpa}
                 </div>
                 <div className="mt-1 text-[10px] text-amber-400 uppercase font-bold">Zero-Profit Cap</div>
               </div>
-              <div className="border-frame-border sm:border-l sm:pl-4">
-                <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+              <div className="border-white/[0.08] sm:border-l sm:pl-4">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                   Target Bidding CPA
                 </div>
-                <div className="mt-2 font-mono text-xl sm:text-2xl md:text-3xl font-black text-emerald-400">
+                <div className="mt-2 font-mono text-xl sm:text-2xl md:text-3xl font-semibold tabular-nums text-emerald-400">
                   ${targetCpa}
                 </div>
                 <div className="mt-1 text-[10px] text-emerald-400 uppercase font-bold">With {targetNetProfitPercent}% Profit</div>
@@ -231,14 +225,14 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="border border-frame-border bg-frame-bg p-5 text-center">
-              <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+            <div className="border border-white/[0.08] bg-[#121214] rounded-lg p-5 text-center">
+              <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                 Resulting Effective Cost Per Click
               </div>
-              <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-frame-accent">
+              <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-semibold tabular-nums text-frame-accent">
                 ${estCpc}
               </div>
-              <div className="mt-1 text-[11px] text-frame-muted-fg">
+              <div className="mt-1 text-[11px] text-zinc-400">
                 Formula: CPC = CPM / (10 × CTR%)
               </div>
             </div>
@@ -281,23 +275,23 @@ export default function QuickCalculatorBar() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 border border-frame-border bg-frame-bg p-4 text-center sm:grid-cols-2 sm:p-5">
+            <div className="grid grid-cols-1 gap-4 border border-white/[0.08] bg-[#121214] rounded-lg p-4 text-center sm:grid-cols-2 sm:p-5">
               <div>
-                <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                   Conversion Multiplier
                 </div>
-                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-emerald-400">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-semibold tabular-nums text-emerald-400">
                   +{((Number(compoundMultiplier) - 1) * 100).toFixed(0)}%
                 </div>
                 <div className="mt-1 text-[10px] text-emerald-400 uppercase font-bold">
                   {compoundMultiplier}x Total Output
                 </div>
               </div>
-              <div className="border-frame-border sm:border-l sm:pl-4">
-                <div className="text-[10px] font-black uppercase tracking-widest text-frame-muted-fg">
+              <div className="border-white/[0.08] sm:border-l sm:pl-4">
+                <div className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
                   CPA Reduction
                 </div>
-                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-black text-frame-accent">
+                <div className="mt-2 font-mono text-2xl sm:text-3xl md:text-4xl font-semibold tabular-nums text-frame-accent">
                   -{cpaReduction}%
                 </div>
                 <div className="mt-1 text-[10px] text-frame-accent uppercase font-bold">

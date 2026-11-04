@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for video-editing — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for video-editing: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Video Editing Packages and Prices in Dhaka (BDT)",
@@ -64,9 +64,9 @@ const DATA = {
     "Motion graphics, captions and thumbnail packaging",
     "Number of cutdowns, aspect ratios and subtitle languages",
     "Revision rounds beyond the included structured cycles",
-    "Turnaround: 48–72 hour priority adds 30%"
+    "Turnaround: 48 to 72 hour priority adds 30%"
   ],
-  "marketNote": "Dhaka editing rates run ৳500–2,000 per captioned short, ৳1,500–5,000 for simple 8–15 minute YouTube edits, ৳5,000–15,000 with heavy graphics, ৳5,000–25,000 for corporate highlights and ৳15,000–60,000 monthly for weekly output (Nexteix 2026; paikaribaba from ৳800/video). Per-minute benchmarks span ৳500 basic to ৳10,000+ commercial. Our tiers bundle the extras — grade, sound, cutdowns — that itemised freelancers add later.",
+  "marketNote": "Dhaka editing rates run ৳500 to 2,000 per captioned short, ৳1,500 to 5,000 for simple 8 to 15 minute YouTube edits, ৳5,000 to 15,000 with heavy graphics, ৳5,000 to 25,000 for corporate highlights and ৳15,000 to 60,000 monthly for weekly output (Nexteix 2026; paikaribaba from ৳800/video). Per-minute benchmarks span ৳500 basic to ৳10,000+ commercial. Our tiers bundle the extras: grade, sound, cutdowns: that itemised freelancers add later.",
   "costRows": [
     [
       "Shorts pack: 5 captioned verticals",
@@ -82,7 +82,7 @@ const DATA = {
     ],
     [
       "Monthly weekly-output retainer",
-      "৳35,000–60,000"
+      "৳35,000 to 60,000"
     ],
     [
       "24-hour express edit lane",
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Video Editing Costs in Dhaka
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">

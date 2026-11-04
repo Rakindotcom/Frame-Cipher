@@ -8,11 +8,21 @@
   --color-frame-accent: #A855F7;
   --color-frame-accent-fg: #FAFAFA;
   --color-frame-border: #3F3F46;
-  --font-heading: "Space Grotesk", "Inter", sans-serif;
-  --font-body: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-quote: "Fraunces", Georgia, serif;
-  /* Extra-large container used by the home hero (90rem at the 1536px design
-     viewport, matching the previous max-w-[90rem] cap). */
+  /* Frame Cipher Kinetic additions. Decorative mirrors the muted token. */
+  --color-frame-rule: #52525B;
+  --color-frame-decorative: #27272A;
+  --color-frame-on-accent: #09090B;
+  --color-frame-accent-light: #C084FC;
+  /* Design System Sovereign Craft additions */
+  --color-frame-cream: #FAF7F2;
+  --color-frame-surface-1: #121214;
+  --color-frame-surface-2: #18181B;
+  --color-frame-surface-3: #050505;
+  --color-frame-ice: #8DA7B8;
+  --color-frame-ice-light: #A2B7C6;
+  --font-heading: "Geist", "Inter", sans-serif;
+  --font-body: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-quote: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --container-8xl: 90rem;
 }
 
@@ -46,19 +56,6 @@
  * sensible max), so wider screens get the same proportions with the same
  * physical font size instead of dead space.
  */
-@media (min-width: 1536px) {
-  :root {
-    /* 64rem / 1536px = 66.67% of the design viewport */
-    --container-5xl: min(80rem, 66.67vw);
-    /* 72rem / 1536px = 75% of the design viewport */
-    --container-6xl: min(90rem, 75vw);
-    /* 80rem / 1536px = 83.33% of the design viewport */
-    --container-7xl: min(100rem, 83.33vw);
-    /* 90rem / 1536px = 93.75% of the design viewport */
-    --container-8xl: min(112.5rem, 93.75vw);
-  }
-}
-
 :root {
   color-scheme: dark;
   --frame-bg: #09090B;
@@ -68,6 +65,287 @@
   --frame-accent: #A855F7;
   --frame-accent-fg: #FAFAFA;
   --frame-border: #3F3F46;
+  --frame-rule: #52525B;
+  --frame-decorative: #27272A;
+  --frame-on-accent: #09090B;
+  --frame-accent-light: #C084FC;
+  --frame-cream: #FAF7F2;
+  --frame-surface-1: #121214;
+  --frame-surface-2: #18181B;
+  --frame-surface-3: #050505;
+  --frame-ice: #8DA7B8;
+  --frame-ice-light: #A2B7C6;
+}
+
+/* ==========================================================================
+   SoftWebGrove type scale (Frame Cipher palette) — canonical values from
+   MAIN-UI-UX-DESIGN-PROMPT.md §3. Display sizes clamp 44px (375px) → 96px
+   (≥1280px) per the responsive heading table; letter-spacing is em-mapped so
+   the exact px values hold at cap size (-3.84px @ 96px = -0.04em,
+   -1.92px @ 64px = -0.03em, -2.10px @ 60px = -0.035em, -0.90px @ 36px = -0.025em).
+   ========================================================================== */
+:root {
+  /* display-xxl / display-xl: 96px cap, weight 500, lh 0.96 / 0.98 */
+  --fc-display-scale: clamp(2.75rem, 5.75vw + 1.4rem, 6rem);
+  /* display-lg / display-md: 64px / 60px caps */
+  --fc-display-lg: clamp(2.25rem, 4.2vw + 0.75rem, 4rem);
+  /* heading-md: 36px cap */
+  --fc-heading-scale: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+}
+
+/* SoftWeb component buttons (§4) — pill primaries, sharp text buttons.
+   Primary: #FAFAFA fill, #09090B label, asymmetric padding (icon slot right),
+   single inset highlight; hover = brand accent fill. */
+.sw-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: inherit;
+  touch-action: manipulation;
+  user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sw-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px #09090B, 0 0 0 4px var(--frame-accent);
+}
+
+.sw-btn-primary {
+  background-color: #FAFAFA;
+  color: #09090B;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  box-shadow: none;
+}
+
+@media (hover: hover) {
+  .sw-btn-primary:hover {
+    background-color: #FFFFFF;
+    color: #09090B;
+    transform: scale(1.02);
+  }
+}
+
+.sw-btn-primary-sm {
+  background-color: #FAFAFA;
+  color: #09090B;
+  height: 38px;
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 9999px;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.sw-btn-outline {
+  background-color: rgba(255, 255, 255, 0.03);
+  color: #FAFAFA;
+  height: 48px;
+  min-height: 48px;
+  padding: 0 24px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  backdrop-filter: blur(4px);
+}
+
+@media (hover: hover) {
+  .sw-btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.sw-btn-filled {
+  background-color: #9333EA;
+  color: #FFFFFF;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@media (hover: hover) {
+  .sw-btn-filled:hover {
+    background-color: #A855F7;
+  }
+}
+
+.sw-btn-text {
+  background-color: transparent;
+  color: #A1A1AA;
+  height: 47.5px;
+  padding: 12px 0;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+}
+
+@media (hover: hover) {
+  .sw-btn-text:hover {
+    color: #FAFAFA;
+  }
+}
+
+.sw-btn-text-sm {
+  background-color: transparent;
+  color: #A1A1AA;
+  height: 35.5px;
+  padding: 8px 16px;
+  border-radius: 0;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Frame Cipher Design System — Sovereign Craft Utilities (Linear / Raycast)
+   ========================================================================== */
+
+/* Linear Laser Sheen Interactive Card */
+.fc-laser-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: var(--frame-surface-1, #121214);
+  transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.fc-laser-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+.fc-laser-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.fc-laser-card:hover::before {
+  opacity: 1;
+}
+
+/* Static Laser Top Border Sheen */
+.fc-laser-sheen {
+  position: relative;
+}
+.fc-laser-sheen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(168, 85, 247, 0.4), transparent);
+  pointer-events: none;
+}
+
+/* Floating Frosted Capsule Pill Badge */
+.fc-frosted-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.04);
+  padding: 0.25rem 0.75rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #A1A1AA;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+}
+
+/* Metallic Sheen Display Gradient Heading */
+.fc-metallic-heading {
+  color: #FFFFFF;
+}
+
+/* Ambient Section Glow Background */
+.fc-section-ambient {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(141, 167, 184, 0.06), transparent 70%);
+}
+
+/* Public-site art direction: quiet, editorial surfaces. These rules sit after
+   Tailwind utilities so route-level pages inherit one coherent visual system. */
+.public-site-shell header {
+  background: rgba(9, 9, 11, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: none;
+}
+
+.public-site-shell .sw-btn-primary,
+.public-site-shell .sw-btn-outline {
+  border-radius: 9999px;
+}
+
+.public-site-shell [class*='bg-clip-text'] {
+  background-image: none !important;
+  color: var(--frame-accent) !important;
+  -webkit-text-fill-color: currentColor;
+}
+
+.public-site-shell [class*='transition-all'] {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter;
+}
+
+.public-site-shell h1,
+.public-site-shell h2,
+.public-site-shell h3,
+.public-site-shell h4 {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .public-site-shell {
+    scroll-behavior: auto !important;
+  }
+}
+
+/* SoftWeb heading utilities (§3) — sizes ride the clamp tokens above. */
+.fc-h-display {
+  font-size: var(--fc-display-scale);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.fc-h-display-lg {
+  font-size: var(--fc-display-lg);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+.fc-h-heading {
+  font-size: var(--fc-heading-scale);
+  line-height: 1.15;
+  letter-spacing: -0.025em;
 }
 
 html,
@@ -88,24 +366,46 @@ input,
 select,
 textarea,
 button {
+  max-width: 100% !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+select {
+  text-overflow: ellipsis !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+}
+
+select option,
+select optgroup {
   max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 body {
   background: var(--frame-bg);
   color: var(--frame-fg);
-  font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  /* SoftWeb type scale: default body/nav register = 16px / lh 1.65 ({body-lg}/{nav}) */
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-family: 'Geist', 'Inter', sans-serif;
+  /* SoftWeb headings max out at weight 500; per-size tracking is set by the
+     scale rules below (unlayered CSS wins over utility layers by design). */
+  font-weight: 500;
+  letter-spacing: -0.02em; /* heading-xs default (-0.48px @ 24px) */
 }
 
-.font-quote {
-  font-family: 'Fraunces', Georgia, serif;
-}
+.font-quote { font-family: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
 
 /* Grid items must be able to shrink below their text's intrinsic width. */
 main .grid > *,
@@ -118,36 +418,230 @@ main .grid > *,
   overflow-wrap: anywhere;
 }
 
-/* Keep every service page on the same type scale as the home page. */
+/* Keep every service page on the SoftWeb type scale (MAIN-UI-UX-DESIGN-PROMPT.md §3):
+   display sizes cap at 96px (44px @ 375px), weight 500, lh 0.96, -3.84px @ 96px. */
 .service-experience h2,
 .service-page h2 {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-size: clamp(2.4rem, 7vw, 6.5rem);
-  font-weight: 700;
-  line-height: 0.85;
-  letter-spacing: -0.05em;
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-size: var(--fc-display-lg, clamp(2.25rem, 4.2vw + 0.75rem, 4rem));
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
   text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* Headings inside constrained/split grid columns (e.g. 5-col sticky sidebars in Modality 4) */
+.service-experience .lg\:col-span-5 h2,
+.service-page .lg\:col-span-5 h2,
+.service-experience .split-column h2,
+.service-page .split-column h2 {
+  font-size: clamp(1.75rem, 2.4vw + 0.5rem, 2.75rem) !important;
+  line-height: 1.05 !important;
+  letter-spacing: -0.025em !important;
 }
 
 .service-experience h3,
 .service-page h3 {
-  font-family: 'Space Grotesk', 'Inter', sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.045em;
+  font-family: 'Geist', 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.025em; /* heading-md register: -0.90px @ 36px */
 }
 
-/* Decorative process numerals stay behind card content and never reduce legibility. */
-.service-page .relative.overflow-hidden > [aria-hidden='true'],
-.service-experience .relative.overflow-hidden > [aria-hidden='true'] {
+/* Bengali ascenders and vowel marks need room; never force uppercase. */
+:lang(bn) h1,
+:lang(bn) h2,
+:lang(bn) h3,
+:lang(bn) h4,
+:lang(bn) p,
+:lang(bn) a,
+:lang(bn) span,
+:lang(bn) li {
+  text-transform: none;
+}
+
+:lang(bn) h1,
+:lang(bn) h2,
+:lang(bn) h3,
+:lang(bn) h4 {
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+/* Decorative process numerals stay behind card content and never reduce legibility.
+   Explicitly exclude marquee tracks, tickers, and ambient animation canvases. */
+.service-page .relative.overflow-hidden > [aria-hidden='true']:not([class*='marquee']):not([class*='track']):not([class*='canvas']):not([class*='ambient']),
+.service-experience .relative.overflow-hidden > [aria-hidden='true']:not([class*='marquee']):not([class*='track']):not([class*='canvas']):not([class*='ambient']) {
   z-index: 0;
   opacity: 0.14;
   pointer-events: none;
 }
 
-.service-page .relative.overflow-hidden > :not([aria-hidden='true']),
-.service-experience .relative.overflow-hidden > :not([aria-hidden='true']) {
+/* Marquee tickers: Guarantee 100% full opacity, vivid white typography, and prominent dot accents across all pages */
+.service-page .kinetic-marquee,
+.service-experience .kinetic-marquee,
+.service-page .kinetic-marquee [aria-hidden='true'],
+.service-experience .kinetic-marquee [aria-hidden='true'],
+.service-page .kinetic-marquee-track,
+.service-experience .kinetic-marquee-track,
+.service-page .fc-marquee,
+.service-experience .fc-marquee,
+.service-page .fc-marquee-track,
+.service-experience .fc-marquee-track {
+  opacity: 1 !important;
+  pointer-events: auto;
+}
+
+.service-page .kinetic-marquee-track span,
+.service-experience .kinetic-marquee-track span,
+.service-page .fc-marquee-track span,
+.service-experience .fc-marquee-track span {
+  opacity: 1 !important;
+}
+
+.service-page .relative.overflow-hidden > :not([aria-hidden='true']):not(.absolute),
+.service-experience .relative.overflow-hidden > :not([aria-hidden='true']):not(.absolute) {
   position: relative;
   z-index: 1;
+}
+
+/* App hero media must stay above the dark hardware frame and ambient layers. */
+.service-page .app-hero-visual img,
+.service-experience .app-hero-visual img {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  z-index: 1 !important;
+}
+
+/* Android service route: keep the presentation layer on the SoftWeb architectural
+   rhythm without changing any rendered copy or data. */
+.android-service-page section .grid:has(> div[class*='rounded-2xl']) {
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.android-service-page section .grid:has(> div[class*='rounded-2xl']) > div[class*='rounded-2xl'] {
+  border-radius: 0 !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  border-top: 0;
+  border-left: 0;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none !important;
+}
+
+.android-service-page [class*='shadow-'] {
+  box-shadow: none !important;
+}
+
+.android-service-page [class*='border-purple-'] {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.android-service-page [class*='hover:border-purple-']:hover {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.android-service-page section:not(.android-hero-section):not(.android-metrics-band):not(.android-cta-section) {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.android-service-page .android-cta-section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .android-service-page section:not(.android-hero-section):not(.android-metrics-band):not(.android-cta-section) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+  .android-service-page .android-cta-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* SEO pillar route: translate the legacy frame-token presentation into the
+   current SoftWeb system while leaving all SEO copy and data untouched. */
+.seo-service-page [class*='max-w-[95vw]'] {
+  max-width: 80rem !important;
+}
+
+.seo-service-page [class*='border-frame-border'] {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.seo-service-page [class*='border-2'] {
+  border-width: 1px !important;
+}
+
+.seo-service-page [class*='bg-frame-bg'] {
+  background-color: #09090B !important;
+}
+
+.seo-service-page [class*='bg-frame-muted/10'] {
+  background-color: #121214 !important;
+}
+
+.seo-service-page [class*='bg-frame-muted/30'] {
+  background-color: #09090B !important;
+}
+
+.seo-service-page [class*='text-frame-fg'] {
+  color: #FAFAFA !important;
+}
+
+.seo-service-page [class*='text-frame-muted-fg'] {
+  color: #D4D4D8 !important;
+}
+
+.seo-service-page [class*='shadow-'] {
+  box-shadow: none !important;
+}
+
+.seo-service-page [class*='hover:border-frame-accent']:hover {
+  border-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+.seo-service-page .grid:has(> div[class*='bg-frame-bg']) {
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seo-service-page .grid:has(> div[class*='bg-frame-bg']) > div[class*='bg-frame-bg'] {
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.seo-service-page .seo-page-hero .flex.w-full.flex-col.items-center.text-center {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.seo-service-page .seo-page-hero {
+  background: #09090B !important;
+  padding-top: 7rem !important;
+  padding-bottom: 4rem !important;
+}
+
+.seo-service-page .seo-page-hero .mt-8.flex.max-w-4xl.flex-col.items-center {
+  align-items: flex-start;
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  .seo-service-page .seo-page-hero {
+    padding-top: 8rem !important;
+    padding-bottom: 6rem !important;
+  }
 }
 
 main a {
@@ -397,6 +891,294 @@ main.service-experience table tbody tr,
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
+/* ==========================================================================
+   Frame Cipher Kinetic — new work
+   These rules are separate from the frozen .kinetic-marquee* system above.
+   They must never be applied to logo tracks or their ancestors.
+   ========================================================================== */
+
+@keyframes fcMarqueeLTR {
+  from {
+    transform: translate3d(-50%, 0, 0);
+  }
+  to {
+    transform: translate3d(0%, 0, 0);
+  }
+}
+
+@keyframes fcMarqueeRTL {
+  from {
+    transform: translate3d(0%, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.fc-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.fc-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: fcMarqueeLTR 34s linear infinite;
+  animation-delay: 0s;
+}
+
+.fc-marquee-track-reverse {
+  animation-name: fcMarqueeRTL;
+}
+
+.fc-marquee[data-fc-marquee-paused='true'] .fc-marquee-track {
+  animation-play-state: paused;
+}
+
+/* Poster type: rectangular, tightly tracked, never clipped.
+   SoftWeb display register: weight 500, lh 0.96, -3.84px @ 96px (-0.04em). */
+.fc-display {
+  font-family: var(--font-heading), 'Geist', 'Inter', sans-serif;
+  font-weight: 500;
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+
+/* Purple feature rows only light up on pointers that can actually hover. */
+.fc-feature-row {
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .fc-feature-row:hover {
+    background-color: var(--frame-accent);
+    border-color: var(--frame-accent);
+    color: var(--frame-on-accent);
+  }
+
+  .fc-feature-row:hover :is(.fc-feature-title, .fc-feature-body, .fc-feature-eyebrow, .fc-feature-marker, h2, h3, h4, p, span, a):not(.fc-reading-panel *):not(.fc-reading-panel) {
+    color: var(--frame-on-accent) !important;
+  }
+
+  .fc-feature-row:hover .fc-reading-panel {
+    background-color: var(--frame-bg) !important;
+    color: var(--frame-fg) !important;
+  }
+
+  .fc-feature-row:hover .fc-reading-panel p {
+    color: var(--frame-muted-fg) !important;
+  }
+
+  /* Universal safeguard against text wash-out on purple hover */
+  [class*='hover:bg-frame-accent']:hover :is(.text-frame-accent, [class*='text-frame-accent']):not(.fc-reading-panel *),
+  [class*='hover:bg-frame-accent']:hover :is(.text-frame-muted-fg, [class*='text-frame-muted']):not(.fc-reading-panel *) {
+    color: var(--frame-on-accent) !important;
+  }
+}
+
+/* Editorial photography is monochrome. Screenshots and logos opt out. */
+.fc-editorial-media img,
+img.fc-editorial-media {
+  filter: grayscale(1) contrast(1.04);
+}
+
+/* Focus rings must stay visible when the surface turns purple. */
+.fc-on-accent:focus-visible,
+.fc-on-accent :focus-visible,
+.bg-frame-accent:focus-visible,
+.bg-frame-accent :focus-visible {
+  outline: 2px solid #09090B !important;
+  box-shadow: 0 0 0 2px #FAFAFA !important;
+  outline-offset: 2px !important;
+}
+
+/* Scroll-driven heading motion & drift: applied strictly to heading elements only */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .fc-scroll-heading {
+      animation: fcHeadingRise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+
+    .fc-hero-line-left {
+      animation: fcHeroDriftLeft linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+
+    .fc-hero-line-right {
+      animation: fcHeroDriftRight linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+
+    .fc-section-title-clip {
+      animation: fcTitleClip linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 40%;
+    }
+  }
+}
+
+@keyframes fcHeadingRise {
+  from {
+    opacity: 0.35;
+    transform: translateY(1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fcHeroDriftLeft {
+  from {
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
+  to {
+    transform: translate3d(-3%, 0, 0) scaleX(0.97);
+  }
+}
+
+@keyframes fcHeroDriftRight {
+  from {
+    transform: translate3d(0, 0, 0) scaleX(1);
+  }
+  to {
+    transform: translate3d(3%, 0, 0) scaleX(0.97);
+  }
+}
+
+@keyframes fcTitleClip {
+  from {
+    clip-path: inset(0 0 100% 0);
+    opacity: 0.4;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+/* Reading panel: opaque ground, sentence case, 16px, line-height 1.6 */
+.fc-reading-panel {
+  background-color: var(--frame-bg);
+  color: var(--frame-fg);
+  font-family: var(--font-body), 'Geist', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-transform: none;
+}
+
+/* Labels and metadata: 12px, weight 600, 0.08em tracking */
+.fc-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-scroll-heading,
+  .fc-hero-line-left,
+  .fc-hero-line-right,
+  .fc-section-title-clip {
+    animation: none !important;
+    transform: none !important;
+    clip-path: none !important;
+    opacity: 1 !important;
+  }
+
+  .fc-feature-row {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Non-service pages use the SoftWeb display-lg register (64px cap, lh 1.02,
+   -1.92px @ 64px = -0.03em). Content column and rules otherwise unchanged. */
+.about-page h2,
+.contact-page h2,
+.legal-page h2,
+.projects-page h2,
+.case-studies-page h2,
+.studio-page h2 {
+  font-size: clamp(2.25rem, 4.2vw + 0.75rem, 4rem);
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+}
+
+/* Exact visual-token mapping for the non-service page family. */
+.about-page,
+.contact-page,
+.legal-page,
+.projects-page,
+.case-studies-page,
+.studio-page,
+.blog-page,
+.calculator-page,
+.authors-page {
+  background: #09090B;
+  color: #FFFFFF;
+}
+
+.about-page .text-frame-fg,
+.contact-page .text-frame-fg,
+.legal-page .text-frame-fg,
+.projects-page .text-frame-fg,
+.case-studies-page .text-frame-fg,
+.studio-page .text-frame-fg {
+  color: #FFFFFF;
+}
+
+.about-page .text-frame-muted-fg,
+.contact-page .text-frame-muted-fg,
+.legal-page .text-frame-muted-fg,
+.projects-page .text-frame-muted-fg,
+.case-studies-page .text-frame-muted-fg,
+.studio-page .text-frame-muted-fg {
+  color: #A1A1AA;
+}
+
+/* Blog/authors/calculator titles ride the display-xxl scale (96px cap, lh 0.96). */
+.blog-page h1,
+.authors-page h1,
+.calculator-page h1 {
+  font-size: clamp(2.75rem, 5.75vw + 1.4rem, 6rem);
+  line-height: 0.96;
+  letter-spacing: -0.04em;
+}
+
+.blog-page [class*='border-2'],
+.authors-page [class*='border-2'],
+.calculator-page [class*='border-2'] {
+  border-width: 1px;
+  border-radius: 1rem;
+}
+
+.about-page article,
+.contact-page article,
+.legal-page section > div > section,
+.projects-page article,
+.case-studies-page article,
+.studio-page article {
+  border-radius: 1.25rem;
+}
+
+.about-page [class*='border-2'],
+.contact-page [class*='border-2'],
+.legal-page [class*='border-2'],
+.projects-page [class*='border-2'],
+.case-studies-page [class*='border-2'],
+.studio-page [class*='border-2'] {
+  border-width: 1px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -438,7 +1220,7 @@ main.service-experience table tbody tr,
    ========================================================================== */
 .blog-article-content {
   color: var(--color-frame-muted-fg, #A1A1AA);
-  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-family: var(--font-body), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 1.0625rem;
   line-height: 1.8;
   font-weight: 500;
@@ -446,12 +1228,12 @@ main.service-experience table tbody tr,
 }
 
 .blog-article-content :is(p, div, span, li, ol, ul) {
-  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-family: var(--font-body), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   color: var(--color-frame-muted-fg, #A1A1AA);
   font-weight: 500;
 }
 
-/* Headings: Exactly match FrameCipher website (Space Grotesk, Bold, Uppercase, Tracking-Tight) */
+/* Headings: match the site-wide SoftWeb register (Geist, 500, Uppercase, spec tracking) */
 .blog-article-content h1,
 .blog-article-content h2,
 .blog-article-content h3,
@@ -459,19 +1241,19 @@ main.service-experience table tbody tr,
 .blog-article-content h5,
 .blog-article-content h6,
 .blog-article-content :is(h1, h2, h3, h4, h5, h6) * {
-  font-family: var(--font-heading), "Space Grotesk", "Inter", sans-serif !important;
+  font-family: var(--font-heading), "Geist", "Inter", sans-serif !important;
   color: var(--color-frame-fg, #FAFAFA) !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   text-transform: uppercase !important;
-  letter-spacing: -0.03em !important;
+  letter-spacing: -0.02em !important;
   text-align: left !important;
   border: 0;
   padding-bottom: 0;
 }
 
 .blog-article-content h1 {
-  font-size: clamp(2.25rem, 5vw, 3.25rem) !important;
-  line-height: 1.05 !important;
+  font-size: clamp(2.25rem, 5vw, 4rem) !important; /* display-lg cap: 64px */
+  line-height: 0.96 !important;
   letter-spacing: -0.04em !important;
   margin-top: 3.5rem !important;
   margin-bottom: 1.25rem !important;
@@ -479,18 +1261,18 @@ main.service-experience table tbody tr,
 }
 
 .blog-article-content h2 {
-  font-size: clamp(1.75rem, 3.8vw, 2.35rem) !important;
-  line-height: 1.12 !important;
-  letter-spacing: -0.035em !important;
+  font-size: clamp(1.75rem, 3.8vw, 2.25rem) !important; /* heading-md cap: 36px */
+  line-height: 1.15 !important;
+  letter-spacing: -0.025em !important;
   margin-top: 3.25rem !important;
   margin-bottom: 1.25rem !important;
   display: block;
 }
 
 .blog-article-content h3 {
-  font-size: clamp(1.35rem, 2.6vw, 1.75rem) !important;
-  line-height: 1.22 !important;
-  letter-spacing: -0.03em !important;
+  font-size: clamp(1.35rem, 2.6vw, 1.875rem) !important; /* heading-sm cap: 30px */
+  line-height: 1.4 !important;
+  letter-spacing: 0px !important;
   margin-top: 2.5rem !important;
   margin-bottom: 1rem !important;
   display: block;
@@ -515,9 +1297,9 @@ main.service-experience table tbody tr,
   display: block;
 }
 
-/* Paragraphs & text matching website font-body Montserrat font-medium (500) text-frame-muted-fg */
+/* Paragraphs & text matching website font-body Geist font-medium (500) text-frame-muted-fg */
 .blog-article-content p {
-  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-family: var(--font-body), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   font-size: 1.0625rem !important;
   font-weight: 500 !important;
   line-height: 1.8 !important;
@@ -550,7 +1332,7 @@ main.service-experience table tbody tr,
 .blog-article-content b,
 .blog-article-content strong *,
 .blog-article-content b * {
-  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
+  font-family: var(--font-body), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   color: #FAFAFA !important;
   font-weight: 700 !important;
 }
@@ -596,7 +1378,7 @@ main.service-experience table tbody tr,
 }
 
 .blog-article-content blockquote {
-  font-family: var(--font-quote), "Fraunces", Georgia, serif !important;
+  font-family: var(--font-quote) !important;
   font-style: italic !important;
   font-size: 1.25rem !important;
   line-height: 1.65 !important;
@@ -746,8 +1528,8 @@ div[contenteditable="true"] a:hover *,
   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-heading), "Space Grotesk", sans-serif !important;
-  font-weight: 700 !important;
+  font-family: var(--font-heading), "Geist", sans-serif !important;
+  font-weight: 500 !important;
   text-decoration: none !important;
   text-transform: uppercase !important;
   letter-spacing: 0.05em !important;
@@ -923,7 +1705,7 @@ div[contenteditable="true"] a:hover *,
 .blog-article-content th {
   color: #FAFAFA !important;
   font-weight: 700 !important;
-  font-family: var(--font-heading), "Space Grotesk", sans-serif !important;
+  font-family: var(--font-heading), "Geist", sans-serif !important;
   font-size: 0.75rem !important;
   text-transform: uppercase !important;
   letter-spacing: 0.08em !important;
@@ -1008,13 +1790,13 @@ div[contenteditable="true"] a:hover *,
 .admin-editor-canvas,
 div[contenteditable="true"] {
   color: #0F172A;
-  font-family: var(--font-body), "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body), "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 1rem;
   line-height: 1.75;
 }
 
 div[contenteditable="true"] h1 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Geist", sans-serif;
   color: #0F172A;
   font-size: 2.25rem;
   font-weight: 700;
@@ -1025,7 +1807,7 @@ div[contenteditable="true"] h1 {
 }
 
 div[contenteditable="true"] h2 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Geist", sans-serif;
   color: #0F172A;
   font-size: 1.75rem;
   font-weight: 700;
@@ -1036,7 +1818,7 @@ div[contenteditable="true"] h2 {
 }
 
 div[contenteditable="true"] h3 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Geist", sans-serif;
   color: #0F172A;
   font-size: 1.4rem;
   font-weight: 700;
@@ -1047,7 +1829,7 @@ div[contenteditable="true"] h3 {
 }
 
 div[contenteditable="true"] h4 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Geist", sans-serif;
   color: #0F172A;
   font-size: 1.2rem;
   font-weight: 700;
@@ -1058,7 +1840,7 @@ div[contenteditable="true"] h4 {
 }
 
 div[contenteditable="true"] h5 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Geist", sans-serif;
   color: #1E293B;
   font-size: 1.05rem;
   font-weight: 700;
@@ -1069,7 +1851,7 @@ div[contenteditable="true"] h5 {
 }
 
 div[contenteditable="true"] h6 {
-  font-family: var(--font-heading), "Space Grotesk", sans-serif;
+  font-family: var(--font-heading), "Geist", sans-serif;
   color: #334155;
   font-size: 0.95rem;
   font-weight: 700;
@@ -1386,3 +2168,202 @@ div[contenteditable="true"] .wp-block-button-wrapper {
 }
 
 
+
+/* ==========================================================================
+   Frame Cipher 2026 Dark Cyber-Luxury UI/UX Engine Enhancements
+   ========================================================================== */
+
+/* Modern Sleek Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9333ea;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+}
+
+/* Luxury Accent Selection */
+::selection {
+  background: rgba(168, 85, 247, 0.35);
+  color: #ffffff;
+}
+
+/* Cyber-Luxury Subtle Grid Overlay */
+.fc-grid-pattern {
+  background-size: 56px 56px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* Ambient Radial Lighting Helpers */
+.fc-radial-ambient {
+  background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(168, 85, 247, 0.18), transparent 70%);
+}
+
+/* Checkout funnel chip highlight (cycled by chip-sequence.tsx) */
+.fc-chip {
+  transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fc-chip-active {
+  border-color: rgba(168, 85, 247, 0.55) !important;
+  background-color: rgba(168, 85, 247, 0.12) !important;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.22);
+}
+
+/* Blueprint wireframe label (blueprint-bg.tsx) */
+.fc-blueprint-label {
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  fill: rgba(168, 85, 247, 0.75);
+}
+
+.fc-radial-center {
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(168, 85, 247, 0.12), transparent 70%);
+}
+
+/* Luxury Glassmorphic Surface */
+.fc-glass-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.36);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fc-glass-card:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-color: rgba(168, 85, 247, 0.45);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 48px -10px rgba(168, 85, 247, 0.18), 0 1px 0 rgba(255, 255, 255, 0.1) inset;
+}
+
+/* Button Shimmer Animation */
+@keyframes fcButtonShimmer {
+  0% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.fc-shimmer-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.fc-shimmer-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  transform: translateX(-150%) skewX(-20deg);
+  pointer-events: none;
+}
+
+.fc-shimmer-btn:hover::after {
+  animation: fcButtonShimmer 1.1s ease-in-out;
+}
+
+/* Glow Badge Utility */
+.fc-badge-glow {
+  box-shadow: 0 0 16px rgba(168, 85, 247, 0.2);
+}
+
+/* Smooth Image Scale on Hover */
+.fc-hover-zoom {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .fc-hover-zoom {
+  transform: scale(1.05);
+}
+
+/* ==========================================================================\n+   Services section canonicalization\n+   Presentation-only guardrails for every service route. These rules keep the\n+   many content-rich page variants on one architectural system while leaving\n+   their copy, order, links, and interactions intact.\n+   ========================================================================== */
+.service-page,
+.service-experience {
+  --service-container: 80rem;
+  background-color: #09090B;
+  color: #FAFAFA;
+}
+
+.service-page > section,
+.service-experience > section {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.service-page [class*="max-w-[95vw]"],
+.service-experience [class*="max-w-[95vw]"],
+.service-page .max-w-8xl,
+.service-experience .max-w-8xl {
+  max-width: var(--service-container) !important;
+}
+
+.service-page section:not(.kinetic-marquee),
+.service-experience section {
+  scroll-margin-top: 6rem;
+}
+
+.service-page h1,
+.service-experience h1 {
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.service-page h2,
+.service-experience h2 {
+  text-transform: none;
+}
+
+.service-page input,
+.service-page select,
+.service-page textarea,
+.service-experience input,
+.service-experience select,
+.service-experience textarea {
+  border-radius: 0.5rem;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  background-color: #121214 !important;
+}
+
+.service-page a[class*="rounded-full"],
+.service-page button[class*="rounded-full"],
+.service-experience a[class*="rounded-full"],
+.service-experience button[class*="rounded-full"] {
+  min-height: 52px;
+  height: 52px;
+}
+
+@media (max-width: 767px) {
+  .service-page > section,
+  .service-experience > section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .service-page h1,
+  .service-experience h1 {
+    font-size: clamp(2.75rem, 12vw, 4.5rem);
+    line-height: 0.98;
+  }
+}

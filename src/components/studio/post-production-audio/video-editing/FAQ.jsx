@@ -17,7 +17,7 @@ const faqs = [
   },
   {
     "question": "Can you cut long videos into vertical shorts?",
-    "answer": "Yes. We ingest 1–2 hour podcasts or webinars and extract hook-first 9:16 cutdowns with kinetic subtitles, zoom cuts and sound effects for Reels, TikTok and YouTube Shorts."
+    "answer": "Yes. We ingest 1 to 2 hour podcasts or webinars and extract hook-first 9:16 cutdowns with kinetic subtitles, zoom cuts and sound effects for Reels, TikTok and YouTube Shorts."
   },
   {
     "question": "Is the background music copyright-safe?",
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     "question": "How fast can you deliver?",
-    "answer": "Standard edits deliver in 3–5 working days from verified intake. Express 48-hour delivery is available at a 30% priority fee, and proxy previews are available within 24 hours."
+    "answer": "Standard edits deliver in 3 to 5 working days from verified intake. Express 48-hour delivery is available at a 30% priority fee, and proxy previews are available within 24 hours."
   },
   {
     "question": "Do you add Bangla and English captions?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Costs, handoffs, cutdowns, revisions and booking — everything about video editing at FrameCipher Studio.
+          Costs, handoffs, cutdowns, revisions and booking: everything about video editing at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -1,8 +1,8 @@
 'use client'
 
+import React from 'react'
 import Link from 'next/link'
 import { Clock, Users, Wrench, Film, Palette, Zap, ArrowRight } from 'lucide-react'
-import { SectionIntro } from '../Kinetic'
 import { hubRateCard } from '../../data/studioPackages'
 
 const rateLinks = {
@@ -52,41 +52,60 @@ const quoteFactors = [
 
 function RateCardTable() {
   return (
-    <div className="overflow-hidden border-2 border-frame-border">
-      <div className="hidden grid-cols-[1.2fr_0.6fr_0.4fr] gap-4 border-b-2 border-frame-border bg-frame-muted/20 px-6 py-4 text-xs font-black uppercase tracking-widest text-frame-muted-fg md:grid">
-        <span>Service</span>
-        <span>Indicative rate</span>
-        <span className="text-right">Details</span>
+    <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
+      <div className="hidden grid-cols-[1.3fr_0.7fr_0.4fr] gap-4 border-b border-white/[0.08] bg-[#18181B] px-6 py-4 font-mono text-xs uppercase tracking-wider text-frame-accent md:grid">
+        <span>Production Discipline</span>
+        <span>Indicative Baseline Rate</span>
+        <span className="text-right">Inspection</span>
       </div>
-      {hubRateCard.map(([service, rate], i) => (
-        <Link
-          key={i}
-          href={rateLinks[i] || '/studio/'}
-          className="grid grid-cols-1 gap-1 border-b border-frame-border/50 px-6 py-4 transition-colors last:border-0 hover:bg-frame-muted/20 md:grid-cols-[1.2fr_0.6fr_0.4fr] md:items-center md:gap-4"
-        >
-          <span className="text-sm font-bold text-frame-fg">{service}</span>
-          <span className="text-sm font-black text-frame-accent">{rate}</span>
-          <span className="flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-frame-muted-fg md:justify-end">
-            {serviceAnchors[i] || 'Studio service'} <ArrowRight className="h-3 w-3" />
-          </span>
-        </Link>
-      ))}
+      <div className="divide-y divide-white/[0.08]">
+        {hubRateCard.map(([service, rate], i) => (
+          <Link
+            key={i}
+            href={rateLinks[i] || '/studio/'}
+            className="grid grid-cols-1 gap-2 p-5 transition-colors hover:bg-white/[0.02] md:grid-cols-[1.3fr_0.7fr_0.4fr] md:items-center md:gap-4 md:px-6 md:py-4"
+          >
+            <span className="font-heading text-sm font-medium text-white">
+              {service}
+            </span>
+            <span className="font-mono text-sm text-zinc-300">
+              {rate}
+            </span>
+            <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-frame-accent md:justify-end">
+              <span>{serviceAnchors[i] || 'Studio service'}</span>
+              <ArrowRight className="h-3 w-3" />
+            </span>
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }
 
 function QuoteFactorsGrid() {
   return (
-    <div className="mt-14 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-8 grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
       {quoteFactors.map((item, i) => {
         const Icon = item.icon
         return (
-          <div key={i} className="group bg-frame-bg p-6 transition-colors duration-300 hover:bg-frame-muted/30 md:p-8">
-            <div className="flex h-10 w-10 items-center justify-center border border-frame-border bg-frame-muted/40 text-frame-accent transition-colors group-hover:border-frame-accent group-hover:bg-frame-accent group-hover:text-frame-accent-fg">
-              <Icon className="h-5 w-5" />
+          <div
+            key={i}
+            className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02]"
+          >
+            <div>
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
+                <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                  Factor 0{i + 1}
+                </span>
+                <Icon className="h-4 w-4 text-zinc-500 group-hover:text-frame-accent transition-colors" />
+              </div>
+              <h3 className="font-heading text-lg font-medium text-white">
+                {item.factor}
+              </h3>
+              <p className="mt-2 text-sm font-normal leading-relaxed text-zinc-300">
+                {item.why}
+              </p>
             </div>
-            <h3 className="mt-5 font-heading text-lg font-bold uppercase tracking-tight text-frame-fg md:text-xl">{item.factor}</h3>
-            <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.why}</p>
           </div>
         )
       })}
@@ -96,18 +115,32 @@ function QuoteFactorsGrid() {
 
 export default function StudioPricing() {
   return (
-    <section id="pricing" className="border-b-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="Rate card" title="Studio rate card (BDT, indicative)." index="05">
-          Every quote is itemised in writing within 48 hours, covering crew, days, deliverables and timeline.
-        </SectionIntro>
-        <RateCardTable />
-        <div className="mb-14 mt-16 max-w-4xl">
-          <p className="mb-3 text-xs font-black uppercase tracking-[0.28em] text-frame-accent md:text-sm">Cost drivers</p>
-          <h2 className="font-heading text-[clamp(2rem,5vw,4rem)] font-bold uppercase leading-[0.9] tracking-tighter text-frame-fg">
-            What moves a quote up or down
-          </h2>
+    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Header */}
+        <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Studio rates &amp;{' '}
+              <span className="italic text-frame-accent">pricing parameters.</span>
+            </h2>
+          </div>
+          <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
+            Transparent baseline fees across all studio and post-production disciplines. Every shoot receives an itemised written quotation before confirmation.
+          </p>
         </div>
+
+        {/* Architectural Rate Card Table */}
+        <RateCardTable />
+
+        {/* Quote Variables Headline */}
+        <div className="mt-16 mb-6">
+          <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+            Six variables that determine your final investment
+          </h3>
+        </div>
+
+        {/* Modality 3 Blueprint Matrix for Factors */}
         <QuoteFactorsGrid />
       </div>
     </section>

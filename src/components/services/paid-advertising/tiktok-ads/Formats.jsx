@@ -1,67 +1,88 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { Video, Flame, ShoppingBag, Sparkles, UserCheck, TrendingUp, Store } from 'lucide-react'
 
 const formats = [
   {
-    title: 'In-Feed Ads',
-    body: 'In-Feed Ads appear within the TikTok content experience and are suitable for awareness, traffic, lead generation, sales, and other campaign goals depending on the available setup. We build creative specifically for the feed rather than treating TikTok as another display advertising placement.',
+    icon: Video,
+    name: 'In-Feed Video Ads',
+    badge: 'Native Feed Placement',
+    desc: 'Appear seamlessly within the user For You feed. Engineered with high-pacing native visuals for traffic, app growth, leads, and direct checkouts.',
   },
   {
-    title: 'Spark Ads',
-    body: 'Spark Ads let brands promote eligible organic TikTok posts or creator content as paid advertising. They can be useful when an existing post already provides a strong creative foundation.',
+    icon: Flame,
+    name: 'Spark Ads',
+    badge: 'Organic Post Amplification',
+    desc: 'Promote eligible organic TikTok videos from your brand or creators, preserving social proof, comments, and authentic creator identity.',
   },
   {
-    title: 'Catalog Ads',
-    body: 'Catalog Ads use product information to support ecommerce and app-related advertising workflows. We can help structure product feeds, product sets, events, creative variations, and retargeting campaigns around the available catalog setup.',
+    icon: ShoppingBag,
+    name: 'Catalog & Shopping Ads',
+    badge: 'Dynamic Merchant Feeds',
+    desc: 'Dynamically showcase real-time product inventory, custom pricing cards, and personalized recommendations for ecommerce acquisition and retargeting.',
   },
   {
-    title: 'Smart+ Campaigns',
-    body: 'Smart+ uses TikTok\u2019s automation capabilities to streamline campaign setup and optimize delivery. We evaluate Smart+ based on the campaign objective, conversion data, creative assets, market, and level of control required rather than treating automation as a universal solution.',
+    icon: Sparkles,
+    name: 'Smart+ Automated Campaigns',
+    badge: 'Machine-Learned Delivery',
+    desc: 'Automates creative permutation testing, real-time bid pacing, and audience matching across Traffic, Lead Gen, and Sales objectives.',
   },
   {
-    title: 'Lead Generation Ads',
-    body: 'Lead campaigns can help businesses collect prospect information directly through TikTok or drive prospects toward an appropriate conversion destination. We focus on both lead volume and lead quality, including the handoff from advertising to sales.',
+    icon: UserCheck,
+    name: 'Lead Generation Ads',
+    badge: 'In-App Instant Forms',
+    desc: 'Capture qualified prospect inquiries directly inside TikTok with pre-populated instant forms, CRM webhook syncing, and lead verification.',
   },
   {
-    title: 'Sales Campaigns',
-    body: 'Sales campaigns are designed to drive measurable purchase actions through supported destinations such as websites, apps, or eligible TikTok Shop setups. TikTok\u2019s current Sales objective covers website, app, website-and-app, and eligible TikTok Shop destinations, with availability depending on the account and market.',
+    icon: TrendingUp,
+    name: 'Conversion Sales Campaigns',
+    badge: 'Website & App Purchases',
+    desc: 'Drive measurable transactions across websites and apps, using Value-Based Bidding (VBB) and server-side Events API optimization.',
   },
   {
-    title: 'TikTok Shop Ads Where Available',
-    body: 'For eligible TikTok Shop markets, TikTok currently supports Shop Ads formats including Video Shopping Ads, LIVE Shopping Ads, and Product Shopping Ads. TikTok states that GMV Max became the default and only supported campaign type for TikTok Shop Ads from July 2025. We manage Shop advertising only where the feature and account eligibility support it.',
+    icon: Store,
+    name: 'TikTok Shop & GMV Max',
+    badge: 'In-Platform Commerce',
+    desc: 'For supported international markets: Video Shopping Ads, LIVE Shopping, and GMV Max campaigns driving frictionless in-app checkout.',
   },
 ]
 
 export default function Formats() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Campaign types"
-          title="TikTok Ad Formats and Campaign Types We Manage"
-        >
-          We choose the format around the campaign objective, the audience, and the available
-          account and market setup rather than forcing every campaign into one template.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            TikTok Ad Formats &amp;{' '}
+            <span className="italic text-frame-accent">Campaign Types.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            We deploy the optimal ad format for your commercial model—from standard In-Feed videos to Spark Ads, Dynamic Catalogs, and Smart+ campaigns.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {formats.map((item, index) => (
-            <div
-              key={index}
-              className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent"
-            >
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Format 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl md:text-2xl font-bold uppercase tracking-tight text-frame-fg">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {item.body}
-                </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {formats.map((f, idx) => {
+            const Icon = f.icon
+            return (
+              <div
+                key={f.name}
+                className={`rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B] flex flex-col justify-between ${
+                  idx === 6 ? 'md:col-span-2 lg:col-span-1' : ''
+                }`}
+              >
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white mb-2">
+                    {f.name}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {f.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

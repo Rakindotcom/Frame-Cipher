@@ -1,63 +1,82 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
 
-const capabilities = [
+import React from 'react'
+import { Search, Briefcase, ShoppingBag, Sparkles } from 'lucide-react'
+
+const pillars = [
   {
+    icon: Search,
     title: 'Microsoft Search Network',
-    body: 'Search campaigns can reach users searching through Bing and Microsoft\u2019s wider search partnerships. Actual reach varies by market and campaign settings, so we assess available search demand before recommending a dedicated budget.',
+    desc: 'Capture commercial search queries across Bing, Yahoo, DuckDuckGo, and partner syndication networks with lower auction CPCs.',
   },
   {
+    icon: Briefcase,
     title: 'LinkedIn Profile Targeting',
-    body: 'Microsoft Advertising offers LinkedIn Profile Targeting that can use professional attributes such as company, industry, and job function. Microsoft has also expanded its professional targeting options to include Job Seniority for eligible campaigns. This can be particularly useful for B2B campaigns where professional audience signals add useful context to search and audience strategies.',
+    desc: 'Exclusively overlay professional B2B attributes—company, industry, job function, and seniority levels—directly onto search queries.',
   },
   {
-    title: 'Microsoft Audience Network',
-    body: 'Microsoft also supports display and native advertising across properties such as MSN, Microsoft Edge, Outlook, and other Microsoft environments. Audience campaigns can use remarketing and additional audience signals where appropriate.',
+    icon: ShoppingBag,
+    title: 'Microsoft Shopping & Retail',
+    desc: 'Connect product feeds with visual merchant catalog placements across Bing search results and Microsoft Edge shopping hubs.',
   },
   {
-    title: 'Microsoft Shopping',
-    body: 'For ecommerce businesses, Microsoft Advertising can connect product catalogs with Shopping campaigns and related retail advertising workflows.',
-  },
-  {
-    title: 'Performance Max and Search Automation',
-    body: 'Microsoft Performance Max uses automation across Microsoft inventory to optimize toward business objectives. Microsoft also now offers AI Max for Search, which adds AI-powered capabilities such as search-term matching, text customization, and final URL expansion to eligible Search campaigns. We evaluate automation based on campaign objectives, conversion signals, available assets, and the amount of control the account requires.',
+    icon: Sparkles,
+    title: 'Performance Max & AI Max',
+    desc: 'Deploy AI-powered search-term expansion, text customization, and final URL optimization tailored to your margin thresholds.',
   },
 ]
 
 export default function Overview() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro
-          eyebrow="The platform"
-          title="What Makes Microsoft Ads Different From Google Ads?"
-        >
-          Microsoft Ads can complement Google Ads, but the two platforms should not be treated as
-          identical.
-        </SectionIntro>
-        <p className="mb-12 max-w-3xl text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-          Microsoft Advertising combines search inventory with audience, retail, display, and
-          automated campaign solutions. Its search ecosystem includes Bing as well as partner
-          distribution such as Yahoo and DuckDuckGo. Its broader advertising environment also
-          includes Microsoft properties such as MSN, Outlook, and Microsoft Edge. The practical
-          opportunity depends on the market, search volume, audience, campaign objective, and
-          available conversion data.
-        </p>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        {/* SoftWebGrove 2-Column Master Layout */}
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column: Strategic Thesis & Context (6 cols) */}
+          <div className="lg:col-span-6 space-y-6">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              What Makes Microsoft Ads Different From{' '}
+              <span className="italic text-frame-accent">Google Ads?</span>
+            </h2>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {capabilities.map((item) => (
-            <div
-              key={item.title}
-              className="border-2 border-frame-border bg-frame-muted/10 p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-5 h-1.5 w-12 bg-frame-accent" />
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {item.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {item.body}
+            <div className="space-y-4 text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+              <p>
+                Microsoft Ads can complement Google Ads, but the two platforms should not be treated as identical.
+              </p>
+              <p className="text-sm sm:text-base text-zinc-400">
+                Microsoft Advertising combines search inventory with audience, retail, display, and automated campaign solutions. Its search ecosystem includes Bing as well as partner distribution such as Yahoo and DuckDuckGo.
+              </p>
+              <p className="text-sm sm:text-base text-zinc-400">
+                Its broader advertising environment also reaches high-income desktop users across native Microsoft properties such as MSN, Outlook, and Microsoft Edge.
+              </p>
+              <p className="text-xs sm:text-sm font-mono text-zinc-300">
+                <span className="text-frame-accent font-bold mr-1.5">✓</span> Framecipher builds Microsoft advertising around deliberate channel mechanics—adapting bidding, search-term themes, and native LinkedIn professional targeting to generate incremental, lower-CPA customer acquisition.
               </p>
             </div>
-          ))}
+          </div>
+
+          {/* Right Column: 4 Architecture Alignment Vectors (6 cols) */}
+          <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {pillars.map((pillar) => {
+              const Icon = pillar.icon
+              return (
+                <div
+                  key={pillar.title}
+                  className="rounded-xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+                >
+                  <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-frame-accent">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <h3 className="font-heading text-base font-medium text-white mb-2">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+                    {pillar.desc}
+                  </p>
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

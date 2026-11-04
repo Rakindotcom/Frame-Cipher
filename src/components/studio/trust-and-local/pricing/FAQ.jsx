@@ -5,7 +5,7 @@ import { SectionIntro } from '../../../Kinetic'
 const faqs = [
   {
     "question": "How much does studio production cost in Dhaka?",
-    "answer": "Hourly hire runs ৳2,000–4,500, sessions start from ৳7,500, signature productions run ৳45,000–1,85,000, and flagship campaigns are scoped from ৳2,60,000 past ৳12,50,000. Every quote is itemised in writing within 48 hours."
+    "answer": "Hourly hire runs ৳2,000 to 4,500, sessions start from ৳7,500, signature productions run ৳45,000 to 1,85,000, and flagship campaigns are scoped from ৳2,60,000 past ৳12,50,000. Every quote is itemised in writing within 48 hours."
   },
   {
     "question": "Why do you quote from scope instead of fixed packages?",
@@ -21,7 +21,7 @@ const faqs = [
   },
   {
     "question": "What payment methods do you accept?",
-    "answer": "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash — every payment with a formal VAT-compliant invoice for corporate accounting."
+    "answer": "Bank transfers, account payee cheques, bKash Merchant, Nagad and cash: every payment with a formal VAT-compliant invoice for corporate accounting."
   },
   {
     "question": "Are retainers available for recurring content?",
@@ -33,11 +33,11 @@ const faqs = [
   },
   {
     "question": "How do your rates compare to other Dhaka studios?",
-    "answer": "We sit at the equipped middle of every band — never the cheapest quote, always itemised so you can see what the cheaper quote omitted: crew roles, backup power, revisions, licensing and archiving."
+    "answer": "We sit at the equipped middle of every band: never the cheapest quote, always itemised so you can see what the cheaper quote omitted: crew roles, backup power, revisions, licensing and archiving."
   },
   {
     "question": "Where is the studio located?",
-    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — with free walkthroughs by appointment before you commit."
+    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206, with free walkthroughs by appointment before you commit."
   },
   {
     "question": "How do I get a quote?",
@@ -54,7 +54,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Bands, quotes, advances and booking — everything about pricing at FrameCipher Studio.
+          Bands, quotes, advances and booking: everything about pricing at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

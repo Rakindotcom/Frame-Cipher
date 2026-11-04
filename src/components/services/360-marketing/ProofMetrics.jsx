@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { SectionIntro, PosterButton } from '../../Kinetic'
 
 const testimonials = [
@@ -30,52 +29,56 @@ const testimonials = [
 
 export default function ProofMetrics() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Proven Results"
-          title="Real Case Studies &amp; Verified Impact."
+          title={
+            <>
+              Real Case Studies &amp;{' '}
+              <span className="italic text-frame-accent">Verified Impact.</span>
+            </>
+          }
         >
           We judge our 360 marketing systems by revenue generated, audience captured, and commercial
           authority established. Here is what happens when strategy, creative, and distribution unite.
         </SectionIntro>
 
-        {/* 3 Metric Cards */}
-        <div className="grid bg-frame-border gap-px md:grid-cols-3 mb-16">
-          <div className="bg-frame-bg p-8 text-center md:text-left">
-            <p className="font-heading text-6xl font-bold uppercase tracking-tighter text-frame-accent">
+        {/* 3 Metric Columns (Modality 2: Divided Column Band) */}
+        <div className="grid border-t border-b border-white/[0.08] divide-y md:divide-y-0 md:divide-x divide-white/[0.08] md:grid-cols-3 mb-16 bg-[#09090B]">
+          <div className="p-8 space-y-2.5 transition-colors duration-200 hover:bg-[#121214]">
+            <p className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium leading-none tracking-tight text-white">
               1,000,000+
             </p>
-            <p className="mt-3 font-heading text-lg font-bold uppercase text-frame-fg">
+            <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
               Breakout Video Views
             </p>
-            <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
+            <p className="text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
               Achieved for Dr. Ferdoush Saleheen with organic Facebook &amp; Instagram short-form reels
               without burning unnecessary ad dollars.
             </p>
           </div>
 
-          <div className="bg-frame-bg p-8 text-center md:text-left">
-            <p className="font-heading text-6xl font-bold uppercase tracking-tighter text-frame-accent">
+          <div className="p-8 space-y-2.5 transition-colors duration-200 hover:bg-[#121214]">
+            <p className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium leading-none tracking-tight text-white">
               4.8x
             </p>
-            <p className="mt-3 font-heading text-lg font-bold uppercase text-frame-fg">
+            <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
               Average Blended ROAS
             </p>
-            <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
+            <p className="text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
               Consistently maintained across active e-commerce and direct response client accounts
               by combining paid ads with high-speed landing pages.
             </p>
           </div>
 
-          <div className="bg-frame-bg p-8 text-center md:text-left">
-            <p className="font-heading text-6xl font-bold uppercase tracking-tighter text-frame-accent">
+          <div className="p-8 space-y-2.5 transition-colors duration-200 hover:bg-[#121214]">
+            <p className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium leading-none tracking-tight text-white">
               &lt; 100ms
             </p>
-            <p className="mt-3 font-heading text-lg font-bold uppercase text-frame-fg">
+            <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
               Page Load (LCP) Speed
             </p>
-            <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
+            <p className="text-xs sm:text-sm font-normal text-zinc-400 leading-relaxed">
               Lightning-fast custom Next.js web infrastructure that stops ad drop-offs and dramatically
               improves checkout conversion rates.
             </p>
@@ -83,33 +86,33 @@ export default function ProofMetrics() {
         </div>
 
         {/* Testimonials */}
-        <div className="grid bg-frame-border gap-px md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3">
           {testimonials.map((t) => (
             <article
               key={t.name}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#151518]"
             >
               <div>
-                <span className="inline-block border border-frame-accent/40 bg-frame-accent/10 px-2.5 py-1 text-[11px] font-black uppercase tracking-wider text-frame-accent">
+                <span className="inline-block rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-frame-accent">
                   {t.metric}
                 </span>
 
-                <blockquote className="mt-6 text-sm md:text-base font-medium leading-relaxed text-frame-fg/90 italic">
+                <blockquote className="mt-6 text-sm md:text-base font-normal leading-relaxed text-zinc-200">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
               </div>
 
-              <div className="mt-8 flex items-center gap-4 border-t border-frame-border/60 pt-5">
+              <div className="mt-8 flex items-center gap-4 border-t border-white/[0.08] pt-5">
                 <img
                   src={t.avatar}
                   alt={t.name}
-                  className="h-12 w-12 rounded-full border border-frame-border object-cover"
+                  className="h-12 w-12 rounded-full border border-white/[0.08] object-cover"
                 />
                 <div>
-                  <h4 className="font-heading text-sm font-bold uppercase text-frame-fg">
+                  <h4 className="font-heading text-sm font-medium text-white">
                     {t.name}
                   </h4>
-                  <p className="text-xs text-frame-muted-fg font-medium">
+                  <p className="text-xs text-zinc-400 font-normal">
                     {t.role}
                   </p>
                 </div>

@@ -1,73 +1,109 @@
+'use client'
+
+import React from 'react'
+import {
+  Code2,
+  Layout,
+  Database,
+  Globe,
+  Cloud,
+  MapPin,
+  CheckCircle2,
+} from 'lucide-react'
+
 const techStack = [
   {
-    area: "Core Android",
-    details: "Kotlin • Android SDK • Android Jetpack"
+    num: '01',
+    area: 'Core Android',
+    details: 'Kotlin • Android SDK • Android Jetpack',
+    icon: Code2,
   },
   {
-    area: "UI Development",
-    details: "Jetpack Compose and Android interface components, where appropriate for the project."
+    num: '02',
+    area: 'UI Development',
+    details: 'Jetpack Compose and Android interface components, where appropriate for the project.',
+    icon: Layout,
   },
   {
-    area: "Local Data",
-    details: "Room and other suitable Android storage approaches where local persistence is required."
+    num: '03',
+    area: 'Local Data',
+    details: 'Room and other suitable Android storage approaches where local persistence is required.',
+    icon: Database,
   },
   {
-    area: "APIs & Networking",
-    details: "REST APIs and appropriate networking tools for communication between the Android application and backend systems."
+    num: '04',
+    area: 'APIs & Networking',
+    details: 'REST APIs and appropriate networking tools for communication between the Android application and backend systems.',
+    icon: Globe,
   },
   {
-    area: "Firebase & Cloud Services",
-    details: "Firebase services where authentication, notifications, analytics, crash reporting, or related capabilities are required."
+    num: '05',
+    area: 'Firebase & Cloud Services',
+    details: 'Firebase services where authentication, notifications, analytics, crash reporting, or related capabilities are required.',
+    icon: Cloud,
   },
   {
-    area: "Location & Device Services",
-    details: "Google Maps and Android device APIs where location or hardware functionality is part of the product."
-  }
+    num: '06',
+    area: 'Location & Device Services',
+    details: 'Google Maps and Android device APIs where location or hardware functionality is part of the product.',
+    icon: MapPin,
+  },
 ]
 
 export default function TechStack() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Engineering Stack
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          Android Technology Stack
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          We choose the technology stack based on the application&apos;s requirements, supported devices, maintainability, and long-term roadmap.
-        </p>
-      </div>
+    <section
+      id="tech-stack"
+      className="border-b border-white/[0.08] py-20 md:py-28 bg-[#09090B] text-white"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Android Technology{' '}
+            <span className="italic text-frame-accent">Stack.</span>
+          </h2>
 
-      <div className="overflow-x-auto border-2 border-frame-border">
-        <table className="w-full text-left text-sm">
-          <thead className="border-b-2 border-frame-border bg-frame-muted/50 font-heading text-xs uppercase tracking-wider text-frame-fg">
-            <tr>
-              <th className="p-4 border-r-2 border-frame-border w-1/3">Layer / Area</th>
-              <th className="p-4 w-2/3">Technologies &amp; Frameworks</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y-2 divide-frame-border text-frame-muted-fg">
-            {techStack.map((row, rIdx) => (
-              <tr key={rIdx} className="hover:bg-frame-muted/20 transition-colors">
-                <td className="p-4 font-semibold text-frame-fg border-r-2 border-frame-border">
-                  {row.area}
-                </td>
-                <td className="p-4 font-medium text-frame-accent">
-                  {row.details}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            We choose the technology stack based on the application&apos;s requirements, supported devices, maintainability, and long-term roadmap.
+          </p>
+        </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-          The final stack is selected for the application rather than added simply to make the technology list longer.
-        </p>
+        {/* 6-Card Stack Grid */}
+        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+          {techStack.map((item, i) => (
+            <div
+              key={i}
+              className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  {item.num}
+                </span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                  <item.icon className="h-5 w-5" />
+                </div>
+              </div>
+
+              <h3 className="mt-5 font-heading text-xl font-medium tracking-tight text-white">
+                {item.area}
+              </h3>
+
+              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                {item.details}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Stack Philosophy Callout */}
+        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex items-start gap-4">
+          <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
+          <p className="font-mono text-sm leading-relaxed text-zinc-300">
+            <strong className="text-white">Stack Discipline:</strong> The final stack is selected for the application rather than added simply to make the technology list longer.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

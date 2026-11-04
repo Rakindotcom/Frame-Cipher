@@ -41,31 +41,41 @@ const deliverablesCategories = [
 
 export default function Deliverables() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="relative isolate px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="Concrete Outputs"
-          title="What You Receive in a 360 Partnership."
+          title={
+            <>
+              What You Receive in a{' '}
+              <span className="italic text-frame-accent">360 Partnership.</span>
+            </>
+          }
         >
           No vague promises or abstract retainers. Every month, your business receives a battle-tested
           suite of high-production assets, paid media execution, technical infrastructure, and executive
           data reporting.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px md:grid-cols-2">
-          {deliverablesCategories.map((cat) => (
+        <div className="grid gap-6 md:grid-cols-2">
+          {deliverablesCategories.map((cat, idx) => (
             <article
               key={cat.category}
-              className="bg-frame-bg p-7 md:p-10 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-9 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#151518]"
             >
-              <h3 className="font-heading text-2xl font-bold uppercase leading-tight tracking-tight text-frame-accent">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                <span className="font-mono text-xs text-frame-accent tabular-nums">
+                  0{idx + 1}
+                </span>
+                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+              </div>
+              <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium leading-tight tracking-tight text-white group-hover:text-frame-accent transition-colors">
                 {cat.category}
               </h3>
-              <ul className="mt-6 space-y-4">
+              <ul className="mt-6 space-y-3.5">
                 {cat.items.map((item) => (
                   <li key={item} className="flex items-start gap-3">
-                    <span className="mt-1 h-2 w-2 flex-none bg-frame-accent" />
-                    <span className="text-sm font-medium leading-relaxed text-frame-fg/90">
+                    <span className="mt-2 h-1.5 w-1.5 flex-none rounded-full bg-frame-accent" />
+                    <span className="text-sm font-normal leading-relaxed text-zinc-300">
                       {item}
                     </span>
                   </li>

@@ -1,76 +1,106 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import { DollarSign, Filter, TrendingUp, Users, CheckCircle2, Award } from 'lucide-react'
 
 const metrics = [
   {
-    title: 'Cost Per Lead',
-    body: 'Useful for understanding the cost of generating inquiries, but it does not tell you whether those inquiries are valuable.',
+    icon: Filter,
+    title: 'Cost Per Qualified Lead (CPQL)',
+    role: 'The True Efficiency Benchmark',
+    formula: 'Total Ad Spend ÷ Verified Qualified Inquiries',
+    desc: 'Measures the cost to acquire inquiries that meet agreed qualification criteria (budget, location, authority, need), filtering out raw submission noise.',
   },
   {
-    title: 'Cost Per Qualified Lead',
-    body: 'Measures the acquisition cost of leads that meet agreed qualification criteria. This is often more useful for businesses with meaningful differences between raw leads and sales-ready prospects.',
-  },
-  {
+    icon: TrendingUp,
     title: 'Cost Per Opportunity',
-    body: 'Where CRM data is available, we can track the cost of moving a lead into a genuine sales opportunity.',
+    role: 'Pipeline Conversion Velocity',
+    formula: 'Total Ad Spend ÷ Pipeline Sales Opportunities',
+    desc: 'Connects advertising spend directly to genuine sales conversations where your team presents a formal proposal, contract, or demo.',
   },
   {
-    title: 'Customer Acquisition Cost',
-    body: 'Customer acquisition cost brings advertising and sales outcomes closer to the actual business result.',
+    icon: Award,
+    title: 'Customer Acquisition Cost (CAC)',
+    role: 'Commercial Business Reality',
+    formula: 'Total Media Spend ÷ Verified Closed-Won Customers',
+    desc: 'Brings advertising investments together with actual closed business, providing an unvarnished metric of customer acquisition economics.',
   },
   {
-    title: 'Lead-to-Customer Rate',
-    body: 'We can compare the percentage of leads that become customers.',
-    label: 'Become customers by',
-    items: ['Platform', 'Campaign', 'Ad group', 'Audience', 'Creative', 'Offer', 'Market'],
-  },
-  {
-    title: 'Revenue & Return',
-    body: 'For businesses with sufficient sales and revenue data, reporting can connect advertising activity with downstream revenue. The exact measurement approach depends on the sales cycle, CRM, attribution model, and available conversion data.',
+    icon: Users,
+    title: 'Lead-to-Customer Close Rate',
+    role: 'Sales-Marketing Feedback Loop',
+    formula: '(Closed Customers ÷ Total Leads Generated) × 100%',
+    desc: 'Compares close rates across channels, ad groups, and creative hooks to isolate which campaigns attract high-margin clients versus tire-kickers.',
   },
 ]
 
 export default function Metrics() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="max-w-7xl mx-auto">
-        <SectionIntro eyebrow="Measurement" title="Lead Quality Measurement: From Lead to Customer">
-          Lead generation reporting should reflect the sales journey.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 text-white">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-12 max-w-3xl">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Lead Quality Measurement:{' '}
+            <span className="italic text-frame-accent">From Lead to Customer.</span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-300 font-normal leading-relaxed">
+            Lead generation reporting should reflect the full sales journey. We evaluate campaigns not by initial form submissions, but by the pipeline revenue they generate.
+          </p>
+        </div>
 
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {metrics.map((metric, index) => (
-            <div
-              key={metric.title}
-              className="flex flex-col border-2 border-frame-border bg-frame-bg p-8 transition-colors hover:border-frame-accent"
-            >
-              <div className="mb-4 flex items-center gap-4">
-                <span className="text-sm font-bold uppercase tracking-widest text-frame-accent">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <div className="h-1.5 w-10 bg-frame-accent" />
-              </div>
-              <h3 className="font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
-                {metric.title}
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {metric.body}
-              </p>
-              {metric.items && (
-                <>
-                  <p className="mb-3 mt-5 text-xs font-bold uppercase tracking-widest text-frame-muted-fg">
-                    {metric.label}
-                  </p>
-                  <div className="mt-auto flex flex-wrap gap-2 border-t border-frame-border pt-4">
-                    {metric.items.map((item) => (
-                      <span key={item} className="border border-frame-border px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-frame-muted-fg">
-                        {item}
-                      </span>
-                    ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+          {metrics.map((m) => {
+            const Icon = m.icon
+            return (
+              <div
+                key={m.title}
+                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#18181B]"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.03] text-frame-accent">
+                    <Icon className="h-5 w-5" />
                   </div>
-                </>
-              )}
-            </div>
-          ))}
+                  <span className="rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                    {m.role}
+                  </span>
+                </div>
+
+                <h3 className="font-heading text-xl font-medium text-white mb-2">
+                  {m.title}
+                </h3>
+
+                <div className="rounded-lg border border-white/[0.06] bg-black/40 px-3.5 py-2 font-mono text-xs text-zinc-300 mb-4">
+                  <span className="text-frame-accent font-semibold">Calculation: </span>
+                  {m.formula}
+                </div>
+
+                <p className="text-sm text-zinc-400 font-normal leading-relaxed">
+                  {m.desc}
+                </p>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Closed-Loop Pipeline Callout */}
+        <div className="rounded-2xl border border-frame-accent/30 bg-frame-accent/[0.05] p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-2xl">
+            <span className="font-mono text-xs uppercase tracking-wider text-frame-accent font-semibold">
+              Closed-Loop Pipeline Tracking
+            </span>
+            <h4 className="font-heading text-xl sm:text-2xl font-medium text-white">
+              Connect Advertising Directly to Closed Revenue
+            </h4>
+            <p className="text-sm text-zinc-300 font-normal leading-relaxed">
+              We configure your ad tracking and CRM workflows so executive dashboards clearly illustrate which ad campaigns drove verified revenue, moving far beyond superficial form-fill counts.
+            </p>
+          </div>
+          <a
+            href="#pricing"
+            className="inline-flex items-center gap-2 rounded-xl bg-frame-accent px-6 py-3.5 font-mono text-xs font-semibold uppercase tracking-wider text-black transition-colors hover:bg-white hover:text-black shrink-0"
+          >
+            <span>Review Growth Plans</span>
+          </a>
         </div>
       </div>
     </section>

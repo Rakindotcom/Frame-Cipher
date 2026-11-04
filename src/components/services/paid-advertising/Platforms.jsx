@@ -1,113 +1,144 @@
-import { SectionIntro } from '../../Kinetic'
+'use client'
+
+import React from 'react'
+import { CheckCircle2, ArrowRight } from 'lucide-react'
+import Link from 'next/link'
 
 const platforms = [
   {
     title: 'Google Ads',
+    slug: '/services/paid-advertising/google-ads',
+    tag: 'Search & PMax',
     body: 'Google Ads helps businesses capture demand when people are actively searching for products, services, solutions, or information related to what they offer.',
     bullets: [
       'Search campaigns',
       'Shopping campaigns',
       'Performance Max',
-      'Display',
-      'YouTube',
-      'Remarketing',
+      'Display & YouTube',
+      'First-party remarketing',
     ],
-    note: 'Campaign structure is built around intent, conversion goals, product or service categories, geographic markets, and available first-party data.',
+    note: 'Campaign structure is built around intent, conversion goals, product categories, and geographic markets.',
   },
   {
     title: 'Meta Ads',
+    slug: '/services/paid-advertising/meta-ads',
+    tag: 'Facebook & IG',
     body: 'Meta Ads across Facebook and Instagram can support demand generation, lead generation, ecommerce, remarketing, and customer acquisition. We build campaigns around audience behavior, creative angles, offers, product or service categories, and funnel stage.',
-    note: 'For ecommerce, this can include catalog-based advertising and product-focused campaigns. For service businesses, the focus may be lead generation, website conversions, or qualified inquiry acquisition.',
+    note: 'For ecommerce, this can include catalog-based advertising. For service businesses, the focus is qualified lead generation.',
   },
   {
     title: 'Microsoft Ads',
+    slug: '/services/paid-advertising/microsoft-ads',
+    tag: 'Bing & Copilot',
     body: 'Microsoft Advertising provides search and other advertising opportunities across the Microsoft network and partner environments. We can use Microsoft Ads where its audience, competition, market coverage, or incremental search demand makes it commercially relevant.',
-    note: 'Campaigns can include search, shopping, and other applicable Microsoft Advertising formats based on the account and business objective.',
+    note: 'Campaigns can include search, shopping, and other applicable Microsoft Advertising formats based on the account.',
   },
   {
     title: 'LinkedIn Ads',
+    slug: '/services/paid-advertising/linkedin-ads',
+    tag: 'B2B & ABM',
     body: 'LinkedIn is particularly useful when the audience is defined by professional or company attributes.',
     bullets: [
-      'Job roles',
-      'Industries',
+      'Job roles & industries',
       'Company characteristics',
-      'Professional audiences',
-      'Seniority',
-      'Account-based audience strategies where appropriate',
+      'Professional seniority',
+      'Account-based audience strategies',
     ],
-    note: 'The emphasis is not simply on generating clicks. It is on reaching the people and organizations relevant to a higher-consideration buying process.',
+    note: 'The emphasis is on reaching the people and organizations relevant to a higher-consideration buying process.',
   },
   {
     title: 'TikTok Ads',
+    slug: '/services/paid-advertising/tiktok-ads',
+    tag: 'Short-Form Video',
     body: 'TikTok can support awareness, demand generation, traffic, lead generation, ecommerce, and conversion campaigns where the audience and creative format are a strong fit.',
-    note: 'Successful TikTok advertising usually requires creative designed for the platform rather than simply resizing or reposting another channel\'s ads. We coordinate short-form creative, audience strategy, offers, testing, and conversion tracking around the campaign objective.',
+    note: 'Successful TikTok advertising requires creative designed for the platform rather than simply reposting another channel\'s ads.',
   },
   {
     title: 'Pinterest Ads',
+    slug: '/services/paid-advertising/pinterest-ads',
+    tag: 'Visual Intent',
     body: 'Pinterest can be useful for products, services, and content connected to discovery, planning, inspiration, and purchase consideration.',
-    note: 'We assess whether the platform fits your product category, audience behavior, creative assets, and commercial goals before allocating budget.',
+    note: 'We assess whether the platform fits your product category, audience behavior, and commercial goals before allocating budget.',
   },
   {
     title: 'Amazon Ads',
+    slug: '/services/paid-advertising/amazon-ads',
+    tag: 'Marketplace',
     body: 'Amazon Ads can help ecommerce sellers reach shoppers within a marketplace where users are already browsing products and comparing purchase options.',
     bullets: [
       'Sponsored product campaigns',
       'Sponsored brand campaigns',
-      'Product and keyword targeting',
-      'Search-term analysis',
-      'Budget optimization',
-      'Product visibility analysis',
-      'Campaign performance monitoring',
+      'Product & keyword targeting',
+      'Search-term & budget optimization',
     ],
-    note: 'The strategy is built around the marketplace environment rather than treating Amazon like a standard social or search channel.',
+    note: 'The strategy is built around marketplace dynamics rather than treating Amazon like a standard search channel.',
   },
   {
     title: 'ChatGPT Ads - Where Available',
-    body: 'AI advertising is becoming a new paid-media environment built around conversational discovery, contextual intent, and decision-making. Where advertiser access is available for the relevant market and account, ChatGPT Ads can be evaluated as part of a broader media strategy rather than treated as a replacement for established channels.',
-    note: 'Because availability, account eligibility, and capabilities can change, we assess access and suitability before including this channel in a campaign plan.',
+    slug: '/services/paid-advertising/chatgpt-ads',
+    tag: 'Conversational AI',
+    body: 'AI advertising is becoming a new paid-media environment built around conversational discovery, contextual intent, and decision-making. Where advertiser access is available, ChatGPT Ads can be evaluated as part of a broader media strategy.',
+    note: 'Because availability and account eligibility can change, we assess access and suitability before including this channel.',
   },
 ]
 
 export default function Platforms() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Channels we manage"
-          title="Paid Advertising Platforms We Manage"
-        >
-          We choose platforms according to your buyers, offer, market, funnel, and commercial
-          objective rather than running every available channel by default.
-        </SectionIntro>
+    <section id="platforms" className="bg-[#09090B] py-20 md:py-28 text-white border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+        {/* Section Header */}
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Paid Advertising Platforms <span className="italic text-frame-accent">We Manage.</span>
+          </h2>
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            We choose platforms according to your buyers, offer, market, funnel, and commercial objective rather than running every available channel by default.
+          </p>
+        </div>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
+        {/* Modality 3: Technical Blueprint Matrix (4-col on lg, seamless gap-0) */}
+        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] md:grid-cols-2 lg:grid-cols-4">
           {platforms.map((platform, index) => (
-            <div key={index} className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/10 p-7 md:p-8 transition-colors hover:border-frame-accent">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Platform 0{index + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-xl font-bold uppercase tracking-tight text-frame-fg">
+            <div
+              key={platform.title}
+              className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#09090B] p-6 transition-colors duration-200 hover:bg-[#121214] sm:p-7"
+            >
+              <div className="space-y-4">
+                <h3 className="text-lg font-medium text-white transition-colors duration-200 group-hover:text-frame-accent">
                   {platform.title}
                 </h3>
-                <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+
+                <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
                   {platform.body}
                 </p>
-                {platform.bullets?.length > 0 && (
-                  <ul className="mt-4 space-y-1.5 text-xs font-semibold text-frame-fg/90">
-                    {platform.bullets.map((bullet, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2">
-                        <span className="text-frame-accent font-bold">✓</span>
-                        <span className="leading-snug">{bullet}</span>
+
+                {platform.bullets && (
+                  <ul className="space-y-1.5 border-t border-white/[0.06] pt-3 font-mono text-xs text-zinc-400">
+                    {platform.bullets.map((bullet) => (
+                      <li key={bullet} className="flex items-start gap-1.5">
+                        <span className="h-1 w-1 rounded-full bg-[#A855F7] shrink-0 mt-1.5" />
+                        <span>{bullet}</span>
                       </li>
                     ))}
                   </ul>
                 )}
+
                 {platform.note && (
-                  <p className="mt-4 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                  <div className="border-t border-white/[0.06] pt-3 font-mono text-[10px] leading-relaxed text-zinc-500">
+                    <span className="text-zinc-400 font-semibold block mb-0.5">STRATEGY:</span>
                     {platform.note}
-                  </p>
+                  </div>
                 )}
+              </div>
+
+              <div className="mt-6 border-t border-white/[0.06] pt-4">
+                <Link
+                  href={platform.slug}
+                  className="inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-zinc-400 group-hover:text-frame-accent transition-colors"
+                >
+                  <span>Explore Channel</span>
+                  <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           ))}

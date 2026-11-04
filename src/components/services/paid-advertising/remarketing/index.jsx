@@ -1,3 +1,6 @@
+'use client'
+
+import React from 'react'
 import Hero from './Hero'
 import Overview from './Overview'
 import WhenWrong from './WhenWrong'
@@ -7,11 +10,14 @@ import Tracking from './Tracking'
 import Privacy from './Privacy'
 import Includes from './Includes'
 import Metrics from './Metrics'
+import CaseStudies from './CaseStudies'
 import WhyChoose from './WhyChoose'
 import Process from './Process'
+import Pricing from './Pricing'
+import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
+import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 import WhoFor from './WhoFor'
 import WhenNotRight from './WhenNotRight'
-import Pricing from './Pricing'
 import Markets from './Markets'
 import Timeline from './Timeline'
 import Guarantee from './Guarantee'
@@ -20,21 +26,19 @@ import CTA from './CTA'
 import { TypeMarquee } from '../../../Kinetic'
 
 const marqueeItems = [
-  "Audience Segmentation",
-  "Suppression & Exclusions",
-  "Dynamic Catalog Remarketing",
-  "Cross-Platform Coordination",
-  "Sequential Messaging",
-  "Privacy-Aware Tracking",
-  "First-Party Data"
+  'Audience Segmentation',
+  'Dynamic Catalog Retargeting',
+  'Frequency Cap Controls',
+  'Server-Side CAPI',
+  'Purchaser Suppression',
+  'Sequential Messaging',
+  'Cross-Platform Alignment',
+  'Incremental ROAS Lift',
 ]
-
-import ServiceCalculatorBanner from '../ServiceCalculatorBanner'
-import RelatedAdsPlatforms from '../RelatedAdsPlatforms'
 
 export default function PaidAdvertisingRemarketingService({ service }) {
   return (
-    <main className="service-page bg-frame-bg text-frame-fg min-h-screen">
+    <main className="service-page bg-[#09090B] text-white min-h-screen">
       <Hero />
       <TypeMarquee items={marqueeItems} slow />
       <Overview />
@@ -45,13 +49,14 @@ export default function PaidAdvertisingRemarketingService({ service }) {
       <Privacy />
       <Includes />
       <Metrics />
+      <CaseStudies />
       <WhyChoose />
       <Process />
-      <WhoFor />
-      <WhenNotRight />
       <Pricing />
       <ServiceCalculatorBanner platform="remarketing" />
       <RelatedAdsPlatforms service={service} />
+      <WhoFor />
+      <WhenNotRight />
       <Markets />
       <Timeline />
       <Guarantee />
@@ -61,4 +66,4 @@ export default function PaidAdvertisingRemarketingService({ service }) {
   )
 }
 
-export { Hero, Process, Pricing, FAQ, CTA }
+export { Hero, Overview, Process, Pricing, FAQ, CTA }

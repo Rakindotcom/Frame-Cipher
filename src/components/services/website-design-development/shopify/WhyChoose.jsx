@@ -1,4 +1,7 @@
-import { SectionIntro } from '../../../Kinetic'
+'use client'
+
+import React from 'react'
+import PosterButton from '../../../home/PosterButton'
 
 const whyChooseUsPillars = [
   {
@@ -33,28 +36,63 @@ const whyChooseUsPillars = [
 
 export default function WhyChoose() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro eyebrow="The Framecipher Advantage" title="Why Choose Framecipher for Shopify Development" align="center">
-          Shopify development is not only about launching a storefront. Theme architecture, ecommerce strategy, app selection, integrations, SEO, performance, and merchant management all affect how useful the store remains after launch.
-        </SectionIntro>
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
+          {/* Left Column (Sticky 5-col) */}
+          <div className="lg:col-span-5">
+            <div className="sticky top-28 space-y-6">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+                Why Choose Framecipher for{' '}
+                <span className="italic text-frame-accent">Shopify Development.</span>
+              </h2>
 
-        <div className="grid bg-frame-border gap-px sm:grid-cols-2 lg:grid-cols-4 border-2 border-frame-border">
-          {whyChooseUsPillars.map((pillar, idx) => (
-            <article key={idx} className="flex flex-col justify-between bg-frame-bg p-7 sm:p-9 transition-colors duration-300 hover:bg-frame-muted/30">
-              <div>
-                <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                  Pillar 0{idx + 1}
-                </span>
-                <h3 className="mt-4 font-heading text-lg sm:text-xl font-bold uppercase tracking-tight text-frame-fg">
-                  {pillar.title}
-                </h3>
-              </div>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                {pillar.desc}
+              <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
+                Shopify development is not only about launching a storefront. Theme architecture, ecommerce strategy, app selection, integrations, SEO, performance, and merchant management all affect how useful the store remains after launch.
               </p>
-            </article>
-          ))}
+
+              {/* Stat / Guarantee Card */}
+              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 space-y-2">
+                <p className="font-mono text-3xl font-medium text-white">100%</p>
+                <p className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Store &amp; Theme Ownership
+                </p>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Your theme codebase, configurations, app setups, and store assets are transferred directly to your Shopify organization with zero lock-in.
+                </p>
+              </div>
+
+              <div>
+                <PosterButton href="/contact" variant="accent" className="w-full sm:w-auto">
+                  Start Your Shopify Build
+                </PosterButton>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column (7-col): Divided Numbered Editorial Rows */}
+          <div className="lg:col-span-7">
+            <div className="divide-y divide-white/[0.08] rounded-xl border border-white/[0.08] bg-[#121214]">
+              {whyChooseUsPillars.map((pillar, idx) => (
+                <div
+                  key={idx}
+                  className="p-6 sm:p-8 transition-colors hover:bg-white/[0.02]"
+                >
+                  <div className="flex items-baseline gap-4">
+                    <span className="font-mono text-xs tabular-nums tracking-wider text-frame-accent">
+                      0{idx + 1}
+                    </span>
+                    <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
+                      {pillar.title}
+                    </h3>
+                  </div>
+                  <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 pl-8">
+                    {pillar.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>

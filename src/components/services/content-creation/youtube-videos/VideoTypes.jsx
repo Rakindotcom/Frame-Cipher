@@ -40,8 +40,8 @@ const videoTypes = [
 
 export default function VideoTypes() {
   return (
-    <section className="border-b-2 border-frame-border bg-frame-bg px-4 py-16 md:px-8 md:py-24">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-24">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Specialized Production Formats"
           title="Types of YouTube Videos We Produce"
@@ -49,22 +49,22 @@ export default function VideoTypes() {
           Different YouTube formats require different production workflows. We match the filming technique, camera setup, lighting, and editing pacing to your content objective.
         </SectionIntro>
 
-        <div className="mt-12 grid gap-px border-2 border-frame-border bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-px border border-white/[0.08] bg-frame-border sm:grid-cols-2 lg:grid-cols-3">
           {videoTypes.map((item, index) => (
             <div
               key={index}
-              className={`bg-frame-bg p-6 md:p-8 flex flex-col justify-between transition-colors hover:bg-frame-accent/5 ${
+              className={`bg-[#09090B] p-6 md:p-8 flex flex-col justify-between transition-colors hover:bg-[#A855F7]/[0.05] ${
                 index === 6 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}
             >
               <div>
-                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-frame-accent">
+                <span className="text-[11px] font-black uppercase tracking-[0.2em] text-[#A855F7]">
                   {item.tag}
                 </span>
-                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-3 font-heading text-lg md:text-xl font-bold tracking-tight text-[#FAFAFA]">
                   {item.title}
                 </h3>
-                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
+                <p className="mt-3 text-xs sm:text-sm wide:text-lg font-medium leading-relaxed text-[#A1A1AA]">
                   {item.desc}
                 </p>
               </div>
@@ -72,12 +72,12 @@ export default function VideoTypes() {
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-2 border-frame-border bg-frame-muted/20 p-6 sm:flex-row text-center sm:text-left">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border border-white/[0.08] bg-[#121214] p-6 sm:flex-row text-center sm:text-left">
           <div>
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
+            <span className="text-xs font-black uppercase tracking-[0.2em] text-[#A855F7]">
               Custom Production Design
             </span>
-            <p className="mt-1 text-xs sm:text-sm font-medium text-frame-fg">
+            <p className="mt-1 text-xs sm:text-sm font-medium text-[#FAFAFA]">
               Need a hybrid format combining talking-head, screen capture, and field documentary? We design custom production plans.
             </p>
           </div>

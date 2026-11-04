@@ -6,7 +6,7 @@ import { SectionIntro } from '../../../Kinetic'
 const serviceTypes = [
   {
     title: 'Hourly and Session Hire',
-    desc: 'Room, operated and booth hire by the hour — the fastest way to compare facility costs.',
+    desc: 'Room, operated and booth hire by the hour, the fastest way to compare facility costs.',
     anchor: 'studio space rental in Dhaka',
     href: '/studio/rental/',
   },
@@ -45,7 +45,7 @@ const serviceTypes = [
 export default function TypesOfService() {
   return (
     <section id="service-types" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Package Lanes"
           title="Rate Lanes on Our Master Card"
@@ -64,7 +64,7 @@ export default function TypesOfService() {
               <span className="font-mono text-xs font-bold text-frame-muted-fg">
                 TYPE {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
               </span>
-              <h3 className="mt-3 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg group-hover:text-frame-accent transition-colors">
+              <h3 className="mt-3 font-heading text-lg md:text-xl font-bold tracking-tight text-frame-fg group-hover:text-frame-accent transition-colors">
                 {type.title}
               </h3>
               <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{type.desc}</p>

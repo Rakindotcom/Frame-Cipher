@@ -1,77 +1,123 @@
+'use client'
+
+import React from 'react'
+import {
+  PackageCheck,
+  KeyRound,
+  LayoutGrid,
+  FileText,
+  GitBranch,
+  Rocket,
+  MessageSquareCode,
+  Activity,
+  AlertCircle,
+} from 'lucide-react'
+
 const playStoreRelease = [
   {
-    title: "Production Build Preparation",
-    desc: "Preparing the release build and configuration required for production."
+    num: '01',
+    title: 'Production Build Preparation',
+    desc: 'Preparing the release build and configuration required for production.',
+    icon: PackageCheck,
   },
   {
-    title: "App Signing & Release Configuration",
-    desc: "Supporting the required signing and release configuration for the Android application where included."
+    num: '02',
+    title: 'App Signing & Release Configuration',
+    desc: 'Supporting the required signing and release configuration for the Android application where included.',
+    icon: KeyRound,
   },
   {
-    title: "Play Console Support",
-    desc: "Assisting with the relevant Google Play Console release workflow and configuration."
+    num: '03',
+    title: 'Play Console Support',
+    desc: 'Assisting with the relevant Google Play Console release workflow and configuration.',
+    icon: LayoutGrid,
   },
   {
-    title: "Store Listing Support",
-    desc: "Supporting app information, screenshots, descriptions, categories, and other required materials where included."
+    num: '04',
+    title: 'Store Listing Support',
+    desc: 'Supporting app information, screenshots, descriptions, categories, and other required materials where included.',
+    icon: FileText,
   },
   {
-    title: "Testing & Release Tracks",
-    desc: "Supporting appropriate testing or release-track workflows when required by the project."
+    num: '05',
+    title: 'Testing & Release Tracks',
+    desc: 'Supporting appropriate testing or release-track workflows when required by the project.',
+    icon: GitBranch,
   },
   {
-    title: "Production Submission",
-    desc: "Preparing and submitting the application for production release."
+    num: '06',
+    title: 'Production Submission',
+    desc: 'Preparing and submitting the application for production release.',
+    icon: Rocket,
   },
   {
-    title: "Review Feedback",
-    desc: "If Google requests technical or product changes during review, we can help identify the required updates for resubmission."
+    num: '07',
+    title: 'Review Feedback',
+    desc: 'If Google requests technical or product changes during review, we can help identify the required updates for resubmission.',
+    icon: MessageSquareCode,
   },
   {
-    title: "Post-Launch Monitoring",
-    desc: "After release, we can monitor crash reports, review performance signals, and address any issues identified in the early post-launch period."
-  }
+    num: '08',
+    title: 'Post-Launch Monitoring',
+    desc: 'After release, we can monitor crash reports, review performance signals, and address any issues identified in the early post-launch period.',
+    icon: Activity,
+  },
 ]
 
 export default function StoreLaunch() {
   return (
-    <div className="mt-28 border-2 border-frame-border bg-frame-bg p-6 md:p-12">
-      <div className="mb-8">
-        <span className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
-          Store Deployment
-        </span>
-        <h2 className="mt-2 font-heading text-2xl md:text-4xl font-bold uppercase tracking-tight text-frame-fg">
-          Google Play Store Launch &amp; Release Support
-        </h2>
-        <p className="mt-3 max-w-3xl text-sm md:text-base font-medium leading-relaxed text-frame-muted-fg wide:text-lg">
-          Building a production-ready Android application is only part of the release process. We can support the preparation and submission of the app to Google Play.
-        </p>
-      </div>
+    <section
+      id="store-launch"
+      className="border-b border-white/[0.08] py-20 md:py-28 bg-[#09090B] text-white"
+    >
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="max-w-3xl space-y-4">
+<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Google Play Store Launch &amp;{' '}
+            <span className="italic text-frame-accent">Release Support.</span>
+          </h2>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {playStoreRelease.map((step, i) => (
-          <div
-            key={i}
-            className="border-2 border-frame-border bg-frame-muted/10 p-6 transition-colors hover:border-frame-accent"
-          >
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-frame-accent">
-              Release Task 0{i + 1}
-            </span>
-            <h3 className="mt-2 font-heading text-lg font-bold uppercase text-frame-fg">
-              {step.title}
-            </h3>
-            <p className="mt-3 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              {step.desc}
-            </p>
-          </div>
-        ))}
-      </div>
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            Building a production-ready Android application is only part of the release process. We can support the preparation and submission of the app to Google Play.
+          </p>
+        </div>
 
-      <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-        <p className="text-xs md:text-sm font-semibold uppercase tracking-wider text-frame-accent">
-          Google makes the final publishing and policy decisions, so no development partner can guarantee approval on a first submission.
-        </p>
+        {/* 8-Card Grid */}
+        <div className="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-4">
+          {playStoreRelease.map((step, i) => (
+            <div
+              key={i}
+              className="group bg-[#0f1011] p-8 transition-colors duration-200 hover:bg-[#141516]"
+            >
+              <div className="flex items-center justify-between">
+                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  {step.num}
+                </span>
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                  <step.icon className="h-5 w-5" />
+                </div>
+              </div>
+
+              <h3 className="mt-5 font-heading text-lg font-medium tracking-tight text-white">
+                {step.title}
+              </h3>
+
+              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                {step.desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        {/* Google Publishing Policy Disclaimer */}
+        <div className="mt-12 rounded-xl border border-amber-500/20 bg-amber-500/[0.03] p-6 md:p-8 flex items-start gap-4">
+          <AlertCircle className="h-5 w-5 text-amber-400 shrink-0 mt-0.5" />
+          <p className="font-mono text-xs sm:text-sm leading-relaxed text-zinc-300">
+            <strong className="text-amber-300">Google Play Policy Notice:</strong> Google makes the final publishing and policy decisions, so no development partner can guarantee approval on a first submission.
+          </p>
+        </div>
       </div>
-    </div>
+    </section>
   )
 }

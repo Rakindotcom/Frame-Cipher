@@ -2,7 +2,7 @@
 
 import { SectionIntro, PosterButton } from '../../../Kinetic'
 
-// Unique BDT pricing for documentary-production — researched Dhaka market bands, July 2026.
+// Unique BDT pricing for documentary-production: researched Dhaka market bands, July 2026.
 // Source of truth lives in src/data/studioExtended*.js; inlined here at build time.
 const DATA = {
   "pricingTitle": "Documentary Production Rates in Bangladesh",
@@ -11,7 +11,7 @@ const DATA = {
     {
       "name": "Impact Short",
       "price": "৳1,85,000",
-      "priceNote": "10–12 min",
+      "priceNote": "10 to 12 min",
       "tag": "CSR & Donor",
       "cta": "Book Impact Short",
       "description": "A focused field story: one location arc, character-led interviews and festival-capable finish for donor reporting.",
@@ -21,13 +21,13 @@ const DATA = {
         "HDR cinema capture with drone establishing shots",
         "Ethical consent protocols and dialect translation",
         "Teaser trailer plus 3 social character cutdowns",
-        "Bangla/English subtitles, 3–5 week delivery"
+        "Bangla/English subtitles, 3 to 5 week delivery"
       ]
     },
     {
       "name": "Standard Documentary",
       "price": "৳3,60,000",
-      "priceNote": "15–25 min",
+      "priceNote": "15 to 25 min",
       "tag": "Most Popular",
       "cta": "Book Standard Documentary",
       "popular": true,
@@ -66,14 +66,14 @@ const DATA = {
     "Version stack: DCP, broadcast, web and social cuts",
     "Review rounds across programme and country offices"
   ],
-  "marketNote": "Bangladesh documentary and corporate-AV budgets run ৳1,50,000 for capability showcases, ৳2,00,000 for welfare films, ৳2,50,000 for compliance tours and ৳3,50,000–6,00,000 for sustainability documentaries (Libanza 2026 RMG/NGO benchmarks). International fixer-supported productions bill USD 2,000–8,000 for logistics alone. Our tiers reflect full production — not fixer-only — with ethical protocols and translation that donor audiences require.",
+  "marketNote": "Bangladesh documentary and corporate-AV budgets run ৳1,50,000 for capability showcases, ৳2,00,000 for welfare films, ৳2,50,000 for compliance tours and ৳3,50,000 to 6,00,000 for sustainability documentaries (Libanza 2026 RMG/NGO benchmarks). International fixer-supported productions bill USD 2,000 to 8,000 for logistics alone. Our tiers reflect full production, not fixer-only, with ethical protocols and translation that donor audiences require.",
   "costRows": [
     [
-      "Impact short, single-arc field story (10–12 min)",
+      "Impact short, single-arc field story (10 to 12 min)",
       "৳1,85,000"
     ],
     [
-      "Standard documentary, multi-location (15–25 min)",
+      "Standard documentary, multi-location (15 to 25 min)",
       "৳3,60,000"
     ],
     [
@@ -86,7 +86,7 @@ const DATA = {
     ],
     [
       "Additional language versioning",
-      "৳25,000–45,000"
+      "৳25,000 to 45,000"
     ]
   ]
 }
@@ -94,7 +94,7 @@ const DATA = {
 export default function Pricing() {
   return (
     <section id="pricing" className="border-t-2 border-frame-border bg-frame-bg px-4 py-20 md:px-8 md:py-28 scroll-mt-24">
-      <div className="mx-auto max-w-[95vw]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Pricing & Investment"
           title={DATA.pricingTitle}
@@ -125,7 +125,7 @@ export default function Pricing() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-heading text-2xl font-bold uppercase tracking-tight text-frame-fg">
+                <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-frame-fg">
                   {pkg.name}
                 </h3>
                 <p className="mt-2 text-xs font-medium text-frame-muted-fg leading-relaxed">
@@ -172,7 +172,7 @@ export default function Pricing() {
         </p>
 
         <div className="mt-12 border-2 border-frame-border bg-frame-bg p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What changes the price
           </h4>
           <ul className="mt-4 grid gap-2.5 sm:grid-cols-2 text-xs md:text-sm font-medium text-frame-fg/90">
@@ -186,7 +186,7 @@ export default function Pricing() {
         </div>
 
         <div className="mt-8 border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
-          <h4 className="font-heading text-base md:text-lg font-bold uppercase tracking-tight text-frame-fg">
+          <h4 className="font-heading text-base md:text-lg font-bold tracking-tight text-frame-fg">
             What Documentary Production Costs in Bangladesh
           </h4>
           <p className="mt-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
@@ -203,8 +203,7 @@ export default function Pricing() {
             </dl>
           )}
           <p className="mt-4 text-xs font-medium leading-relaxed text-frame-muted-fg">
-            Field shoots happen on-location across Bangladesh — riverine districts, industrial belts and heritage sites —
-            with the studio at ECB Chattar as base for interviews, grading and backup power on every booking.
+            Field shoots happen on-location across Bangladesh: riverine districts, industrial belts and heritage sites: with the studio at ECB Chattar as base for interviews, grading and backup power on every booking.
           </p>
         </div>
       </div>

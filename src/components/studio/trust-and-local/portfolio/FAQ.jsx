@@ -5,7 +5,7 @@ import { SectionIntro } from '../../../Kinetic'
 const faqs = [
   {
     "question": "What did the portfolio pieces actually cost to produce?",
-    "answer": "Starter productions sit at ৳25,000–80,000, signature work at ৳1,00,000–3,00,000, and flagship campaigns above ৳5,00,000. Ask for the band behind any reel and we attach the scope that produced it."
+    "answer": "Starter productions sit at ৳25,000 to 80,000, signature work at ৳1,00,000 to 3,00,000, and flagship campaigns above ৳5,00,000. Ask for the band behind any reel and we attach the scope that produced it."
   },
   {
     "question": "Can we see raw versus colour-graded comparisons?",
@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     "question": "Where is the studio located?",
-    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206 — reachable from Mirpur DOHS, Banani and Airport Road, with parking beside the building."
+    "answer": "6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar, Dhaka 1206: reachable from Mirpur DOHS, Banani and Airport Road, with parking beside the building."
   },
   {
     "question": "How do I book and pay?",
@@ -50,7 +50,7 @@ export default function FAQ() {
           title="Frequently Asked Questions"
           index="07"
         >
-          Bands, verification, replication and booking — everything about our portfolio at FrameCipher Studio.
+          Bands, verification, replication and booking: everything about our portfolio at FrameCipher Studio.
         </SectionIntro>
 
         <div className="space-y-4">

@@ -1,4 +1,5 @@
 import { ADMIN_FIREBASE_UID } from "./identity";
+import googleCertsFallback from "./google-certs.json";
 
 export const SESSION_COOKIE = "fc_admin_session";
 export const SESSION_TTL_SECONDS = 60 * 60;
@@ -133,11 +134,27 @@ async function getGoogleCerts(): Promise<Record<string, string>> {
   const now = Date.now();
   if (certCache && now - certCache.fetchedAt < 60 * 60 * 1000) return certCache.certs;
 
-  const res = await fetch(CERTS_URL, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to fetch Google signing certs (${res.status}).`);
-  const certs = (await res.json()) as Record<string, string>;
-  certCache = { fetchedAt: now, certs };
-  return certs;
+  try {
+    const res = await fetch(CERTS_URL, { cache: "no-store" });
+    if (res.ok) {
+      const certs = (await res.json()) as Record<string, string>;
+      certCache = { fetchedAt: now, certs };
+      return certs;
+    }
+  } catch (error) {
+    if (googleCertsFallback && Object.keys(googleCertsFallback).length > 0) {
+      certCache = { fetchedAt: now, certs: googleCertsFallback as Record<string, string> };
+      return certCache.certs;
+    }
+    throw error;
+  }
+
+  if (googleCertsFallback && Object.keys(googleCertsFallback).length > 0) {
+    certCache = { fetchedAt: now, certs: googleCertsFallback as Record<string, string> };
+    return certCache.certs;
+  }
+
+  throw new Error("Could not retrieve Google signing certs.");
 }
 
 export async function verifyFirebaseIdToken(idToken: string): Promise<IdTokenResult> {

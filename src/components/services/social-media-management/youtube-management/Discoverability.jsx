@@ -1,6 +1,9 @@
+'use client'
 
+import React from 'react'
+import { Search, Eye, TrendingUp, Sparkles, Compass } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 import { AutoLinks } from '../../../seo/AutoLinks'
-import { SectionIntro, PosterButton } from '../../../Kinetic'
 
 const searchSignals = [
   'Search intent',
@@ -13,7 +16,7 @@ const searchSignals = [
   'Content quality',
 ]
 
-const packaging = [
+const packagingTraits = [
   'Clear',
   'Relevant',
   'Compelling',
@@ -21,7 +24,7 @@ const packaging = [
   'Appropriate for the target audience',
 ]
 
-const retention = [
+const retentionSignals = [
   'Intro performance',
   'Early drop-offs',
   'Audience retention',
@@ -32,7 +35,7 @@ const retention = [
   'Viewer response',
 ]
 
-const external = [
+const externalFactors = [
   'Topic interest',
   'Competition',
   'Seasonality',
@@ -40,190 +43,196 @@ const external = [
 
 export default function Discoverability() {
   return (
-    <section className="border-t-2 border-frame-border bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28">
-      <div className="mx-auto max-w-[95vw]">
-        <SectionIntro
-          eyebrow="Discovery &amp; viewer behavior"
-          title="YouTube Search, Recommendations &amp; Viewer Behavior"
-        >
-          YouTube discovery does not depend on one universal ranking factor. Search and recommendation
-          systems use different signals and surfaces to connect viewers with content they are likely to
-          watch and enjoy. YouTube describes search around relevance, engagement, and quality, while
-          recommendations consider viewer behavior, content performance, personalization, and
-          satisfaction.
-        </SectionIntro>
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+      <div className="mx-auto max-w-7xl">
+        {/* Section Intro Header */}
+        <div className="mb-14 space-y-4 max-w-3xl">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/[0.08] bg-[#121214] px-3.5 py-1 text-xs text-zinc-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
+              Platform Algorithms · Viewer Signals
+            </span>
+          </div>
 
-        <div className="grid gap-px border-2 border-frame-border bg-frame-border lg:grid-cols-2">
-          {/* SEARCH DISCOVERY */}
-          <article className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            YouTube Search, Recommendations &amp;{' '}
+            <span className="italic text-frame-accent">Viewer Behavior.</span>
+          </h2>
+
+          <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
+            YouTube discovery does not depend on one universal ranking factor. Search and recommendation systems use different signals and surfaces to connect viewers with content they are likely to watch and enjoy. YouTube describes search around relevance, engagement, and quality, while recommendations consider viewer behavior, content performance, personalization, and satisfaction.
+          </p>
+
+          <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+            Our strategy therefore focuses on the complete viewer experience: something worth searching for, something worth clicking, and something worth watching to the end.
+          </p>
+        </div>
+
+        {/* 4 Core Signal Cards */}
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Card 1: Search Discovery */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Intent-Driven Traffic
+                </span>
+                <Search className="h-4 w-4 text-frame-accent" />
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
                 YouTube Search Discovery
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                YouTube Search helps viewers find videos related to their queries
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We consider the signals that shape how a video matches a search.
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                YouTube Search helps viewers find videos related to their queries. We consider the signals that shape how a video matches search queries:
               </p>
+
+              <div className="grid grid-cols-2 gap-2 text-xs text-zinc-300 pt-2">
+                {searchSignals.map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {searchSignals.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span aria-hidden="true" className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-frame-accent" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                Search optimization is not about inserting keywords everywhere. It is about creating a
-                useful video that clearly addresses the topic a viewer is looking for.
-              </p>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">Human-First Search Optimization:</strong>
+              Search optimization is not about inserting keywords everywhere. It is about creating a useful video that clearly addresses the topic a viewer is looking for.
             </div>
           </article>
 
-          {/* PACKAGING */}
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Video Packaging: Titles &amp; Thumbnails
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                Your title and thumbnail form the first impression of a video
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                We work to make the packaging meet five standards.
-              </p>
-            </div>
+          {/* Card 2: Packaging (Titles & Thumbnails) */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  First Impression Architecture
+                </span>
+                <Eye className="h-4 w-4 text-frame-accent" />
+              </div>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <ul className="flex flex-wrap gap-2">
-                {packaging.map((item) => (
-                  <li
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                Video Packaging: Titles &amp; Thumbnails
+              </h3>
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                Your title and thumbnail form the first impression of a video. We work to make the packaging meet five essential quality standards:
+              </p>
+
+              <div className="flex flex-wrap gap-2 pt-2">
+                {packagingTraits.map((item) => (
+                  <span
                     key={item}
-                    className="border border-frame-accent/50 bg-frame-accent/5 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
+                    className="rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-frame-accent"
                   >
                     {item}
-                  </li>
+                  </span>
                 ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                We avoid misleading clickbait because a strong click means little if the video fails to
-                deliver what the viewer expected. YouTube identifies titles and thumbnails as important
-                parts of content packaging and recommends evaluating them in the context of audience
-                response and performance.
-              </p>
+              </div>
+            </div>
+
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">Avoiding Misleading Clickbait:</strong>
+              We avoid misleading clickbait because a strong click means little if the video fails to deliver what the viewer expected. YouTube identifies titles and thumbnails as important parts of content packaging and recommends evaluating them in the context of audience response and performance.
             </div>
           </article>
 
-          {/* RETENTION */}
-          <article className="flex flex-col justify-between bg-frame-bg p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
+          {/* Card 3: Retention & Engagement */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Post-Click Watch Time
+                </span>
+                <TrendingUp className="h-4 w-4 text-frame-accent" />
+              </div>
+
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
                 Viewer Retention &amp; Engagement
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                Getting someone to click is only the beginning
               </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-                The video must then deliver enough value to keep viewers engaged. We analyze:
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                Getting someone to click is only the beginning. The video must then deliver enough value to keep viewers engaged. We analyze:
               </p>
+
+              <div className="grid grid-cols-2 gap-2 text-xs text-zinc-300 pt-2">
+                {retentionSignals.map((item) => (
+                  <div key={item} className="flex items-center gap-2">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="mt-6 border-t-2 border-frame-border/60 pt-4">
-              <ul className="grid gap-2 sm:grid-cols-2">
-                {retention.map((item) => (
-                  <li key={item} className="flex items-start gap-2.5 text-sm font-medium leading-snug text-frame-fg">
-                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center border border-frame-accent bg-frame-accent/10 text-frame-accent">
-                      <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                      </svg>
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-muted/10 p-3 text-xs font-medium leading-relaxed text-frame-muted-fg">
-                YouTube provides retention data to help creators understand where viewers stay, leave,
-                rewatch, or lose interest. These insights can influence future scripts, editing, hooks,
-                structure, and content topics.
-              </p>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">Retention Data Iteration:</strong>
+              YouTube provides retention data to help creators understand where viewers stay, leave, rewatch, or lose interest. These insights influence future scripts, editing, hooks, structure, and content topics.
             </div>
           </article>
 
-          {/* SATISFACTION */}
-          <article className="flex flex-col justify-between bg-frame-accent/10 p-7 md:p-8">
-            <div>
-              <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-                Viewer Satisfaction &amp; Content Value
-              </span>
-              <h3 className="mt-3 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg md:text-2xl">
-                Views alone do not tell the whole story
-              </h3>
-              <p className="mt-4 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base"><AutoLinks currentPath="/services/social-media-management/youtube-management" allowed={["/services/content-writing/content-strategy"]}>
-                A successful content strategy should consider whether viewers found the video useful,
-                enjoyable, relevant, or worth returning to. YouTube&rsquo;s recommendation guidance
-                describes content performance through three broad areas: appeal, engagement, and
-                satisfaction.
-              </AutoLinks></p>
-            </div>
+          {/* Card 4: Satisfaction & External Factors */}
+          <article className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-6 transition-colors duration-200 hover:border-purple-500/30 hover:bg-[#15121C]">
+            <div className="space-y-4">
+              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                  Algorithm Satisfaction Triad
+                </span>
+                <Sparkles className="h-4 w-4 text-frame-accent" />
+              </div>
 
-            <div className="mt-6 border-t-2 border-frame-accent/30 pt-4">
-              <div className="grid gap-2 sm:grid-cols-3">
+              <h3 className="font-heading text-xl sm:text-2xl font-medium text-white">
+                Viewer Satisfaction &amp; Content Value
+              </h3>
+
+              <p className="text-xs sm:text-sm leading-relaxed text-zinc-400">
+                Views alone do not tell the whole story. A successful content strategy considers whether viewers found the video useful, enjoyable, relevant, or worth returning to.
+              </p>
+
+              {/* The Triad */}
+              <div className="grid grid-cols-3 gap-2 pt-2">
                 {['Appeal', 'Engagement', 'Satisfaction'].map((area) => (
-                  <div key={area} className="border-2 border-frame-border bg-frame-bg p-4 text-center">
-                    <span className="block text-[10px] font-black uppercase tracking-[0.2em] text-frame-accent">
-                      Content performance
+                  <div key={area} className="rounded-xl border border-white/[0.06] bg-[#09090B] p-3 text-center">
+                    <span className="block font-mono text-[9px] uppercase tracking-wider text-frame-accent">
+                      Metric
                     </span>
-                    <span className="mt-1 block font-heading text-sm font-bold uppercase tracking-tight text-frame-fg">
+                    <span className="font-heading text-xs sm:text-sm uppercase font-semibold text-white mt-0.5 block">
                       {area}
                     </span>
                   </div>
                 ))}
               </div>
-              <p className="mt-5 border-l-2 border-frame-accent bg-frame-bg p-3 text-xs font-semibold leading-relaxed text-frame-fg">
-                Our focus stays on creating content that earns attention and delivers on the promise made
-                by the title and thumbnail.
-              </p>
+            </div>
+
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs leading-relaxed text-zinc-400">
+              <strong className="text-white block font-medium mb-1">External Market Factors:</strong>
+              YouTube specifically identifies topic interest, competition, and seasonality as external factors that affect reach. We use these factors when planning content rather than treating every performance change as an SEO issue.
             </div>
           </article>
         </div>
 
-        <div className="mt-10 grid gap-6 border-t-2 border-frame-border pt-8 lg:grid-cols-2">
-          <div className="border-2 border-frame-border bg-frame-bg p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              External factors we plan around
-            </span>
-            <ul className="mt-4 flex flex-wrap gap-2">
-              {external.map((item) => (
-                <li
-                  key={item}
-                  className="border border-frame-border bg-frame-muted/10 px-2.5 py-1 text-[11px] font-semibold text-frame-fg"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg md:text-base">
-              YouTube specifically identifies topic interest, competition, and seasonality as external
-              factors that can affect content reach. We use these factors when planning content rather
-              than treating every performance change as an SEO issue.
+        {/* Discovery Action Ledger */}
+        <div className="mt-14 flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+          <div className="space-y-1">
+            <h4 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
+              The Complete Viewer Experience
+            </h4>
+            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl">
+              Our strategy focuses on the entire journey: something worth searching for, something worth clicking, and something worth watching to the end.
             </p>
           </div>
-
-          <div className="flex flex-col justify-center border-2 border-frame-accent bg-frame-accent/10 p-6 md:p-7">
-            <span className="text-xs font-black uppercase tracking-[0.24em] text-frame-accent">
-              The complete viewer experience
-            </span>
-            <p className="mt-4 text-sm font-semibold leading-relaxed text-frame-fg md:text-base">
-              Our strategy therefore focuses on the whole experience: something worth searching for,
-              something worth clicking, and something worth watching to the end.
-            </p>
-            <div className="mt-6">
-              <PosterButton href="/contact">Get a Free Consultation &rarr;</PosterButton>
-            </div>
+          <div className="w-full sm:w-auto shrink-0">
+            <PosterButton
+              href="/contact"
+              variant="primary"
+              size="lg"
+              className="w-full sm:w-auto text-center"
+            >
+              Get a Free Consultation
+            </PosterButton>
           </div>
         </div>
       </div>

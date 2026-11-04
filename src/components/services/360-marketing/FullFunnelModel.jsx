@@ -53,46 +53,50 @@ const funnelStages = [
 
 export default function FullFunnelModel() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-frame-bg text-frame-fg border-b-2 border-frame-border">
-      <div className="mx-auto max-w-[95vw]">
+    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+      <div className="mx-auto max-w-7xl">
         <SectionIntro
-          eyebrow="The Customer Journey"
-          title="The 360 Full-Funnel Growth Flywheel."
+          title={
+            <>
+              The 360 Full-Funnel{' '}
+              <span className="italic text-frame-accent">Growth Flywheel.</span>
+            </>
+          }
         >
           Single-point tactics only treat symptoms. Our 360 marketing system maps out every single
           touchpoint in your buyer&apos;s journey, from the moment they first see a video on their social feed
           to the moment they sign a contract or make a repeat purchase.
         </SectionIntro>
 
-        <div className="grid bg-frame-border gap-px lg:grid-cols-4 md:grid-cols-2">
+        <div className="grid border-t border-b border-white/[0.08] divide-y md:divide-y-0 md:divide-x divide-white/[0.08] lg:grid-cols-4 md:grid-cols-2 bg-[#09090B]">
           {funnelStages.map((stage, index) => (
             <div
               key={stage.stage}
-              className="flex flex-col justify-between bg-frame-bg p-7 md:p-8 transition-colors duration-300 hover:bg-neutral-900/60"
+              className="group flex flex-col justify-between bg-[#09090B] p-7 md:p-8 transition-colors duration-200 hover:bg-[#121214]"
             >
               <div>
-                <div className="flex items-center justify-between border-b border-frame-border/60 pb-4">
-                  <span className="text-xs font-black uppercase tracking-wider text-frame-accent">
-                    Stage 0{index + 1}
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
+                  <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    0{index + 1}
                   </span>
-                  <span className="font-heading text-xl font-bold uppercase text-frame-muted">
-                    {stage.stage.split(' ')[0]}
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">
+                    {stage.stage}
                   </span>
                 </div>
 
-                <h3 className="mt-5 font-heading text-xl font-bold uppercase leading-tight tracking-tight text-frame-fg">
+                <h3 className="mt-5 font-heading text-xl font-medium leading-tight tracking-tight text-white group-hover:text-frame-accent transition-colors">
                   {stage.name}
                 </h3>
-                <p className="mt-3 text-xs font-medium leading-relaxed text-frame-muted-fg md:text-sm wide:text-lg">
+                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
                   {stage.purpose}
                 </p>
 
-                <div className="mt-6 border-t border-frame-border/60 pt-4">
-                  <p className="text-xs font-bold uppercase tracking-wider text-frame-fg">Key Mechanisms:</p>
-                  <ul className="mt-2.5 space-y-2 text-xs font-medium text-frame-muted-fg">
+                <div className="mt-6 border-t border-white/[0.08] pt-4">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-zinc-300">Key Mechanisms:</p>
+                  <ul className="mt-2.5 space-y-2 text-xs font-normal text-zinc-400">
                     {stage.mechanisms.map((m) => (
                       <li key={m} className="flex items-start gap-2">
-                        <span className="mt-1 h-1.5 w-1.5 flex-none bg-frame-accent" />
+                        <span className="mt-1.5 h-1.5 w-1.5 flex-none rounded-full bg-frame-accent" />
                         <span>{m}</span>
                       </li>
                     ))}
@@ -100,9 +104,9 @@ export default function FullFunnelModel() {
                 </div>
               </div>
 
-              <div className="mt-8 border-t border-frame-border/60 pt-4">
-                <p className="text-xs font-bold uppercase tracking-wider text-frame-accent">Primary KPI:</p>
-                <p className="mt-1 text-xs font-semibold text-frame-fg">{stage.metric}</p>
+              <div className="mt-8 border-t border-white/[0.08] pt-4">
+                <p className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">Primary KPI:</p>
+                <p className="mt-1 text-xs font-medium text-white">{stage.metric}</p>
               </div>
             </div>
           ))}
