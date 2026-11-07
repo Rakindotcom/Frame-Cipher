@@ -18,7 +18,7 @@ function FAQItem({ question, answer, index }) {
           <span className="font-mono text-xs sm:text-sm font-semibold text-frame-accent tabular-nums">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 className="font-heading text-lg sm:text-xl font-bold leading-tight tracking-tight text-white group-open:text-purple-300 transition-colors">
+          <h3 className="font-heading text-lg sm:text-xl font-bold leading-tight tracking-tight text-white">
             {question}
           </h3>
         </div>

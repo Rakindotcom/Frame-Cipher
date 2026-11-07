@@ -91,9 +91,9 @@ export default function FAQ() {
                     <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/[0.04] text-frame-accent border border-white/[0.06] shrink-0 text-xs font-mono font-bold">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-heading text-base sm:text-lg font-semibold uppercase tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    <h3 className="font-heading text-base sm:text-lg font-semibold uppercase tracking-tight text-white">
                       {faq.question}
-                    </span>
+                    </h3>
                   </div>
 
                   <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.04] text-zinc-300 shrink-0 group-hover:border-frame-accent/40 group-hover:text-frame-accent transition-colors">

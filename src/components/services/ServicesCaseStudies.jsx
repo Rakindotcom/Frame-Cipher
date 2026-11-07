@@ -20,7 +20,7 @@ export default function ServicesCaseStudies() {
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               See how we&apos;ve built, marketed &amp;{' '}
-              <span className="italic text-frame-accent">
+              <span className="text-white">
                 grown real brands.
               </span>
             </h2>

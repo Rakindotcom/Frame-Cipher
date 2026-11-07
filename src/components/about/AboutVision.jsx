@@ -1,11 +1,13 @@
 import Link from 'next/link'
 import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
+import AnimatedCounter from '../home/AnimatedCounter'
+import { Globe, Users, ShieldCheck, Layers } from 'lucide-react'
 
 const visionMetrics = [
-  { value: '20+', label: 'Countries Served', sub: 'USA, UK, Canada, UAE, Germany, Australia, Bangladesh' },
-  { value: '50+', label: 'Enterprise & Scaling Brands', sub: 'From high-ticket B2B to global direct-to-consumer' },
-  { value: '100%', label: 'In-House Talent Engine', sub: 'Zero outsourcing. Sovereign control over every line of code & asset' },
-  { value: '74+', label: 'Specialized Capabilities', sub: 'Covering software, branding, media production, and performance ads' },
+  { value: 20, suffix: '+', label: 'Countries Served', sub: 'USA, UK, Canada, UAE, Germany, Australia, Bangladesh', icon: Globe },
+  { value: 50, suffix: '+', label: 'Enterprise & Scaling Brands', sub: 'From high-ticket B2B to global direct-to-consumer', icon: Users },
+  { value: 100, suffix: '%', label: 'In-House Talent Engine', sub: 'Zero outsourcing. Sovereign control over every line of code & asset', icon: ShieldCheck },
+  { value: 74, suffix: '+', label: 'Specialized Capabilities', sub: 'Covering software, branding, media production, and performance ads', icon: Layers },
 ]
 
 const pillarManifestos = [
@@ -32,11 +34,8 @@ export default function AboutVision() {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 space-y-4 max-w-4xl">
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
-            Born in Dhaka.{' '}
-            <span className="italic text-frame-accent">
-              Built for the World.
-            </span>
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-highlighted">
+            Born in Dhaka. Built for the World.
           </h2>
           <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
             Bangladesh is home to one of the youngest, most ambitious engineering and creative populations on earth. 
@@ -45,41 +44,59 @@ export default function AboutVision() {
           </p>
         </div>
 
-        {/* Global Key Metrics Ledger (Modality 2: Divided Column Band) */}
-        <div className="mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-b border-white/[0.08] divide-y sm:divide-y-0 sm:divide-x divide-white/[0.08] bg-[#09090B]">
-          {visionMetrics.map((metric) => (
-            <div
-              key={metric.label}
-              className="p-6 md:p-8 space-y-2.5 transition-colors duration-200 hover:bg-[#121214]"
-            >
-              <p className="font-heading text-4xl sm:text-5xl md:text-6xl font-medium uppercase leading-none tracking-tight text-white">
-                {metric.value}
-              </p>
-              <p className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">
-                {metric.label}
-              </p>
-              <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-                {metric.sub}
-              </p>
-            </div>
-          ))}
+        {/* Global Key Metrics Grid (Modality B: Nuxt Card Grid with Gap-6) */}
+        <div className="mb-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {visionMetrics.map((metric, idx) => {
+            const Icon = metric.icon
+            return (
+              <div
+                key={metric.label}
+                className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 space-y-4 transition-all duration-300 hover:border-white/[0.18] hover:bg-[#18181B] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent before:opacity-0 hover:before:opacity-100 shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col justify-between"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.06] pb-3 mb-4">
+                    <Icon className="h-6 w-6 text-purple-600" />
+                    <span className="font-mono text-xs text-zinc-500 tabular-nums">0{idx + 1}</span>
+                  </div>
+
+                  <p className="font-heading text-4xl sm:text-5xl font-semibold leading-none tracking-tight text-highlighted tabular-nums">
+                    <AnimatedCounter
+                      value={metric.value}
+                      suffix={metric.suffix}
+                      duration={1400}
+                      delay={idx * 60}
+                      suffixClassName="text-purple-600"
+                      replay={true}
+                    />
+                  </p>
+                  <p className="mt-2 font-mono text-xs uppercase tracking-[1.1px] text-purple-600 font-semibold">
+                    {metric.label}
+                  </p>
+                </div>
+
+                <p className="text-xs text-zinc-400 leading-relaxed font-normal pt-2 border-t border-white/[0.04]">
+                  {metric.sub}
+                </p>
+              </div>
+            )
+          })}
         </div>
 
-        {/* 3 Strategic Manifesto Pillars (Modality 2: Architectural Column Band) */}
-        <div className="border-t border-b border-white/[0.08] grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08] bg-[#09090B]">
+        {/* 3 Strategic Manifesto Pillars (Modality B: Nuxt 3-Card Grid with Gap-6) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {pillarManifestos.map((pillar, idx) => (
             <article
               key={pillar.title}
-              className="group flex flex-col justify-between p-8 sm:p-10 space-y-6 transition-colors duration-200 hover:bg-[#121214]"
+              className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] p-8 sm:p-9 space-y-6 transition-all duration-300 hover:border-white/[0.18] hover:bg-[#18181B] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent before:opacity-0 hover:before:opacity-100 shadow-[0_4px_20px_rgba(0,0,0,0.3)] flex flex-col justify-between"
             >
               <div className="space-y-4">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
-                  <span className="font-mono text-xs text-frame-accent tabular-nums">
-                    0{idx + 1}
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                  <span className="font-mono text-xs text-purple-600 tabular-nums font-semibold tracking-wider">
+                    {pillar.tag}
                   </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                  <span className="font-mono text-xs text-zinc-500 tabular-nums">0{idx + 1}</span>
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-medium leading-tight text-white group-hover:text-frame-accent transition-colors">
+                <h3 className="font-heading text-xl sm:text-2xl font-semibold leading-tight text-highlighted tracking-tight">
                   {pillar.title}
                 </h3>
                 <div className="text-sm font-normal leading-relaxed text-zinc-300">

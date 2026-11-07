@@ -46,12 +46,12 @@ export default function HomeOpeningTextBand() {
             <div className="flex shrink-0 items-center gap-8 px-4">
               {textItems.map((item, index) => (
                 <div key={`primary-${index}`} className="flex items-center gap-8">
-                  <span className="whitespace-nowrap font-heading text-xs font-bold text-zinc-200 md:text-sm">
+                  <span className="whitespace-nowrap font-heading text-xs font-medium text-white md:text-sm">
                     {item}
                   </span>
                   <span
                     aria-hidden="true"
-                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-frame-accent "
+                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-frame-accent shadow-[0_0_6px_rgba(168,85,247,0.6)]"
                   />
                 </div>
               ))}
@@ -64,12 +64,12 @@ export default function HomeOpeningTextBand() {
             >
               {textItems.map((item, index) => (
                 <div key={`dup-${index}`} className="flex items-center gap-8">
-                  <span className="whitespace-nowrap font-heading text-xs font-bold text-zinc-200 md:text-sm">
+                  <span className="whitespace-nowrap font-heading text-xs font-medium text-white md:text-sm">
                     {item}
                   </span>
                   <span
                     aria-hidden="true"
-                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-frame-accent "
+                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-frame-accent shadow-[0_0_6px_rgba(168,85,247,0.6)]"
                   />
                 </div>
               ))}

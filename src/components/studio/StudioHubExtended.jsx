@@ -65,7 +65,7 @@ export default function StudioHubExtended() {
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
               What to know{' '}
-              <span className="italic text-frame-accent">before you book.</span>
+              <span className="text-white">before you book.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">

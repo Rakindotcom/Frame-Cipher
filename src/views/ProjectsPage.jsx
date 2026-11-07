@@ -545,15 +545,16 @@ export default function ProjectsPage({ initialView = null }) {
       <ProjectsFAQ />
 
       {hasZeroMatches && (
-        <div className="mx-auto my-16 max-w-2xl rounded-3xl border border-white/[0.08] bg-[#121214] p-8 text-center sm:p-12 shadow-2xl">
-          <span className="inline-block rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-1 font-mono text-xs uppercase tracking-wider text-violet-300">
+        <div className="mx-auto my-16 max-w-2xl rounded-2xl border border-white/[0.08] bg-[#121214] p-8 text-center sm:p-12 shadow-2xl relative overflow-hidden">
+          <div className="pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 w-48 h-48 bg-purple-600/10 rounded-full blur-3xl" />
+          <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 font-mono text-xs uppercase tracking-wider text-purple-300">
             No matches found
           </span>
-          <h3 className="mt-4 font-heading text-2xl font-bold tracking-tight text-white md:text-3xl">
+          <h3 className="mt-4 font-heading text-2xl font-medium tracking-tight text-white md:text-3xl">
             No projects found matching &ldquo;{searchQuery}&rdquo;
           </h3>
-          <p className="mt-3 text-sm text-zinc-400">
-            Try searching for another client name, service, or keyword, or reset the filters.
+          <p className="mt-3 text-sm text-zinc-400 max-w-md mx-auto">
+            Try searching for another client name, service, or keyword, or reset the filters to browse all verified work.
           </p>
           <button
             type="button"

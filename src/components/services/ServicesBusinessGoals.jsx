@@ -42,7 +42,7 @@ export default function ServicesBusinessGoals() {
         <div className="mb-14 max-w-4xl">
           <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
             Solutions built around what you want to{' '}
-            <span className="italic text-frame-accent">
+            <span className="text-white">
               achieve.
             </span>
           </h2>
@@ -53,7 +53,7 @@ export default function ServicesBusinessGoals() {
         </div>
 
         {/* Editorial Divided Rows (Modality 1) */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#121214] divide-y divide-white/[0.08] overflow-hidden">
+        <div className="rounded-2xl border border-white/[0.08] bg-[#121214] divide-y divide-white/[0.08] overflow-hidden shadow-2xl">
           {goals.map((goal) => (
             <article
               key={goal.number}
@@ -65,7 +65,7 @@ export default function ServicesBusinessGoals() {
                   /{goal.number}
                 </span>
                 <div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200">
                     {goal.title}
                   </h3>
                   <p className="mt-1.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
@@ -91,7 +91,7 @@ export default function ServicesBusinessGoals() {
               <div className="hidden lg:flex items-center justify-end">
                 <span
                   aria-hidden="true"
-                  className="font-mono text-sm text-zinc-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white"
+                  className="font-mono text-sm text-zinc-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-purple-400"
                 >
                   &rarr;
                 </span>
@@ -101,13 +101,13 @@ export default function ServicesBusinessGoals() {
         </div>
 
         {/* Bottom Helper Bar */}
-        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-white/[0.08] bg-[#121214] p-5 rounded-xl">
+        <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border border-white/[0.08] bg-[#121214] p-5 rounded-2xl">
           <p className="font-mono text-xs text-zinc-400">
             Not sure which goal fits first? Start with a strategy call.
           </p>
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[1.1px] text-frame-accent hover:text-white transition-colors"
+            className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-[1.1px] text-purple-400 hover:text-purple-300 transition-colors"
           >
             <span>Book Strategy Call</span>
             <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>

@@ -7,8 +7,9 @@ import {
   AboutTechStack,
   AboutTimeline,
   AboutFounders,
-  AboutCapabilityMix,
   AboutPrinciples,
+  AboutTestimonials,
+  AboutCapabilityMix,
   AboutIndustries,
   AboutFAQ,
   AboutCTA,
@@ -44,16 +45,19 @@ export default function AboutPage() {
       {/* 09: 6 Non-Negotiable Operating Principles */}
       <AboutPrinciples />
 
-      {/* 10: Capability Mix & Core Engine Pillars */}
+      {/* 10: Verified Client Social Proof & Testimonials */}
+      <AboutTestimonials />
+
+      {/* 11: Capability Mix & Core Engine Pillars */}
       <AboutCapabilityMix />
 
-      {/* 11: Industry Verticals Served */}
+      {/* 12: Industry Verticals Served */}
       <AboutIndustries />
 
-      {/* 12: Comprehensive Due Diligence FAQs & Schema.org */}
+      {/* 13: Comprehensive Due Diligence FAQs & Schema.org */}
       <AboutFAQ />
 
-      {/* 13: Conversion CTA */}
+      {/* 14: Conversion CTA */}
       <AboutCTA />
     </main>
   )

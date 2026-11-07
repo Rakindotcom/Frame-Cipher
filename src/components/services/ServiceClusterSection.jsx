@@ -264,7 +264,7 @@ export default function ServiceClusterSection({ service }) {
                         &rarr;
                       </span>
                     </div>
-                    <h3 className="mt-4 text-base font-medium tracking-tight text-[#FAFAFA] group-hover:text-[#A855F7] transition-colors">
+                    <h3 className="mt-4 text-base font-medium tracking-tight text-white">
                       <Link
                         href={sub.href || `/services/${sub.slug}`}
                         className="after:absolute after:inset-0 after:content-['']"
@@ -405,7 +405,7 @@ export default function ServiceClusterSection({ service }) {
                       <span>{study.client}</span>
                       <span className="text-[#71717A]">Case Study</span>
                     </div>
-                    <h4 className="mt-3 text-base font-medium tracking-tight text-[#FAFAFA] group-hover:text-[#A855F7] transition-colors">
+                    <h4 className="mt-3 text-base font-medium tracking-tight text-white">
                       <Link
                         href={`/case-studies/${study.slug}`}
                         className="after:absolute after:inset-0 after:content-['']"
@@ -432,7 +432,7 @@ export default function ServiceClusterSection({ service }) {
             {portfolio && (
               <div className="w-full min-w-0 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 space-y-4">
                 <div className="flex items-center justify-between">
-                  <h4 className="text-sm font-medium text-[#FAFAFA]">
+                  <h4 className="text-sm font-medium text-white">
                     {portfolio.title}
                   </h4>
                   <span className="h-2 w-2 rounded-full bg-emerald-400" />

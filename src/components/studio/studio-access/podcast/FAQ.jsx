@@ -68,7 +68,7 @@ export default function FAQ() {
               className="group border-2 border-frame-border bg-frame-bg open:border-frame-accent transition-colors"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 md:p-8 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-frame-fg marker:content-none select-none hover:text-frame-accent transition-colors">
-                <span className="pr-4">{faq.question}</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white pr-4">{faq.question}</h3>
                 <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border-2 border-frame-border text-frame-accent transition-transform duration-200 group-open:rotate-45 font-bold">
                   +
                 </span>

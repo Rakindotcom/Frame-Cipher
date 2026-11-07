@@ -4,26 +4,22 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { getCaseStudyServiceLinks } from '../../lib/seo/internalLinks'
+import { ArrowRight, Check } from 'lucide-react'
 
 function MetaItem({ label, value, href, wide = false }) {
   return (
     <div className={`p-4 sm:p-5 border-b border-white/[0.08] ${wide ? 'sm:col-span-2' : ''}`}>
-      <dt className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-frame-accent">
+      <dt className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-400">
         {label}
       </dt>
       <dd className="mt-1.5 text-sm sm:text-base font-normal leading-relaxed text-white">
         {href ? (
           <Link
             href={href}
-            className="inline-flex items-center gap-1.5 text-white hover:text-frame-accent transition-colors group"
+            className="inline-flex items-center gap-1.5 text-white hover:text-purple-300 transition-colors group"
           >
             <span>{value}</span>
-            <span
-              className="text-frame-accent group-hover:translate-x-0.5 transition-transform"
-              aria-hidden="true"
-            >
-              &rarr;
-            </span>
+            <ArrowRight className="h-3.5 w-3.5 text-purple-600 group-hover:translate-x-0.5 transition-transform" />
           </Link>
         ) : (
           value
@@ -67,6 +63,11 @@ export default function CaseStudyDetailSnapshot({ study }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const activeImage = galleryItems[activeIndex] || galleryItems[0] || normalizeItem(study.image)
 
+  // Filter out meta items already covered in top header card to avoid duplication
+  const remainingSnapshot = (study.snapshot || []).filter(
+    ([label]) => !['Client', 'Industry', 'Timeline', 'Primary Focus'].includes(label)
+  )
+
   return (
     <section className="relative isolate border-b border-white/[0.08] px-4 py-16 md:px-8 md:py-24 bg-[#09090B]">
       <div className="mx-auto max-w-7xl">
@@ -74,7 +75,7 @@ export default function CaseStudyDetailSnapshot({ study }) {
           {/* LEFT COLUMN: Sticky Interactive Visual Proof Showcase (7 cols) */}
           <div className="lg:col-span-7 lg:sticky lg:top-28 self-start space-y-4">
             {/* Main Visual Frame */}
-            <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]  transition-all duration-300 hover:border-white/[0.14]">
+            <div className="overflow-hidden rounded-2xl border border-white/[0.1] bg-[#121214] transition-all duration-300 hover:border-purple-600/40 shadow-[0_20px_50px_rgba(0,0,0,0.4)] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent">
               <div className="relative aspect-[16/10] w-full bg-zinc-950">
                 {activeImage?.src ? (
                   <Image
@@ -91,11 +92,12 @@ export default function CaseStudyDetailSnapshot({ study }) {
                   </div>
                 )}
               </div>
-              <div className="flex items-center justify-between border-t border-white/[0.08] bg-white/[0.02] px-5 py-3 font-mono text-xs font-medium text-zinc-400">
-                <span className="truncate pr-4 text-[11px] uppercase tracking-wider text-zinc-300">
-                  {activeImage?.caption || `${study.client} - Verified Performance Proof`}
+              <div className="flex items-center justify-between border-t border-white/[0.08] bg-[#18181B]/90 backdrop-blur-sm px-5 py-3 font-mono text-xs font-medium text-zinc-300">
+                <span className="truncate pr-4 text-[11px] uppercase tracking-wider text-zinc-300 flex items-center gap-2">
+                  <Check className="h-3.5 w-3.5 text-purple-600 shrink-0" />
+                  <span className="truncate">{activeImage?.caption || `${study.client} - Verified Performance Proof`}</span>
                 </span>
-                <span className="shrink-0 text-[10px] uppercase tracking-wider tabular-nums text-frame-accent">
+                <span className="shrink-0 text-[10px] uppercase tracking-wider tabular-nums text-purple-400 font-semibold">
                   Snapshot {galleryItems.length > 0 ? activeIndex + 1 : 1} of {Math.max(galleryItems.length, 1)}
                 </span>
               </div>
@@ -103,7 +105,7 @@ export default function CaseStudyDetailSnapshot({ study }) {
 
             {/* Interactive Thumbnail Selector Strip */}
             {galleryItems.length > 1 && (
-              <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-3 sm:p-4">
+              <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-3.5 sm:p-4.5 shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
                 <p className="mb-3 font-mono text-[10px] uppercase tracking-[1.1px] text-zinc-400">
                   Select Verified Evidence Snapshot:
                 </p>
@@ -115,9 +117,9 @@ export default function CaseStudyDetailSnapshot({ study }) {
                         key={`${item.src}-${idx}`}
                         type="button"
                         onClick={() => setActiveIndex(idx)}
-                        className={`group relative aspect-[16/10] w-full overflow-hidden rounded-lg border transition-all text-left touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent ${
+                        className={`group relative aspect-[16/10] w-full overflow-hidden rounded-xl border transition-all text-left touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
                           isSelected
-                            ? 'border-frame-accent ring-2 ring-frame-accent/40 scale-[1.02]'
+                            ? 'border-purple-600 ring-2 ring-purple-600/40 scale-[1.02]'
                             : 'border-white/[0.08] hover:border-white/30 opacity-70 hover:opacity-100'
                         }`}
                         aria-label={`View evidence screenshot ${idx + 1}`}
@@ -138,13 +140,17 @@ export default function CaseStudyDetailSnapshot({ study }) {
           </div>
 
           {/* RIGHT COLUMN: Executive Snapshot & Project Context (5 cols) */}
-          <div className="lg:col-span-5 rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden">
+          <div className="lg:col-span-5 rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.3)] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent">
             <div className="p-6 sm:p-8 border-b border-white/[0.08]">
-              <h2 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white leading-snug">
+              <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+                <span>Executive Dossier</span>
+              </div>
+              <h2 className="font-heading text-xl sm:text-2xl font-semibold tracking-tight text-white leading-snug">
                 {study.headline || study.title}
               </h2>
 
-              <p className="mt-4 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
+              <p className="mt-3.5 text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                 {study.summary}
               </p>
             </div>
@@ -167,16 +173,33 @@ export default function CaseStudyDetailSnapshot({ study }) {
               )}
             </div>
 
-            {/* Key Deliverables Matrix */}
-            {study.snapshot?.length > 0 && (
+            {/* Systems & Capabilities Deployed (Tickmark Systems List Guardrail - Rule 8) */}
+            {study.tools?.length > 0 && (
+              <div className="p-5 sm:p-6 border-b border-white/[0.08] bg-white/[0.01]">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-400">
+                  Systems &amp; Capabilities Deployed
+                </p>
+                <div className="mt-3.5 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  {study.tools.map((tool) => (
+                    <div key={tool} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300 font-medium">
+                      <Check className="h-3.5 w-3.5 text-purple-600 shrink-0" />
+                      <span>{tool}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Key Deliverables Matrix / Scorecard */}
+            {remainingSnapshot.length > 0 && (
               <div className="border-t border-white/[0.08]">
                 <div className="p-4 sm:p-5 border-b border-white/[0.08] bg-white/[0.02]">
-                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-frame-accent">
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-400">
                     Engagement Scorecard
                   </p>
                 </div>
                 <dl className="grid sm:grid-cols-2 divide-y sm:divide-y-0 divide-white/[0.08]">
-                  {study.snapshot.slice(4).map(([label, val]) => (
+                  {remainingSnapshot.map(([label, val]) => (
                     <div key={label} className="p-4 sm:p-5 border-b border-white/[0.08]">
                       <dt className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">{label}</dt>
                       <dd className="mt-1 font-heading text-sm font-medium tabular-nums text-white">{val}</dd>

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 const aboutFaqs = [
   {
@@ -78,11 +78,8 @@ export default function AboutFAQ() {
       <div className="mx-auto max-w-7xl">
         {/* Centered Section Header */}
         <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
-            Everything You Need{' '}
-            <span className="italic text-frame-accent">
-              to Know.
-            </span>
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-highlighted">
+            Everything You Need to Know.
           </h2>
           <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg mx-auto max-w-2xl">
             Direct, transparent answers regarding our multinational operational structure, engineering standards, global client collaboration, and company vision.
@@ -96,25 +93,25 @@ export default function AboutFAQ() {
             return (
               <div
                 key={faq.question}
-                className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors duration-200 hover:border-white/[0.14]"
+                className="group relative rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-all duration-300 hover:border-purple-600/40 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="flex w-full items-center justify-between p-5 sm:p-6 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-inset cursor-pointer touch-manipulation select-none"
+                  className="flex w-full items-center justify-between p-5 sm:p-6 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-inset cursor-pointer touch-manipulation select-none"
                   aria-expanded={isOpen}
                 >
                   <span className="flex items-center gap-3.5 pr-4">
-                    <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    <span className="font-mono text-xs text-purple-600 tabular-nums font-semibold">
                       0{index + 1}
                     </span>
-                    <span className="font-medium text-sm sm:text-base text-white">
+                    <h3 className="font-semibold text-sm sm:text-base text-white">
                       {faq.question}
-                    </span>
+                    </h3>
                   </span>
                   <span className="shrink-0 text-zinc-400">
                     {isOpen ? (
-                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                      <ChevronUp className="h-4 w-4 text-purple-600" />
                     ) : (
                       <ChevronDown className="h-4 w-4" />
                     )}

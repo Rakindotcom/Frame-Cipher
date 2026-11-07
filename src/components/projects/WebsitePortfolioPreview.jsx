@@ -22,7 +22,7 @@ function getPlatformBadge(platform) {
   return {
     label: 'React / Next.js',
     className:
-      'border border-purple-500/30 bg-purple-950/40 text-frame-accent',
+      'border border-purple-500/30 bg-purple-950/40 text-purple-300',
   }
 }
 
@@ -85,7 +85,7 @@ export default function WebsitePortfolioPreview({
             return (
               <article
                 key={site.domain || site.name}
-                className="group flex flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+                className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl"
               >
                 <a
                   href={site.url}
@@ -112,11 +112,11 @@ export default function WebsitePortfolioPreview({
                       >
                         {badge.label}
                       </span>
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-purple-400">
                         {site.category}
                       </span>
                     </div>
-                    <h3 className="font-heading text-xl font-medium text-white group-hover:text-frame-accent transition-colors">
+                    <h3 className="font-heading text-xl font-medium text-white">
                       {site.name}
                     </h3>
                     <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">

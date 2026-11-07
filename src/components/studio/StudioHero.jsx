@@ -47,7 +47,7 @@ export default function StudioHero() {
         <div className="max-w-4xl space-y-6">
           <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl font-medium leading-[0.96] tracking-tight text-white">
             Podcast &amp; Video Production{' '}
-            <span className="italic text-frame-accent">Studio in Dhaka.</span>
+            <span className="text-white">Studio in Dhaka.</span>
           </h1>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300 max-w-3xl">

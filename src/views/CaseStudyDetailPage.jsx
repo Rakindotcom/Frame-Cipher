@@ -14,6 +14,7 @@ import {
   getCaseStudyCalculatorLink,
   getCaseStudyStudioLink,
 } from '../lib/seo/internalLinks'
+import { ArrowRight } from 'lucide-react'
 
 export default function CaseStudyDetailPage({ study }) {
   const currentIndex = growthCaseStudies.findIndex((s) => s.slug === study.slug)
@@ -22,22 +23,25 @@ export default function CaseStudyDetailPage({ study }) {
       ? growthCaseStudies[currentIndex + 1]
       : growthCaseStudies[0]
 
-  const studyNumber = String(currentIndex >= 0 ? currentIndex + 1 : 1).padStart(2, '0')
   const serviceLinks = getCaseStudyServiceLinks(study)
   const calcLink = getCaseStudyCalculatorLink(study)
   const studioLink = getCaseStudyStudioLink(study)
 
   return (
     <main className="min-h-screen bg-[#09090B] text-[#FAFAFA] overflow-x-hidden [overflow-anchor:none]">
-      <CaseStudyDetailHero study={study} studyNumber={studyNumber} />
+      <CaseStudyDetailHero study={study} />
       <CaseStudyDetailSnapshot study={study} />
       <CaseStudyDetailBreakdown study={study} />
 
-      {/* Internal Linking: Deployed Services, Models & Studio Bridges (Modality 5) */}
+      {/* Internal Linking: Deployed Services, Models & Studio Bridges */}
       {(serviceLinks.length > 0 || calcLink || studioLink) && (
         <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 md:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
             <div className="mb-8">
+              <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+                <span>Ecosystem Bridges</span>
+              </div>
               <h3 className="font-heading text-2xl md:text-3xl font-medium text-white tracking-tight">
                 Services &amp; Tools Deployed in This Engagement
               </h3>
@@ -48,17 +52,17 @@ export default function CaseStudyDetailPage({ study }) {
                 <Link
                   key={srv.href}
                   href={srv.href}
-                  className="group rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14]"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-all duration-300 hover:border-purple-600/40 hover:bg-[#18181B] shadow-[0_10px_30px_rgba(0,0,0,0.2)] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/40 before:to-transparent before:transition-all"
                 >
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-zinc-400 group-hover:text-violet-300 transition-colors">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-purple-400">
                     Core Service Capability
                   </span>
-                  <h4 className="mt-2 font-heading text-base font-medium text-white group-hover:text-violet-300 transition-colors">
+                  <h4 className="mt-2 font-heading text-base sm:text-lg font-medium text-white">
                     {srv.anchor}
                   </h4>
-                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-zinc-300 group-hover:text-white transition-colors">
+                  <p className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-zinc-300 group-hover:text-white transition-colors">
                     <span>Explore Service</span>
-                    <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-purple-600 transition-transform duration-200 group-hover:translate-x-1" />
                   </p>
                 </Link>
               ))}
@@ -66,18 +70,18 @@ export default function CaseStudyDetailPage({ study }) {
               {calcLink && (
                 <Link
                   href={calcLink.href}
-                  className="group rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14]"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-all duration-300 hover:border-emerald-500/40 hover:bg-[#18181B] shadow-[0_10px_30px_rgba(0,0,0,0.2)] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-emerald-500/40 before:to-transparent before:transition-all"
                 >
                   <div className="flex items-center gap-2 font-mono text-[10px] uppercase tracking-wider text-emerald-400">
                     <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
                     <span>Interactive Planning Tool</span>
                   </div>
-                  <h4 className="mt-2 font-heading text-base font-medium text-white group-hover:text-emerald-300 transition-colors">
+                  <h4 className="mt-2 font-heading text-base sm:text-lg font-medium text-white">
                     {calcLink.anchor}
                   </h4>
-                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-emerald-400 group-hover:text-emerald-300 transition-colors">
+                  <p className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-emerald-400 group-hover:text-emerald-300 transition-colors">
                     <span>Launch Calculator</span>
-                    <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
                   </p>
                 </Link>
               )}
@@ -85,17 +89,17 @@ export default function CaseStudyDetailPage({ study }) {
               {studioLink && (
                 <Link
                   href={studioLink.href}
-                  className="group rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-200 hover:border-white/[0.14]"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-all duration-300 hover:border-purple-600/40 hover:bg-[#18181B] shadow-[0_10px_30px_rgba(0,0,0,0.2)] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/40 before:to-transparent before:transition-all"
                 >
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-violet-400">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-purple-400">
                     Physical Production Facility
                   </span>
-                  <h4 className="mt-2 font-heading text-base font-medium text-white group-hover:text-violet-300 transition-colors">
+                  <h4 className="mt-2 font-heading text-base sm:text-lg font-medium text-white">
                     {studioLink.anchor}
                   </h4>
-                  <p className="mt-3 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-violet-400 group-hover:text-white transition-colors">
+                  <p className="mt-4 inline-flex items-center gap-1.5 font-mono text-xs font-semibold uppercase tracking-wider text-purple-400 group-hover:text-white transition-colors">
                     <span>Visit Studio Space</span>
-                    <span className="transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">&rarr;</span>
+                    <ArrowRight className="h-3.5 w-3.5 text-purple-600 transition-transform duration-200 group-hover:translate-x-1" />
                   </p>
                 </Link>
               )}
@@ -106,18 +110,20 @@ export default function CaseStudyDetailPage({ study }) {
 
       <CaseStudyDetailNext nextStudy={nextStudy} />
 
-      {/* Master SoftWeb CTA Section */}
+      {/* Master CTA Section */}
       <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-10 md:p-16">
+          <div className="relative overflow-hidden rounded-2xl border border-white/[0.1] bg-[#121214] p-8 sm:p-12 md:p-16 shadow-[0_20px_50px_rgba(0,0,0,0.5)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent">
             <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-              <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
-                Want measurable results{' '}
-                <br className="hidden sm:inline" />
-                <span className="italic text-frame-accent">
-                  like this for your business?
-                </span>
-              </h2>
+              <div>
+                <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600">
+                  <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+                  <span>Next Move</span>
+                </div>
+                <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-white">
+                  Want Measurable Results Like This For Your Business?
+                </h2>
+              </div>
               <span
                 aria-hidden="true"
                 className="hidden lg:block select-none font-heading text-7xl xl:text-8xl font-medium leading-none tracking-tight text-white/20 shrink-0"

@@ -119,7 +119,7 @@ export default function FAQ({ service }) {
               className="group rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-white/[0.16] open:border-frame-accent/40 open:bg-[#151518]"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 sm:p-7 font-heading text-lg sm:text-xl font-medium uppercase tracking-tight text-white marker:content-none">
-                <span className="pr-4">{faq.question}</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white pr-4">{faq.question}</h3>
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.02] text-zinc-400 transition-transform duration-300 group-open:rotate-180 group-open:text-frame-accent group-open:border-frame-accent/30">
                   <ChevronDown className="h-4 w-4" />
                 </span>

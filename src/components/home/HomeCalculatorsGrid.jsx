@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Calculator, Download, Star, Activity, Check } from 'lucide-react'
 import SectionButton from './SectionButton'
 
 const calculatorItems = [
@@ -128,19 +129,19 @@ function TextbookEquation({ equation }) {
   if (!equation) return null
 
   return (
-    <div className="rounded-md border border-white/[0.06] bg-[#141516] p-3.5 transition-colors duration-200 group-hover:border-white/[0.12]">
-      <div className="mb-2 flex items-center justify-between font-mono">
+    <div className="rounded-lg border border-white/[0.06] bg-[#18181B] p-3 transition-colors duration-200 group-hover:border-white/[0.12]">
+      <div className="mb-1.5 flex items-center justify-between font-mono">
         <span className="text-[10px] uppercase tracking-wider text-zinc-500">
           Textbook Equation
         </span>
-        <span className="text-[10px] uppercase tracking-wider text-frame-accent">
+        <span className="text-[10px] uppercase tracking-wider text-purple-600 font-medium">
           Formula
         </span>
       </div>
 
-      <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm">
+      <div className="flex flex-wrap items-center gap-2 text-xs">
         {/* Left Side */}
-        <span className="font-medium text-frame-accent">
+        <span className="font-mono text-xs text-purple-600 font-medium">
           {equation.leftSide}
         </span>
 
@@ -151,22 +152,22 @@ function TextbookEquation({ equation }) {
           <div className="inline-flex items-center gap-1.5">
             <div className="inline-flex flex-col items-center">
               {/* Numerator */}
-              <span className="border-b border-white/20 px-1 pb-0.5 text-center text-[11px] font-medium text-zinc-200 leading-tight">
+              <span className="border-b border-white/20 px-1 pb-0.5 text-center text-[10px] font-medium text-zinc-200 leading-tight">
                 {equation.numerator}
               </span>
               {/* Denominator */}
-              <span className="px-1 pt-0.5 text-center text-[10px] text-zinc-400 leading-tight">
+              <span className="px-1 pt-0.5 text-center text-[9px] text-muted leading-tight">
                 {equation.denominator}
               </span>
             </div>
             {equation.suffix && (
-              <span className="text-[11px] font-medium text-zinc-300">
+              <span className="text-[10px] font-medium text-zinc-300">
                 {equation.suffix}
               </span>
             )}
           </div>
         ) : (
-          <span className="text-[11px] font-medium text-zinc-300">
+          <span className="text-[10px] font-medium text-zinc-300">
             {equation.expression}
           </span>
         )}
@@ -182,66 +183,92 @@ export default function HomeCalculatorsGrid() {
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Ad Spend Math.{' '}
-              <span className="italic text-frame-accent">
-                Zero Guesswork.
-              </span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
+              Ad spend math. Zero guesswork.
             </h2>
           </div>
           <div className="max-w-md space-y-3">
-            <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
               Stop guessing your advertising margins. Model your exact unit economics, Quality Score CPC discounts, and breakeven ROAS before spending a single dollar.
             </p>
             <div className="flex items-center gap-4 text-xs text-zinc-400">
-              <span className="flex items-center gap-1.5"><span className="text-emerald-400">Included:</span> Textbook Formulas</span>
-              <span className="flex items-center gap-1.5"><span className="text-emerald-400">Included:</span> PDF Export</span>
+              <span className="inline-flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-emerald-400" strokeWidth={2.5} />
+                <span className="text-emerald-400 font-medium">Included:</span>
+                <span className="text-zinc-300">Textbook Formulas</span>
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Check className="h-3.5 w-3.5 text-emerald-400" strokeWidth={2.5} />
+                <span className="text-emerald-400 font-medium">Included:</span>
+                <span className="text-zinc-300">PDF Export</span>
+              </span>
             </div>
           </div>
         </div>
 
-        {/* 10-Engine Symmetrical Linear/Raycast Continuum Grid (Shared 1px Hairlines, Zero Box Clutter) */}
-        <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] grid gap-px sm:grid-cols-2 lg:grid-cols-4 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:z-10">
+        {/* Nuxt-Grade Module Cards Grid (10 Calculators in 3-Column Layout) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {calculatorItems.map((item, index) => (
             <article
               key={item.href}
-              className="group relative flex min-h-[300px] flex-col justify-between bg-[#121214] p-6 transition-colors duration-200 hover:bg-[#151518] sm:p-7"
+              className="group relative flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-all duration-300 hover:border-white/[0.2] hover:bg-[#151518] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
             >
               <div>
-                {/* Header Tag & Engine Number */}
-                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
-                  <span className="font-mono text-xs text-frame-accent">
-                    {item.tag}
-                  </span>
-                  <span className="font-mono text-xs text-zinc-500 tabular-nums">
-                    0{index + 1}
-                  </span>
+                {/* Header: Top-Left Deep Purple Icon + Sequence Tag */}
+                <div className="flex items-center justify-between">
+                  <Calculator
+                    className="h-7 w-7 text-purple-600 transition-transform duration-300 group-hover:scale-110"
+                    strokeWidth={1.9}
+                    aria-hidden="true"
+                  />
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-xs text-zinc-400">
+                      {item.tag}
+                    </span>
+                    <span className="font-mono text-xs text-zinc-500 tabular-nums">
+                      0{index + 1}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Title */}
-                <h3 className="mt-5 font-heading text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl">
+                <h3 className="mt-5 font-heading text-lg sm:text-xl font-semibold text-highlighted tracking-tight">
                   <Link href={item.href} className="after:absolute after:inset-0 after:content-['']">
                     {item.title}
                   </Link>
                 </h3>
 
                 {/* Description */}
-                <p className="mt-3 text-xs md:text-sm font-normal leading-relaxed text-zinc-400 transition-colors duration-200 group-hover:text-zinc-200">
+                <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
                   {item.description}
                 </p>
-              </div>
 
-              {/* Bottom Area: Textbook Stacked Equation & Action */}
-              <div className="mt-6 pt-4 border-t border-white/[0.06]">
-                <div className="mb-4">
+                {/* Textbook Stacked Equation */}
+                <div className="mt-4">
                   <TextbookEquation equation={item.equation} />
                 </div>
-                <div
-                  className="inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-4 text-[13px] font-medium text-white transition-colors duration-200 group-hover:border-white/[0.25] group-hover:bg-white/[0.08]"
-                  aria-hidden="true"
-                >
-                  <span>Launch calculator</span>
-                  <span className="ml-2 text-base transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
+              </div>
+
+              {/* Nuxt Module Card Telemetry Footer */}
+              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between relative z-10">
+                <div className="flex items-center gap-3 font-mono text-xs text-zinc-400">
+                  <span className="inline-flex items-center gap-1" title="PDF Export Available">
+                    <Download className="h-3.5 w-3.5 text-zinc-400" />
+                    <span>PDF</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1" title="Textbook Equation Verified">
+                    <Star className="h-3.5 w-3.5 text-zinc-400" />
+                    <span>Formula</span>
+                  </span>
+                  <span className="inline-flex items-center gap-1" title="Mathematical Accuracy">
+                    <Activity className="h-3.5 w-3.5 text-purple-600" />
+                    <span>100%</span>
+                  </span>
+                </div>
+
+                {/* Nuxt Terminal Prompt Badge (>_) */}
+                <div className="flex h-6 px-2 items-center justify-center rounded border border-white/[0.1] bg-white/[0.04] text-[11px] font-mono text-zinc-400 group-hover:border-purple-600/50 group-hover:bg-purple-600/10 group-hover:text-purple-600 transition-colors">
+                  &gt;_
                 </div>
               </div>
             </article>
@@ -249,12 +276,12 @@ export default function HomeCalculatorsGrid() {
         </div>
 
         {/* Section Footer / Master Hub & Audit CTAs */}
-        <div className="relative overflow-hidden mt-12 flex flex-col items-center justify-between gap-6 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:flex-row md:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent">
+        <div className="relative overflow-hidden mt-12 flex flex-col items-center justify-between gap-6 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 md:flex-row md:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent">
           <div>
-            <h3 className="font-heading text-xl font-medium text-white md:text-2xl">
+            <h3 className="font-heading text-xl sm:text-2xl font-semibold text-highlighted">
               Need Multi-Channel Budget Allocation?
             </h3>
-            <p className="mt-1 text-xs md:text-sm text-zinc-400">
+            <p className="mt-1 text-xs md:text-sm font-normal text-muted">
               Compare all 10 platforms side-by-side or download your branded PDF media plan with company forecasts.
             </p>
           </div>

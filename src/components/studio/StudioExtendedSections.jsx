@@ -23,7 +23,7 @@ export default function StudioExtendedSections({ data }) {
             <div className="mb-10 max-w-4xl">
               <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
                 What this costs in Dhaka:{' '}
-                <span className="italic text-frame-accent">honestly priced.</span>
+                <span className="text-white">honestly priced.</span>
               </h2>
             </div>
             <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
@@ -71,7 +71,7 @@ export default function StudioExtendedSections({ data }) {
             <div className="mb-12 max-w-4xl">
               <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
                 Planning guide:{' '}
-                <span className="italic text-frame-accent">quality, budget &amp; delivery.</span>
+                <span className="text-white">quality, budget &amp; delivery.</span>
               </h2>
             </div>
             <div className="grid gap-6 md:grid-cols-2">
@@ -99,7 +99,7 @@ export default function StudioExtendedSections({ data }) {
               <div>
                 <h2 className="font-heading text-2xl sm:text-4xl font-medium leading-[1.04] tracking-[-0.03em] text-white mb-8">
                   Pricing &amp; planning{' '}
-                  <span className="italic text-frame-accent">questions.</span>
+                  <span className="text-white">questions.</span>
                 </h2>
                 <div className="space-y-4">
                   {extraFaqs.map((f, i) => (
@@ -121,7 +121,7 @@ export default function StudioExtendedSections({ data }) {
               <div>
                 <h2 className="font-heading text-2xl sm:text-4xl font-medium leading-[1.04] tracking-[-0.03em] text-white mb-8">
                   Related studio{' '}
-                  <span className="italic text-frame-accent">services.</span>
+                  <span className="text-white">services.</span>
                 </h2>
                 <div className="space-y-3">
                   {related.map((r, i) => (

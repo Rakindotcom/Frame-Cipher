@@ -92,9 +92,9 @@ export default function FAQ({ service }) {
                   className="flex w-full items-center justify-between p-6 sm:p-7 text-left transition-colors"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading text-base sm:text-lg font-medium text-white pr-4">
+                  <h3 className="font-heading text-base sm:text-lg font-medium text-white pr-4">
                     {questionText}
-                  </span>
+                  </h3>
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-zinc-400 transition-transform duration-300 ${
                       isOpen ? 'rotate-180 bg-frame-accent/10 border-frame-accent/30 text-frame-accent' : ''

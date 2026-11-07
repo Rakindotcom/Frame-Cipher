@@ -84,7 +84,7 @@ export default function StudioFaq() {
         <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
           <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
             Studio booking{' '}
-            <span className="italic text-frame-accent">questions.</span>
+            <span className="text-white">questions.</span>
           </h2>
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
             Costs, inclusions, turnaround times, and booking logistics: everything about recording at FrameCipher Studio in Dhaka.
@@ -106,9 +106,9 @@ export default function StudioFaq() {
                   className="flex w-full items-center justify-between p-6 text-left cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] rounded-xl"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
                     {item.q}
-                  </span>
+                  </h3>
                   <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
                     {isOpen ? (
                       <ChevronUp className="h-4 w-4 text-frame-accent" />

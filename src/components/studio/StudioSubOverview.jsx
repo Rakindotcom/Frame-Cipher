@@ -7,15 +7,17 @@ import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLink
 function OverviewBenefits({ service }) {
   if (!service.benefits || service.benefits.length === 0) return null
   return (
-    <div className="border-2 border-frame-border bg-frame-muted/15 p-6 md:p-8">
-      <h3 className="mb-6 flex items-center gap-2 font-heading text-xl font-medium tracking-tight text-frame-fg md:text-2xl">
-        <Layers className="h-5 w-5 text-frame-accent" />
-        <span>Key Inclusions & Standards</span>
-      </h3>
+    <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-6 md:p-8">
+      <div className="mb-6 flex items-center gap-2.5">
+        <Layers className="h-5 w-5 text-purple-400" />
+        <h3 className="font-heading text-xl font-medium tracking-tight text-white md:text-2xl">
+          Key Inclusions & Standards
+        </h3>
+      </div>
       <ul className="grid gap-4 sm:grid-cols-2">
         {service.benefits.map((benefit, i) => (
-          <li key={i} className="flex items-start gap-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-frame-accent" />
+          <li key={i} className="flex items-start gap-3 text-sm wide:text-lg font-normal leading-relaxed text-zinc-300">
+            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-purple-400" />
             <span>{benefit}</span>
           </li>
         ))}
@@ -33,26 +35,26 @@ function OverviewAudience({ service }) {
     'Content creators and podcasters who want broadcast-tier polish',
   ]
   return (
-    <div className="flex flex-col justify-between border-2 border-frame-border bg-frame-muted/20 p-6 md:p-8">
+    <div className="flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 md:p-8">
       <div>
-        <div className="mb-3 flex items-center gap-2 text-frame-accent">
+        <div className="mb-3 flex items-center gap-2 text-purple-400">
           <Users className="h-5 w-5" />
-          <span className="text-xs font-black uppercase tracking-[0.28em] md:text-sm">Who This Service Is For</span>
+          <span className="text-xs font-mono font-medium uppercase tracking-[0.2em] md:text-sm">Who This Service Is For</span>
         </div>
-        <h3 className="font-heading text-xl font-medium tracking-tight text-frame-fg md:text-2xl">Target Project Types</h3>
+        <h3 className="font-heading text-xl font-medium tracking-tight text-white md:text-2xl">Target Project Types</h3>
         <ul className="mt-6 space-y-4">
           {list.map((aud, i) => (
-            <li key={i} className="flex items-start gap-3 border-b border-frame-border/50 pb-3 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-              <span className="mt-0.5 font-mono text-xs font-bold text-frame-accent">0{i + 1}</span>
-              <span className="font-medium text-frame-fg">{aud}</span>
+            <li key={i} className="flex items-start gap-3 border-b border-white/[0.06] pb-3 text-sm wide:text-lg font-normal leading-relaxed text-zinc-300">
+              <span className="mt-0.5 font-mono text-xs font-medium text-purple-400">0{i + 1}</span>
+              <span className="text-zinc-200">{aud}</span>
             </li>
           ))}
         </ul>
       </div>
-      <div className="mt-8 flex items-start gap-3 border-2 border-frame-border bg-frame-bg p-5 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-        <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-frame-accent" />
+      <div className="mt-8 flex items-start gap-3 rounded-xl border border-white/[0.08] bg-[#18181B] p-5 text-sm wide:text-lg font-normal leading-relaxed text-zinc-300">
+        <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-purple-400" />
         <p>
-          <strong className="font-bold text-frame-fg">Studio Standard:</strong> Every session includes pre-shoot environment checks, sound level calibration, and structured deliverable sign-offs before project completion.
+          <strong className="font-semibold text-white">Studio Standard:</strong> Every session includes pre-shoot environment checks, sound level calibration, and structured deliverable sign-offs before project completion.
         </p>
       </div>
     </div>

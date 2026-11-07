@@ -25,7 +25,7 @@ export default function ServiceExperienceFAQ({ faqs }) {
               className={`${surface} group rounded-xl overflow-hidden open:border-white/[0.14] open:bg-[#18181B]`}
             >
               <summary className="flex cursor-pointer list-none items-center justify-between gap-6 px-6 py-5 font-heading text-base font-semibold text-white marker:content-none md:px-7 md:py-6 md:text-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A855F7] focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B] touch-manipulation select-none">
-                <span>{cleanText(faq.question)}</span>
+                <h3 className="font-heading text-base font-semibold text-white md:text-lg">{cleanText(faq.question)}</h3>
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>

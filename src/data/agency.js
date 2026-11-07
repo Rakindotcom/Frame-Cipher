@@ -960,6 +960,16 @@ export const testimonials = [
       'Wow, that is impressive. These posters are very creative. All these posters are great. Love them.',
     tags: ['Poster design', 'Campaign creative', 'Visual assets'],
   },
+  {
+    name: 'Sabbir Ahmad',
+    profession: 'E-commerce Business Owner',
+    source: 'Facebook',
+    date: '16 October at 20:31',
+    avatar: '/sabbir.jpg',
+    quote:
+      'আমাদের ই-কমার্স ওয়েবসাইট তৈরির জন্য FrameCipher টিমের সাথে কাজ করার অভিজ্ঞতা এক কথায় অসাধারণ ছিল। প্রথম দিন থেকে ডেলিভারি পর্যন্ত তাদের আন্তরিকতা, সময়ানুবর্তিতা এবং কাজের মান আমাকে শতভাগ সন্তুষ্ট করেছে। ওয়েবসাইটের ডিজাইন, স্পিড এবং ব্যাকএন্ড ফাংশনালিটি ঠিক যেমন চেয়েছিলাম তার চেয়েও নিখুঁতভাবে তারা ফুটিয়ে তুলেছে। সবচেয়ে ভালো লেগেছে তাদের প্রফেশনাল কমিউনিকেশন এবং যেকোনো সমস্যায় সহযোগিতাপূর্ণ মনোভাব। যাদের কাস্টম ও প্রফেশনাল ওয়েবসাইট ডেভেলপমেন্ট প্রয়োজন, তারা চোখ বন্ধ করে FrameCipher-এর ওপর ভরসা রাখতে পারেন। পুরো টিমকে অনেক শুভকামনা!',
+    tags: ['E-commerce Website', 'Web Development', 'Custom Solution'],
+  },
 ]
 
 export const insightPosts = [

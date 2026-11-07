@@ -1,6 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import AnimatedCounter from './home/AnimatedCounter'
 import { growthPortfolio, resolveGrowthImagePath } from '../data/growthWork'
+import { ArrowRight } from 'lucide-react'
 
 const paidAds = growthPortfolio.filter((project) => project.category === 'Paid Ads')
 const seoProjects = growthPortfolio.filter((project) => project.category === 'SEO')
@@ -11,11 +13,12 @@ export default function GrowthPortfolioSection() {
       <div className="mx-auto max-w-7xl">
         <header className="grid gap-7 border-b border-white/[0.08] pb-10 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.7fr)] lg:items-end">
           <div>
+            <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+              <span>Performance Portfolio</span>
+            </div>
             <h2 className="max-w-5xl font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Performance work,{' '}
-              <span className="italic text-frame-accent">
-                curated.
-              </span>
+              Performance Work, Curated Across Channels
             </h2>
           </div>
           <p className="max-w-3xl text-sm font-normal leading-relaxed text-zinc-300 md:text-base">
@@ -59,10 +62,10 @@ export default function GrowthPortfolioSection() {
 
 export function PortfolioStat({ value, label }) {
   return (
-    <div className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/50 hover:bg-white/[0.06] hover:shadow-[0_12px_28px_rgba(168,85,247,0.15)] md:p-8">
-      <dt className="text-xs font-bold uppercase tracking-wider text-purple-400">{label}</dt>
-      <dd className="mt-3 font-heading text-4xl sm:text-5xl font-bold uppercase leading-none tracking-tight text-white transition-colors duration-300 group-hover:text-frame-accent md:text-5xl">
-        {value}
+    <div className="group rounded-2xl border border-white/[0.08] bg-[#121214] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#18181B] md:p-8 relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/50 before:to-transparent before:transition-all">
+      <dt className="font-mono text-xs font-semibold uppercase tracking-wider text-purple-400">{label}</dt>
+      <dd className="mt-3 font-heading text-4xl sm:text-5xl font-semibold uppercase leading-none tracking-tight text-white tabular-nums md:text-5xl">
+        <AnimatedCounter value={value} duration={1200} replay={true} suffixClassName="text-purple-600 font-semibold" />
       </dd>
     </div>
   )
@@ -72,19 +75,19 @@ export function SectionHeading({ number, title, count }) {
   return (
     <div className="flex flex-col gap-3 border-b border-white/[0.08] pb-5 sm:flex-row sm:items-end sm:justify-between">
       <div className="flex items-baseline gap-3">
-        <span className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent">/{number}</span>
+        <span className="font-mono text-xs uppercase tracking-[1.1px] text-purple-600">/{number}</span>
         <h3 className="font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-white">
           {title}
         </h3>
       </div>
-      <p className="font-mono text-xs uppercase tracking-wider text-zinc-500">{count}</p>
+      <p className="font-mono text-xs uppercase tracking-wider text-zinc-400">{count}</p>
     </div>
   )
 }
 
 export function ProjectCard({ project, number, showSummary = false, className = '' }) {
   return (
-    <article className={`group flex min-w-0 flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] ${className}`}>
+    <article className={`group flex min-w-0 flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#151518] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/50 before:to-transparent before:transition-all ${className}`}>
       <Link
         href={`/case-studies/${project.slug}`}
         className="relative block aspect-[16/9] overflow-hidden border-b border-white/[0.08] bg-zinc-950 focus:outline-none"
@@ -101,15 +104,15 @@ export function ProjectCard({ project, number, showSummary = false, className = 
 
       <div className="flex flex-1 flex-col p-6 md:p-7">
         <div className="flex items-center justify-between gap-2">
-          <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+          <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-purple-400 font-semibold">
             {project.category === 'Paid Ads' ? 'Meta advertising' : project.tags[0]}
           </p>
           <span className="font-mono text-[11px] text-zinc-500 tabular-nums">
             #{String(number).padStart(2, '0')}
           </span>
         </div>
-        <h4 className="mt-2 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
-          <Link href={`/case-studies/${project.slug}`} className="hover:text-frame-accent transition-colors">
+        <h4 className="mt-2 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+          <Link href={`/case-studies/${project.slug}`} className="hover:text-white transition-colors">
             {project.client}
           </Link>
         </h4>
@@ -126,10 +129,10 @@ export function ProjectCard({ project, number, showSummary = false, className = 
         <div className="mt-6 border-t border-white/[0.08] pt-4">
           <Link
             href={`/case-studies/${project.slug}`}
-            className="group/btn inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08]"
+            className="group/btn inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-purple-600/40 hover:bg-white/[0.08]"
           >
             <span>View case study</span>
-            <span aria-hidden="true" className="ml-2 text-base transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-1 group-hover/btn:text-purple-400" />
           </Link>
         </div>
       </div>
@@ -139,14 +142,14 @@ export function ProjectCard({ project, number, showSummary = false, className = 
 
 export function MetricPair({ metrics, className = 'mt-6' }) {
   return (
-    <dl className={`grid grid-cols-[repeat(auto-fit,minmax(min(100%,8rem),1fr))] gap-2 rounded-lg border border-white/[0.08] bg-[#18181B] p-3 ${className}`}>
+    <dl className={`grid grid-cols-[repeat(auto-fit,minmax(min(100%,8rem),1fr))] gap-2 rounded-xl border border-white/[0.08] bg-[#18181B] p-3 ${className}`}>
       {metrics.map(([value, label]) => (
-        <div key={label} className="border-l-2 border-frame-accent pl-3 py-0.5">
+        <div key={label} className="border-l-2 border-purple-600 pl-3 py-0.5">
           <dt className="font-mono text-[10px] uppercase tracking-wider text-zinc-400">
             {label}
           </dt>
-          <dd className="mt-1 font-heading text-lg font-medium uppercase leading-none tracking-tight text-white md:text-xl">
-            {value}
+          <dd className="mt-1 font-heading text-lg font-medium uppercase leading-none tracking-tight text-white tabular-nums md:text-xl">
+            <AnimatedCounter value={value} duration={1200} replay={true} suffixClassName="text-purple-600 font-semibold" />
           </dd>
         </div>
       ))}

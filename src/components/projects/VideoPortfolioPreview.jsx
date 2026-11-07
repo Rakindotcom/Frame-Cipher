@@ -74,13 +74,13 @@ export default function VideoPortfolioPreview({
               return (
                 <article
                   key={video.videoId || idx}
-                  className="group flex flex-col overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+                  className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl"
                 >
                   <div className="p-4 pb-0">
                     <button
                       type="button"
                       onClick={() => setActiveVideo(video)}
-                      className={`group/btn relative block w-full overflow-hidden rounded-lg border border-white/[0.08] bg-[#18181B] text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-frame-accent ${
+                      className={`group/btn relative block w-full overflow-hidden rounded-lg border border-white/[0.08] bg-[#18181B] text-left focus:outline-none focus-visible:ring-1 focus-visible:ring-purple-500 ${
                         video.isShort ? 'aspect-[9/16]' : 'aspect-video'
                       }`}
                       aria-label={`Play video: ${video.title}`}
@@ -102,7 +102,7 @@ export default function VideoPortfolioPreview({
                   <div className="flex flex-1 flex-col p-5 sm:p-6 justify-between space-y-4">
                     <div>
                       <div className="flex items-center justify-between gap-2 border-b border-white/[0.08] pb-3 mb-3">
-                        <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent">
+                        <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-purple-400">
                           {isProductPromo
                             ? 'Product Promo'
                             : isPodcast
@@ -114,7 +114,7 @@ export default function VideoPortfolioPreview({
                         </span>
                       </div>
 
-                      <h3 className="font-heading text-base font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors line-clamp-2">
+                      <h3 className="font-heading text-base font-medium leading-snug tracking-tight text-white line-clamp-2">
                         {video.title}
                       </h3>
 
@@ -128,7 +128,7 @@ export default function VideoPortfolioPreview({
                     <button
                       type="button"
                       onClick={() => setActiveVideo(video)}
-                      className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-white transition-all hover:border-frame-accent hover:bg-frame-accent hover:text-[#09090B] cursor-pointer"
+                      className="inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.04] px-4 py-2 font-mono text-[11px] uppercase tracking-wider text-white transition-all hover:border-purple-500 hover:bg-purple-600 hover:text-white cursor-pointer"
                     >
                       <Play className="h-3 w-3 fill-current" />
                       <span>Watch Preview</span>

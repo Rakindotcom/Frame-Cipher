@@ -140,9 +140,9 @@ export default function FAQ({ service }) {
                     <span className="font-mono text-xs text-frame-accent font-semibold shrink-0">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span className="font-heading text-base sm:text-lg font-medium uppercase text-white tracking-tight">
+                    <h3 className="font-heading text-base sm:text-lg font-medium uppercase text-white tracking-tight">
                       {faq.question}
-                    </span>
+                    </h3>
                   </span>
                   <div
                     className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-zinc-400 transition-transform duration-200 ${

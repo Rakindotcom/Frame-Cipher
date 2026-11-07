@@ -1,3 +1,5 @@
+import AnimatedCounter from './home/AnimatedCounter'
+
 const clients = [
   { name: 'Sonali Bioplastics', logo: '/client01.webp' },
   { name: 'Spenta', logo: '/client02.webp' },
@@ -21,25 +23,22 @@ const marqueeClients = [...baseClients, ...baseClients]
 
 export default function Clients() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white md:px-8 md:py-24">
+    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-16 text-white md:px-8 md:py-24 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Header & Meta */}
         <div className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              Brands we have helped{' '}
-              <span className="italic text-frame-accent">
-                move forward
-              </span>
+          <div className="max-w-2xl">
+            <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
+              Brands we have helped move forward
             </h2>
           </div>
-          <p className="max-w-md text-sm font-normal leading-relaxed text-zinc-300 md:text-base">
+          <p className="max-w-md text-base font-normal leading-relaxed text-muted">
             From regional category leaders to global platforms, we deliver integrated growth, media, and digital infrastructure.
           </p>
         </div>
 
         {/* Auto-scrolling logo marquee with edge fading */}
-        <div className="relative -mx-4 overflow-hidden border-y border-white/[0.08] bg-[#121214] py-6 md:-mx-8 md:py-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/30 before:to-transparent">
+        <div className="relative -mx-4 overflow-hidden border-y border-white/[0.08] bg-[#121214] py-6 md:-mx-8 md:py-8 [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] [-webkit-mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <p className="sr-only">A continuous auto-scrolling showcase of client logos that Frame Cipher has worked with.</p>
 
           <div
@@ -63,14 +62,14 @@ export default function Clients() {
         </div>
 
         {/* Bottom meta bar */}
-        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400">
+        <div className="mt-6 flex flex-wrap items-center justify-between gap-3 font-mono text-[11px] uppercase tracking-[1.1px] text-muted">
           <span className="flex items-center gap-2 text-zinc-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-            50+ Brands
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+            <AnimatedCounter value={50} suffix="+" duration={1400} suffixClassName="text-purple-600" /> Brands
           </span>
           <span className="hidden sm:inline-flex items-center gap-2 text-zinc-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-            100% Satisfied Clients
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+            <AnimatedCounter value={100} suffix="%" duration={1600} suffixClassName="text-purple-600" /> Satisfied Clients
           </span>
           <span className="text-zinc-500">B2B · B2C · Personal Brand · E-Commerce</span>
         </div>

@@ -1,13 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Layers, Users, Globe2, CheckCircle2 } from 'lucide-react'
 import { founders } from '../../data/founders'
 import SectionButton from './SectionButton'
+import AnimatedCounter from './AnimatedCounter'
 
 const stats = [
-  { value: '74', label: 'Services across 7 core areas' },
-  { value: '50+', label: 'Brands served' },
-  { value: '20+', label: 'Countries served' },
-  { value: '100%', label: 'In-house team' },
+  { value: '74', suffix: '', label: 'Services across 7 core areas', icon: Layers },
+  { value: '50', suffix: '+', label: 'Brands served', icon: Users },
+  { value: '20', suffix: '+', label: 'Countries served', icon: Globe2 },
+  { value: '100', suffix: '%', label: 'In-house team', icon: CheckCircle2 },
 ]
 
 export default function HomeAbout() {
@@ -16,35 +18,47 @@ export default function HomeAbout() {
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              A Multinational Tech Machine{' '}
-              <span className="italic text-frame-accent">
-                Born in Dhaka.
-              </span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
+              A multinational tech machine born in Dhaka
             </h2>
           </div>
           <div className="max-w-xl space-y-4">
-            <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
               Frame Cipher is building a sovereign, multinational technology, media, and growth powerhouse headquartered in Ecb Chattar, Matikata, Dhaka. We combine full-stack custom software engineering, cinematic media production, and mathematical performance marketing under one unified operating system.
             </p>
-            <p className="text-sm font-normal leading-relaxed text-zinc-400">
+            <p className="text-sm font-normal leading-relaxed text-muted">
               Serving fast-growing startups and global enterprises across 20+ countries worldwide with an entirely in-house team across <Link href="/services/website-design-development" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">Web &amp; Software Development</Link>, <Link href="/services/seo" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">SEO</Link>, <Link href="/services/paid-advertising" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">Paid Ads</Link>, <Link href="/services/content-creation" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">Cinematic Media</Link>, and our dedicated <Link href="/studio" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">creative video &amp; podcast studio in Dhaka</Link>.
             </p>
           </div>
         </div>
 
-        {/* Facts */}
+        {/* Facts with glowing Lucide icons and counting numbers */}
         <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat) => (
-            <article key={stat.label} className="group relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors duration-300 hover:border-white/[0.16] sm:p-7 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100">
-              <p className="font-heading text-4xl sm:text-5xl font-medium leading-none text-white md:text-6xl tabular-nums">
-                {stat.value}
-              </p>
-              <p className="mt-4 text-[11px] text-frame-accent">
-                {stat.label}
-              </p>
-            </article>
-          ))}
+          {stats.map((stat, index) => {
+            const IconComponent = stat.icon
+            return (
+              <article key={stat.label} className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] p-6 transition-all duration-300 hover:border-white/[0.2] hover:bg-[#151518] sm:p-7 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 hover:before:opacity-100">
+                <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-lg border border-purple-600/30 bg-purple-600/10 text-purple-600">
+                    <IconComponent className="h-4 w-4" />
+                  </div>
+                  <span className="font-mono text-[11px] text-zinc-500">Verified</span>
+                </div>
+                <p className="mt-4 font-heading text-4xl sm:text-5xl font-semibold leading-none text-highlighted md:text-6xl tabular-nums">
+                  <AnimatedCounter
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    duration={1800}
+                    delay={index * 120}
+                    suffixClassName="text-purple-600"
+                  />
+                </p>
+                <p className="mt-4 font-mono text-xs uppercase tracking-wider text-purple-600">
+                  {stat.label}
+                </p>
+              </article>
+            )
+          })}
         </div>
 
         {/* Editorial photographs for founders */}
@@ -65,15 +79,15 @@ export default function HomeAbout() {
               </div>
 
               <div className="flex flex-1 flex-col p-6 md:p-7">
-                <span className="text-[11px] text-frame-accent">{founder.role}</span>
-                <h3 className="mt-2 font-heading text-2xl font-medium text-white group-hover:text-frame-accent transition-colors sm:text-3xl">
+                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">{founder.role}</span>
+                <h3 className="mt-2 font-heading text-xl sm:text-2xl font-semibold text-highlighted tracking-tight">
                   {founder.name}
                 </h3>
-                <p className="mt-2 text-xs text-zinc-400">{founder.focus}</p>
-                <p className="mt-4 flex-1 text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-200 transition-colors">{founder.bio}</p>
+                <p className="mt-2 font-mono text-xs text-muted">{founder.focus}</p>
+                <p className="mt-4 flex-1 text-sm font-normal leading-relaxed text-muted group-hover:text-default transition-colors">{founder.bio}</p>
 
                 <div className="mt-6 flex items-center justify-between border-t border-white/[0.08] pt-5">
-                  <span className="text-[11px] text-zinc-500">Connect</span>
+                  <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">Connect</span>
                   <div className="flex items-center gap-2">
                     {founder.socials.map((social) => (
                       <a

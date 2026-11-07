@@ -125,7 +125,7 @@ export default function FAQ({ service }) {
                     <span className="font-mono text-xs font-semibold text-frame-accent">
                       {String(index + 1).padStart(2, '0')}
                     </span>
-                    <span>{q}</span>
+                    <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white pr-4">{q}</h3>
                   </span>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.05] text-white transition-transform duration-300 group-open:rotate-180">
                     <svg

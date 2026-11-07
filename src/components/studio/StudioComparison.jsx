@@ -63,7 +63,7 @@ export default function StudioComparison() {
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               Studio packages &amp;{' '}
-              <span className="italic text-frame-accent">inclusions.</span>
+              <span className="text-white">inclusions.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">

@@ -134,7 +134,7 @@ export default function DocServicePageView({ service }) {
                     <p className="font-heading text-4xl font-bold leading-none tracking-tighter text-purple-400/40 transition-colors duration-300 group-hover:text-purple-300">
                       {String(index + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="mt-6 font-heading text-2xl font-bold leading-none tracking-tighter text-white transition-colors duration-300 group-hover:text-purple-300">
+                    <h3 className="mt-6 font-heading text-2xl font-bold leading-none tracking-tighter text-white">
                       {sub.sheetTitle}
                     </h3>
                     <p className="mt-4 text-base font-medium leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-200 wide:text-lg">
@@ -257,7 +257,7 @@ export default function DocServicePageView({ service }) {
                     <p className="font-heading text-5xl font-bold leading-none tracking-tighter text-purple-400/40 transition-colors duration-300 group-hover:text-purple-300">
                       {String(step.number || idx + 1).padStart(2, '0')}
                     </p>
-                    <h3 className="mt-6 font-heading text-xl font-bold leading-tight tracking-tight text-white transition-colors duration-300 group-hover:text-purple-300">
+                    <h3 className="mt-6 font-heading text-xl font-bold leading-tight tracking-tight text-white">
                       {step.title}
                     </h3>
                     <p className="mt-4 text-base font-medium leading-relaxed text-zinc-400 transition-colors duration-300 group-hover:text-zinc-200 wide:text-lg">
@@ -479,7 +479,7 @@ export default function DocServicePageView({ service }) {
                   <p className="text-xs font-black uppercase tracking-[0.2em] text-purple-400 group-hover:text-purple-300">
                     {rel.pageType}
                   </p>
-                  <h3 className="mt-3 font-heading text-xl font-bold tracking-tight text-white group-hover:text-purple-300">
+                  <h3 className="mt-3 font-heading text-xl font-bold tracking-tight text-white">
                     {rel.sheetTitle}
                   </h3>
                   <span className="mt-4 inline-block text-xs font-black uppercase tracking-wider text-zinc-400 group-hover:text-white">

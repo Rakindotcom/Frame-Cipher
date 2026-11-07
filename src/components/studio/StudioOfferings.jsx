@@ -126,7 +126,7 @@ export default function StudioOfferings() {
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               Studio production{' '}
-              <span className="italic text-frame-accent">services.</span>
+              <span className="text-white">services.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -151,7 +151,7 @@ export default function StudioOfferings() {
                     <Icon className="h-5 w-5 text-zinc-500 group-hover:text-frame-accent transition-colors" />
                   </div>
 
-                  <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                  <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug tracking-tight text-white transition-colors">
                     {service.title}
                   </h3>
 
@@ -184,10 +184,10 @@ export default function StudioOfferings() {
         </div>
 
         {/* More Services Architectural Strip */}
-        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+        <div className="mt-10 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
           <div className="flex items-center gap-2 mb-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-            <h3 className="font-mono text-xs tracking-[1.1px] text-frame-accent">
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+            <h3 className="font-mono text-xs uppercase tracking-[1.1px] text-white">
               More Services on Request
             </h3>
           </div>
@@ -197,7 +197,7 @@ export default function StudioOfferings() {
               <span key={s.href}>
                 <Link
                   href={s.href}
-                  className="font-medium text-white underline decoration-frame-accent/50 transition-colors hover:text-frame-accent"
+                  className="font-medium text-white underline decoration-purple-500/50 transition-colors hover:text-purple-300"
                 >
                   {s.label}
                 </Link>

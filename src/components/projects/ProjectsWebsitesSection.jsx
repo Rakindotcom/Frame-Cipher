@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { SectionHeading } from '../GrowthPortfolioSection'
+import { ArrowRight } from 'lucide-react'
 
 const PLATFORM_TABS = [
   { id: 'All', label: 'All Frameworks' },
@@ -27,7 +28,7 @@ function getPlatformBadge(platform) {
   }
   return {
     label: 'React / Next.js',
-    className: 'border border-white/[0.08] bg-[#18181B] text-frame-accent',
+    className: 'border border-purple-500/30 bg-purple-500/10 text-purple-300',
   }
 }
 
@@ -77,10 +78,10 @@ export default function ProjectsWebsitesSection({ websites }) {
                 key={tab.id}
                 type="button"
                 onClick={() => setSelectedPlatform(tab.id)}
-                className={`shrink-0 whitespace-nowrap min-h-[44px] inline-flex items-center cursor-pointer rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors duration-150 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent ${
+                className={`shrink-0 whitespace-nowrap min-h-[40px] inline-flex items-center cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
                   isSelected
-                    ? 'bg-[#FAFAFA] text-[#09090B]'
-                    : 'border border-white/[0.08] bg-[#18181B] text-zinc-400 hover:border-white/[0.2] hover:text-white'
+                    ? 'bg-[#FAFAFA] text-[#09090B] shadow-md'
+                    : 'border border-white/[0.08] bg-[#121214] text-zinc-400 hover:border-purple-600/40 hover:text-white'
                 }`}
               >
                 <span>{tab.label}</span>
@@ -91,7 +92,7 @@ export default function ProjectsWebsitesSection({ websites }) {
         </div>
 
         {displayedWebsites.length === 0 ? (
-          <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-8 text-center">
+          <div className="mt-8 rounded-2xl border border-white/[0.08] bg-[#121214] p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.2)]">
             <p className="text-sm font-normal text-zinc-400">
               No websites found under {selectedPlatform} platform.
             </p>
@@ -106,7 +107,7 @@ export default function ProjectsWebsitesSection({ websites }) {
               return (
                 <article
                   key={project.url}
-                  className={`group min-w-0 overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14] ${
+                  className={`group min-w-0 overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#151518] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/50 before:to-transparent before:transition-all ${
                     isFinalOddCard ? 'lg:col-span-2' : ''
                   }`}
                 >
@@ -140,12 +141,12 @@ export default function ProjectsWebsitesSection({ websites }) {
                           >
                             {badge.label}
                           </span>
-                          <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                          <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-purple-400 font-semibold">
                             {project.category}
                           </span>
                         </div>
 
-                        <h3 className="font-heading text-2xl font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent md:text-3xl">
+                        <h3 className="font-heading text-2xl font-medium tracking-tight text-white md:text-3xl">
                           {project.name}
                         </h3>
                         <p className="mt-1 break-words font-mono text-xs text-zinc-500">
@@ -162,18 +163,18 @@ export default function ProjectsWebsitesSection({ websites }) {
                           href={project.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full bg-[#FAFAFA] px-6 text-xs font-medium uppercase tracking-wider text-[#09090B] transition-colors hover:bg-white/90 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
+                          className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full bg-[#FAFAFA] px-6 text-xs font-semibold uppercase tracking-wider text-[#09090B] transition-all duration-200 hover:bg-white touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 shadow-md"
                         >
                           <span>Visit website</span>
-                          <span aria-hidden="true" className="transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
                         </a>
                         {project.caseStudyUrl && (
                           <Link
                             href={project.caseStudyUrl}
-                            className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full border border-white/[0.14] bg-transparent px-6 text-xs font-medium uppercase tracking-wider text-white transition-colors hover:border-white/[0.25] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
+                            className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full border border-white/[0.14] bg-transparent px-6 font-mono text-xs uppercase tracking-wider text-white transition-all duration-200 hover:border-purple-600/40 hover:bg-white/[0.06] touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                           >
                             <span>View case study</span>
-                            <span aria-hidden="true" className="transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
+                            <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
                           </Link>
                         )}
                       </div>

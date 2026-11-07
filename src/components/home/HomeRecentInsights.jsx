@@ -111,13 +111,10 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Our Latest{' '}
-              <span className="italic text-frame-accent">
-                Blogs
-              </span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
+              Our latest insights
             </h2>
-            <p className="mt-4 max-w-2xl text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
               Actionable frameworks, front-end architecture benchmarks, and conversion engineering from our senior strategy team.
             </p>
           </div>
@@ -131,7 +128,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
           {displayItems.map((post, index) => (
             <article
               key={post.title + index}
-              className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-white/[0.2] hover:bg-[#151518] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
             >
               <div>
                 {/* Featured Image Banner (100% Pure Imagery — Zero Overlays) */}
@@ -148,7 +145,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center p-6 text-center">
-                      <span className="text-xs text-zinc-500">
+                      <span className="font-mono text-xs text-zinc-500">
                         FrameCipher Insight
                       </span>
                     </div>
@@ -158,7 +155,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
                 {/* Card Text Content */}
                 <div className="p-6 sm:p-7">
                   <div className="mb-3 flex items-center justify-between text-xs">
-                    <span className="font-medium text-frame-accent truncate max-w-[60%]">
+                    <span className="font-mono text-xs text-purple-600 truncate max-w-[60%]">
                       {post.author}
                     </span>
                     {post.publishDate && (
@@ -167,13 +164,13 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
                       </span>
                     )}
                   </div>
-                  <h3 className="font-heading text-xl font-medium text-white transition-colors duration-200 group-hover:text-frame-accent sm:text-2xl">
+                  <h3 className="font-heading text-xl font-semibold text-highlighted sm:text-2xl">
                     <Link href={post.href} className="after:absolute after:inset-0 after:content-['']">
                       {post.title}
                     </Link>
                   </h3>
                   {post.description && (
-                    <p className="mt-4 text-sm font-normal leading-relaxed text-zinc-400 transition-colors duration-200 group-hover:text-zinc-200 line-clamp-3">
+                    <p className="mt-4 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default line-clamp-3">
                       {post.description}
                     </p>
                   )}
@@ -181,10 +178,16 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
               </div>
 
               {/* Card Footer CTA */}
-              <div className="border-t border-white/[0.08] p-6 pt-4 sm:p-7 sm:pt-4">
-                <Link href={post.href} className="group/read relative z-10 inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08] active:scale-[0.98]">
+              <div className="border-t border-white/[0.06] p-6 pt-4 sm:p-7 sm:pt-4">
+                <Link
+                  href={post.href}
+                  className="group/btn relative z-10 inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-xl border border-white/[0.12] bg-white/[0.04] px-5 text-[13px] font-medium text-white transition-all duration-200 hover:border-purple-600/50 hover:bg-purple-600/10 hover:text-white active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
+                >
                   <span>{post.anchor}</span>
-                  <span aria-hidden="true" className="ml-2 text-base transition-transform duration-200 group-hover/read:translate-x-1">
+                  <span
+                    aria-hidden="true"
+                    className="ml-2 text-base text-zinc-400 transition-transform duration-200 group-hover/btn:translate-x-1.5 group-hover/btn:text-purple-600"
+                  >
                     &rarr;
                   </span>
                 </Link>

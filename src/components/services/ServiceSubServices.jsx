@@ -17,7 +17,7 @@ export default function ServiceSubServices({ service }) {
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               Choose the right{' '}
-              <span className="italic text-frame-accent">
+              <span className="text-white">
                 {getServiceDisplayName(service)} service.
               </span>
             </h2>
@@ -42,7 +42,7 @@ export default function ServiceSubServices({ service }) {
                   </span>
                   <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
                 </div>
-                <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug tracking-tight text-white transition-colors">
                   {getServiceDisplayName(subService)}
                 </h3>
               </div>

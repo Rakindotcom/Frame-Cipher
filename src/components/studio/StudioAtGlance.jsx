@@ -23,7 +23,7 @@ export default function StudioAtGlance() {
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Studio <span className="italic text-frame-accent">essentials.</span>
+              Studio <span className="text-white">essentials.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">

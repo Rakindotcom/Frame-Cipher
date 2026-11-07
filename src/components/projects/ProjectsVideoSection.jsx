@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { SectionHeading } from '../GrowthPortfolioSection'
-import { Play } from 'lucide-react'
+import { Play, ArrowRight } from 'lucide-react'
 
 const SHORT_GENRE_TABS = [
   { id: 'All', label: 'All Short Form' },
@@ -62,13 +62,13 @@ export default function ProjectsVideoSection({
               {longVideos.map((video, index) => (
                 <article
                   key={video.id || `${video.videoId}-${index}`}
-                  className="group rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors duration-200 hover:border-white/[0.14] flex flex-col justify-between"
+                  className="group rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#151518] flex flex-col justify-between relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/50 before:to-transparent before:transition-all"
                 >
                   <div className="p-4 sm:p-5">
                     <button
                       type="button"
                       onClick={() => onPlayVideo(video)}
-                      className="group/btn relative block aspect-video w-full overflow-hidden rounded-lg border border-white/[0.08] bg-zinc-950 text-left cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent"
+                      className="group/btn relative block aspect-video w-full overflow-hidden rounded-xl border border-white/[0.08] bg-zinc-950 text-left cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                       aria-label={`Play the video: ${video.title}`}
                     >
                       <img
@@ -78,7 +78,7 @@ export default function ProjectsVideoSection({
                         loading="lazy"
                       />
                       <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-90 sm:opacity-0 transition-opacity duration-300 sm:group-hover/btn:opacity-100">
-                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAFAFA] text-[#09090B] ">
+                        <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAFAFA] text-[#09090B] shadow-lg">
                           <Play className="h-5 w-5 fill-current ml-0.5" />
                         </span>
                       </div>
@@ -86,10 +86,10 @@ export default function ProjectsVideoSection({
                   </div>
                   <div className="grid gap-4 p-5 sm:p-6 pt-0">
                     <div>
-                      <p className="font-mono text-[11px] uppercase tracking-[1.1px] tabular-nums text-frame-accent">
+                      <p className="font-mono text-[11px] uppercase tracking-[1.1px] tabular-nums text-purple-400 font-semibold">
                         {String(index + 1).padStart(2, '0')} / Long-Form
                       </p>
-                      <h3 className="mt-2 font-heading text-lg sm:text-xl font-medium leading-tight tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                      <h3 className="mt-2 font-heading text-lg sm:text-xl font-medium leading-tight tracking-tight text-white">
                         {video.title}
                       </h3>
                       {video.category && (
@@ -107,10 +107,10 @@ export default function ProjectsVideoSection({
                       <button
                         type="button"
                         onClick={() => onPlayVideo(video)}
-                        className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full border border-white/[0.14] bg-[#18181B] px-5 text-xs font-medium uppercase tracking-wider text-white transition-colors hover:border-white/[0.25] hover:bg-[#1f1f23] cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
+                        className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full border border-white/[0.14] bg-[#18181B] px-5 font-mono text-xs uppercase tracking-wider text-white transition-all duration-200 hover:border-purple-600/40 hover:bg-[#1f1f23] cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                       >
-                        <span>Play the video</span>
-                        <span aria-hidden="true" className="transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
+                        <span>Play video</span>
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
                       </button>
                     </div>
                   </div>
@@ -144,17 +144,17 @@ export default function ProjectsVideoSection({
                     key={tab.id}
                     type="button"
                     onClick={() => setSelectedGenre(tab.id)}
-                    className={`shrink-0 whitespace-nowrap min-h-[44px] flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-medium uppercase tracking-wider transition-colors duration-150 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent cursor-pointer ${
+                    className={`shrink-0 whitespace-nowrap min-h-[40px] flex items-center gap-2 rounded-full px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 cursor-pointer ${
                       isActive
-                        ? 'bg-[#FAFAFA] text-[#09090B]'
-                        : 'border border-white/[0.08] bg-[#18181B] text-zinc-400 hover:border-white/[0.2] hover:text-white'
+                        ? 'bg-[#FAFAFA] text-[#09090B] shadow-md'
+                        : 'border border-white/[0.08] bg-[#121214] text-zinc-400 hover:border-purple-600/40 hover:text-white'
                     }`}
                   >
                     <span>{tab.label}</span>
                     <span
                       className={`rounded-full px-2 py-0.5 text-[10px] font-mono tabular-nums ${
                         isActive
-                          ? 'bg-black/20 text-[#09090B]'
+                          ? 'bg-black/10 text-[#09090B]'
                           : 'bg-white/[0.06] text-zinc-400'
                       }`}
                     >
@@ -176,13 +176,13 @@ export default function ProjectsVideoSection({
                 return (
                   <article
                     key={video.id || `${video.videoId}-${index}`}
-                    className="group rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors duration-200 hover:border-white/[0.14] flex flex-col justify-between"
+                    className="group rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#151518] flex flex-col justify-between relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/50 before:to-transparent before:transition-all"
                   >
                     <div className="p-4 sm:p-5">
                       <button
                         type="button"
                         onClick={() => onPlayVideo(video)}
-                        className="group/btn relative block aspect-[9/16] w-full overflow-hidden rounded-lg border border-white/[0.08] bg-zinc-950 text-left cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent"
+                        className="group/btn relative block aspect-[9/16] w-full overflow-hidden rounded-xl border border-white/[0.08] bg-zinc-950 text-left cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                         aria-label={`Play the short video: ${video.title}`}
                       >
                         <img
@@ -192,7 +192,7 @@ export default function ProjectsVideoSection({
                           loading="lazy"
                         />
                         <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover/btn:opacity-100">
-                          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAFAFA] text-[#09090B] ">
+                          <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#FAFAFA] text-[#09090B] shadow-lg">
                             <Play className="h-6 w-6 fill-current ml-0.5" />
                           </span>
                         </div>
@@ -201,7 +201,7 @@ export default function ProjectsVideoSection({
                     <div className="grid gap-4 p-5 sm:p-6 pt-0">
                       <div>
                         <div className="flex flex-wrap items-center gap-1.5 mb-2">
-                          <span className="rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider border border-white/[0.08] bg-[#18181B] text-frame-accent">
+                          <span className="rounded-full px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider border border-purple-500/30 bg-purple-500/10 text-purple-300">
                             {isProductPromo
                               ? 'Product Promo'
                               : isPodcast
@@ -212,7 +212,7 @@ export default function ProjectsVideoSection({
                         <p className="font-mono text-[11px] uppercase tracking-[1.1px] tabular-nums text-zinc-500">
                           /{String(index + 1).padStart(2, '0')}
                         </p>
-                        <h3 className="mt-1 font-heading text-base sm:text-lg font-medium leading-tight tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent line-clamp-2">
+                        <h3 className="mt-1 font-heading text-base sm:text-lg font-medium leading-tight tracking-tight text-white line-clamp-2">
                           {video.title}
                         </h3>
                         {video.category && (
@@ -225,10 +225,10 @@ export default function ProjectsVideoSection({
                         <button
                           type="button"
                           onClick={() => onPlayVideo(video)}
-                          className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full border border-white/[0.14] bg-[#18181B] px-4 text-xs font-medium uppercase tracking-wider text-white transition-colors hover:border-white/[0.25] hover:bg-[#1f1f23] cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
+                          className="group/btn inline-flex min-h-[44px] h-[44px] items-center justify-center gap-2 rounded-full border border-white/[0.14] bg-[#18181B] px-4 font-mono text-xs uppercase tracking-wider text-white transition-all duration-200 hover:border-purple-600/40 hover:bg-[#1f1f23] cursor-pointer touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600"
                         >
-                          <span>Play the short</span>
-                          <span aria-hidden="true" className="transition-transform duration-200 group-hover/btn:translate-x-1">&rarr;</span>
+                          <span>Play short</span>
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1" />
                         </button>
                       </div>
                     </div>

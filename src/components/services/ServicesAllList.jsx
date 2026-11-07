@@ -14,7 +14,7 @@ export default function ServicesAllList({ pillarGroups = [] }) {
           <div className="max-w-3xl">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               Everything you need to{' '}
-              <span className="italic text-frame-accent">
+              <span className="text-white">
                 build, market &amp; grow.
               </span>
             </h2>
@@ -36,7 +36,7 @@ export default function ServicesAllList({ pillarGroups = [] }) {
             <section
               key={pillar.slug}
               id={pillar.slug}
-              className="scroll-mt-24 rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden"
+              className="scroll-mt-24 rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden shadow-2xl"
             >
               {/* Pillar Header Band */}
               <div className="grid gap-6 border-b border-white/[0.08] bg-[#18181B] p-6 sm:p-8 md:grid-cols-[auto_1fr_auto] md:items-center">
@@ -47,7 +47,7 @@ export default function ServicesAllList({ pillarGroups = [] }) {
                   /{String(pillarIndex + 1).padStart(2, '0')}
                 </span>
                 <div>
-                  <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent tabular-nums">
+                  <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-purple-400 font-medium tabular-nums">
                     {subServices.length + 1} service pages
                   </p>
                   <h3 className="mt-2 font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-white">
@@ -64,26 +64,26 @@ export default function ServicesAllList({ pillarGroups = [] }) {
                 </div>
               </div>
 
-              {/* Subservices Blueprint Matrix */}
-              <div className="grid gap-px bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+              {/* Subservices Modular Card Grid (Modality B) */}
+              <div className="p-6 sm:p-8 bg-[#121214] grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {subServices.map((service, serviceIndex) => (
                   <Link
                     key={service.slug}
                     href={service.fullPath}
-                    className="group flex min-h-28 flex-col justify-between bg-[#121214] p-5 transition-colors duration-200 hover:bg-[#151518] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-inset"
+                    className="group relative flex min-h-28 flex-col justify-between rounded-xl border border-white/[0.08] bg-[#18181B] p-5 transition-all duration-300 hover:border-purple-500/40 hover:bg-[#202024] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
                   >
                     <div className="flex items-center justify-between gap-4">
-                      <span className="font-mono text-[11px] uppercase tracking-[1.1px] px-2 py-0.5 rounded bg-[#18181B] text-frame-accent border border-white/[0.08] tabular-nums">
+                      <span className="font-mono text-[11px] uppercase tracking-[1.1px] px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/30 tabular-nums font-medium">
                         {String(serviceIndex + 1).padStart(2, '0')}
                       </span>
                       <span
                         aria-hidden="true"
-                        className="font-mono text-sm text-zinc-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-white"
+                        className="font-mono text-sm text-zinc-500 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-purple-400"
                       >
                         &rarr;
                       </span>
                     </div>
-                    <h4 className="mt-4 font-heading text-base sm:text-lg font-medium tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                    <h4 className="mt-4 font-heading text-base sm:text-lg font-medium tracking-tight text-white transition-colors duration-200">
                       {getServiceDisplayName(service)}
                     </h4>
                   </Link>

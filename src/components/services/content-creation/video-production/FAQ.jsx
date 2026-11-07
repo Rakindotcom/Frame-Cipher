@@ -96,7 +96,7 @@ export default function FAQ({ service }) {
               className="group border border-white/[0.08] bg-[#09090B] open:border-[#A855F7]/40 transition-colors"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-lg md:text-xl font-bold uppercase tracking-tight text-[#FAFAFA] marker:content-none select-none hover:text-[#A855F7] transition-colors">
-                <span className="pr-4">{faq.question}</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white pr-4">{faq.question}</h3>
                 <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>

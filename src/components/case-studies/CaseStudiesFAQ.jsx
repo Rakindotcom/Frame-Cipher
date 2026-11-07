@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 const faqs = [
   {
@@ -63,11 +63,12 @@ export default function CaseStudiesFAQ() {
       <div className="mx-auto max-w-7xl">
         {/* Strictly Centered Section Header */}
         <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Questions about our{' '}
-            <span className="italic text-frame-accent">
-              case studies.
-            </span>
+          <div className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600">
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+            <span>Due Diligence &amp; Verification</span>
+          </div>
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-semibold leading-[0.96] tracking-tight text-highlighted">
+            Frequently Asked Questions
           </h2>
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
             Learn more about our methodology, verified outcome tracking, and how we replicate growth results for new partners.
@@ -81,20 +82,20 @@ export default function CaseStudiesFAQ() {
             return (
               <div
                 key={faq.question}
-                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+                className="rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-purple-600/40 overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="flex w-full items-center justify-between p-6 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-inset touch-manipulation select-none"
+                  className="flex w-full items-center justify-between p-6 text-left cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-inset touch-manipulation select-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
                     {faq.question}
-                  </span>
+                  </h3>
                   <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
                     {isOpen ? (
-                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                      <ChevronUp className="h-4 w-4 text-purple-600" />
                     ) : (
                       <ChevronDown className="h-4 w-4" />
                     )}
@@ -102,7 +103,7 @@ export default function CaseStudiesFAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 bg-[#18181B]/40">
                     <p className="text-base font-normal leading-relaxed text-zinc-300">
                       {faq.answer}
                     </p>
@@ -116,4 +117,3 @@ export default function CaseStudiesFAQ() {
     </section>
   )
 }
-

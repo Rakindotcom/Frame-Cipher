@@ -55,9 +55,9 @@ export default function CalculatorFaqSection({ faqs, title = 'Frequently Asked Q
                 onClick={() => setOpenIndex(isOpen ? -1 : idx)}
                 className="flex w-full items-center justify-between p-5 text-left cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent rounded-lg"
               >
-                <span className="font-heading text-base md:text-lg font-medium text-white pr-4">
+                <h3 className="font-heading text-base md:text-lg font-medium text-white pr-4">
                   {faq.question}
-                </span>
+                </h3>
                 {isOpen ? (
                   <ChevronUp className="h-5 w-5 shrink-0 text-frame-accent" />
                 ) : (

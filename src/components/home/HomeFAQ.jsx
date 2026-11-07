@@ -50,13 +50,10 @@ export default function HomeFAQ() {
 
       <div className="mx-auto max-w-4xl">
         <div className="mb-14 max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Before you{' '}
-            <span className="italic text-frame-accent">
-              ask.
-            </span>
+          <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
+            Before you ask
           </h2>
-          <p className="mt-6 max-w-2xl mx-auto text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
+          <p className="mt-5 max-w-2xl mx-auto text-base font-normal leading-relaxed text-muted md:text-lg">
             The short answers to the questions we hear most before any engagement starts.
           </p>
         </div>
@@ -73,7 +70,7 @@ export default function HomeFAQ() {
                   <span className="font-mono text-xs sm:text-sm text-frame-accent tabular-nums tracking-wider">
                     0{index + 1}
                   </span>
-                  <h3 className="font-heading text-lg sm:text-xl font-medium text-white group-open:text-frame-accent transition-colors">
+                  <h3 className="font-heading text-lg sm:text-xl font-semibold text-highlighted">
                     {faq.question}
                   </h3>
                 </div>
@@ -84,8 +81,8 @@ export default function HomeFAQ() {
                   +
                 </span>
               </summary>
-              <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-zinc-300 bg-[#09090B]">
-                <p className="text-sm md:text-base font-normal leading-relaxed text-zinc-300">
+              <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-muted bg-[#09090B]">
+                <p className="text-sm md:text-base font-normal leading-relaxed text-muted">
                   {faq.answer}
                 </p>
               </div>

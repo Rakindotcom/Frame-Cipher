@@ -4,14 +4,12 @@ export default function AboutCTA() {
   return (
     <section className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
-        <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-200 hover:border-white/[0.14] sm:p-10 md:p-16">
+        <div className="relative overflow-hidden rounded-2xl border border-white/[0.1] bg-[#121214] p-7 sm:p-10 md:p-16 transition-colors duration-300 hover:border-white/[0.2] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-highlighted">
               Want one team to plan and
               <br />
-              <span className="italic text-frame-accent">
-                execute the next move?
-              </span>
+              execute the next move?
             </h2>
             <span
               aria-hidden="true"

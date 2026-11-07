@@ -28,7 +28,7 @@ function SiblingGrid({ siblings, cluster }) {
         {siblings.map((sib) => (
           <Link key={sib.slug} href={`/studio/${sib.slug}/`} className="group rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-all duration-300 hover:border-frame-accent">
             <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-400 transition-colors group-hover:text-frame-accent">{sib.eyebrow || 'Studio Service'}</span>
-            <h4 className="mt-2 font-heading text-base font-medium tracking-tight text-white transition-colors group-hover:text-frame-accent">{sib.name}</h4>
+            <h4 className="mt-2 font-heading text-base font-medium tracking-tight text-white transition-colors">{sib.name}</h4>
             <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-zinc-400">{sib.tagline || sib.intro}</p>
             <div className="mt-4 flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-frame-accent">
               <span>Explore Service</span>
@@ -49,7 +49,7 @@ function ComplementaryGrid({ complementary }) {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {complementary.map((comp) => (
           <Link key={comp.slug} href={`/studio/${comp.slug}/`} className="group rounded-xl border border-white/[0.08] bg-[#121214] p-5 transition-all duration-300 hover:border-frame-accent">
-            <h4 className="font-heading text-sm font-medium tracking-tight text-white transition-colors group-hover:text-frame-accent">{comp.name}</h4>
+            <h4 className="font-heading text-sm font-medium tracking-tight text-white transition-colors">{comp.name}</h4>
             <p className="mt-1.5 line-clamp-2 text-xs leading-relaxed text-zinc-400">{comp.tagline || comp.intro}</p>
             <span className="mt-3 inline-flex items-center gap-1 font-mono text-[10px] uppercase tracking-wider text-frame-accent">View Details &rarr;</span>
           </Link>
@@ -92,7 +92,7 @@ export default function StudioSubClusterNav({ currentService, allServices }) {
           <div>
             <h2 className="font-heading text-3xl sm:text-5xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
               Related studio capabilities{' '}
-              <span className="italic text-frame-accent">in Dhaka.</span>
+              <span className="text-white">in Dhaka.</span>
             </h2>
           </div>
           <Link href="/studio/" className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 py-2.5 font-mono text-xs uppercase tracking-wider text-white transition-colors hover:border-frame-accent hover:text-frame-accent">

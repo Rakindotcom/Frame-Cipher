@@ -7,11 +7,8 @@ export default function AboutFounders() {
       <div className="mx-auto max-w-7xl">
         {/* Section Intro */}
         <div className="mb-14 max-w-4xl space-y-4">
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
-            The operators building the{' '}
-            <span className="italic text-frame-accent">
-              multinational machine.
-            </span>
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-highlighted">
+            The operators building the multinational machine.
           </h2>
           <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
             Frame Cipher is founded and led by hands-on technical and creative operators who design, engineer, shoot, and scale directly alongside our global enterprise partners. From our Dhaka headquarters, our leadership ensures zero passive bureaucracy, strict adherence to global engineering standards, and direct executive accountability.
@@ -23,7 +20,7 @@ export default function AboutFounders() {
           {founders.map((founder, index) => (
             <article
               key={founder.name}
-              className="group flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+              className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#151518] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 hover:before:opacity-100"
             >
               <div>
                 {/* Pure Image Frame (Unobstructed Portrait) */}
@@ -44,7 +41,7 @@ export default function AboutFounders() {
                 {/* Content */}
                 <div className="p-6 sm:p-7 space-y-3">
                   <div className="flex items-center justify-between">
-                    <p className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent">
+                    <p className="font-mono text-[10px] uppercase tracking-[1.1px] text-purple-600 font-semibold">
                       {founder.role}
                     </p>
                     {founder.portfolio && (
@@ -52,14 +49,14 @@ export default function AboutFounders() {
                         href={founder.portfolio}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.12] bg-[#18181B] px-3 py-1 text-[11px] font-medium text-white transition-all duration-200 hover:border-frame-accent/60 hover:bg-frame-accent hover:text-white"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.12] bg-[#18181B] px-3 py-1 text-[11px] font-medium text-white transition-all duration-200 hover:border-purple-600/50 hover:bg-purple-600/10 hover:text-white"
                       >
                         <span>Portfolio</span>
                         <span aria-hidden="true">&rarr;</span>
                       </a>
                     )}
                   </div>
-                  <h3 className="font-heading text-xl sm:text-2xl font-medium leading-tight text-white group-hover:text-frame-accent transition-colors">
+                  <h3 className="font-heading text-xl sm:text-2xl font-semibold leading-tight text-highlighted">
                     {founder.name}
                   </h3>
                   <p className="font-mono text-xs text-zinc-400">
@@ -85,7 +82,7 @@ export default function AboutFounders() {
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={`${founder.name} on ${social.platform}`}
-                        className="flex h-9 w-9 sm:h-8 sm:w-8 min-h-[36px] min-w-[36px] items-center justify-center rounded-lg border border-white/[0.08] bg-[#18181B] text-zinc-400 transition-colors hover:border-white/[0.2] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent touch-manipulation"
+                        className="flex h-9 w-9 sm:h-8 sm:w-8 min-h-[36px] min-w-[36px] items-center justify-center rounded-full border border-white/[0.08] bg-[#18181B] text-zinc-400 transition-colors hover:border-purple-600/50 hover:bg-purple-600/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 touch-manipulation"
                       >
                         {social.icon}
                         <span className="sr-only">{founder.name} on {social.platform}</span>

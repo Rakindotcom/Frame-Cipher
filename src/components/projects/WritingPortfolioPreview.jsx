@@ -49,19 +49,19 @@ export default function WritingPortfolioPreview({
   return (
     <section
       id="writing-portfolio"
-      className="border-t border-white/[0.08] bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28"
+      className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+        <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-3xl space-y-4">
+            <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 font-mono text-xs uppercase tracking-wider text-purple-300">
               {eyebrow}
-            </p>
-            <h2 className="mt-4 font-heading text-[clamp(2.4rem,7vw,6rem)] font-bold leading-[0.85] tracking-tighter text-frame-fg">
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               {title}
             </h2>
             {description && (
-              <p className="mt-4 text-base font-medium leading-relaxed text-frame-muted-fg md:text-lg">
+              <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
                 {description}
               </p>
             )}
@@ -71,41 +71,49 @@ export default function WritingPortfolioPreview({
               href={archiveHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex min-h-12 shrink-0 items-center justify-center border-2 border-frame-border px-5 py-3 text-center text-sm font-black uppercase tracking-tighter text-frame-fg transition hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg"
+              className="group inline-flex min-h-[48px] h-[48px] items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-6 text-[14px] font-medium leading-none text-white backdrop-blur-sm transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08] shrink-0 whitespace-nowrap"
             >
-              {archiveLabel}
+              <span>{archiveLabel.replace('→', '').trim()}</span>
+              <span
+                aria-hidden="true"
+                className="ml-1.5 text-lg leading-none transition-transform duration-200 group-hover:translate-x-1 shrink-0"
+              >
+                &rarr;
+              </span>
             </a>
           )}
         </div>
 
-        <div className={`grid gap-5 ${gridColsClass}`}>
+        <div className={`grid gap-6 ${gridColsClass}`}>
           {samples.map((sample, idx) => (
             <article
               key={`${sample.url}-${idx}`}
-              className="group flex flex-col border-2 border-frame-border bg-frame-bg p-6 transition-colors hover:border-frame-accent"
+              className="group flex flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl"
             >
-              <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                <span className="border border-frame-accent/50 bg-frame-accent/10 px-2 py-1 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-frame-accent">
-                  {sample.category}
-                </span>
-                {sample.client && (
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-frame-muted-fg">
-                    {sample.client}
+              <div>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] font-medium uppercase tracking-wider text-purple-300">
+                    {sample.category}
                   </span>
-                )}
-              </div>
+                  {sample.client && (
+                    <span className="font-mono text-[10px] font-medium uppercase tracking-wider text-zinc-400">
+                      {sample.client}
+                    </span>
+                  )}
+                </div>
 
-              <h3 className="mt-4 font-heading text-lg font-bold leading-tight tracking-tighter text-frame-fg md:text-xl">
-                {sample.title}
-              </h3>
+                <h3 className="mt-4 font-heading text-lg md:text-xl font-medium leading-snug tracking-tight text-white">
+                  {sample.title}
+                </h3>
+              </div>
 
               <a
                 href={sample.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto pt-5 inline-flex items-center gap-2 text-xs font-black uppercase tracking-tighter text-frame-fg transition hover:text-frame-accent"
+                className="mt-6 pt-4 border-t border-white/[0.08] inline-flex items-center gap-1.5 text-xs font-medium text-purple-400 hover:text-purple-300 transition-colors"
               >
-                Read sample
+                <span>Read sample</span>
                 <span aria-hidden="true">&rarr;</span>
               </a>
             </article>

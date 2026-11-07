@@ -114,9 +114,9 @@ export default function FAQ() {
                   onClick={() => toggleAccordion(index)}
                   className="flex w-full items-center justify-between p-6 text-left transition-colors"
                 >
-                  <span className="font-heading text-base sm:text-lg font-medium uppercase tracking-tight text-white pr-4">
+                  <h3 className="font-heading text-base sm:text-lg font-medium uppercase tracking-tight text-white pr-4">
                     {faq.question}
-                  </span>
+                  </h3>
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/[0.08] bg-white/[0.04] text-zinc-300 transition-colors ${
                       isOpen ? 'border-frame-accent/40 bg-frame-accent/15 text-frame-accent' : ''

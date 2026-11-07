@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
 import { db } from '../../firebase'
+import { ArrowRight, CheckCircle2, AlertCircle } from 'lucide-react'
 
 const budgetRanges = [
   'Under $500',
@@ -125,11 +126,11 @@ export const contactServiceGroups = [
   },
 ]
 
-function Field({ label, name, value, onChange, type = 'text', required = false }) {
+function Field({ label, name, value, onChange, type = 'text', required = false, placeholder = '' }) {
   return (
     <div className="w-full min-w-0 max-w-full">
       <label className="mb-2 block font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 truncate" htmlFor={name}>
-        {label} {required && <span className="text-frame-accent">*</span>}
+        {label} {required && <span className="text-purple-600">*</span>}
       </label>
       <input
         id={name}
@@ -138,7 +139,8 @@ function Field({ label, name, value, onChange, type = 'text', required = false }
         value={value}
         onChange={onChange}
         required={required}
-        className="h-13 w-full min-w-0 max-w-full rounded-lg border border-white/[0.08] bg-[#18181B] px-4 text-[16px] sm:text-[15px] font-normal text-white placeholder:text-zinc-500 focus:border-white/[0.2] focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-colors box-border"
+        placeholder={placeholder}
+        className="h-13 w-full min-w-0 max-w-full rounded-xl border border-white/[0.08] bg-[#18181B] px-4 text-[16px] sm:text-[15px] font-normal text-white placeholder:text-zinc-600 focus:border-purple-600/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-all box-border"
       />
     </div>
   )
@@ -156,11 +158,11 @@ function SelectField({ label, name, value, onChange, options, groups }) {
           name={name}
           value={value}
           onChange={onChange}
-          className="h-13 w-full min-w-0 max-w-full appearance-none truncate rounded-lg border border-white/[0.08] bg-[#18181B] px-4 pr-10 text-[16px] sm:text-[14px] font-medium text-white focus:border-white/[0.2] focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-colors cursor-pointer box-border"
+          className="h-13 w-full min-w-0 max-w-full appearance-none truncate rounded-xl border border-white/[0.08] bg-[#18181B] px-4 pr-10 text-[16px] sm:text-[14px] font-medium text-white focus:border-purple-600/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-all cursor-pointer box-border"
         >
           {groups ? (
             groups.map((grp) => (
-              <optgroup key={grp.category} label={`── ${grp.category} ──`} className="bg-[#121214] font-mono text-xs text-frame-accent">
+              <optgroup key={grp.category} label={`── ${grp.category} ──`} className="bg-[#121214] font-mono text-xs text-purple-400">
                 {grp.items.map((item) => (
                   <option key={item} value={item} className="bg-[#18181B] text-white py-1.5 font-normal">
                     {item}
@@ -272,43 +274,46 @@ export default function ContactBriefForm() {
   }
 
   return (
-    <div className="w-full min-w-0 max-w-full overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10">
+    <div className="w-full min-w-0 max-w-full overflow-hidden rounded-2xl border border-white/[0.1] bg-[#121214] p-7 sm:p-10 md:p-12 relative shadow-[0_20px_50px_rgba(0,0,0,0.4)] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/50 before:to-transparent">
       <div className="mb-8">
-        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-medium tracking-tight text-white">
-          Send us a{' '}
-          <span className="italic text-frame-accent">
-            brief.
-          </span>
+        <div className="mb-3 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600">
+          <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
+          <span>Structured Project Scope</span>
+        </div>
+        <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-highlighted">
+          Send Us a Project Brief
         </h2>
-        <p className="mt-2 text-sm text-zinc-400 leading-relaxed">
-          Fill in what you know; leave what you don&apos;t. We&apos;ll schedule a session or respond async.
+        <p className="mt-2.5 text-sm sm:text-base text-zinc-400 leading-relaxed max-w-2xl">
+          Fill in what you know; leave what you don&apos;t. Our engineering and growth leads will evaluate your requirements and schedule an architectural session.
         </p>
       </div>
 
       {submitStatus === 'success' && (
-        <div className="mb-6 rounded-lg border border-emerald-500/30 bg-emerald-500/10 p-4 font-mono text-xs uppercase tracking-wider text-emerald-300">
-          Message sent. We will review the brief and reply with the best next step.
+        <div className="mb-6 rounded-xl border border-emerald-500/30 bg-emerald-500/10 p-4 font-mono text-xs uppercase tracking-wider text-emerald-300 flex items-center gap-3">
+          <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-400" />
+          <span>Message received. Our executive team will review your brief and reply within 1 business day.</span>
         </div>
       )}
 
       {submitStatus === 'error' && (
-        <div className="mb-6 rounded-lg border border-red-500/30 bg-red-500/10 p-4 font-mono text-xs uppercase tracking-wider text-red-300">
-          The form could not be sent. Please email us or try WhatsApp directly.
+        <div className="mb-6 rounded-xl border border-red-500/30 bg-red-500/10 p-4 font-mono text-xs uppercase tracking-wider text-red-300 flex items-center gap-3">
+          <AlertCircle className="h-4 w-4 shrink-0 text-red-400" />
+          <span>The form could not be sent. Please reach out directly via WhatsApp or email.</span>
         </div>
       )}
 
       <form onSubmit={handleSubmit} className="grid gap-6 w-full min-w-0 max-w-full">
         <div className="grid gap-6 md:grid-cols-2 w-full min-w-0">
-          <Field label="Name" name="name" value={formData.name} onChange={handleChange} required />
-          <Field label="Company" name="company" value={formData.company} onChange={handleChange} />
+          <Field label="Your Name" name="name" value={formData.name} onChange={handleChange} required placeholder="e.g. Alex Rahman" />
+          <Field label="Company / Brand" name="company" value={formData.company} onChange={handleChange} placeholder="e.g. Apex Global" />
         </div>
         <div className="grid gap-6 md:grid-cols-2 w-full min-w-0">
-          <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
-          <Field label="Phone or WhatsApp" name="phone" value={formData.phone} onChange={handleChange} required />
+          <Field label="Work Email" name="email" type="email" value={formData.email} onChange={handleChange} required placeholder="alex@company.com" />
+          <Field label="Phone / WhatsApp" name="phone" value={formData.phone} onChange={handleChange} required placeholder="+880 1700-000000" />
         </div>
         
         <SelectField
-          label="Service needed"
+          label="Primary Service Needed"
           name="serviceNeeded"
           value={formData.serviceNeeded}
           onChange={handleChange}
@@ -317,14 +322,14 @@ export default function ContactBriefForm() {
 
         <div className="grid gap-6 md:grid-cols-2 w-full min-w-0">
           <SelectField
-            label="Budget range"
+            label="Target Budget Range"
             name="budgetRange"
             value={formData.budgetRange}
             onChange={handleChange}
             options={budgetRanges}
           />
           <SelectField
-            label="Timeline"
+            label="Estimated Timeline"
             name="timeline"
             value={formData.timeline}
             onChange={handleChange}
@@ -334,7 +339,7 @@ export default function ContactBriefForm() {
 
         <div className="w-full min-w-0 max-w-full">
           <label className="mb-2 block font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400 truncate" htmlFor="details">
-            Project details <span className="text-frame-accent">*</span>
+            Project Overview &amp; Objectives <span className="text-purple-600">*</span>
           </label>
           <textarea
             id="details"
@@ -343,20 +348,18 @@ export default function ContactBriefForm() {
             onChange={handleChange}
             required
             rows="5"
-            className="w-full min-w-0 max-w-full resize-none rounded-lg border border-white/[0.08] bg-[#18181B] p-4 text-[16px] sm:text-[15px] font-normal leading-relaxed text-white placeholder:text-zinc-500 focus:border-white/[0.2] focus:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-colors box-border"
-            placeholder="Tell us about the business, offer, goal, current problem, and what you need built or promoted."
+            className="w-full min-w-0 max-w-full resize-none rounded-xl border border-white/[0.08] bg-[#18181B] p-4 text-[16px] sm:text-[15px] font-normal leading-relaxed text-white placeholder:text-zinc-600 focus:border-purple-600/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] transition-all box-border"
+            placeholder="Tell us about your business, current bottlenecks, target metrics, and what you need built or scaled."
           />
         </div>
 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="group sw-btn sw-btn-primary min-h-[52px] h-[52px] px-8 text-[15px] font-medium leading-none text-[#09090B] bg-[#FAFAFA] rounded-full w-full flex items-center justify-center gap-2.5 transition-transform hover:scale-[1.01] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
+          className="group min-h-[52px] h-[52px] px-8 text-[15px] font-medium leading-none text-[#09090B] bg-[#FAFAFA] rounded-full w-full flex items-center justify-center gap-2.5 transition-all duration-200 hover:bg-white hover:shadow-[0_0_25px_rgba(255,255,255,0.2)] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-50 cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214]"
         >
-          <span>{isSubmitting ? 'Sending...' : 'Send us a brief'}</span>
-          <span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-hover:translate-x-1 shrink-0">
-            &rarr;
-          </span>
+          <span>{isSubmitting ? 'Submitting Brief...' : 'Submit Project Brief'}</span>
+          <ArrowRight className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1" />
         </button>
       </form>
     </div>

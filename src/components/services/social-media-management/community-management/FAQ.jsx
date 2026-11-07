@@ -122,9 +122,9 @@ export default function FAQ({ service }) {
                     <span className="font-mono text-xs text-frame-accent tabular-nums tracking-wider">
                       {index < 9 ? `0${index + 1}` : index + 1}
                     </span>
-                    <span className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white">
+                    <h3 className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white">
                       {questionText}
-                    </span>
+                    </h3>
                   </div>
                   <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
                     {isOpen ? (

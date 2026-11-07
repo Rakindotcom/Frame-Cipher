@@ -70,7 +70,7 @@ export default function ServicesFAQ() {
         <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
           <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
             Questions before you{' '}
-            <span className="italic text-frame-accent">
+            <span className="text-white">
               start.
             </span>
           </h2>
@@ -86,25 +86,25 @@ export default function ServicesFAQ() {
             return (
               <div
                 key={faq.question}
-                className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-colors duration-200 hover:border-white/[0.14]"
+                className="group rounded-2xl border border-white/[0.08] bg-[#121214] overflow-hidden transition-all duration-300 hover:border-purple-500/30"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(index)}
-                  className="flex w-full items-center justify-between p-5 sm:p-6 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-inset cursor-pointer touch-manipulation select-none"
+                  className="flex w-full items-center justify-between p-5 sm:p-6 text-left transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 focus-visible:ring-inset cursor-pointer touch-manipulation select-none"
                   aria-expanded={isOpen}
                 >
                   <span className="flex items-center gap-3.5 pr-4">
-                    <span className="font-mono text-xs text-frame-accent tabular-nums">
+                    <span className="font-mono text-xs text-purple-400 font-medium tabular-nums">
                       0{index + 1}
                     </span>
-                    <span className="font-medium text-sm sm:text-base text-white">
+                    <h3 className="font-medium text-sm sm:text-base text-white">
                       {faq.question}
-                    </span>
+                    </h3>
                   </span>
-                  <span className="shrink-0 text-zinc-400">
+                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400 group-hover:text-white transition-colors">
                     {isOpen ? (
-                      <ChevronUp className="h-4 w-4 text-frame-accent" />
+                      <ChevronUp className="h-4 w-4 text-purple-400" />
                     ) : (
                       <ChevronDown className="h-4 w-4" />
                     )}

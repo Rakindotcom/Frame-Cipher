@@ -20,9 +20,39 @@
   --color-frame-surface-3: #050505;
   --color-frame-ice: #8DA7B8;
   --color-frame-ice-light: #A2B7C6;
-  --font-heading: "Geist", "Inter", sans-serif;
-  --font-body: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-quote: "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  /* Theme Color Scales from DESIGN-SYSTEM.md */
+  --color-purple-50: #FAF5FF;
+  --color-purple-100: #F3E8FF;
+  --color-purple-200: #E9D5FF;
+  --color-purple-300: #D8B4FE;
+  --color-purple-400: #C084FC;
+  --color-purple-500: #A855F7;
+  --color-purple-600: #9333EA;
+  --color-purple-700: #7E22CE;
+  --color-purple-800: #6B21A8;
+  --color-purple-900: #581C87;
+  --color-purple-950: #3B0764;
+
+  --color-zinc-50: #FAFAFA;
+  --color-zinc-100: #F4F4F5;
+  --color-zinc-200: #E4E4E7;
+  --color-zinc-300: #D4D4D8;
+  --color-zinc-400: #A1A1AA;
+  --color-zinc-500: #71717A;
+  --color-zinc-600: #52525B;
+  --color-zinc-700: #3F3F46;
+  --color-zinc-800: #27272A;
+  --color-zinc-900: #18181B;
+  --color-zinc-950: #09090B;
+
+  --font-sans: "Public Sans", sans-serif;
+  --font-heading: "Public Sans", sans-serif;
+  --font-body: "Public Sans", sans-serif;
+  --font-quote: "Public Sans", sans-serif;
+  --font-mono: "Geist Mono", "JetBrains Mono", monospace;
+
+  --container-7xl: 80rem;
   --container-8xl: 90rem;
 }
 
@@ -30,14 +60,6 @@
  * Wide-desktop body text (100% scaled displays): body copy steps up to
  * 18px (text-lg) from 1537px — i.e. strictly above the 1536px design viewport
  * of a 1920px display at 125% scaling, so 125%-scaled screens are unchanged.
- *
- * Declared as a plain post-Tailwind rule instead of a Tailwind variant (we
- * tried min-[1537px]: and a registered --breakpoint-wide:). Both compile
- * BEFORE Tailwind's responsive variants (sm/md/lg/xl), so on elements that
- * also carry md:text-base / sm:text-base the later responsive rule won the
- * cascade and the wide-screen size was silently ignored. This block is
- * emitted after all Tailwind utilities, so it always wins without needing
- * !important.
  */
 @media (width >= 1537px) {
   .wide\:text-lg {
@@ -46,18 +68,21 @@
   }
 }
 
-/*
- * Wide-viewport container scaling: this site was tuned on a 1920px display at
- * 125% scaling, i.e. a 1536px CSS viewport. On 100% scaling the viewport is
- * wider (e.g. 1920px), which left large empty rails beside the rem-based
- * container caps (max-w-5xl/6xl/7xl / 8xl). Below 1536px nothing changes.
- * From 1536px up, each cap grows proportionally with the viewport (each cap's
- * default share of the design viewport is expressed in vw, clamped to a
- * sensible max), so wider screens get the same proportions with the same
- * physical font size instead of dead space.
- */
 :root {
   color-scheme: dark;
+
+  /* Semantic UI Tokens (DESIGN-SYSTEM.md) */
+  --ui-container: 80rem;
+  --ui-container-wide: 90rem;
+  --ui-header-height: 80px;
+  --ui-bg: #09090B;
+  --ui-bg-muted: #121214;
+  --ui-bg-elevated: #121214;
+  --ui-bg-accented: #18181B;
+  --ui-border: rgba(255, 255, 255, 0.08);
+  --ui-border-accented: rgba(255, 255, 255, 0.16);
+
+  /* Frame Tokens */
   --frame-bg: #09090B;
   --frame-fg: #FAFAFA;
   --frame-muted: #27272A;
@@ -75,6 +100,90 @@
   --frame-surface-3: #050505;
   --frame-ice: #8DA7B8;
   --frame-ice-light: #A2B7C6;
+}
+
+/* Nuxt UI Semantic Utility Classes (DESIGN-SYSTEM.md) */
+.bg-default { background-color: var(--ui-bg); }
+.bg-muted { background-color: var(--ui-bg-muted); }
+.bg-elevated { background-color: var(--ui-bg-elevated); }
+.bg-accented { background-color: var(--ui-bg-accented); }
+.bg-inverted { background-color: #FFFFFF; }
+
+.border-default { border-color: var(--ui-border); }
+.border-muted { border-color: rgba(255, 255, 255, 0.05); }
+.border-accented { border-color: var(--ui-border-accented); }
+.border-inverted { border-color: #09090B; }
+
+/* Nuxt UI Text Hierarchy */
+.text-highlighted { color: #FFFFFF !important; font-weight: 600; }
+.text-default { color: #E4E4E7; }
+.text-toned { color: #CBD5E1; }
+.text-muted { color: #94A3B8; }
+.text-dimmed { color: #64748B; }
+.text-inverted { color: #09090B; }
+
+/* Nuxt UI Button Utilities */
+.u-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: #9333EA;
+  color: #FFFFFF;
+  border: 1px solid transparent;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.u-btn-primary:hover {
+  background-color: #7E22CE;
+}
+.u-btn-primary:active {
+  transform: scale(0.98);
+}
+
+.u-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.04);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.u-btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.u-btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* Animate Marquee Linear (DESIGN-SYSTEM.md §8) */
+@keyframes marqueeLinear {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.animate-marquee {
+  animation: marqueeLinear 28s linear infinite;
 }
 
 /* ==========================================================================
@@ -2299,7 +2408,12 @@ div[contenteditable="true"] .wp-block-button-wrapper {
   transform: scale(1.05);
 }
 
-/* ==========================================================================\n+   Services section canonicalization\n+   Presentation-only guardrails for every service route. These rules keep the\n+   many content-rich page variants on one architectural system while leaving\n+   their copy, order, links, and interactions intact.\n+   ========================================================================== */
+/* ==========================================================================
+   Services section canonicalization
+   Presentation-only guardrails for every service route. These rules keep the
+   many content-rich page variants on one architectural system while leaving
+   their copy, order, links, and interactions intact.
+   ========================================================================== */
 .service-page,
 .service-experience {
   --service-container: 80rem;
@@ -2346,10 +2460,10 @@ div[contenteditable="true"] .wp-block-button-wrapper {
   background-color: #121214 !important;
 }
 
-.service-page a[class*="rounded-full"],
-.service-page button[class*="rounded-full"],
-.service-experience a[class*="rounded-full"],
-.service-experience button[class*="rounded-full"] {
+.service-page a[class*="rounded-full"]:not([class*="h-"]):not([class*="w-"]):not([class*="p-"]),
+.service-page button[class*="rounded-full"]:not([class*="h-"]):not([class*="w-"]):not([class*="p-"]),
+.service-experience a[class*="rounded-full"]:not([class*="h-"]):not([class*="w-"]):not([class*="p-"]),
+.service-experience button[class*="rounded-full"]:not([class*="h-"]):not([class*="w-"]):not([class*="p-"]) {
   min-height: 52px;
   height: 52px;
 }
@@ -2367,3 +2481,29 @@ div[contenteditable="true"] .wp-block-button-wrapper {
     line-height: 0.98;
   }
 }
+
+/* Rich-text headings follow the master sequence: natural title/sentence case. */
+.blog-article-content :is(h1, h2, h3, h4, h5, h6),
+.blog-article-content :is(h1, h2, h3, h4, h5, h6) * {
+  text-transform: none !important;
+}
+
+/* Hero 3D Ecosystem Globe & Floating Platform Badges Animations */
+@keyframes fcGlobeFloat {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fcLineFlow {
+  from {
+    stroke-dashoffset: 24;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+

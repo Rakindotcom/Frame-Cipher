@@ -113,9 +113,9 @@ export default function FAQ({ service }) {
                   className="flex w-full items-center justify-between gap-4 p-5 text-left sm:p-6"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading text-base sm:text-lg font-medium text-white">
+                  <h3 className="font-heading text-base sm:text-lg font-medium text-white">
                     {faq.question}
-                  </span>
+                  </h3>
                   <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.02] text-zinc-400 transition-transform duration-200">
                     {isOpen ? (
                       <ChevronUp className="h-4 w-4 text-frame-accent" />

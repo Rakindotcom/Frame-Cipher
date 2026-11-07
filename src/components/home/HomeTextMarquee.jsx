@@ -19,7 +19,7 @@ export default function HomeTextMarquee() {
             <span className="font-heading text-2xl sm:text-4xl md:text-5xl font-medium leading-none text-white tracking-tight">
               {line}
             </span>
-            <span className="h-2 w-2 shrink-0 rounded-full bg-white/40" />
+            <span className="h-2 w-2 shrink-0 rounded-full bg-frame-accent shadow-[0_0_8px_rgba(168,85,247,0.5)]" />
           </div>
         ))}
       </div>

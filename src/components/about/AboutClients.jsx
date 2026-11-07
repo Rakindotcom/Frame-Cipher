@@ -67,11 +67,8 @@ export default function AboutClients() {
         {/* Section Header */}
         <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl space-y-3">
-            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
-              Trusted by Brands{' '}
-              <span className="italic text-frame-accent">
-                Across 20+ Countries.
-              </span>
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-highlighted">
+              Trusted by Brands Across 20+ Countries.
             </h2>
           </div>
           <div className="max-w-md space-y-3">
@@ -79,9 +76,9 @@ export default function AboutClients() {
               From category-defining Bangladeshi startups to multinational enterprises in the US, UK, and UAE, we engineer digital systems that scale revenue and market equity.
             </p>
             <div className="flex flex-wrap gap-2 text-xs font-mono uppercase text-zinc-400">
-              <span className="rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 text-frame-accent">50+ Brands</span>
+              <span className="rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 text-purple-600 font-semibold">50+ Brands</span>
               <span className="rounded-full border border-white/[0.08] bg-[#18181B] px-3 py-1 text-zinc-300">20+ Countries</span>
-              <span className="rounded-full border border-frame-accent/30 bg-purple-950/40 px-3 py-1 text-purple-200">Zero Outsourcing</span>
+              <span className="rounded-full border border-purple-600/30 bg-purple-950/40 px-3 py-1 text-purple-200">Zero Outsourcing</span>
             </div>
           </div>
         </div>
@@ -119,7 +116,7 @@ export default function AboutClients() {
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
-              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+              <h3 className="font-heading text-xl sm:text-2xl font-semibold tracking-tight text-highlighted">
                 Recognized &amp; Listed On
               </h3>
             </div>
@@ -129,16 +126,16 @@ export default function AboutClients() {
           </div>
 
           {/* 5-Column High-End Architectural Directory Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {directoryList.map((dir) => {
               const cardContent = (
-                <div className="relative rounded-xl border border-white/[0.08] bg-[#121214] p-5 md:p-6 flex flex-col justify-between h-full hover:border-white/[0.14] hover:bg-[#151518] transition-colors duration-300 group">
+                <div className="relative rounded-2xl border border-white/[0.08] bg-[#121214] p-5 md:p-6 flex flex-col justify-between h-full hover:border-purple-600/40 hover:bg-[#18181B] transition-colors duration-300 group overflow-hidden before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 hover:before:opacity-100">
                   <div>
                     <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5">
-                      <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent font-medium">
+                      <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-purple-600 font-medium">
                         {dir.rating}
                       </span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent/60 group-hover:bg-frame-accent transition-colors" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-purple-600/60 group-hover:bg-purple-600 transition-colors" />
                     </div>
 
                     <div className="flex h-12 items-center justify-start my-3">
@@ -151,7 +148,7 @@ export default function AboutClients() {
                     </div>
 
                     <div className="space-y-1">
-                      <h4 className="font-heading text-sm md:text-base font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                      <h4 className="font-heading text-sm md:text-base font-semibold tracking-tight text-highlighted">
                         {dir.name}
                       </h4>
                       <p className="font-mono text-[10px] uppercase text-zinc-400">

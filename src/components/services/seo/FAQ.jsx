@@ -161,9 +161,9 @@ export default function FAQ({ service }) {
                   className="flex w-full items-center justify-between p-6 sm:p-7 text-left transition-colors focus:outline-none"
                   aria-expanded={isOpen}
                 >
-                  <span className="font-heading text-lg sm:text-xl font-medium uppercase tracking-tight text-white pr-4">
+                  <h3 className="font-heading text-lg sm:text-xl font-medium uppercase tracking-tight text-white pr-4">
                     {faq.question}
-                  </span>
+                  </h3>
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.02] text-zinc-400 transition-transform duration-200 ${
                       isOpen

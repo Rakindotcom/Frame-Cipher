@@ -6,7 +6,7 @@ export function SubFaqAccordion({ faqs }) {
       {faqs.map((item, idx) => (
         <details key={idx} className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors open:border-frame-accent">
           <summary className="flex cursor-pointer list-none select-none items-center justify-between p-6 font-heading text-lg font-medium tracking-tight text-white transition-colors marker:content-none hover:text-frame-accent md:p-8 md:text-xl">
-            <span className="pr-4">{item.q}</span>
+            <h3 className="pr-4 font-heading text-lg font-medium tracking-tight text-white md:text-xl">{item.q}</h3>
             <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#18181B] font-semibold text-frame-accent transition-transform duration-200 group-open:rotate-45">+</span>
           </summary>
           <div className="border-t border-white/[0.08] p-6 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 md:p-8">{item.a}</div>
@@ -38,7 +38,7 @@ export default function StudioSubFaq({ service }) {
         <div className="mb-14">
           <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
             Questions about{' '}
-            <span className="italic text-frame-accent">{service.shortTitle || service.name}.</span>
+            <span className="text-white">{service.shortTitle || service.name}.</span>
           </h2>
           <p className="mt-4 max-w-2xl text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
             Clear answers to common questions about session scheduling, equipment inclusions, and file delivery.

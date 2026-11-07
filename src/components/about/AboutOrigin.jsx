@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-const inlineLinkClass = "text-white underline underline-offset-4 decoration-purple-400/50 hover:text-purple-300 transition-colors font-medium"
+const inlineLinkClass = "text-white underline underline-offset-4 decoration-purple-600/50 hover:text-purple-600 transition-colors font-medium"
 
 const storyBlocks = [
   {
@@ -47,11 +47,8 @@ export default function AboutOrigin() {
       <div className="mx-auto max-w-7xl">
         {/* Section Intro */}
         <div className="mb-14 max-w-4xl space-y-4">
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.96] tracking-tight text-white">
-            The agency is the{' '}
-            <span className="italic text-frame-accent">
-              operating system.
-            </span>
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-semibold leading-[0.96] tracking-tight text-highlighted">
+            The agency is the operating system.
           </h2>
           <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
             We do not treat brand, content, software engineering, search visibility, and paid advertising like disconnected lanes. The true commercial breakthrough happens at the exact point where those lanes collide.
@@ -67,15 +64,15 @@ export default function AboutOrigin() {
             >
               {/* Col-span-2: Monospace Identifier */}
               <div className="md:col-span-2">
-                <span className="font-mono text-xs uppercase tracking-[1.1px] text-frame-accent flex items-center gap-2 tabular-nums">
-                  <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                <span className="font-mono text-xs uppercase tracking-[1.1px] text-purple-600 flex items-center gap-2 tabular-nums">
+                  <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
                   <span>0{idx + 1}</span>
                 </span>
               </div>
 
               {/* Col-span-4: Stage Headline */}
               <div className="md:col-span-4">
-                <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug text-white">
+                <h3 className="font-heading text-xl sm:text-2xl font-semibold leading-snug text-highlighted">
                   {item.title}
                 </h3>
               </div>

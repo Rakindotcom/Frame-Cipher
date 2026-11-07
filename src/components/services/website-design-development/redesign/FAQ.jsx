@@ -91,7 +91,7 @@ export default function FAQ({ service }) {
               className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors open:border-white/[0.14]"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-base sm:text-lg md:text-xl font-medium uppercase tracking-tight text-white marker:content-none">
-                <span>{faq.question}</span>
+                <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white pr-4">{faq.question}</h3>
                 <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#09090B] font-mono text-sm text-frame-accent transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>

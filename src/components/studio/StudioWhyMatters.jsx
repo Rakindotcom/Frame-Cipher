@@ -35,7 +35,7 @@ export default function StudioWhyMatters() {
           <div className="lg:col-span-7 space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
               Why a physical studio in Dhaka{' '}
-              <span className="italic text-frame-accent">transforms quality.</span>
+              <span className="text-white">transforms quality.</span>
             </h2>
           </div>
           <div className="lg:col-span-5">

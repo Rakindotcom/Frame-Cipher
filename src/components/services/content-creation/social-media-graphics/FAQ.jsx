@@ -142,7 +142,7 @@ export default function FAQ({ service }) {
                     <span className="font-mono text-xs text-[#A855F7] border border-[#A855F7]/30 px-1.5 py-0.5 shrink-0 hidden sm:inline-block mt-0.5">
                       {faq.category}
                     </span>
-                    <span className="leading-snug">{faq.question}</span>
+                    <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white leading-snug">{faq.question}</h3>
                   </span>
                   <span className="ml-4 flex h-7 w-7 shrink-0 items-center justify-center border border-white/[0.08] text-[#A855F7] transition-transform duration-200 group-open:rotate-45 mt-0.5">
                     +

@@ -24,7 +24,7 @@ export default function StudioClusterNav() {
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
               Studio specialization{' '}
-              <span className="italic text-frame-accent">directories.</span>
+              <span className="text-white">directories.</span>
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -44,7 +44,7 @@ export default function StudioClusterNav() {
                 <span className="inline-block font-mono text-[11px] uppercase tracking-wider text-frame-accent">
                   {hub.price}
                 </span>
-                <h3 className="mt-3 font-heading text-base sm:text-lg font-medium leading-snug tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                <h3 className="mt-3 font-heading text-base sm:text-lg font-medium leading-snug tracking-tight text-white transition-colors">
                   {hub.title}
                 </h3>
                 <p className="mt-2 text-xs font-normal leading-relaxed text-zinc-400">

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { SectionHeading } from '../GrowthPortfolioSection'
 import { videoScriptSamples, contentWritingSamples } from '../../data/writingWork'
+import { ArrowRight } from 'lucide-react'
 
 const ALL_SAMPLES = [...contentWritingSamples, ...videoScriptSamples]
 
@@ -44,14 +45,14 @@ export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
                   key={category}
                   type="button"
                   onClick={() => setActiveCategory(category)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 ${
+                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
                     isActive
-                      ? 'bg-white text-zinc-950 font-semibold shadow-sm'
-                      : 'border border-white/[0.08] bg-white/[0.04] text-zinc-400 hover:border-white/20 hover:bg-white/[0.08] hover:text-white'
+                      ? 'bg-[#FAFAFA] text-[#09090B] font-semibold shadow-md'
+                      : 'border border-white/[0.08] bg-[#121214] text-zinc-400 hover:border-purple-600/40 hover:text-white'
                   }`}
                 >
                   <span>{category}</span>
-                  <span className={`text-[10px] font-mono ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>
+                  <span className={`text-[10px] font-mono tabular-nums ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>
                     ({String(count).padStart(2, '0')})
                   </span>
                 </button>
@@ -64,11 +65,11 @@ export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
           {displayed.map((sample, index) => (
             <article
               key={`${sample.url}-${index}`}
-              className="group flex min-w-0 flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-white/25 hover:bg-[#161618] hover:shadow-[0_16px_36px_rgba(0,0,0,0.4)]"
+              className="group flex min-w-0 flex-col justify-between rounded-2xl border border-white/[0.08] bg-[#121214] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:border-purple-600/40 hover:bg-[#151518] relative before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent hover:before:via-purple-600/50 before:to-transparent before:transition-all"
             >
               <div>
                 <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                  <span className="rounded-full border border-violet-500/30 bg-violet-500/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-violet-300">
+                  <span className="rounded-full border border-purple-500/30 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-purple-300">
                     {sample.category}
                   </span>
                   {sample.client && (
@@ -78,7 +79,7 @@ export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
                   )}
                 </div>
 
-                <h4 className="mt-4 font-heading text-lg sm:text-xl font-medium leading-tight tracking-tight text-white transition-colors duration-200 group-hover:text-frame-accent">
+                <h4 className="mt-4 font-heading text-lg sm:text-xl font-medium leading-tight tracking-tight text-white">
                   {sample.title}
                 </h4>
               </div>
@@ -88,10 +89,10 @@ export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
                   href={sample.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group/btn inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 text-[13px] font-medium text-white transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08]"
+                  className="group/btn inline-flex min-h-[44px] h-[44px] w-full items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-5 font-mono text-xs uppercase tracking-wider text-white transition-all duration-200 hover:border-purple-600/40 hover:bg-white/[0.08]"
                 >
                   <span>Read full sample</span>
-                  <span className="ml-2 text-base transition-transform duration-200 group-hover/btn:translate-x-1" aria-hidden="true">&rarr;</span>
+                  <ArrowRight className="ml-2 h-3.5 w-3.5 transition-transform duration-200 group-hover/btn:translate-x-1 group-hover/btn:text-purple-400" />
                 </a>
               </div>
             </article>

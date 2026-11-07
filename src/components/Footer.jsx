@@ -4,7 +4,6 @@ import React from 'react'
 import Link from 'next/link'
 import { contact, navItems, siteUrl } from '../data/agency'
 import { RouteGlobe } from './ui/route-globe'
-import { ArrowUpRight } from 'lucide-react'
 
 const CYBER_DARK_THEME = {
   ground: 'transparent',
@@ -14,45 +13,6 @@ const CYBER_DARK_THEME = {
   text: '#FFFFFF',
   muted: '#A1A1AA',
 }
-
-const directoryList = [
-  {
-    name: 'Clutch',
-    logo: '/Listed%20In/Clutch-transparent.webp',
-    status: 'Verified Agency',
-    badge: 'Top B2B & Tech Partner',
-    rating: '5.0 ★ Rating',
-  },
-  {
-    name: 'Trustpilot',
-    logo: '/Listed%20In/Trustpilot-transparent.webp',
-    status: '5.0 Score',
-    badge: 'Verified Client Reviews',
-    rating: 'Excellent',
-  },
-  {
-    name: 'SelectedFirms',
-    logo: '/Listed%20In/SelectedFirms-transparent.webp',
-    status: 'Top Marketing Agency',
-    badge: 'Ranked Global Company',
-    rating: 'Official Badge',
-    url: 'https://selectedfirms.co/companies/digital-marketing-agencies?utm_source=framecipher&utm_medium=badge&utm_campaign=digital_marketing_agencies&utm_term=top_digital_marketing_company&utm_content=agency_badge&utm_marketing_tactic=badge_organic',
-  },
-  {
-    name: 'GoodFirms',
-    logo: '/Listed%20In/GoodFirms-transparent.webp',
-    status: 'Top Rated Company',
-    badge: 'Software & Growth',
-    rating: 'Verified Leader',
-  },
-  {
-    name: 'ShortList',
-    logo: '/Listed%20In/ShortList-transparent.webp',
-    status: 'Featured Partner',
-    badge: 'Curated Agency Directory',
-    rating: 'Official Listing',
-  },
-]
 
 export default function Footer() {
   return (
@@ -298,82 +258,8 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Listed & Recognized On / Architectural Directory Ribbon */}
-        <div className="py-8 border-b border-white/[0.08]">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between mb-6">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-                <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
-                  Industry Accreditations
-                </p>
-              </div>
-              <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-[-0.02em] text-white">
-                Recognized &amp; Listed On
-              </h3>
-            </div>
-            <p className="font-mono text-xs text-zinc-400 uppercase tracking-wider">
-              Accredited across verified global agency directories &amp; client review platforms.
-            </p>
-          </div>
-
-          {/* 5-Column High-End Architectural Directory Cards */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5">
-            {directoryList.map((dir) => {
-              const cardContent = (
-                <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]/80 p-4 sm:p-5 flex flex-col justify-between h-full hover:border-white/[0.18] hover:bg-[#18181B] transition-all duration-300 group before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent before:opacity-0 hover:before:opacity-100">
-                  <div>
-                    <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5">
-                      <span className="font-mono text-[10px] uppercase tracking-[1.1px] text-frame-accent font-medium tabular-nums">
-                        {dir.rating}
-                      </span>
-                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent/60 group-hover:bg-frame-accent group-hover:shadow-[0_0_8px_rgba(168,85,247,0.7)] transition-all" />
-                    </div>
-
-                    <div className="flex h-12 items-center justify-start my-3">
-                      <img
-                        src={dir.logo}
-                        alt={dir.name}
-                        className="max-h-8 max-w-[125px] w-auto object-contain filter brightness-105 contrast-110 opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="pt-2 border-t border-white/[0.04]">
-                    <div className="font-heading text-xs sm:text-sm font-medium uppercase text-white group-hover:text-frame-accent transition-colors flex items-center justify-between">
-                      <span>{dir.name}</span>
-                      <ArrowUpRight className="h-3.5 w-3.5 text-zinc-500 group-hover:text-frame-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-                    </div>
-                    <p className="font-mono text-[10px] uppercase text-zinc-400 mt-0.5">
-                      {dir.status}
-                    </p>
-                  </div>
-                </div>
-              )
-
-              return dir.url ? (
-                <a
-                  key={dir.name}
-                  href={dir.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block h-full"
-                  title={`${dir.name} Profile`}
-                >
-                  {cardContent}
-                </a>
-              ) : (
-                <div key={dir.name} className="h-full">
-                  {cardContent}
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
         {/* Bottom Bar: Copyright & System Positioning */}
-        <div className="pt-6 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-zinc-500 md:flex-row md:items-center md:justify-between">
+        <div className="pt-8 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-zinc-500 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Frame Cipher. All rights reserved.</p>
           <div className="flex items-center gap-2 text-zinc-400">
             <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />

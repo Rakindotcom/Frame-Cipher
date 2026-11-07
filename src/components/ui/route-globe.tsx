@@ -28,6 +28,8 @@ const DEFAULT_ROUTES = [
   { name: 'Singapore', lat: 1.3521, lng: 103.8198 },
   { name: 'Sydney', lat: -33.8688, lng: 151.2093 },
   { name: 'Toronto', lat: 43.6532, lng: -79.3832 },
+  { name: 'Tokyo', lat: 35.6762, lng: 139.6503 },
+  { name: 'San Francisco', lat: 37.7749, lng: -122.4194 },
   { name: 'Berlin', lat: 52.52, lng: 13.405 },
   { name: 'Riyadh', lat: 24.7136, lng: 46.6753 },
 ]
@@ -106,11 +108,11 @@ export function RouteGlobe({
       if (!canvas) return
       const rect = canvas.getBoundingClientRect()
       const dpr = window.devicePixelRatio || 1
-      width = rect.width
-      height = rect.height
-      canvas.width = rect.width * dpr
-      canvas.height = rect.height * dpr
-      ctx.scale(dpr, dpr)
+      width = rect.width || canvas.clientWidth || 500
+      height = rect.height || canvas.clientHeight || 500
+      canvas.width = width * dpr
+      canvas.height = height * dpr
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
     handleResize()
@@ -306,7 +308,7 @@ export function RouteGlobe({
           ctx.globalAlpha = 0.9
           ctx.fill()
 
-          ctx.font = '10px "Geist", sans-serif'
+          ctx.font = '10px "Public Sans", sans-serif'
           ctx.fillStyle = activeTheme.muted
           ctx.globalAlpha = Math.min(1, projTarget.alpha * 1.2)
           ctx.fillText(route.name, projTarget.screenX + 6, projTarget.screenY + 3)
@@ -330,7 +332,7 @@ export function RouteGlobe({
         ctx.globalAlpha = 1.0
         ctx.fill()
 
-        ctx.font = 'bold 11px "Geist", sans-serif'
+        ctx.font = 'bold 11px "Public Sans", sans-serif'
         ctx.fillStyle = '#FFFFFF'
         ctx.globalAlpha = Math.min(1, projHub.alpha * 1.5)
         ctx.fillText('Dhaka HQ', projHub.screenX + 8, projHub.screenY + 4)

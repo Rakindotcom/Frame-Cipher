@@ -38,63 +38,72 @@ export default function DesignPortfolioPreview({
   return (
     <section
       id="design-portfolio"
-      className="border-t border-white/[0.08] bg-frame-muted/30 px-4 py-20 md:px-8 md:py-28"
+      className="relative isolate border-t border-white/[0.08] bg-[#09090B] px-4 py-20 md:px-8 md:py-28 text-white"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div className="max-w-3xl">
-            <p className="text-xs font-black uppercase tracking-[0.28em] text-frame-accent">
+        <div className="mb-14 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div className="max-w-3xl space-y-4">
+            <span className="inline-block rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 font-mono text-xs uppercase tracking-wider text-purple-300">
               {eyebrow}
-            </p>
-            <h2 className="mt-4 font-heading text-[clamp(2.4rem,7vw,6.5rem)] font-bold leading-[0.85] tracking-tighter text-frame-fg">
+            </span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
               {title}
             </h2>
             {description && (
-              <p className="mt-4 text-base md:text-lg font-medium text-frame-muted-fg leading-relaxed">
+              <p className="text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
                 {description}
               </p>
             )}
           </div>
           <Link
             href={buttonHref}
-            className="inline-flex min-h-12 items-center justify-center border-2 border-frame-border px-5 py-3 text-center text-sm font-black uppercase tracking-tighter text-frame-fg transition hover:border-frame-accent hover:bg-frame-accent hover:text-frame-accent-fg shrink-0"
+            className="group inline-flex min-h-[48px] h-[48px] items-center justify-center rounded-full border border-white/[0.14] bg-white/[0.03] px-6 text-[14px] font-medium leading-none text-white backdrop-blur-sm transition-colors duration-200 hover:border-white/[0.25] hover:bg-white/[0.08] shrink-0 whitespace-nowrap"
           >
-            {buttonText}
+            <span>{buttonText.replace('→', '').trim()}</span>
+            <span
+              aria-hidden="true"
+              className="ml-1.5 text-lg leading-none transition-transform duration-200 group-hover:translate-x-1 shrink-0"
+            >
+              &rarr;
+            </span>
           </Link>
         </div>
 
-        <div className={`grid gap-5 ${gridColsClass}`}>
+        <div className={`grid gap-6 ${gridColsClass}`}>
           {displayed.map((work, idx) => (
             <article
               key={work.src || idx}
-              className="group flex flex-col overflow-hidden border-2 border-frame-border bg-frame-bg transition-colors hover:border-frame-accent"
+              className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl"
             >
               <Link href={buttonHref} aria-label="View creative archive" className="block">
-                <div className="relative aspect-[4/3] overflow-hidden bg-frame-muted">
+                <div className="relative aspect-[4/3] overflow-hidden bg-zinc-950">
                   <img
                     src={work.src}
                     alt={`Frame Cipher selected creative work ${work.number || idx + 1}`}
                     className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
                     loading="lazy"
                   />
-                  <span className="absolute right-3 top-3 border-2 border-frame-border bg-frame-bg px-2.5 py-1.5 font-mono text-xs font-bold leading-none text-frame-accent">
+                  <span className="absolute right-3 top-3 rounded-full border border-white/10 bg-black/60 backdrop-blur-md px-2.5 py-1 font-mono text-xs font-medium text-white/90">
                     {String(work.number || idx + 1).padStart(2, '0')}
                   </span>
                 </div>
               </Link>
-              <div className="flex flex-1 flex-col p-5">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-frame-accent">
-                  {work.label || 'Creative archive'}
-                </span>
-                <p className="mt-2 text-xs md:text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">
-                  {work.summary ||
-                    'Visual identity, campaign graphics, packaging, and social-ready design produced in-house.'}
-                </p>
+              <div className="flex flex-1 flex-col p-5 justify-between">
+                <div>
+                  <span className="text-[10px] font-mono font-medium uppercase tracking-[0.2em] text-purple-400">
+                    {work.label || 'Creative archive'}
+                  </span>
+                  <p className="mt-2 text-xs md:text-sm font-normal leading-relaxed text-zinc-300">
+                    {work.summary ||
+                      'Visual identity, campaign graphics, packaging, and social-ready design produced in-house.'}
+                  </p>
+                </div>
                 <Link
                   href={buttonHref}
-                  className="mt-auto pt-4 inline-flex text-xs font-black uppercase tracking-tighter text-frame-fg transition hover:text-frame-accent"
+                  className="mt-4 pt-3 border-t border-white/[0.08] inline-flex items-center gap-1.5 text-xs font-medium text-purple-400 hover:text-purple-300 transition-colors"
                 >
-                  Open in archive &rarr;
+                  <span>Open in archive</span>
+                  <span aria-hidden="true">&rarr;</span>
                 </Link>
               </div>
             </article>
