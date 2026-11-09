@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { MapPin, Info } from 'lucide-react'
+import { MapPin } from 'lucide-react'
 
 const guides = [
   {
@@ -27,10 +27,10 @@ function GuideArticles() {
       {guides.map((g, i) => (
         <article
           key={i}
-          className="rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-10 transition-colors duration-200 hover:border-white/[0.14]"
+          className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-8 sm:p-10 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
         >
           <div className="flex items-center gap-2 mb-4">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
             <h3 className="font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
               {g.h}
             </h3>
@@ -39,7 +39,7 @@ function GuideArticles() {
             <ul className="mt-5 space-y-3">
               {g.items.map((item, j) => (
                 <li key={j} className="flex items-start gap-3 text-sm font-normal leading-relaxed text-zinc-300">
-                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-frame-accent" />
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-purple-500" />
                   <span>{item}</span>
                 </li>
               ))}
@@ -58,14 +58,13 @@ function GuideArticles() {
 
 export default function StudioHubExtended() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
-            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
-              What to know{' '}
-              <span className="text-white">before you book.</span>
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-tight text-white">
+              What to Know Before You Book.
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -75,13 +74,13 @@ export default function StudioHubExtended() {
 
         <GuideArticles />
 
-        <div className="mt-8 flex items-start gap-3 rounded-xl border border-white/[0.08] bg-[#121214] p-5 sm:p-6 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
-          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-frame-accent" />
+        <div className="relative mt-8 flex items-start gap-3 overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-5 sm:p-6 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-purple-400" />
           <span>
             FrameCipher Studio: 6th Floor, Eurasia Building, Khan Polli Jame Masjid, Matikata ECB Chattar,
             Dhaka 1206. Hotline/WhatsApp +880 1768-146650. Open 24 hours by appointment. Full process detail on
-            our <Link href="/studio/process/" className="font-medium text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">production process page</Link> and
-            facility specs on the <Link href="/studio/equipment-and-facilities/" className="font-medium text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">equipment page</Link>.
+            our <Link href="/studio/process/" className="font-medium text-white underline decoration-purple-600/50 hover:text-purple-300 transition-colors">production process page</Link> and
+            facility specs on the <Link href="/studio/equipment-and-facilities/" className="font-medium text-white underline decoration-purple-600/50 hover:text-purple-300 transition-colors">equipment page</Link>.
           </span>
         </div>
       </div>

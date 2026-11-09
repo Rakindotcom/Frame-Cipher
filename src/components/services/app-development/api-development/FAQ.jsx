@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ChevronDown, HelpCircle } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
 
 const defaultFaqs = [
   {
@@ -65,9 +65,8 @@ export default function FAQ({ service }) {
     >
       <div className="mx-auto max-w-5xl">
         <div className="mb-14 text-center space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Frequently Asked Questions About{' '}
-            <span className="italic text-frame-accent">API Development &amp; Integration.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About API Development &amp; Integration.
           </h2>
 
           <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -84,7 +83,7 @@ export default function FAQ({ service }) {
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14]"
+                className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
@@ -97,7 +96,7 @@ export default function FAQ({ service }) {
                   </h3>
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-zinc-400 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-frame-accent/10 border-frame-accent/30 text-frame-accent' : ''
+                      isOpen ? 'rotate-180 bg-purple-600/10 border-purple-500/30 text-purple-600' : ''
                     }`}
                   >
                     <ChevronDown className="h-4 w-4" />
@@ -106,7 +105,7 @@ export default function FAQ({ service }) {
 
                 {isOpen && (
                   <div className="border-t border-white/[0.06] px-6 pb-6 pt-4 sm:px-7 sm:pb-7">
-                    <p className="text-sm sm:text-base leading-relaxed text-zinc-400">
+                    <p className="text-sm sm:text-base leading-relaxed text-zinc-300">
                       {answerText}
                     </p>
                   </div>

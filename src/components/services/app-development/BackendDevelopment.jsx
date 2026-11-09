@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { Check } from 'lucide-react'
 
 const backendAreas = [
   'Backend architecture',
@@ -22,9 +23,8 @@ export default function BackendDevelopment() {
       <div className="mx-auto max-w-7xl">
         {/* Left-Aligned Header Block */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            App Architecture &amp;{' '}
-            <span className="italic text-frame-accent">Backend Development.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            App Architecture &amp; Backend Development.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -33,17 +33,15 @@ export default function BackendDevelopment() {
         </div>
 
         {/* 11 Areas Card on #121214 */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10">
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
           <div className="grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
             {backendAreas.map((area, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3 bg-[#0f1011] p-4 sm:p-5 transition-colors duration-200 hover:bg-[#141516]"
+                className="flex items-center gap-3 bg-[#121214] p-4 sm:p-5 transition-colors duration-200 hover:bg-[#18181B]"
               >
-                <span className="font-mono text-xs text-frame-accent font-medium">
-                  {(idx + 1).toString().padStart(2, '0')}.
-                </span>
-                <span className="text-xs sm:text-sm font-normal text-zinc-200">
+                <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
+                <span className="text-sm font-normal text-zinc-200">
                   {area}
                 </span>
               </div>

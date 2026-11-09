@@ -88,7 +88,7 @@ export default function AboutTimeline() {
               <div className="grid gap-8 lg:grid-cols-[0.22fr_0.48fr_0.3fr] lg:items-start">
                 {/* Year & Phase */}
                 <div className="space-y-2">
-                  <span className="font-mono text-[10px] tracking-[1.1px] text-purple-600 uppercase font-semibold block">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-medium block">
                     {item.phase}
                   </span>
                   <span className="font-heading text-4xl sm:text-5xl md:text-6xl font-semibold leading-none tracking-tight text-highlighted tabular-nums block">
@@ -104,17 +104,17 @@ export default function AboutTimeline() {
                   <h3 className="font-heading text-xl sm:text-2xl font-semibold tracking-tight text-highlighted">
                     {item.title}
                   </h3>
-                  <p className="text-sm font-normal leading-relaxed text-zinc-300">
+                  <p className="text-base font-normal leading-relaxed text-zinc-200">
                     {item.narrative}
                   </p>
                 </div>
 
                 {/* Key Achievements */}
                 <div className="rounded-xl border border-white/[0.08] bg-[#18181B] p-5 space-y-3">
-                  <p className="font-mono text-[10px] tracking-[1.1px] text-purple-600 uppercase font-semibold">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-semibold">
                     Key Milestones:
                   </p>
-                  <ul className="space-y-2 text-xs text-zinc-300 font-normal">
+                  <ul className="space-y-2.5 text-sm text-zinc-200 font-normal">
                     {item.achievements.map((ach) => (
                       <li key={ach} className="flex items-start gap-2">
                         <Check className="h-3.5 w-3.5 text-emerald-400 shrink-0 mt-0.5" />

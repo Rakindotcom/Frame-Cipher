@@ -1,27 +1,39 @@
 'use client'
 
 import React from 'react'
-import { Check } from 'lucide-react'
+import {
+  FileText,
+  AlertCircle,
+  Lightbulb,
+  Code2,
+  TrendingUp,
+  Check,
+} from 'lucide-react'
 
 const portfolioPillars = [
   {
     title: 'Project Overview',
+    icon: FileText,
     desc: 'Show the product type, target users, platforms, core objective, and project scope.',
   },
   {
     title: 'Challenge',
+    icon: AlertCircle,
     desc: 'Explain the business, operational, customer, or technical problem the application needed to solve.',
   },
   {
     title: 'Solution',
+    icon: Lightbulb,
     desc: 'Describe the application architecture, UX approach, core features, integrations, and technical decisions.',
   },
   {
     title: 'Development',
+    icon: Code2,
     desc: 'Show the relevant platforms, technologies, backend systems, integrations, and testing approach.',
   },
   {
     title: 'Outcome',
+    icon: TrendingUp,
     desc: 'Where verified data exists, show measurable outcomes such as successful launch, improved workflows, resolved technical problems, user adoption, or other documented results.',
   },
 ]
@@ -43,9 +55,8 @@ export default function CaseStudies() {
       <div className="mx-auto max-w-7xl">
         {/* Left-Aligned Header Block */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            App Development Portfolio &amp;{' '}
-            <span className="italic text-frame-accent">Case Studies.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            App Development Portfolio &amp; Case Studies.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -54,30 +65,36 @@ export default function CaseStudies() {
         </div>
 
         {/* Modality 2: Architectural 5-Column Divided Band */}
-        <div className="grid grid-cols-1 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] sm:grid-cols-2 lg:grid-cols-5 lg:divide-y-0 lg:divide-x">
-          {portfolioPillars.map((item, idx) => (
-            <div
-              key={idx}
-              className="flex flex-col justify-between p-6 sm:p-7 transition-colors duration-200 hover:bg-white/[0.02]"
-            >
-              <div>
-                <span className="font-mono text-xs text-frame-accent tabular-nums">
-                  0{idx + 1}
-                </span>
-                <h3 className="mt-3 font-heading text-lg font-medium text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
-                  {item.desc}
-                </p>
+        <div className="grid grid-cols-1 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] sm:grid-cols-2 lg:grid-cols-5 lg:divide-y-0 lg:divide-x shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+          {portfolioPillars.map((item, idx) => {
+            const Icon = item.icon
+            return (
+              <div
+                key={idx}
+                className="group flex flex-col justify-between p-6 sm:p-7 transition-colors duration-200 hover:bg-[#18181B]"
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                    <Icon className="h-6 w-6 text-purple-600 transition-transform duration-300 group-hover:scale-110" />
+                    <span className="font-mono text-xs text-zinc-500 tabular-nums font-semibold">
+                      0{idx + 1}
+                    </span>
+                  </div>
+                  <h3 className="mt-4 font-heading text-lg font-medium text-white transition-colors">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.desc}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
 
         {/* Operational Safeguards & Evidence Disclaimer */}
-        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10">
-<h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
+        <div className="mt-10 rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+          <h3 className="mt-3 font-heading text-xl sm:text-2xl font-medium tracking-tight text-white">
             Core Engineering Metrics Tracked
           </h3>
 
@@ -85,17 +102,15 @@ export default function CaseStudies() {
             {verifiedMetrics.map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-start gap-2.5 rounded-xl border border-white/[0.08] bg-white/[0.02] p-3.5 transition-colors hover:border-white/[0.14]"
+                className="flex items-center gap-2.5 rounded-xl border border-white/[0.08] bg-[#18181B] p-3.5 transition-colors hover:border-white/[0.18]"
               >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-purple-500/20 bg-frame-accent/10 text-frame-accent">
-                  <Check className="h-3 w-3 stroke-[2.5]" />
-                </span>
-                <span className="text-xs sm:text-sm font-normal text-zinc-200">{item}</span>
+                <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
+                <span className="text-sm font-normal text-zinc-200">{item}</span>
               </div>
             ))}
           </div>
 
-          <p className="mt-6 text-xs sm:text-sm italic text-zinc-400">
+          <p className="mt-6 font-mono text-xs text-zinc-400">
             Only publish ratings, download numbers, revenue figures, performance results, project counts, or other measurable claims when supported by actual evidence.
           </p>
         </div>
@@ -103,4 +118,3 @@ export default function CaseStudies() {
     </section>
   )
 }
-

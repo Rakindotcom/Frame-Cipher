@@ -39,8 +39,7 @@ export default function Modernization() {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
 <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Android App Modernization &amp;{' '}
-            <span className="italic text-frame-accent">Migration.</span>
+            Android App Modernization &amp; Migration
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -55,7 +54,7 @@ export default function Modernization() {
               key={idx}
               className="group flex items-center gap-3.5 rounded-xl border border-white/[0.08] bg-[#121214] p-5 transition-colors duration-200 hover:border-white/[0.14] hover:bg-[#18181B]"
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-purple-600">
                 <item.icon className="h-4 w-4" />
               </div>
               <span className="font-sans text-sm font-medium text-zinc-200 group-hover:text-white transition-colors">
@@ -63,14 +62,6 @@ export default function Modernization() {
               </span>
             </div>
           ))}
-        </div>
-
-        {/* Codebase Audit Callout */}
-        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex items-start gap-4">
-          <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
-          <p className="font-mono text-sm leading-relaxed text-zinc-300">
-            <strong className="text-white">Assessment Recommendation:</strong> Before major changes begin, we assess the existing codebase, architecture, dependencies, integrations, and current issues. The recommendation may be modernization, migration, partial redevelopment, or a full rebuild depending on the condition of the application.
-          </p>
         </div>
       </div>
     </section>

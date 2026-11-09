@@ -55,7 +55,7 @@ export default function HomeTech() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             Technology behind the work
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             From modern websites to custom business systems, we use technology based on the
             actual requirements of the project, not a fixed template.
           </p>
@@ -89,7 +89,7 @@ export default function HomeTech() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {group.description}
                   </p>
 
@@ -98,7 +98,7 @@ export default function HomeTech() {
                     {group.items.map((item) => (
                       <li
                         key={item}
-                        className="inline-flex items-center gap-1.5 text-xs font-normal text-muted hover:text-default transition-colors"
+                        className="inline-flex items-center gap-1.5 text-xs font-normal text-white hover:text-default transition-colors"
                       >
                         <Check className="h-3.5 w-3.5 shrink-0 text-purple-600" strokeWidth={2.5} aria-hidden="true" />
                         <span>{item}</span>

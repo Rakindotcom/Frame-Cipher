@@ -53,7 +53,7 @@ export default function HomeFAQ() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             Before you ask
           </h2>
-          <p className="mt-5 max-w-2xl mx-auto text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl mx-auto text-base font-normal leading-relaxed text-white md:text-lg">
             The short answers to the questions we hear most before any engagement starts.
           </p>
         </div>
@@ -81,8 +81,8 @@ export default function HomeFAQ() {
                   +
                 </span>
               </summary>
-              <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-muted bg-[#09090B]">
-                <p className="text-sm md:text-base font-normal leading-relaxed text-muted">
+              <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-white bg-[#09090B]">
+                <p className="text-sm md:text-base font-normal leading-relaxed text-white">
                   {faq.answer}
                 </p>
               </div>

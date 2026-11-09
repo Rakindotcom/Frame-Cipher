@@ -5,59 +5,44 @@ import { ChevronDown, HelpCircle } from 'lucide-react'
 
 const defaultFaqs = [
   {
-    question: 'What is SaaS app development?',
+    question: 'What is the difference between a custom web application and a SaaS product?',
     answer:
-      'SaaS app development is the process of building software that customers access as an ongoing online service. It typically includes customer accounts, tenant management, permissions, billing, analytics, integrations, and infrastructure for continuous operation.',
+      'A custom web app usually serves one company or workflow. A SaaS product is multi-tenant: multiple customer organizations access it with isolated data, tiered subscriptions, automated billing, self-service onboarding, and granular role permissions.',
   },
   {
-    question: 'How is SaaS different from a regular web application?',
+    question: 'How do you handle multi-tenant data isolation?',
     answer:
-      'A regular web application may serve one company or workflow. SaaS is designed to support multiple customers with customer-specific data, permissions, billing, and ongoing product management.',
+      'Depending on your compliance and scale requirements, we implement logical isolation using tenant IDs with row-level security (RLS), schema-per-tenant, or fully separate database instances for enterprise tiers.',
   },
   {
-    question: 'How much does SaaS development cost in Bangladesh?',
+    question: 'Which payment gateways do you support for SaaS subscription billing?',
     answer:
-      'The cost depends on architecture, billing, features, integrations, user roles, backend requirements, and infrastructure. Framecipher\'s current reference ranges begin at around ৳450,000 for a focused SaaS MVP.',
+      'We integrate Stripe (Billing, Invoicing, Customer Portal), Paddle, and LemonSqueezy for global subscriptions, as well as bKash, Nagad, and local cards for Bangladesh-focused SaaS products.',
   },
   {
-    question: 'How long does it take to build a SaaS product?',
+    question: 'Can you build both web and mobile apps for our SaaS product?',
     answer:
-      'A focused MVP can take around 10 to 14 weeks. Standard SaaS products may require 16 to 22 weeks, while advanced platforms can take 22 to 30 weeks or more.',
+      'Yes. We build responsive Next.js/React web platforms alongside cross-platform (Flutter/React Native) or native mobile apps that share the same backend APIs, authentication, and data models.',
   },
   {
-    question: 'What is multi-tenant SaaS architecture?',
+    question: 'How long does it take to launch a SaaS MVP?',
     answer:
-      'Multi-tenant architecture allows multiple customers or organizations to use the same SaaS platform while keeping their data and access logically separated.',
+      'A focused SaaS MVP typically takes 10 to 14 weeks from initial discovery through architecture, design, development, billing integration, and production deployment.',
   },
   {
-    question: 'Can you build subscription billing and payment systems?',
+    question: 'Do you help with cloud infrastructure and scaling?',
     answer:
-      'Yes. We can integrate subscription billing, plans, trials, upgrades, downgrades, cancellations, invoices, payment events, and plan-based access according to the product requirements.',
+      'Yes. We architect infrastructure on AWS, Google Cloud, or DigitalOcean using Docker containers, managed databases, Redis caching, CI/CD pipelines, and automated backups.',
   },
   {
-    question: 'Can you integrate Stripe, Paddle, bKash, or Nagad?',
+    question: 'Who owns the source code and cloud infrastructure?',
     answer:
-      'The available payment options depend on the product, target market, provider capabilities, and project requirements. Supported local or international gateways can be evaluated during architecture planning.',
+      'You have 100% intellectual property ownership. All source code, Git repositories, cloud accounts, database credentials, and documentation are handed over to you.',
   },
   {
-    question: 'Can you build SaaS MVPs for startups?',
+    question: 'Do you provide ongoing support after the SaaS launches?',
     answer:
-      'Yes. We can define the core product, architecture, onboarding, billing path, analytics, and initial workflows around an MVP scope.',
-  },
-  {
-    question: 'Can you modernize an existing SaaS product?',
-    answer:
-      'Yes. We can review the current architecture, dependencies, performance, database, integrations, and feature set before recommending modernization or further development.',
-  },
-  {
-    question: 'Can you build mobile apps for a SaaS platform?',
-    answer:
-      'Yes. Suitable SaaS products can be extended with iOS, Android, or cross-platform mobile applications connected to the same backend and customer accounts.',
-  },
-  {
-    question: 'Do you work with SaaS clients outside Bangladesh?',
-    answer:
-      'Yes. Framecipher works with businesses in Bangladesh and international markets through a structured remote development process.',
+      'Yes. We offer dedicated SLA maintenance packages covering bug fixes, dependency updates, infrastructure monitoring, billing support, and continuous feature development.',
   },
 ]
 
@@ -70,6 +55,7 @@ export default function FAQ({ service }) {
     setOpenIndex(openIndex === idx ? null : idx)
   }
 
+  // Schema.org FAQPage JSON-LD
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -95,9 +81,8 @@ export default function FAQ({ service }) {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Frequently Asked{' '}
-            <span className="italic text-frame-accent">Questions.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions.
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -111,7 +96,7 @@ export default function FAQ({ service }) {
             return (
               <div
                 key={idx}
-                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14]"
+                className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0D0D0F] transition-all duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
@@ -125,7 +110,7 @@ export default function FAQ({ service }) {
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.02] text-zinc-400 transition-transform duration-200 ${
                       isOpen
-                        ? 'rotate-180 text-frame-accent border-frame-accent/40 bg-frame-accent/10'
+                        ? 'rotate-180 text-purple-400 border-purple-500/40 bg-purple-500/10'
                         : ''
                     }`}
                   >
@@ -143,15 +128,15 @@ export default function FAQ({ service }) {
           })}
         </div>
 
-        <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-white/[0.06] bg-[#121214] p-6 text-center">
+        <div className="relative mx-auto mt-12 max-w-4xl rounded-2xl border border-white/[0.08] bg-[#0D0D0F] p-6 text-center before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="flex items-center justify-center gap-2 text-zinc-400 font-mono text-xs">
-            <HelpCircle className="h-4 w-4 text-frame-accent" />
+            <HelpCircle className="h-4 w-4 text-purple-600" />
             <span>Have a technical SaaS question not answered here?</span>
             <a
               href="/contact"
-              className="text-frame-accent underline underline-offset-4 hover:text-white transition-colors ml-1"
+              className="text-purple-400 underline underline-offset-4 hover:text-white transition-colors ml-1"
             >
-              Talk directly with our SaaS architecture leads
+              Talk directly with our SaaS engineering team
             </a>
           </div>
         </div>

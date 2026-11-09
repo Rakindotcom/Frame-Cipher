@@ -14,7 +14,6 @@ import WhyPartner from './WhyPartner'
 import Process from './Process'
 import Pricing from './Pricing'
 import WhyChoose from './WhyChoose'
-import CaseStudies from './CaseStudies'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
 import CTA from './CTA'
@@ -52,7 +51,6 @@ export default function AppDevelopmentApiDevelopmentService({ service }) {
       <Process />
       <Pricing />
       <WhyChoose />
-      <CaseStudies />
       <BangladeshWorldwide />
       <FAQ service={service} />
       <CTA />
@@ -77,7 +75,6 @@ export {
   Process,
   Pricing,
   WhyChoose,
-  CaseStudies,
   BangladeshWorldwide,
   FAQ,
   CTA,

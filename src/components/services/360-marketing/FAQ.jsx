@@ -45,16 +45,9 @@ const faqs = [
 
 export default function FAQ() {
   return (
-    <section className="relative isolate px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-white border-b border-white/[0.08]">
+    <section className="relative isolate px-4 py-20 md:px-8 md:py-28 bg-[#09090B] text-white border-b border-white/[0.08]">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          title={
-            <>
-              Frequently Asked Questions About{' '}
-              <span className="italic text-frame-accent">360 Marketing.</span>
-            </>
-          }
-        >
+        <SectionIntro title="Frequently Asked Questions About 360 Marketing.">
           Everything you need to know about our approach, pricing, ad budgets, video production,
           and performance accountability.
         </SectionIntro>
@@ -63,26 +56,26 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <details
               key={faq.q}
-              className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-300 hover:border-white/[0.14] hover:bg-[#151518] open:border-white/[0.14] open:bg-[#151518] overflow-hidden"
+              className="group rounded-2xl border border-white/[0.08] bg-[#121214] transition-colors duration-300 hover:border-white/[0.18] hover:bg-[#18181B] open:border-white/[0.18] open:bg-[#151518] overflow-hidden"
             >
               <summary className="flex cursor-pointer list-none items-start justify-between p-6 sm:p-7 text-left transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-purple-500 [&::-webkit-details-marker]:hidden">
                 <div className="flex items-start gap-4 pr-4">
-                  <span className="font-mono text-xs text-frame-accent mt-0.5 tabular-nums">
+                  <span className="font-mono text-xs text-zinc-400 mt-0.5 tabular-nums font-semibold">
                     {String(index + 1).padStart(2, '0')}
                   </span>
-                  <h3 className="font-heading text-base sm:text-lg font-medium leading-snug tracking-tight text-white group-open:text-frame-accent transition-colors">
+                  <h3 className="font-heading text-base sm:text-lg font-semibold leading-snug tracking-tight text-white transition-colors">
                     {faq.q}
                   </h3>
                 </div>
                 <span
-                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.12] bg-[#18181B] text-frame-accent font-mono text-sm font-medium transition-transform duration-300 group-open:rotate-45 group-open:bg-frame-accent group-open:text-white"
+                  className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-white/[0.12] bg-[#18181B] text-zinc-300 font-mono text-sm font-medium transition-transform duration-300 group-open:rotate-45 group-open:bg-purple-600 group-open:text-white"
                   aria-hidden="true"
                 >
                   +
                 </span>
               </summary>
               <div className="border-t border-white/[0.08] px-6 pb-6 pt-4 sm:px-7 sm:pb-7 text-zinc-300">
-                <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
                   {faq.a}
                 </p>
               </div>

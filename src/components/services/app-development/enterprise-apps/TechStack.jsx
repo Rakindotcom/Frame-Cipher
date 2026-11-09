@@ -17,11 +17,11 @@ const techStackTable = [
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+    <section id="tech-stack" className="relative border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Enterprise <span className="italic text-frame-accent">Technology Stack.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Enterprise Technology Stack.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -29,10 +29,10 @@ export default function TechStack() {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
+        <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="overflow-x-auto">
             <table className="w-full text-left font-sans text-xs sm:text-sm">
-              <thead className="border-b border-white/[0.08] bg-white/[0.02] font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+              <thead className="border-b border-white/10 bg-[#121214] font-mono text-[11px] uppercase tracking-wider text-purple-400">
                 <tr>
                   <th scope="col" className="px-6 py-4">Architecture Layer</th>
                   <th scope="col" className="px-6 py-4">Supported Technologies &amp; Platforms</th>
@@ -40,7 +40,7 @@ export default function TechStack() {
               </thead>
               <tbody className="divide-y divide-white/[0.06]">
                 {techStackTable.map((row, idx) => (
-                  <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
+                  <tr key={idx} className="transition-colors hover:bg-[#121214]">
                     <td className="whitespace-nowrap px-6 py-4 font-mono font-medium text-white">
                       {row.layer}
                     </td>

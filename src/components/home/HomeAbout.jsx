@@ -23,10 +23,10 @@ export default function HomeAbout() {
             </h2>
           </div>
           <div className="max-w-xl space-y-4">
-            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-white md:text-lg">
               Frame Cipher is building a sovereign, multinational technology, media, and growth powerhouse headquartered in Ecb Chattar, Matikata, Dhaka. We combine full-stack custom software engineering, cinematic media production, and mathematical performance marketing under one unified operating system.
             </p>
-            <p className="text-sm font-normal leading-relaxed text-muted">
+            <p className="text-sm font-normal leading-relaxed text-white">
               Serving fast-growing startups and global enterprises across 20+ countries worldwide with an entirely in-house team across <Link href="/services/website-design-development" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">Web &amp; Software Development</Link>, <Link href="/services/seo" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">SEO</Link>, <Link href="/services/paid-advertising" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">Paid Ads</Link>, <Link href="/services/content-creation" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">Cinematic Media</Link>, and our dedicated <Link href="/studio" className="text-white underline decoration-frame-accent/50 hover:text-frame-accent transition-colors">creative video &amp; podcast studio in Dhaka</Link>.
             </p>
           </div>
@@ -84,7 +84,7 @@ export default function HomeAbout() {
                   {founder.name}
                 </h3>
                 <p className="mt-2 font-mono text-xs text-muted">{founder.focus}</p>
-                <p className="mt-4 flex-1 text-sm font-normal leading-relaxed text-muted group-hover:text-default transition-colors">{founder.bio}</p>
+                <p className="mt-4 flex-1 text-sm font-normal leading-relaxed text-white group-hover:text-default transition-colors">{founder.bio}</p>
 
                 <div className="mt-6 flex items-center justify-between border-t border-white/[0.08] pt-5">
                   <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500">Connect</span>

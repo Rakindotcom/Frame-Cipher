@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Check, ShieldAlert, Clock, Layers } from 'lucide-react'
+import { Check, Clock } from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 
 const pricingTiers = [
@@ -155,9 +155,8 @@ export default function Pricing() {
         <div className="mx-auto max-w-7xl">
           {/* Section Header */}
           <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              iOS App Development Pricing{' '}
-              <span className="italic text-frame-accent">and Timeline.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              iOS App Development Pricing &amp; Timeline.
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -166,23 +165,23 @@ export default function Pricing() {
           </div>
 
           {/* High-Level Comparison Table */}
-          <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
-            <div className="border-b border-white/[0.08] px-6 py-4 flex items-center justify-between">
+          <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-xl before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+            <div className="border-b border-white/[0.08] px-6 py-4 flex items-center justify-between bg-[#18181B]">
               <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
                 Project Scope &amp; Starting Cost Matrix
               </span>
-              <span className="font-mono text-[11px] uppercase text-frame-accent">
+              <span className="font-mono text-[11px] uppercase text-purple-400 font-semibold">
                 Starting References
               </span>
             </div>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left font-sans text-sm min-w-[640px]">
-                <thead className="border-b border-white/[0.08] bg-white/[0.02] font-mono text-xs uppercase text-zinc-400">
+                <thead className="border-b border-white/[0.08] bg-[#141416] font-mono text-xs uppercase text-zinc-400">
                   <tr>
-                    <th className="p-4 sm:p-5">Project Type</th>
-                    <th className="p-4 sm:p-5">Starting Price</th>
-                    <th className="p-4 sm:p-5">Typical Scope</th>
+                    <th className="p-4 sm:p-5 border-r border-white/[0.08] text-white">Project Type</th>
+                    <th className="p-4 sm:p-5 border-r border-white/[0.08] text-purple-400">Starting Price</th>
+                    <th className="p-4 sm:p-5 border-r border-white/[0.08]">Typical Scope</th>
                     <th className="p-4 sm:p-5">Typical Delivery</th>
                   </tr>
                 </thead>
@@ -191,21 +190,21 @@ export default function Pricing() {
                     <tr
                       key={idx}
                       className={`transition-colors hover:bg-white/[0.02] ${
-                        row.featured ? 'bg-frame-accent/[0.06]' : ''
+                        row.featured ? 'bg-purple-900/10' : ''
                       }`}
                     >
-                      <td className="p-4 sm:p-5 font-heading text-sm font-medium text-white flex items-center gap-2">
+                      <td className="p-4 sm:p-5 font-heading text-sm font-medium text-white border-r border-white/[0.08] flex items-center gap-2">
                         <span>{row.type}</span>
                         {row.featured && (
-                          <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 font-mono text-[9px] uppercase text-frame-accent">
+                          <span className="rounded-full border border-purple-500/40 bg-purple-500/10 px-2 py-0.5 font-mono text-[9px] uppercase text-purple-300">
                             Most Requested
                           </span>
                         )}
                       </td>
-                      <td className="p-4 sm:p-5 font-mono font-medium text-frame-accent whitespace-nowrap">
+                      <td className="p-4 sm:p-5 font-mono font-medium text-purple-400 whitespace-nowrap border-r border-white/[0.08]">
                         {row.price}
                       </td>
-                      <td className="p-4 sm:p-5 text-xs sm:text-sm text-zinc-400">
+                      <td className="p-4 sm:p-5 text-xs sm:text-sm text-zinc-300 border-r border-white/[0.08]">
                         {row.scope}
                       </td>
                       <td className="p-4 sm:p-5 font-mono text-xs text-zinc-400 whitespace-nowrap">
@@ -218,32 +217,24 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* Scope Caveat Notice */}
-          <div className="mt-4 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-[#121214] p-4 text-xs text-zinc-400">
-            <ShieldAlert className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong className="text-zinc-200">Scope Notice:</strong> These are starting references rather than fixed quotes. Final pricing depends on the actual feature set, architecture, integrations, device support, and development requirements.
-            </p>
-          </div>
-
           {/* 4 Package Tiers Grid with Full-Width Symmetrical Buttons */}
-          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 pt-4">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
             {pricingTiers.map((tier, i) => (
               <div
                 key={i}
-                className={`relative flex flex-col justify-between rounded-xl border p-6 sm:p-7 md:p-8 transition-colors ${
+                className={`relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 md:p-8 transition-colors before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                   tier.featured
-                    ? 'border-frame-accent/40 bg-[#18181B]'
-                    : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
+                    ? 'border-purple-500/40 bg-[#18181B]'
+                    : 'border-white/[0.08] bg-[#121214] hover:bg-[#18181B] hover:border-white/[0.16]'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-3">
-                    <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                    <span className="font-mono text-xs uppercase tracking-widest text-purple-600 font-semibold">
                       0{i + 1}
                     </span>
                     {tier.featured && (
-                      <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-frame-accent">
+                      <span className="rounded-full border border-purple-500/40 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-purple-300">
                         Most Requested
                       </span>
                     )}
@@ -251,24 +242,22 @@ export default function Pricing() {
                   <h3 className="mt-2 font-heading text-xl font-medium tracking-tight text-white">
                     {tier.name}
                   </h3>
-                  <p className="mt-4 font-mono text-2xl md:text-3xl font-medium text-frame-accent">
+                  <p className="mt-4 font-mono text-2xl md:text-3xl font-medium text-purple-400">
                     {tier.price}
                   </p>
                   <div className="mt-2 flex items-center gap-1.5 font-mono text-xs text-zinc-400">
-                    <Clock className="h-3.5 w-3.5 text-frame-accent" />
+                    <Clock className="h-3.5 w-3.5 text-purple-600" />
                     <span>Timeline: {tier.timeline}</span>
                   </div>
 
                   <div className="mt-6 border-t border-white/[0.08] pt-4">
-                    <p className="font-mono text-xs uppercase tracking-wider text-white mb-3">
+                    <p className="font-mono text-xs uppercase tracking-wider text-purple-600 font-semibold mb-3">
                       What&apos;s Included:
                     </p>
-                    <ul className="space-y-2.5 text-xs font-normal text-zinc-200">
+                    <ul className="space-y-2.5 text-xs font-normal text-zinc-300">
                       {tier.includes.map((item, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-purple-500/20 bg-frame-accent/10 text-frame-accent">
-                            <Check className="h-3 w-3 stroke-[2.5]" />
-                          </span>
+                          <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                           <span className="leading-snug">{item}</span>
                         </li>
                       ))}
@@ -290,9 +279,9 @@ export default function Pricing() {
           </div>
 
           {/* Inclusions and Custom Requirements */}
-          <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-4">
+          <div className="mt-12 relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-4 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
             <div>
-              <h4 className="font-heading text-sm font-medium tracking-wider text-white">
+              <h4 className="font-heading text-base font-medium tracking-tight text-white">
                 Standard iOS Project Inclusions
               </h4>
               <ul className="mt-3 grid grid-cols-1 gap-2.5 sm:grid-cols-2 md:grid-cols-3">
@@ -305,15 +294,15 @@ export default function Pricing() {
                   'Release preparation & launch support',
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-center gap-2 text-xs text-zinc-300">
-                    <Check className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                    <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </div>
             <div className="border-t border-white/[0.08] pt-4">
-              <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
-                <strong className="text-zinc-200">Custom Scope:</strong> Complex integrations, advanced backend systems, multiple user roles, Apple-platform expansion, or third-party services can be planned as tailored project milestones. We confirm the final scope, deliverables, timeline, and price before development begins.
+              <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
+                <strong className="text-white font-medium">Custom Scope:</strong> Complex integrations, advanced backend systems, multiple user roles, Apple-platform expansion, or third-party services can be planned as tailored project milestones. We confirm the final scope, deliverables, timeline, and price before development begins.
               </p>
             </div>
           </div>
@@ -324,9 +313,8 @@ export default function Pricing() {
       <section className="border-b border-white/[0.08] px-4 py-20 sm:px-6 md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              Approvals, Scope &amp;{' '}
-              <span className="italic text-frame-accent">Release Support.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Approvals, Scope &amp; Release Support.
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -338,16 +326,16 @@ export default function Pricing() {
             {approvalCheckpoints.map((item, i) => (
               <div
                 key={i}
-                className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
+                className="relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:bg-[#18181B] hover:border-white/[0.16] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <div>
-                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  <span className="font-mono text-xs uppercase tracking-widest text-purple-600 font-semibold">
                     0{i + 1}
                   </span>
                   <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                     {item.desc}
                   </p>
                 </div>
@@ -361,9 +349,8 @@ export default function Pricing() {
       <section className="border-b border-white/[0.08] px-4 py-20 sm:px-6 md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              Post-Launch iOS{' '}
-              <span className="italic text-frame-accent">Support &amp; SLA.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Post-Launch iOS Support &amp; SLA.
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -375,16 +362,16 @@ export default function Pricing() {
             {postLaunchItems.map((item, idx) => (
               <div
                 key={idx}
-                className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.16]"
+                className="relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:bg-[#18181B] hover:border-white/[0.16] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <div>
-                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  <span className="font-mono text-xs uppercase tracking-widest text-purple-600 font-semibold">
                     0{idx + 1}
                   </span>
                   <h3 className="mt-4 font-heading text-xl font-medium tracking-tight text-white">
                     {item.title}
                   </h3>
-                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                     {item.desc}
                   </p>
                 </div>

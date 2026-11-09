@@ -160,13 +160,12 @@ const maintenanceServices = [
 
 export default function OurServices() {
   return (
-    <section id="services" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+    <section id="services" className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         {/* Left-Aligned Header */}
-        <div className="mb-16 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Our App Maintenance &amp;{' '}
-            <span className="italic text-frame-accent">Support Services.</span>
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Our App Maintenance &amp; Support Services.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -174,44 +173,44 @@ export default function OurServices() {
           </p>
         </div>
 
-        {/* 8-Card Grid (Modality 5: Single-Tier Surface Cards on #121214) */}
+        {/* 8-Card Grid */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
           {maintenanceServices.map((service, idx) => {
             const Icon = service.icon
             return (
               <div
                 key={idx}
-                className="group flex flex-col justify-between relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-7 transition-colors duration-300 hover:border-frame-accent/40 hover:bg-[#161619] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.03] text-frame-accent group-hover:border-frame-accent/40">
-                      <Icon className="h-4.5 w-4.5" />
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-xs text-zinc-500">
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-600/80">
                       {service.num}
                     </span>
                   </div>
 
-                  <h3 className="mt-4 font-heading text-lg font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                  <h3 className="mt-4 font-heading text-lg font-medium tracking-tight text-white">
                     {service.title}
                   </h3>
 
-                  <p className="mt-2.5 text-xs text-zinc-300 leading-relaxed">
+                  <p className="mt-2.5 text-xs sm:text-sm font-normal text-zinc-300 leading-relaxed">
                     {service.desc}
                   </p>
 
-                  <ul className="mt-4 space-y-2 border-t border-white/[0.06] pt-4">
+                  <ul className="mt-4 space-y-2 border-t border-white/10 pt-4">
                     {service.bullets.map((b, bIdx) => (
-                      <li key={bIdx} className="flex items-start gap-2 text-xs text-zinc-400">
-                        <Check className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                      <li key={bIdx} className="flex items-start gap-2 text-xs text-zinc-300">
+                        <Check className="h-3.5 w-3.5 shrink-0 text-emerald-400 mt-0.5" strokeWidth={2.5} />
                         <span>{b}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-6 border-t border-white/[0.06] pt-4 font-mono text-[11px] text-zinc-500 italic">
+                <div className="mt-6 border-t border-white/10 pt-3 text-xs leading-relaxed text-zinc-400 font-sans">
                   {service.footer}
                 </div>
               </div>
@@ -222,4 +221,3 @@ export default function OurServices() {
     </section>
   )
 }
-

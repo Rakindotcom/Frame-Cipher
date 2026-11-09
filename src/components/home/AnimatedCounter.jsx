@@ -11,6 +11,7 @@ import { useState, useEffect, useRef } from 'react'
  */
 export default function AnimatedCounter({
   value,
+  target,
   prefix = '',
   suffix = '',
   pad = 0,
@@ -26,8 +27,8 @@ export default function AnimatedCounter({
   const rafRef = useRef(null)
   const inViewRef = useRef(false)
 
-  // Parse raw value to extract target number, prefix, and suffix automatically if not separated
-  const rawStr = String(value ?? '').trim()
+  // Parse raw value (or target alias) to extract target number, prefix, and suffix automatically if not separated
+  const rawStr = String((value ?? target) ?? '').trim()
   const match = rawStr.match(/^([^\d.]*)([\d.]+)(.*)$/)
 
   const resolvedPrefix = prefix || (match ? match[1] : '')

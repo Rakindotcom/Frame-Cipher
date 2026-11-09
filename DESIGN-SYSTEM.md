@@ -146,6 +146,31 @@ components:
 8. **Accessible Touch Targets & Tabular Metrics:**
    - Minimum hit target $\ge 44\text{px}$ on mobile (`min-h-[44px]`).
    - All currencies, metrics, prices, and counters MUST use `tabular-nums`.
+9. **Strictly Forbidden Above Headers: Eyebrow Pills & Status Capsules:**
+   - Text of the type `Full-Stack Growth Engine · 74 Services Across 7 Macro Pillars`, `Dhaka Studio · Built for brands moving worldwide`, or arbitrary capsule pills with pinging dots and meta slogans directly above H1 or H2 headlines are **STRICTLY FORBIDDEN** across all pages.
+   - Headers must remain unobstructed and pure: either standing directly at the top of the content block or preceded only by a clean breadcrumb navigation. Intervening pill capsules create visual clutter, card fatigue, and disrupt reading flow.
+10. **Strictly Forbidden: Box / Pill Chip Style for Deliverables & Tactical Lists:**
+   - Deliverables, tactical outputs, platform inclusions, and service features MUST NEVER be styled as horizontal box capsules or pill chips (`flex flex-wrap gap-2` with `span className="rounded-md border bg-..."`). This creates visual fragmentation, box-in-box clutter, and ruins readability.
+   - **Mandatory Standard:** Deliverables MUST always be rendered as a vertical list (`space-y-2` or `space-y-2.5`) with a crisp vector tickmark / checkmark icon (`<Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />`) and clean readable editorial text (`text-sm font-normal text-zinc-200`).
+11. **Hero Visual Preservation & Explicit Permission Rule:**
+   - Before changing, modifying, or replacing ANY existing Hero Visual, you MUST explicitly ask the user for permission first. Many existing visuals (such as realistic device hardware frames, custom illustrations, and interactive mockups) are carefully crafted, visually polished, and intentional. Never abruptly or arbitrarily rewrite, swap, or remove an existing Hero Visual without explicit user consent.
+12. **Strictly Forbidden: Artificial "Strict Evidence Policy" Disclaimers:**
+   - Never insert artificial, defensive disclaimer boxes such as `"Strict Evidence Policy: Only publish ratings, download figures, project counts, performance improvements, or other measurable claims when supported by actual evidence."` These create unpolished legalistic clutter and detract from the brand's authority.
+13. **Strictly Forbidden: Unsolicited "Core Production Standards" Capability Ledgers:**
+   - Never inject arbitrary capability strips such as `"Core Production Standards • Verified Across Every Release"` with generic bullet matrices (`Kotlin Coroutines Non-Blocking IO`, `Crashlytics Real-Time Logging 99.9% Crash-Free`, etc.) unless specifically part of the verified page content.
+14. **Dedicated Service Scope Purity (No Unsolicited Case Studies or Portfolio Grids):**
+   - Sub-service pages must stay razor-focused on their specialized technical domain (offerings, architecture, security, pricing, process, SLA, FAQ). Do not inject unrequested generic case studies or portfolio showcases unless explicitly requested by the user.
+15. **Strictly Forbidden: Bottom Takeaway / Note-Type Callout Boxes:**
+   - Sections must end cleanly with their structured card grid or data table. Never append standalone bottom note-type callout boxes such as `"Native Advantage: Native development gives the application direct access to Android capabilities...",` `"Architecture Principle:",` `"Design Standard:",` `"Contractual Clarity:",` or `"QA Rule:"`. These create redundant visual clutter, interrupt section pacing, and degrade the clean architectural aesthetic.
+16. **Strictly Forbidden: Trailing Card Footers / Explanatory Takeaway Notes:**
+   - Individual service cards, feature cards, and data tables must NEVER contain trailing explanatory footnote sentences or meta-commentary (e.g. `footer: "This gives the project a clear direction before we move into technical API architecture...",` `footer: "The result is an API that your own applications...",` `footer: "This helps identify problems before they affect...",` or table footers like `"The final technology choices depend on the project's architecture..."`). Present capabilities, specifications, and deliverables directly without trailing justification or philosophical summary notes.
+17. **Strictly Forbidden: Box-in-Box Pill/Badge Nesting Inside Cards & Grids ("Box-in-Box" Prohibition):**
+   - Never wrap words, tags, city names, country locations, technologies, features, deliverables, or keywords inside nested little border/background boxes or pill capsules (`rounded-full border bg-... px-3 py-1`, `rounded-md border bg-...`, or `flex flex-wrap gap-2` chip badges) inside cards or grid cells.
+   - Enclosing words inside miniature boxes within an already bordered card creates severe visual fragmentation, clutter, and visual fatigue ("box-in-box" antipattern).
+   - **Mandatory Standard:** Present geographical markets, regional hubs, supported frameworks, or itemized listings either:
+     - As clean, natural editorial prose/sentences (e.g., *"We work with businesses across Dhaka, Chattogram, Sylhet, Rajshahi, Khulna, Gazipur, Narayanganj, and nationwide."*), OR
+     - As a structured vertical / multi-column list with clean emerald checkmarks (`<Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />`).
+     - **NEVER** create horizontal chip tags, pill badges, or bordered box arrays inside cards.
 
 ---
 
@@ -1583,10 +1608,10 @@ When creating or modifying ANY component across ANY page, the following automate
    - Reduced-motion settings must never disable or jump counters.
 6. **Zero Content Loss Policy:**
    - All routes (74+ services, portfolio items, founder bios, FAQs, calculator formulas) must remain 100% preserved.
-7. **Zero Redundant Eyebrow Badges Policy (Eliminating "Case #" & Pill Clutter):**
-   - Redundant pill boxes and metadata badges directly above primary display headings (e.g. `SEO • Case #13`, `PixC Retouch • Photo Editing & Retouching`, `Category • Case #XX`, or arbitrary pills repeating breadcrumb text) are **STRICTLY FORBIDDEN** across all pages.
+7. **Zero Redundant Eyebrow Badges Policy (Eliminating All Header Pill Capsules):**
+   - Redundant pill boxes, status capsules with pinging dots, and metadata badges directly above primary display headings (e.g. `Full-Stack Growth Engine · 74 Services Across 7 Macro Pillars`, `Dhaka Studio · Built for brands moving worldwide`, `SEO • Case #13`, `PixC Retouch • Photo Editing & Retouching`, `Category • Case #XX`, or arbitrary pills repeating breadcrumb text) are **STRICTLY FORBIDDEN** across all pages.
    - Breadcrumb navigation (`Home > Category > Detail`) already establishes clear architectural context. Stacking intermediary pill badges between breadcrumbs and the main headline creates unnecessary visual stutter, card fatigue, and cognitive noise.
-   - The visual hierarchy must flow cleanly and unobstructed from Breadcrumbs directly into the solid white H1 display headline.
+   - The visual hierarchy must flow cleanly and unobstructed from Breadcrumbs directly into the H1 display headline.
 8. **Tickmark Systems List Guardrail (No Boxy Pills for Capabilities/Tools):**
    - Capability stacks, toolings, and system feature lists (e.g. `Meta Ads Manager`, `Messenger Conversations`, `Broad Targeting`, `Creative Testing`, `Advantage+`) must **NEVER** be wrapped in individual bordered pill boxes (`rounded-md border bg-[#18181B]`).
    - Instead, render them as a clean inline or grid checklist using signature deep purple tickmarks (`<Check className="h-3.5 w-3.5 text-purple-600 shrink-0" />`) with monospace text (`font-mono text-[11px] text-zinc-300`).

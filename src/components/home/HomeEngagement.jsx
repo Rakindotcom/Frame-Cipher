@@ -19,7 +19,7 @@ export default function HomeEngagement() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             Choose the pressure level
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             From launch kits to full 360 partnerships, the model changes around your stage and the amount of execution your team needs.
           </p>
         </div>
@@ -57,7 +57,7 @@ export default function HomeEngagement() {
                     <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                       Best for
                     </p>
-                    <p className="mt-1 text-xs font-normal leading-relaxed text-muted">
+                    <p className="mt-1 text-xs font-normal leading-relaxed text-white">
                       {model.bestFor}
                     </p>
                   </div>
@@ -67,7 +67,7 @@ export default function HomeEngagement() {
                     <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                       Includes
                     </p>
-                    <p className="mt-1 text-xs sm:text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                    <p className="mt-1 text-xs sm:text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                       {model.includes}
                     </p>
                   </div>

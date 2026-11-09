@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ChevronRight, ShieldCheck } from 'lucide-react'
+import { ChevronRight, ShieldCheck, Cpu, Smartphone, Play, Wrench } from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 import AndroidHeroVisual from './AndroidHeroVisual'
 
@@ -11,21 +11,25 @@ const kineticMetrics = [
     num: '01',
     label: 'Native Kotlin Core',
     detail: 'Modern Kotlin Coroutines, Jetpack Compose, and direct Android platform access',
+    icon: Cpu,
   },
   {
     num: '02',
     label: 'Real Device Diversity',
     detail: 'Engineered for diverse screen resolutions, hardware tiers, and Android OS versions',
+    icon: Smartphone,
   },
   {
     num: '03',
     label: 'Google Play Release',
     detail: 'Play Console preparation, app signing, privacy policies, and release workflows',
+    icon: Play,
   },
   {
     num: '04',
     label: 'Lifecycle Maintenance',
     detail: 'OS compatibility upgrades, dependency updates, and continuous performance tuning',
+    icon: Wrench,
   },
 ]
 
@@ -57,19 +61,19 @@ export default function Hero({ service }) {
               App Development
             </Link>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
-            <span className="shrink-0 whitespace-nowrap text-frame-accent">Android</span>
+            <span className="shrink-0 whitespace-nowrap text-purple-400 font-semibold">Android</span>
           </nav>
 
           {/* Grid Layout: Left Content, Right Visual */}
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left Content Column (6 cols) */}
             <div className="space-y-6">
-{/* Main Headline */}
+              {/* Main Headline */}
               <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white">
                 {title.includes('Bangladesh') ? (
                   <>
-                    Best Android App Development{' '}
-                    <span className="italic text-frame-accent">Service in Bangladesh.</span>
+                    <span className="block text-white">Best Android App Development</span>
+                    <span className="block text-purple-600">Service in Bangladesh.</span>
                   </>
                 ) : (
                   title
@@ -98,7 +102,7 @@ export default function Hero({ service }) {
 
               {/* Trust Badge / SLA */}
               <div className="flex items-center gap-3 pt-2 text-xs text-zinc-400">
-                <ShieldCheck className="h-4 w-4 text-frame-accent shrink-0" />
+                <ShieldCheck className="h-4 w-4 text-purple-600 shrink-0" />
                 <span>
                   Kotlin &amp; Jetpack Compose &bull; Google Play Release &bull; 100% In-House Team
                 </span>
@@ -120,15 +124,20 @@ export default function Hero({ service }) {
             {kineticMetrics.map((item, idx) => (
               <div
                 key={idx}
-                className="p-6 md:p-8 bg-[#121214]/60 transition-colors hover:bg-[#121214]"
+                className="group relative p-6 md:p-8 bg-[#121214] transition-colors hover:bg-[#18181B]"
               >
-                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
-                  {item.num}
-                </span>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="font-mono text-xs uppercase tracking-widest text-purple-600">
+                    {item.num}
+                  </span>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-purple-600 transition-transform duration-300 group-hover:scale-110">
+                    <item.icon className="h-4 w-4" />
+                  </div>
+                </div>
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-medium tracking-tight text-white">
                   {item.label}
                 </h3>
-                <p className="mt-3 text-xs md:text-sm font-normal leading-relaxed text-zinc-300">
+                <p className="mt-2 text-xs md:text-sm font-normal leading-relaxed text-zinc-300">
                   {item.detail}
                 </p>
               </div>

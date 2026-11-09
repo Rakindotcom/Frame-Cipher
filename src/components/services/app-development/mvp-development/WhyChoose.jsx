@@ -52,39 +52,38 @@ const PILLARS = [
 
 export default function WhyChoose() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+    <section className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-start">
           {/* Left Column (Sticky Anchor - 5 cols) */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Why Choose Framecipher for{' '}
-              <span className="italic text-frame-accent">MVP Development.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Why Choose Framecipher for MVP Development.
             </h2>
 
             <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
               We build lean, functional products designed to generate definitive behavioral evidence before you commit full-scale capital. No fragmented freelancers, no agency bloat.
             </p>
 
-            <div className="pt-4">
-              <PosterButton href="/contact" variant="accent">
+            <div className="pt-2">
+              <PosterButton href="/contact" variant="accent" className="h-[52px] px-8 text-sm font-medium">
                 Discuss Your MVP Scope
               </PosterButton>
             </div>
 
             {/* Quick Proof Card */}
-            <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-5 space-y-3 font-mono text-xs text-zinc-400">
-              <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
-                <span>ENGAGEMENT MODEL</span>
-                <span className="text-white">Sprint-Based & Fixed-Bid</span>
+            <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 space-y-3 font-mono text-xs text-zinc-400 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+              <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                <span className="text-zinc-400">ENGAGEMENT MODEL</span>
+                <span className="text-white font-medium">Sprint-Based &amp; Fixed-Bid</span>
               </div>
-              <div className="flex items-center justify-between pb-2 border-b border-white/[0.06]">
-                <span>CORE TIMELINE</span>
-                <span className="text-emerald-400">3 TO 8 WEEKS</span>
+              <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                <span className="text-zinc-400">CORE TIMELINE</span>
+                <span className="text-emerald-400 font-medium">3 TO 8 WEEKS</span>
               </div>
               <div className="flex items-center justify-between">
-                <span>IP OWNERSHIP</span>
-                <span className="text-white">100% CLIENT EXCLUSIVE</span>
+                <span className="text-zinc-400">IP OWNERSHIP</span>
+                <span className="text-white font-medium">100% CLIENT EXCLUSIVE</span>
               </div>
             </div>
           </div>
@@ -96,29 +95,24 @@ export default function WhyChoose() {
               return (
                 <div
                   key={pillar.num}
-                  className="group rounded-xl border border-white/[0.08] bg-[#121214] p-7 transition-colors duration-300 hover:border-frame-accent/40 hover:bg-[#161619]"
+                  className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-7 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
                 >
-                  <div className="flex items-start gap-5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/[0.1] bg-white/[0.03] text-frame-accent group-hover:border-frame-accent/40">
-                      <Icon className="h-6 w-6" />
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600">
+                      <Icon className="h-5 w-5" />
                     </div>
-
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3">
-                        <span className="font-mono text-xs text-frame-accent">
-                          {pillar.num}
-                        </span>
-                      </div>
-
-                      <h3 className="font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
-                        {pillar.title}
-                      </h3>
-
-                      <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
-                        {pillar.desc}
-                      </p>
-                    </div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-600/80">
+                      {pillar.num}
+                    </span>
                   </div>
+
+                  <h3 className="mt-4 font-heading text-lg font-medium text-white">
+                    {pillar.title}
+                  </h3>
+
+                  <p className="mt-2 text-xs sm:text-sm text-zinc-300 leading-relaxed font-sans">
+                    {pillar.desc}
+                  </p>
                 </div>
               )
             })}
@@ -128,4 +122,3 @@ export default function WhyChoose() {
     </section>
   )
 }
-

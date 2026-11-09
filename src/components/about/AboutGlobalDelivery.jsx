@@ -95,28 +95,28 @@ export default function AboutGlobalDelivery() {
                     </span>
                   </div>
 
-                  <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-purple-600 font-semibold block">
+                  <span className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-medium block">
                     {node.region}
                   </span>
 
                   <h3 className="font-heading text-lg sm:text-xl font-semibold tracking-tight text-highlighted">
                     {node.countries}
                   </h3>
-                  <div className="inline-block rounded border border-purple-600/30 bg-purple-950/30 px-2.5 py-1 font-mono text-xs text-purple-300">
+                  <div className="inline-block rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 font-mono text-xs text-zinc-300">
                     {node.timezones}
                   </div>
                   <div className="pt-4 border-t border-white/[0.06] space-y-1">
                     <p className="font-mono text-[10px] uppercase tracking-wider text-zinc-500">
                       Primary Workloads:
                     </p>
-                    <p className="text-xs font-normal leading-relaxed text-zinc-300">
+                    <p className="text-sm font-normal leading-relaxed text-zinc-200">
                       {node.focus}
                     </p>
                   </div>
                 </div>
 
                 <div className="pt-4 border-t border-white/[0.06]">
-                  <p className="text-[11px] leading-relaxed text-zinc-400 font-mono">
+                  <p className="text-xs leading-relaxed text-zinc-300 font-mono">
                     <span className="text-white font-medium">SLA:</span> {node.sla}
                   </p>
                 </div>
@@ -146,14 +146,14 @@ export default function AboutGlobalDelivery() {
                     {/* Top: Icon on left, sequence on right */}
                     <div className="flex items-center justify-between pb-2 border-b border-white/[0.04]">
                       <Icon className="h-5 w-5 text-purple-600" />
-                      <span className="font-mono text-xs text-purple-600 tabular-nums font-semibold">
+                      <span className="font-mono text-xs text-zinc-500 tabular-nums">
                         0{idx + 1}
                       </span>
                     </div>
                     <h4 className="font-heading text-base font-semibold tracking-tight text-highlighted">
                       {item.title}
                     </h4>
-                    <p className="text-xs font-normal leading-relaxed text-zinc-400">
+                    <p className="text-sm font-normal leading-relaxed text-zinc-300">
                       {item.desc}
                     </p>
                   </div>

@@ -22,8 +22,8 @@ function DeliverablesGrid({ deliverables }) {
               <p className="mt-2 text-sm wide:text-lg font-medium leading-relaxed text-frame-muted-fg">{item.desc}</p>
             )}
           </div>
-          <div className="mt-6 flex items-center gap-2 border-t border-frame-border/60 pt-4 text-xs font-bold uppercase tracking-wider text-frame-accent">
-            <Check className="h-4 w-4" />
+          <div className="mt-6 flex items-center gap-2 border-t border-frame-border/60 pt-4 text-xs font-bold uppercase tracking-wider text-emerald-400">
+            <Check className="h-4 w-4 shrink-0" strokeWidth={2.5} />
             <span>Production Standard</span>
           </div>
         </div>

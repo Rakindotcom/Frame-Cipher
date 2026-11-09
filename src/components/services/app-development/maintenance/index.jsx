@@ -16,16 +16,27 @@ import WhyChoose from './WhyChoose'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
 import CTA from './CTA'
-import HomeTextMarquee from '../../../home/HomeTextMarquee'
+import { TypeMarquee } from '../../../Kinetic'
+
+const keywords = [
+  '24/7 Production Observability & Uptime SLAs',
+  'Zero-Downtime Bug Fixes & Patch Deployments',
+  'iOS & Android OS Compatibility Upgrades',
+  'CVE Security Patching & Vulnerability Scans',
+  'Database Optimization & Connection Pooling',
+  'Third-Party API & Payment Gateway Maintenance',
+  'Legacy Codebase Takeover & Modernization',
+  '100% In-House Senior Engineering Squad',
+]
 
 export default function AppDevelopmentMaintenanceService({ service }) {
   return (
     <main className="service-page min-h-screen bg-[#09090B] text-white selection:bg-[#704bd2]/30 selection:text-white">
-      {/* 01. Canonical Hero with Hardware Frame SLA Visual */}
+      {/* 01. Canonical Hero with Home-style Constellation Visual */}
       <Hero service={service} />
 
       {/* Marquee Ticker */}
-      <HomeTextMarquee />
+      <TypeMarquee items={keywords} slow />
 
       {/* 02. Our App Maintenance & Support Services (8 Disciplines) */}
       <OurServices />

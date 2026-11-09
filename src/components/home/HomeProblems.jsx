@@ -44,7 +44,7 @@ export default function HomeProblems() {
             <br />
             It needs a better system.
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             Growth becomes difficult when your marketing, website, content, and technology are
             handled separately. Frame Cipher brings these capabilities together under one team.
           </p>
@@ -69,7 +69,7 @@ export default function HomeProblems() {
                 </h3>
               </div>
               <div className="md:col-span-5">
-                <p className="text-sm md:text-base font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                <p className="text-sm md:text-base font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                   {problem.description}
                 </p>
               </div>
@@ -78,7 +78,7 @@ export default function HomeProblems() {
         </div>
 
         <div className="relative overflow-hidden mt-14 flex flex-col items-start justify-between gap-6 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 sm:flex-row sm:items-center before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent">
-          <p className="max-w-xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="max-w-xl text-base font-normal leading-relaxed text-white md:text-lg">
             Fragmented execution is the real cost. One team keeps the message, the build, and
             the campaigns moving in the same direction.
           </p>

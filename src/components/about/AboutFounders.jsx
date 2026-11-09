@@ -41,7 +41,7 @@ export default function AboutFounders() {
                 {/* Content */}
                 <div className="p-6 sm:p-7 space-y-3">
                   <div className="flex items-center justify-between">
-                    <p className="font-mono text-[10px] uppercase tracking-[1.1px] text-purple-600 font-semibold">
+                    <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-medium">
                       {founder.role}
                     </p>
                     {founder.portfolio && (
@@ -49,7 +49,7 @@ export default function AboutFounders() {
                         href={founder.portfolio}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.12] bg-[#18181B] px-3 py-1 text-[11px] font-medium text-white transition-all duration-200 hover:border-purple-600/50 hover:bg-purple-600/10 hover:text-white"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.12] bg-[#18181B] px-3 py-1 text-xs font-medium text-white transition-all duration-200 hover:border-purple-600/50 hover:bg-purple-600/10 hover:text-white"
                       >
                         <span>Portfolio</span>
                         <span aria-hidden="true">&rarr;</span>
@@ -59,10 +59,10 @@ export default function AboutFounders() {
                   <h3 className="font-heading text-xl sm:text-2xl font-semibold leading-tight text-highlighted">
                     {founder.name}
                   </h3>
-                  <p className="font-mono text-xs text-zinc-400">
+                  <p className="font-mono text-xs text-zinc-400 font-medium">
                     {founder.focus}
                   </p>
-                  <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-300 pt-1">
+                  <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-200 pt-1">
                     {founder.bio}
                   </p>
                 </div>

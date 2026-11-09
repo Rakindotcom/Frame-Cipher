@@ -17,7 +17,7 @@ export default function ProjectsFilterBar({
     >
       <div className="mx-auto flex max-w-7xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
         {/* Filter Pills */}
-        <div className="flex min-w-0 flex-nowrap items-center gap-2 overflow-x-auto pb-1.5 md:pb-0 scrollbar-none [mask-image:linear-gradient(to_right,black_90%,transparent)] sm:[mask-image:none]">
+        <div className="flex min-w-0 flex-1 flex-nowrap sm:flex-wrap items-center gap-2 overflow-x-auto pb-1.5 md:pb-0 scrollbar-none">
           {filterTabs.map((tab) => {
             const isActive = activeFilter === tab.id
             return (
@@ -26,11 +26,12 @@ export default function ProjectsFilterBar({
                 type="button"
                 onClick={() => onFilterSelect(tab.id)}
                 aria-pressed={isActive}
-                className={`cursor-pointer whitespace-nowrap rounded-full px-4 py-2 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 touch-manipulation min-h-[40px] ${
+                className={`inline-flex shrink-0 items-center justify-center cursor-pointer whitespace-nowrap rounded-full px-4 py-2 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 touch-manipulation min-h-[40px] w-auto ${
                   isActive
                     ? 'bg-[#FAFAFA] text-[#09090B] shadow-md'
                     : 'border border-white/[0.08] bg-[#121214] text-zinc-400 hover:border-purple-600/40 hover:text-white'
                 }`}
+                style={{ minWidth: 'max-content' }}
               >
                 {tab.label}
               </button>

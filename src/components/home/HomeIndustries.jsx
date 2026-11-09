@@ -44,7 +44,7 @@ export default function HomeIndustries() {
               Brands that cannot afford boring
             </h2>
           </div>
-          <p className="max-w-xl text-base font-normal leading-relaxed text-muted lg:pb-1 md:text-lg">
+          <p className="max-w-xl text-base font-normal leading-relaxed text-white lg:pb-1 md:text-lg">
             Whatever the vertical, the system stays the same: strategy, creative, web, media, and performance
             built as one connected machine. Here is what that looks like for each industry we serve.
           </p>
@@ -78,7 +78,7 @@ export default function HomeIndustries() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {item.line}
                   </p>
                 </div>

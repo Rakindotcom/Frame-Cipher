@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { growthPortfolio } from '../data/growthWork'
 import { longVideos, shortVideos } from '../data/videoProjects'
+import { barishalEventProjects } from '../data/eventProjects'
 import { videoScriptSamples, contentWritingSamples } from '../data/writingWork'
 import {
   ProjectsHero,
@@ -12,6 +13,7 @@ import {
   ProjectsSeoSection,
   ProjectsPaidAdsSection,
   ProjectsDesignSection,
+  ProjectsEventCoverageSection,
   ProjectsWritingSection,
   ProjectsFAQ,
   WorkArchiveModal,
@@ -28,6 +30,7 @@ const filterTabs = [
   { id: 'Website', label: 'Website' },
   { id: 'Long Video', label: 'Long Video' },
   { id: 'Short Video', label: 'Short Video' },
+  { id: 'Event Coverage', label: 'Event Coverage' },
   { id: 'SEO', label: 'SEO' },
   { id: 'Paid ads', label: 'Paid ads' },
   { id: 'Branding', label: 'Branding' },
@@ -40,6 +43,14 @@ function resolveInitialFilter(initialView) {
   if (normalized === 'software' || normalized === 'website') return 'Website'
   if (normalized === 'long video' || normalized === 'long') return 'Long Video'
   if (normalized === 'short video' || normalized === 'short' || normalized === 'reels') return 'Short Video'
+  if (
+    normalized === 'event' ||
+    normalized === 'event coverage' ||
+    normalized === 'events' ||
+    normalized === 'barishal' ||
+    normalized === 'bakerganj'
+  )
+    return 'Event Coverage'
   if (normalized === 'video' || normalized === 'media') return 'Long Video'
   if (normalized === 'seo') return 'SEO'
   if (normalized === 'paid ads' || normalized === 'performance' || normalized === 'paid') return 'Paid ads'
@@ -329,6 +340,7 @@ export default function ProjectsPage({ initialView = null }) {
       else if (hash.includes('seo')) setActiveFilter('SEO')
       else if (hash.includes('paid-ads')) setActiveFilter('Paid ads')
       else if (hash.includes('branding')) setActiveFilter('Branding')
+      else if (hash.includes('event')) setActiveFilter('Event Coverage')
       else if (hash.includes('writing')) setActiveFilter('Writing')
     }
     window.addEventListener('hashchange', handleHashChange)
@@ -466,6 +478,21 @@ export default function ProjectsPage({ initialView = null }) {
     )
   })
 
+  const filteredEventProjects = barishalEventProjects.filter((p) => {
+    if (!q) return true
+    return (
+      p.title.toLowerCase().includes(q) ||
+      p.location.toLowerCase().includes(q) ||
+      p.badge.toLowerCase().includes(q) ||
+      p.description.toLowerCase().includes(q) ||
+      p.tag.toLowerCase().includes(q) ||
+      'event'.includes(q) ||
+      'coverage'.includes(q) ||
+      'barishal'.includes(q) ||
+      'bakerganj'.includes(q)
+    )
+  })
+
   const matchesBranding =
     !q ||
     'branding'.includes(q) ||
@@ -482,6 +509,8 @@ export default function ProjectsPage({ initialView = null }) {
     (activeFilter === 'All' || activeFilter === 'Long Video') && filteredLongVideos.length > 0
   const isShortVideosVisible =
     (activeFilter === 'All' || activeFilter === 'Short Video') && filteredShortVideos.length > 0
+  const isEventCoverageVisible =
+    (activeFilter === 'All' || activeFilter === 'Event Coverage') && filteredEventProjects.length > 0
   const isSeoVisible =
     (activeFilter === 'All' || activeFilter === 'SEO') && filteredSeo.length > 0
   const isPaidAdsVisible =
@@ -497,6 +526,7 @@ export default function ProjectsPage({ initialView = null }) {
     !isWebsitesVisible &&
     !isLongVideosVisible &&
     !isShortVideosVisible &&
+    !isEventCoverageVisible &&
     !isSeoVisible &&
     !isPaidAdsVisible &&
     !isBrandingVisible &&
@@ -540,7 +570,14 @@ export default function ProjectsPage({ initialView = null }) {
         />
       )}
 
-      {isWritingVisible && <ProjectsWritingSection samples={filteredWriting} />}
+      {isEventCoverageVisible && (
+        <ProjectsEventCoverageSection
+          projects={filteredEventProjects}
+          number="07"
+        />
+      )}
+
+      {isWritingVisible && <ProjectsWritingSection samples={filteredWriting} number="08" />}
 
       <ProjectsFAQ />
 

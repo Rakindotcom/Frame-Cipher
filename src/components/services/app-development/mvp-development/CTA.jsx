@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { CheckCircle2, ArrowRight } from 'lucide-react'
+import { CheckCircle2 } from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 
 const discoveryQuestions = [
@@ -17,17 +17,16 @@ const discoveryQuestions = [
 
 export default function CTA() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 pt-2 pb-16 text-white sm:px-6 sm:pt-4 sm:pb-20 md:px-8 md:pt-4 md:pb-24">
+    <section className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 pt-2 pb-16 text-white sm:px-6 sm:pt-4 sm:pb-20 md:px-8 md:pt-4 md:pb-24">
       <div className="mx-auto max-w-7xl">
-        <div className="group relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 lg:p-12 transition-colors duration-200 hover:border-white/[0.14] shadow-2xl">
+        <div className="group relative overflow-hidden rounded-2xl md:rounded-3xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 md:p-10 lg:p-12 transition-colors duration-200 hover:border-white/20 shadow-2xl before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           {/* Ambient Glow */}
-          <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-purple-600/15 via-frame-accent/10 to-transparent blur-3xl" />
+          <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gradient-to-br from-purple-600/15 via-purple-600/10 to-transparent blur-3xl" />
 
-{/* Heading beside oversized directional arrow */}
-          <div className="mt-5 flex items-baseline justify-between gap-6 border-b border-white/[0.08] pb-8">
+          {/* Heading beside oversized directional arrow */}
+          <div className="mt-5 flex items-baseline justify-between gap-6 border-b border-white/10 pb-8">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-medium leading-[0.94] tracking-[-0.03em] text-white">
-              Start Your MVP{' '}
-              <span className="italic text-frame-accent">Development Project.</span>
+              Start Your MVP Development Project.
             </h2>
             <span
               aria-hidden="true"
@@ -44,14 +43,14 @@ export default function CTA() {
                 If you have a product idea but are not ready to commit to a full-scale build, start with the question that matters most: what do you need to learn? We can review your idea, target users, core workflow, required platform, integrations, and validation goals to determine what the MVP should actually contain.
               </p>
 
-              <div className="rounded-2xl border border-white/[0.06] bg-black/40 p-5 mt-4">
-                <span className="text-xs font-mono uppercase tracking-wider text-frame-accent block mb-3">
+              <div className="rounded-xl border border-white/10 bg-[#121214] p-5 mt-4">
+                <span className="text-xs font-mono uppercase tracking-wider text-purple-400 block mb-3">
                   Tell Us About Your Concept:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-zinc-300">
                   {discoveryQuestions.map((q, idx) => (
                     <div key={idx} className="flex items-center gap-2">
-                      <CheckCircle2 className="h-3.5 w-3.5 text-frame-accent shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
                       <span>{q}</span>
                     </div>
                   ))}
@@ -64,11 +63,11 @@ export default function CTA() {
             </div>
 
             <div className="lg:col-span-5 flex flex-col gap-3.5 pt-2">
-              <PosterButton href="/contact" variant="accent" className="w-full justify-center">
+              <PosterButton href="/contact" variant="accent" className="h-[52px] w-full justify-center text-sm font-medium">
                 Get Free Consultation
               </PosterButton>
-              <PosterButton href="/contact" variant="outline" className="w-full justify-center">
-                Request MVP Project Estimate &rarr;
+              <PosterButton href="#pricing" variant="outline" className="h-[52px] w-full justify-center text-sm font-medium">
+                Request MVP Project Estimate
               </PosterButton>
             </div>
           </div>

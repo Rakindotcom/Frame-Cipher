@@ -7,16 +7,16 @@ import { RouteGlobe } from './ui/route-globe'
 
 const CYBER_DARK_THEME = {
   ground: 'transparent',
-  land: '#A855F7',
+  land: '#9333EA',
   arc: '#C084FC',
-  glow: 'rgba(168, 85, 247, 0.22)',
+  glow: 'rgba(147, 51, 234, 0.22)',
   text: '#FFFFFF',
   muted: '#A1A1AA',
 }
 
 export default function Footer() {
   return (
-    <footer className="relative isolate overflow-hidden border-t border-white/[0.08] bg-[#09090B] px-4 pt-16 sm:px-6 md:px-8 md:pt-20 pb-8 md:pb-10 text-[#FAFAFA]">
+    <footer className="relative isolate overflow-hidden border-t border-white/10 bg-[#09090B] px-4 pt-16 sm:px-6 md:px-8 md:pt-20 pb-8 md:pb-10 text-[#FAFAFA]">
       {/* Background Interactive 3D RouteGlobe Canvas & Architectural Ambient Light */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden select-none [mask-image:linear-gradient(to_bottom,black_50%,transparent_92%)] [-webkit-mask-image:linear-gradient(to_bottom,black_50%,transparent_92%)]">
         {/* Soft atmospheric violet glow */}
@@ -33,31 +33,19 @@ export default function Footer() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
-        {/* Top Massive Headline & Global Delivery Identifier */}
-        <div className="mb-12 border-b border-white/[0.08] pb-10">
-          <div className="flex items-center gap-2 mb-5">
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-            </span>
-            <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
-              Frame Cipher · Global Delivery Network
-            </p>
-          </div>
-          <h2 className="font-heading text-[clamp(2.5rem,7.5vw,7.5rem)] font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Brand. Content. Tech.{' '}
-            <span className="italic text-frame-accent">
-              Growth.
-            </span>
+        {/* Top Massive Headline (Solid pure white, unobstructed and pure) */}
+        <div className="mb-12 border-b border-white/10 pb-10">
+          <h2 className="font-heading text-[clamp(2.5rem,7.5vw,7.5rem)] font-medium leading-[0.96] tracking-tight text-white">
+            Brand. Content. Tech. Growth.
           </h2>
         </div>
 
         {/* 5-Column Sitemap & Directory Grid */}
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.4fr_1.05fr_1.15fr_0.85fr_1.1fr] pb-12 border-b border-white/[0.08]">
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[1.4fr_1.05fr_1.15fr_0.85fr_1.1fr] pb-12 border-b border-white/10">
           {/* Col 1: Identity & Positioning */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-1 shadow-sm">
+              <div className="relative flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl border border-white/10 bg-[#121214] p-1 shadow-sm">
                 <img src="/logo.webp" alt="Frame Cipher" className="h-full w-full object-contain" />
               </div>
               <span className="font-heading text-lg font-medium uppercase tracking-[0.08em] text-white">
@@ -68,19 +56,17 @@ export default function Footer() {
               Frame Cipher is a 360 marketing, media, and technology agency helping brands build strategy,
               content, software, campaigns, and growth systems under one roof.
             </p>
-            <div className="pt-2">
-              <span className="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-wider text-frame-accent bg-[#18181B] border border-white/[0.08] px-3 py-1 rounded-full">
-                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-                <span>{siteUrl.replace(/^https?:\/\//, '')}</span>
-              </span>
+            <div className="pt-2 flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+              <span>{siteUrl.replace(/^https?:\/\//, '')}</span>
             </div>
           </div>
 
           {/* Col 2: Core Services */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+              <h3 className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                 Core Services
               </h3>
             </div>
@@ -103,7 +89,7 @@ export default function Footer() {
                     href={item.href}
                     className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
                   >
-                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-purple-400">
                       &rsaquo;
                     </span>
                     <span>{item.title}</span>
@@ -116,12 +102,12 @@ export default function Footer() {
           {/* Col 3: Ads Calculators */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+              <h3 className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                 Ads Calculators
               </h3>
-              <span className="rounded-full bg-purple-500/10 px-2 py-0.5 font-mono text-[9px] font-medium tracking-wider text-purple-300 border border-purple-500/20">
-                FREE
+              <span className="font-mono text-[10px] tracking-wider text-emerald-400 font-medium">
+                (Free)
               </span>
             </div>
             <ul className="grid gap-2.5 text-sm">
@@ -142,7 +128,7 @@ export default function Footer() {
                     href={item.href}
                     className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
                   >
-                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-purple-400">
                       &rsaquo;
                     </span>
                     <span>{item.title}</span>
@@ -155,8 +141,8 @@ export default function Footer() {
           {/* Col 4: Company */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+              <h3 className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                 Company
               </h3>
             </div>
@@ -167,7 +153,7 @@ export default function Footer() {
                     href={item.path}
                     className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
                   >
-                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                    <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-purple-400">
                       &rsaquo;
                     </span>
                     <span>{item.name}</span>
@@ -179,7 +165,7 @@ export default function Footer() {
                   href="/authors"
                   className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
                 >
-                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-purple-400">
                     &rsaquo;
                   </span>
                   <span>Authors</span>
@@ -190,7 +176,7 @@ export default function Footer() {
                   href="/privacy"
                   className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
                 >
-                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-purple-400">
                     &rsaquo;
                   </span>
                   <span>Privacy</span>
@@ -201,7 +187,7 @@ export default function Footer() {
                   href="/terms"
                   className="group inline-flex items-center gap-1.5 text-zinc-400 transition-colors duration-150 hover:text-white"
                 >
-                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-frame-accent">
+                  <span className="text-zinc-600 transition-transform duration-150 group-hover:translate-x-0.5 group-hover:text-purple-400">
                     &rsaquo;
                   </span>
                   <span>Terms</span>
@@ -213,8 +199,8 @@ export default function Footer() {
           {/* Col 5: Direct Contact */}
           <div>
             <div className="mb-4 flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
-              <h3 className="font-mono text-[11px] tracking-[1.1px] text-frame-accent">
+              <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
+              <h3 className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                 Contact
               </h3>
             </div>
@@ -262,7 +248,7 @@ export default function Footer() {
         <div className="pt-8 flex flex-col gap-3 font-mono text-xs uppercase tracking-wider text-zinc-500 md:flex-row md:items-center md:justify-between">
           <p>© 2026 Frame Cipher. All rights reserved.</p>
           <div className="flex items-center gap-2 text-zinc-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
             <span>One Team for Brand, Content, Tech, and Growth.</span>
           </div>
         </div>

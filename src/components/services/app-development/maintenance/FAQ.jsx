@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ChevronDown, HelpCircle } from 'lucide-react'
+import { ChevronDown, MessageSquare } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const defaultFaqs = [
   {
@@ -32,25 +33,25 @@ const defaultFaqs = [
   {
     question: 'Can you handle OS and SDK updates?',
     answer:
-      'Yes. OS and SDK compatibility is an important part of ongoing application maintenance. We review relevant platform changes, update affected components, test the application, and support the release process when required.',
+      'Yes. OS and SDK compatibility is an essential part of mobile application maintenance. We help identify necessary updates and address deprecations, permission changes, and framework adjustments.',
   },
   {
-    question: 'Do you maintain app APIs and third-party integrations?',
+    question: 'How do you monitor app crashes and performance?',
     answer:
-      'Yes. We can maintain existing APIs, backend connections, payment integrations, authentication systems, and other third-party services within the agreed scope.',
+      'Depending on the application, we use monitoring tools such as Sentry, Firebase Crashlytics, Datadog, and cloud logging services to identify crashes, exceptions, latency issues, and infrastructure problems.',
   },
   {
-    question: 'Do you provide emergency app support?',
+    question: 'What response time can we expect for critical bugs?',
     answer:
-      'Support priority can be structured around the severity of an issue. Critical production problems can be handled according to the response terms defined in the selected maintenance agreement.',
+      'Critical issues receive higher priority based on the agreed maintenance plan and SLA terms. Response times and escalation workflows are established before ongoing maintenance begins.',
   },
   {
-    question: 'How do your app maintenance SLAs work?',
+    question: 'Do you maintain backend systems and APIs as well?',
     answer:
-      'An SLA defines the agreed support expectations, such as issue priority, response expectations, communication, and support coverage. Specific SLA terms depend on the maintenance plan and should be agreed before the engagement begins.',
+      'Yes. Many applications require backend, database, API, and cloud infrastructure support to remain reliable. We can include backend maintenance within the support plan.',
   },
   {
-    question: 'How quickly can you start maintaining an existing app?',
+    question: 'How long does it take to start maintaining an existing app?',
     answer:
       "The onboarding period depends on the application's size, codebase condition, access requirements, and assessment scope. We first review the application and require access before beginning ongoing maintenance.",
   },
@@ -91,18 +92,17 @@ export default function FAQ({ service }) {
   return (
     <section
       id="faq"
-      className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
+      className="relative isolate border-b border-white/10 bg-[#09090B] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
     >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-7xl">
-        {/* Canonical Center-Aligned Header (§6 Standard) */}
+        {/* Canonical Center-Aligned Header */}
         <div className="mx-auto max-w-3xl text-center mb-16 space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Frequently Asked{' '}
-            <span className="italic text-frame-accent">Questions.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            Frequently Asked Questions About App Maintenance.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -110,14 +110,14 @@ export default function FAQ({ service }) {
           </p>
         </div>
 
-        {/* Canonical Centered Accordion (§6 Standard: max-w-4xl mx-auto) */}
+        {/* Centered Accordion (max-w-4xl mx-auto) */}
         <div className="mx-auto max-w-4xl space-y-3">
           {faqList.map((faq, index) => {
             const isOpen = openIndex === index
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.16]"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] transition-all duration-200 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
@@ -129,17 +129,17 @@ export default function FAQ({ service }) {
                     {faq.question}
                   </h3>
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#18181b] transition-transform duration-300 ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-transform duration-300 ${
                       isOpen
-                        ? 'rotate-180 border-frame-accent text-frame-accent'
-                        : 'text-zinc-400'
+                        ? 'rotate-180 border-purple-600/40 bg-purple-600/20 text-purple-400'
+                        : 'border-white/10 bg-[#121214] text-zinc-400 group-hover:text-white'
                     }`}
                   >
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 </button>
                 {isOpen && (
-                  <div className="border-t border-white/[0.06] px-6 pt-4 pb-6 bg-black/20">
+                  <div className="border-t border-white/10 px-6 pt-4 pb-6 bg-[#121214]/50">
                     <p className="text-sm sm:text-base leading-relaxed text-zinc-300 whitespace-pre-line">
                       {faq.answer}
                     </p>
@@ -148,6 +148,26 @@ export default function FAQ({ service }) {
               </div>
             )
           })}
+        </div>
+
+        {/* Bottom Support Callout Card */}
+        <div className="mx-auto mt-12 max-w-4xl relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600">
+              <MessageSquare className="h-6 w-6" />
+            </div>
+            <div>
+              <h4 className="font-heading text-lg font-medium text-white">
+                Have a specific question about your application?
+              </h4>
+              <p className="text-sm text-zinc-300">
+                Share your codebase details or current issues with our engineering team.
+              </p>
+            </div>
+          </div>
+          <PosterButton href="/contact" variant="primary" className="h-[52px] shrink-0">
+            Ask an Engineer
+          </PosterButton>
         </div>
       </div>
     </section>

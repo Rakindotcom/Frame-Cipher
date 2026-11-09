@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ChevronDown, HelpCircle } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const defaultFaqs = [
   {
@@ -61,13 +62,12 @@ export default function FAQ({ service }) {
   return (
     <section
       id="faq"
-      className="border-b border-white/[0.08] bg-[#09090B] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
+      className="relative border-b border-white/10 bg-[#0A0A0C] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
     >
       <div className="mx-auto max-w-5xl">
         <div className="mb-14 text-center space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Frequently Asked Questions About{' '}
-            <span className="italic text-frame-accent">Enterprise App Development.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About Enterprise App Development.
           </h2>
 
           <p className="mx-auto max-w-2xl text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -84,7 +84,7 @@ export default function FAQ({ service }) {
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14]"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] transition-all duration-300 hover:border-white/20 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
@@ -96,17 +96,16 @@ export default function FAQ({ service }) {
                     {questionText}
                   </h3>
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-white/[0.03] text-zinc-400 transition-transform duration-300 ${
-                      isOpen ? 'rotate-180 bg-frame-accent/10 border-frame-accent/30 text-frame-accent' : ''
-                    }`}
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-purple-600/20 bg-purple-600/10 text-purple-600 transition-transform duration-300 ${isOpen ? 'rotate-180 bg-purple-600 text-white border-purple-600' : ''
+                      }`}
                   >
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-white/[0.06] px-6 pb-6 pt-4 sm:px-7 sm:pb-7">
-                    <p className="text-sm sm:text-base leading-relaxed text-zinc-400">
+                  <div className="border-t border-white/10 px-6 pb-6 pt-4 sm:px-7 sm:pb-7">
+                    <p className="text-sm sm:text-base leading-relaxed text-zinc-300">
                       {answerText}
                     </p>
                   </div>
@@ -114,6 +113,21 @@ export default function FAQ({ service }) {
               </div>
             )
           })}
+        </div>
+
+        {/* Support callout */}
+        <div className="mt-12 group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 text-center sm:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <h3 className="font-heading text-lg font-medium text-white">
+            Still have questions about your enterprise project?
+          </h3>
+          <p className="mt-2 text-sm text-zinc-400">
+            Our enterprise architects are available to review your systems and workflows.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <PosterButton href="/contact" variant="accent" className="h-[52px] px-8 text-sm font-medium">
+              Speak With an Enterprise Architect
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

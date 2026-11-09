@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import { AlertCircle } from 'lucide-react'
 
 const whyOngoingMaintenance = [
   {
@@ -44,13 +43,12 @@ const whyOngoingMaintenance = [
 
 export default function WhyOngoingMaintenance() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+    <section className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="mb-16 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Why Your Business Needs Ongoing{' '}
-            <span className="italic text-frame-accent">App Maintenance.</span>
+        <div className="mb-14 max-w-3xl space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Why Your Business Needs Ongoing App Maintenance.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -58,26 +56,25 @@ export default function WhyOngoingMaintenance() {
           </p>
         </div>
 
-        {/* Editorial Divided Rows (Modality 1) */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden">
-          <div className="divide-y divide-white/[0.08]">
+        {/* Editorial Divided Rows */}
+        <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] shadow-2xl before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <div className="divide-y divide-white/10">
             {whyOngoingMaintenance.map((item) => (
               <div
                 key={item.num}
-                className="group p-6 sm:p-8 transition-colors duration-200 hover:bg-[#161619]"
+                className="group p-6 sm:p-8 transition-colors duration-200 hover:bg-[#121214]"
               >
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-baseline">
                   {/* Metric Num */}
                   <div className="lg:col-span-3 flex items-baseline gap-4">
-                    <span className="font-mono text-2xl sm:text-3xl font-semibold text-zinc-500 group-hover:text-frame-accent transition-colors">
+                    <span className="font-mono text-2xl sm:text-3xl font-semibold text-purple-400">
                       {item.num}
                     </span>
-                    
                   </div>
 
                   {/* Title & Takeaway */}
                   <div className="lg:col-span-4">
-                    <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                       {item.title}
                     </h3>
                     <span className="mt-1 font-mono text-xs text-purple-400/90 block">
@@ -100,4 +97,3 @@ export default function WhyOngoingMaintenance() {
     </section>
   )
 }
-

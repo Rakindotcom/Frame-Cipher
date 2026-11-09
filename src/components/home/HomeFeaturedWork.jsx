@@ -13,7 +13,7 @@ export default function HomeFeaturedWork() {
             <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
               Proof with pixels
             </h2>
-            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
               High-impact creative production, visual identities, and studio assets crafted to command attention.
             </p>
           </div>
@@ -48,7 +48,7 @@ export default function HomeFeaturedWork() {
                   <h3 className="mt-2 font-heading text-xl sm:text-2xl font-semibold text-highlighted tracking-tight">
                     {project.name}
                   </h3>
-                  <p className="mt-4 text-sm font-normal leading-relaxed text-muted group-hover:text-default transition-colors">
+                  <p className="mt-4 text-sm font-normal leading-relaxed text-white group-hover:text-default transition-colors">
                     {project.description}
                   </p>
                 </div>

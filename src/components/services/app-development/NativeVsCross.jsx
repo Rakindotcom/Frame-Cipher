@@ -31,9 +31,8 @@ export default function NativeVsCross() {
       <div className="mx-auto max-w-7xl">
         {/* Left-Aligned Header Block */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Native vs Cross-Platform{' '}
-            <span className="italic text-frame-accent">App Development.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Native vs Cross-Platform App Development.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -42,21 +41,21 @@ export default function NativeVsCross() {
         </div>
 
         {/* Comparison Table on #121214 */}
-        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
-          <table className="w-full text-left min-w-[640px]">
-            <thead className="border-b border-white/[0.08] bg-white/[0.02]">
+        <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214] shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+          <table className="w-full text-left min-w-[640px] border-collapse">
+            <thead className="border-b border-white/[0.08] bg-[#18181B]">
               <tr>
-                <th className="p-5 md:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent w-1/2">
+                <th className="p-5 md:p-6 font-heading text-sm font-semibold tracking-tight text-white w-1/2">
                   Native App Development
                 </th>
-                <th className="p-5 md:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent w-1/2">
+                <th className="p-5 md:p-6 font-heading text-sm font-semibold tracking-tight text-white w-1/2 border-l border-white/[0.08]">
                   Cross-Platform App Development
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-white/[0.08] text-sm md:text-base font-normal text-zinc-300">
               {nativeVsCrossRows.map((row, rIdx) => (
-                <tr key={rIdx} className="hover:bg-white/[0.02] transition-colors">
+                <tr key={rIdx} className="hover:bg-[#151518] transition-colors">
                   <td className="p-5 md:p-6 font-medium text-white leading-relaxed border-r border-white/[0.08]">
                     {row.native}
                   </td>
@@ -70,7 +69,7 @@ export default function NativeVsCross() {
         </div>
 
         {/* Evaluation Takeaway Callout */}
-        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+        <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
           <p className="text-sm sm:text-base md:text-lg font-normal leading-relaxed text-zinc-300">
             We consider the target users, required features, performance needs, timeline, budget, integrations, and long-term roadmap before recommending a technology.
           </p>

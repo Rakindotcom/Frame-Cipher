@@ -21,7 +21,7 @@ export default function SaasHeroVisual() {
               sizes="(max-width: 768px) 85vw, 560px"
               priority
               unoptimized
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+              className="object-container object-top transition-transform duration-700 ease-out group-hover:scale-[1.01]"
             />
           </div>
         </div>

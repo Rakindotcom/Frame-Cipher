@@ -3,12 +3,7 @@ import { CTASection } from '../../Kinetic'
 export default function CTA() {
   return (
     <CTASection
-      title={
-        <>
-          Ready to Build Your{' '}
-          <span className="italic text-frame-accent">360 Growth Engine?</span>
-        </>
-      }
+      title="Ready to Build Your 360 Growth Engine?"
       primaryText="Request Your Free 360 Audit"
       secondaryText="Book a 30-Min Strategy Call"
     >

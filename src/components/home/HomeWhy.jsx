@@ -44,7 +44,7 @@ export default function HomeWhy() {
               <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
                 Why businesses work with Frame Cipher
               </h2>
-              <p className="mt-5 max-w-lg text-base font-normal leading-relaxed text-muted md:text-lg">
+              <p className="mt-5 max-w-lg text-base font-normal leading-relaxed text-white md:text-lg">
                 The difference is not the number of services, it is how they are connected and who
                 is held accountable for the result.
               </p>
@@ -57,7 +57,7 @@ export default function HomeWhy() {
                 <h3 className="font-heading text-xl sm:text-2xl font-semibold text-highlighted tracking-tight">
                   Zero Vendor Friction
                 </h3>
-                <p className="mt-3 text-sm font-normal leading-relaxed text-muted">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-white">
                   One disciplined partner holding total accountability for your brand, media, web, campaigns, and compounding growth.
                 </p>
               </div>
@@ -86,7 +86,7 @@ export default function HomeWhy() {
                   <h3 className="mt-4 font-heading text-xl sm:text-2xl font-semibold text-highlighted tracking-tight">
                     {reason.title}
                   </h3>
-                  <p className="mt-4 max-w-2xl text-sm md:text-base font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-4 max-w-2xl text-sm md:text-base font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {reason.description}
                   </p>
                 </article>

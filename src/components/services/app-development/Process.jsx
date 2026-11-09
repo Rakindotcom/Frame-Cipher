@@ -48,8 +48,7 @@ export default function Process() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
           <div className="lg:sticky lg:top-28 space-y-4">
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              How We Approach{' '}
-              <span className="italic text-frame-accent">App Development.</span>
+              How We Approach App Development.
             </h2>
 
             <p className="max-w-xl text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -57,30 +56,30 @@ export default function Process() {
             </p>
           </div>
 
-          <div className="divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
+          <div className="divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
             {processSteps.map((step) => (
               <div
                 key={step.step}
-                className="group flex flex-col gap-3 p-6 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02]"
+                className="group flex flex-col gap-3 p-6 sm:p-8 transition-colors duration-200 hover:bg-[#18181B]"
               >
                 <div className="flex items-center justify-between gap-4">
                   <div className="flex items-baseline gap-4">
-                    <span className="font-mono text-sm font-medium text-frame-accent tabular-nums">
+                    <span className="font-mono text-sm font-semibold text-purple-600 tabular-nums">
                       {step.step}
                     </span>
-                    <h3 className="font-heading text-lg sm:text-xl font-medium text-white">
+                    <h3 className="font-heading text-lg sm:text-xl font-medium text-white transition-colors">
                       {step.title}
                     </h3>
                   </div>
                   <span
                     aria-hidden="true"
-                    className="font-mono text-sm text-zinc-600 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-frame-accent"
+                    className="font-mono text-sm text-zinc-600 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-purple-600"
                   >
                     &rarr;
                   </span>
                 </div>
 
-                <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400 sm:pl-9">
+                <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300 sm:pl-9">
                   {step.desc}
                 </p>
               </div>

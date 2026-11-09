@@ -219,10 +219,10 @@ export default function Navbar({ pillarNavServices = [] }) {
             <Image src="/logo.webp" alt="Frame Cipher" width={40} height={40} className="h-full w-full object-contain" priority />
           </div>
           <div>
-            <div className="font-heading text-xs sm:text-sm font-medium uppercase tracking-[0.16em] text-white transition-colors duration-200 group-hover:text-frame-accent-light whitespace-nowrap">
+            <div className="font-heading text-xs sm:text-sm font-medium uppercase tracking-[0.16em] text-white transition-colors duration-200 group-hover:text-purple-300 whitespace-nowrap">
               FRAME CIPHER
             </div>
-            <div className="hidden whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.22em] text-frame-accent 2xl:block">
+            <div className="hidden whitespace-nowrap font-mono text-[9.5px] uppercase tracking-[0.22em] text-purple-400 2xl:block">
               Brand <span className="text-zinc-600">•</span> Content <span className="text-zinc-600">•</span> Tech <span className="text-zinc-600">•</span> Growth
             </div>
           </div>
@@ -251,7 +251,7 @@ export default function Navbar({ pillarNavServices = [] }) {
               {/* SERVICES DROPDOWN (Clean: No scrollbars on main pillar list) */}
               {item.name === 'Services' && (
                 <div
-                  className={`absolute left-0 top-full w-96 translate-y-0 rounded-xl border border-white/[0.08] bg-[#121214]/98 p-3 shadow-2xl backdrop-blur-xl transition-all duration-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent ${
+                  className={`absolute left-0 top-full w-96 translate-y-0 rounded-xl border border-white/[0.08] bg-[#121214]/98 p-3 shadow-2xl backdrop-blur-xl transition-all duration-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                     activeDropdown === 'Services'
                       ? 'visible opacity-100 pointer-events-auto'
                       : 'invisible opacity-0 pointer-events-none'
@@ -260,13 +260,13 @@ export default function Navbar({ pillarNavServices = [] }) {
                   onMouseLeave={handleNavLeave}
                 >
                   <div className="mb-2 flex items-center justify-between gap-4 border-b border-white/10 px-3 pb-2">
-                    <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-frame-muted-fg">
-                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                    <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-zinc-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
                       7 Service Areas
                     </span>
                     <Link
                       href="/services#all-services"
-                      className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-zinc-400 transition-colors hover:text-frame-accent-light hover:underline"
+                      className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-zinc-400 transition-colors hover:text-purple-300 hover:underline"
                     >
                       All 74 Services &rarr;
                     </Link>
@@ -330,7 +330,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                             onMouseLeave={handlePillarLeave}
                             style={activePillar === service.path ? desktopSubmenuStyle : undefined}
                           >
-                            <div className="mb-2 border-b border-white/10 px-3 pb-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-frame-accent whitespace-nowrap">
+                            <div className="mb-2 border-b border-white/10 px-3 pb-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-purple-400 whitespace-nowrap">
                               {service.name} services
                             </div>
                             <div className="grid gap-1">
@@ -356,7 +356,7 @@ export default function Navbar({ pillarNavServices = [] }) {
               {/* STUDIO DROPDOWN (Clean: No scrollbars on main pillar list) */}
               {item.name === 'Studio' && (
                 <div
-                  className={`absolute left-0 top-full w-96 translate-y-0 rounded-xl border border-white/[0.08] bg-[#121214]/98 p-3 shadow-2xl backdrop-blur-xl transition-all duration-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent ${
+                  className={`absolute left-0 top-full w-96 translate-y-0 rounded-xl border border-white/[0.08] bg-[#121214]/98 p-3 shadow-2xl backdrop-blur-xl transition-all duration-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                     activeDropdown === 'Studio'
                       ? 'visible opacity-100 pointer-events-auto'
                       : 'invisible opacity-0 pointer-events-none'
@@ -365,13 +365,13 @@ export default function Navbar({ pillarNavServices = [] }) {
                   onMouseLeave={handleNavLeave}
                 >
                   <div className="mb-2 flex items-center justify-between gap-4 border-b border-white/10 px-3 pb-2">
-                    <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-frame-muted-fg">
-                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                    <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-zinc-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
                       6 Studio Areas
                     </span>
                     <Link
                       href="/studio"
-                      className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-zinc-400 transition-colors hover:text-frame-accent-light hover:underline"
+                      className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-zinc-400 transition-colors hover:text-purple-300 hover:underline"
                     >
                       Studio Overview &rarr;
                     </Link>
@@ -413,7 +413,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                               className={`w-8 shrink-0 text-sm transition-colors ${
                                 activePillar === cluster.path
                                   ? 'bg-white text-[#09090B]'
-                                  : 'text-frame-accent hover:bg-white/[0.08] hover:text-white'
+                                  : 'text-purple-400 hover:bg-white/[0.08] hover:text-white'
                               }`}
                             >
                               ›
@@ -435,7 +435,7 @@ export default function Navbar({ pillarNavServices = [] }) {
                             onMouseLeave={handlePillarLeave}
                             style={activePillar === cluster.path ? desktopSubmenuStyle : undefined}
                           >
-                            <div className="mb-2 border-b border-white/10 px-3 pb-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-frame-accent whitespace-nowrap">
+                            <div className="mb-2 border-b border-white/10 px-3 pb-1.5 font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-purple-400 whitespace-nowrap">
                               {cluster.name} services
                             </div>
                             <div className="grid gap-1">
@@ -461,7 +461,7 @@ export default function Navbar({ pillarNavServices = [] }) {
               {/* WORK DROPDOWN */}
               {item.name === 'Work' && (
                 <div
-                  className={`absolute left-0 top-full max-h-[calc(100dvh-7rem)] w-88 translate-y-0 overflow-y-auto overscroll-contain rounded-xl border border-white/[0.08] bg-[#121214]/98 p-3 shadow-2xl backdrop-blur-xl transition-all duration-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-frame-accent/40 before:to-transparent ${
+                  className={`absolute left-0 top-full max-h-[calc(100dvh-7rem)] w-88 translate-y-0 overflow-y-auto overscroll-contain rounded-xl border border-white/[0.08] bg-[#121214]/98 p-3 shadow-2xl backdrop-blur-xl transition-all duration-150 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                     activeDropdown === 'Work'
                       ? 'visible opacity-100 pointer-events-auto'
                       : 'invisible opacity-0 pointer-events-none'
@@ -470,13 +470,13 @@ export default function Navbar({ pillarNavServices = [] }) {
                   onMouseLeave={handleNavLeave}
                 >
                   <div className="mb-2 flex items-center justify-between border-b border-white/10 px-3 pb-2">
-                    <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-frame-muted-fg">
-                      <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+                    <span className="flex items-center gap-1.5 whitespace-nowrap font-mono text-[11px] uppercase tracking-[0.1em] text-zinc-400">
+                      <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
                       Work categories
                     </span>
                     <Link
                       href="/projects"
-                      className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-zinc-400 transition-colors hover:text-frame-accent-light hover:underline"
+                      className="whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.1em] text-zinc-400 transition-colors hover:text-purple-300 hover:underline"
                     >
                       View all &rarr;
                     </Link>
@@ -491,12 +491,12 @@ export default function Navbar({ pillarNavServices = [] }) {
                         >
                           <div className="flex items-center justify-between">
                             <Link href={cat.path} className="after:absolute after:inset-0 after:content-['']">
-                              <span className="whitespace-nowrap text-sm text-white transition-colors group-hover/lane:text-frame-accent-light">
+                              <span className="whitespace-nowrap text-sm text-white transition-colors group-hover/lane:text-purple-300">
                                 {cat.name}
                               </span>
                             </Link>
                             <span
-                              className="text-xs font-bold uppercase tracking-widest text-frame-accent opacity-0 transition-opacity group-hover/lane:opacity-100"
+                              className="text-xs font-bold uppercase tracking-widest text-purple-400 opacity-0 transition-opacity group-hover/lane:opacity-100"
                               aria-hidden="true"
                             >
                               &rarr;
@@ -528,7 +528,7 @@ export default function Navbar({ pillarNavServices = [] }) {
         {/* Mobile Menu Hamburger Button */}
         <button
           onClick={() => setIsMenuOpen((value) => !value)}
-          className="flex h-11 w-11 min-h-[44px] min-w-[44px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.04] transition-colors hover:border-white/[0.14] hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent touch-manipulation lg:hidden"
+          className="flex h-11 w-11 min-h-[44px] min-w-[44px] flex-col items-center justify-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.04] transition-colors hover:border-white/[0.14] hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 touch-manipulation lg:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
@@ -699,7 +699,7 @@ export default function Navbar({ pillarNavServices = [] }) {
             <a
               href={contact.whatsapp}
               onClick={() => setIsMenuOpen(false)}
-              className="group mt-3 sw-btn sw-btn-primary min-h-[52px] h-[52px] w-full text-center text-[15px] font-medium leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent touch-manipulation"
+              className="group mt-3 sw-btn sw-btn-primary min-h-[52px] h-[52px] w-full text-center text-[15px] font-medium leading-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 touch-manipulation"
             >
               <span>Talk on WhatsApp</span>
               <span aria-hidden="true" className="text-lg leading-none transition-transform duration-200 group-hover:translate-x-1 shrink-0 ml-1.5">&rarr;</span>

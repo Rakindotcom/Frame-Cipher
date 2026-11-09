@@ -57,7 +57,7 @@ export default function AboutCapabilityMix() {
                     </Link>
                   </h3>
 
-                  <p className="text-xs sm:text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                  <p className="text-sm font-normal leading-relaxed text-zinc-300 group-hover:text-white transition-colors">
                     {pillar.description}
                   </p>
                 </div>

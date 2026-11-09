@@ -24,7 +24,7 @@ export default function ServicesStats() {
               <div className="pointer-events-none absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-purple-500/0 to-transparent transition-all duration-300 group-hover:via-purple-500" />
 
               <p className="font-mono text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white tabular-nums">
-                <AnimatedCounter target={stat.target} suffix={stat.suffix} duration={1200} />
+                <AnimatedCounter value={stat.target} suffix={stat.suffix} duration={1200} />
               </p>
               <p className="mt-2 text-xs font-mono uppercase tracking-[0.16em] text-zinc-300 font-medium">
                 {stat.label}

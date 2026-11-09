@@ -38,40 +38,38 @@ const MISTAKES = [
 
 export default function CommonMistakes() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+    <section className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Common MVP Mistakes That{' '}
-            <span className="italic text-frame-accent">Distort Validation.</span>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Common MVP Mistakes That Distort Validation.
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
             A technically functional MVP can still produce poor evidence if the product is scoped incorrectly. Here are the 5 critical failure modes we actively safeguard against.
           </p>
         </div>
 
-        {/* Editorial Divided Rows (Modality 1) */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#121214] overflow-hidden">
-          <div className="divide-y divide-white/[0.08]">
+        {/* Editorial Divided Rows */}
+        <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] shadow-2xl before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <div className="divide-y divide-white/10">
             {MISTAKES.map((mistake) => (
               <div
                 key={mistake.num}
-                className="group p-6 sm:p-8 transition-colors duration-200 hover:bg-[#161619]"
+                className="group p-6 sm:p-8 transition-colors duration-200 hover:bg-[#121214]"
               >
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-baseline">
                   {/* Metric Num & Badge */}
                   <div className="lg:col-span-3 flex items-baseline gap-4">
-                    <span className="font-mono text-2xl sm:text-3xl font-semibold text-zinc-500 group-hover:text-amber-400 transition-colors">
+                    <span className="font-mono text-2xl sm:text-3xl font-semibold text-purple-400">
                       {mistake.num}
                     </span>
-                    
                   </div>
 
                   {/* Title & Takeaway */}
                   <div className="lg:col-span-4">
-                    <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                    <h3 className="font-heading text-lg sm:text-xl font-medium tracking-tight text-white">
                       {mistake.title}
                     </h3>
                     <span className="mt-1 font-mono text-xs text-amber-400/90 block">
@@ -94,4 +92,3 @@ export default function CommonMistakes() {
     </section>
   )
 }
-

@@ -62,9 +62,8 @@ export default function WhyChoose() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Left Column (Sticky Anchor, 5 cols) */}
           <div className="lg:col-span-5 lg:sticky lg:top-32 lg:self-start space-y-6">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Why Choose Framecipher for{' '}
-              <span className="italic text-frame-accent">Android App Development.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+              Why Choose Framecipher for Android App Development
             </h2>
 
             <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -96,18 +95,18 @@ export default function WhyChoose() {
             {whyChooseUs.map((reason, idx) => (
               <div
                 key={idx}
-                className="py-8 transition-colors hover:bg-white/[0.015] px-2 sm:px-4"
+                className="py-8 transition-colors hover:bg-[#18181B] px-2 sm:px-4"
               >
                 <div className="flex items-start gap-4">
-                  <span className="font-mono text-sm uppercase text-frame-accent mt-1">
+                  <span className="font-mono text-sm uppercase text-purple-600 mt-1">
                     {reason.num}
                   </span>
                   <div className="space-y-2 flex-1">
                     <h3 className="font-heading text-xl font-medium tracking-tight text-white flex items-center justify-between">
                       <span>{reason.title}</span>
-                      <reason.icon className="h-5 w-5 text-frame-accent shrink-0 opacity-60" />
+                      <reason.icon className="h-5 w-5 text-purple-600 shrink-0" />
                     </h3>
-                    <p className="text-sm font-normal leading-relaxed text-zinc-400">
+                    <p className="text-sm font-normal leading-relaxed text-zinc-300">
                       {reason.desc}
                     </p>
                   </div>

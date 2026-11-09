@@ -2,6 +2,7 @@
 
 import React from 'react'
 import VideoPortfolioPreview from '../components/projects/VideoPortfolioPreview'
+import { HomeStudioShowcase } from '../components/home'
 import {
   StudioHero,
   StudioOfferings,
@@ -12,6 +13,7 @@ import {
   StudioLocation,
   StudioFaq,
   StudioBookingForm,
+  StudioEventCarousel,
 } from '../components/studio'
 import StudioAtGlance from '../components/studio/StudioAtGlance'
 import StudioHubExtended from '../components/studio/StudioHubExtended'
@@ -22,6 +24,9 @@ export default function StudioPage() {
     <main className="studio-page relative min-h-screen bg-[#09090B] text-[#FAFAFA] overflow-x-hidden [overflow-anchor:none]">
       {/* Hero: H1 + tagline + symmetrical 52px CTAs + canonical marquee ticker + 4-column ribbon */}
       <StudioHero />
+
+      {/* Two in-house production studios in Dhaka: Physical Stage & Rigs Carousel */}
+      <HomeStudioShowcase exploreHref="#packages" bookingHref="#booking" />
 
       {/* At a glance: Modality 3 Blueprint Matrix */}
       <StudioAtGlance />
@@ -39,6 +44,9 @@ export default function StudioPage() {
         buttonText="View All Video Work →"
         buttonHref="/projects#short-video-work"
       />
+
+      {/* On-location event production showcase carousel */}
+      <StudioEventCarousel />
 
       {/* Packages: Modality 2 Architectural Divided Column Band */}
       <StudioComparison />

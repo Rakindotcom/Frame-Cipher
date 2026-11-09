@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { Check } from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 
 const pricingTiers = [
@@ -113,9 +114,8 @@ export default function Pricing() {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            API Development{' '}
-            <span className="italic text-frame-accent">Pricing &amp; Timeline.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            API Development Pricing &amp; Timeline.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -128,16 +128,16 @@ export default function Pricing() {
           {pricingTiers.map((tier, i) => (
             <div
               key={i}
-              className={`relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 transition-colors ${
+              className={`relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 transition-colors before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                 tier.featured
-                  ? 'border-frame-accent/40 bg-[#18181B]'
+                  ? 'border-purple-600/40 bg-[#18181B]'
                   : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2">
                   <div>
-                    <span className="font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-purple-600 font-semibold">
                       Project Type
                     </span>
                     <h3 className="font-heading text-lg font-medium tracking-tight text-white mt-1">
@@ -145,7 +145,7 @@ export default function Pricing() {
                     </h3>
                   </div>
                   {tier.featured && (
-                    <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                    <span className="rounded-full border border-purple-500/40 bg-purple-500/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-purple-300">
                       Popular
                     </span>
                   )}
@@ -164,13 +164,13 @@ export default function Pricing() {
                 </div>
 
                 <div className="mt-6 border-t border-white/[0.08] pt-5">
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-3">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-purple-600 mb-3 font-semibold">
                     What&apos;s Included:
                   </p>
                   <ul className="space-y-2.5">
                     {tier.includes.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-normal text-zinc-300">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                        <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -192,9 +192,9 @@ export default function Pricing() {
         </div>
 
         {/* What Is Included Card */}
-        <div className="mt-12 rounded-xl border border-white/[0.06] bg-[#121214] p-6 sm:p-8 space-y-4">
+        <div className="mt-12 relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-4 before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
             <h4 className="font-heading text-base font-medium text-white">
               Standard Delivery Scope
             </h4>
@@ -202,10 +202,10 @@ export default function Pricing() {
           <p className="text-xs sm:text-sm text-zinc-400">
             Depending on the selected scope, projects can include the following engineering components:
           </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 pt-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-2.5 gap-x-6 pt-2">
             {includedFeatures.map((feat, idx) => (
-              <div key={idx} className="flex items-center gap-2 rounded-lg border border-white/[0.04] bg-white/[0.02] p-2.5 text-xs text-zinc-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+              <div key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                 <span>{feat}</span>
               </div>
             ))}
@@ -215,7 +215,7 @@ export default function Pricing() {
         {/* Project Scope, Review & Support Checkpoints */}
         <div className="mt-14">
           <div className="mb-4 flex items-center gap-2">
-            <span className="h-1.5 w-1.5 rounded-full bg-frame-accent" />
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-600" />
             <h4 className="font-heading text-xl font-medium text-white">
               Project Scope, Review &amp; Support
             </h4>
@@ -225,14 +225,14 @@ export default function Pricing() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {scopeCheckpoints.map((item, idx) => (
-              <div key={idx} className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14]">
-                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+              <div key={idx} className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.14] hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+                <span className="font-mono text-xs uppercase tracking-wider text-purple-600 font-semibold">
                   0{idx + 1}
                 </span>
                 <h5 className="mt-2 font-heading text-base font-medium text-white">
                   {item.title}
                 </h5>
-                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-400">
+                <p className="mt-2 text-xs sm:text-sm leading-relaxed text-zinc-300">
                   {item.desc}
                 </p>
               </div>

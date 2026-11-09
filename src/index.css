@@ -473,10 +473,13 @@ svg {
 
 input,
 select,
-textarea,
-button {
+textarea {
   max-width: 100% !important;
   min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+button {
   box-sizing: border-box !important;
 }
 

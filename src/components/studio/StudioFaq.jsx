@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ChevronDown, ChevronUp, Sparkles } from 'lucide-react'
+import { ChevronDown, MessageSquare } from 'lucide-react'
+import PosterButton from '../home/PosterButton'
 
 const faqs = [
   {
@@ -72,7 +73,7 @@ export default function StudioFaq() {
   }
 
   return (
-    <section id="faq" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section id="faq" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       {/* Schema.org FAQPage Injection */}
       <script
         type="application/ld+json"
@@ -82,9 +83,8 @@ export default function StudioFaq() {
       <div className="mx-auto max-w-7xl">
         {/* Strictly Centered Section Header */}
         <div className="mx-auto max-w-3xl text-center space-y-4 mb-14">
-          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
-            Studio booking{' '}
-            <span className="text-white">questions.</span>
+          <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-tight text-white">
+            Frequently Asked Questions About Studio Production.
           </h2>
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
             Costs, inclusions, turnaround times, and booking logistics: everything about recording at FrameCipher Studio in Dhaka.
@@ -98,28 +98,30 @@ export default function StudioFaq() {
             return (
               <div
                 key={idx}
-                className="rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.14]"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] transition-all duration-200 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
                   onClick={() => toggleFaq(idx)}
-                  className="flex w-full items-center justify-between p-6 text-left cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#121214] rounded-xl"
+                  className="flex w-full items-center justify-between p-6 text-left cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500 rounded-xl"
                   aria-expanded={isOpen}
                 >
                   <h3 className="font-heading text-lg sm:text-xl font-medium leading-snug tracking-tight text-white pr-4">
                     {item.q}
                   </h3>
-                  <span className="shrink-0 rounded-full border border-white/[0.08] bg-[#18181B] p-2 text-zinc-400">
-                    {isOpen ? (
-                      <ChevronUp className="h-4 w-4 text-frame-accent" />
-                    ) : (
-                      <ChevronDown className="h-4 w-4" />
-                    )}
-                  </span>
+                  <div
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border transition-transform duration-300 ${
+                      isOpen
+                        ? 'rotate-180 border-purple-600/40 bg-purple-600/20 text-purple-400'
+                        : 'border-white/10 bg-[#121214] text-zinc-400 group-hover:text-white'
+                    }`}
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </div>
                 </button>
 
                 {isOpen && (
-                  <div className="border-t border-white/[0.08] px-6 pb-6 pt-4">
+                  <div className="border-t border-white/10 px-6 pb-6 pt-4 bg-[#121214]/50">
                     <p className="text-base font-normal leading-relaxed text-zinc-300">
                       {item.a}
                     </p>
@@ -128,6 +130,26 @@ export default function StudioFaq() {
               </div>
             )
           })}
+        </div>
+
+        {/* Bottom Consultation Card */}
+        <div className="mx-auto mt-12 max-w-4xl relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <div className="flex items-center gap-4">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600">
+              <MessageSquare className="h-6 w-6" />
+            </div>
+            <div>
+              <h4 className="font-heading text-lg font-medium text-white">
+                Need custom studio time or equipment staging?
+              </h4>
+              <p className="text-sm text-zinc-300">
+                Ask our production team directly about stage dimensions and technical rider add-ons.
+              </p>
+            </div>
+          </div>
+          <PosterButton href="#booking" variant="primary" className="h-[52px] shrink-0">
+            Book a Session
+          </PosterButton>
         </div>
       </div>
     </section>

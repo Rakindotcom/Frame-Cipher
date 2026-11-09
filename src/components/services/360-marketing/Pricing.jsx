@@ -1,8 +1,10 @@
 import { SectionIntro, PosterButton } from '../../Kinetic'
+import { Check, Zap, Rocket, Crown } from 'lucide-react'
 
 const tiers = [
   {
     name: 'Growth Foundation Sprint',
+    icon: Zap,
     eyebrow: 'One-Time / 30-Day Turnaround',
     badge: 'Diagnostic & Build',
     description:
@@ -20,6 +22,7 @@ const tiers = [
   },
   {
     name: 'Full 360 Growth Retainer',
+    icon: Rocket,
     eyebrow: 'Ongoing Growth Partnership',
     badge: 'Most Popular',
     description:
@@ -38,6 +41,7 @@ const tiers = [
   },
   {
     name: 'Enterprise Market Transformation',
+    icon: Crown,
     eyebrow: 'Custom Scope / High Volume',
     badge: 'Enterprise',
     description:
@@ -57,62 +61,59 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <section className="relative isolate px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-white border-b border-white/[0.08]">
+    <section className="relative isolate px-4 py-20 md:px-8 md:py-28 bg-[#09090B] text-white border-b border-white/[0.08]">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          title={
-            <>
-              Predictable, Transparent{' '}
-              <span className="italic text-frame-accent">Collaboration Tiers.</span>
-            </>
-          }
-        >
+        <SectionIntro title="Predictable, Transparent Collaboration Tiers.">
           No surprise bills, no bloated markups, and no hourly nickel-and-diming. Choose the partnership
           model that matches your growth ambitions.
         </SectionIntro>
 
         <div className="grid gap-6 lg:grid-cols-3">
-          {tiers.map((tier, idx) => (
-            <article
-              key={tier.name}
-              className={`flex flex-col justify-between rounded-xl border p-7 md:p-9 transition-colors duration-300 ${
-                tier.popular
-                  ? 'border-frame-accent/40 bg-[#121214]'
-                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
-              }`}
-            >
-              <div>
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3.5">
-                  <span className="font-mono text-xs text-frame-accent tabular-nums">
+          {tiers.map((tier, idx) => {
+            const Icon = tier.icon
+            return (
+              <article
+                key={tier.name}
+                className={`flex flex-col justify-between rounded-2xl border p-7 md:p-9 transition-colors duration-300 ${
+                  tier.popular
+                    ? 'border-purple-600/50 bg-[#151518]'
+                    : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.18]'
+                }`}
+              >
+                <div>
+                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                    <Icon className="h-7 w-7 text-purple-600" />
+                    <span
+                      className={`inline-block rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wider ${
+                        tier.popular
+                          ? 'border border-purple-500/30 bg-purple-600/20 text-purple-200 font-semibold'
+                          : 'border border-white/[0.12] bg-[#18181B] text-zinc-400 font-medium'
+                      }`}
+                    >
+                      {tier.badge}
+                    </span>
+                  </div>
+
+                  <span className="mt-4 inline-block font-mono text-xs text-zinc-400 tabular-nums font-semibold">
                     0{idx + 1} &middot; {tier.eyebrow}
                   </span>
-                  <span
-                    className={`inline-block rounded-full px-3 py-1 font-mono text-[10px] uppercase tracking-wider ${
-                      tier.popular
-                        ? 'bg-frame-accent text-white font-medium'
-                        : 'border border-white/[0.12] bg-[#18181B] text-zinc-400'
-                    }`}
-                  >
-                    {tier.badge}
-                  </span>
-                </div>
 
-                <h3 className="mt-5 font-heading text-xl sm:text-2xl font-medium leading-tight tracking-tight text-white">
-                  {tier.name}
-                </h3>
+                  <h3 className="mt-2 font-heading text-xl sm:text-2xl font-semibold leading-tight tracking-tight text-white">
+                    {tier.name}
+                  </h3>
 
-                <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-400">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {tier.description}
                 </p>
 
                 <div className="mt-6 border-t border-white/[0.08] pt-5">
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-4">
+                  <p className="font-mono text-xs uppercase tracking-wider text-zinc-400 font-semibold mb-4">
                     What Is Included:
                   </p>
                   <ul className="space-y-3">
                     {tier.features.map((f) => (
-                      <li key={f} className="flex items-start gap-2.5 text-xs sm:text-sm font-normal text-zinc-300">
-                        <span className="text-emerald-400 font-bold mt-0.5">✓</span>
+                      <li key={f} className="flex items-start gap-2.5 text-sm font-normal text-zinc-200">
+                        <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                         <span>{f}</span>
                       </li>
                     ))}
@@ -130,7 +131,8 @@ export default function Pricing() {
                 </PosterButton>
               </div>
             </article>
-          ))}
+          )
+        })}
         </div>
       </div>
     </section>

@@ -44,7 +44,7 @@ export default function HomeManifesto() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             The old agency stack is broken
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             Disconnected work creates slow teams, mixed messages, weaker campaigns, and websites that cannot carry the weight of the offer.
           </p>
         </div>
@@ -77,7 +77,7 @@ export default function HomeManifesto() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {item.description}
                   </p>
                 </div>

@@ -52,13 +52,13 @@ const quoteFactors = [
 
 function RateCardTable() {
   return (
-    <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
-      <div className="hidden grid-cols-[1.3fr_0.7fr_0.4fr] gap-4 border-b border-white/[0.08] bg-[#18181B] px-6 py-4 font-mono text-xs uppercase tracking-wider text-frame-accent md:grid">
+    <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+      <div className="hidden grid-cols-[1.3fr_0.7fr_0.4fr] gap-4 border-b border-white/10 bg-[#121214] px-6 py-4 font-mono text-xs uppercase tracking-wider text-purple-400 md:grid">
         <span>Production Discipline</span>
         <span>Indicative Baseline Rate</span>
         <span className="text-right">Inspection</span>
       </div>
-      <div className="divide-y divide-white/[0.08]">
+      <div className="divide-y divide-white/10">
         {hubRateCard.map(([service, rate], i) => (
           <Link
             key={i}
@@ -71,7 +71,7 @@ function RateCardTable() {
             <span className="font-mono text-sm text-zinc-300">
               {rate}
             </span>
-            <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-frame-accent md:justify-end">
+            <span className="flex items-center gap-1.5 font-mono text-xs uppercase tracking-wider text-purple-400 md:justify-end transition-colors group-hover:text-white">
               <span>{serviceAnchors[i] || 'Studio service'}</span>
               <ArrowRight className="h-3 w-3" />
             </span>
@@ -84,20 +84,22 @@ function RateCardTable() {
 
 function QuoteFactorsGrid() {
   return (
-    <div className="mt-8 grid grid-cols-1 border-t border-l border-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {quoteFactors.map((item, i) => {
         const Icon = item.icon
         return (
           <div
             key={i}
-            className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-6 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02]"
+            className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
           >
             <div>
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 mb-4">
-                <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                <span className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                   Factor 0{i + 1}
                 </span>
-                <Icon className="h-4 w-4 text-zinc-500 group-hover:text-frame-accent transition-colors" />
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600 transition-colors group-hover:border-purple-600/40 group-hover:bg-purple-600/15">
+                  <Icon className="h-4 w-4" />
+                </div>
               </div>
               <h3 className="font-heading text-lg font-medium text-white">
                 {item.factor}
@@ -115,14 +117,13 @@ function QuoteFactorsGrid() {
 
 export default function StudioPricing() {
   return (
-    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section id="pricing" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Studio rates &amp;{' '}
-              <span className="text-white">pricing parameters.</span>
+              Studio Rates &amp; Pricing Parameters.
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -136,11 +137,11 @@ export default function StudioPricing() {
         {/* Quote Variables Headline */}
         <div className="mt-16 mb-6">
           <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
-            Six variables that determine your final investment
+            Six Variables That Determine Your Final Investment.
           </h3>
         </div>
 
-        {/* Modality 3 Blueprint Matrix for Factors */}
+        {/* Discrete Cards Grid for Factors */}
         <QuoteFactorsGrid />
       </div>
     </section>

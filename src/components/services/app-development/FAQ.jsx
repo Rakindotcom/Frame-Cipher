@@ -85,9 +85,8 @@ export default function FAQ({ service }) {
       <div className="mx-auto max-w-7xl">
         {/* Strictly Center-Aligned Header (§5.3 Standard) */}
         <div className="mx-auto mb-14 max-w-3xl text-center space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Frequently Asked{' '}
-            <span className="italic text-frame-accent">Questions.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -100,11 +99,11 @@ export default function FAQ({ service }) {
           {faqs.map((faq, index) => (
             <details
               key={index}
-              className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors open:border-white/[0.14]"
+              className="group rounded-xl border border-white/[0.08] bg-[#121214] transition-colors open:border-white/[0.18] hover:border-white/[0.18]"
             >
               <summary className="flex cursor-pointer list-none items-center justify-between p-6 font-heading text-base sm:text-lg md:text-xl font-medium tracking-tight text-white marker:content-none">
                 <h3 className="font-heading text-base sm:text-lg font-medium tracking-tight text-white pr-4">{faq.question}</h3>
-                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] font-mono text-sm text-frame-accent transition-transform duration-200 group-open:rotate-45">
+                <span className="ml-4 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] font-mono text-sm text-purple-600 transition-transform duration-200 group-open:rotate-45">
                   +
                 </span>
               </summary>

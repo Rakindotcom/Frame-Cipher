@@ -74,7 +74,7 @@ export default function VideoPortfolioPreview({
               return (
                 <article
                   key={video.videoId || idx}
-                  className="group flex flex-col overflow-hidden rounded-2xl border border-white/[0.08] bg-[#121214] transition-all duration-300 hover:border-purple-500/30 hover:shadow-xl"
+                  className="group relative flex flex-col overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
                 >
                   <div className="p-4 pb-0">
                     <button

@@ -61,14 +61,14 @@ export default function Hero({ service }) {
             {/* Left Content Column (6 cols) */}
             <div className="space-y-6">
               {/* Main Headline */}
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white">
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white break-normal hyphens-none">
                 {title.includes('Bangladesh') ? (
                   <>
-                    App Development{' '}
-                    <span className="italic text-frame-accent">Services in Bangladesh.</span>
+                    <span className="block text-white">App Development</span>
+                    <span className="block text-purple-600">Services in Bangladesh.</span>
                   </>
                 ) : (
-                  title
+                  <span className="text-white">{title}</span>
                 )}
               </h1>
 
@@ -89,7 +89,7 @@ export default function Hero({ service }) {
 
               {/* Trust Badge / Technical SLA */}
               <div className="flex items-center gap-3 pt-2 text-xs text-zinc-400">
-                <ShieldCheck className="h-4 w-4 text-frame-accent shrink-0" />
+                <ShieldCheck className="h-4 w-4 text-purple-600 shrink-0" />
                 <span>
                   Apple App Store &amp; Google Play &bull; Production Backend &bull; 100% In-House Team
                 </span>
@@ -109,8 +109,8 @@ export default function Hero({ service }) {
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-1 divide-y divide-white/[0.08] sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
             {kineticMetrics.map((item, idx) => (
-              <div key={idx} className="p-6 md:p-8 bg-[#121214]/60 transition-colors hover:bg-[#121214]">
-                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+              <div key={idx} className="p-6 md:p-8 bg-[#121214] transition-colors hover:bg-[#18181B]">
+                <span className="font-mono text-xs uppercase tracking-widest text-purple-600 font-semibold">
                   {item.num}
                 </span>
                 <h3 className="mt-3 font-heading text-lg md:text-xl font-medium tracking-tight text-white">
@@ -128,10 +128,9 @@ export default function Hero({ service }) {
       {/* STRATEGIC EVALUATION SECTION */}
       <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
-          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12 md:p-14">
+          <div className="rounded-2xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12 md:p-14 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
             <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-medium tracking-tight text-white leading-tight">
-              Your App Idea Needs a Team That&apos;s Shipped Before,{' '}
-              <span className="italic text-frame-accent">Not Just Designed.</span>
+              Your App Idea Needs a Team That&apos;s Shipped Before, Not Just Designed.
             </h2>
 
             <div className="mt-6 max-w-4xl space-y-4 text-base md:text-lg font-normal leading-relaxed text-zinc-300">

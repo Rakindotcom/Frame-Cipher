@@ -98,7 +98,7 @@ export default function HomeBuild() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             Everything you need, nothing you don&apos;t
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             A curated set of capabilities and growth systems engineered for business compounding and rapid execution.
           </p>
         </div>
@@ -126,8 +126,8 @@ export default function HomeBuild() {
                   </Link>
                 </h3>
 
-                {/* Muted Gray Description */}
-                <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                {/* Crisp White Description */}
+                <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                   {item.description}
                 </p>
               </article>

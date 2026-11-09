@@ -37,7 +37,7 @@ export default function HomePillars() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             One roof. No vendor drift.
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             Frame Cipher is built for teams that need the thinking, the assets, the platforms, and the campaign machine to behave like one system.
           </p>
         </div>
@@ -78,7 +78,7 @@ export default function HomePillars() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {pillar.description}
                   </p>
                 </div>

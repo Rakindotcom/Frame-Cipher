@@ -12,7 +12,7 @@ export default function EnterpriseHeroVisual() {
       {/* TALL ENTERPRISE OPERATIONS DISPLAY (PURE UNOBSTRUCTED SCREENSHOTS - ZERO FAKE BROWSER BARS) */}
       <div className="relative h-[500px] sm:h-[560px] lg:h-[600px] w-full">
         {/* DESKTOP ENTERPRISE ERP WORKSTATION (TOP-LEFT / BACKGROUND) */}
-        <div className="group absolute left-0 top-0 w-[88%] sm:w-[84%] aspect-[16/10] overflow-hidden rounded-xl border border-white/[0.12] bg-[#09090b] shadow-[0_25px_80px_rgba(0,0,0,0.95)] ring-1 ring-white/[0.08] transition-colors duration-500 hover:border-frame-accent/40">
+        <div className="group absolute left-0 top-0 w-[88%] sm:w-[84%] aspect-[16/10] overflow-hidden rounded-xl border border-white/[0.12] bg-[#09090b] shadow-[0_25px_80px_rgba(0,0,0,0.95)] ring-1 ring-white/[0.08] transition-colors duration-500 hover:border-purple-500/40">
           <div className="relative h-full w-full overflow-hidden bg-[#09090b]">
             <Image
               src="/images/services/enterprise-dashboard-realistic.jpg"
@@ -21,7 +21,7 @@ export default function EnterpriseHeroVisual() {
               sizes="(max-width: 768px) 85vw, 560px"
               priority
               unoptimized
-              className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+              className="object-container object-top transition-transform duration-700 ease-out group-hover:scale-[1.01]"
             />
           </div>
         </div>

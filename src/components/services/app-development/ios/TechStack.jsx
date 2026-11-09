@@ -1,20 +1,32 @@
 'use client'
 
 import React from 'react'
-import { Layers } from 'lucide-react'
+import {
+  Code2,
+  Layout,
+  Terminal,
+  Layers,
+  Globe,
+  KeyRound,
+  Database,
+  Cloud,
+  Sparkles,
+  CheckCircle2,
+  Rocket,
+} from 'lucide-react'
 
 const techStack = [
-  { layer: 'Language', tech: 'Swift 6 & Modern Concurrency' },
-  { layer: 'UI Frameworks', tech: 'SwiftUI (Declarative), UIKit (Legacy & Custom Controls)' },
-  { layer: 'Development Environment', tech: 'Xcode, Instruments, Apple Developer SDKs' },
-  { layer: 'Architecture Patterns', tech: 'MVVM-C, Clean Swift, Modular Package Architecture' },
-  { layer: 'Networking & APIs', tech: 'URLSession, async/await, RESTful & GraphQL endpoints' },
-  { layer: 'Authentication', tech: 'Sign in with Apple, Face ID / Touch ID (LocalAuthentication), OAuth 2.0' },
-  { layer: 'Local Data & Persistence', tech: 'SwiftData, CoreData, Keychain Services, App Group Shared Storage' },
-  { layer: 'Cloud & Push Services', tech: 'Apple Push Notification service (APNs), CloudKit, Firebase Analytics' },
-  { layer: 'Apple Frameworks', tech: 'StoreKit 2, MapKit, CoreLocation, HealthKit, CallKit, WidgetKit' },
-  { layer: 'Testing & QA', tech: 'XCTest (Unit), XCUITest (UI Automations), Real iPhone & iPad Matrix' },
-  { layer: 'Distribution & Release', tech: 'TestFlight Beta, Provisioning Profiles, App Store Connect Automation' },
+  { icon: Code2, layer: 'Language', tech: 'Swift 6 & Modern Concurrency' },
+  { icon: Layout, layer: 'UI Frameworks', tech: 'SwiftUI (Declarative), UIKit (Legacy & Custom Controls)' },
+  { icon: Terminal, layer: 'Development Environment', tech: 'Xcode, Instruments, Apple Developer SDKs' },
+  { icon: Layers, layer: 'Architecture Patterns', tech: 'MVVM-C, Clean Swift, Modular Package Architecture' },
+  { icon: Globe, layer: 'Networking & APIs', tech: 'URLSession, async/await, RESTful & GraphQL endpoints' },
+  { icon: KeyRound, layer: 'Authentication', tech: 'Sign in with Apple, Face ID / Touch ID (LocalAuthentication), OAuth 2.0' },
+  { icon: Database, layer: 'Local Data & Persistence', tech: 'SwiftData, CoreData, Keychain Services, App Group Shared Storage' },
+  { icon: Cloud, layer: 'Cloud & Push Services', tech: 'Apple Push Notification service (APNs), CloudKit, Firebase Analytics' },
+  { icon: Sparkles, layer: 'Apple Frameworks', tech: 'StoreKit 2, MapKit, CoreLocation, HealthKit, CallKit, WidgetKit' },
+  { icon: CheckCircle2, layer: 'Testing & QA', tech: 'XCTest (Unit), XCUITest (UI Automations), Real iPhone & iPad Matrix' },
+  { icon: Rocket, layer: 'Distribution & Release', tech: 'TestFlight Beta, Provisioning Profiles, App Store Connect Automation' },
 ]
 
 export default function TechStack() {
@@ -23,9 +35,8 @@ export default function TechStack() {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            iOS Technology{' '}
-            <span className="italic text-frame-accent">Stack.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            iOS Technology Stack.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -34,46 +45,44 @@ export default function TechStack() {
         </div>
 
         {/* Structured Architectural Table */}
-        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
-          <div className="border-b border-white/[0.08] px-6 py-4 flex items-center justify-between">
+        <div className="relative overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-xl before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <div className="border-b border-white/[0.08] px-6 py-4 flex items-center justify-between bg-[#18181B]">
             <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
               Production Stack
             </span>
-            <span className="font-mono text-[11px] uppercase text-frame-accent">
+            <span className="font-mono text-[11px] uppercase text-purple-400 font-semibold">
               Swift 6 Ready
             </span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left font-sans text-sm">
-              <thead className="border-b border-white/[0.08] bg-white/[0.02] font-mono text-xs uppercase text-zinc-400">
+              <thead className="border-b border-white/[0.08] bg-[#141416] font-mono text-xs uppercase text-zinc-400">
                 <tr>
-                  <th className="p-4 sm:p-5 w-1/3">Architecture Layer</th>
-                  <th className="p-4 sm:p-5">Adopted Technologies</th>
+                  <th className="p-4 sm:p-5 w-1/3 border-r border-white/[0.08] text-white">Architecture Layer</th>
+                  <th className="p-4 sm:p-5 text-purple-400">Adopted Technologies</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.06] text-zinc-300">
-                {techStack.map((row, idx) => (
-                  <tr key={idx} className="transition-colors hover:bg-white/[0.02]">
-                    <td className="p-4 sm:p-5 font-heading text-sm font-medium text-white">
-                      {row.layer}
-                    </td>
-                    <td className="p-4 sm:p-5 font-mono text-xs text-frame-accent">
-                      {row.tech}
-                    </td>
-                  </tr>
-                ))}
+                {techStack.map((row, idx) => {
+                  const Icon = row.icon
+                  return (
+                    <tr key={idx} className="transition-colors hover:bg-white/[0.04]">
+                      <td className="p-4 sm:p-5 font-heading text-sm font-medium text-white border-r border-white/[0.08] whitespace-nowrap">
+                        <div className="flex items-center gap-3">
+                          <Icon className="h-4 w-4 text-purple-600 shrink-0" strokeWidth={2} />
+                          <span>{row.layer}</span>
+                        </div>
+                      </td>
+                      <td className="p-4 sm:p-5 font-mono text-xs text-zinc-300">
+                        {row.tech}
+                      </td>
+                    </tr>
+                  )
+                })}
               </tbody>
             </table>
           </div>
-        </div>
-
-        {/* Philosophy Note */}
-        <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-[#121214] p-4 text-xs text-zinc-400">
-          <Layers className="h-4 w-4 text-purple-400 shrink-0 mt-0.5" />
-          <p className="leading-relaxed">
-            <strong className="text-zinc-200">Architecture Philosophy:</strong> The final stack depends on the application rather than following a rigid list. We evaluate performance requirements, battery life, offline states, and data schemas before committing to dependencies.
-          </p>
         </div>
       </div>
     </section>

@@ -13,14 +13,13 @@ const steps = [
 
 export default function StudioProcess() {
   return (
-    <section id="process" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section id="process" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Studio booking in{' '}
-              <span className="text-white">five steps.</span>
+              Studio Booking in Five Steps.
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -28,24 +27,26 @@ export default function StudioProcess() {
           </p>
         </div>
 
-        {/* Modality 2 Architectural Divided Band (5-Column Continuum) */}
-        <div className="grid grid-cols-1 border border-white/[0.08] rounded-xl bg-[#121214] overflow-hidden divide-y md:divide-y-0 md:divide-x divide-white/[0.08] md:grid-cols-5">
+        {/* Discrete Cards Grid (5-Column, gap-6) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {steps.map((st) => {
             const Icon = st.icon
             return (
               <div
                 key={st.step}
-                className="p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-colors duration-200 hover:bg-white/[0.02]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <div>
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
-                    <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-4">
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                       Step {st.step}
                     </span>
-                    <Icon className="h-4 w-4 text-zinc-500" />
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600 transition-colors group-hover:border-purple-600/40 group-hover:bg-purple-600/15">
+                      <Icon className="h-4 w-4" />
+                    </div>
                   </div>
 
-                  <h3 className="mt-5 font-heading text-lg font-medium text-white leading-snug">
+                  <h3 className="font-heading text-lg font-medium text-white leading-snug">
                     {st.title}
                   </h3>
 
@@ -54,8 +55,8 @@ export default function StudioProcess() {
                   </p>
                 </div>
 
-                <div className="border-t border-white/[0.08] pt-4">
-                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-frame-accent">
+                <div className="border-t border-white/10 pt-4 mt-6">
+                  <span className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-purple-400">
                     <span>{st.action}</span>
                     <ArrowRight className="h-3 w-3" />
                   </span>
@@ -65,8 +66,8 @@ export default function StudioProcess() {
           })}
         </div>
 
-        {/* WhatsApp Consultation Action Strip */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-6 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 sm:flex-row">
+        {/* WhatsApp Consultation Action Strip on #0D0D0F */}
+        <div className="relative mt-10 overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 flex flex-col items-center justify-between gap-6 sm:flex-row before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <p className="text-sm sm:text-base font-normal text-zinc-300 max-w-xl">
             Your date, your setup, your goal: three quick messages on WhatsApp, and we take sovereign ownership from there.
           </p>

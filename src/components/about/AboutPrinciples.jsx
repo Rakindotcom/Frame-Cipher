@@ -77,7 +77,7 @@ export default function AboutPrinciples() {
                   </h3>
 
                   {/* Body description */}
-                  <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                  <p className="mt-3 text-sm sm:text-base font-normal leading-relaxed text-zinc-300 group-hover:text-white transition-colors">
                     {item.desc}
                   </p>
                 </div>

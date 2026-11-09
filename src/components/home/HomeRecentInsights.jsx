@@ -114,7 +114,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
             <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
               Our latest insights
             </h2>
-            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
               Actionable frameworks, front-end architecture benchmarks, and conversion engineering from our senior strategy team.
             </p>
           </div>
@@ -170,7 +170,7 @@ export default function HomeRecentInsights({ initialPosts = [] }) {
                     </Link>
                   </h3>
                   {post.description && (
-                    <p className="mt-4 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default line-clamp-3">
+                    <p className="mt-4 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default line-clamp-3">
                       {post.description}
                     </p>
                   )}

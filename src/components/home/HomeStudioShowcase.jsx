@@ -43,7 +43,10 @@ const studioSpaces = [
   },
 ]
 
-export default function HomeStudioShowcase() {
+export default function HomeStudioShowcase({
+  exploreHref = '/studio',
+  bookingHref = '/contact',
+} = {}) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [translateX, setTranslateX] = useState(0)
   const [maxIndex, setMaxIndex] = useState(2) // 3-column view by default on desktop (5 - 3 = 2)
@@ -136,21 +139,21 @@ export default function HomeStudioShowcase() {
   }
 
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28 overflow-hidden">
+    <section id="studio-spaces" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white sm:px-6 md:px-8 md:py-28 overflow-hidden">
       <div className="mx-auto max-w-7xl">
         {/* Section Header: Symmetrical Heading and Carousel Controls (No forbidden badge) */}
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
-            <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
+            <h2 className="font-heading text-3xl sm:text-5xl font-medium leading-[1.05] tracking-tight text-white">
               Two in-house production studios in Dhaka
             </h2>
-            <p className="mt-5 text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 text-base font-normal leading-relaxed text-zinc-300 md:text-lg">
               Two dedicated physical studios at Matikata ECB Chattar equipped for multi-camera video podcasts, commercial brand shoots, and creator content.
             </p>
           </div>
 
           <div className="shrink-0 flex items-center gap-4">
-            <SectionButton href="/studio">Explore studio packages</SectionButton>
+            <SectionButton href={exploreHref}>Explore studio packages</SectionButton>
 
             {/* Symmetrical Carousel Controls with Slide Counter */}
             <div className="flex items-center gap-2 rounded-full border border-white/[0.1] bg-[#121214] p-1.5 backdrop-blur-md">
@@ -230,7 +233,7 @@ export default function HomeStudioShowcase() {
                       <h3 className="mt-4 font-heading text-xl font-semibold text-highlighted">
                         {item.title}
                       </h3>
-                      <p className="mt-3 text-sm font-normal leading-relaxed text-muted">
+                      <p className="mt-3 text-sm font-normal leading-relaxed text-white">
                         {item.description}
                       </p>
                     </div>
@@ -267,7 +270,7 @@ export default function HomeStudioShowcase() {
             6th Floor, Eurasia Building, Matikata ECB Chattar, Dhaka 1206
           </p>
           <div className="flex items-center gap-4">
-            <PosterButton href="/contact">Book Studio Session</PosterButton>
+            <PosterButton href={bookingHref}>Book Studio Session</PosterButton>
           </div>
         </div>
       </div>

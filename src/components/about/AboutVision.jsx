@@ -69,12 +69,12 @@ export default function AboutVision() {
                       replay={true}
                     />
                   </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-[1.1px] text-purple-600 font-semibold">
+                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-zinc-200 font-medium">
                     {metric.label}
                   </p>
                 </div>
 
-                <p className="text-xs text-zinc-400 leading-relaxed font-normal pt-2 border-t border-white/[0.04]">
+                <p className="text-sm text-zinc-300 leading-relaxed font-normal pt-2 border-t border-white/[0.06]">
                   {metric.sub}
                 </p>
               </div>
@@ -91,7 +91,7 @@ export default function AboutVision() {
             >
               <div className="space-y-4">
                 <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
-                  <span className="font-mono text-xs text-purple-600 tabular-nums font-semibold tracking-wider">
+                  <span className="font-mono text-xs text-zinc-400 tabular-nums font-medium tracking-wider">
                     {pillar.tag}
                   </span>
                   <span className="font-mono text-xs text-zinc-500 tabular-nums">0{idx + 1}</span>
@@ -99,7 +99,7 @@ export default function AboutVision() {
                 <h3 className="font-heading text-xl sm:text-2xl font-semibold leading-tight text-highlighted tracking-tight">
                   {pillar.title}
                 </h3>
-                <div className="text-sm font-normal leading-relaxed text-zinc-300">
+                <div className="text-base font-normal leading-relaxed text-zinc-200">
                   {renderContextualParagraph(pillar.text, { maxLinks: 3, theme: 'frame' })}
                 </div>
               </div>

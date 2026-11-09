@@ -22,7 +22,6 @@ import DeploymentHandoff from './DeploymentHandoff'
 import Process from './Process'
 import ProjectDeliverables from './ProjectDeliverables'
 import WhyChooseFramecipher from './WhyChooseFramecipher'
-import CaseStudies from './CaseStudies'
 import Pricing from './Pricing'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
@@ -69,7 +68,6 @@ export default function AppDevelopmentSaasAppsService({ service }) {
       <Process />
       <ProjectDeliverables />
       <WhyChooseFramecipher />
-      <CaseStudies />
       <Pricing />
       <BangladeshWorldwide />
       <FAQ service={service} />
@@ -103,7 +101,6 @@ export {
   Process,
   ProjectDeliverables,
   WhyChooseFramecipher,
-  CaseStudies,
   Pricing,
   BangladeshWorldwide,
   FAQ,

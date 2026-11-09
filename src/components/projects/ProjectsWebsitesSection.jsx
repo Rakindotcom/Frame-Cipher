@@ -78,11 +78,12 @@ export default function ProjectsWebsitesSection({ websites }) {
                 key={tab.id}
                 type="button"
                 onClick={() => setSelectedPlatform(tab.id)}
-                className={`shrink-0 whitespace-nowrap min-h-[40px] inline-flex items-center cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
+                className={`shrink-0 whitespace-nowrap min-h-[40px] w-auto inline-flex items-center cursor-pointer rounded-full px-4 py-1.5 font-mono text-xs font-semibold uppercase tracking-wider transition-all duration-200 touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
                   isSelected
                     ? 'bg-[#FAFAFA] text-[#09090B] shadow-md'
                     : 'border border-white/[0.08] bg-[#121214] text-zinc-400 hover:border-purple-600/40 hover:text-white'
                 }`}
+                style={{ minWidth: 'max-content' }}
               >
                 <span>{tab.label}</span>
                 <span className="ml-1.5 opacity-70 font-mono text-[10px] tabular-nums">({count})</span>

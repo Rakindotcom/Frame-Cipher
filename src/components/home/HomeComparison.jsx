@@ -21,7 +21,7 @@ export default function HomeComparison() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             One agency vs five separate vendors
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             The difference is not the number of services, it is how they are connected. Here is what changes when the whole system lives under one roof.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function HomeComparison() {
                     <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 mt-0.5" aria-hidden="true">
                       <Check className="h-3 w-3" strokeWidth={2.5} />
                     </span>
-                    <p className="text-sm md:text-base font-normal leading-relaxed text-default">
+                    <p className="text-sm md:text-base font-normal leading-relaxed text-white">
                       <span className="mr-2 font-mono text-xs font-semibold text-emerald-400">Included:</span>
                       {row.us}
                     </p>
@@ -68,7 +68,7 @@ export default function HomeComparison() {
                     <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-rose-500/30 bg-rose-500/10 text-rose-400 mt-0.5" aria-hidden="true">
                       <X className="h-3 w-3" strokeWidth={2.5} />
                     </span>
-                    <p className="text-sm md:text-base font-normal leading-relaxed text-muted">
+                    <p className="text-sm md:text-base font-normal leading-relaxed text-white">
                       <span className="mr-2 font-mono text-xs font-semibold text-rose-400/90">Excluded:</span>
                       {row.them}
                     </p>

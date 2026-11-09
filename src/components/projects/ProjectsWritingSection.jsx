@@ -7,7 +7,7 @@ import { ArrowRight } from 'lucide-react'
 
 const ALL_SAMPLES = [...contentWritingSamples, ...videoScriptSamples]
 
-export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
+export default function ProjectsWritingSection({ samples = ALL_SAMPLES, number = '08' }) {
   const [activeCategory, setActiveCategory] = useState('All')
 
   if (!samples || samples.length === 0) return null
@@ -26,7 +26,7 @@ export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
     >
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          number="07"
+          number={number}
           title="Writing & content"
           count={`${samples.length} sample${samples.length === 1 ? '' : 's'}`}
         />
@@ -45,11 +45,12 @@ export default function ProjectsWritingSection({ samples = ALL_SAMPLES }) {
                   key={category}
                   type="button"
                   onClick={() => setActiveCategory(category)}
-                  className={`inline-flex shrink-0 items-center gap-2 rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
+                  className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-full px-4 py-2 font-mono text-xs uppercase tracking-wider transition-all duration-200 min-h-[40px] w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-600 ${
                     isActive
                       ? 'bg-[#FAFAFA] text-[#09090B] font-semibold shadow-md'
                       : 'border border-white/[0.08] bg-[#121214] text-zinc-400 hover:border-purple-600/40 hover:text-white'
                   }`}
+                  style={{ minWidth: 'max-content' }}
                 >
                   <span>{category}</span>
                   <span className={`text-[10px] font-mono tabular-nums ${isActive ? 'text-zinc-600' : 'text-zinc-500'}`}>

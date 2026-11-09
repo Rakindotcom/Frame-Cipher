@@ -32,7 +32,7 @@ export default function Clients() {
               Brands we have helped move forward
             </h2>
           </div>
-          <p className="max-w-md text-base font-normal leading-relaxed text-muted">
+          <p className="max-w-md text-base font-normal leading-relaxed text-white">
             From regional category leaders to global platforms, we deliver integrated growth, media, and digital infrastructure.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Clients() {
                 <img
                   src={client.logo}
                   alt={client.name}
-                  className="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain opacity-50 grayscale brightness-125 contrast-125 transition-opacity duration-300 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-110"
+                  className="max-h-10 sm:max-h-12 md:max-h-14 w-auto max-w-[85%] object-contain opacity-100 transition-all duration-300 group-hover:scale-110"
                   loading="lazy"
                 />
               </div>

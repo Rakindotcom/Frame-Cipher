@@ -1,5 +1,6 @@
 // Services overview page components
 export { default as ServicesHero } from './ServicesHero'
+export { default as ServicesGlobeVisual } from './ServicesGlobeVisual'
 export { default as ServicesProblemSelector } from './ServicesProblemSelector'
 export { default as ServicesBusinessGoals } from './ServicesBusinessGoals'
 export { default as ServicesConnectedSystem } from './ServicesConnectedSystem'

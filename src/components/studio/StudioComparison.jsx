@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Check, ArrowRight } from 'lucide-react'
+import { Check } from 'lucide-react'
 import PosterButton from '../home/PosterButton'
 
 const packages = [
@@ -19,6 +19,7 @@ const packages = [
     ],
     bestFor: 'Production houses, agencies and independent videographers',
     cta: 'Book Space Only',
+    featured: false,
   },
   {
     tier: 'Studio + Crew',
@@ -51,19 +52,19 @@ const packages = [
     ],
     bestFor: 'Brands and marketing teams',
     cta: 'Request Full Production',
+    featured: false,
   },
 ]
 
 export default function StudioComparison() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section id="packages" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Studio packages &amp;{' '}
-              <span className="text-white">inclusions.</span>
+              Studio Packages &amp; Inclusions.
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -71,22 +72,24 @@ export default function StudioComparison() {
           </p>
         </div>
 
-        {/* Modality 2 Architectural Divided Column Band (3-Tier Continuum) */}
-        <div className="grid grid-cols-1 border border-white/[0.08] rounded-xl bg-[#121214] overflow-hidden divide-y lg:divide-y-0 lg:divide-x divide-white/[0.08] lg:grid-cols-3">
+        {/* Discrete Cards Grid (gap-6) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {packages.map((pkg) => (
             <div
               key={pkg.tier}
-              className={`p-8 sm:p-10 flex flex-col justify-between transition-colors duration-200 ${
-                pkg.featured ? 'bg-white/[0.02]' : 'hover:bg-white/[0.01]'
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border p-8 sm:p-10 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
+                pkg.featured
+                  ? 'border-purple-600/40 bg-[#121214] shadow-[0_20px_50px_rgba(147,51,234,0.15)] hover:border-purple-600/60 hover:bg-[#161619]'
+                  : 'border-white/10 bg-[#0D0D0F] hover:border-white/20 hover:bg-[#121214]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between gap-2 border-b border-white/[0.08] pb-4">
-                  <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
+                <div className="flex items-center justify-between gap-2 border-b border-white/10 pb-4">
+                  <span className={`font-mono text-xs uppercase tracking-wider ${pkg.featured ? 'text-purple-400 font-medium' : 'text-zinc-400'}`}>
                     {pkg.tier}
                   </span>
                   {pkg.badge && (
-                    <span className="rounded-full border border-emerald-500/30 bg-emerald-950/40 px-3 py-0.5 font-mono text-[10px] uppercase tracking-wider text-emerald-300">
+                    <span className="font-mono text-xs uppercase tracking-wider text-emerald-400 font-medium">
                       {pkg.badge}
                     </span>
                   )}
@@ -100,11 +103,11 @@ export default function StudioComparison() {
                   {pkg.tagline}
                 </p>
 
-                <div className="mt-8 border-t border-white/[0.08] pt-6">
+                <div className="mt-8 border-t border-white/10 pt-6">
                   <ul className="space-y-3.5">
                     {pkg.inclusions.map((item, i) => (
                       <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm font-normal text-zinc-300">
-                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" strokeWidth={2.5} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -112,28 +115,19 @@ export default function StudioComparison() {
                 </div>
               </div>
 
-              <div className="mt-10 border-t border-white/[0.08] pt-6">
+              <div className="mt-10 border-t border-white/10 pt-6">
                 <div className="mb-5 font-mono text-xs">
-                  <span className="uppercase text-zinc-500 block">Best for:</span>
+                  <span className="uppercase text-zinc-400 block">Best for:</span>
                   <span className="text-zinc-300 mt-1 block">{pkg.bestFor}</span>
                 </div>
 
-                <a
+                <PosterButton
                   href="#booking"
-                  className={`group inline-flex h-[52px] w-full items-center justify-center gap-2 rounded-full px-6 font-mono text-xs uppercase tracking-wider transition-all duration-200 ${
-                    pkg.featured
-                      ? 'bg-[#FAFAFA] text-[#09090B] hover:bg-frame-accent hover:text-[#09090B]'
-                      : 'border border-white/20 bg-white/[0.04] text-white hover:border-white/40 hover:bg-white/10'
-                  }`}
+                  variant={pkg.featured ? 'primary' : 'outline'}
+                  className="w-full justify-center h-[52px]"
                 >
-                  <span>{pkg.cta}</span>
-                  <span
-                    aria-hidden="true"
-                    className="transition-transform duration-200 group-hover:translate-x-1"
-                  >
-                    &rarr;
-                  </span>
-                </a>
+                  {pkg.cta}
+                </PosterButton>
               </div>
             </div>
           ))}

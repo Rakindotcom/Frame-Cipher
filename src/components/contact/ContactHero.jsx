@@ -50,17 +50,6 @@ export default function ContactHero() {
           </nav>
 
           <div className="space-y-6 max-w-4xl">
-            {/* Raycast-style Capsule Eyebrow Bar */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300">
-                {contact.responseTime} · Global consultation available
-              </p>
-            </div>
-
             {/* Display Heading H1: Two-Tone Solid Pure White + Signature Deep Purple */}
             <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[0.96]">
               <span className="block text-highlighted">Bring us the problem.</span>
@@ -68,7 +57,7 @@ export default function ContactHero() {
             </h1>
 
             {/* Editorial Description */}
-            <p className="max-w-3xl text-base font-normal leading-relaxed text-zinc-300 sm:text-lg md:text-xl">
+            <p className="max-w-3xl text-base font-normal leading-relaxed text-white sm:text-lg md:text-xl">
               Whether you need full-stack software, mathematical paid media, cinematic video production, or a complete 360 growth operating system, send us the brief and our executive team will get back to you with the exact strategic roadmap.
             </p>
 

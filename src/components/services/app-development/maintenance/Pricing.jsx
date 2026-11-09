@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Check, ShieldCheck, Zap, Sparkles, Building2 } from 'lucide-react'
+import { Check } from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 
 const planTableRows = [
@@ -107,13 +107,12 @@ const detailedPlans = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+    <section id="pricing" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
         <div className="mb-16 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            App Maintenance{' '}
-            <span className="italic text-frame-accent">Pricing &amp; Plans.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
+            App Maintenance Pricing &amp; Plans.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -121,30 +120,30 @@ export default function Pricing() {
           </p>
         </div>
 
-        {/* 1. Comparison Summary Table on #121214 */}
-        <div className="mb-14 overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214]">
+        {/* 1. Comparison Summary Table on #0D0D0F */}
+        <div className="relative mb-14 overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-white/[0.08] bg-black/40 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                <tr className="border-b border-white/10 bg-[#121214] font-mono text-xs uppercase tracking-wider text-zinc-400">
                   <th className="p-4 sm:p-5">Plan</th>
                   <th className="p-4 sm:p-5">Price</th>
                   <th className="p-4 sm:p-5">Best For</th>
                   <th className="p-4 sm:p-5">Core Coverage</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/[0.06] text-sm">
+              <tbody className="divide-y divide-white/10 text-sm">
                 {planTableRows.map((row, idx) => (
                   <tr
                     key={idx}
                     className={`transition-colors ${
-                      row.featured ? 'bg-frame-accent/[0.06]' : 'hover:bg-white/[0.02]'
+                      row.featured ? 'bg-purple-600/10' : 'hover:bg-white/[0.02]'
                     }`}
                   >
                     <td className="p-4 sm:p-5 font-mono font-medium text-white">
                       {row.plan}
                     </td>
-                    <td className="p-4 sm:p-5 font-mono text-xs font-semibold text-frame-accent whitespace-nowrap">
+                    <td className="p-4 sm:p-5 font-mono text-xs font-semibold text-purple-400 whitespace-nowrap">
                       {row.price}
                     </td>
                     <td className="p-4 sm:p-5 text-zinc-300 text-xs sm:text-sm">
@@ -165,23 +164,23 @@ export default function Pricing() {
           {detailedPlans.map((plan, idx) => (
             <div
               key={idx}
-              className={`flex flex-col justify-between rounded-xl border p-6 sm:p-7 transition-colors duration-300 ${
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                 plan.featured
-                  ? 'border-frame-accent/40 bg-[#161619] shadow-[0_20px_50px_rgba(168,85,247,0.15)] '
-                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
+                  ? 'border-purple-600/40 bg-[#121214] shadow-[0_20px_50px_rgba(147,51,234,0.15)] hover:border-purple-600/60 hover:bg-[#161619]'
+                  : 'border-white/10 bg-[#0D0D0F] hover:border-white/20 hover:bg-[#121214]'
               }`}
             >
               <div>
-                <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+                <div className="flex items-center justify-between pb-3 border-b border-white/10">
                   <span
                     className={`font-mono text-[10px] uppercase tracking-wider ${
-                      plan.featured ? 'text-frame-accent' : 'text-zinc-500'
+                      plan.featured ? 'text-purple-400 font-medium' : 'text-zinc-500'
                     }`}
                   >
                     {plan.badge}
                   </span>
                   {plan.featured && (
-                    <span className="h-2 w-2 rounded-full bg-frame-accent animate-pulse" />
+                    <span className="h-2 w-2 rounded-full bg-purple-500 animate-pulse" />
                   )}
                 </div>
 
@@ -198,18 +197,18 @@ export default function Pricing() {
                   </span>
                 </div>
 
-                <p className="mt-3 text-xs text-zinc-400 leading-relaxed min-h-[48px]">
+                <p className="mt-3 text-xs text-zinc-300 leading-relaxed min-h-[48px]">
                   {plan.desc}
                 </p>
 
-                <div className="mt-6 border-t border-white/[0.06] pt-4">
+                <div className="mt-6 border-t border-white/10 pt-4">
                   <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-400 block mb-3">
                     Includes:
                   </span>
-                  <ul className="space-y-2 text-xs text-zinc-300">
+                  <ul className="space-y-2.5 text-xs text-zinc-300">
                     {plan.includes.map((inc, iIdx) => (
                       <li key={iIdx} className="flex items-start gap-2">
-                        <Check className="h-3.5 w-3.5 shrink-0 text-frame-accent mt-0.5" />
+                        <Check className="h-3.5 w-3.5 shrink-0 text-purple-400 mt-0.5" />
                         <span>{inc}</span>
                       </li>
                     ))}
@@ -217,11 +216,11 @@ export default function Pricing() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/[0.06]">
+              <div className="mt-8 pt-6 border-t border-white/10">
                 <PosterButton
                   href="/contact"
-                  variant={plan.featured ? 'accent' : 'outline'}
-                  className="w-full justify-center"
+                  variant={plan.featured ? 'primary' : 'outline'}
+                  className="w-full justify-center h-[52px]"
                 >
                   {plan.ctaText}
                 </PosterButton>
@@ -231,7 +230,7 @@ export default function Pricing() {
         </div>
 
         {/* Footer Note */}
-        <p className="mt-8 text-center font-mono text-xs text-zinc-500">
+        <p className="mt-8 text-center font-mono text-xs text-zinc-400">
           * Final scope, SLA response times, and monthly pricing are confirmed after an initial application codebase assessment.
         </p>
       </div>

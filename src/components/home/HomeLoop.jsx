@@ -20,7 +20,7 @@ export default function HomeLoop() {
             <br />
             A machine.
           </h2>
-          <p className="mt-5 max-w-lg text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-lg text-base font-normal leading-relaxed text-white md:text-lg">
             Every client engagement moves through a closed-loop system designed to turn raw attention into qualified pipeline, customer retention, and compounding enterprise value.
           </p>
         </div>
@@ -47,7 +47,7 @@ export default function HomeLoop() {
                     <h3 className="font-heading text-xl sm:text-2xl font-semibold leading-[1.05] text-highlighted tracking-tight">
                       {step.name}
                     </h3>
-                    <p className="mt-1 text-xs text-muted group-hover:text-default transition-colors hidden sm:block">
+                    <p className="mt-1 text-xs text-white group-hover:text-default transition-colors hidden sm:block">
                       {step.desc}
                     </p>
                   </div>

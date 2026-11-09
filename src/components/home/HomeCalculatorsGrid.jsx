@@ -188,7 +188,7 @@ export default function HomeCalculatorsGrid() {
             </h2>
           </div>
           <div className="max-w-md space-y-3">
-            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-white md:text-lg">
               Stop guessing your advertising margins. Model your exact unit economics, Quality Score CPC discounts, and breakeven ROAS before spending a single dollar.
             </p>
             <div className="flex items-center gap-4 text-xs text-zinc-400">
@@ -239,7 +239,7 @@ export default function HomeCalculatorsGrid() {
                 </h3>
 
                 {/* Description */}
-                <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                <p className="mt-2 text-xs sm:text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                   {item.description}
                 </p>
 
@@ -281,7 +281,7 @@ export default function HomeCalculatorsGrid() {
             <h3 className="font-heading text-xl sm:text-2xl font-semibold text-highlighted">
               Need Multi-Channel Budget Allocation?
             </h3>
-            <p className="mt-1 text-xs md:text-sm font-normal text-muted">
+            <p className="mt-1 text-xs md:text-sm font-normal text-white">
               Compare all 10 platforms side-by-side or download your branded PDF media plan with company forecasts.
             </p>
           </div>

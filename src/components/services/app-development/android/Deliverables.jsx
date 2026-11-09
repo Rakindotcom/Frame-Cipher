@@ -83,8 +83,7 @@ export default function Deliverables() {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
 <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            What You Receive From an{' '}
-            <span className="italic text-frame-accent">Android Project.</span>
+            What You Receive From an Android Project
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -97,14 +96,14 @@ export default function Deliverables() {
           {deliverables.map((del, i) => (
             <div
               key={i}
-              className="group flex flex-col justify-between bg-[#0f1011] p-8 transition-colors duration-200 hover:bg-[#141516]"
+              className="group flex flex-col justify-between bg-[#121214] p-8 transition-colors duration-200 hover:bg-[#18181B]"
             >
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  <span className="font-mono text-xs uppercase tracking-widest text-purple-600">
                     {del.num}
                   </span>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-purple-600">
                     <del.icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -113,10 +112,10 @@ export default function Deliverables() {
                   {del.category}
                 </h3>
 
-                <ul className="mt-6 space-y-3 border-t border-white/[0.06] pt-6 font-sans text-sm text-zinc-400">
+                <ul className="mt-6 space-y-3 border-t border-white/[0.06] pt-6 font-sans text-sm text-zinc-300">
                   {del.items.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                      <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span>{item}</span>
                     </li>
                   ))}
@@ -128,14 +127,6 @@ export default function Deliverables() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Deliverables Scope Disclaimer */}
-        <div className="mt-12 rounded-xl border border-white/[0.08] bg-[#121214] p-6 md:p-8 flex items-start gap-4">
-          <CheckCircle2 className="h-5 w-5 text-frame-accent shrink-0 mt-0.5" />
-          <p className="font-mono text-sm leading-relaxed text-zinc-300">
-            <strong className="text-white">Contractual Clarity:</strong> The exact deliverables, source-code ownership, documentation level, and support terms are defined before development begins.
-          </p>
         </div>
       </div>
     </section>

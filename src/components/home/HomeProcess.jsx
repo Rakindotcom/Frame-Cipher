@@ -30,7 +30,7 @@ export default function HomeProcess() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             From signal to scale
           </h2>
-          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
             The work moves in a loop: understand the market, sharpen the message, create the assets, build the system, launch, measure, and improve.
           </p>
         </div>
@@ -63,7 +63,7 @@ export default function HomeProcess() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {step.description}
                   </p>
 

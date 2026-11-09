@@ -1,6 +1,17 @@
 'use client'
 
 import React from 'react'
+import {
+  Check,
+  ShieldCheck,
+  CheckCircle2,
+  Layers,
+  RefreshCw,
+  Wrench,
+  Smartphone,
+  Zap,
+  Rocket,
+} from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 
 const pricingTiers = [
@@ -63,18 +74,22 @@ const pricingTiers = [
 
 const approvalCheckpoints = [
   {
+    icon: CheckCircle2,
     title: 'Clear Project Scope',
     desc: 'Features, supported devices, integrations, revision rounds, and deliverables are agreed before development begins.',
   },
   {
+    icon: ShieldCheck,
     title: 'Client Approval',
     desc: 'You review important designs, functionality, builds, and release milestones before submission.',
   },
   {
+    icon: Layers,
     title: 'Third-Party Dependencies',
     desc: 'Payment providers, APIs, developer accounts, external services, and platform changes can affect functionality or launch timing.',
   },
   {
+    icon: RefreshCw,
     title: 'Review Feedback',
     desc: 'If Apple or Google requests development-related changes during review, we can assess and address them within the agreed support scope.',
   },
@@ -82,26 +97,32 @@ const approvalCheckpoints = [
 
 const postLaunchItems = [
   {
+    icon: Wrench,
     title: 'Bug Fixes & Technical Support',
     desc: 'Investigate crashes, application bugs, API issues, and other technical problems after release.',
   },
   {
+    icon: Layers,
     title: 'Framework Updates',
     desc: 'Keep Flutter or React Native dependencies and related application components current as the product evolves.',
   },
   {
+    icon: Smartphone,
     title: 'Android & iOS Updates',
     desc: 'Review compatibility as new operating-system versions and platform requirements are introduced.',
   },
   {
+    icon: Zap,
     title: 'Feature Enhancements',
     desc: 'Add new functionality and improve existing workflows as your product grows.',
   },
   {
+    icon: ShieldCheck,
     title: 'Performance & Security Maintenance',
     desc: 'Review integrations, dependencies, application behavior, and security-sensitive areas during ongoing development.',
   },
   {
+    icon: Rocket,
     title: 'Future Releases',
     desc: 'Prepare, test, and support new application versions for both platforms based on the agreed maintenance scope.',
   },
@@ -113,9 +134,8 @@ export default function Pricing() {
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            Cross-Platform App Development{' '}
-            <span className="italic text-frame-accent">Pricing &amp; Timeline.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Cross-Platform App Development Pricing &amp; Timeline.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -128,10 +148,10 @@ export default function Pricing() {
           {pricingTiers.map((tier, i) => (
             <div
               key={i}
-              className={`relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 sm:p-7 transition-colors ${
+              className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-8 md:p-10 transition-all duration-300 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent ${
                 tier.featured
-                  ? 'border-frame-accent/40 bg-[#18181B]'
-                  : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
+                  ? 'border-purple-500/40 bg-[#121214] hover:border-purple-500/60 shadow-[0_0_40px_-15px_rgba(147,51,234,0.15)]'
+                  : 'border-white/[0.08] bg-[#0D0D0F] hover:border-white/[0.16]'
               }`}
             >
               <div>
@@ -140,7 +160,7 @@ export default function Pricing() {
                     {tier.name}
                   </h3>
                   {tier.featured && (
-                    <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wider text-frame-accent">
+                    <span className="rounded-full border border-purple-500/40 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-purple-300">
                       Popular
                     </span>
                   )}
@@ -156,13 +176,13 @@ export default function Pricing() {
                 </div>
 
                 <div className="mt-6 border-t border-white/[0.08] pt-5">
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-frame-accent mb-3">
+                  <p className="font-mono text-[11px] uppercase tracking-wider text-purple-400 mb-3">
                     What&apos;s Included:
                   </p>
                   <ul className="space-y-2.5">
                     {tier.includes.map((item, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-xs sm:text-sm font-normal text-zinc-300">
-                        <span className="mt-1 h-1.5 w-1.5 rounded-full bg-frame-accent shrink-0" />
+                        <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -184,8 +204,8 @@ export default function Pricing() {
         </div>
 
         {/* Included at Every Tier Note */}
-        <div className="mt-8 rounded-xl border border-white/[0.06] bg-[#121214] p-6 sm:p-8 space-y-4">
-          <h4 className="font-heading text-base font-medium text-white">
+        <div className="relative mt-8 rounded-2xl border border-white/[0.08] bg-[#0D0D0F] p-8 md:p-10 space-y-4 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <h4 className="font-heading text-lg font-medium text-white">
             Included at Every Tier
           </h4>
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
@@ -198,7 +218,7 @@ export default function Pricing() {
               'Launch support',
             ].map((item, idx) => (
               <li key={idx} className="flex items-center gap-2 text-xs sm:text-sm text-zinc-300">
-                <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 shrink-0" />
+                <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
                 <span>{item}</span>
               </li>
             ))}
@@ -213,7 +233,7 @@ export default function Pricing() {
         {/* Governance Checkpoints */}
         <div className="mt-20 border-t border-white/[0.08] pt-16">
           <div className="mb-10 max-w-2xl space-y-3">
-<h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
               Approvals, Scope &amp; Release Support
             </h3>
             <p className="text-xs sm:text-sm text-zinc-400">
@@ -222,29 +242,37 @@ export default function Pricing() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {approvalCheckpoints.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.16]"
-              >
-                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
-                  0{idx + 1}
-                </span>
-                <h4 className="mt-3 font-heading text-base font-medium text-white">
-                  {item.title}
-                </h4>
-                <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-400">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+            {approvalCheckpoints.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={idx}
+                  className="group relative rounded-2xl border border-white/[0.08] bg-[#0D0D0F] p-8 transition-all duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-purple-500/20 bg-purple-500/10 text-purple-600">
+                      <Icon className="h-6 w-6 text-purple-600" />
+                    </div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-400">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h4 className="font-heading text-lg font-medium text-white">
+                    {item.title}
+                  </h4>
+                  <p className="mt-3 text-xs sm:text-sm font-normal text-zinc-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
 
         {/* Post-Launch SLA Items */}
         <div className="mt-20 border-t border-white/[0.08] pt-16">
           <div className="mb-10 max-w-2xl space-y-3">
-<h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
+            <h3 className="font-heading text-2xl sm:text-3xl font-medium text-white">
               Post-Launch Cross-Platform App Support
             </h3>
             <p className="text-xs sm:text-sm text-zinc-400">
@@ -253,22 +281,30 @@ export default function Pricing() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {postLaunchItems.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-white/[0.08] bg-[#121214] p-6 transition-colors hover:border-white/[0.16]"
-              >
-                <span className="font-mono text-xs uppercase tracking-wider text-frame-accent">
-                  0{idx + 1}
-                </span>
-                <h4 className="mt-3 font-heading text-base font-medium text-white">
-                  {item.title}
-                </h4>
-                <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-400">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+            {postLaunchItems.map((item, idx) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={idx}
+                  className="group relative rounded-2xl border border-white/[0.08] bg-[#0D0D0F] p-8 transition-all duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
+                >
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-purple-500/20 bg-purple-500/10 text-purple-600">
+                      <Icon className="h-6 w-6 text-purple-600" />
+                    </div>
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-400">
+                      {String(idx + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <h4 className="font-heading text-lg font-medium text-white">
+                    {item.title}
+                  </h4>
+                  <p className="mt-3 text-xs sm:text-sm font-normal text-zinc-300 leading-relaxed">
+                    {item.desc}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </div>

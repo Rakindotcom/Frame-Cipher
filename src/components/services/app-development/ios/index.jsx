@@ -1,5 +1,4 @@
 import Hero from './Hero'
-import CaseStudies from './CaseStudies'
 import Services from './Services'
 import AppTypes from './AppTypes'
 import WhyRealPartner from './WhyRealPartner'
@@ -43,7 +42,6 @@ export default function AppDevelopmentIosService({ service }) {
       <Hero service={service} />
       <TypeMarquee items={keywords} slow />
 
-      <CaseStudies />
       <Services />
       <AppTypes />
       <WhyRealPartner />
@@ -74,7 +72,6 @@ export default function AppDevelopmentIosService({ service }) {
 
 export {
   Hero,
-  CaseStudies,
   Services,
   AppTypes,
   WhyRealPartner,

@@ -55,19 +55,8 @@ export default function AboutHero() {
         <div className="mx-auto w-full max-w-7xl">
           {/* Symmetrical Two-Column Hero Grid (Modality A) */}
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            {/* Left Column: Eyebrow + Two-Tone H1 + Narrative + CTAs + Terminal Pill */}
+            {/* Left Column: Two-Tone H1 + Narrative + CTAs + Terminal Pill */}
             <div>
-              {/* Raycast-style Capsule Eyebrow Bar */}
-              <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                </span>
-                <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-muted">
-                  Dhaka Engineering Campus · Built for brands moving worldwide
-                </p>
-              </div>
-
               {/* Main H1 Headline: Crisp Pure White with Signature Deep Purple */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[4.25rem] font-semibold tracking-tight leading-[1.04]">
                 <span className="block text-highlighted">A Multinational Tech &amp; Growth Powerhouse</span>
@@ -75,7 +64,7 @@ export default function AboutHero() {
               </h1>
 
               {/* Description Paragraph with Deep Purple Link Accents */}
-              <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+              <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
                 Frame Cipher was founded on an unapologetic ambition: to build a tier-one multinational technology, media, and growth engineering company anchored in Bangladesh. We combine full-stack software development, brand architecture, cinematic media production, and mathematical performance marketing under one unified operating system, serving high-growth startups and global enterprises across 20+ countries.
               </p>
 

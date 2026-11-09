@@ -2,28 +2,32 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { ChevronRight, ShieldCheck } from 'lucide-react'
+import { ChevronRight, ShieldCheck, Smartphone, Compass, Rocket, Layers } from 'lucide-react'
 import PosterButton from '../../../home/PosterButton'
 import IosHeroVisual from './IosHeroVisual'
 
 const kineticMetrics = [
   {
     num: '01',
+    icon: Smartphone,
     label: 'Swift & SwiftUI Native',
     detail: 'Modern Swift 6, SwiftUI declarative UI, Combine, and direct Apple SDK integration',
   },
   {
     num: '02',
+    icon: Compass,
     label: 'Apple HIG Design',
     detail: 'Human Interface Guidelines, fluid gestures, dynamic typography, and native haptics',
   },
   {
     num: '03',
+    icon: Rocket,
     label: 'App Store Connect',
     detail: 'TestFlight beta distribution, provisioning profiles, and strict App Store review compliance',
   },
   {
     num: '04',
+    icon: Layers,
     label: 'Ecosystem Expansion',
     detail: 'Unified architectures supporting iPhone, iPad, Apple Watch, and Mac Catalyst',
   },
@@ -57,26 +61,26 @@ export default function Hero({ service }) {
               App Development
             </Link>
             <ChevronRight className="h-3.5 w-3.5 shrink-0 text-zinc-600" />
-            <span className="shrink-0 whitespace-nowrap text-frame-accent">iOS</span>
+            <span className="shrink-0 whitespace-nowrap text-purple-400 font-semibold">iOS</span>
           </nav>
 
           {/* Grid Layout: Left Content, Right Visual */}
           <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
             {/* Left Content Column (6 cols) */}
             <div className="space-y-6">
-{/* Main Headline */}
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white">
+              {/* Main Headline */}
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-6xl xl:text-7xl font-medium leading-[0.94] tracking-tight text-white break-normal hyphens-none">
                 {title.includes('Bangladesh') ? (
                   <>
-                    Best iOS App Development{' '}
-                    <span className="italic text-frame-accent">Service in Bangladesh.</span>
+                    <span className="block text-white">Best iOS App Development</span>
+                    <span className="block text-purple-600">Service in Bangladesh.</span>
                   </>
                 ) : (
                   title
                 )}
               </h1>
 
-              {/* Sub-headline Pill / Headline Tag */}
+              {/* Sub-headline */}
               <p className="font-heading text-lg sm:text-xl font-medium tracking-tight text-zinc-200">
                 Native iOS Apps Built for Real Users, Real Devices &amp; Real Business Goals
               </p>
@@ -91,19 +95,19 @@ export default function Hero({ service }) {
                 <PosterButton href="/contact" variant="accent">
                   Get Free Consultation
                 </PosterButton>
-                <PosterButton href="/contact" variant="outline">
+                <PosterButton href="#pricing" variant="outline">
                   Discuss Your iOS App
                 </PosterButton>
               </div>
 
               {/* Trust Micro-Badge */}
-              <div className="flex items-center gap-3 pt-2 font-mono text-xs text-zinc-400">
-                <ShieldCheck className="h-4 w-4 text-emerald-400 shrink-0" />
+              <div className="flex items-center gap-3 pt-2 text-xs text-zinc-400">
+                <ShieldCheck className="h-4 w-4 text-purple-600 shrink-0" />
                 <span>Apple HIG Compliant &bull; TestFlight Staging &bull; Zero Approval Surprises</span>
               </div>
             </div>
 
-            {/* Right Visual Column (6 cols) */}
+            {/* Right Visual Column (6 cols) - PRESERVED COMPLETELY OK */}
             <div className="flex justify-center lg:justify-end">
               <IosHeroVisual />
             </div>
@@ -112,22 +116,31 @@ export default function Hero({ service }) {
       </section>
 
       {/* 4-COLUMN ARCHITECTURAL LEDGER RIBBON */}
-      <section className="border-b border-white/[0.08] bg-[#121214]">
+      <section className="border-b border-white/[0.08] bg-[#09090B] px-4 py-12 sm:px-6 md:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 divide-y divide-white/[0.08] sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
-            {kineticMetrics.map((item, idx) => (
-              <div key={idx} className="p-6 md:p-8">
-                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
-                  {item.num}
-                </span>
-                <h3 className="mt-3 font-heading text-lg font-medium tracking-tight text-white">
-                  {item.label}
-                </h3>
-                <p className="mt-2 text-xs md:text-sm font-normal leading-relaxed text-zinc-400">
-                  {item.detail}
-                </p>
-              </div>
-            ))}
+          <div className="grid grid-cols-1 divide-y divide-white/[0.08] overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] sm:grid-cols-2 sm:divide-y-0 sm:divide-x lg:grid-cols-4">
+            {kineticMetrics.map((item) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={item.num}
+                  className="flex flex-col justify-between p-6 md:p-8 transition-colors duration-200 hover:bg-[#18181B]"
+                >
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs uppercase tracking-widest text-purple-600 font-semibold">
+                      {item.num}
+                    </span>
+                    <Icon className="h-5 w-5 text-purple-600" strokeWidth={2} />
+                  </div>
+                  <h3 className="mt-4 font-heading text-base sm:text-lg font-medium tracking-tight text-white">
+                    {item.label}
+                  </h3>
+                  <p className="mt-2 text-xs md:text-sm font-normal leading-relaxed text-zinc-300">
+                    {item.detail}
+                  </p>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>

@@ -99,69 +99,65 @@ const TECH_CATEGORIES = [
     num: '12',
     category: 'Deployment & Monitoring Tools',
     stack: ['GitHub Actions', 'Datadog', 'BetterStack', 'Cloudflare CDN'],
-    desc: 'Zero-downtime CI/CD pipelines with real-time error alerts and global edge edge delivery.',
+    desc: 'Zero-downtime CI/CD pipelines with real-time error alerts and global edge delivery.',
   },
 ]
 
 export default function TechStack() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+    <section className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            MVP Development{' '}
-            <span className="italic text-frame-accent">Technology Stack.</span>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            MVP Development Technology Stack.
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed">
-            The technology stack should support the MVP actual requirements rather than follow a fixed technology list. Framecipher selects technologies based on the product type, platform, integrations, expected workload, development requirements, and future product direction.
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+            The technology stack should support the MVP&apos;s actual requirements rather than follow a fixed technology list. Framecipher selects technologies based on the product type, platform, integrations, expected workload, development requirements, and future product direction.
           </p>
 
-          <p className="mt-2 text-sm text-zinc-400">
+          <p className="text-sm text-zinc-400">
             The goal is to use a practical stack that allows the MVP to launch efficiently without creating unnecessary technical limitations for the next phase.
           </p>
         </div>
 
-        {/* 12-Category Architectural Ledger Grid */}
-        <div className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+        {/* 12 Discrete Cards in Grid */}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {TECH_CATEGORIES.map((tech) => {
             const Icon = tech.icon
             return (
               <div
                 key={tech.num}
-                className="group relative flex flex-col justify-between bg-[#0f1011] p-7 sm:p-8 transition-colors duration-200 hover:bg-[#141516]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-7 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
-                <div className="flex items-center justify-between pb-4 border-b border-white/[0.06]">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.03] text-frame-accent group-hover:border-frame-accent/40">
-                      <Icon className="h-4.5 w-4.5" />
+                <div>
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600">
+                      <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-xs text-zinc-500">
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-600/80">
                       {tech.num}
                     </span>
                   </div>
-                  
-                </div>
 
-                <h3 className="mt-4 font-heading text-base font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
-                  {tech.category}
-                </h3>
+                  <h3 className="mt-4 font-heading text-lg font-medium tracking-tight text-white">
+                    {tech.category}
+                  </h3>
 
-                <p className="mt-2 text-xs text-zinc-400 leading-relaxed min-h-[36px]">
-                  {tech.desc}
-                </p>
+                  <p className="mt-2 text-xs sm:text-sm font-normal text-zinc-300 leading-relaxed min-h-[40px]">
+                    {tech.desc}
+                  </p>
 
-                {/* Badges */}
-                <div className="mt-4 flex flex-wrap gap-1.5 pt-4 border-t border-white/[0.06]">
-                  {tech.stack.map((item, idx) => (
-                    <span
-                      key={idx}
-                      className="rounded-md border border-white/[0.06] bg-black/40 px-2.5 py-1 font-mono text-[11px] text-zinc-300"
-                    >
-                      {item}
+                  {/* Clean Editorial Tech Stack List (Directive 17: No box pills) */}
+                  <div className="mt-4 border-t border-white/10 pt-3">
+                    <span className="font-mono text-[10px] uppercase tracking-wider text-purple-400 block mb-1.5">
+                      Key Technologies:
                     </span>
-                  ))}
+                    <p className="font-mono text-xs text-zinc-300 leading-relaxed">
+                      {tech.stack.join(' • ')}
+                    </p>
+                  </div>
                 </div>
               </div>
             )
@@ -171,4 +167,3 @@ export default function TechStack() {
     </section>
   )
 }
-

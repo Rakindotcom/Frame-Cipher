@@ -15,7 +15,7 @@ export default function HomeServicesPulse() {
             </h2>
           </div>
           <div className="border-l border-white/[0.08] pl-6">
-            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-white md:text-lg">
               Pick one service or wire the whole growth system together. The point is alignment:
               message, media, web, software, campaigns, and reporting moving in the same direction.
             </p>
@@ -45,7 +45,7 @@ export default function HomeServicesPulse() {
                     {service.title}
                   </Link>
                 </h3>
-                <p className="mt-4 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                <p className="mt-4 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                   {service.description}
                 </p>
               </div>

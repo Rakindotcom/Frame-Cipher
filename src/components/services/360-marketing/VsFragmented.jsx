@@ -1,4 +1,5 @@
 import { SectionIntro } from '../../Kinetic'
+import { Check, X, Minus } from 'lucide-react'
 
 const comparisons = [
   {
@@ -35,16 +36,9 @@ const comparisons = [
 
 export default function VsFragmented() {
   return (
-    <section className="px-4 py-24 md:px-8 md:py-32 bg-[#09090B] text-[#FAFAFA] border-b border-white/[0.08]">
+    <section className="px-4 py-20 md:px-8 md:py-28 bg-[#09090B] text-white border-b border-white/[0.08]">
       <div className="mx-auto max-w-7xl">
-        <SectionIntro
-          title={
-            <>
-              Frame Cipher 360 vs.{' '}
-              <span className="italic text-frame-accent">The Alternatives.</span>
-            </>
-          }
-        >
+        <SectionIntro title="Frame Cipher 360 vs. The Alternatives.">
           See why ambitious founders and marketing leaders in Bangladesh are moving away from managing
           a chaotic mess of disconnected freelancers and traditional advertising agencies.
         </SectionIntro>
@@ -56,7 +50,7 @@ export default function VsFragmented() {
                 <th className="p-5 font-heading text-sm font-medium tracking-tight text-zinc-400 w-1/4">
                   Growth Factor
                 </th>
-                <th className="p-5 font-heading text-base font-medium tracking-tight text-frame-accent border-x border-white/[0.08] bg-purple-950/20 w-1/3">
+                <th className="p-5 font-heading text-base font-semibold tracking-tight text-white border-x border-white/[0.08] bg-purple-950/30 w-1/3">
                   Frame Cipher 360 Engine
                 </th>
                 <th className="p-5 font-heading text-sm font-medium tracking-tight text-zinc-400 w-1/5">
@@ -73,16 +67,22 @@ export default function VsFragmented() {
                   <td className="p-5 font-heading text-sm font-medium text-white">
                     {row.criteria}
                   </td>
-                  <td className="p-5 font-normal text-white border-x border-white/[0.08] bg-purple-950/10 leading-relaxed">
-                    <span className="inline-block text-emerald-400 font-bold mr-2">✓</span>
+                  <td className="p-5 font-normal text-white border-x border-white/[0.08] bg-purple-950/15 leading-relaxed">
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-500/20 text-emerald-400 mr-2 align-middle">
+                      <Check className="h-2.5 w-2.5" strokeWidth={3} />
+                    </span>
                     {row.frameCipher}
                   </td>
-                  <td className="p-5 text-zinc-400 leading-relaxed">
-                    <span className="inline-block text-red-400 font-bold mr-2">✕</span>
+                  <td className="p-5 text-zinc-300 leading-relaxed">
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-rose-500/20 text-rose-400 mr-2 align-middle">
+                      <X className="h-2.5 w-2.5" strokeWidth={3} />
+                    </span>
                     {row.freelancers}
                   </td>
-                  <td className="p-5 text-zinc-400 leading-relaxed">
-                    <span className="inline-block text-amber-400 font-bold mr-2">△</span>
+                  <td className="p-5 text-zinc-300 leading-relaxed">
+                    <span className="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-amber-500/20 text-amber-400 mr-2 align-middle">
+                      <Minus className="h-2.5 w-2.5" strokeWidth={3} />
+                    </span>
                     {row.traditional}
                   </td>
                 </tr>

@@ -156,8 +156,7 @@ export default function Pricing() {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
 <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Android App Development{' '}
-            <span className="italic text-frame-accent">Pricing &amp; Project Models.</span>
+            Android App Development Pricing &amp; Project Models
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -171,14 +170,14 @@ export default function Pricing() {
             <span className="font-mono text-xs uppercase tracking-wider text-zinc-400">
               Project Scope &amp; Starting Cost Matrix
             </span>
-            <span className="font-mono text-[11px] uppercase text-frame-accent">
+            <span className="font-mono text-[11px] uppercase text-purple-600">
               Starting References
             </span>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full text-left font-sans text-sm">
-              <thead className="border-b border-white/[0.08] bg-white/[0.015] font-mono text-xs uppercase text-zinc-400">
+              <thead className="border-b border-white/[0.08] bg-[#18181B] font-mono text-xs uppercase text-zinc-400">
                 <tr>
                   <th className="p-4 sm:p-5">Project Type</th>
                   <th className="p-4 sm:p-5">Starting Price</th>
@@ -191,18 +190,18 @@ export default function Pricing() {
                   <tr
                     key={idx}
                     className={`transition-colors hover:bg-white/[0.02] ${
-                      row.featured ? 'bg-frame-accent/[0.06]' : ''
+                      row.featured ? 'bg-purple-600/10' : ''
                     }`}
                   >
                     <td className="p-4 sm:p-5 font-semibold text-white">
                       {row.type}
                       {row.featured && (
-                        <span className="ml-2 rounded-full border border-white/[0.14] bg-white/[0.04] px-2 py-0.5 font-mono text-[9px] uppercase text-frame-accent">
+                        <span className="ml-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-2 py-0.5 font-mono text-[9px] uppercase text-purple-300">
                           Most Requested
                         </span>
                       )}
                     </td>
-                    <td className="p-4 sm:p-5 font-mono font-semibold text-frame-accent">
+                    <td className="p-4 sm:p-5 font-mono font-semibold text-purple-400">
                       {row.price}
                     </td>
                     <td className="p-4 sm:p-5 text-xs sm:text-sm text-zinc-400">
@@ -233,17 +232,17 @@ export default function Pricing() {
               key={idx}
               className={`relative flex flex-col justify-between rounded-xl border p-6 sm:p-7 md:p-8 transition-colors ${
                 tier.featured
-                  ? 'border-frame-accent/40 bg-[#18181B]'
+                  ? 'border-purple-600/40 bg-[#18181B]'
                   : 'border-white/[0.08] bg-[#121214] hover:border-white/[0.16]'
               }`}
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  <span className="font-mono text-xs uppercase tracking-widest text-purple-600">
                     0{idx + 1}
                   </span>
                   {tier.featured && (
-                    <span className="rounded-full border border-frame-accent/40 bg-frame-accent/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-frame-accent">
+                    <span className="rounded-full border border-purple-500/40 bg-purple-500/10 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest text-purple-300">
                       Most Requested
                     </span>
                   )}
@@ -262,7 +261,7 @@ export default function Pricing() {
                     {tier.price}
                   </span>
                   <div className="mt-1 flex items-center gap-1.5 font-mono text-xs text-zinc-400">
-                    <Clock className="h-3.5 w-3.5 text-frame-accent" />
+                    <Clock className="h-3.5 w-3.5 text-purple-600" />
                     <span>Delivery: {tier.delivery}</span>
                   </div>
                 </div>
@@ -270,7 +269,7 @@ export default function Pricing() {
                 <ul className="mt-6 space-y-3 font-sans text-xs text-zinc-300">
                   {tier.includes.map((inc, i) => (
                     <li key={i} className="flex items-start gap-2">
-                      <Check className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
+                      <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
                       <span>{inc}</span>
                     </li>
                   ))}
@@ -293,7 +292,7 @@ export default function Pricing() {
         {/* TIMELINE SECTION */}
         <div className="mt-24 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12">
           <div className="max-w-3xl space-y-3">
-<h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
+            <h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
               Android App Development Timeline
             </h3>
             <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
@@ -310,25 +309,18 @@ export default function Pricing() {
                 <p className="font-heading text-base font-medium text-white">
                   {item.type}
                 </p>
-                <p className="font-mono text-sm font-semibold text-frame-accent">
+                <p className="font-mono text-sm font-semibold text-purple-400">
                   {item.delivery}
                 </p>
               </div>
             ))}
-          </div>
-
-          <div className="mt-6 flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.015] p-4 text-xs text-zinc-400">
-            <CheckCircle2 className="h-4 w-4 text-frame-accent shrink-0 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong className="text-zinc-200">Execution Velocity:</strong> These are planning ranges rather than fixed guarantees. Projects can move more efficiently when requirements, content, design direction, API access, and stakeholder feedback are available promptly. New features or scope changes during development can also affect the final timeline.
-            </p>
           </div>
         </div>
 
         {/* APPROVALS, SCOPE & RELEASE SUPPORT */}
         <div className="mt-24 space-y-6">
           <div className="max-w-3xl space-y-3">
-<h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
+            <h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
               Approvals, Scope &amp; Release Support
             </h3>
             <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
@@ -342,31 +334,24 @@ export default function Pricing() {
                 key={idx}
                 className="rounded-xl border border-white/[0.08] bg-[#121214] p-8 transition-colors duration-200 hover:border-white/[0.14]"
               >
-                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                <span className="font-mono text-xs uppercase tracking-widest text-purple-600">
                   0{idx + 1}
                 </span>
                 <h4 className="mt-3 font-heading text-lg font-medium tracking-tight text-white">
                   {cp.title}
                 </h4>
-                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {cp.desc}
                 </p>
               </div>
             ))}
-          </div>
-
-          <div className="rounded-xl border border-amber-500/20 bg-amber-500/[0.03] p-5 text-xs text-zinc-400 flex items-start gap-3">
-            <AlertCircle className="h-4 w-4 text-amber-400 shrink-0 mt-0.5" />
-            <p className="leading-relaxed">
-              <strong className="text-amber-300">Publishing Authority Notice:</strong> Google controls the final publishing decision, so no development partner can guarantee first-submission approval.
-            </p>
           </div>
         </div>
 
         {/* POST-LAUNCH ANDROID SUPPORT */}
         <div className="mt-24 rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12">
           <div className="max-w-3xl space-y-3">
-<h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
+            <h3 className="font-heading text-2xl sm:text-4xl font-medium tracking-tight text-white">
               Post-Launch Android Support
             </h3>
             <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
@@ -380,7 +365,7 @@ export default function Pricing() {
                 key={idx}
                 className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-xs font-mono text-zinc-300"
               >
-                <Check className="h-4 w-4 text-frame-accent shrink-0" />
+                <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
                 <span>{item}</span>
               </div>
             ))}

@@ -15,16 +15,27 @@ import WhyChoose from './WhyChoose'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
 import CTA from './CTA'
-import HomeTextMarquee from '../../../home/HomeTextMarquee'
+import { TypeMarquee } from '../../../Kinetic'
+
+const keywords = [
+  'Lean Product Scoping & Prototyping',
+  'Hypothesis-Driven Core Workflows',
+  '4-8 Week Rapid Turnaround',
+  'Real-Time Telemetry & Funnel Analytics',
+  '100% In-House Engineering Squad',
+  'Production-Grade Scalable Architecture',
+  'bKash, Nagad & Stripe Integrations',
+  'Zero Throwaway Code & 100% IP Transfer',
+]
 
 export default function AppDevelopmentMvpDevelopmentService({ service }) {
   return (
     <main className="service-page min-h-screen bg-[#09090B] text-white selection:bg-[#704bd2]/30 selection:text-white">
-      {/* 01. Canonical Hero with Realistic MVP Product Ecosystem Visual */}
+      {/* 01. Canonical Hero with Interactive MVP Product Engine Visual */}
       <Hero service={service} />
 
       {/* Marquee Ticker */}
-      <HomeTextMarquee />
+      <TypeMarquee items={keywords} slow />
 
       {/* 02. Our MVP Development Services (9 Core Disciplines) */}
       <Offerings />

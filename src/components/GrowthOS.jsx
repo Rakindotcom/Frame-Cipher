@@ -69,7 +69,7 @@ export function GrowthOSHome() {
             </h2>
           </div>
           <div className="max-w-xl border-l border-white/[0.08] pl-6">
-            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-white md:text-lg">
               One team for brand, content, tech, and growth. Strategy, content, media, software, ads, and analytics mapped as one operating system instead of scattered execution.
             </p>
           </div>
@@ -125,7 +125,7 @@ export function GrowthOSHome() {
                   </h3>
 
                   {/* Description */}
-                  <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                  <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                     {module.description}
                   </p>
                 </div>
@@ -171,7 +171,7 @@ export function GrowthOSServices() {
               How services connect
             </h2>
           </div>
-          <p className="max-w-3xl text-sm font-normal leading-relaxed text-muted md:text-base">
+          <p className="max-w-3xl text-sm font-normal leading-relaxed text-white md:text-base">
             Each service can be hired alone, but the system is strongest when strategy, production,
             technology, campaigns, and reporting share the same path.
           </p>
@@ -211,7 +211,7 @@ export function GrowthOSServices() {
                     <h3 className="font-heading text-lg font-semibold leading-tight tracking-tight text-highlighted">
                       {module.title}
                     </h3>
-                    <p className="mt-3 text-xs font-normal leading-relaxed text-muted">
+                    <p className="mt-3 text-xs font-normal leading-relaxed text-white">
                       {module.description}
                     </p>
                   </div>

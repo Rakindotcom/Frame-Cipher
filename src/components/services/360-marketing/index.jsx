@@ -7,7 +7,11 @@ import IndustryPlaybooks from './IndustryPlaybooks'
 import Deliverables from './Deliverables'
 import Process from './Process'
 import TechStack from './TechStack'
+import ServiceCalculatorBanner from '../paid-advertising/ServiceCalculatorBanner'
 import ProofMetrics from './ProofMetrics'
+import Testimonials from './Testimonials'
+import CaseStudies from './CaseStudies'
+import PortfolioShowcase from './PortfolioShowcase'
 import Pricing from './Pricing'
 import ServiceAreas from './ServiceAreas'
 import FAQ from './FAQ'
@@ -25,8 +29,6 @@ const marqueeItems = [
   'Lifecycle CRM & WhatsApp',
 ]
 
-import ServiceCalculatorBanner from '../paid-advertising/ServiceCalculatorBanner'
-
 export default function ThreeSixtyMarketingService() {
   return (
     <main className="service-page bg-[#09090B] text-[#FAFAFA] min-h-screen">
@@ -42,6 +44,9 @@ export default function ThreeSixtyMarketingService() {
       <TechStack />
       <ServiceCalculatorBanner platform="general" />
       <ProofMetrics />
+      <Testimonials />
+      <CaseStudies />
+      <PortfolioShowcase />
       <Pricing />
       <ServiceAreas />
       <FAQ />
@@ -61,6 +66,9 @@ export {
   Process,
   TechStack,
   ProofMetrics,
+  Testimonials,
+  CaseStudies,
+  PortfolioShowcase,
   Pricing,
   ServiceAreas,
   FAQ,

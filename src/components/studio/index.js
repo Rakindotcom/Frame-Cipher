@@ -11,6 +11,7 @@ export { default as StudioBookingForm } from './StudioBookingForm'
 export { default as StudioHubExtended } from './StudioHubExtended'
 export { default as StudioClusterNav } from './StudioClusterNav'
 export { default as StudioExtendedSections } from './StudioExtendedSections'
+export { default as StudioEventCarousel } from './StudioEventCarousel'
 
 // Sub-Service Page Components (one flat component per section, imported by each service page)
 export { default as StudioSubHero } from './StudioSubHero'

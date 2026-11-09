@@ -21,7 +21,6 @@ import EngagementModels from './EngagementModels'
 import Process from './Process'
 import Deliverables from './Deliverables'
 import WhyChoose from './WhyChoose'
-import CaseStudies from './CaseStudies'
 import Pricing from './Pricing'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
@@ -67,7 +66,6 @@ export default function AppDevelopmentEnterpriseAppsService({ service }) {
       <Process />
       <Deliverables />
       <WhyChoose />
-      <CaseStudies />
       <Pricing />
       <BangladeshWorldwide />
       <FAQ service={service} />
@@ -100,7 +98,6 @@ export {
   Process,
   Deliverables,
   WhyChoose,
-  CaseStudies,
   Pricing,
   BangladeshWorldwide,
   FAQ,

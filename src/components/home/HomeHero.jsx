@@ -30,19 +30,8 @@ export default function HomeHero() {
       <div className="mx-auto w-full max-w-7xl">
         {/* Symmetrical Two-Column Hero Grid */}
         <div className="grid gap-12 lg:grid-cols-[1.1fr_1fr] lg:items-center">
-          {/* Left Column: Eyebrow + H1 + Paragraph + CTAs + Command Pill */}
+          {/* Left Column: H1 + Paragraph + CTAs + Command Pill */}
           <div>
-            {/* Raycast-style Capsule Eyebrow Bar */}
-            <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-              </span>
-              <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-muted">
-                Dhaka Studio · Built for brands moving worldwide
-              </p>
-            </div>
-
             {/* H1 Headline inside Left Column */}
             <h1 className="text-4xl sm:text-5xl md:text-6xl xl:text-[4.25rem] font-semibold tracking-tight leading-[1.04]">
               <span className="block text-highlighted">We build the system</span>
@@ -50,7 +39,7 @@ export default function HomeHero() {
             </h1>
 
             {/* Description Paragraph */}
-            <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
               Frame Cipher brings brand positioning, <Link href="/studio" className="text-white underline decoration-purple-600/50 underline-offset-4 transition-colors hover:text-purple-600">commercial video</Link>, <Link href="/services/website-design-development" className="text-white underline decoration-purple-600/50 underline-offset-4 transition-colors hover:text-purple-600">high-converting websites</Link>, <Link href="/services/paid-advertising" className="text-white underline decoration-purple-600/50 underline-offset-4 transition-colors hover:text-purple-600">paid media</Link>, and automation into one disciplined growth machine. No fragmented agencies. One accountable partner.
             </p>
 

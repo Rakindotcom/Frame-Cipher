@@ -1,12 +1,22 @@
 'use client'
 
 import React from 'react'
-import { Check } from 'lucide-react'
+import {
+  Rocket,
+  Smartphone,
+  Layers,
+  ShieldCheck,
+  CheckCircle2,
+  Sliders,
+  LifeBuoy,
+  Check,
+} from 'lucide-react'
 import PosterButton from '../../home/PosterButton'
 
 const pricingTiers = [
   {
     name: 'MVP Development',
+    icon: Rocket,
     price: '৳300,000',
     delivery: '~6 to 10 weeks',
     featured: false,
@@ -21,6 +31,7 @@ const pricingTiers = [
   },
   {
     name: 'Native Android or iOS App',
+    icon: Smartphone,
     price: '৳500,000',
     delivery: '~10 to 14 weeks',
     featured: true,
@@ -35,6 +46,7 @@ const pricingTiers = [
   },
   {
     name: 'Cross-Platform App',
+    icon: Layers,
     price: '৳600,000',
     delivery: '~10 to 16 weeks',
     featured: false,
@@ -49,6 +61,7 @@ const pricingTiers = [
   },
   {
     name: 'SaaS / Enterprise App',
+    icon: ShieldCheck,
     price: 'Custom Quote',
     delivery: '~16 to 24+ weeks',
     featured: false,
@@ -66,18 +79,22 @@ const pricingTiers = [
 const approvalCheckpoints = [
   {
     title: 'Stage Approvals',
+    icon: CheckCircle2,
     desc: 'Architecture, UI/UX, major functionality, and release-ready builds can be reviewed at agreed project milestones.',
   },
   {
     title: 'Scope Changes',
+    icon: Sliders,
     desc: 'New features, additional integrations, or major workflow changes outside the agreed scope may affect both cost and timeline.',
   },
   {
     title: 'Release Support',
+    icon: Rocket,
     desc: 'We can support the production release and help address technical changes requested during store review where included in the project scope.',
   },
   {
     title: 'Post-Launch Support',
+    icon: LifeBuoy,
     desc: 'Bug fixes, compatibility updates, new features, and ongoing maintenance can continue under an agreed support arrangement.',
   },
 ]
@@ -105,9 +122,8 @@ export default function Pricing() {
         <div className="mx-auto max-w-7xl">
           {/* Left-Aligned Header Block */}
           <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              App Development Pricing{' '}
-              <span className="italic text-frame-accent">and Timeline.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              App Development Pricing and Timeline.
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -116,41 +132,41 @@ export default function Pricing() {
           </div>
 
           {/* HIGH-LEVEL COMPARISON TABLE */}
-          <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214]">
-            <table className="w-full text-left min-w-[640px]">
-              <thead className="border-b border-white/[0.08] bg-white/[0.02]">
+          <div className="overflow-x-auto rounded-xl border border-white/[0.08] bg-[#121214] shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+            <table className="w-full text-left min-w-[640px] border-collapse">
+              <thead className="border-b border-white/[0.08] bg-[#18181B]">
                 <tr>
-                  <th className="p-5 md:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent">Project Type</th>
-                  <th className="p-5 md:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent">Starting Price</th>
-                  <th className="p-5 md:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent">Typical Scope</th>
-                  <th className="p-5 md:p-6 font-mono text-xs uppercase tracking-wider text-frame-accent">Typical Delivery</th>
+                  <th className="p-5 md:p-6 font-heading text-sm font-semibold tracking-tight text-white">Project Type</th>
+                  <th className="p-5 md:p-6 font-heading text-sm font-semibold tracking-tight text-white">Starting Price</th>
+                  <th className="p-5 md:p-6 font-heading text-sm font-semibold tracking-tight text-white">Typical Scope</th>
+                  <th className="p-5 md:p-6 font-heading text-sm font-semibold tracking-tight text-white">Typical Delivery</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.08] text-sm md:text-base font-normal text-zinc-300">
-                <tr className="hover:bg-white/[0.02] transition-colors">
+                <tr className="hover:bg-[#151518] transition-colors">
                   <td className="p-5 md:p-6 font-heading text-base font-medium text-white">MVP Development</td>
-                  <td className="p-5 md:p-6 font-mono font-medium text-frame-accent whitespace-nowrap">৳300,000</td>
+                  <td className="p-5 md:p-6 font-mono font-medium text-purple-400 whitespace-nowrap">৳300,000</td>
                   <td className="p-5 md:p-6 text-zinc-300">Core feature set, single platform, basic backend</td>
                   <td className="p-5 md:p-6 text-sm text-zinc-400 leading-relaxed whitespace-nowrap">~6–10 weeks</td>
                 </tr>
-                <tr className="bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+                <tr className="bg-purple-950/15 hover:bg-purple-950/25 transition-colors">
                   <td className="p-5 md:p-6 font-heading text-base font-medium text-white flex items-center gap-2">
                     <span>Native Android or iOS App</span>
-                    <span className="rounded-full border border-frame-accent/40 bg-purple-500/20 px-2 py-0.5 text-[10px] font-mono uppercase text-frame-accent">Popular</span>
+                    <span className="rounded-full border border-purple-500/30 bg-purple-600/20 px-2.5 py-0.5 text-[10px] font-mono uppercase text-purple-200 font-semibold">Popular</span>
                   </td>
-                  <td className="p-5 md:p-6 font-mono font-medium text-frame-accent whitespace-nowrap">৳500,000</td>
+                  <td className="p-5 md:p-6 font-mono font-medium text-purple-400 whitespace-nowrap">৳500,000</td>
                   <td className="p-5 md:p-6 text-zinc-300">One platform, moderate complexity, standard integrations</td>
                   <td className="p-5 md:p-6 text-sm text-zinc-400 leading-relaxed whitespace-nowrap">~10–14 weeks</td>
                 </tr>
-                <tr className="hover:bg-white/[0.02] transition-colors">
+                <tr className="hover:bg-[#151518] transition-colors">
                   <td className="p-5 md:p-6 font-heading text-base font-medium text-white">Cross-Platform App</td>
-                  <td className="p-5 md:p-6 font-mono font-medium text-frame-accent whitespace-nowrap">৳600,000</td>
+                  <td className="p-5 md:p-6 font-mono font-medium text-purple-400 whitespace-nowrap">৳600,000</td>
                   <td className="p-5 md:p-6 text-zinc-300">Android + iOS, shared codebase, moderate to full feature set</td>
                   <td className="p-5 md:p-6 text-sm text-zinc-400 leading-relaxed whitespace-nowrap">~10–16 weeks</td>
                 </tr>
-                <tr className="hover:bg-white/[0.02] transition-colors">
+                <tr className="hover:bg-[#151518] transition-colors">
                   <td className="p-5 md:p-6 font-heading text-base font-medium text-white">SaaS / Enterprise App</td>
-                  <td className="p-5 md:p-6 font-mono font-medium text-frame-accent whitespace-nowrap">Custom Quote</td>
+                  <td className="p-5 md:p-6 font-mono font-medium text-purple-400 whitespace-nowrap">Custom Quote</td>
                   <td className="p-5 md:p-6 text-zinc-300">Multi-user architecture, complex integrations, scalability requirements</td>
                   <td className="p-5 md:p-6 text-sm text-zinc-400 leading-relaxed whitespace-nowrap">~16–24+ weeks</td>
                 </tr>
@@ -160,63 +176,71 @@ export default function Pricing() {
 
           {/* DETAILED PACKAGE CARDS */}
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {pricingTiers.map((tier, i) => (
-              <div
-                key={i}
-                className={`flex flex-col justify-between rounded-xl overflow-hidden p-6 sm:p-7 md:p-8 transition-colors ${
-                  tier.featured
-                    ? 'border-2 border-frame-accent/40 bg-[#15121c] shadow-[0_0_50px_rgba(168,85,247,0.12)]'
-                    : 'border border-white/[0.08] bg-[#121214] hover:border-white/[0.14]'
-                }`}
-              >
-                <div>
-                  {tier.featured && (
-                    <span className="mb-4 inline-block rounded-full border border-frame-accent/40 bg-purple-500/20 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-frame-accent">
-                      Most Requested
-                    </span>
-                  )}
-                  <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
-                    {tier.name}
-                  </h3>
-                  <p className="mt-4 font-mono text-2xl md:text-3xl font-medium text-frame-accent">
-                    {tier.price}
-                  </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-zinc-400">
-                    Typical Delivery: {tier.delivery}
-                  </p>
-
-                  <div className="mt-6 border-t border-white/[0.08] pt-4">
-                    <p className="font-mono text-xs uppercase tracking-wider text-white mb-3">
-                      What&apos;s Included:
+            {pricingTiers.map((tier, i) => {
+              const Icon = tier.icon
+              return (
+                <div
+                  key={i}
+                  className={`flex flex-col justify-between rounded-xl overflow-hidden p-6 sm:p-7 md:p-8 transition-colors duration-200 ${
+                    tier.featured
+                      ? 'border-2 border-purple-600/50 bg-[#15121c] shadow-[0_0_50px_rgba(168,85,247,0.15)]'
+                      : 'border border-white/[0.08] bg-[#121214] hover:border-white/[0.18] hover:bg-[#18181B]'
+                  }`}
+                >
+                  <div>
+                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-4">
+                      <Icon className="h-6 w-6 text-purple-600" />
+                      {tier.featured ? (
+                        <span className="rounded-full border border-purple-500/30 bg-purple-600/20 px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-purple-200 font-semibold">
+                          Most Requested
+                        </span>
+                      ) : (
+                        <span className="font-mono text-xs text-zinc-500 tabular-nums font-semibold">
+                          0{i + 1}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-heading text-xl md:text-2xl font-medium tracking-tight text-white">
+                      {tier.name}
+                    </h3>
+                    <p className="mt-4 font-mono text-2xl md:text-3xl font-medium text-purple-400 tabular-nums">
+                      {tier.price}
                     </p>
-                    <ul className="space-y-2 text-xs font-normal text-zinc-200">
-                      {tier.includes.map((item, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
-                          <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-purple-500/20 bg-frame-accent/10 text-frame-accent">
-                            <Check className="h-3 w-3 stroke-[2.5]" />
-                          </span>
-                          <span className="leading-snug">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <p className="mt-2 font-mono text-xs uppercase tracking-wider text-zinc-400">
+                      Typical Delivery: {tier.delivery}
+                    </p>
+
+                    <div className="mt-6 border-t border-white/[0.08] pt-4">
+                      <p className="font-mono text-xs uppercase tracking-wider text-white mb-3 font-semibold">
+                        What&apos;s Included:
+                      </p>
+                      <ul className="space-y-2.5 text-sm font-normal text-zinc-200">
+                        {tier.includes.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-2.5">
+                            <Check className="h-4 w-4 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
+                            <span className="leading-snug">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div className="mt-8 pt-4 border-t border-white/[0.08] w-full">
+                    <PosterButton
+                      href="/contact"
+                      variant={tier.featured ? 'accent' : 'outline'}
+                      className="w-full px-4 text-xs sm:text-sm justify-center"
+                    >
+                      Request Quote
+                    </PosterButton>
                   </div>
                 </div>
-
-                <div className="mt-8 pt-4 border-t border-white/[0.08] w-full">
-                  <PosterButton
-                    href="/contact"
-                    variant={tier.featured ? 'accent' : 'outline'}
-                    className="w-full px-4 text-xs sm:text-sm justify-center"
-                  >
-                    Request Quote
-                  </PosterButton>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
           {/* PRICING NOTES */}
-          <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-2">
+          <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 space-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
             <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-300">
               These are starting references rather than fixed quotes. Final pricing is based on the actual product scope and technical requirements.
             </p>
@@ -231,9 +255,8 @@ export default function Pricing() {
       <section className="border-b border-white/[0.08] px-4 py-20 sm:px-6 md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              Approvals, Scope &amp;{' '}
-              <span className="italic text-frame-accent">Release Support.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Approvals, Scope &amp; Release Support.
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -242,28 +265,34 @@ export default function Pricing() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {approvalCheckpoints.map((item, i) => (
-              <div
-                key={i}
-                className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors hover:border-white/[0.14]"
-              >
-                <div>
-                  <span className="font-mono text-[11px] uppercase tracking-widest text-frame-accent">
-                    0{i + 1}
-                  </span>
-                  <h3 className="mt-3 font-heading text-lg font-medium text-white">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
-                    {item.desc}
-                  </p>
+            {approvalCheckpoints.map((item, i) => {
+              const Icon = item.icon
+              return (
+                <div
+                  key={i}
+                  className="group flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-7 md:p-8 transition-colors duration-200 hover:border-white/[0.18] hover:bg-[#18181B] shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+                >
+                  <div>
+                    <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
+                      <Icon className="h-6 w-6 text-purple-600 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="font-mono text-xs text-zinc-500 tabular-nums font-semibold">
+                        0{i + 1}
+                      </span>
+                    </div>
+                    <h3 className="mt-4 font-heading text-lg font-medium text-white transition-colors">
+                      {item.title}
+                    </h3>
+                    <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
 
-          <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
-            <p className="text-xs sm:text-sm font-mono uppercase tracking-wider text-frame-accent">
+          <div className="mt-8 rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+            <p className="text-xs sm:text-sm font-mono uppercase tracking-wider text-purple-400 font-semibold">
               No development partner can control the final approval decision made by Apple or Google.
             </p>
           </div>
@@ -274,9 +303,8 @@ export default function Pricing() {
       <section className="border-b border-white/[0.08] px-4 py-20 sm:px-6 md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-              Post-Launch App Support &amp;{' '}
-              <span className="italic text-frame-accent">Maintenance.</span>
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+              Post-Launch App Support &amp; Maintenance.
             </h2>
 
             <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -284,15 +312,15 @@ export default function Pricing() {
             </p>
           </div>
 
-          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10">
+          <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
               {postLaunchItems.map((item, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 transition-colors hover:border-white/[0.14]"
+                  className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#18181B] p-4 transition-colors hover:border-white/[0.18]"
                 >
-                  <span className="h-2 w-2 rounded-full bg-frame-accent shrink-0" />
-                  <span className="text-xs sm:text-sm font-normal text-zinc-200">
+                  <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
+                  <span className="text-sm font-normal text-zinc-200">
                     {item}
                   </span>
                 </div>

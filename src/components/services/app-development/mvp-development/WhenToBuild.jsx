@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import { Check, AlertCircle } from 'lucide-react'
+import { Check, CheckCircle2 } from 'lucide-react'
 
 const mvpSenseConditions = [
   "You have identified a specific problem to solve",
@@ -16,13 +16,12 @@ const mvpSenseConditions = [
 
 export default function WhenToBuild() {
   return (
-    <section id="when-to-build" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
+    <section id="when-to-build" className="relative border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
-        
         {/* Left-Aligned Header Block */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            When Should You <span className="italic text-frame-accent">Build an MVP?</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            When Should You Build an MVP?
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -32,9 +31,8 @@ export default function WhenToBuild() {
 
         {/* 2-Column Comparison Layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-          
           {/* Card 1: When an MVP Makes Sense */}
-          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 transition-colors hover:border-white/[0.16]">
+          <div className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
             <div>
               <span className="font-mono text-xs uppercase tracking-wider text-emerald-400 block mb-2">
                 &bull; Positive Signals
@@ -50,7 +48,7 @@ export default function WhenToBuild() {
                 {mvpSenseConditions.map((cond, idx) => (
                   <li key={idx} className="flex items-start gap-3">
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mt-0.5">
-                      <Check className="h-3 w-3" />
+                      <Check className="h-3 w-3" strokeWidth={2.5} />
                     </span>
                     <span>{cond}</span>
                   </li>
@@ -58,15 +56,15 @@ export default function WhenToBuild() {
               </ul>
             </div>
 
-            <div className="mt-8 border-t border-white/[0.08] pt-4 font-mono text-xs text-frame-accent">
+            <div className="mt-8 border-t border-white/10 pt-4 font-mono text-xs text-purple-400">
               The MVP should answer a defined question rather than attempt to represent the entire future product.
             </div>
           </div>
 
           {/* Card 2: When You May Need a Prototype or PoC First */}
-          <div className="flex flex-col justify-between rounded-xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8 md:p-10 transition-colors hover:border-white/[0.16]">
+          <div className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 md:p-10 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
             <div>
-              <span className="font-mono text-xs uppercase tracking-wider text-amber-400 block mb-2">
+              <span className="font-mono text-xs uppercase tracking-wider text-purple-400 block mb-2">
                 &bull; Alternative Starting Points
               </span>
               <h3 className="font-heading text-2xl font-medium text-white">
@@ -77,41 +75,35 @@ export default function WhenToBuild() {
               </p>
 
               <div className="mt-6 space-y-4 text-xs sm:text-sm leading-relaxed text-zinc-300">
-                <div className="rounded-xl border border-white/[0.06] bg-black/40 p-4">
+                <div className="border-l-2 border-purple-600/60 pl-4 py-1">
                   <h4 className="font-heading text-sm font-medium text-white">Prototype Preferred:</h4>
-                  <p className="text-zinc-400 mt-1">
+                  <p className="text-zinc-300 mt-1">
                     A prototype may be more appropriate when the main uncertainty is the user experience, interface adoption, or product concept.
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-white/[0.06] bg-black/40 p-4">
+                <div className="border-l-2 border-purple-600/60 pl-4 py-1">
                   <h4 className="font-heading text-sm font-medium text-white">Proof of Concept (PoC) Preferred:</h4>
-                  <p className="text-zinc-400 mt-1">
+                  <p className="text-zinc-300 mt-1">
                     A PoC may be more appropriate when the main uncertainty is whether a specialized technical or algorithmic approach can work.
                   </p>
                 </div>
 
-                <div className="rounded-xl border border-white/[0.06] bg-black/40 p-4">
+                <div className="border-l-2 border-purple-600/60 pl-4 py-1">
                   <h4 className="font-heading text-sm font-medium text-white">Customer Research First:</h4>
-                  <p className="text-zinc-400 mt-1">
+                  <p className="text-zinc-300 mt-1">
                     You may also need more customer discovery before development if the target problem, audience, or value proposition is still unclear.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 border-t border-white/[0.08] pt-4 flex items-start gap-2.5 font-mono text-xs text-amber-300">
-              <AlertCircle className="h-4 w-4 shrink-0 text-amber-400 mt-0.5" />
-              <span>
-                Strategic Safeguard: Choosing the right starting point prevents spending development budget before you know what needs to be tested.
-              </span>
+            <div className="mt-8 border-t border-white/10 pt-4 font-mono text-xs text-zinc-400">
+              Choosing the right starting point prevents spending development budget before you know what needs to be tested.
             </div>
           </div>
-
         </div>
-
       </div>
     </section>
   )
 }
-

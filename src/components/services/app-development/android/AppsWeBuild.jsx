@@ -73,7 +73,7 @@ export default function AppsWeBuild() {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
 <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Android Apps <span className="italic text-frame-accent">We Build.</span>
+            Android Apps We Build
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -86,13 +86,13 @@ export default function AppsWeBuild() {
           {appsWeBuild.map((app, i) => (
             <div
               key={i}
-              className="group bg-[#0f1011] p-8 transition-colors duration-200 hover:bg-[#141516]"
+              className="group relative overflow-hidden bg-[#121214] p-8 transition-colors duration-200 hover:bg-[#18181B] before:pointer-events-none before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent before:opacity-0 group-hover:before:opacity-100 before:transition-opacity before:duration-300"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                <span className="font-mono text-xs uppercase tracking-widest text-purple-600">
                   {app.num}
                 </span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-purple-600 transition-transform duration-300 group-hover:scale-110">
                   <app.icon className="h-5 w-5" />
                 </div>
               </div>
@@ -101,7 +101,7 @@ export default function AppsWeBuild() {
                 {app.title}
               </h3>
 
-              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+              <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                 {app.desc}
               </p>
             </div>

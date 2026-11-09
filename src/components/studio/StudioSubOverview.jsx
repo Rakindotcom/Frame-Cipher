@@ -1,6 +1,6 @@
 'use client'
 
-import { CheckCircle2, Users, Layers, ShieldCheck } from 'lucide-react'
+import { Check, Users, Layers, ShieldCheck } from 'lucide-react'
 import { SectionIntro } from '../Kinetic'
 import { renderContextualParagraph } from '../../lib/seo/contextualParagraphLinks'
 
@@ -17,7 +17,7 @@ function OverviewBenefits({ service }) {
       <ul className="grid gap-4 sm:grid-cols-2">
         {service.benefits.map((benefit, i) => (
           <li key={i} className="flex items-start gap-3 text-sm wide:text-lg font-normal leading-relaxed text-zinc-300">
-            <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-purple-400" />
+            <Check className="mt-1 h-4 w-4 shrink-0 text-emerald-400" strokeWidth={2.5} />
             <span>{benefit}</span>
           </li>
         ))}

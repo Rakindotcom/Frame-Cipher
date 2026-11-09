@@ -21,9 +21,8 @@ export default function UiUxDesign() {
       <div className="mx-auto max-w-7xl">
         {/* Left-Aligned Header Block */}
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            UI/UX Design{' '}
-            <span className="italic text-frame-accent">for Apps.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            UI/UX Design for Apps.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -32,17 +31,15 @@ export default function UiUxDesign() {
         </div>
 
         {/* 9 Points Grid on #121214 */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10">
+        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-7 sm:p-8 md:p-10 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {uiUxPoints.map((point, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.02] p-4 transition-colors hover:border-white/[0.14]"
+                className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-[#18181B] p-4 transition-colors hover:border-white/[0.18]"
               >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-purple-500/20 bg-frame-accent/10 text-frame-accent">
-                  <Check className="h-3 w-3 stroke-[2.5]" />
-                </span>
-                <span className="text-xs sm:text-sm font-normal text-zinc-200">
+                <Check className="h-4 w-4 text-emerald-400 shrink-0" strokeWidth={2.5} />
+                <span className="text-sm font-normal text-zinc-200">
                   {point}
                 </span>
               </div>

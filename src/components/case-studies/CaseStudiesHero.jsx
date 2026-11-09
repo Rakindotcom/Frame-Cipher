@@ -49,7 +49,7 @@ export default function CaseStudiesHero() {
         <div className="mx-auto w-full max-w-7xl">
           {/* Symmetrical Two-Column Hero Grid (Modality A) */}
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            {/* Left Column: Breadcrumb + Eyebrow + Two-Tone H1 + Narrative + CTAs */}
+            {/* Left Column: Breadcrumb + Two-Tone H1 + Narrative + CTAs */}
             <div>
               {/* Breadcrumb */}
               <nav aria-label="Breadcrumb" className="mb-6 flex items-center gap-2 font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-400">
@@ -60,17 +60,6 @@ export default function CaseStudiesHero() {
                 <span className="text-purple-400 font-semibold">Case Studies</span>
               </nav>
 
-              {/* Raycast-style Capsule Eyebrow Bar */}
-              <div className="mb-6 inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/[0.04] px-3.5 py-1.5 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.08)]">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
-                </span>
-                <p className="font-mono text-[11px] uppercase tracking-[1.1px] text-zinc-300">
-                  13 Flagship Case Breakdowns · Real Platform Data
-                </p>
-              </div>
-
               {/* Display Heading H1: Two-Tone Pure White + Signature Deep Purple */}
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-semibold tracking-tight leading-[0.96]">
                 <span className="block text-white">Documented growth across systems.</span>
@@ -78,7 +67,7 @@ export default function CaseStudiesHero() {
               </h1>
 
               {/* Editorial Description with Preserved Internal Links */}
-              <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-zinc-300 sm:text-lg">
+              <p className="mt-6 max-w-2xl text-base font-normal leading-relaxed text-white sm:text-lg">
                 In-depth breakdowns of how Frame Cipher engineers measurable growth: from high-ROI{' '}
                 <Link href="/services/paid-advertising/meta-ads" className={inlineLink}>Meta advertising</Link> campaigns and{' '}
                 <Link href="/services/seo" className={inlineLink}>organic search</Link> dominance to{' '}

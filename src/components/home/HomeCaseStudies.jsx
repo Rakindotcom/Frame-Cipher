@@ -15,7 +15,7 @@ export default function HomeCaseStudies() {
             <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
               The receipts, documented
             </h2>
-            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
               Real growth campaigns, verified client performance, and conversion data engineered for scalable return.
             </p>
           </div>
@@ -65,7 +65,7 @@ export default function HomeCaseStudies() {
                       </Link>
                     </h3>
 
-                    <p className="mt-4 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default line-clamp-3">
+                    <p className="mt-4 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default line-clamp-3">
                       {study.summary}
                     </p>
 

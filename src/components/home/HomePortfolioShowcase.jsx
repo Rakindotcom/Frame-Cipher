@@ -33,7 +33,7 @@ function PortfolioCard({ item, type }) {
           </span>
         </div>
 
-        <p className="mt-4 text-sm font-normal leading-relaxed text-muted transition-colors group-hover:text-default">
+        <p className="mt-4 text-sm font-normal leading-relaxed text-white transition-colors group-hover:text-default">
           {item.summary}
         </p>
 
@@ -79,7 +79,7 @@ export default function HomePortfolioShowcase() {
           <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
             Work that looks good and performs
           </h2>
-          <p className="mt-5 text-base font-normal leading-relaxed text-muted md:text-lg">
+          <p className="mt-5 text-base font-normal leading-relaxed text-white md:text-lg">
             Explore selected websites we have built and SEO campaigns backed by search visibility, traffic, and content results.
           </p>
         </div>

@@ -23,8 +23,8 @@ export default function TechnologyStack() {
     <section id="tech-stack" className="border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28 scroll-mt-20">
       <div className="mx-auto max-w-7xl">
         <div className="mb-14 max-w-3xl space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
-            SaaS Technology <span className="italic text-frame-accent">Stack.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            SaaS Technology Stack.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -32,13 +32,13 @@ export default function TechnologyStack() {
           </p>
         </div>
 
-        <div className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] shadow-xl">
+        <div className="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0D0D0F] shadow-xl before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="overflow-x-auto">
             <table className="w-full text-left text-sm">
-              <thead className="border-b border-white/[0.08] bg-[#18181b]/50 font-mono text-xs uppercase tracking-wider text-zinc-300">
+              <thead className="border-b border-white/[0.08] bg-[#18181B] font-mono text-xs uppercase tracking-wider text-zinc-300">
                 <tr>
                   <th className="p-4 sm:p-5 border-r border-white/[0.08] text-white">Layer</th>
-                  <th className="p-4 sm:p-5 text-frame-accent">Technologies</th>
+                  <th className="p-4 sm:p-5 text-purple-400">Technologies</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-white/[0.06] font-sans">
@@ -55,12 +55,6 @@ export default function TechnologyStack() {
               </tbody>
             </table>
           </div>
-        </div>
-
-        <div className="mt-8 rounded-xl border border-white/[0.06] bg-[#121214] p-6 text-center">
-          <p className="text-xs sm:text-sm text-zinc-400">
-            The final stack depends on the product, expected usage, existing systems, security requirements, and long-term roadmap.
-          </p>
         </div>
       </div>
     </section>

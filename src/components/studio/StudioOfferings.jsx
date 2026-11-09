@@ -2,7 +2,7 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Mic, Video, Camera, UserCheck, Scissors, Building2, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Mic, Video, Camera, UserCheck, Scissors, Building2, Check, ArrowRight } from 'lucide-react'
 
 const offerings = [
   {
@@ -119,14 +119,13 @@ const moreServices = [
 
 export default function StudioOfferings() {
   return (
-    <section id="services" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section id="services" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
             <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-              Studio production{' '}
-              <span className="text-white">services.</span>
+              Studio Production Services.
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -134,21 +133,23 @@ export default function StudioOfferings() {
           </p>
         </div>
 
-        {/* Modality 3 Blueprint Matrix (2x3 Structured Grid) */}
-        <div className="grid grid-cols-1 border-t border-l border-white/[0.08] md:grid-cols-2 lg:grid-cols-3">
+        {/* Discrete Cards Grid (gap-6) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {offerings.map((service) => {
             const Icon = service.icon
             return (
               <div
                 key={service.id}
-                className="group flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-8 sm:p-10 transition-colors duration-200 hover:bg-white/[0.02]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-8 sm:p-9 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <div>
-                  <div className="flex items-center justify-between border-b border-white/[0.08] pb-4 mb-5">
-                    <span className="font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-5">
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-400 font-medium">
                       {service.tag}
                     </span>
-                    <Icon className="h-5 w-5 text-zinc-500 group-hover:text-frame-accent transition-colors" />
+                    <div className="flex h-11 w-11 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600 transition-colors group-hover:border-purple-600/40 group-hover:bg-purple-600/15">
+                      <Icon className="h-5 w-5" />
+                    </div>
                   </div>
 
                   <h3 className="font-heading text-xl sm:text-2xl font-medium leading-snug tracking-tight text-white transition-colors">
@@ -159,20 +160,20 @@ export default function StudioOfferings() {
                     {service.description}
                   </p>
 
-                  <ul className="mt-6 space-y-2.5 border-t border-white/[0.08] pt-5">
+                  <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
                     {service.features.map((feat, i) => (
-                      <li key={i} className="flex items-start gap-2.5 text-xs font-normal text-zinc-400">
-                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-frame-accent" />
+                      <li key={i} className="flex items-start gap-2.5 text-xs font-normal text-zinc-300">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-emerald-400" strokeWidth={2.5} />
                         <span>{feat}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="mt-8 border-t border-white/[0.08] pt-4">
+                <div className="mt-8 border-t border-white/10 pt-4">
                   <Link
                     href={service.href}
-                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-frame-accent transition-colors hover:text-white"
+                    className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider text-purple-400 transition-colors hover:text-white"
                   >
                     <span>{service.anchor}</span>
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-1" />
@@ -183,11 +184,11 @@ export default function StudioOfferings() {
           })}
         </div>
 
-        {/* More Services Architectural Strip */}
-        <div className="mt-10 rounded-2xl border border-white/[0.08] bg-[#121214] p-6 sm:p-8">
+        {/* More Services Strip */}
+        <div className="relative mt-10 overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="flex items-center gap-2 mb-2">
             <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-            <h3 className="font-mono text-xs uppercase tracking-[1.1px] text-white">
+            <h3 className="font-mono text-xs uppercase tracking-wider text-white font-medium">
               More Services on Request
             </h3>
           </div>
@@ -197,7 +198,7 @@ export default function StudioOfferings() {
               <span key={s.href}>
                 <Link
                   href={s.href}
-                  className="font-medium text-white underline decoration-purple-500/50 transition-colors hover:text-purple-300"
+                  className="font-medium text-white underline decoration-purple-600/50 transition-colors hover:text-purple-300"
                 >
                   {s.label}
                 </Link>

@@ -81,9 +81,8 @@ export default function FAQ({ service }) {
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Frequently Asked{' '}
-            <span className="italic text-frame-accent">Questions.</span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions.
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -97,7 +96,7 @@ export default function FAQ({ service }) {
             return (
               <div
                 key={idx}
-                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors hover:border-white/[0.14]"
+                className="group relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#0D0D0F] transition-all duration-300 hover:border-white/[0.16] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
@@ -111,7 +110,7 @@ export default function FAQ({ service }) {
                   <div
                     className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.1] bg-white/[0.02] text-zinc-400 transition-transform duration-200 ${
                       isOpen
-                        ? 'rotate-180 text-frame-accent border-frame-accent/40 bg-frame-accent/10'
+                        ? 'rotate-180 text-purple-400 border-purple-500/40 bg-purple-500/10'
                         : ''
                     }`}
                   >
@@ -129,13 +128,13 @@ export default function FAQ({ service }) {
           })}
         </div>
 
-        <div className="mx-auto mt-12 max-w-4xl rounded-xl border border-white/[0.06] bg-[#121214] p-6 text-center">
+        <div className="relative mx-auto mt-12 max-w-4xl rounded-2xl border border-white/[0.08] bg-[#0D0D0F] p-6 text-center before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           <div className="flex items-center justify-center gap-2 text-zinc-400 font-mono text-xs">
-            <HelpCircle className="h-4 w-4 text-frame-accent" />
+            <HelpCircle className="h-4 w-4 text-purple-600" />
             <span>Have a technical cross-platform question not answered here?</span>
             <a
               href="/contact"
-              className="text-frame-accent underline underline-offset-4 hover:text-white transition-colors ml-1"
+              className="text-purple-400 underline underline-offset-4 hover:text-white transition-colors ml-1"
             >
               Talk directly with our mobile engineering leads
             </a>

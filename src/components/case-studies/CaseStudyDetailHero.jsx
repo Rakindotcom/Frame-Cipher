@@ -51,19 +51,13 @@ export default function CaseStudyDetailHero({ study }) {
         </div>
 
         <div className="space-y-6 max-w-5xl">
-          {/* Telemetry Status Capsule Eyebrow (No Redundant Pills) */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3.5 py-1 text-xs font-mono font-medium text-purple-300">
-            <span className="h-2 w-2 rounded-full bg-purple-500 animate-pulse" />
-            <span>Verified Platform Analytics · Documented Client Outcome</span>
-          </div>
-
           {/* Display Heading H1: Solid Pure White */}
           <h1 className="font-heading text-4xl sm:text-6xl md:text-7xl font-semibold leading-[0.96] tracking-tight text-white">
             {study.title}
           </h1>
 
           {/* Editorial Description */}
-          <p className="max-w-3xl text-base font-normal leading-relaxed text-zinc-300 sm:text-lg md:text-xl">
+          <p className="max-w-3xl text-base font-normal leading-relaxed text-white sm:text-lg md:text-xl">
             {study.summary}
           </p>
 

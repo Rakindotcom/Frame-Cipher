@@ -71,11 +71,11 @@ export default function AboutTechStack() {
                     {layer.category}
                   </h3>
 
-                  <div className="rounded-xl border border-white/[0.08] bg-[#18181B] p-3.5 font-mono text-xs text-purple-600 font-medium leading-relaxed">
+                  <div className="rounded-xl border border-white/[0.08] bg-[#18181B] p-3.5 font-mono text-xs text-zinc-200 font-medium leading-relaxed">
                     {layer.stack}
                   </div>
 
-                  <p className="text-sm font-normal leading-relaxed text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                  <p className="text-base font-normal leading-relaxed text-zinc-300 group-hover:text-white transition-colors">
                     {layer.description}
                   </p>
                 </div>
@@ -112,11 +112,11 @@ export default function AboutTechStack() {
                   <p className="font-heading text-3xl sm:text-4xl font-semibold leading-none tracking-tight text-highlighted tabular-nums">
                     {stat.metric}
                   </p>
-                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-purple-600 font-semibold">
+                  <p className="mt-2 font-mono text-xs uppercase tracking-wider text-zinc-200 font-medium">
                     {stat.label}
                   </p>
                 </div>
-                <p className="text-xs text-zinc-400 leading-relaxed font-normal pt-2 border-t border-white/[0.04]">
+                <p className="text-sm text-zinc-300 leading-relaxed font-normal pt-2 border-t border-white/[0.06]">
                   {stat.desc}
                 </p>
               </div>

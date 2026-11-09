@@ -66,8 +66,7 @@ export default function Process() {
         {/* Section Header */}
         <div className="max-w-3xl space-y-4">
 <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            How We Approach an{' '}
-            <span className="italic text-frame-accent">Android App Build.</span>
+            How We Approach an Android App Build
           </h2>
 
           <p className="text-base sm:text-lg font-normal leading-relaxed text-zinc-300">
@@ -80,7 +79,7 @@ export default function Process() {
           {processSteps.map((step, idx) => (
             <div
               key={idx}
-              className="group relative flex flex-col justify-between gap-6 overflow-hidden p-7 sm:p-8 transition-colors duration-200 hover:bg-white/[0.02] lg:flex-row lg:items-start lg:gap-12"
+              className="group relative flex flex-col justify-between gap-6 overflow-hidden p-7 sm:p-8 transition-colors duration-200 hover:bg-[#18181B] lg:flex-row lg:items-start lg:gap-12"
             >
               {/* Background Watermark Numeral */}
               <span className="pointer-events-none absolute -bottom-4 -right-2 font-heading text-8xl font-black text-white/[0.02] transition-colors group-hover:text-white/[0.04]">
@@ -89,10 +88,10 @@ export default function Process() {
 
               <div className="relative z-10">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-xs uppercase tracking-widest text-frame-accent">
+                  <span className="font-mono text-xs uppercase tracking-widest text-purple-600">
                     {step.step}
                   </span>
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-frame-accent">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.02] text-purple-600">
                     <step.icon className="h-5 w-5" />
                   </div>
                 </div>
@@ -101,7 +100,7 @@ export default function Process() {
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-400">
+                <p className="mt-3 text-sm font-normal leading-relaxed text-zinc-300">
                   {step.desc}
                 </p>
               </div>

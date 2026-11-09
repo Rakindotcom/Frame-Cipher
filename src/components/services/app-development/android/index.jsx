@@ -1,5 +1,4 @@
 import Hero from './Hero'
-import CaseStudies from './CaseStudies'
 import Services from './Services'
 import AppsWeBuild from './AppsWeBuild'
 import WhyRealPartner from './WhyRealPartner'
@@ -17,6 +16,7 @@ import Process from './Process'
 import Modernization from './Modernization'
 import Deliverables from './Deliverables'
 import WhyChoose from './WhyChoose'
+import Testimonials from './Testimonials'
 import Pricing from './Pricing'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
@@ -40,7 +40,6 @@ export default function AppDevelopmentAndroidService({ service }) {
       <Hero service={service} />
       <TypeMarquee items={keywords} slow />
 
-      <CaseStudies />
       <Services />
       <AppsWeBuild />
       <WhyRealPartner />
@@ -58,6 +57,7 @@ export default function AppDevelopmentAndroidService({ service }) {
       <Modernization />
       <Deliverables />
       <WhyChoose />
+      <Testimonials />
       <Pricing />
       <BangladeshWorldwide />
       <FAQ />
@@ -68,7 +68,6 @@ export default function AppDevelopmentAndroidService({ service }) {
 
 export {
   Hero,
-  CaseStudies,
   Services,
   AppsWeBuild,
   WhyRealPartner,
@@ -86,6 +85,7 @@ export {
   Modernization,
   Deliverables,
   WhyChoose,
+  Testimonials,
   Pricing,
   BangladeshWorldwide,
   FAQ,

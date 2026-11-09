@@ -65,7 +65,7 @@ export default function HomeCTA() {
             <h2 className="mt-2 font-heading text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-highlighted">
               What happens next after you reach out
             </h2>
-            <p className="mt-3 text-sm font-normal text-muted">
+            <p className="mt-3 text-sm font-normal text-white">
               A transparent, engineering-grade 6-step roadmap from initial discovery to live production.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function HomeCTA() {
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-2 text-sm font-normal leading-relaxed text-muted transition-colors duration-200 group-hover:text-default">
+                    <p className="mt-2 text-sm font-normal leading-relaxed text-white transition-colors duration-200 group-hover:text-default">
                       {step.desc}
                     </p>
                   </div>
@@ -149,7 +149,7 @@ export default function HomeCTA() {
           </div>
 
           <div className="mt-10 grid gap-8 border-t border-white/[0.08] pt-8 lg:grid-cols-[1fr_0.65fr] lg:items-end lg:gap-12">
-            <p className="max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
               Tell us what you are building, selling, launching, or fixing. We will shape the
               strategy, content, technology, and marketing path around it.
             </p>

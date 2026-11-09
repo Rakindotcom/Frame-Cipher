@@ -102,7 +102,7 @@ export default function AboutFAQ() {
                   aria-expanded={isOpen}
                 >
                   <span className="flex items-center gap-3.5 pr-4">
-                    <span className="font-mono text-xs text-purple-600 tabular-nums font-semibold">
+                    <span className="font-mono text-xs text-zinc-400 tabular-nums font-semibold">
                       0{index + 1}
                     </span>
                     <h3 className="font-semibold text-sm sm:text-base text-white">
@@ -120,7 +120,7 @@ export default function AboutFAQ() {
 
                 {isOpen && (
                   <div className="border-t border-white/[0.08] px-5 pb-6 pt-3 sm:px-6">
-                    <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-400">
+                    <p className="text-sm sm:text-base font-normal leading-relaxed text-zinc-200">
                       {faq.answer}
                     </p>
                   </div>

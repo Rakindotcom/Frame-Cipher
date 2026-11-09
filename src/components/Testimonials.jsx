@@ -87,7 +87,7 @@ export default function Testimonials({
             <h2 className="font-heading text-3xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-highlighted">
               {title}
             </h2>
-            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="mt-5 max-w-2xl text-base font-normal leading-relaxed text-white md:text-lg">
               {description}
             </p>
           </div>
@@ -149,7 +149,7 @@ export default function Testimonials({
                             <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-semibold tracking-tight text-highlighted truncate">
                               {testimonial.name}
                             </h3>
-                            <p className="text-xs sm:text-sm font-normal leading-snug text-muted truncate mt-0.5">
+                            <p className="text-xs sm:text-sm font-normal leading-snug text-white/90 truncate mt-0.5">
                               {testimonial.profession}
                             </p>
                           </div>
@@ -157,7 +157,7 @@ export default function Testimonials({
 
                         {/* Source Badge & Quote Icon */}
                         <div className="flex items-center gap-3 shrink-0">
-                          <span className="rounded-full border border-purple-600/30 bg-purple-600/10 px-3 py-1 font-mono text-[11px] sm:text-xs uppercase tracking-wider text-purple-600 font-semibold">
+                          <span className="rounded-full border border-white/[0.12] bg-[#18181B] px-3 py-1 font-mono text-xs uppercase tracking-wider text-zinc-300 font-medium">
                             {testimonial.source}
                           </span>
                           <MessageSquareQuote className="h-6 w-6 text-purple-600 hidden sm:block opacity-70" />
@@ -165,7 +165,7 @@ export default function Testimonials({
                       </div>
 
                       {/* Quotation */}
-                      <blockquote className="mt-7 sm:mt-9 font-sans text-base sm:text-lg md:text-xl font-normal leading-relaxed text-zinc-200">
+                      <blockquote className="mt-7 sm:mt-9 font-sans text-base sm:text-lg md:text-xl font-normal leading-relaxed text-white">
                         “{testimonial.quote}”
                       </blockquote>
                     </div>

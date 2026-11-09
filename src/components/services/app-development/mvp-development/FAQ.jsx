@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useState } from 'react'
-import { ChevronDown, HelpCircle } from 'lucide-react'
+import { ChevronDown } from 'lucide-react'
+import PosterButton from '../../../home/PosterButton'
 
 const defaultFaqs = [
   {
@@ -77,9 +78,8 @@ const defaultFaqs = [
 ]
 
 export default function FAQ({ service }) {
-  const [openIndex, setOpenIndex] = useState(null)
+  const [openIndex, setOpenIndex] = useState(0)
   
-  // Prefer service.faqs if it has 14 questions, otherwise fallback to complete 14 defaultFaqs
   const faqList =
     service?.faqs && service.faqs.length >= 14 ? service.faqs : defaultFaqs
 
@@ -103,18 +103,17 @@ export default function FAQ({ service }) {
   return (
     <section
       id="faq"
-      className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
+      className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 pt-16 pb-12 sm:px-6 sm:pt-20 sm:pb-14 md:px-8 md:pt-28 md:pb-16 scroll-mt-20"
     >
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <div className="mx-auto max-w-7xl">
-        {/* Canonical Center-Aligned Header (§6 Standard) */}
-        <div className="mx-auto max-w-3xl text-center mb-16 space-y-4">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            Frequently Asked{' '}
-            <span className="italic text-frame-accent">Questions.</span>
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center mb-14 space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            Frequently Asked Questions About MVP Development.
           </h2>
 
           <p className="text-base sm:text-lg leading-relaxed text-zinc-300">
@@ -122,14 +121,14 @@ export default function FAQ({ service }) {
           </p>
         </div>
 
-        {/* Canonical Centered Accordion (§6 Standard: max-w-4xl mx-auto) */}
-        <div className="mx-auto max-w-4xl space-y-3">
+        {/* Centered Accordion */}
+        <div className="mx-auto max-w-4xl space-y-4">
           {faqList.map((faq, index) => {
             const isOpen = openIndex === index
             return (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl border border-white/[0.08] bg-[#121214] transition-colors duration-200 hover:border-white/[0.16]"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] transition-all duration-300 hover:border-white/20 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <button
                   type="button"
@@ -141,17 +140,17 @@ export default function FAQ({ service }) {
                     {faq.question}
                   </h3>
                   <div
-                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/[0.08] bg-[#18181b] transition-transform duration-300 ${
+                    className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-purple-600/20 bg-purple-600/10 text-purple-600 transition-transform duration-300 ${
                       isOpen
-                        ? 'rotate-180 border-frame-accent text-frame-accent'
-                        : 'text-zinc-400'
+                        ? 'rotate-180 bg-purple-600 text-white border-purple-600'
+                        : ''
                     }`}
                   >
                     <ChevronDown className="h-4 w-4" />
                   </div>
                 </button>
                 {isOpen && (
-                  <div className="border-t border-white/[0.06] px-6 pt-4 pb-6 bg-black/20">
+                  <div className="border-t border-white/10 px-6 pt-4 pb-6">
                     <p className="text-sm sm:text-base leading-relaxed text-zinc-300 whitespace-pre-line">
                       {faq.answer}
                     </p>
@@ -160,6 +159,21 @@ export default function FAQ({ service }) {
               </div>
             )
           })}
+        </div>
+
+        {/* Support callout */}
+        <div className="mx-auto max-w-4xl mt-12 group relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 text-center sm:p-8 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
+          <h3 className="font-heading text-lg font-medium text-white">
+            Have a custom product hypothesis to validate?
+          </h3>
+          <p className="mt-2 text-sm text-zinc-400">
+            Our MVP strategists can review your workflows, core assumptions, and target users.
+          </p>
+          <div className="mt-6 flex justify-center">
+            <PosterButton href="/contact" variant="accent" className="h-[52px] px-8 text-sm font-medium">
+              Discuss Your MVP Scope
+            </PosterButton>
+          </div>
         </div>
       </div>
     </section>

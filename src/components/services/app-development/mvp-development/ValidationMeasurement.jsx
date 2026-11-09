@@ -8,6 +8,7 @@ import {
   Repeat,
   MessageSquare,
   Sparkles,
+  Check
 } from 'lucide-react'
 
 const VALIDATION_METRICS = [
@@ -99,57 +100,58 @@ const VALIDATION_METRICS = [
 
 export default function ValidationMeasurement() {
   return (
-    <section className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 sm:px-6 md:px-8 md:py-28">
+    <section className="relative isolate border-b border-white/10 bg-[#0A0A0C] px-4 py-20 sm:px-6 md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Header */}
-        <div className="max-w-3xl mb-16">
-<h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-tight text-white">
-            How We Measure{' '}
-            <span className="italic text-frame-accent">MVP Validation.</span>
+        <div className="max-w-3xl mb-14 space-y-4">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-[0.96] tracking-[-0.03em] text-white">
+            How We Measure MVP Validation.
           </h2>
 
-          <p className="mt-4 text-base sm:text-lg text-zinc-300 leading-relaxed">
+          <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
             There is no single metric that proves every MVP succeeded. The right measurement depends on the hypothesis, target users, product model, and business objective.
           </p>
         </div>
 
-        {/* Blueprint Matrix (Modality 3: 6 Seamless Grid Cells) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-white/[0.08] bg-[#121214]/40">
+        {/* 6 Discrete Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {VALIDATION_METRICS.map((metric) => {
             const Icon = metric.icon
             return (
               <div
                 key={metric.num}
-                className="group relative flex flex-col justify-between border-r border-b border-white/[0.08] bg-[#121214] p-8 transition-colors duration-300 hover:bg-[#161619]"
+                className="group relative flex flex-col justify-between overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-6 sm:p-8 transition-all duration-300 hover:border-white/20 hover:bg-[#121214] before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-6 border-b border-white/[0.06]">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/[0.1] bg-white/[0.03] text-frame-accent group-hover:border-frame-accent/40">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-purple-600/20 bg-purple-600/10 text-purple-600">
                       <Icon className="h-5 w-5" />
                     </div>
-                    <span className="font-mono text-xs text-zinc-500">
+                    <span className="font-mono text-xs uppercase tracking-wider text-purple-600/80">
                       {metric.num}
                     </span>
                   </div>
 
-                  <h3 className="mt-6 font-heading text-xl font-medium tracking-tight text-white group-hover:text-frame-accent transition-colors">
+                  <h3 className="mt-4 font-heading text-lg font-medium tracking-tight text-white">
                     {metric.title}
                   </h3>
 
-                  <p className="mt-3 text-sm text-zinc-400 leading-relaxed">
+                  <p className="mt-2.5 text-xs sm:text-sm font-normal leading-relaxed text-zinc-300">
                     {metric.desc}
                   </p>
 
-                  <div className="mt-6 pt-5 border-t border-white/[0.06] space-y-2">
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-zinc-500 block mb-3">
-                      Signal Indicators
+                  <div className="mt-5 pt-4 border-t border-white/10 space-y-2">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-purple-400 block mb-2.5">
+                      Signal Indicators:
                     </span>
-                    {metric.bullets.map((bullet, i) => (
-                      <div key={i} className="flex items-start gap-2.5 text-xs text-zinc-300">
-                        <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-frame-accent" />
-                        <span>{bullet}</span>
-                      </div>
-                    ))}
+                    <ul className="space-y-1.5 text-xs text-zinc-300">
+                      {metric.bullets.map((bullet, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="h-3 w-3 text-emerald-400 shrink-0 mt-0.5" strokeWidth={2.5} />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -160,4 +162,3 @@ export default function ValidationMeasurement() {
     </section>
   )
 }
-

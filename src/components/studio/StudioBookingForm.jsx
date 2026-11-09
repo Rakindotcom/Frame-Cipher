@@ -34,8 +34,8 @@ const durations = [
 function BookingFormFields({ formData, setFormData, onSubmit, isSubmitting, whatsappUrl }) {
   const set = (k) => (e) => setFormData({ ...formData, [k]: e.target.value })
   const inputCls =
-    'w-full rounded-lg border border-[#3F3F46] bg-[#09090B] px-4 py-3.5 text-base sm:text-[15px] font-normal text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-frame-accent transition-colors'
-  const labelCls = 'mb-2 block truncate font-mono text-[11px] uppercase tracking-[1.1px] text-frame-accent'
+    'w-full rounded-lg border border-white/10 bg-[#121214] px-4 py-3.5 text-base sm:text-[15px] font-normal text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-colors'
+  const labelCls = 'mb-2 block truncate font-mono text-xs uppercase tracking-wider text-purple-400 font-medium'
 
   return (
     <form onSubmit={onSubmit} className="space-y-6">
@@ -81,10 +81,10 @@ function BookingFormFields({ formData, setFormData, onSubmit, isSubmitting, what
             <select
               value={formData.service}
               onChange={set('service')}
-              className="box-border w-full min-w-0 max-w-full cursor-pointer appearance-none truncate rounded-lg border border-[#3F3F46] bg-[#09090B] px-4 py-3.5 pr-10 text-base sm:text-[15px] font-normal text-white focus:outline-none focus:ring-1 focus:ring-frame-accent transition-colors"
+              className="box-border w-full min-w-0 max-w-full cursor-pointer appearance-none truncate rounded-lg border border-white/10 bg-[#121214] px-4 py-3.5 pr-10 text-base sm:text-[15px] font-normal text-white focus:outline-none focus:ring-1 focus:ring-purple-500 transition-colors"
             >
               {servicesList.map((svc) => (
-                <option key={svc} value={svc} className="bg-[#09090B] py-1.5 font-normal text-white">
+                <option key={svc} value={svc} className="bg-[#121214] py-1.5 font-normal text-white">
                   {svc}
                 </option>
               ))}
@@ -105,7 +105,7 @@ function BookingFormFields({ formData, setFormData, onSubmit, isSubmitting, what
             type="date"
             value={formData.date}
             onChange={set('date')}
-            className="box-border w-full min-w-0 max-w-full rounded-lg border border-[#3F3F46] bg-[#09090B] px-4 py-3.5 text-base sm:text-[15px] font-normal text-white focus:outline-none focus:ring-1 focus:ring-frame-accent transition-colors"
+            className="box-border w-full min-w-0 max-w-full rounded-lg border border-white/10 bg-[#121214] px-4 py-3.5 text-base sm:text-[15px] font-normal text-white focus:outline-none focus:ring-1 focus:ring-purple-500 transition-colors"
           />
         </div>
         <div className="w-full min-w-0 max-w-full">
@@ -114,10 +114,10 @@ function BookingFormFields({ formData, setFormData, onSubmit, isSubmitting, what
             <select
               value={formData.duration}
               onChange={set('duration')}
-              className="box-border w-full min-w-0 max-w-full cursor-pointer appearance-none truncate rounded-lg border border-[#3F3F46] bg-[#09090B] px-4 py-3.5 pr-10 text-base sm:text-[15px] font-normal text-white focus:outline-none focus:ring-1 focus:ring-frame-accent transition-colors"
+              className="box-border w-full min-w-0 max-w-full cursor-pointer appearance-none truncate rounded-lg border border-white/10 bg-[#121214] px-4 py-3.5 pr-10 text-base sm:text-[15px] font-normal text-white focus:outline-none focus:ring-1 focus:ring-purple-500 transition-colors"
             >
               {durations.map((d) => (
-                <option key={d} value={d} className="bg-[#09090B]">
+                <option key={d} value={d} className="bg-[#121214]">
                   {d}
                 </option>
               ))}
@@ -138,15 +138,16 @@ function BookingFormFields({ formData, setFormData, onSubmit, isSubmitting, what
           placeholder="Tell us about your project: who is speaking, format requirements, reference links, editing needs..."
           value={formData.brief}
           onChange={set('brief')}
-          className="w-full rounded-lg border border-[#3F3F46] bg-[#09090B] px-4 py-3.5 text-base sm:text-[15px] font-normal text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-frame-accent transition-colors"
+          className="w-full rounded-lg border border-white/10 bg-[#121214] px-4 py-3.5 text-base sm:text-[15px] font-normal text-white placeholder-zinc-500 focus:outline-none focus:ring-1 focus:ring-purple-500 transition-colors"
         />
       </div>
 
+      {/* Symmetrical 52px Button Pair */}
       <div className="flex flex-col gap-4 pt-2 sm:flex-row items-stretch sm:items-center">
         <button
           type="submit"
           disabled={isSubmitting}
-          className="group inline-flex min-h-[52px] h-[52px] items-center justify-center gap-2 rounded-full bg-[#FAFAFA] px-8 text-[15px] font-medium leading-none text-[#09090B] transition-colors hover:bg-frame-accent hover:text-[#09090B] disabled:opacity-60 cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+          className="group inline-flex min-h-[52px] h-[52px] items-center justify-center gap-2 rounded-full bg-[#FAFAFA] px-8 text-[15px] font-medium leading-none text-[#09090B] transition-colors hover:bg-purple-600 hover:text-white disabled:opacity-60 cursor-pointer touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
         >
           <span>{isSubmitting ? 'Saving Request...' : 'Submit Studio Booking Request'}</span>
           <span
@@ -161,9 +162,9 @@ function BookingFormFields({ formData, setFormData, onSubmit, isSubmitting, what
           href={whatsappUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex min-h-[52px] h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 font-mono text-xs uppercase tracking-wider text-white transition-colors hover:border-white/40 hover:bg-white/10 touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-frame-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#09090B]"
+          className="group inline-flex min-h-[52px] h-[52px] items-center justify-center gap-2 rounded-full border border-white/20 bg-white/[0.04] px-6 font-mono text-xs uppercase tracking-wider text-white transition-colors hover:border-white/40 hover:bg-white/10 touch-manipulation select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-500"
         >
-          <MessageSquare className="h-4 w-4 text-frame-accent" />
+          <MessageSquare className="h-4 w-4 text-purple-400" />
           <span>Instant WhatsApp</span>
         </a>
       </div>
@@ -211,14 +212,13 @@ export default function StudioBookingForm() {
   const whatsappUrl = `https://wa.me/8801768146650?text=${encodedMsg}`
 
   return (
-    <section id="booking" className="relative isolate border-b border-white/[0.08] bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
+    <section id="booking" className="relative isolate border-b border-white/10 bg-[#09090B] px-4 py-20 text-white md:px-8 md:py-28">
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="mb-14 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl space-y-4">
-            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-[-0.03em] text-white">
-              Reserve your{' '}
-              <span className="text-white">soundstage session.</span>
+            <h2 className="font-heading text-3xl sm:text-5xl md:text-6xl font-medium leading-[1.04] tracking-tight text-white">
+              Reserve Your Soundstage Session.
             </h2>
           </div>
           <p className="max-w-md text-base font-normal leading-relaxed text-zinc-300">
@@ -226,8 +226,8 @@ export default function StudioBookingForm() {
           </p>
         </div>
 
-        {/* Architectural Card Container */}
-        <div className="rounded-xl border border-white/[0.08] bg-[#121214] p-8 sm:p-12">
+        {/* Container on #0D0D0F */}
+        <div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#0D0D0F] p-8 sm:p-12 before:absolute before:inset-x-0 before:top-0 before:h-px before:bg-gradient-to-r before:from-transparent before:via-purple-600/40 before:to-transparent">
           {submitted ? (
             <div className="py-12 text-center space-y-5">
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400">
@@ -244,7 +244,7 @@ export default function StudioBookingForm() {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group inline-flex h-[52px] items-center gap-2 rounded-full bg-[#FAFAFA] px-8 text-[15px] font-medium text-[#09090B] transition-colors hover:bg-frame-accent"
+                  className="group inline-flex h-[52px] items-center gap-2 rounded-full bg-[#FAFAFA] px-8 text-[15px] font-medium text-[#09090B] transition-colors hover:bg-purple-600 hover:text-white"
                 >
                   <span>Continue on WhatsApp Now</span>
                   <span

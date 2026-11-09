@@ -19,7 +19,6 @@ import Process from './Process'
 import MigrationModernization from './MigrationModernization'
 import Deliverables from './Deliverables'
 import WhyChoose from './WhyChoose'
-import CaseStudies from './CaseStudies'
 import Pricing from './Pricing'
 import BangladeshWorldwide from './BangladeshWorldwide'
 import FAQ from './FAQ'
@@ -63,7 +62,6 @@ export default function AppDevelopmentCrossPlatformService({ service }) {
       <MigrationModernization />
       <Deliverables />
       <WhyChoose />
-      <CaseStudies />
       <Pricing />
       <BangladeshWorldwide />
       <FAQ service={service} />
@@ -94,7 +92,6 @@ export {
   MigrationModernization,
   Deliverables,
   WhyChoose,
-  CaseStudies,
   Pricing,
   BangladeshWorldwide,
   FAQ,

@@ -18,7 +18,7 @@ export default function HomeResults() {
             </h2>
           </div>
           <div className="border-l border-white/[0.08] pl-6">
-            <p className="text-base font-normal leading-relaxed text-muted md:text-lg">
+            <p className="text-base font-normal leading-relaxed text-white md:text-lg">
               The goal is not simply to launch a website, publish content, or run ads. The goal is
               to create measurable business impact, defensible market share, and revenue momentum.
             </p>
@@ -51,7 +51,7 @@ export default function HomeResults() {
                   </p>
                 </div>
                 <div className="mt-6 border-t border-white/[0.06] pt-4">
-                  <p className="text-xs font-normal leading-relaxed text-muted group-hover:text-default">
+                  <p className="text-xs font-normal leading-relaxed text-white group-hover:text-default">
                     {metric.note}
                   </p>
                 </div>
